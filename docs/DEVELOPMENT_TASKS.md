@@ -1,99 +1,74 @@
-# 后续开发任务清单
+# 开发任务清单
 
-> 本文件用于维护小步施工计划。每完成一步，都更新状态，避免丢失上下文。
+## 当前阶段
 
-## Phase 0：工程地基修复
+Phase 0：工程地基修复。
+
+目标：先让项目可检查、可审计、可迁移，然后再推进采集、评分、生成和学习系统。
+
+## 已完成
 
 ### P0-001：项目状态与健康检查底座
 
-状态：进行中
-
-目标：
-
-- 新增项目状态文档。
-- 新增任务清单。
-- 新增基础路径解析工具。
-- 新增 `make doctor` 健康检查入口。
-
-交付文件：
-
-- `docs/PROJECT_STATE.md`
-- `docs/DEVELOPMENT_TASKS.md`
-- `env.example`
-- `Makefile`
-- `scripts/doctor.py`
-- `src/content_system/__init__.py`
-- `src/content_system/paths.py`
+状态：Done。
 
 验收：
 
-```bash
-make doctor
-```
+- `scripts/doctor.py` 已入库。
+- `src/content_system/paths.py` 已入库。
+- `Makefile` 已包含 `doctor` 目标。
+- GitHub Desktop commit / push 链路已验证。
 
 ### P0-002：路径硬编码审计工具
 
-状态：未开始
+状态：Ready for local apply。
 
-目标：
-
-- 扫描仓库中所有本机绝对路径。
-- 输出路径硬编码审计报告。
-- 不改核心业务脚本，只先建立问题地图。
-
-计划交付：
+本轮新增/修改：
 
 - `scripts/audit_hardcoded_paths.py`
-- `同行资本市场内容系统/10_logs/path-hardcode-audit.md`
-- `同行资本市场内容系统/10_logs/path-hardcode-audit.json`
+- `Makefile`
+- `docs/PROJECT_STATE.md`
+- `docs/DEVELOPMENT_TASKS.md`
+- `docs/P0_002_PATH_AUDIT_REPORT.md`
 
-## Phase 1：采集稳定性
+验收命令：
 
-### P1-001：信源注册表初版
+```bash
+make path-audit
+```
 
-状态：未开始
+预期产物：
 
-目标：
+```text
+同行资本市场内容系统/10_logs/YYYYMMDD__path-hardcode-audit.md
+同行资本市场内容系统/10_logs/YYYYMMDD__path-hardcode-audit.json
+同行资本市场内容系统/10_logs/latest_path_hardcode_audit.md
+同行资本市场内容系统/10_logs/latest_path_hardcode_audit.json
+```
 
-- 新增 `config/sources.yaml`。
-- 将官方源、开发者源、论文源、中文媒体源、社交信号源分层管理。
+## 下一步候选
 
-### P1-002：Source Health Report
+### P0-003：路径配置化第一刀
 
-状态：未开始
+目标：根据 P0-002 审计报告，优先修复 HIGH 级路径硬编码。
 
-目标：
+范围建议：
 
-- 每日输出每个 source 的成功/失败、抓取数量、异常原因、fallback 使用情况。
-- 生成 Markdown 和 JSON 两种报告。
+1. `内容工厂控制台/start.sh`
+2. `内容工厂控制台/open.sh`
+3. `内容工厂控制台/status.sh`
+4. `同行资本市场内容系统/09_runbooks/scripts/*.py` 中的主路径常量
 
-## Phase 2：结构化信息层
+验收标准：
 
-### P2-001：SQLite Schema 初版
+- 新增或更新 `env.example`。
+- 核心运行路径优先从环境变量读取。
+- 未设置环境变量时，使用仓库内相对路径作为 fallback。
+- `make doctor` 通过。
+- `make path-audit` 的 HIGH 项数量下降。
 
-状态：未开始
+### P1-001：source registry 初版
 
-目标：
+目标：把主要信源从脚本内常量抽到 `config/sources.yaml`。
 
-- 新增轻量状态库。
-- 记录 sources、source_runs、raw_items、normalized_items、topic_clusters。
-
-## Phase 3：价值判断系统
-
-### P3-001：多维评分器初版
-
-状态：未开始
-
-目标：
-
-- 从 source authority、freshness、novelty、strategic relevance、market impact、technical substance、narrative potential、evidence strength 多维评分。
-
-## Phase 4：内容生产链路升级
-
-### P4-001：Content Brief Builder
-
-状态：未开始
-
-目标：
-
-- 高价值 topic 先生成 brief，再进入 outline 和 draft。
+暂不开始，等 Phase 0 路径和审计稳定后再做。
