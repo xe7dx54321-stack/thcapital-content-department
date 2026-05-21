@@ -12,6 +12,7 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
+
 REPO_MARKERS = ("README.MD",)
 
 
@@ -39,9 +40,11 @@ def _load_dotenv(repo_root: Path) -> None:
         line = raw_line.strip()
         if not line or line.startswith("#") or "=" not in line:
             continue
+
         key, value = line.split("=", 1)
         key = key.strip()
         value = value.strip().strip('"').strip("'")
+
         if key and key not in os.environ:
             os.environ[key] = value
 
@@ -49,9 +52,11 @@ def _load_dotenv(repo_root: Path) -> None:
 def find_repo_root(start: Path | None = None) -> Path:
     """从 start 向上寻找仓库根目录。"""
     current = (start or Path.cwd()).resolve()
+
     for candidate in (current, *current.parents):
         if all((candidate / marker).exists() for marker in REPO_MARKERS):
             return candidate
+
     return current
 
 

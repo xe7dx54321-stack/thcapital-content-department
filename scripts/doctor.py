@@ -23,6 +23,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
 
+
 # 允许直接从仓库根目录运行，不要求安装包。
 REPO_ROOT_CANDIDATE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT_CANDIDATE / "src"))
@@ -64,6 +65,7 @@ def check_optional_exists(name: str, path: Path) -> CheckResult:
 def check_writable(name: str, path: Path) -> CheckResult:
     if not path.exists():
         return fail(name, f"directory missing: {path}")
+
     if not path.is_dir():
         return fail(name, f"not a directory: {path}")
 
@@ -78,17 +80,20 @@ def check_writable(name: str, path: Path) -> CheckResult:
 
 def check_network(hosts: Iterable[str], timeout: float = 2.0) -> list[CheckResult]:
     results: list[CheckResult] = []
+
     for host in hosts:
         try:
             socket.create_connection((host, 443), timeout=timeout).close()
             results.append(ok(f"network:{host}", "tcp/443 reachable"))
         except OSError as exc:
             results.append(warn(f"network:{host}", f"unreachable or blocked: {exc}"))
+
     return results
 
 
 def print_results(results: list[CheckResult]) -> None:
     width = max(len(item.name) for item in results) if results else 20
+
     for item in results:
         icon = {"OK": "✅", "WARN": "⚠️", "FAIL": "❌"}.get(item.status, "•")
         print(f"{icon} {item.name.ljust(width)} {item.status:<4} {item.detail}")
@@ -115,6 +120,7 @@ def main() -> int:
         "market_learning_memo_builder.py",
         "market_learning_pool_board_builder.py",
     ]
+
     for script_name in required_scripts:
         results.append(check_exists(f"script:{script_name}", paths.scripts_root / script_name))
 
@@ -135,7 +141,9 @@ def main() -> int:
         "paths": {key: str(value) for key, value in asdict(paths).items()},
         "results": [asdict(item) for item in results],
     }
+
     report_path = paths.logs_root / "latest_doctor_report.json"
+
     try:
         paths.logs_root.mkdir(parents=True, exist_ok=True)
         report_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
