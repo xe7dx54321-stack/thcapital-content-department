@@ -81,3 +81,5 @@ make doctor
 2. P1-001：建立 `config/sources.yaml` 信源注册表初版。
 3. P1-002：建立 source health report，每天输出每个源的成功/失败/数量/异常原因。
 4. P2-001：建立 SQLite schema，记录 sources、source_runs、raw_items。
+
+Hotfix verification: 2026-05-22
