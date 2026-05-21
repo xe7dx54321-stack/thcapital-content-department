@@ -1,9 +1,7 @@
-"""项目路径解析工具。
+"""项目路径配置。
 
-设计目标：
-- 不再在新增代码里写死 `/Users/apple/Documents/...`。
-- 默认以当前 Git 仓库为根目录。
-- 允许通过环境变量覆盖本机真实路径。
+第一阶段先提供最小路径抽象，避免后续脚本继续散落硬编码路径。
+默认以仓库根目录为基准；如需覆盖，可通过环境变量传入绝对路径。
 """
 
 from __future__ import annotations
@@ -13,75 +11,76 @@ from dataclasses import dataclass
 from pathlib import Path
 
 
-REPO_MARKERS = ("README.MD",)
-
-
 @dataclass(frozen=True)
 class ProjectPaths:
+    """项目关键路径集合。"""
+
     repo_root: Path
     market_content_root: Path
     legacy_content_root: Path
     console_root: Path
+    scripts_root: Path
     frontstage_root: Path
     logs_root: Path
-    scripts_root: Path
-
-
-def _load_dotenv(repo_root: Path) -> None:
-    """轻量读取 .env；不引入 python-dotenv 依赖。
-
-    已存在的环境变量优先级更高，不会被 .env 覆盖。
-    """
-    env_path = repo_root / ".env"
-    if not env_path.exists():
-        return
-
-    for raw_line in env_path.read_text(encoding="utf-8").splitlines():
-        line = raw_line.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-
-        key, value = line.split("=", 1)
-        key = key.strip()
-        value = value.strip().strip('"').strip("'")
-
-        if key and key not in os.environ:
-            os.environ[key] = value
-
-
-def find_repo_root(start: Path | None = None) -> Path:
-    """从 start 向上寻找仓库根目录。"""
-    current = (start or Path.cwd()).resolve()
-
-    for candidate in (current, *current.parents):
-        if all((candidate / marker).exists() for marker in REPO_MARKERS):
-            return candidate
-
-    return current
+    data_root: Path
+    sqlite_root: Path
 
 
 def _env_path(name: str, default: Path) -> Path:
-    value = os.environ.get(name, "").strip()
+    """读取环境变量路径；未设置时使用默认值。"""
+
+    value = os.environ.get(name)
     if not value:
-        return default.resolve()
+        return default
     return Path(value).expanduser().resolve()
 
 
-def get_project_paths(start: Path | None = None) -> ProjectPaths:
-    repo_root = _env_path("THCAP_CONTENT_REPO_ROOT", find_repo_root(start))
-    _load_dotenv(repo_root)
-    repo_root = _env_path("THCAP_CONTENT_REPO_ROOT", repo_root)
+def get_project_paths(repo_root: Path | None = None) -> ProjectPaths:
+    """返回当前项目的关键路径。
 
-    market_root = _env_path("MARKET_CONTENT_ROOT", repo_root / "同行资本市场内容系统")
-    legacy_root = _env_path("LEGACY_CONTENT_ROOT", repo_root / "内容生产系统")
-    console_root = _env_path("CONTENT_FACTORY_CONSOLE_ROOT", repo_root / "内容工厂控制台")
+    Args:
+        repo_root: 仓库根目录。为空时使用当前文件向上推导。
+
+    Environment variables:
+        THCAP_REPO_ROOT: 仓库根目录。
+        THCAP_MARKET_CONTENT_ROOT: 活跃市场内容系统目录。
+        THCAP_LEGACY_CONTENT_ROOT: 旧版内容生产系统目录。
+        THCAP_CONSOLE_ROOT: 内容工厂控制台目录。
+        THCAP_DATA_ROOT: 工程化数据目录。
+    """
+
+    if repo_root is None:
+        inferred_repo_root = Path(__file__).resolve().parents[2]
+    else:
+        inferred_repo_root = Path(repo_root).expanduser().resolve()
+
+    repo_root_path = _env_path("THCAP_REPO_ROOT", inferred_repo_root)
+
+    market_content_root = _env_path(
+        "THCAP_MARKET_CONTENT_ROOT",
+        repo_root_path / "同行资本市场内容系统",
+    )
+    legacy_content_root = _env_path(
+        "THCAP_LEGACY_CONTENT_ROOT",
+        repo_root_path / "内容生产系统",
+    )
+    console_root = _env_path(
+        "THCAP_CONSOLE_ROOT",
+        repo_root_path / "内容工厂控制台",
+    )
+    data_root = _env_path(
+        "THCAP_DATA_ROOT",
+        repo_root_path / "data",
+    )
 
     return ProjectPaths(
-        repo_root=repo_root,
-        market_content_root=market_root,
-        legacy_content_root=legacy_root,
+        repo_root=repo_root_path,
+        market_content_root=market_content_root,
+        legacy_content_root=legacy_content_root,
         console_root=console_root,
-        frontstage_root=market_root / "11_frontstage",
-        logs_root=market_root / "10_logs",
-        scripts_root=market_root / "09_runbooks" / "scripts",
+        scripts_root=market_content_root / "09_runbooks" / "scripts",
+        frontstage_root=market_content_root / "11_frontstage",
+        logs_root=market_content_root / "10_logs",
+        data_root=data_root,
+        sqlite_root=data_root / "sqlite",
     )
