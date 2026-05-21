@@ -1,0 +1,11 @@
+# 36kr: AI竞技场上演"死间计"：GPT-5被DS和Gemini玩坏了
+- **URL**: https://36kr.com/p/3751021137494537
+- **Source**: 36kr
+- **Published**: 2026-04-03T21:18 (China)
+- **Fetched**: 2026-04-04T19:13:59+00:00
+- **Trigger type**: Research/Competition
+- **Key entities**: Kaggle, Gemini 3 Pro, DeepSeek V3.2, GPT-5.2, Werewolf, Poker, Polarix
+- **Significance**: 2026 Kaggle Game Arena：Gemini狼人杀策略骗过GPT-5.2；DeepSeek V3.2德扑拿空气牌All-in逼Claude弃牌。DeepSeek训练成本仅对手1/5。Kaggle推出Polarix评估：非传递性博弈（三角循环）。
+- **China relevance**: DeepSeek V3.2核心能力验证；中国AI博弈能力评估
+- **Classification**: query_seed
+- **Queue status**: structured_accept

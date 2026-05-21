@@ -1,0 +1,12 @@
+{
+  "entity_name": "Is Claude Cowork the best solution for the daily &quot;chat amnesia&quot;? (Managing 4 different sites)",
+  "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1thbmbh/is_claude_cowork_the_best_solution_for_the_daily/",
+  "score": 10,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_claude_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/cicerone-you"
+}

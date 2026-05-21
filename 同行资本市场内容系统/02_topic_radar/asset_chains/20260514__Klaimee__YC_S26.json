@@ -1,0 +1,29 @@
+{
+  "entity": "Klaimee",
+  "seed_source": "trend__yc_launches_ai",
+  "seed_url": "https://www.ycombinator.com/companies/klaimee",
+  "entity_type": "company",
+  "domain": "AI E&O Insurance / AI Agent Risk Coverage",
+  "derived_links": {
+    "official_website": "https://www.klaimee.ai/",
+    "yc_company_page": "https://www.ycombinator.com/companies/klaimee",
+    "linkedin": "https://www.linkedin.com/in/ines-boutemadja/",
+    "linkedin_cofounder": "https://www.linkedin.com/in/julien-catonnet/",
+    "launch_video": "https://youtu.be/Y7VBNr81b5Y",
+    "product_page": "https://www.klaimee.ai/#process"
+  },
+  "next_hop_queries": {
+    "klaimee_pricing": "Klaimee AI agent insurance pricing",
+    "underwriting_process": "Klaimee three block risk score evaluation",
+    "certification_details": "Klaimee certification enterprise procurement",
+    "regulatory_approval": "Klaimee insurance carrier license"
+  },
+  "score": {
+    "object_clarity": 5,
+    "link_density": 5,
+    "social_presence": 4,
+    "demo_docs_available": 4,
+    "funding_hardness": 3
+  },
+  "notes": "YC S26. First insurance for AI agents. Covers what cyber/E&O carve out. 80% Fortune 500 using AI agents. Ines Boutemadja (ex SafetyWing/Tokio Marine) + Julien Catonnet. Financial guarantee + certification. No external funding disclosed."
+}

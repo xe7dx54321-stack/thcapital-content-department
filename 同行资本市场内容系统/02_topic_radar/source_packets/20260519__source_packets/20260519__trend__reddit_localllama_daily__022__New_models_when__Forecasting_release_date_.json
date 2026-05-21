@@ -1,0 +1,13 @@
+{
+  "entity_name": "New models when? Forecasting release date.",
+  "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tgh8to/new_models_when_forecasting_release_date/",
+  "score": 20,
+  "signal_reasons": [
+    "Reddit高频讨论",
+    "新产品信号"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_localllama_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/LegacyRemaster"
+}

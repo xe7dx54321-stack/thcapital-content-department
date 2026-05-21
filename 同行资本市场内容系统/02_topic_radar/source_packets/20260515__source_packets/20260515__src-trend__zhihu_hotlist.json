@@ -1,0 +1,204 @@
+{
+  "trend__zhihu_hotlist": [
+    {
+      "entity_name": "特朗普结束对中国的国事访问，乘专机离开北京，如何评价此次来访？",
+      "source_url": "https://api.zhihu.com/questions/2038626152567281104",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 840,
+      "_fetched_at": "2026-05-15T21:46:51.176886"
+    },
+    {
+      "entity_name": "知情人士称央视以 6000 万美元获得美加墨世界杯的版权，怎样解读这一价格？",
+      "source_url": "https://api.zhihu.com/questions/2038678527629680684",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 420,
+      "_fetched_at": "2026-05-15T21:46:51.176967"
+    },
+    {
+      "entity_name": "比亚迪首款皮卡「鲨鱼」将在国内销售，能否改变现有市场格局？",
+      "source_url": "https://api.zhihu.com/questions/2038053798040576268",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 95,
+      "_fetched_at": "2026-05-15T21:46:51.176971"
+    },
+    {
+      "entity_name": "黄河断流时能不能趁机清理河道，解决地上悬河的问题？",
+      "source_url": "https://api.zhihu.com/questions/1999229294434599027",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 28,
+      "_fetched_at": "2026-05-15T21:46:51.176974"
+    },
+    {
+      "entity_name": "中美元首会谈，双方将构建「中美建设性战略稳定关系」作为中美关系新定位，怎么理解这一新定位？",
+      "source_url": "https://api.zhihu.com/questions/2038570087221655021",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 200,
+      "_fetched_at": "2026-05-15T21:46:51.176977"
+    },
+    {
+      "entity_name": "追觅 CEO 俞浩一天狂发 75 条视频，他是要开始做自媒体了吗？这是什么策略？对营销传播来说有效吗？",
+      "source_url": "https://api.zhihu.com/questions/2037133010990884347",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 65,
+      "_fetched_at": "2026-05-15T21:46:51.176980"
+    },
+    {
+      "entity_name": "媒体报道称俄罗斯总统普京即将访华，有哪些信息值得关注？",
+      "source_url": "https://api.zhihu.com/questions/2038367718697431356",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 348,
+      "_fetched_at": "2026-05-15T21:46:51.176983"
+    },
+    {
+      "entity_name": "韩国股市破8000点新高后跳水，终结五周连涨，三星、海力士大跌，此前韩国人借钱炒股创纪录，为什么崩盘？",
+      "source_url": "https://api.zhihu.com/questions/2038317052054721795",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 37,
+      "_fetched_at": "2026-05-15T21:46:51.176986"
+    },
+    {
+      "entity_name": "如果黄仁勋愿意，凭借英伟达目前造算力卡的技术，最高可以造出什么水平的游戏显卡？",
+      "source_url": "https://api.zhihu.com/questions/2037259013860087102",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 20,
+      "_fetched_at": "2026-05-15T21:46:51.176989"
+    },
+    {
+      "entity_name": "如何看待《给阿嬤的情书》预测票房破10亿？这部小成本电影是要创造年度最大的影坛奇迹了吗？",
+      "source_url": "https://api.zhihu.com/questions/2037656199450071461",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 20,
+      "_fetched_at": "2026-05-15T21:46:51.176992"
+    },
+    {
+      "entity_name": "央视官宣获得 2026、2030 世界杯转播权，如何看待这一结果？国际足联为何紧盯中国市场？",
+      "source_url": "https://api.zhihu.com/questions/2038628442267019067",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 660,
+      "_fetched_at": "2026-05-15T21:46:51.176994"
+    },
+    {
+      "entity_name": "如何看待《桃花坞 6》中方媛坚持入住男生单人间的行为？在公共社交语境下是否有违和感？",
+      "source_url": "https://api.zhihu.com/questions/2038315811232797662",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 20,
+      "_fetched_at": "2026-05-15T21:46:51.176997"
+    },
+    {
+      "entity_name": "「九章四号」量子计算原型机研制成功，求解特定问题比最快超算快 10 的 54 次方倍，这意味着什么？",
+      "source_url": "https://api.zhihu.com/questions/2038185898815251799",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 20,
+      "_fetched_at": "2026-05-15T21:46:51.177000"
+    },
+    {
+      "entity_name": "外交部介绍美国总统特朗普访华情况，称「两国元首达成一系列新共识」，哪些信息值得关注？",
+      "source_url": "https://api.zhihu.com/questions/2038577207740715513",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 27,
+      "_fetched_at": "2026-05-15T21:46:51.177003"
+    },
+    {
+      "entity_name": "富豪们已拥有了巨额财富，却还在努力挣钱，他们追求的是什么啊？",
+      "source_url": "https://api.zhihu.com/questions/607156914",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 196,
+      "_fetched_at": "2026-05-15T21:46:51.177006"
+    },
+    {
+      "entity_name": "美以袭击伊朗进入第 77 天，当前局势如何？哪些信息值得关注？",
+      "source_url": "https://api.zhihu.com/questions/2038396347775022033",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 32,
+      "_fetched_at": "2026-05-15T21:46:51.177009"
+    },
+    {
+      "entity_name": "如果你在工厂干过活，长期在工厂干流水线是什么体验？",
+      "source_url": "https://api.zhihu.com/questions/530331449",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 35,
+      "_fetched_at": "2026-05-15T21:46:51.177011"
+    },
+    {
+      "entity_name": "为什么我们总怪父母没抓住房产和互联网红利，可轮到自己面对AI时代红利时，也没好好抓住？",
+      "source_url": "https://api.zhihu.com/questions/2035685308566610183",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 30,
+      "_fetched_at": "2026-05-15T21:46:51.177014"
+    },
+    {
+      "entity_name": "现在的小女孩为什么很少有戴发箍的了，原因是什么？",
+      "source_url": "https://api.zhihu.com/questions/7349267991",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 28,
+      "_fetched_at": "2026-05-15T21:46:51.177017"
+    },
+    {
+      "entity_name": "电纸书的唯一优点就是护眼了吧，其他感觉毫无优势，为什么卖这么贵？",
+      "source_url": "https://api.zhihu.com/questions/1960414077269546321",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "question",
+      "_source": "trend__zhihu_hotlist",
+      "answer_count": 43,
+      "_fetched_at": "2026-05-15T21:46:51.177020"
+    }
+  ]
+}

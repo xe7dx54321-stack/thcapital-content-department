@@ -1,0 +1,248 @@
+{
+  "generated_at": "2026-04-05T23:29:14.882090+08:00",
+  "total_items": 7,
+  "published_items": 1,
+  "waiting_publish_items": 6,
+  "metrics_ready_items": 0,
+  "wechat_local_credentials": "ready",
+  "wechat_official_api": {
+    "credentials_available": true,
+    "status": "ready_empty",
+    "message": "freepublish reachable, but returned 0 published article(s)",
+    "published_fetch_count": 0,
+    "checked_at": "2026-04-05T23:29:09.900404+08:00"
+  },
+  "items": [
+    {
+      "queue_id": "queue__20260401_015420__claude_code_cache_bugs_20260331__wechat",
+      "queue_key": "claude_code_cache_bugs_20260331__wechat",
+      "topic_key": "claude_code_cache_bugs_20260331",
+      "title": "Claude Code 两个缓存 Bug，为什么会把你的 API 账单悄悄放大 10—20 倍",
+      "status": "published",
+      "publish_owner": "老板",
+      "planned_publish_at": "2026-04-01 09:00:00 CST",
+      "actual_publish_at": "2026-04-01 11:29:40 CST",
+      "publish_url": "wechat-draft://AP-R4rLHNYf8Bibcn1lGx3QNS9O5Sc1oH-tcGRQuGyoklT6asRA7Vjw1ktSMXsiC",
+      "publish_age_hours": 108.0,
+      "metric_status": "article_not_found",
+      "latest_stat_date": "n/a",
+      "read_user": "n/a",
+      "share_user": "n/a",
+      "zaikan_user": "n/a",
+      "like_user": "n/a",
+      "comment_count": "n/a",
+      "collection_user": "n/a",
+      "read_finish_rate": "n/a",
+      "read_avg_activetime": "n/a",
+      "read_subscribe_user": "n/a",
+      "follower_summary": "no follower summary rows yet",
+      "manual_feedback": "n/a",
+      "review_statuses": {
+        "24h": "closed",
+        "72h": "closed"
+      },
+      "next_actions": [
+        "published article not found in official datacube list for 2026-04-01"
+      ],
+      "metric_message": "published article not found in official datacube list for 2026-04-01"
+    },
+    {
+      "queue_id": "queue__20260401_015500__robots_bury_you_in_work_17_agents_20260331__wechat",
+      "queue_key": "robots_bury_you_in_work_17_agents_20260331__wechat",
+      "topic_key": "robots_bury_you_in_work_17_agents_20260331",
+      "title": "17 个 Agent、12 个项目、1400+ commits:AI 没先替掉你,先把你推上了管理岗",
+      "status": "waiting_human_publish",
+      "publish_owner": "老板",
+      "planned_publish_at": "2026-04-01 09:20:00 CST",
+      "actual_publish_at": "n/a",
+      "publish_url": "wechat-draft://AP-R4rLHNYf8Bibcn1lGx_xETtx7DmGqCHmsbU6sRwUe1sbZeQWWI2Ec6TU6z5T3",
+      "publish_age_hours": "n/a",
+      "metric_status": "waiting_publish",
+      "latest_stat_date": "n/a",
+      "read_user": "n/a",
+      "share_user": "n/a",
+      "zaikan_user": "n/a",
+      "like_user": "n/a",
+      "comment_count": "n/a",
+      "collection_user": "n/a",
+      "read_finish_rate": "n/a",
+      "read_avg_activetime": "n/a",
+      "read_subscribe_user": "n/a",
+      "follower_summary": "n/a",
+      "manual_feedback": "n/a",
+      "review_statuses": {
+        "24h": "scheduled",
+        "72h": "scheduled"
+      },
+      "next_actions": [
+        "等老板发布后自动回填永久链接。"
+      ],
+      "metric_message": "draft exists but manual publish is not confirmed yet"
+    },
+    {
+      "queue_id": "queue__20260402_191457__unitree-ipo-economics__wechat",
+      "queue_key": "unitree-ipo-economics__wechat",
+      "topic_key": "unitree-ipo-economics",
+      "title": "wechat",
+      "status": "waiting_human_publish",
+      "publish_owner": "老板",
+      "planned_publish_at": "2026-04-02 19:00:00 CST",
+      "actual_publish_at": "n/a",
+      "publish_url": "wechat-draft://AP-R4rLHNYf8Bibcn1lGxy2fxi1wwh3UtcNHoaLJz_uJ7ZxghipLP1j5-6TP18sg",
+      "publish_age_hours": "n/a",
+      "metric_status": "waiting_publish",
+      "latest_stat_date": "n/a",
+      "read_user": "n/a",
+      "share_user": "n/a",
+      "zaikan_user": "n/a",
+      "like_user": "n/a",
+      "comment_count": "n/a",
+      "collection_user": "n/a",
+      "read_finish_rate": "n/a",
+      "read_avg_activetime": "n/a",
+      "read_subscribe_user": "n/a",
+      "follower_summary": "n/a",
+      "manual_feedback": "n/a",
+      "review_statuses": {
+        "24h": "scheduled",
+        "72h": "scheduled"
+      },
+      "next_actions": [
+        "等老板发布后自动回填永久链接。"
+      ],
+      "metric_message": "draft exists but manual publish is not confirmed yet"
+    },
+    {
+      "queue_id": "queue__20260404_051523__gemma_4_viral_angle_qwen3_5_comparison__wechat",
+      "queue_key": "gemma_4_viral_angle_qwen3_5_comparison__wechat",
+      "topic_key": "gemma_4_viral_angle_qwen3_5_comparison",
+      "title": "谷歌开源 Gemma 4：以更小体量，超越更大模型",
+      "status": "waiting_human_publish",
+      "publish_owner": "system",
+      "planned_publish_at": "2026-04-05 06:30:00 CST",
+      "actual_publish_at": "n/a",
+      "publish_url": "wechat-draft://AP-R4rLHNYf8Bibcn1lGxwuQpnysgDMVzTo5AbVEIpGppLrg77zd96dsogBQ4L6Z",
+      "publish_age_hours": "n/a",
+      "metric_status": "waiting_publish",
+      "latest_stat_date": "n/a",
+      "read_user": "n/a",
+      "share_user": "n/a",
+      "zaikan_user": "n/a",
+      "like_user": "n/a",
+      "comment_count": "n/a",
+      "collection_user": "n/a",
+      "read_finish_rate": "n/a",
+      "read_avg_activetime": "n/a",
+      "read_subscribe_user": "n/a",
+      "follower_summary": "n/a",
+      "manual_feedback": "n/a",
+      "review_statuses": {
+        "24h": "scheduled",
+        "72h": "scheduled"
+      },
+      "next_actions": [
+        "等老板发布后自动回填永久链接。"
+      ],
+      "metric_message": "draft exists but manual publish is not confirmed yet"
+    },
+    {
+      "queue_id": "queue__20260405_180816__glm5_benchmark_yc_bench__wechat",
+      "queue_key": "glm5_benchmark_yc_bench__wechat",
+      "topic_key": "glm5_benchmark_yc_bench",
+      "title": "不是跑分，是模拟当一年 CEO：GLM-5 在长程决策测试里站到了全球头部",
+      "status": "waiting_human_publish",
+      "publish_owner": "老板",
+      "planned_publish_at": "2026-04-05 19:00:00 CST",
+      "actual_publish_at": "n/a",
+      "publish_url": "n/a",
+      "publish_age_hours": "n/a",
+      "metric_status": "waiting_publish",
+      "latest_stat_date": "n/a",
+      "read_user": "n/a",
+      "share_user": "n/a",
+      "zaikan_user": "n/a",
+      "like_user": "n/a",
+      "comment_count": "n/a",
+      "collection_user": "n/a",
+      "read_finish_rate": "n/a",
+      "read_avg_activetime": "n/a",
+      "read_subscribe_user": "n/a",
+      "follower_summary": "n/a",
+      "manual_feedback": "n/a",
+      "review_statuses": {
+        "24h": "scheduled",
+        "72h": "scheduled"
+      },
+      "next_actions": [
+        "等老板发布后自动回填永久链接。"
+      ],
+      "metric_message": "queue item is not in published state yet"
+    },
+    {
+      "queue_id": "queue__20260405_181332__claude_code_linux_vulnerability__wechat",
+      "queue_key": "claude_code_linux_vulnerability__wechat",
+      "topic_key": "claude_code_linux_vulnerability",
+      "title": "它发现了一个藏了 23 年的漏洞，不是 demo",
+      "status": "waiting_human_publish",
+      "publish_owner": "老板",
+      "planned_publish_at": "2026-04-05 18:13:32 CST",
+      "actual_publish_at": "n/a",
+      "publish_url": "n/a",
+      "publish_age_hours": "n/a",
+      "metric_status": "waiting_publish",
+      "latest_stat_date": "n/a",
+      "read_user": "n/a",
+      "share_user": "n/a",
+      "zaikan_user": "n/a",
+      "like_user": "n/a",
+      "comment_count": "n/a",
+      "collection_user": "n/a",
+      "read_finish_rate": "n/a",
+      "read_avg_activetime": "n/a",
+      "read_subscribe_user": "n/a",
+      "follower_summary": "n/a",
+      "manual_feedback": "n/a",
+      "review_statuses": {
+        "24h": "scheduled",
+        "72h": "scheduled"
+      },
+      "next_actions": [
+        "等老板发布后自动回填永久链接。"
+      ],
+      "metric_message": "queue item is not in published state yet"
+    },
+    {
+      "queue_id": "queue__20260404_201600__anthropic-openclaw-block-third-party-harness-2026__wechat",
+      "queue_key": "anthropic-openclaw-block-third-party-harness-2026__wechat",
+      "topic_key": "anthropic-openclaw-block-third-party-harness-2026",
+      "title": "Claude封杀OpenClaw深层博弈：订阅经济失灵、平台动手\"复制粘贴\"封杀开源",
+      "status": "waiting_human_publish",
+      "publish_owner": "老板",
+      "planned_publish_at": "2026-04-04 21:00:00 CST",
+      "actual_publish_at": "n/a",
+      "publish_url": "wechat-draft://AP-R4rLHNYf8Bibcn1lGx-auuasSLuVZjLZJMAv0Cy9951Y-mqRJZFnlVwf8LNwR",
+      "publish_age_hours": "n/a",
+      "metric_status": "waiting_publish",
+      "latest_stat_date": "n/a",
+      "read_user": "n/a",
+      "share_user": "n/a",
+      "zaikan_user": "n/a",
+      "like_user": "n/a",
+      "comment_count": "n/a",
+      "collection_user": "n/a",
+      "read_finish_rate": "n/a",
+      "read_avg_activetime": "n/a",
+      "read_subscribe_user": "n/a",
+      "follower_summary": "n/a",
+      "manual_feedback": "n/a",
+      "review_statuses": {
+        "24h": "scheduled",
+        "72h": "scheduled"
+      },
+      "next_actions": [
+        "等老板发布后自动回填永久链接。"
+      ],
+      "metric_message": "draft exists but manual publish is not confirmed yet"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "generated_at": "2026-04-01T12:25:28.930329+08:00",
+  "total_items": 3,
+  "published_items": 1,
+  "waiting_publish_items": 2,
+  "metrics_ready_items": 0,
+  "wechat_local_credentials": "ready",
+  "wechat_official_api": {
+    "credentials_available": true,
+    "status": "ready_empty",
+    "message": "freepublish reachable, but returned 0 published article(s)",
+    "published_fetch_count": 0,
+    "checked_at": "2026-04-01T12:25:27.320200+08:00"
+  },
+  "items": [
+    {
+      "queue_id": "queue__20260401_015420__claude_code_cache_bugs_20260331__wechat",
+      "queue_key": "claude_code_cache_bugs_20260331__wechat",
+      "topic_key": "claude_code_cache_bugs_20260331",
+      "title": "Claude Code 两个缓存 Bug，为什么会把你的 API 账单悄悄放大 10—20 倍",
+      "status": "published",
+      "publish_owner": "老板",
+      "planned_publish_at": "2026-04-01 09:00:00 CST",
+      "actual_publish_at": "n/a",
+      "publish_url": "n/a",
+      "publish_age_hours": 3.4,
+      "metric_status": "publish_backfill_pending",
+      "latest_stat_date": "n/a",
+      "read_user": "n/a",
+      "share_user": "n/a",
+      "zaikan_user": "n/a",
+      "like_user": "n/a",
+      "comment_count": "n/a",
+      "collection_user": "n/a",
+      "read_finish_rate": "n/a",
+      "read_avg_activetime": "n/a",
+      "read_subscribe_user": "n/a",
+      "review_statuses": {
+        "24h": "scheduled",
+        "72h": "scheduled"
+      },
+      "next_actions": [
+        "这条稿件大概率走的是“草稿箱人工发送”链路，freepublish 列表未必可见；后续建议改用 freepublish/submit 正式发布。"
+      ],
+      "metric_message": "published confirmed but still missing actual_publish_at / publish_url backfill from freepublish"
+    },
+    {
+      "queue_id": "queue__20260401_015500__robots_bury_you_in_work_17_agents_20260331__wechat",
+      "queue_key": "robots_bury_you_in_work_17_agents_20260331__wechat",
+      "topic_key": "robots_bury_you_in_work_17_agents_20260331",
+      "title": "17 个 Agent、12 个项目、1400+ commits：AI 没先替掉你，先把你推上了管理岗",
+      "status": "waiting_human_publish",
+      "publish_owner": "老板",
+      "planned_publish_at": "2026-04-01 09:20:00 CST",
+      "actual_publish_at": "n/a",
+      "publish_url": "wechat-draft://AP-R4rLHNYf8Bibcn1lGx-gx3tO7tEKaAMhNSKJabY7253mO1rjNFK4YDpmx4upE",
+      "publish_age_hours": 3.1,
+      "metric_status": "waiting_publish",
+      "latest_stat_date": "n/a",
+      "read_user": "n/a",
+      "share_user": "n/a",
+      "zaikan_user": "n/a",
+      "like_user": "n/a",
+      "comment_count": "n/a",
+      "collection_user": "n/a",
+      "read_finish_rate": "n/a",
+      "read_avg_activetime": "n/a",
+      "read_subscribe_user": "n/a",
+      "review_statuses": {
+        "24h": "scheduled",
+        "72h": "scheduled"
+      },
+      "next_actions": [
+        "等老板发布后自动回填永久链接。"
+      ],
+      "metric_message": "queue item is not in published state yet"
+    },
+    {
+      "queue_id": "queue__20260401_015539__claude_code_source_leak_agent_capabilities_20260401__wechat",
+      "queue_key": "claude_code_source_leak_agent_capabilities_20260401__wechat",
+      "topic_key": "claude_code_source_leak_agent_capabilities_20260401",
+      "title": "看完 Claude Code 51 万行泄漏源码，我真正看清了未来 Agent 最重要的 7 个能力",
+      "status": "waiting_human_publish",
+      "publish_owner": "老板",
+      "planned_publish_at": "2026-04-01 09:40:00 CST",
+      "actual_publish_at": "n/a",
+      "publish_url": "wechat-draft://AP-R4rLHNYf8Bibcn1lGx_Ndg78U1gELxDYhdEwhYOqHlA5pfPh4cifujs3P44WG",
+      "publish_age_hours": 2.8,
+      "metric_status": "waiting_publish",
+      "latest_stat_date": "n/a",
+      "read_user": "n/a",
+      "share_user": "n/a",
+      "zaikan_user": "n/a",
+      "like_user": "n/a",
+      "comment_count": "n/a",
+      "collection_user": "n/a",
+      "read_finish_rate": "n/a",
+      "read_avg_activetime": "n/a",
+      "read_subscribe_user": "n/a",
+      "review_statuses": {
+        "24h": "scheduled",
+        "72h": "scheduled"
+      },
+      "next_actions": [
+        "等老板发布后自动回填永久链接。"
+      ],
+      "metric_message": "queue item is not in published state yet"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "youtube__googledeepmind": [
+    {
+      "entity_name": "Gemini 3.5 Flash has landed.",
+      "source_url": "https://www.youtube.com/shorts/R6mM0m3IZWY",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-21T22:06:17.175290"
+    },
+    {
+      "entity_name": "Build your next story with Gemini Omni.",
+      "source_url": "https://www.youtube.com/shorts/u3T_0HmNbHM",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-21T22:06:17.175366"
+    },
+    {
+      "entity_name": "Generating novel scientific hypotheses with Co-Scientist",
+      "source_url": "https://www.youtube.com/watch?v=aSY_vFFmkW0",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-21T22:06:17.175368"
+    },
+    {
+      "entity_name": "Using AI to outsmart drug-resistant bacteria",
+      "source_url": "https://www.youtube.com/watch?v=Cnuj24PjWrQ",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-21T22:06:17.175370"
+    },
+    {
+      "entity_name": "Understanding cancer at a genetic level with AI",
+      "source_url": "https://www.youtube.com/watch?v=exh1vwGlrSo",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-21T22:06:17.175371"
+    },
+    {
+      "entity_name": "Predicting a historic storm earlier with WeatherNext",
+      "source_url": "https://www.youtube.com/watch?v=wd5ZZV8if54",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-21T22:06:17.175373"
+    },
+    {
+      "entity_name": "This is Gemini Omni ♾️ #GoogleIO",
+      "source_url": "https://www.youtube.com/shorts/AEH6dBOnE_U",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-21T22:06:17.175375"
+    },
+    {
+      "entity_name": "Reimagining the mouse pointer with AI",
+      "source_url": "https://www.youtube.com/watch?v=pZNzfQLgGsA",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-21T22:06:17.175376"
+    },
+    {
+      "entity_name": "What’s new in Gemma 4?",
+      "source_url": "https://www.youtube.com/shorts/6VV5Gvmtrl4",
+      "score": 10,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-21T22:06:17.175378"
+    },
+    {
+      "entity_name": "Teaching the foundations of AI in the classroom",
+      "source_url": "https://www.youtube.com/watch?v=udnhu43tTfk",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-21T22:06:17.175379"
+    },
+    {
+      "entity_name": "Introducing Lyria 3 Pro",
+      "source_url": "https://www.youtube.com/watch?v=hv8ZI7foGZk",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-21T22:06:17.175381"
+    },
+    {
+      "entity_name": "10 years of AlphaGo: The turning point for AI | Thore Graepel &amp; Pushmeet Kohli",
+      "source_url": "https://www.youtube.com/watch?v=qoinGjj60Fo",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-21T22:06:17.175382"
+    },
+    {
+      "entity_name": "Music AI Sandbox | AI x Creativity: Wyclef Jean",
+      "source_url": "https://www.youtube.com/watch?v=l5Wpm4o6k1A",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-21T22:06:17.175384"
+    },
+    {
+      "entity_name": "Gemini 3 Deep Think: Optimizing 2D semiconductor fabrication",
+      "source_url": "https://www.youtube.com/watch?v=IE0BmXsIzTI",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-21T22:06:17.175385"
+    },
+    {
+      "entity_name": "Gemini 3 Deep Think: Identifying logical errors in complex mathematics research",
+      "source_url": "https://www.youtube.com/watch?v=bNrbxCvFrKA",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-21T22:06:17.175387"
+    }
+  ]
+}

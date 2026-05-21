@@ -1,0 +1,7 @@
+interface:
+  display_name: "TH Seed Scout"
+  short_description: "动态重选与维护市场内容信源种子"
+  default_prompt: "Use $th-seed-refresh-and-source-scouting to refresh or expand TH Capital's market-content seed pool."
+
+policy:
+  allow_implicit_invocation: true

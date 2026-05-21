@@ -1,0 +1,204 @@
+{
+  "trend__arxiv_cs_ai_recent": [
+    {
+      "entity_name": "IVGT: Implicit Visual Geometry Transformer for Neural Scene Representation",
+      "source_url": "http://arxiv.org/abs/2605.16258v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Yuqi Wu",
+      "_fetched_at": "2026-05-18T23:10:46.289418"
+    },
+    {
+      "entity_name": "Designing Datacenter Power Delivery Hierarchies for the AI Era",
+      "source_url": "http://arxiv.org/abs/2605.16255v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Grant Wilkins",
+      "_fetched_at": "2026-05-18T23:10:46.289518"
+    },
+    {
+      "entity_name": "A Generative AI Framework for Intelligent Utility Billing CO 2 Analytics and Sustainable Resource Optimisation",
+      "source_url": "http://arxiv.org/abs/2605.16250v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Pavan Manjunath",
+      "_fetched_at": "2026-05-18T23:10:46.289522"
+    },
+    {
+      "entity_name": "AI-Mediated Communication Can Steer Collective Opinion",
+      "source_url": "http://arxiv.org/abs/2605.16245v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Stratis Tsirtsis",
+      "_fetched_at": "2026-05-18T23:10:46.289526"
+    },
+    {
+      "entity_name": "Offline Semantic Guidance for Efficient Vision-Language-Action Policy Distillation",
+      "source_url": "http://arxiv.org/abs/2605.16241v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Jin Shi",
+      "_fetched_at": "2026-05-18T23:10:46.289529"
+    },
+    {
+      "entity_name": "Prospective multi-pathogen disease forecasting using autonomous LLM-guided tree search",
+      "source_url": "http://arxiv.org/abs/2605.16238v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Sarah Martinson",
+      "_fetched_at": "2026-05-18T23:10:46.289532"
+    },
+    {
+      "entity_name": "Layer Equivalence Is Not a Property of Layers Alone: How You Test Redundancy Changes What You Find",
+      "source_url": "http://arxiv.org/abs/2605.16234v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Gabriel Garcia",
+      "_fetched_at": "2026-05-18T23:10:46.289535"
+    },
+    {
+      "entity_name": "FORGE: Self-Evolving Agent Memory With No Weight Updates via Population Broadcast",
+      "source_url": "http://arxiv.org/abs/2605.16233v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Igor Bogdanov",
+      "_fetched_at": "2026-05-18T23:10:46.289538"
+    },
+    {
+      "entity_name": "A Unified Generative-AI Framework for Smart Energy Infrastructure: Intelligent Gas Distribution, Utility Billing, Carbon",
+      "source_url": "http://arxiv.org/abs/2605.16232v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Pavan Manjunath",
+      "_fetched_at": "2026-05-18T23:10:46.289541"
+    },
+    {
+      "entity_name": "Evaluating Design Video Generation: Metrics for Compositional Fidelity",
+      "source_url": "http://arxiv.org/abs/2605.16223v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Adrienne Deganutti",
+      "_fetched_at": "2026-05-18T23:10:46.289543"
+    },
+    {
+      "entity_name": "Argus: Evidence Assembly for Scalable Deep Research Agents",
+      "source_url": "http://arxiv.org/abs/2605.16217v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Zhen Zhang",
+      "_fetched_at": "2026-05-18T23:10:46.289546"
+    },
+    {
+      "entity_name": "Fully Open Meditron: An Auditable Pipeline for Clinical LLMs",
+      "source_url": "http://arxiv.org/abs/2605.16215v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Xavier Theimer-Lienhard",
+      "_fetched_at": "2026-05-18T23:10:46.289549"
+    },
+    {
+      "entity_name": "Confirming Correct, Missing the Rest: LLM Tutoring Agents Struggle Where Feedback Matters Most",
+      "source_url": "http://arxiv.org/abs/2605.16207v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Tahreem Yasir",
+      "_fetched_at": "2026-05-18T23:10:46.289552"
+    },
+    {
+      "entity_name": "Context, Reasoning, and Hierarchy: A Cost-Performance Study of Compound LLM Agent Design in an Adversarial POMDP",
+      "source_url": "http://arxiv.org/abs/2605.16205v1",
+      "score": 20,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Igor Bogdanov",
+      "_fetched_at": "2026-05-18T23:10:46.289555"
+    },
+    {
+      "entity_name": "Formal Methods Meet LLMs: Auditing, Monitoring, and Intervention for Compliance of Advanced AI Systems",
+      "source_url": "http://arxiv.org/abs/2605.16198v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Parand A. Alamdari",
+      "_fetched_at": "2026-05-18T23:10:46.289558"
+    },
+    {
+      "entity_name": "paper.json: A Coordination Convention for LLM-Agent-Actionable Papers",
+      "source_url": "http://arxiv.org/abs/2605.16194v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Arquimedes Canedo",
+      "_fetched_at": "2026-05-18T23:10:46.289561"
+    },
+    {
+      "entity_name": "Second-Order Multi-Level Variance Correction for Modality Competition in Multimodal Models",
+      "source_url": "http://arxiv.org/abs/2605.16165v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Yishun Lu",
+      "_fetched_at": "2026-05-18T23:10:46.289563"
+    },
+    {
+      "entity_name": "An Algebraic Exposition of the Theory of Dyadic Morality",
+      "source_url": "http://arxiv.org/abs/2605.16153v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Kush R. Varshney",
+      "_fetched_at": "2026-05-18T23:10:46.289566"
+    },
+    {
+      "entity_name": "Look Before You Leap: Autonomous Exploration for LLM Agents",
+      "source_url": "http://arxiv.org/abs/2605.16143v1",
+      "score": 15,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Ziang Ye",
+      "_fetched_at": "2026-05-18T23:10:46.289569"
+    },
+    {
+      "entity_name": "Property-Guided LLM Program Synthesis for Planning",
+      "source_url": "http://arxiv.org/abs/2605.16142v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Augusto B. Corrêa",
+      "_fetched_at": "2026-05-18T23:10:46.289572"
+    }
+  ]
+}

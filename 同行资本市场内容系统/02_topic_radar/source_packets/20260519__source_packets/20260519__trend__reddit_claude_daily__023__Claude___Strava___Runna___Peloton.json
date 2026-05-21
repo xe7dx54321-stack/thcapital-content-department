@@ -1,0 +1,12 @@
+{
+  "entity_name": "Claude + Strava + Runna + Peloton",
+  "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tha57h/claude_strava_runna_peloton/",
+  "score": 5,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_claude_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/albus_fulger"
+}

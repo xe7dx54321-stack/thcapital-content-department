@@ -1,0 +1,13 @@
+{
+  "entity_name": "21 GPU's benchmarked running a small TTS model (vram peak: 5GB)",
+  "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1th2f5w/21_gpus_benchmarked_running_a_small_tts_model/",
+  "score": 23,
+  "signal_reasons": [
+    "Reddit高频讨论",
+    "评测性能"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_localllama_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/urarthur"
+}

@@ -1,0 +1,86 @@
+{
+  "_meta": {
+    "asset_id": "20260517__osaurus__mac_ai_server",
+    "source": "web__techcrunch_ai",
+    "article_url": "https://techcrunch.com/2026/05/15/osaurus-brings-both-local-and-cloud-ai-models-to-your-mac/",
+    "entity_name": "Osaurus",
+    "entity_type": "newco",
+    "derived_at": "2026-05-17T12:05:00Z",
+    "score": 10,
+    "signal_reasons": ["明确公司/产品信号", "开源项目+明确技术定位"],
+    "skip_reason": null
+  },
+  "company_profile": {
+    "name": "Osaurus",
+    "tagline": "Own your AI",
+    "赛道": "Local-First AI Infrastructure / macOS AI Server",
+    "founded": "2025 (ex-Dinoki)",
+    "stage": "Pre-seed / Open Source Community (TC article May 2026; no funding disclosed)",
+    "founders": "Terence Pae (ex-Tesla, ex-Netflix), co-founders TBD",
+    "location": "US (inferred from founder background)"
+  },
+  "hard_links": {
+    "官网": "https://osaurus.ai ✅ 已验证可访问",
+    "GitHub_org": "https://github.com/osaurus-ai ✅ 已验证可访问",
+    "GitHub_main_repo": "https://github.com/osaurus-ai/osaurus ✅ 5.3k stars, MIT license",
+    "Blog": "https://osaurus.ai/blog ✅ 4 posts, 已验证可访问",
+    "Twitter_X": "@OsaurusAI (from blog, unverified handle format)",
+    "docs_or_demo": "✅ GitHub README + blog posts + releases page (https://github.com/osaurus-ai/osaurus/releases)",
+    "product_download": "✅ https://github.com/osaurus-ai/osaurus/releases/latest",
+    "visual_materials": "✅ GitHub README 含产品截图; blog 含 README visual"
+  },
+  "asset_breakdown": {
+    "官网_状态": "✅ osaurus.ai 完全可访问，标题'The Missing macOS LLM Server'",
+    "github": "✅ github.com/osaurus-ai org 4 repos; main repo 5.3k stars, MIT",
+    "blog": "✅ 4 posts, engineering notes + philosophy posts",
+    "press": "✅ TC 2026-05-15 原文中含创始人背景 (ex-Tesla/Netflix)",
+    "social_twitter": "⚠️ @OsaurusAI 存在于 blog，未独立验证 live",
+    "docs_or_demo": "✅ GitHub releases + README 已含完整产品说明",
+    "visual_materials": "✅ GitHub README screenshot + blog post visuals"
+  },
+  "product_signals": {
+    "summary": "Native macOS LLM server，为 Apple Silicon 打造 (MLX 架构)，支持本地+云端模型热切换，完全离线的 AI agent 运行框架，Swift 实现，MIT license。起源于 Dinoki desktop AI companion 用户付费双重收费痛点，后演化为基础设施层产品。",
+    "key_differentiator": "Native Swift / 不跨平台 / macOS-only / MLX 本地推理 / 隐私优先",
+    "buying_quote": "未从融资材料中获得 — 开源非商业产品",
+    "traction": "115.8k downloads, 5.3k GitHub stars (截至 2026-05-17)"
+  },
+  "signal_value": {
+    "summary": "Osaurus 是 AI 本地化赛道中技术差异化清晰的开源项目。5.3k stars + 115k downloads 表明已有开发者采纳，创始团队 ex-Tesla/Netflix 背景增强可信度。无公开融资但产品完成度高，视觉素材丰富。内容叙事潜力在于'Mac 原生 AI 基础设施'的精准定位。",
+    "传播性": "高 – 开源社区传播 + ex-Tesla/Netflix 创始人叙事",
+    "破圈性": "中 – 开发者社区为主，泛科技媒体次之",
+    "数据硬度": "高 – GitHub stars/downloads 实时可验证，TC 原文资方",
+    "视觉素材": "高 – GitHub README screenshot + blog visuals + 产品图"
+  },
+  "query_chain": {
+    "next_hops": [
+      {
+        "query": "Osaurus AI funding round 2026",
+        "priority": "medium",
+        "resolved": false,
+        "result": "TC 原文无融资披露；未查到公开种子/VC 轮次"
+      },
+      {
+        "query": "@OsaurusAI Twitter live status",
+        "priority": "low",
+        "resolved": false,
+        "result": "blog 底部提及该账号，未独立验证"
+      },
+      {
+        "query": "Osaurus team LinkedIn page",
+        "priority": "low",
+        "resolved": false,
+        "result": "未查到"
+      }
+    ],
+    "weak_links_resolved": true
+  },
+  "weak_chain_resolution": {
+    "executed_at": "2026-05-17T12:05:00Z",
+    "resolution_round": "2026-05-17 evening",
+    "objects_checked": 1,
+    "fully_linked": 1,
+    "hard_blocker_objects": 0,
+    "non_blocker_weak_links": 0,
+    "notes": "官网/GitHub/Blog 全链路已验证，无硬性 blocker。Twitter handle 待独立验证但非关键。产品以开源为核心，无融资信息不影响其作为内容资产的价值。"
+  }
+}

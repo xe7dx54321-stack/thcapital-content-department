@@ -1,0 +1,60 @@
+{
+  "_meta": {
+    "asset_id": "20260516__runway__world_models_vs_google",
+    "source": "web__techcrunch_ai",
+    "article_url": "https://techcrunch.com/2026/05/15/runway-started-by-helping-filmmakers-now-it-wants-to-beat-google-at-ai/",
+    "entity_name": "Runway",
+    "entity_type": "existing_company_strategic_shift",
+    "derived_at": "2026-05-16T00:43:45Z",
+    "score": 5,
+    "signal_reasons": [],
+    "skip_reason": null
+  },
+  "company_profile": {
+    "name": "Runway",
+    "full_name": "Runway ML",
+    "tagline": "Building AI to Simulate the World",
+    "赛道": "AI Video Generation / World Models / Foundation Models",
+    "地点": "New York, USA (headquarters near Union Square)",
+    "founded": "2018",
+    "stage": "Growth – established player, Series D (est.)",
+    "founders": "Anastasis Germanidis (co-CEO, Greek), Cristóbal Valenzuela (co-CEO, Chilean), Alejandro rm"
+  },
+  "hard_links": {
+    "官网": "https://runwayml.com/",
+    "research_blog": "https://runwayml.com/news",
+    "linkedin": "https://www.linkedin.com/company/runwayml/",
+    "twitter_X": "https://twitter.com/runwayml",
+    "github": "https://github.com/runwayml"
+  },
+  "asset_breakdown": {
+    "官网_状态": "✅ LIVE – 有 Research / Products / Characters / GWM-1 多模块产品",
+    "research_paper_or_docs": "✅ Research Blog 活跃 – GWM-1 world model 发布",
+    "demo_or_product_video": "✅ Gen-4.5 视频生成；GWM-1 world model demo",
+    "press_kit_or_brand_assets": "✅ 官网含媒体素材",
+    "social_X": "✅ @runwayml 活跃"
+  },
+  "signal_value": {
+    "summary": "Runway 从视频生成工具扩展到 world model 赛道，直接对标 Google DeepMind。GWM-1 是其最新 foundation model，Characters API 已开放。叙事核心：下一代 AI 智能不是来自语言而是来自视频/世界模型。这是一个战略叙事文章，非新品发布。对内容工厂的 AI 竞争叙事有价值，但 Runway 本身已是知名公司。",
+    "传播性": "高 – TechCrunch 头条级报道；AI 社区关注",
+    "破圈性": "中 – world model vs LLM 叙事有媒体张力",
+    "数据硬度": "高 – 官网验证 + TC 报道",
+    "视觉素材": "✅ Gen-4.5 demo；GWM-1 技术图；官网截图"
+  },
+  "query_chain": {
+    "next_hops": [
+      {"query": "Runway GWM-1 technical paper arXiv", "priority": "high", "resolved": false, "result": "未找到公开 paper；信号来自 TC + 官网 blog"},
+      {"query": "Runway Gen-4.5 benchmark results vs Sora vs Veo", "priority": "medium", "resolved": false, "result": "Gen-4.5 demo 官网可访问；benchmark 数据未公开"},
+      {"query": "Runway Characters API pricing", "priority": "medium", "resolved": false, "result": "Runway Agent 在 app.runwayml.com；定价未公开"}
+    ],
+    "weak_links_resolved": true
+  },
+  "weak_chain_resolution": {
+    "executed_at": "2026-05-16T12:28:00Z",
+    "objects_checked": 1,
+    "fully_linked": 1,
+    "hard_blocker_objects": 0,
+    "notes": "官网 Research Blog live；Characters API 入口 app.runwayml.com/agent 新发现；GWM-1 paper 保留 query 不影响信号可信度"
+  },
+  "runbook_ref": "market-asset-derivation-runbook (manual exec per cron)"
+}

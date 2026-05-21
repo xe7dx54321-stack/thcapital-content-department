@@ -1,0 +1,762 @@
+<!-- WEB_FETCH RAW EXPORT -->
+<!-- source: 爱范儿 -->
+<!-- url: https://tech.ifeng.com/c/8sxWMvClWC1 -->
+<!-- priority: MEDIUM -->
+<!-- fetched: 2026-05-18T22:34:27.142409 -->
+
+Title: 独家｜苹果带摄像头的AirPods或被迫暂停，部分产线原地解散
+
+URL Source: https://tech.ifeng.com/c/8sxWMvClWC1
+
+Published Time: Mon, 18 May 2026 14:34:18 GMT
+
+Markdown Content:
+# 独家｜苹果带摄像头的AirPods或被迫暂停，部分产线原地解散_凤凰网
+
+![Image 13: 独家｜苹果带摄像头的AirPods或被迫暂停，部分产线原地解散](https://d.ifengimg.com/w121_h75_q90/x0.ifengimg.com/res/2026/0510B258A618930B99A57AE1D216D921D4CEA205_size1674_w1922_h818.png)
+
+*   [首页](https://www.ifeng.com/)
+*   [资讯](https://news.ifeng.com/)
+*   [视频](https://v.ifeng.com/)
+*   [直播](https://flive.ifeng.com/)
+*   [凤凰卫视](https://www.phoenixtv.com/)
+*   [财经](https://finance.ifeng.com/)
+*   [娱乐](https://ent.ifeng.com/)
+*   [体育](https://sports.ifeng.com/)
+*   [时尚](https://fashion.ifeng.com/)
+*   [汽车](https://auto.ifeng.com/)
+*   [房产](https://house.ifeng.com/)
+*   [科技](https://tech.ifeng.com/)
+*   [军事](https://mil.ifeng.com/)
+*   [文化](https://culture.ifeng.com/)
+*   [旅游](https://travel.ifeng.com/)
+*   [佛教](https://fo.ifeng.com/)
+*   [国学](https://guoxue.ifeng.com/)
+*   [数码](https://tech.ifeng.com/digi/)
+
+[更多](javascript:l)
+*   [健康](https://health.ifeng.com/)
+*   [公益](https://gongyi.ifeng.com/)
+*   [教育](https://edu.ifeng.com/)
+*   [酒业](https://jiu.ifeng.com/)
+*   [美食](https://foodnwine.ifeng.com/)
+
+[注册](https://user.ifeng.com/register/)登录
+
+深入探索
+
+音乐设备与技术
+
+计算机
+
+耳机
+
+[![Image 14: 科技](http://p0.ifengimg.com/37780e23b9ea2d8b/2017/38/logoTech.png)](https://tech.ifeng.com/)
+
+[科技](https://tech.ifeng.com/)>[数码](https://tech.ifeng.com/digi/)>正文
+
+站内
+
+# 独家｜苹果带摄像头的AirPods或被迫暂停，部分产线原地解散
+
+[![Image 15](http://d.ifengimg.com/q100/img1.ugc.ifeng.com/newugc/20180608/11/wemedia/2ce08826fedd901d31fed63aa1986b76a15f92d5_size5_w200_h200.png)![Image 16](http://x0.ifengimg.com/cmpp/2020/0907/1a8b50ea7b17cb0size3_w42_h42.png)](https://ishare.ifeng.com/mediaShare/home/286/media)
+
+[爱范儿](https://ishare.ifeng.com/mediaShare/home/286/media)
+
+![Image 17](https://x0.ifengimg.com/ucms/2022_05/F0CA5364C2EE44D3C30EB63ED29990CDE86D9D3F_size3_w100_h40.png)
+
+![Image 18](https://x0.ifengimg.com/ucms/2022_05/20B903E4FDFBB2BFE6240FC545BD87FBA9243DC1_size26_w1000_h1000.png)
+
+下载客户端
+
+独家抢先看
+
+[2026年05月08日 12:34:05 来自北京](https://ishare.ifeng.com/mediaShare/home/286/media)
+
+[](https://tech.ifeng.com/c/8sxWMvClWC1)[](https://tech.ifeng.com/c/8sxWMvClWC1)[](https://tech.ifeng.com/c/8sxWMvClWC1)
+
+##### [0 人参与](https://gentie.ifeng.com/c/comment/8sxWMvClWC1)[0 评论](https://gentie.ifeng.com/c/comment/8sxWMvClWC1)
+
+![Image 19](https://d.ifengimg.com/w1125_q90_webp/x0.ifengimg.com/res/2026/0510B258A618930B99A57AE1D216D921D4CEA205_size1674_w1922_h818.png)
+
+今天凌晨彭博社 Mark Gurman 最新爆料称，苹果内置摄像头的 AirPods 已进入 DVT（设计验证测试）阶段，原型机接近最终设计，最快有望于今年 9 月随新 iPhone 一同发布。
+
+![Image 20](https://d.ifengimg.com/w1125_q90_webp/x0.ifengimg.com/res/2026/B78E86D90987F4378C819B27AF64739EF2F24347_size589_w1278_h972.png)
+
+这也是苹果第一个真正意义上的 AI 可穿戴设备，这个被内部视为「给 Siri 装上眼睛」的产品，在供应链体系中的代号为 H90，研发周期已长达约 4 年。
+
+但据接近供应链的知情人士向 APPSO 透露，**代号 H90 的项目近期在供应链端出现了异动：部分产线已经「原地解散」，项目可能已被暂时搁置**。
+
+知情人士将原因指向同一个方向：**欧盟隐私法规的合规风险**。
+
+需要说明的是，供应链动态的解读存在多种可能。产线调整、供应商切换、设计方案迭代，都可能造成类似信号。
+
+但考虑到苹果对核心组件供应商的强管控传统，以及这款产品在苹果 AI 战略中的核心地位，因合规问题导致项目节奏调整是目前最有可能的推测。
+
+换句话说，苹果可能不是做不出这个产品，很可能暂时过不了欧盟这一关。
+
+苹果第一个 AI 可穿戴产品，是什么样的
+
+在展开搁置原因之前，有必要先讲清楚新 AirPods 到底是什么。因为它和大多数人想象中的「带摄像头的耳机」很不一样。
+
+![Image 21](https://d.ifengimg.com/w1125_q90_webp/x0.ifengimg.com/res/2026/4BF64D9FC3414A9B5A0C41589E2257DB002A2115_size331_w1280_h970.png)
+
+外观上，新款 AirPods 和你现在用的 AirPods Pro 3 长得非常像。最明显的区别在耳机柄：因为要容纳摄像头模组，H90 的柄体略微加长。
+
+如果不仔细看，可能很难一眼发现它和普通 AirPods 的区别。苹果显然在设计上克制了「异物感」，没有像光帆科技那样把摄像头直接裸露在耳机外壳上。
+
+摄像头的类型是理解这款产品的关键。 新 AirPods 搭载的是低分辨率红外传感器，技术原理和 iPhone 上用于 Face ID 的模组属于同一家族。
+
+![Image 22](https://d.ifengimg.com/w1125_q90_webp/x0.ifengimg.com/res/2026/F23BA8D4301508CEC3186B3EC06B42F84BC6237B_size1923_w1402_h1122.png)
+
+▲图片由 AI 生成
+
+这个摄像头不拍照和录像，也不生成任何你能打开查看的图像文件。它的工作方式更接近一种「环境扫描」：通过发射和接收红外光感知周围空间的深度信息、物体轮廓和运动状态，然后把这些数据喂给 AI 处理。
+
+简单来说，这个摄像头是专门给 AI 加上的「眼睛」。
+
+H90 预计搭载苹果新一代 H3 芯片。目前AirPods Pro 2 使用的 H2 芯片已经能处理自适应降噪、空间音频计算等任务，H3 则需要额外承载视觉数据的端侧 AI 推理，算力需求提升了一个量级。
+
+![Image 23](https://d.ifengimg.com/w1125_q90_webp/x0.ifengimg.com/res/2026/DEAC4E7B28B504D2C639DD150F8189481682CBFB_size476_w1282_h960.png)
+
+产品内置微型 LED 指示灯，摄像头工作时自动亮起，会向周围人发出工作中的的提示，这和 Meta Ray-Ban 的设计类似。
+
+在苹果的设想里，戴上这款 AirPods 走在路上，你不用掏出手机，耳机上的传感器能实时获取视觉上下文，让 AI 识别处理，你只需要说话就行。
+
+![Image 24](https://d.ifengimg.com/w1125_q90_webp/x0.ifengimg.com/res/2026/9A3CC83564E9E27BA12C0C8F14725D11B574A1ED_size1854_w1443_h1090.png)
+
+▲图片由 AI 生成.
+
+这种体验被称为「环境智能」（ambient intelligence）：AI 不再被局限在手机屏幕里等你手动操作，可以随时感知你所处的环境，主动提供帮助。
+
+理解了这个定位，才能理解这个产品为什么可能被欧盟的隐私法规会精准命中。
+
+欧盟为什么能卡住这款耳机
+
+一个不拍照、不录像、用红外线而非可见光的小传感器，为什么无法通过欧盟的隐私监管体系？
+
+因为在欧盟的法律框架里，「采集」这个动作本身就是敏感的，不管你拿采集到的东西干了什么，欧盟拥有全球最严格的隐私监管体系，已经不止一次让苹果碰壁。
+
+欧盟有三部法律构成了对摄像头版 AirPods 的包围圈。GDPR（通用数据保护条例）管数据处理、ePrivacy Directive（隐私与电子通信指令）管终端设备访问、EU AI Act（人工智能法案）管 AI 应用的伦理边界。三部法律从不同角度切入，但指向同一个结论：一个在公共空间持续感知环境的设备，在现行法律下几乎无法完美合规。
+
+![Image 25](https://d.ifengimg.com/w1125_q90_webp/x0.ifengimg.com/res/2026/1CC0A5AFCF0EBD0DC7886C24142170A17D8219ED_size1812_w1448_h1086.png)
+
+▲图片由 AI 生成.
+
+具体来说，H90 面临的核心难题是这样的：
+
+GDPR 第九条把生物识别数据列为「特殊类别个人数据」，原则上禁止处理。H90 的红外传感器生成的深度图和运动轨迹数据，如果通过算法分析能识别出特定个人（比如通过耳部轮廓或头部运动模式），就直接触发这条禁令。
+
+例外只有一个：**获得用户的「明确同意」**，而且这个同意必须是具体的、知情的、自由给予的，不能是一个被埋在 50 页服务条款里的勾选框。
+
+但真正致命的问题不在用户，在旁观者。
+
+2025 年 12 月，欧盟法院（CJEU）在 C-422/24 号案件中做出了一个影响深远的判决：通过可穿戴摄像头收集的数据，即使是路人的数据，也视为「直接从数据主体收集」，必须适用即时告知义务。法院明确说了，如果允许延迟告知，就等于给「隐蔽监控」开了口子。
+
+也就是说，当你戴着它走进一家餐厅，法律要求你立即告知在场所有可能被传感器感知到的人，告诉他们数据正在被采集、采集目的是什么、数据会被如何处理。
+
+这在实际操作中当然是不可能的，但法律就是这么规定的。
+
+Meta Ray-Ban 智能眼镜已经替苹果趟过了这个雷区，结果并不美好。爱尔兰数据保护委员会（DPC）批评 Meta 眼镜的 LED 指示灯「非常小」，不足以有效告知被拍摄者。德国联邦网络管理局直接禁止了能在他人不知情时录音录像的智能设备。
+
+意大利的数据保护机构 Garante 对 Meta 在儿童数据保护上的不足提出严厉警告。瑞典媒体还曝出 Meta 眼镜录制的视频被送到肯尼亚的第三方公司做 AI 训练标注，引发一场跨国隐私丑闻。
+
+苹果的处境比 Meta 更微妙。过去十年，「隐私」是苹果和 Google、Meta 打差异化竞争的核心人设。
+
+「Privacy. That’s iPhone.」这句话出现在全球数万块广告牌上。一家把隐私当品牌基石的公司，推出一款可能引发系统性隐私争议的产品，承受的压力远不只是罚款，还有品牌叙事的自相矛盾。说到罚款：GDPR 下最高可达全球年营收的 4%。以苹果 2025 财年约 4000 亿美元的营收算，理论上限是 160 亿美元。EU AI Act 更狠，违反禁止性条款的罚款上限是年营收的 7%。
+
+更直接的威胁是上市前禁令。如果欧盟数据保护机构认定苹果的风险评估不充分，完全可以在产品发布前直接叫停。对一家习惯全球同步发布的公司来说，欧盟一个市场的缺席就足以打乱整个发布节奏和供应链计划。
+
+所以苹果面对的选择题很清楚：强行发布，冒着高额罚款且品牌人设崩塌的风险；或者暂停，等到找到合规解法再说。
+
+从目前的信号看，苹果选了后者，这也很苹果。
+
+苹果 AI 硬件全家桶，本要在 2027 爆发
+
+带摄像头的 AirPods 的搁置不是一个孤立事件，这将影响苹果 AI 硬件的整个发布节奏。
+
+2026 年初，彭博社曝光苹果正在同步推进三款 AI 可穿戴设备：
+
+代号 N50 的智能眼镜，对标 Meta Ray-Ban，搭载双摄像头（一颗拍照录像、一颗专用于计算机视觉），计划 2027 年发售。
+
+一款 AirTag 大小的可穿戴吊坠，配备低分辨率摄像头和麦克风，被内部员工称为 iPhone 的「眼睛和耳朵」。
+
+以及进展最快的 H90 摄像头 AirPods。
+
+![Image 26](https://d.ifengimg.com/w1125_q90_webp/x0.ifengimg.com/res/2026/7A832B36D3ED8F05F86B74F0217BA4404A05347C_size526_w1282_h548.png)
+
+▲APPSO 假想图，AI 生成.
+
+三款产品的核心逻辑一样：都不试图替代 iPhone，都作为 iPhone 的感知延伸存在。用户不用掏出手机，AI 就能通过这些外设获取视觉和听觉信息。
+
+这标志着苹果硬件策略的重要转向。Vision Pro 3499 美元的定价加上笨重的头戴设计，技术再极致也走不进大众市场。苹果现在的路线是「不造新 iPhone，造一堆让 iPhone 更好用的 AI 配件」。
+
+库克在今年初的全员大会上罕见表态：「我们正在开发由 AI 驱动的全新产品类别。」
+
+Vision Pro 低价版（代号 N100）也已停止开发，苹果选择跳过「便宜但笨重的头戴设备」这个中间态，直接瞄准轻量化眼镜。
+
+在这个布局里，带摄像头的 AirPods原本是最有可能率先落地的棋子。它进展最快、技术最成熟、供应链准备最充分。它的搁置意味着苹果 AI 硬件的整体节奏需要重排，下一个窗口是 2027 年的 N50 智能眼镜。
+
+![Image 27](https://d.ifengimg.com/w1125_q90_webp/x0.ifengimg.com/res/2026/44B63840795DC874E4E8FEFA518723E1C8C6D911_size553_w1280_h712.png)
+
+▲APPSO 假想图，AI 生成.
+
+但问题在于，N50 面临和 H90 完全一样的欧盟隐私挑战，甚至更严峻，眼镜的摄像头分辨率更高、更容易拍到清晰人脸。苹果需要的不是逐产品应对，而是找到一套系统性的合规方案。
+
+这可能也是苹果新任 CEO 约翰·特努斯接任苹果后，面临的最大挑战之一。
+
+AI 个人终端，不会停下来
+
+除了苹果，市场不止一家公司已经跑了起来。
+
+高通在 2026 年 MWC 大会上发出了一个明确信号。CEO Cristiano Amon 宣布「2026 年将是 AI Agent 之年」，并描述了一个名为「Ecosystem of You」的战略愿景：**未来所有设备围绕 AI Agent 运转，手机不再是中心，每个穿戴设备都是 Agent 的传感器和执行器**。
+
+![Image 28](https://d.ifengimg.com/w1125_q90_webp/x0.ifengimg.com/res/2026/B8952D6E226882A498F6307F4C91EA87FAD4E5A0_size678_w1284_h760.png)
+
+这个愿景和苹果的 H90 方向本质一样。区别在于，高通是平台供应商，它不需要自己面对欧盟消费者，它只需要让合作伙伴有能力做出这些产品。
+
+而高通确实已经把芯片准备好了。
+
+3 月发布的 Snapdragon Wear Elite，3nm 制程，10 TOPS NPU 性能，可以在手表大小的设备上本地运行最高 20 亿参数的 AI 模型。三星已确认下一代 Galaxy Watch 将采用这颗芯片。
+
+![Image 29](https://d.ifengimg.com/w1125_q90_webp/x0.ifengimg.com/res/2026/780F9195B5A2319D68A40C391536FD01B8247AD1_size629_w1284_h846.png)
+
+Snapdragon AR1+ Gen 1，专为智能眼镜设计，比前代小 26%，能在完全离线状态下独立运行 1B 参数的小语言模型。
+
+高通在 AWE 2025 大会展示过，一位工程师戴着智能眼镜在模拟超市里问 AI 助手怎么做意大利面，全程没有网络连接，语音识别、推理、回答全在眼镜上完成。Meta Ray-Ban 和 XReal 也都确认将用 AR1+ Gen 1 开发下一代产品。
+
+另外还有面向 AI 音频设备的 Snapdragon S7 Pro，NPU 性能比前代提升近 100 倍，让耳机从纯音频播放设备进化为具备情境感知能力的 AI 交互入口。
+
+高通移动业务总经理 Alex Katouzian 在描述「Ecosystem of You」时，**明确将「带摄像头的耳塞（earbuds with cameras）」列为个人 AI 设备网络中的关键形态**。
+
+![Image 30](https://d.ifengimg.com/w1125_q90_webp/x0.ifengimg.com/res/2026/46ECEC9F39F938D0F6F427CC1C377DBCB4891178_size347_w1284_h848.png)
+
+可见在高通的规划里，摄像头耳机已经是确定会存在的品类，问题只是谁做、什么时候做、怎么过合规关。
+
+AI 需要视觉，设备需要成为 AI 的眼睛，这在行业也逐渐形成共识。苹果的节奏可以被欧盟法规打断，但 AI 终端这个趋势大概不会因此改变。
+
+苹果选择暂停 H90，与其说是退缩，不如说是在等一个时间窗口：等 Siri 的能力准备好、等端侧芯片的算力再上一个台阶、等欧盟的监管态度在实践中逐渐清晰化。
+
+这三个变量同时就绪的窗口，可能在 2027 年底到 2028 年之间打开。届时苹果大概率会带着 N50 智能眼镜和 H90 摄像头 AirPods 一起亮相，配合一个完整的、通过了 DPIA 审查的合规方案。所有人都知道新的终点在哪，不会轻易放弃率先冲线的机会。
+
+“特别声明：以上作品内容(包括在内的视频、图片或音频)为凤凰网旗下自媒体平台“大风号”用户上传并发布，本平台仅提供信息存储空间服务。
+
+Notice: The content above (including the videos, pictures and audios if any) is uploaded and posted by the user of Dafeng Hao, which is a social media platform and merely provides information storage space services.”
+
+[铺一床艾，补一身阳，甩走寒湿人得劲！](https://mall.ifeng.com/c/8Ojyuba4Xcb "铺一床艾，补一身阳，甩走寒湿人得劲！")![Image 31](https://x0.ifengimg.com/feprod/c/2025_6_23/11_8_23/811750658941_.pic.jpg)
+
+推荐 0
+
+[](https://tech.ifeng.com/c/8sxWMvClWC1)[](https://tech.ifeng.com/c/8sxWMvClWC1)[](https://tech.ifeng.com/c/8sxWMvClWC1)
+
+[0](https://gentie.ifeng.com/c/comment/8sxWMvClWC1) 条评论/[0](https://gentie.ifeng.com/c/comment/8sxWMvClWC1) 人参与 网友评论｜[跟帖管理](https://gentie.ifeng.com/commentManage)｜[举报](https://gentie.ifeng.com/superviseReport)
+
+[发表评论](https://tech.ifeng.com/c/8sxWMvClWC1)
+
+[](https://tech.ifeng.com/c/8sxWMvClWC1)
+
+一键登录： [凤凰账号](https://tech.ifeng.com/c/8sxWMvClWC1)/[新浪微博](https://tech.ifeng.com/c/8sxWMvClWC1)
+
+[查看全部评论>>](https://gentie.ifeng.com/c/comment/8sxWMvClWC1)
+
+### 为您推荐
+
+[算法反馈](https://client.ifeng.com/report/artical?docid=8sxWMvClWC1)
+
+[](https://news.ifeng.com/c/8tEgxkFuqji)
+
+[斯塔默否认辞职：我不会离开，希望参加下一次大选](https://news.ifeng.com/c/8tEgxkFuqji "斯塔默否认辞职：我不会离开，希望参加下一次大选")
+
+天下事
+
+[](https://news.ifeng.com/c/8tERNbPgD9W)
+
+[美医保巨头CEO枪杀案开庭在即，一个背包成关键证据](https://news.ifeng.com/c/8tERNbPgD9W "美医保巨头CEO枪杀案开庭在即，一个背包成关键证据")
+
+天下事
+
+[](https://news.ifeng.com/c/8tEP0rZggA1)
+
+[红夹克、机舱合影，李显龙晒访华第一站](https://news.ifeng.com/c/8tEP0rZggA1 "红夹克、机舱合影，李显龙晒访华第一站")
+
+天下事
+
+[230](https://gentie.ifeng.com/c/comment/8tEP0rZggA1)
+
+[](https://news.ifeng.com/c/8tELjnc9Q75)
+
+[伊朗总统：不谈，难道要永远打下去吗？](https://news.ifeng.com/c/8tELjnc9Q75 "伊朗总统：不谈，难道要永远打下去吗？")
+
+天下事
+
+[75](https://gentie.ifeng.com/c/comment/8tELjnc9Q75)
+
+[](https://news.ifeng.com/c/8tEF9zjdHop)
+
+[美前防长谈对古巴动武面临的最大风险](https://news.ifeng.com/c/8tEF9zjdHop "美前防长谈对古巴动武面临的最大风险")
+
+天下事
+
+[14](https://gentie.ifeng.com/c/comment/8tEF9zjdHop)
+
+[](https://news.ifeng.com/c/8tEDMzhH4sX)
+
+[特朗普警告“台独”，连说4个不，赖清德深夜发声，做出一项保证](https://news.ifeng.com/c/8tEDMzhH4sX "特朗普警告“台独”，连说4个不，赖清德深夜发声，做出一项保证")
+
+又又切克闹
+
+[7](https://gentie.ifeng.com/c/comment/8tEDMzhH4sX)
+
+[](https://news.ifeng.com/c/8tE9183A8XV)
+
+[想当总统吗？愿意给万斯当副手吗？鲁比奥回应](https://news.ifeng.com/c/8tE9183A8XV "想当总统吗？愿意给万斯当副手吗？鲁比奥回应")
+
+天下事
+
+[35](https://gentie.ifeng.com/c/comment/8tE9183A8XV)
+
+[](https://news.ifeng.com/c/8tE7zkvs3cX)
+
+[柳州13栋房屋被震倒：地震只是导火索，结构缺陷是元凶](https://news.ifeng.com/c/8tE7zkvs3cX "柳州13栋房屋被震倒：地震只是导火索，结构缺陷是元凶")
+
+唐驳虎
+
+[157](https://gentie.ifeng.com/c/comment/8tE7zkvs3cX)
+
+[](https://news.ifeng.com/c/8tDwx9QvJNU)
+
+[美情报称古巴或攻击美国基地和城市，古外长回应](https://news.ifeng.com/c/8tDwx9QvJNU "美情报称古巴或攻击美国基地和城市，古外长回应")
+
+天下事
+
+[122](https://gentie.ifeng.com/c/comment/8tDwx9QvJNU)
+
+[](https://news.ifeng.com/c/8tDwDduQnES)
+
+[三星史上最大罢工一触即发！李在明喊话劳资双方](https://news.ifeng.com/c/8tDwDduQnES "三星史上最大罢工一触即发！李在明喊话劳资双方")
+
+天下事
+
+[5](https://gentie.ifeng.com/c/comment/8tDwDduQnES)
+
+[](https://news.ifeng.com/c/8tDireXDfeJ)
+
+[白宫最神秘的“人形打字机”曝光：那个对特朗普说“你对我最重要”的女人，到底有多狂热？](https://news.ifeng.com/c/8tDireXDfeJ "白宫最神秘的“人形打字机”曝光：那个对特朗普说“你对我最重要”的女人，到底有多狂热？")
+
+冰汝看美国
+
+[32](https://gentie.ifeng.com/c/comment/8tDireXDfeJ)
+
+[](https://news.ifeng.com/c/8tDgnQZe8sf)
+
+[特朗普在中国认真练习演讲画面曝光](https://news.ifeng.com/c/8tDgnQZe8sf "特朗普在中国认真练习演讲画面曝光")
+
+天下事
+
+[139](https://gentie.ifeng.com/c/comment/8tDgnQZe8sf)
+
+[](https://news.ifeng.com/c/8tDh7MNAu2e)
+
+[美国也保不住，国际刑事法院为何硬刚到底？计划秘密逮捕以官员](https://news.ifeng.com/c/8tDh7MNAu2e "美国也保不住，国际刑事法院为何硬刚到底？计划秘密逮捕以官员")
+
+又又切克闹
+
+[32](https://gentie.ifeng.com/c/comment/8tDh7MNAu2e)
+
+[](https://news.ifeng.com/c/8tDWLqeT65k)
+
+[惊恐一幕：美国两架战机空中碰撞坠毁](https://news.ifeng.com/c/8tDWLqeT65k "惊恐一幕：美国两架战机空中碰撞坠毁")
+
+天下事
+
+[636](https://gentie.ifeng.com/c/comment/8tDWLqeT65k)
+
+[](https://news.ifeng.com/c/8tDIgTCs6KR)
+
+[柳州5.2级地震致楼房倒塌，店铺老板：刚疏散出来就地震了](https://news.ifeng.com/c/8tDIgTCs6KR "柳州5.2级地震致楼房倒塌，店铺老板：刚疏散出来就地震了")
+
+风快讯
+
+[298](https://gentie.ifeng.com/c/comment/8tDIgTCs6KR)
+
+[](https://news.ifeng.com/c/8tCnXuMfikr)
+
+[从“第一个辞职”到“第一个挑战”，他终于摊牌了！](https://news.ifeng.com/c/8tCnXuMfikr "从“第一个辞职”到“第一个挑战”，他终于摊牌了！")
+
+天下事
+
+[35](https://gentie.ifeng.com/c/comment/8tCnXuMfikr)
+
+[](https://news.ifeng.com/c/8tCDPOzHLsy)
+
+[五国退赛、现场嘘声不断，欧洲歌唱大赛落幕：保加利亚首次夺冠](https://news.ifeng.com/c/8tCDPOzHLsy "五国退赛、现场嘘声不断，欧洲歌唱大赛落幕：保加利亚首次夺冠")
+
+天下事
+
+[94](https://gentie.ifeng.com/c/comment/8tCDPOzHLsy)
+
+[](https://news.ifeng.com/c/8tBrD4b8atC)
+
+[英媒爆料：斯塔默打算辞去英国首相职务](https://news.ifeng.com/c/8tBrD4b8atC "英媒爆料：斯塔默打算辞去英国首相职务")
+
+天下事
+
+[54](https://gentie.ifeng.com/c/comment/8tBrD4b8atC)
+
+[](https://news.ifeng.com/c/8tBXSo2WtDA)
+
+[5名内阁成员相继辞职，斯塔默下台成定局？或影响中英关系回暖](https://news.ifeng.com/c/8tBXSo2WtDA "5名内阁成员相继辞职，斯塔默下台成定局？或影响中英关系回暖")
+
+又又切克闹
+
+[7](https://gentie.ifeng.com/c/comment/8tBXSo2WtDA)
+
+[](https://news.ifeng.com/c/8tBPwvK6G5G)
+
+[欧盟执迷不悟，商务部斩钉截铁，中方罕见直言，可能“关上大门”](https://news.ifeng.com/c/8tBPwvK6G5G "欧盟执迷不悟，商务部斩钉截铁，中方罕见直言，可能“关上大门”")
+
+又又切克闹
+
+[32](https://gentie.ifeng.com/c/comment/8tBPwvK6G5G)
+
+[](https://news.ifeng.com/c/8tB2FYWW8HP)
+
+[古巴乱局已现，美国为何反送上一亿援助？鲁比奥要拿故乡当垫脚石](https://news.ifeng.com/c/8tB2FYWW8HP "古巴乱局已现，美国为何反送上一亿援助？鲁比奥要拿故乡当垫脚石")
+
+又又切克闹
+
+[9](https://gentie.ifeng.com/c/comment/8tB2FYWW8HP)
+
+[](https://news.ifeng.com/c/8tApWvV4E3c)
+
+[俄罗斯宣布普京访华日期](https://news.ifeng.com/c/8tApWvV4E3c "俄罗斯宣布普京访华日期")
+
+天下事
+
+[12](https://gentie.ifeng.com/c/comment/8tApWvV4E3c)
+
+[](https://news.ifeng.com/c/8tAPRcvYNwL)
+
+[特朗普返回白宫，再谈中国之行](https://news.ifeng.com/c/8tAPRcvYNwL "特朗普返回白宫，再谈中国之行")
+
+天下事
+
+[96](https://gentie.ifeng.com/c/comment/8tAPRcvYNwL)
+
+[](https://news.ifeng.com/c/8tAIfmgDjpu)
+
+[特朗普儿媳妇发布打卡长城照](https://news.ifeng.com/c/8tAIfmgDjpu "特朗普儿媳妇发布打卡长城照")
+
+天下事
+
+[48](https://gentie.ifeng.com/c/comment/8tAIfmgDjpu)
+
+[](https://news.ifeng.com/c/8tAEimhqBwZ)
+
+[特朗普在中国破例喝酒了？白宫回应](https://news.ifeng.com/c/8tAEimhqBwZ "特朗普在中国破例喝酒了？白宫回应")
+
+天下事
+
+[75](https://gentie.ifeng.com/c/comment/8tAEimhqBwZ)
+
+[](https://news.ifeng.com/c/8t9lrTPzcaH)
+
+[呼吁民众别抢购垃圾袋，日本缺油危机全面爆发，高市只剩一个办法](https://news.ifeng.com/c/8t9lrTPzcaH "呼吁民众别抢购垃圾袋，日本缺油危机全面爆发，高市只剩一个办法")
+
+又又切克闹
+
+[4](https://gentie.ifeng.com/c/comment/8t9lrTPzcaH)
+
+[](https://news.ifeng.com/c/8t9Mpp0zTYq)
+
+[俄外长训斥记者：再不交出手机，他们就要动枪了](https://news.ifeng.com/c/8t9Mpp0zTYq "俄外长训斥记者：再不交出手机，他们就要动枪了")
+
+天下事
+
+[158](https://gentie.ifeng.com/c/comment/8t9Mpp0zTYq)
+
+[](https://news.ifeng.com/c/8t9ElJChmOt)
+
+[特朗普访华工作午餐菜单曝光](https://news.ifeng.com/c/8t9ElJChmOt "特朗普访华工作午餐菜单曝光")
+
+天下事
+
+[18](https://gentie.ifeng.com/c/comment/8t9ElJChmOt)
+
+[](https://news.ifeng.com/c/8t9IDCv6jxC)
+
+[风声｜武大取消公众预约制度，大学可以更开放些](https://news.ifeng.com/c/8t9IDCv6jxC "风声｜武大取消公众预约制度，大学可以更开放些")
+
+风声
+
+[45](https://gentie.ifeng.com/c/comment/8t9IDCv6jxC)
+
+[](https://news.ifeng.com/c/8t9CilTbm9e)
+
+[英对华恩将仇报，拟国有化中企旗下公司，中方发声，反制已在路上](https://news.ifeng.com/c/8t9CilTbm9e "英对华恩将仇报，拟国有化中企旗下公司，中方发声，反制已在路上")
+
+又又切克闹
+
+[16](https://gentie.ifeng.com/c/comment/8t9CilTbm9e)
+
+[](https://news.ifeng.com/c/8t8ztenTCSd)
+
+[全面扩军，高市批准改名，对标美国，日本太空部队规模翻了40倍](https://news.ifeng.com/c/8t8ztenTCSd "全面扩军，高市批准改名，对标美国，日本太空部队规模翻了40倍")
+
+又又切克闹
+
+[16](https://gentie.ifeng.com/c/comment/8t8ztenTCSd)
+
+[](https://news.ifeng.com/c/8t8kMuXtVC1)
+
+[CIA局长罕见访问古巴，要求后者做出根本性改变](https://news.ifeng.com/c/8t8kMuXtVC1 "CIA局长罕见访问古巴，要求后者做出根本性改变")
+
+天下事
+
+[35](https://gentie.ifeng.com/c/comment/8t8kMuXtVC1)
+
+[](https://news.ifeng.com/c/8t8ew3sxF00)
+
+[访华期间，特朗普发文](https://news.ifeng.com/c/8t8ew3sxF00 "访华期间，特朗普发文")
+
+天下事
+
+[94](https://gentie.ifeng.com/c/comment/8t8ew3sxF00)
+
+[](https://news.ifeng.com/c/8t88Cmhpp1X)
+
+[国宴菜单曝光，特朗普都吃了啥？](https://news.ifeng.com/c/8t88Cmhpp1X "国宴菜单曝光，特朗普都吃了啥？")
+
+天下事
+
+[43](https://gentie.ifeng.com/c/comment/8t88Cmhpp1X)
+
+[](https://news.ifeng.com/c/8t86iBYjknZ)
+
+[意大利送“大礼”，印尼即将加入“航母俱乐部”，东南亚要变天？](https://news.ifeng.com/c/8t86iBYjknZ "意大利送“大礼”，印尼即将加入“航母俱乐部”，东南亚要变天？")
+
+又又切克闹
+
+[2](https://gentie.ifeng.com/c/comment/8t86iBYjknZ)
+
+[](https://finance.ifeng.com/c/8t7sLCXpbAO)
+
+[张雪突然宣布“冠军车”820RR停产，究竟发生了什么？](https://finance.ifeng.com/c/8t7sLCXpbAO "张雪突然宣布“冠军车”820RR停产，究竟发生了什么？")
+
+风暴眼
+
+[21](https://gentie.ifeng.com/c/comment/8t7sLCXpbAO)
+
+[](https://news.ifeng.com/c/8t7o3WuHlnA)
+
+[中美关系新定位下，台海局势能否降温？北大教授解读](https://news.ifeng.com/c/8t7o3WuHlnA "中美关系新定位下，台海局势能否降温？北大教授解读")
+
+凤凰大参考
+
+[44](https://gentie.ifeng.com/c/comment/8t7o3WuHlnA)
+
+[](https://news.ifeng.com/c/8t7eTH39rQb)
+
+[“中美关系新定位”确立，吴心伯：告别战术休整开启新阶段](https://news.ifeng.com/c/8t7eTH39rQb "“中美关系新定位”确立，吴心伯：告别战术休整开启新阶段")
+
+凤凰大参考
+
+[24](https://gentie.ifeng.com/c/comment/8t7eTH39rQb)
+
+[](https://news.ifeng.com/c/8t7TXV9yN6y)
+
+[特朗普参观天坛：中国真美](https://news.ifeng.com/c/8t7TXV9yN6y "特朗普参观天坛：中国真美")
+
+天下事
+
+[33](https://gentie.ifeng.com/c/comment/8t7TXV9yN6y)
+
+[](https://news.ifeng.com/c/8t7TBMe25mI)
+
+[日本不装了，自卫队直言要建立威慑，中方搁置谈判，东海全面加速](https://news.ifeng.com/c/8t7TBMe25mI "日本不装了，自卫队直言要建立威慑，中方搁置谈判，东海全面加速")
+
+又又切克闹
+
+[22](https://gentie.ifeng.com/c/comment/8t7TBMe25mI)
+
+[](https://news.ifeng.com/c/8t7OyN8WODR)
+
+[马斯克、黄仁勋、库克高兴地与媒体打招呼](https://news.ifeng.com/c/8t7OyN8WODR "马斯克、黄仁勋、库克高兴地与媒体打招呼")
+
+天下事
+
+[7](https://gentie.ifeng.com/c/comment/8t7OyN8WODR)
+
+[](https://news.ifeng.com/c/8t7Abthur5e)
+
+[以方透露内塔尼亚胡曾密访阿联酋，伊朗回应](https://news.ifeng.com/c/8t7Abthur5e "以方透露内塔尼亚胡曾密访阿联酋，伊朗回应")
+
+天下事
+
+[21](https://gentie.ifeng.com/c/comment/8t7Abthur5e)
+
+[](https://news.ifeng.com/c/8t73pAea5t5)
+
+[万斯谈与鲁比奥之争：他是我非常非常珍贵的朋友](https://news.ifeng.com/c/8t73pAea5t5 "万斯谈与鲁比奥之争：他是我非常非常珍贵的朋友")
+
+天下事
+
+[10](https://gentie.ifeng.com/c/comment/8t73pAea5t5)
+
+[](https://news.ifeng.com/c/8t6aI6kOobk)
+
+[“爱泼斯坦被软禁时，性侵了我”](https://news.ifeng.com/c/8t6aI6kOobk "“爱泼斯坦被软禁时，性侵了我”")
+
+天下事
+
+[59](https://gentie.ifeng.com/c/comment/8t6aI6kOobk)
+
+[](https://news.ifeng.com/c/8t67uKVTxl8)
+
+[撑不住了？七成民众要求特朗普负责，访华前夕，美大规模释放储备](https://news.ifeng.com/c/8t67uKVTxl8 "撑不住了？七成民众要求特朗普负责，访华前夕，美大规模释放储备")
+
+又又切克闹
+
+[8](https://gentie.ifeng.com/c/comment/8t67uKVTxl8)
+
+已显示全部内容
+
+### _精品有声_
+
+*   [30+女性谈人生高潮：我的快乐，和钱无关](https://known.ifeng.com/c/7yuFeS6aKtU "30+女性谈人生高潮：我的快乐，和钱无关")
+*   [为什么总有人想去盗曹操墓？他那么抠](https://known.ifeng.com/c/7zCLV0O4XWS "为什么总有人想去盗曹操墓？他那么抠")
+*   [最贫困、最混乱、最不为人关注”的非洲，难上加难](https://known.ifeng.com/c/7zCY5ixnHii "最贫困、最混乱、最不为人关注”的非洲，难上加难")
+*   [后人褒贬不一的曾国藩到底有什么地方值得我们学](https://known.ifeng.com/c/839aI6XEYHe "后人褒贬不一的曾国藩到底有什么地方值得我们学")
+*   [富有统治权术的雍正到底有哪些不为人知的秘密](https://known.ifeng.com/c/84UfOkzte6r "富有统治权术的雍正到底有哪些不为人知的秘密")
+*   [烈火群飞看三国：从不同角度理解三国历史和文化](https://known.ifeng.com/c/84UobLNh4Ml "烈火群飞看三国：从不同角度理解三国历史和文化")
+
+### _好书精选_
+
+*   [步步为赢：职场总离不开智谋和女人](http://yc.ifeng.com/book/3296896/1/?cid=33003 "步步为赢：职场总离不开智谋和女人")
+*   [官路浮沉：误打误撞进入仕途一路沉浮](https://yc.ifeng.com/book/3300553/1/?cid=33003 "官路浮沉：误打误撞进入仕途一路沉浮")
+*   [盖世龙医：医术济世，武道镇魔](https://yc.ifeng.com/book/3300036/1/?cid=33003 "盖世龙医：医术济世，武道镇魔")
+*   [官藏 :十万狂花如梦寐，一片冰心在玉壶](http://yc.ifeng.com/book/3256355/1/?cid=33003 "官藏 :十万狂花如梦寐，一片冰心在玉壶")
+*   [最窝囊的女婿，遭老婆陷害被狼狈地赶出家门](https://yc.ifeng.com/book/3161309/1/?cid=33003 "最窝囊的女婿，遭老婆陷害被狼狈地赶出家门")
+*   [绝地反击:得罪顶头上司被穿小鞋后](http://yc.ifeng.com/book/3161309/1/?cid=33003 "绝地反击:得罪顶头上司被穿小鞋后")
+*   [都市第一神医：六位师娘，五年学艺成](http://yc.ifeng.com/book/3297090/1/?cid=33003 "都市第一神医：六位师娘，五年学艺成")
+*   [商海浮沉录:真正的高手纵横开阖](http://yc.ifeng.com/book/3296597/1/?cid=33003 "商海浮沉录:真正的高手纵横开阖")
+
+#### 热门文章
+
+*   [AI芯片繁荣下的裂痕：三星劳资纠纷四大结局，罢工能否避免？](https://tech.ifeng.com/c/8tEcL6kK2hb)
+*   [一年迭代一次！卢伟冰确认新玄戒芯片今年推出：综合实力非常强](https://tech.ifeng.com/c/8tE81pPLbwX)
+
+*   [逆天改命！华为员工转岗AI大模型岗晒薪资 到账1002415.13元引热议：我爱 华为](https://tech.ifeng.com/c/8tE6ee7Yfpx)
+*   [美国AI机器人挑战分拣包裹：直播10小时最终输给人类](https://tech.ifeng.com/c/8tE22chcV7D)
+*   [美国制裁逼出一个Tier 0.5！华为汽车年收入450亿：传统供应商地位不保](https://tech.ifeng.com/c/8tDz7Tsbc9x)
+*   [三星、海力士背后的中国本土卖铲人，闷声吃下AI最大红利｜风眼观察](https://tech.ifeng.com/c/8tCd2wIw4jI)
+*   [DeepSeek疑似出BUG：可一键“偷窥”别人正在问什么](https://tech.ifeng.com/c/8tDyF5g18lU)
+
+*   [软色情、血腥、LGBT......却产生$6.5亿市场，外AI剧底层逻辑：如何爆火？为何暴死？](https://tech.ifeng.com/c/8tDx2iHqkvk)
+*   [三位00后向泡泡玛特王宁母校捐赠20亿Token 网友质疑：可能就值几百元](https://tech.ifeng.com/c/8tDvPSB4y7H)
+
+*   [马斯克花100亿想清楚一件事，不做coding agent就是等死](https://tech.ifeng.com/c/8tCEPugIDy8)
+
+#### 精彩视频
+
+*   [能静能动，全能大五座，试驾岚图泰山X8](https://v.ifeng.com/c/8tEE54lRnpq)
+*   [奥运冠军巩立姣退役后转行文职：有点不适应](https://v.ifeng.com/c/8tDr1MBVJJX)
+
+*   [贵州黔东南侗族婚宴吃牛瘪锅，180元一桌10个菜，全都是硬菜](https://v.ifeng.com/c/8tCEPug0cq8)
+*   [山东枣庄大盆菜，洗脸盆上菜，就四种看看都有啥 #寻尝姐妹美食](https://v.ifeng.com/c/8tCEPug0cqA)
+*   [国宴大厨家常系列第558集：说它是最下饭的菜，没人反驳吧](https://v.ifeng.com/c/8tC8LcVPIkf)
+*   [特色蒜香烤牛肠，繁琐的去腥去杂工序，色香味极佳的下酒菜](https://v.ifeng.com/c/8tCEPug0cqB)
+*   [为什么说鸡蛋才是被资本黑最惨的一个营养品？](https://v.ifeng.com/c/8tC8LcVPIkg)
+
+*   [加拿大华侨来宣威选火腿，十多个人边切边吃，直言太香了](https://v.ifeng.com/c/8tCEPug0cqF)
+*   [这就是中国“最危险”的美食，也是世界上最贵的海鲜之一](https://v.ifeng.com/c/8tCEPug0cqN)
+
+*   [韩国游客来华旅游称烤鸭太难吃了，结果被旁人提醒吃的是蒸笼纸](https://v.ifeng.com/c/8tCEPug0cqL)
+
+[凤凰V现场](https://tech.ifeng.com/vlive/)
+
+[![Image 32](https://d.ifengimg.com/w300_h169_q90/x0.ifengimg.com/ucms/2026_18/91A15A6258705024497AF7BC5F3926D5DACEA36E_size217_w1300_h720.jpg) 北京车展老外看懵 “开中国新能源可太长脸了!"](https://tech.ifeng.com/c/8shQfAMVtPw)[北京车展老外惊叹中国补能黑科技！ | 凤凰V现场](https://tech.ifeng.com/c/8shPP3LNksC)[真正牛的电视，不拼参数拼体验！| 凤凰V现场](https://tech.ifeng.com/c/8rZZPsUYgEz)[AI全都管，懂你的中式厨电来了| 凤凰V现场](https://tech.ifeng.com/c/8rZTCpebMCB)[智慧厨房凭什么颠覆中国人的烹饪习惯？ | 凤凰V现场](https://tech.ifeng.com/c/8rXmKEOb0RC)[查看更多](https://tech.ifeng.com/vlive/)
+
+![Image 33](https://d.ifengimg.com/w80_h80_q90/y1.ifengimg.com/c4bb513d86ac01ca/2013/1218/rdn_52b1679f924f5.jpg)
+
+凤凰网数码官方微信
+
+[凤凰网数码](http://weibo.com/ifengmobile "凤凰网数码")
+
+![Image 34](https://p0.ifengimg.com/a/2018/0525/w_03.png)
+
+![Image 35](https://x0.ifengimg.com/ucms/2024_34/2F6CC97BDAAA6C13ACF19C2748BDF97805A5CCA7_size18_w122_h115.png)
+
+![Image 36](https://p3.ifengimg.com/37780e23b9ea2d8b/2019/15/w_003.png)
+
+![Image 37](https://p3.ifengimg.com/37780e23b9ea2d8b/2019/15/w_004.png)
+
+[讲堂](http://talk.ifeng.com/index.shtml)[音乐](http://yue.ifeng.com/index.shtml)[彩铃](http://rbt.ifeng.com/index.shtml)[视频](http://vip.v.ifeng.com/phone/index.shtml)
+#### 凤凰无线
+
+*   [](https://www.yc.ifeng.com/book/3296896/1/)
+[与智谋和女人分不开的职场之路](https://www.yc.ifeng.com/book/3296896/1/)
+
+*   [](https://yc.ifeng.com/book/3320106/1/)
+[漫漫官途，危情相伴](https://yc.ifeng.com/book/3320106/1/)
+
+#### 好书精选
+
+*   [仕来运转-到穷乡僻壤历练三年后起飞](https://yc.ifeng.com/book/3300110/1/?cid=33011 "仕来运转-到穷乡僻壤历练三年后起飞")
+*   [无双赘婿：衣锦还乡，十里长亭铺红妆](http://yc.ifeng.com/book/3256402/1/?cid=33011 "无双赘婿：衣锦还乡，十里长亭铺红妆")
+*   [商海局中局：小人物登上事业巅峰](http://yc.ifeng.com/book/3296597/1/?cid=33011 "商海局中局：小人物登上事业巅峰")
+*   [巅峰：两个水火不容的女人让他左右为难](https://yc.ifeng.com/book/3208911/1/?cid=33011 "巅峰：两个水火不容的女人让他左右为难")
+*   [一路高升:一步一个脚印，最终走向人生巅峰](https://yc.ifeng.com/book/3159775/1/?cid=33011 "一路高升:一步一个脚印，最终走向人生巅峰")
+*   [武神风暴: 一念天地变色；一意血洒苍穹](http://yc.ifeng.com/book/3039732/1/?cid=33011 "武神风暴: 一念天地变色；一意血洒苍穹")
+*   [巅峰权力：拔出萝卜后带出一片泥](http://yc.ifeng.com/book/3323222/1/?cid=33011 "巅峰权力：拔出萝卜后带出一片泥")
+*   [逆袭：大多数斗争，起于人事调动止于背景对决](http://yc.ifeng.com/book/3252917/1/?cid=33011 "逆袭：大多数斗争，起于人事调动止于背景对决")
+
+[凤凰新媒体介绍](https://www.ifeng.com/corp/about/intro/)[投资者关系 Investor Relations](https://ir.ifeng.com/)[广告服务](https://biz.ifeng.com/)[诚征英才](https://career.ifeng.com/)[保护隐私权](https://www.ifeng.com/corp/privacy/)[免责条款](https://www.ifeng.com/corp/exemption/)[意见反馈](https://help.ifeng.com/)[凤凰卫视](https://www.phoenixtv.com/)[京ICP证030609号](https://beian.miit.gov.cn/)
+
+凤凰新媒体 版权所有 Copyright © 2024 Phoenix New Media Limited All Rights Reserved.
+
+[关闭](https://tech.ifeng.com/c/8sxWMvClWC1)
+
+[](https://www.ifeng.com/ "凤凰网")
+
+## 亲爱的凤凰网用户:
+
+您当前使用的浏览器版本过低，导致网站不能正常访问，建议升级浏览器
+
+## 第三方浏览器推荐:
+
+![Image 38](https://p1.ifengimg.com/a/2018/0920/chrome.jpg) 谷歌(Chrome)浏览器[下载](https://www.google.com/chrome/)
+
+![Image 39](https://p1.ifengimg.com/a/2018/0920/360_logo.png) 360安全浏览器[下载](https://browser.360.cn/se/)
+
+![Image 40](https://x0.ifengimg.com/ucms/qr/2020_14/0A7BFE26A756341ECA1B2FC26E9F62157E92ED89_w360_h322.png)
+
+[](https://www.ifeng.com/)[](https://help.ifeng.com/?url=https%3A%2F%2Fishare.ifeng.com%2Fc%2Fs%2F8sxWMvClWC1)
+
+![Image 41](http://cm.adxvip.com/CookieMapping?mid=Q5QGU7FE9AZMPKSJ5ER3&uid=1779114860981_1xm30y5957)![Image 42](http://cm.adxvip.com/CookieMapping?mid=Q5QGU7FE9AZMPKSJ5ER3&uid=1779114860981_1xm30y5957)![Image 43](https://ax.ifeng.com/i?p=NndzYmdSac4ZEQdNQ9dUEpLM1y935dPWULkY1YwtalFqtD_DtKi0Eu_1TgyMqqfoza9WCIJLHiGqMhv19wkrolqBxUVaCFyC2eHzCOCKKwMBBDENyHxlXDXTtiX-4oMrG5meQWpugHPNkzIoVwq0YdkET3EqhfN9cdlLGUZcHhpLjn0oj2lf4d9xOUS-3MiUouuiFWL1d7GgqOJXreUguWZoL60i6TzCZpEbpSEikWsy-k_VzDv9Q_b8dsdaPKerHCLFjbGfqbKA9o_GtgaR-RNrTud1bX6ncxR1rlLHAJoFsL-2f6DKTobWs-qECbXelEcS8V6-chIcvff9tF46cGWsTGaFUC4POUN6NvU6OYaqoQ_hGQApaQCw_Rj5tNf9hMUQ_A5A4BI7T2DQIAhQNXreitF0gxLKjaUqEjKNnaP9xzw75mydxXclQeawZTLo&t_tk_type=ifeng_imp&t_tk_bid=_41_&t_tk_ap=_23189_&isWaterFall=0&testGroup=default&tm_time=__FH_TM_TIME__&milli_time=__FH_TM_MILLI_TIME__)![Image 44](https://ax.ifeng.com/i?p=NndzYmdSac4ZEQdNQ9dUEpLM1y935dPWULkY1YwtalFqtD_DtKi0Eu_1TgyMqqfos1gImG1cCN4nFGdXefGhOK7ATh00KnuEOi3AmQ159L2Rm4tJzBfJQeePUQ27oS40G5meQWpugHPNkzIoVwq0YdkET3EqhfN9cdlLGUZcHhpLjn0oj2lf4d9xOUS-3MiUouuiFWL1d7GgqOJXreUguWZoL60i6TzCZpEbpSEikWsy-k_VzDv9Q_b8dsdaPKerHCLFjbGfqbKA9o_GtgaR-RNrTud1bX6ncxR1rlLHAJoFsL-2f6DKTobWs-qECbXelEcS8V6-chIcvff9tF46cGWsTGaFUC4POUN6NvU6OYaqoQ_hGQApaQCw_Rj5tNf9hMUQ_A5A4BI7T2DQIAhQNXreitF0gxLKjaUqEjKNnaP9xzw75mydxXclQeawZTLo&t_tk_type=ifeng_imp&t_tk_bid=_41_&t_tk_ap=_23190_&isWaterFall=0&testGroup=default&tm_time=__FH_TM_TIME__&milli_time=__FH_TM_MILLI_TIME__)![Image 45](http://cm.adxvip.com/CookieMapping?mid=Q5QGU7FE9AZMPKSJ5ER3&uid=1779114860981_1xm30y5957)
+
+[![Image 46](http://img.ifeng.com/tres/recommend/html/test/1x1.gif)](https://tech.ifeng.com/c/8sxWMvClWC1)
+
+![Image 47](https://x0.ifengimg.com/feprod/c/feprod/c/ifengimcp/pic/20210108/3677f2773fd79f12b079_size1_w56_h34.png)
+
+[![Image 48](https://x0.ifengimg.com/feprod/c/2023_2_17/11_4_25/close.png)关闭广告](javascript:;)
+
+[![Image 49](http://img.ifeng.com/tres/recommend/html/test/1x1.gif)](javascript:;)
+
+[![Image 50](http://y1.ifengimg.com/1d124ac5e89463af/2012/1229/close.gif)](javascript:;)
+
+深入探索
+
+相机
+
+笔记本电脑
+
+电脑耳机
+
+cameras
+
+![Image 51](https://x0.ifengimg.com/feprod/c/feprod/c/ifengimcp/pic/20210108/3677f2773fd79f12b079_size1_w56_h34.png)
+
+![Image 52](http://x0.ifengimg.com/feprod/c/2023_3_7/11_18_21/close.svg)
+
+![Image 53](https://ax.ifeng.com/i?p=NndzYmdSac4ZEQdNQ9dUEpLM1y935dPWULkY1YwtalFqtD_DtKi0Eu_1TgyMqqfoOlFokmS5DWh4bVhu_ZyRD6Yn8N88EWt4LT6ha9zvMECQBDFVwEkSlfEHmkzsRe3GG5meQWpugHPNkzIoVwq0YdkET3EqhfN9cdlLGUZcHhpLjn0oj2lf4d9xOUS-3MiUouuiFWL1d7GgqOJXreUguWZoL60i6TzCZpEbpSEikWsy-k_VzDv9Q_b8dsdaPKerHCLFjbGfqbKA9o_GtgaR-RNrTud1bX6ncxR1rlLHAJoFsL-2f6DKTobWs-qECbXelEcS8V6-chIcvff9tF46cGWsTGaFUC4POUN6NvU6OYaqoQ_hGQApaQCw_Rj5tNf9hMUQ_A5A4BI7T2DQIAhQNXreitF0gxLKjaUqEjKNnaP9xzw75mydxXclQeawZTLo&t_tk_type=ifeng_imp&t_tk_bid=_41_&t_tk_ap=_41784_&isWaterFall=0&testGroup=default&tm_time=__FH_TM_TIME__&milli_time=__FH_TM_MILLI_TIME__)![Image 54](http://cm.adxvip.com/CookieMapping?mid=Q5QGU7FE9AZMPKSJ5ER3&uid=1779114860981_1xm30y5957)

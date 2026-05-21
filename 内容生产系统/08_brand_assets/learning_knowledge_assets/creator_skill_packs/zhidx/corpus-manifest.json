@@ -1,0 +1,144 @@
+{
+  "generated_at": "2026-05-09 17:44:21 CST",
+  "source_name": "智东西",
+  "slug": "zhidx",
+  "overlay_skill_name": "th-style-overlay-zhidx",
+  "sample_gate_passed": true,
+  "distinct_recent_articles_used": 8,
+  "total_distinct_available": 95,
+  "observed_window": {
+    "latest": "2026-04-30 21:40:07 CST",
+    "oldest": "2026-04-29 20:47:01 CST"
+  },
+  "aggregate": {
+    "median_char_count": 3181,
+    "median_image_count": 12.0,
+    "median_first_image_after_text_paragraphs": 0.0,
+    "median_short_para_ratio": 0.655,
+    "median_image_density_per_1000_chars": 3.87,
+    "early_image_share": 1.0,
+    "dense_visual_share": 1.0,
+    "first_person_opening_share": 0.0,
+    "reader_address_opening_share": 0.0,
+    "opening_modes": {
+      "对象/事件先落地": 8
+    },
+    "title_modes": {
+      "对象直给型标题": 8
+    }
+  },
+  "articles": [
+    {
+      "title": "DeepSeek“开眼”背后的技术，公开了！",
+      "published_at": "2026-04-30 21:40:07 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/Uulx9T1PsAiEiwi9OMTZqQ",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260501_124340__deepseek_开眼_背后的技术_公开了__deep-article.md",
+      "char_count": 3235,
+      "image_count": 12,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.575,
+      "opening_excerpt": "让大模型学会边指边想。 作者 | 陈骏达",
+      "note": "对象/事件先落地；很早上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "拒绝“出厂即巅峰”！具身训练系统再进化：LWD让机器人自主开启“打怪练级”",
+      "published_at": "2026-04-30 18:05:40 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/dLGhLSn3UuBW666Bf5I7fQ",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260501_124404__拒绝_出厂即巅峰_具身训练系统再进化_lwd让机器人自主开启_打怪练级__deep-article.md",
+      "char_count": 969,
+      "image_count": 13,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.785,
+      "opening_excerpt": "让真实世界变身“机器人训练营”！ 作者 | 江宇",
+      "note": "对象/事件先落地；很早上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "追觅发手机，把苹果联合创始人请来了",
+      "published_at": "2026-04-30 18:05:40 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/B95mlc2ELqyth7xjnDuwfg",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260501_124352__追觅发手机_把苹果联合创始人请来了__deep-article.md",
+      "char_count": 3127,
+      "image_count": 23,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.622,
+      "opening_excerpt": "一台手机四种形态，Aurora Nex可换运动、长焦、卫星、AI模块。 作者 | 佳扬",
+      "note": "对象/事件先落地；很早上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "2.69万！宇树最便宜人形机器人来了，王兴兴化身价格屠夫，这下我真买得起了",
+      "published_at": "2026-04-30 13:21:46 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/zwkEDOMTcx5JvYWTCqQ0ow",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260501_124154__2_69万_宇树最便宜人形机器人来了_王兴兴化身价格屠夫_这下我真买得起了__deep-article.md",
+      "char_count": 1250,
+      "image_count": 17,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.818,
+      "opening_excerpt": "宇树首款桌面/工业双臂机器人，能拧螺丝、玩魔方。 作者 | 李水青",
+      "note": "对象/事件先落地；很早上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "AI业务狂飙123%！买芯片猛烧钱，微软不再靠OpenAI吸金",
+      "published_at": "2026-04-30 13:21:46 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/i4glGMKLPhXRvEUoNyONTQ",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260501_124217__ai业务狂飙123_买芯片猛烧钱_微软不再靠openai吸金__deep-article.md",
+      "char_count": 3491,
+      "image_count": 12,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.65,
+      "opening_excerpt": "微软预计下一财季总营收为867亿-878亿美元。 作者 | 刘煜",
+      "note": "对象/事件先落地；很早上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "大模型“降智”真相，找到了",
+      "published_at": "2026-04-30 12:25:57 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/becW75bzLn_Gz3IgCMs5UQ",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260501_124229__大模型_降智_真相_找到了__deep-article.md",
+      "char_count": 2479,
+      "image_count": 10,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.52,
+      "opening_excerpt": "修复后异常率降至万分之三。 作者 | 陈骏达",
+      "note": "对象/事件先落地；很早上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "净利暴涨80%，谷歌靠AI猛吸金，Geimini用户破3.5亿人",
+      "published_at": "2026-04-30 12:25:57 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/r2NEE_e1Zzzx5TWiXXqmVQ",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260501_124206__净利暴涨80_谷歌靠ai猛吸金_geimini用户破3_5亿人__deep-article.md",
+      "char_count": 3502,
+      "image_count": 11,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.763,
+      "opening_excerpt": "谷歌持续加码AI基础设施。 作者 | 杨京丽",
+      "note": "对象/事件先落地；很早上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "马斯克终于出庭！自曝每周工作100小时，OpenAI：他没分到钱酸了",
+      "published_at": "2026-04-29 20:47:01 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/IU7bU5wz7nQZZR2qwQKVQA",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260430_122534__马斯克终于出庭_自曝每周工作100小时_openai_他没分到钱酸了__deep-article.md",
+      "char_count": 6085,
+      "image_count": 10,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.66,
+      "opening_excerpt": "马斯克出庭举证。 编译 | 杨京丽",
+      "note": "对象/事件先落地；很早上图；短段密度高；图文节奏偏密"
+    }
+  ]
+}

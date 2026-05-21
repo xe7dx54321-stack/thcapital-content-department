@@ -1,0 +1,27 @@
+{
+  "entity": "Vapi",
+  "seed_source": "web__techcrunch_ai",
+  "seed_url": "https://techcrunch.com/2026/05/12/vapi-raises-50m-series-b/",
+  "entity_type": "company",
+  "domain": "Voice AI / Conversational AI Infrastructure",
+  "derived_links": {
+    "official_website": "https://vapi.ai/",
+    "linkedin": "https://www.linkedin.com/company/vapi",
+    "docs": "https://vapi.ai/docs",
+    "blog": "https://vapi.ai/blog"
+  },
+  "next_hop_queries": {
+    "series_b_press_release": "Vapi Series B $50M press release May 2026",
+    "investor_details": "Vapi Series B investors 2026",
+    "pricing_page": "Vapi pricing plans",
+    "github_sdk": "github.com vapi voice ai sdk"
+  },
+  "score": {
+    "object_clarity": 5,
+    "link_density": 5,
+    "social_presence": 4,
+    "demo_docs_available": 5,
+    "funding_hardness": 4
+  },
+  "notes": "$50M Series B at $500M post-money. 1B+ calls supported. 750K+ developers. 2.5M+ agents launched. Enterprise clients include Ring/Amazon. SOC 2/HIPAA/PCI compliant."
+}

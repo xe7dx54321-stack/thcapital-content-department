@@ -1,0 +1,226 @@
+{
+  "trend__hn_frontpage": [
+    {
+      "entity_name": "How Claude Code works in large codebases",
+      "source_url": "https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 85,
+      "hn_comments": 48,
+      "_fetched_at": "2026-05-15T14:17:48.053454"
+    },
+    {
+      "entity_name": "Solar-based sleep patterns compared to modern norms",
+      "source_url": "https://dylan.gr/1775146616",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 6,
+      "hn_comments": 0,
+      "_fetched_at": "2026-05-15T14:17:48.053539"
+    },
+    {
+      "entity_name": "Coldkey – Post-quantum age key generation and paper backup tool",
+      "source_url": "https://github.com/pike00/coldkey",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 3,
+      "hn_comments": 0,
+      "_fetched_at": "2026-05-15T14:17:48.053543"
+    },
+    {
+      "entity_name": "Details of the Daring Airdrop at Tristan Da Cunha",
+      "source_url": "https://www.tristandc.com/government/news-2026-05-11-airdrop.php",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 38,
+      "hn_comments": 4,
+      "_fetched_at": "2026-05-15T14:17:48.053545"
+    },
+    {
+      "entity_name": "reCAPTCHA Mobile Verification Is Bringing the Play Integrity API to Desktops",
+      "source_url": "https://discuss.grapheneos.org/d/35428-recaptcha-mobile-verification-is-bringing-the-play-integrity-api-to-desktops",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 15,
+      "hn_comments": 7,
+      "_fetched_at": "2026-05-15T14:17:48.053548"
+    },
+    {
+      "entity_name": "Mullvad exit IPs are surprisingly identifying",
+      "source_url": "https://tmctmt.com/posts/mullvad-exit-ips-as-a-fingerprinting-vector/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 233,
+      "hn_comments": 106,
+      "_fetched_at": "2026-05-15T14:17:48.053550"
+    },
+    {
+      "entity_name": "Access to frontier AI will soon be limited by economic and security constraints",
+      "source_url": "https://writing.antonleicht.me/p/cut-off",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 74,
+      "hn_comments": 35,
+      "_fetched_at": "2026-05-15T14:17:48.053552"
+    },
+    {
+      "entity_name": "UFerris a Versatile Learner Board for Rust Embedded Beginners",
+      "source_url": "https://www.theembeddedrustacean.com/uferris",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 19,
+      "hn_comments": 3,
+      "_fetched_at": "2026-05-15T14:17:48.053554"
+    },
+    {
+      "entity_name": "Velonus – Open-source AppSec scanner that deduplicates SAST noise",
+      "source_url": "https://github.com/AliAmmar15/Velonus",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 12,
+      "hn_comments": 3,
+      "_fetched_at": "2026-05-15T14:17:48.053556"
+    },
+    {
+      "entity_name": "LLM Policy for Rust Compiler",
+      "source_url": "https://github.com/rust-lang/rust-forge/pull/1040",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 51,
+      "hn_comments": 26,
+      "_fetched_at": "2026-05-15T14:17:48.053558"
+    },
+    {
+      "entity_name": "More than sixty percent of the United States is experiencing drought conditions",
+      "source_url": "https://news.vt.edu/articles/2026/05/drought-united-states-la-nina-expert.html",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 166,
+      "hn_comments": 68,
+      "_fetched_at": "2026-05-15T14:17:48.053560"
+    },
+    {
+      "entity_name": "Ontario auditors find doctors' AI note takers routinely blow basic facts",
+      "source_url": "https://www.theregister.com/ai-ml/2026/05/14/ontario-auditors-find-doctors-ai-note-takers-routinely-blow-basic-facts/5240771",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 187,
+      "hn_comments": 92,
+      "_fetched_at": "2026-05-15T14:17:48.053562"
+    },
+    {
+      "entity_name": "A few words on DS4",
+      "source_url": "https://antirez.com/news/165",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 252,
+      "hn_comments": 88,
+      "_fetched_at": "2026-05-15T14:17:48.053564"
+    },
+    {
+      "entity_name": "Show HN: GridTravel- A community based travel app for users to share routes",
+      "source_url": "https://www.gridtravel.app",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 39,
+      "hn_comments": 19,
+      "_fetched_at": "2026-05-15T14:17:48.053567"
+    },
+    {
+      "entity_name": "OVMS: Open source electric vehicle remote monitoring, diagnosis and control",
+      "source_url": "https://www.openvehicles.com/home",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 64,
+      "hn_comments": 9,
+      "_fetched_at": "2026-05-15T14:17:48.053569"
+    },
+    {
+      "entity_name": "Infracost (YC W21) Is Hiring Sr Dev Advocate to make agents cloud cost-aware",
+      "source_url": "https://www.ycombinator.com/companies/infracost/jobs/NzwUQ7c-senior-developer-advocate",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 0,
+      "hn_comments": 0,
+      "_fetched_at": "2026-05-15T14:17:48.053571"
+    },
+    {
+      "entity_name": "Tesla Wall Connector bootloader bypasses the firmware downgrade ratchet",
+      "source_url": "https://www.synacktiv.com/en/publications/exploiting-the-tesla-wall-connector-from-its-charge-port-connector-part-2-bypassing",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 85,
+      "hn_comments": 35,
+      "_fetched_at": "2026-05-15T14:17:48.053573"
+    },
+    {
+      "entity_name": "New arXiv policy: 1-year ban for hallucinated references",
+      "source_url": "https://twitter.com/tdietterich/status/2055000956144935055",
+      "score": 10,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 433,
+      "hn_comments": 142,
+      "_fetched_at": "2026-05-15T14:17:48.053575"
+    },
+    {
+      "entity_name": "RISC-V Router",
+      "source_url": "https://router.start9.com/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 106,
+      "hn_comments": 53,
+      "_fetched_at": "2026-05-15T14:17:48.053577"
+    },
+    {
+      "entity_name": "Codex is now in the ChatGPT mobile app",
+      "source_url": "https://openai.com/index/work-with-codex-from-anywhere/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 278,
+      "hn_comments": 140,
+      "_fetched_at": "2026-05-15T14:17:48.053579"
+    }
+  ]
+}

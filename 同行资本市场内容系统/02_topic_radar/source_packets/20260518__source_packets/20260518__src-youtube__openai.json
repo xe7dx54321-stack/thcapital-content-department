@@ -1,0 +1,141 @@
+{
+  "youtube__openai": [
+    {
+      "entity_name": "Update and audit a finance model in Excel with ChatGPT",
+      "source_url": "https://www.youtube.com/watch?v=CaBXLZyaJYU",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-18T22:27:46.167141"
+    },
+    {
+      "entity_name": "Codex for Everyday Work: AI Agents Beyond Coding",
+      "source_url": "https://www.youtube.com/watch?v=DLP9CagE3dU",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-18T22:27:46.167234"
+    },
+    {
+      "entity_name": "Now in preview: Codex in the ChatGPT mobile app.",
+      "source_url": "https://www.youtube.com/shorts/tk9qrk5G4RQ",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-18T22:27:46.167238"
+    },
+    {
+      "entity_name": "Inside image generation’s Renaissance moment — the OpenAI Podcast Ep. 19",
+      "source_url": "https://www.youtube.com/watch?v=bH2nP-aCFjk",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-18T22:27:46.167241"
+    },
+    {
+      "entity_name": "Build Hour: GPT-Realtime-2",
+      "source_url": "https://www.youtube.com/watch?v=qGS9Ghnq1RU",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-18T22:27:46.167244"
+    },
+    {
+      "entity_name": "Suraj vs The Future | With ChatGPT",
+      "source_url": "https://www.youtube.com/watch?v=bMmEEa8-6fU",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-18T22:27:46.167247"
+    },
+    {
+      "entity_name": "Computer use in Codex",
+      "source_url": "https://www.youtube.com/watch?v=D_FCYsshMI4",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-18T22:27:46.167250"
+    },
+    {
+      "entity_name": "Life before Codex, and after Codex - Endava",
+      "source_url": "https://www.youtube.com/shorts/2nV_jnbCqP4",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-18T22:27:46.167253"
+    },
+    {
+      "entity_name": "What Codex Unlocks for Endava",
+      "source_url": "https://www.youtube.com/watch?v=J886DPhhZLg",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-18T22:27:46.167256"
+    },
+    {
+      "entity_name": "Codex can now use Chrome directly on macOS and Windows.",
+      "source_url": "https://www.youtube.com/watch?v=b6Mxcv1pyBU",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-18T22:27:46.167259"
+    },
+    {
+      "entity_name": "We’re introducing three audio models in the API",
+      "source_url": "https://www.youtube.com/watch?v=JOu8v6CBjkE",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-18T22:27:46.167262"
+    },
+    {
+      "entity_name": "GPT-5.5 is a game changer for finance",
+      "source_url": "https://www.youtube.com/shorts/eoyHCYXoNMQ",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-18T22:27:46.167265"
+    },
+    {
+      "entity_name": "Introducing GPT-5.5 with Box",
+      "source_url": "https://www.youtube.com/watch?v=9cenXVrQZNQ",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-18T22:27:46.167268"
+    },
+    {
+      "entity_name": "Introducing ChatGPT for Excel and Google Sheets",
+      "source_url": "https://www.youtube.com/watch?v=sfkyiXvlYL0",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-18T22:27:46.167271"
+    },
+    {
+      "entity_name": "Why AI needs a new kind of supercomputer network — the OpenAI Podcast Ep. 18",
+      "source_url": "https://www.youtube.com/watch?v=TiW96H5HmAw",
+      "score": 15,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-18T22:27:46.167273"
+    }
+  ]
+}

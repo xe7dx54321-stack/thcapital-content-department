@@ -1,0 +1,139 @@
+{
+  "youtube__langchain": [
+    {
+      "entity_name": "The Agent Development Lifecycle: Build, Test, Deploy, Monitor | Interrupt 26",
+      "source_url": "https://www.youtube.com/watch?v=jWy39wavbjY",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-20T21:57:37.379976"
+    },
+    {
+      "entity_name": "This AI monitors itself and opens its own PRs",
+      "source_url": "https://www.youtube.com/shorts/OuTIZBM1UqM",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-20T21:57:37.380051"
+    },
+    {
+      "entity_name": "Everyone's still debating this AI architecture question",
+      "source_url": "https://www.youtube.com/shorts/EqxXxncHEfI",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-20T21:57:37.380055"
+    },
+    {
+      "entity_name": "Introducing LangSmith Engine",
+      "source_url": "https://www.youtube.com/watch?v=L4pDS1uHl9o",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-20T21:57:37.380059"
+    },
+    {
+      "entity_name": "LangSmith Engine: Accelerate the Agent Development Lifecycle",
+      "source_url": "https://www.youtube.com/watch?v=vVyC4hvaA1k",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-20T21:57:37.380062"
+    },
+    {
+      "entity_name": "SmithDB: The data layer for agent observability",
+      "source_url": "https://www.youtube.com/watch?v=vYnM8v4x78Y",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-20T21:57:37.380064"
+    },
+    {
+      "entity_name": "What if AI agents skipped language entirely to communicate?",
+      "source_url": "https://www.youtube.com/shorts/PYJZJAna6pI",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-20T21:57:37.380067"
+    },
+    {
+      "entity_name": "How Ramp built an AI agent that can think outside of tokens | Alex Shevchenko",
+      "source_url": "https://www.youtube.com/watch?v=trEM9OKr5Sc",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-20T21:57:37.380071"
+    },
+    {
+      "entity_name": "How Clay manages 300M agent runs a month with LangSmith",
+      "source_url": "https://www.youtube.com/watch?v=cx6_tb6HCeY",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-20T21:57:37.380073"
+    },
+    {
+      "entity_name": "LangChain Live Stream",
+      "source_url": "https://www.youtube.com/watch?v=cmovqJ5X7yA",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-20T21:57:37.380076"
+    },
+    {
+      "entity_name": "Should You Use a Sandbox for Your Agent? | Max Agency #aidesign #aiinfrastructure",
+      "source_url": "https://www.youtube.com/shorts/g_OqeRku5Pc",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-20T21:57:37.380079"
+    },
+    {
+      "entity_name": "Great Agent Builders Share These 2 Traits | Max Agency #podcast #agenticai",
+      "source_url": "https://www.youtube.com/shorts/4TJ3AF5UZJM",
+      "score": 15,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-20T21:57:37.380082"
+    },
+    {
+      "entity_name": "Your AI Agent Can Ask for Feedback on Itself | Max Agency #podcast #agenticai",
+      "source_url": "https://www.youtube.com/shorts/ScRVmAdQ1j4",
+      "score": 15,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-20T21:57:37.380085"
+    },
+    {
+      "entity_name": "AI Agents That Build Their Own Data Tables | Max Agency #podcast #agenticai",
+      "source_url": "https://www.youtube.com/shorts/2SYwoqpoDzs",
+      "score": 15,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-20T21:57:37.380088"
+    },
+    {
+      "entity_name": "How Listen builds AI Agents that review their own work | Florian Juengermann, CTO",
+      "source_url": "https://www.youtube.com/watch?v=YTTH-0XXEBE",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-20T21:57:37.380091"
+    }
+  ]
+}

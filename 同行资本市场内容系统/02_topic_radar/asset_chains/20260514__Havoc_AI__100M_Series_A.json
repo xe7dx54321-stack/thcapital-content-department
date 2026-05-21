@@ -1,0 +1,26 @@
+{
+  "entity": "Havoc AI",
+  "seed_source": "web__finsmes_ai_gnews",
+  "seed_url": "https://www.finsmes.com/2026/05/havoc-ai-raises-100m-in-series-a-funding.html",
+  "entity_type": "company",
+  "domain": "Defense AI / Collaborative Autonomy / Unmanned Systems",
+  "derived_links": {
+    "finsmes_article": "https://www.finsmes.com/2026/05/havoc-ai-raises-100m-in-series-a-funding.html",
+    "linkedin": "https://www.linkedin.com/company/havoc-ai"
+  },
+  "next_hop_queries": {
+    "havoc_ai_website": "Havoc AI Providence autonomous vehicles official",
+    "product_demo_video": "Havoc AI collaborative autonomy demo video",
+    "founder_crowdfund": "Havoc AI founders LinkedIn Providence",
+    "press_release": "Havoc AI CCM Capital Clear Street Cobalt funding press release",
+    "defense_contracts": "Havoc AI DoD US military contracts"
+  },
+  "score": {
+    "object_clarity": 4,
+    "link_density": 2,
+    "social_presence": 2,
+    "demo_docs_available": 1,
+    "funding_hardness": 5
+  },
+  "notes": "$100M Series A. Providence RI. Defense AI with collaborative autonomy. CCM Capital + Clear Street + Cobalt Capital backed. Single operator manages thousands of autonomous assets. Multi-domain autonomous stack product. Hard to confirm website/social due to blocking."
+}

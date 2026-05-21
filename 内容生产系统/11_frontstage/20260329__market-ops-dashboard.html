@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>同行资本市场内容系统｜业务看板</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #11182d;
+      --panel-2: #151f39;
+      --line: rgba(255,255,255,0.08);
+      --text: #edf2ff;
+      --muted: #9eb0d9;
+      --good: #1ec98f;
+      --warn: #f59e0b;
+      --bad: #ff5d73;
+      --chip: rgba(255,255,255,0.08);
+      --shadow: 0 14px 40px rgba(0,0,0,0.28);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(0,168,255,0.10), transparent 25%),
+        radial-gradient(circle at top left, rgba(7,193,96,0.10), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a { color: #8ec5ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 28px 24px 72px;
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(18,28,52,0.94), rgba(22,34,60,0.96));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      line-height: 1.2;
+    }
+    .hero-meta {
+      color: var(--muted);
+      margin-bottom: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .metric-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+    .metric-label { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+    .metric-value { font-size: 28px; font-weight: 700; }
+    .metric-sub { color: var(--muted); font-size: 12px; margin-top: 6px; }
+    .warning-panel {
+      background: rgba(255,93,115,0.08);
+      border: 1px solid rgba(255,93,115,0.24);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+    .warning-panel h3 { margin: 0 0 10px; font-size: 16px; }
+    .warning-list { margin: 0; padding-left: 18px; color: #ffd5db; }
+    .warning-list li + li { margin-top: 8px; }
+    .good-note {
+      color: #d4ffef;
+      background: rgba(30,201,143,0.10);
+      border: 1px solid rgba(30,201,143,0.22);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .jump-nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(16px);
+      background: rgba(11, 16, 32, 0.82);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 12px 0 14px;
+      margin: 0 0 22px;
+    }
+    .jump-nav-inner {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .jump-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 14px;
+    }
+    .section {
+      background: linear-gradient(180deg, rgba(18,24,41,0.96), rgba(15,21,36,0.98));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .section h2 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+    .section-sub {
+      color: var(--muted);
+      margin-top: 6px;
+      font-size: 14px;
+    }
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: var(--chip);
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+    .chip-good { background: rgba(30,201,143,0.10); color: #cbffef; border-color: rgba(30,201,143,0.26); }
+    .chip-warn { background: rgba(245,158,11,0.12); color: #ffe2a7; border-color: rgba(245,158,11,0.28); }
+    .chip-bad { background: rgba(255,93,115,0.12); color: #ffd5db; border-color: rgba(255,93,115,0.28); }
+    .chip-neutral { background: rgba(255,255,255,0.06); }
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .status-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 16px;
+    }
+    .status-card strong { display: block; font-size: 15px; margin-bottom: 6px; }
+    .table-wrap {
+      width: 100%;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(8,12,24,0.45);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1080px;
+    }
+    th, td {
+      padding: 12px 14px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    th {
+      position: sticky;
+      top: 0;
+      background: rgba(14,21,38,0.98);
+      text-align: left;
+      color: var(--muted);
+      z-index: 1;
+    }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+    .summary-cell { min-width: 320px; }
+    .row-title { font-weight: 700; margin-bottom: 4px; }
+    .row-sub { color: var(--muted); font-size: 13px; }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .timeline-card {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      border-radius: 18px;
+      padding: 14px 16px;
+    }
+    .timeline-meta { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+    .timeline-headline { font-weight: 700; margin-bottom: 8px; }
+    .timeline-status { margin-bottom: 10px; }
+    .timeline-points { margin: 0; padding-left: 18px; color: var(--muted); }
+    .timeline-points li + li { margin-top: 6px; }
+    .timeline-link { margin-top: 12px; font-size: 13px; }
+    .platform-board {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+    }
+    .platform-lane {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      min-height: 220px;
+    }
+    .platform-lane-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 14px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(90deg, color-mix(in srgb, var(--lane-accent) 24%, transparent), rgba(255,255,255,0.02));
+    }
+    .platform-lane-body {
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+    .draft-card {
+      background: rgba(8,12,24,0.66);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+    .draft-card.status-missing {
+      border-style: dashed;
+      background: rgba(255,93,115,0.05);
+    }
+    .draft-card-meta {
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .draft-card-title {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+    .draft-card-topic {
+      color: #91a9df;
+      font-size: 12px;
+      word-break: break-all;
+    }
+    .draft-card-preview {
+      color: var(--muted);
+      font-size: 13px;
+      min-height: 44px;
+    }
+    .draft-card-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .draft-empty {
+      padding: 16px;
+      border: 1px dashed var(--line);
+      border-radius: 14px;
+      color: var(--muted);
+      text-align: center;
+    }
+    .empty-note {
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+      border: 1px dashed var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .search-box {
+      width: min(420px, 100%);
+      margin: 0 0 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      color: var(--text);
+      outline: none;
+    }
+    .footnote {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 12px;
+    }
+    @media (max-width: 900px) {
+      .page { padding: 20px 14px 56px; }
+      .hero h1 { font-size: 28px; }
+      .section { padding: 18px; }
+      .section-head { flex-direction: column; }
+      .chips { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="jump-nav">
+    <div class="jump-nav-inner">
+      <a href="#intake">① 信息 Intake</a>
+      <a href="#top20">② Top20</a>
+      <a href="#selection">③ 最终锁题</a>
+      <a href="#drafts">④ 稿件池</a>
+    </div>
+  </div>
+  <main class="page">
+    <section class="hero">
+      <h1>同行资本市场内容系统｜业务可视化看板</h1>
+      <div class="hero-meta">
+        <span>业务日：2026-03-29</span>
+        <span>统计窗口：2026-03-28 19:00 → 2026-03-29 12:20 CST</span>
+        <span>规则：T-1 19:00 → T 12:20</span>
+        <span>生成时间：2026-03-29 01:23:22 CST</span>
+      </div>
+      <div class="metrics">
+        <div class="metric-card"><div class="metric-label">今日获取的信息</div><div class="metric-value">33</div><div class="metric-sub">按业务窗统计，不按自然日</div></div>
+        <div class="metric-card"><div class="metric-label">Top20 候选</div><div class="metric-value">0</div><div class="metric-sub">signal-scout 收束后的正式候选</div></div>
+        <div class="metric-card"><div class="metric-label">最终锁题</div><div class="metric-value">0</div><div class="metric-sub">approved topic 唯一 topic 数</div></div>
+        <div class="metric-card"><div class="metric-label">平台稿件卡</div><div class="metric-value">7</div><div class="metric-sub">真实草稿文件 + 待生成槽位</div></div>
+        <div class="metric-card"><div class="metric-label">流程异常</div><div class="metric-value">3</div><div class="metric-sub">用于暴露当前链路穿透与断点</div></div>
+      </div>
+      <div class="warning-panel">
+        <h3>当前最该盯的异常</h3>
+        <ul class="warning-list"><li>`aibuildai-mle-bench-top` 已是 ready，但还没找到 content-pack 红队 / 裁判记录。</li><li>`kunlun-agi-three-models-2026` 已是 ready，但还没找到 content-pack 红队 / 裁判记录。</li><li>`turboquant-qwen-macbook-air` 已是 ready，但还没找到 content-pack 红队 / 裁判记录。</li></ul>
+      </div>
+    </section>
+
+    <section id="intake" class="section">
+      <div class="section-head">
+        <div>
+          <h2>① 今日获取的信息</h2>
+          <div class="section-sub">先看业务窗内真实抓回了什么，再决定后面的筛选是不是站得住。</div>
+        </div>
+        <div class="chips">
+          <span class="chip chip-good">共 33 条</span>
+          <span class="chip chip-neutral">微信公众号 20</span><span class="chip chip-neutral">web 12</span><span class="chip chip-neutral">B站 1</span>
+        </div>
+      </div>
+      <div class="stage-grid">
+        <div class="status-card"><strong>业务窗口</strong>2026-03-28 19:00 → 2026-03-29 12:20 CST</div>
+        <div class="status-card"><strong>一手性字段</strong>用 `primary_source` 显示官方 / 半一手 / 二手</div>
+        <div class="status-card"><strong>热度字段</strong>优先展示 `heat_hint`，不强行伪造统一分数</div>
+        <div class="status-card"><strong>可视素材</strong>直接展示 `visual_evidence_status`，方便看图文能力缺口</div>
+      </div>
+      <input class="search-box" id="sourceSearch" type="search" placeholder="筛今天拿到的线索：输入关键词 / 平台 / 来源名">
+      <div class="table-wrap">
+        <table id="sourceTable">
+          <thead>
+            <tr>
+              <th>一句话概述</th>
+              <th>平台</th>
+              <th>来源</th>
+              <th>热度线索</th>
+              <th>一手性</th>
+              <th>信号质量</th>
+              <th>引用可靠度</th>
+              <th>图片可用性</th>
+              <th>抓取时间</th>
+              <th>原文链接</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="summary-cell"><div class="row-title">GitHub Trending 抓到仓库 onyx-dot-app/onyx。当前总 stars 19,513、今日新增 870；它适合作为开源 agent / workflow / infra 真实 traction 的入口。</div><div class="row-sub">onyx-dot-app/onyx</div></td><td>web</td><td>GitHub Trending</td><td>open-source traction</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 22:45:11 CST</td><td><a href="https://github.com/onyx-dot-app/onyx" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">GitHub Trending 抓到仓库 virattt/dexter。当前总 stars 19,984、今日新增 583；它适合作为开源 agent / workflow / infra 真实 traction 的入口。</div><div class="row-sub">virattt/dexter</div></td><td>web</td><td>GitHub Trending</td><td>open-source traction</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 22:45:11 CST</td><td><a href="https://github.com/virattt/dexter" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Hacker News RSS 抓到高热新条目。它适合作为 builder / startup / AI infra 话题的扩散入口，不是最终事实源。</div><div class="row-sub">Go hard on agents, not on your filesystem</div></td><td>web</td><td>Hacker News Frontpage</td><td>builder breakout signal</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 22:45:11 CST</td><td><a href="https://jai.scs.stanford.edu/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Hacker News RSS 抓到高热新条目。它适合作为 builder / startup / AI infra 话题的扩散入口，不是最终事实源。</div><div class="row-sub">CERN uses tiny AI models burned into silicon for real-time LHC data filtering</div></td><td>web</td><td>Hacker News Frontpage</td><td>builder breakout signal</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 22:45:11 CST</td><td><a href="https://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Founder Park 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">ChatGPT 让所有人变成了超级个体，却没让你的公司成为超级组织</div></td><td>微信公众号</td><td>Founder Park</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 21:56:17 CST</td><td><a href="https://mp.weixin.qq.com/s/TKpyQ2fbI_rV6EsXyHxMcw" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">极客公园 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">从全民养虾到产业落地，腾讯云在 Agent 时代押注了什么？</div></td><td>微信公众号</td><td>极客公园</td><td>media entrance</td><td>2 / 半一手</td><td>中</td><td>中</td><td>已探测</td><td>2026-03-28 21:56:17 CST</td><td><a href="https://mp.weixin.qq.com/s/XSwd8ROjk1PjV95vLrCvhw" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">机器之心 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">151个软件包，暗藏肉眼不可见的恶意代码，AI批量生成的？</div></td><td>微信公众号</td><td>机器之心</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 21:56:17 CST</td><td><a href="https://mp.weixin.qq.com/s/OfofM1Gs-h-VfqbOtJuWrw" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">机器之心 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">血洗内存股900亿刀的谷歌AI论文，竟涉嫌学术造假</div></td><td>微信公众号</td><td>机器之心</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 21:56:17 CST</td><td><a href="https://mp.weixin.qq.com/s/sKTxnkgJX-iNDSVkgsgLQQ" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">机器之心 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">ICRA 2026 | LLM+运筹优化：工业级多机器人协同控制软件生成新范式</div></td><td>微信公众号</td><td>机器之心</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 21:56:17 CST</td><td><a href="https://mp.weixin.qq.com/s/k-C_8ZHWktTRGa3kaq0Lcw" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">量子位 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">英伟达Agent超越人类GPU专家！连续7天自主进化，优化算子性能碾压FlashAttention-4</div></td><td>微信公众号</td><td>量子位</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 21:56:17 CST</td><td><a href="https://mp.weixin.qq.com/s/fLsjTrl8cN867970Mb92sQ" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">量子位 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">一年一度最值得关注的AI榜单来啦！申报即日启动</div></td><td>微信公众号</td><td>量子位</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 21:56:17 CST</td><td><a href="https://mp.weixin.qq.com/s/A9xQjvm-yyrZm8oDyF6p5w" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">量子位 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">AI「活在同一个世界里」了！首个共享世界生成模型IC-World登场</div></td><td>微信公众号</td><td>量子位</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 21:56:17 CST</td><td><a href="https://mp.weixin.qq.com/s/sekNifQofIhk9YiS3z3xWw" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">B站热门榜抓到 AI 相关视频“中国版《迪迦奥特曼：光之归来》30周年重启迪迦”。它适合作为中文视频热榜入口，帮助判断 AI 话题是否开始向大众用户扩散，并识别可被重构的话题切口。</div><div class="row-sub">中国版《迪迦奥特曼：光之归来》30周年重启迪迦</div></td><td>B站</td><td>Bilibili Popular All / AI-Relevant</td><td>bilibili popular</td><td>2 / 半一手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-03-28 21:41:45 CST</td><td><a href="https://www.bilibili.com/video/BV1CYXNBSE1K" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/ChatGPT 的日榜 RSS 收录了“I watched a drunk guy have a phone call with ChatGPT on the bus”，当前位于本轮抓取顺序第 1 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">I watched a drunk guy have a phone call with ChatGPT on the bus</div></td><td>web</td><td>Reddit / ChatGPT Daily Top</td><td>daily top rss / rank 1</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-03-28 21:23:32 CST</td><td><a href="https://old.reddit.com/r/ChatGPT/comments/1s5joi0/i_watched_a_drunk_guy_have_a_phone_call_with/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/ChatGPT 的日榜 RSS 收录了“Pro no longer unlimited?”，当前位于本轮抓取顺序第 3 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">Pro no longer unlimited?</div></td><td>web</td><td>Reddit / ChatGPT Daily Top</td><td>daily top rss / rank 3</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-03-28 21:23:32 CST</td><td><a href="https://old.reddit.com/r/ChatGPT/comments/1s576nr/pro_no_longer_unlimited/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/ClaudeAI 的日榜 RSS 收录了“An open letter to Anthropic: Want to free up compute during peak hours? How about restricting free accounts to off peak hours instead of punishing your paid users”，当前位于本轮抓取顺序第 3 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">An open letter to Anthropic: Want to free up compute during peak hours? How about restricting free accounts to off peak hours instead of punishing your paid users</div></td><td>web</td><td>Reddit / ClaudeAI Daily Top</td><td>daily top rss / rank 3</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-03-28 21:23:32 CST</td><td><a href="https://old.reddit.com/r/ClaudeAI/comments/1s5nxwe/an_open_letter_to_anthropic_want_to_free_up/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/ClaudeAI 的日榜 RSS 收录了“Claude watching me write code manually after I hit the daily limit”，当前位于本轮抓取顺序第 1 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">Claude watching me write code manually after I hit the daily limit</div></td><td>web</td><td>Reddit / ClaudeAI Daily Top</td><td>daily top rss / rank 1</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-03-28 21:23:32 CST</td><td><a href="https://old.reddit.com/r/ClaudeAI/comments/1s5ok5r/claude_watching_me_write_code_manually_after_i/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/ClaudeAI 的日榜 RSS 收录了“Subscribed yesterday to Pro and I’m already hit by limits. Is this a scam?”，当前位于本轮抓取顺序第 4 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">Subscribed yesterday to Pro and I’m already hit by limits. Is this a scam?</div></td><td>web</td><td>Reddit / ClaudeAI Daily Top</td><td>daily top rss / rank 4</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-03-28 21:23:32 CST</td><td><a href="https://old.reddit.com/r/ClaudeAI/comments/1s54pfu/subscribed_yesterday_to_pro_and_im_already_hit_by/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/LocalLLaMA 的日榜 RSS 收录了“Google’s TurboQuant AI-compression algorithm can reduce LLM memory usage by 6x”，当前位于本轮抓取顺序第 4 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">Google’s TurboQuant AI-compression algorithm can reduce LLM memory usage by 6x</div></td><td>web</td><td>Reddit / LocalLLaMA Daily Top</td><td>daily top rss / rank 4</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-03-28 21:23:32 CST</td><td><a href="https://old.reddit.com/r/LocalLLaMA/comments/1s57ky1/googles_turboquant_aicompression_algorithm_can/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">饼干哥哥AGI 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">用AI 48小时速通梅花易数之后，我想通了「学习」的最终解</div></td><td>微信公众号</td><td>饼干哥哥AGI</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 19:58:46 CST</td><td><a href="https://mp.weixin.qq.com/s/EAj1ihqvmiy2mUu1D5eu7w" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">饼干哥哥AGI 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">小龙虾openclaw可以原生接入微信了</div></td><td>微信公众号</td><td>饼干哥哥AGI</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 19:58:46 CST</td><td><a href="https://mp.weixin.qq.com/s/hr26sFFRIAsfN_rLPxuaMw" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">饼干哥哥AGI 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">OpenClaw跑假数据的问题，被这个跨境电商Agent解决了</div></td><td>微信公众号</td><td>饼干哥哥AGI</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 19:58:46 CST</td><td><a href="https://mp.weixin.qq.com/s/fW-8_10srRbHH0i0DjYhew" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">饼干哥哥AGI 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">OpenClaw的最佳省钱攻略：几十块的方舟Coding Plan直接让跨境 AI 团队成本降了 90%</div></td><td>微信公众号</td><td>饼干哥哥AGI</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 19:58:46 CST</td><td><a href="https://mp.weixin.qq.com/s/hJpI_JPAaMSEO_FPPa1NJw" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">数字生命卡兹克 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">安利一个11万Star的必装插件，能让你的Agent体验直接质变。</div></td><td>微信公众号</td><td>数字生命卡兹克</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 19:58:46 CST</td><td><a href="https://mp.weixin.qq.com/s/06zQ7izFKN7oZnzVaNwkdw" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">数字生命卡兹克 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">2026，我们倾尽所有，想为大家办一场万人AI大会丨AIFUT。</div></td><td>微信公众号</td><td>数字生命卡兹克</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 19:58:46 CST</td><td><a href="https://mp.weixin.qq.com/s/TVpDvuHMd2OvWdIsnlp9bA" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">数字生命卡兹克 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">Claude能直接操控你的电脑微信了，这才是真正的上位小龙虾。</div></td><td>微信公众号</td><td>数字生命卡兹克</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 19:58:46 CST</td><td><a href="https://mp.weixin.qq.com/s/Trc0nbnE_faVTbG1IjDX3w" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">数字生命卡兹克 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">刚刚，飞书CLI开源，Claude Code也可以丝滑操控飞书了。</div></td><td>微信公众号</td><td>数字生命卡兹克</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 19:58:46 CST</td><td><a href="https://mp.weixin.qq.com/s/fvjxT_GgbEgxgsPCUlo-RQ" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">赛博禅心 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">Agent，能自动做生意、赚真钱了</div></td><td>微信公众号</td><td>赛博禅心</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 19:58:46 CST</td><td><a href="https://mp.weixin.qq.com/s/rf9T4VFKosFJYt1s9_fOwQ" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">赛博禅心 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">后端互通，Agent 才能协作｜对话 Taku 团队</div></td><td>微信公众号</td><td>赛博禅心</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 19:58:46 CST</td><td><a href="https://mp.weixin.qq.com/s/xmxYKHAFn9KH3tcuqhCMew" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">赛博禅心 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">给 AI 配张银行卡：Stripe 半年搭完的 Agent 支付全景</div></td><td>微信公众号</td><td>赛博禅心</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 19:58:46 CST</td><td><a href="https://mp.weixin.qq.com/s/3Pzo4iu7j1YP1_uO4NwGkQ" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">赛博禅心 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">飞书出了官方 CLI，消息、文档、日历、邮箱都能用 Agent 操作了</div></td><td>微信公众号</td><td>赛博禅心</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-03-28 19:58:46 CST</td><td><a href="https://mp.weixin.qq.com/s/lrihiZonqug-xi4sHMviVg" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">FinSMEs AI Funding / Google News Fallback RSS 抓到新条目“Formulary Financial Raises $4.6M in Seed Funding - FinSMEs”。这类媒体稿通常适合作为融资、新产品、新公司与产业变动的入口，后续需要继续回链公司官网、融资公告或创始人原话。</div><div class="row-sub">Formulary Financial Raises $4.6M in Seed Funding - FinSMEs</div></td><td>web</td><td>FinSMEs AI Funding / Google News Fallback</td><td>financing entrance + blocked-source fallback</td><td>1 / 二手</td><td>偏低</td><td>低</td><td>已探测</td><td>2026-03-28 19:12:10 CST</td><td><a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxNOUxKUUNnbUJncHJ4d284QXRrbDU2MlpHaHN0RURHbzhrZkJ2ODJRUlBqY09OQjBhYUk4SklBSHNMR3U4Rmw2VzdNSHNibHBxTFg0S2RDMDBub2hhTXN0R21IdUF4ZXFOcnJ0VjEyeVNvRkF5ZG1wb1JDNWFCZ3kyaVItRHFleVV4eTdxOQ?oc=5" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">FinSMEs AI Funding / Google News Fallback RSS 抓到新条目“Qontext Raises $2.7M in Pre-Seed Funding - FinSMEs”。这类媒体稿通常适合作为融资、新产品、新公司与产业变动的入口，后续需要继续回链公司官网、融资公告或创始人原话。</div><div class="row-sub">Qontext Raises $2.7M in Pre-Seed Funding - FinSMEs</div></td><td>web</td><td>FinSMEs AI Funding / Google News Fallback</td><td>financing entrance + blocked-source fallback</td><td>1 / 二手</td><td>偏低</td><td>低</td><td>已探测</td><td>2026-03-28 19:12:10 CST</td><td><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxObE4ycUJ2LVRaX3B6SUJUaGRUbFM5ekNla2ZxblJNVmg2eUx1TmQ1bnJkN3hNQkJkWDlRVzN6WVVSVGNuTnB3Q2Qxa1o4RVd6ZkR5dzk1V1pzTlNzR19XeVJBYkJrdldZSzljVHhQbTZrNTIzSnNqcC1XZ0otVkJOSmJ3?oc=5" target="_blank" rel="noreferrer">原文</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="footnote">这块刻意不直接用“覆盖度”打分，因为 stage 1 的职责是把真实输入拿回来；覆盖度与破圈验证在后续 Top20 / 锁题阶段再算更合理。</div>
+    </section>
+
+    <section id="top20" class="section">
+      <div class="section-head">
+        <div>
+          <h2>② 今日入选 Top20</h2>
+          <div class="section-sub">看 signal-scout 把什么送进了候选池，以及这一轮攻防到底把哪些问题打出来了。</div>
+        </div>
+        <div class="chips">
+          <span class="chip chip-good">Top20 0 条</span>
+          <span class="chip chip-neutral">revision: n/a</span>
+          <span class="chip chip-good">看板会主动标记文件不一致</span>
+        </div>
+      </div>
+      <div class="stage-grid">
+        <div class="status-card"><strong>当前包</strong><a href="file:///Users/apple/Documents/%E5%90%8C%E8%A1%8C%E8%B5%84%E6%9C%AC%E5%B8%82%E5%9C%BA%E5%86%85%E5%AE%B9%E7%B3%BB%E7%BB%9F/03_topic_candidates/20260329__top20-screening-pack.md">20260329__top20-screening-pack.md</a></div>
+        <div class="status-card"><strong>包生成时间</strong>n/a</div>
+        <div class="status-card"><strong>流程告警</strong>当前未发现额外告警</div>
+      </div>
+      <div class="empty-note good-note">当前没发现新的流程穿透问题。</div>
+      <div class="table-wrap" style="margin-top:14px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>入选信息</th>
+              <th>主平台</th>
+              <th>一手性</th>
+              <th>传播性</th>
+              <th>破圈性</th>
+              <th>总分</th>
+              <th>入选原因</th>
+              <th>原文链接</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+          </tbody>
+        </table>
+      </div>
+      <h3 style="margin:18px 0 10px;">Top20 攻防记录</h3>
+      <div class="timeline">
+        <div class="empty-note">当前还没有拿到这一环节的攻防记录。</div>
+      </div>
+    </section>
+
+    <section id="selection" class="section">
+      <div class="section-head">
+        <div>
+          <h2>③ 20 进几，最后留下了谁</h2>
+          <div class="section-sub">这里按真实 downstream 对象展示：当前已经物化成 approved topic 的唯一题目集合。</div>
+        </div>
+        <div class="chips">
+          <span class="chip chip-good">20 → 0</span>
+          <span class="chip chip-neutral">approved topic = 真正往下游走的对象</span>
+        </div>
+      </div>
+      <div class="stage-grid">
+        <div class="status-card"><strong>Top5 推荐板</strong><a href="file:///Users/apple/Documents/%E5%90%8C%E8%A1%8C%E8%B5%84%E6%9C%AC%E5%B8%82%E5%9C%BA%E5%86%85%E5%AE%B9%E7%B3%BB%E7%BB%9F/03_topic_candidates/20260329__daily-top8-to-top5.md">20260329__daily-top8-to-top5.md</a></div>
+        <div class="status-card"><strong>平台任务单</strong><a href="file:///Users/apple/Documents/%E5%90%8C%E8%A1%8C%E8%B5%84%E6%9C%AC%E5%B8%82%E5%9C%BA%E5%86%85%E5%AE%B9%E7%B3%BB%E7%BB%9F/03_topic_candidates/20260329__platform-task-sheet.md">20260329__platform-task-sheet.md</a></div>
+        <div class="status-card"><strong>当前流程风险</strong>没有发现平台锁题穿透</div>
+      </div>
+      <div class="empty-note good-note">当前没发现新的流程穿透问题。</div>
+      <div class="table-wrap" style="margin-top:14px;">
+        <table>
+          <thead>
+            <tr>
+              <th>原序号</th>
+              <th>最终留下的题</th>
+              <th>目标平台</th>
+              <th>锁题角度</th>
+              <th>入选原因</th>
+              <th>状态</th>
+              <th>锁题时间</th>
+              <th>任务卡</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="8">当前还没有锁题结果；如果这里应当有题，但 Top20 / 任务单 / approved topic 不一致，说明流程存在穿透或 provenance 错配。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 style="margin:18px 0 10px;">锁题攻防记录</h3>
+      <div class="timeline">
+        <div class="empty-note">当前还没有拿到这一环节的攻防记录。</div>
+      </div>
+    </section>
+
+    <section id="drafts" class="section">
+      <div class="section-head">
+        <div>
+          <h2>④ 稿件池 / 平台草稿箱</h2>
+          <div class="section-sub">这块先做成虚拟草稿箱，但全部基于真实 draft pack 和平台稿文件渲染，不贴历史大版本，只展示当前成品与攻防要点。</div>
+        </div>
+        <div class="chips">
+          <span class="chip chip-good">草稿卡 7 张</span>
+          <span class="chip chip-neutral">攻防摘要 4 条</span>
+        </div>
+      </div>
+      <ul class="warning-list"><li>`aibuildai-mle-bench-top` 已是 ready，但还没找到 content-pack 红队 / 裁判记录。</li><li>`kunlun-agi-three-models-2026` 已是 ready，但还没找到 content-pack 红队 / 裁判记录。</li><li>`turboquant-qwen-macbook-air` 已是 ready，但还没找到 content-pack 红队 / 裁判记录。</li></ul>
+      <div class="platform-board" style="margin-top:14px;">
+        <div class="platform-lane" style="--lane-accent:#07c160"><div class="platform-lane-head"><span>微信公众号</span><span>1</span></div><div class="platform-lane-body"><div class="draft-card status-ready"><div class="draft-card-meta"><span class="chip chip-good">ready</span> · 2026-03-29 00:35:06 CST</div><div class="draft-card-title">昆仑万维连发 3 个模型，大厂模型竞争开始换打法</div><div class="draft-card-topic">kunlun-agi-three-models-2026</div><div class="draft-card-preview">很多人会把“昆仑万维连发 3 个模型”当成一条快讯，但如果把它放回今天的行业竞争里看，真正重要的不是发布本身，而是 昆仑万维一口气发布 3 个模型并亮出 2026 AGI 战略。</div><div class="draft-card-footer"><span>草稿文件已落盘</span><span><a href="file:///Users/apple/Documents/%E5%90%8C%E8%A1%8C%E8%B5%84%E6%9C%AC%E5%B8%82%E5%9C%BA%E5%86%85%E5%AE%B9%E7%B3%BB%E7%BB%9F/05_draft_packs/kunlun-agi-three-models-2026/wechat.md">打开稿件</a></span></div></div></div></div><div class="platform-lane" style="--lane-accent:#ff2442"><div class="platform-lane-head"><span>小红书</span><span>1</span></div><div class="platform-lane-body"><div class="draft-card status-ready"><div class="draft-card-meta"><span class="chip chip-good">ready</span> · 2026-03-29 00:17:20 CST</div><div class="draft-card-title">你的 MacBook Air 也能跑 AI 大模型了</div><div class="draft-card-topic">turboquant-qwen-macbook-air</div><div class="draft-card-preview">副文案：消费级硬件也能跑大模型</div><div class="draft-card-footer"><span>草稿文件已落盘</span><span><a href="file:///Users/apple/Documents/%E5%90%8C%E8%A1%8C%E8%B5%84%E6%9C%AC%E5%B8%82%E5%9C%BA%E5%86%85%E5%AE%B9%E7%B3%BB%E7%BB%9F/05_draft_packs/turboquant-qwen-macbook-air/xiaohongshu.md">打开稿件</a></span></div></div></div></div><div class="platform-lane" style="--lane-accent:#1677ff"><div class="platform-lane-head"><span>知乎</span><span>2</span></div><div class="platform-lane-body"><div class="draft-card status-ready"><div class="draft-card-meta"><span class="chip chip-good">ready</span> · 2026-03-29 01:22:04 CST</div><div class="draft-card-title">如何看待AIBuildAI 自动搭模型？</div><div class="draft-card-topic">aibuildai-mle-bench-top</div><div class="draft-card-preview">先说结论：AIBuildAI 把“自然语言描述任务 → 自动构建 AI 模型”推进到可 benchmark 的层级，并拿到 OpenAI MLE-Bench 榜单第一。</div><div class="draft-card-footer"><span>草稿文件已落盘</span><span><a href="file:///Users/apple/Documents/%E5%90%8C%E8%A1%8C%E8%B5%84%E6%9C%AC%E5%B8%82%E5%9C%BA%E5%86%85%E5%AE%B9%E7%B3%BB%E7%BB%9F/05_draft_packs/aibuildai-mle-bench-top/zhihu.md">打开稿件</a></span></div></div><div class="draft-card status-ready"><div class="draft-card-meta"><span class="chip chip-good">ready</span> · 2026-03-29 00:35:06 CST</div><div class="draft-card-title">如何看待昆仑万维连发 3 个模型？</div><div class="draft-card-topic">kunlun-agi-three-models-2026</div><div class="draft-card-preview">先说结论：真正值得看的不是“又发了几个模型”，而是国产大模型公司已经开始把模型矩阵、AGI 节奏和平台位置一起打包叙述。</div><div class="draft-card-footer"><span>草稿文件已落盘</span><span><a href="file:///Users/apple/Documents/%E5%90%8C%E8%A1%8C%E8%B5%84%E6%9C%AC%E5%B8%82%E5%9C%BA%E5%86%85%E5%AE%B9%E7%B3%BB%E7%BB%9F/05_draft_packs/kunlun-agi-three-models-2026/zhihu.md">打开稿件</a></span></div></div></div></div><div class="platform-lane" style="--lane-accent:#111111"><div class="platform-lane-head"><span>X</span><span>2</span></div><div class="platform-lane-body"><div class="draft-card status-ready"><div class="draft-card-meta"><span class="chip chip-good">ready</span> · 2026-03-29 01:22:03 CST</div><div class="draft-card-title">为什么 OpenAI 这次讲的不只是公益，而是平台长期合法性叙事</div><div class="draft-card-topic">openai-foundation-strategy</div><div class="draft-card-preview">---</div><div class="draft-card-footer"><span>草稿文件已落盘</span><span><a href="file:///Users/apple/Documents/%E5%90%8C%E8%A1%8C%E8%B5%84%E6%9C%AC%E5%B8%82%E5%9C%BA%E5%86%85%E5%AE%B9%E7%B3%BB%E7%BB%9F/05_draft_packs/openai-foundation-strategy/x.md">打开稿件</a></span></div></div><div class="draft-card status-ready"><div class="draft-card-meta"><span class="chip chip-good">ready</span> · 2026-03-29 00:17:20 CST</div><div class="draft-card-title">Google TurboQuant 量化算法: 消费级硬件也能跑大模型</div><div class="draft-card-topic">turboquant-qwen-macbook-air</div><div class="draft-card-preview">1/ Google 量化算法开源 + Qwen 组合在消费级硬件上实现以前只有高算力设备才有的 context 长度</div><div class="draft-card-footer"><span>草稿文件已落盘</span><span><a href="file:///Users/apple/Documents/%E5%90%8C%E8%A1%8C%E8%B5%84%E6%9C%AC%E5%B8%82%E5%9C%BA%E5%86%85%E5%AE%B9%E7%B3%BB%E7%BB%9F/05_draft_packs/turboquant-qwen-macbook-air/x.md">打开稿件</a></span></div></div></div></div><div class="platform-lane" style="--lane-accent:#00a1d6"><div class="platform-lane-head"><span>B站</span><span>1</span></div><div class="platform-lane-body"><div class="draft-card status-ready"><div class="draft-card-meta"><span class="chip chip-good">ready</span> · 2026-03-29 00:17:20 CST</div><div class="draft-card-title">llama.cpp 接入 TurboQuant</div><div class="draft-card-topic">turboquant-qwen-macbook-air</div><div class="draft-card-preview">先说结论：TurboQuant 量化算法 patch 进 llama.cpp，在普通 MacBook Air（M4, 16GB）上跑通 Qwen 3.5-9B，20000 token context。</div><div class="draft-card-footer"><span>草稿文件已落盘</span><span><a href="file:///Users/apple/Documents/%E5%90%8C%E8%A1%8C%E8%B5%84%E6%9C%AC%E5%B8%82%E5%9C%BA%E5%86%85%E5%AE%B9%E7%B3%BB%E7%BB%9F/05_draft_packs/turboquant-qwen-macbook-air/bilibili.md">打开稿件</a></span></div></div></div></div><div class="platform-lane" style="--lane-accent:#ff4d4f"><div class="platform-lane-head"><span>今日头条</span><span>0</span></div><div class="platform-lane-body"><div class="draft-empty">今日这个平台还没有落到草稿箱的稿件。</div></div></div><div class="platform-lane" style="--lane-accent:#376bff"><div class="platform-lane-head"><span>百家号</span><span>0</span></div><div class="platform-lane-body"><div class="draft-empty">今日这个平台还没有落到草稿箱的稿件。</div></div></div>
+      </div>
+      <h3 style="margin:22px 0 10px;">成品攻防摘要</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>topic</th>
+              <th>平台</th>
+              <th>pack 状态</th>
+              <th>最后动作</th>
+              <th>裁判分 / 状态</th>
+              <th>本轮主要不合格</th>
+              <th>下一步该改什么</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>aibuildai-mle-bench-top</td><td>zhihu</td><td>ready</td><td>n/a</td><td>n/a</td><td>尚未进入正式攻防</td><td>等 redteam / judge 产出整改指令</td></tr><tr><td>kunlun-agi-three-models-2026</td><td>wechat, zhihu</td><td>ready</td><td>n/a</td><td>n/a</td><td>尚未进入正式攻防</td><td>等 redteam / judge 产出整改指令</td></tr><tr><td>openai-foundation-strategy</td><td>x</td><td>ready</td><td>2026-03-27 18:25 CST</td><td>6.5 / 10</td><td>Sources 列了 publication name 但无 URL，X thread 零容错，这是最紧迫问题；标题池 6 个选项结构同构，与 kv-cache-6x-shift 犯同一错误；&quot;2025 年 10 月重组&quot;的时间戳未经独立核查</td><td>等 redteam / judge 产出整改指令</td></tr><tr><td>turboquant-qwen-macbook-air</td><td>bilibili, x, xiaohongshu</td><td>ready</td><td>n/a</td><td>n/a</td><td>尚未进入正式攻防</td><td>等 redteam / judge 产出整改指令</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="footnote">如果你想看某一篇的全过程，这里会给你当前最新 redteam / scorecard 的摘要；不会把历史整稿直接贴满页面。</div>
+    </section>
+  </main>
+  <script>
+    const searchInput = document.getElementById('sourceSearch');
+    const sourceTable = document.getElementById('sourceTable');
+    if (searchInput && sourceTable) {
+      searchInput.addEventListener('input', (event) => {
+        const keyword = event.target.value.trim().toLowerCase();
+        const rows = sourceTable.querySelectorAll('tbody tr');
+        rows.forEach((row) => {
+          const text = row.innerText.toLowerCase();
+          row.style.display = !keyword || text.includes(keyword) ? '' : 'none';
+        });
+      });
+    }
+  </script>
+</body>
+</html>

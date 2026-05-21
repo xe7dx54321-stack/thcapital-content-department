@@ -1,0 +1,1172 @@
+{
+  "meta": {
+    "generated_at": "2026-05-06 23:28:11 CST",
+    "date": "2026-05-06",
+    "window_rule": "T-1 17:00 → T 14:30"
+  },
+  "paths": {
+    "markdown": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260506__head-media-learning-board.md",
+    "html": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260506__head-media-learning-board.html",
+    "json": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260506__head-media-learning-board.snapshot.json",
+    "rulebook_markdown": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/20260506__head-media-learning-rulebook-v1.md",
+    "rulebook_latest": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/latest__head-media-learning-rulebook-v1.md",
+    "optimization_state": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/_console_state/learning_optimization_state.json"
+  },
+  "overview": {
+    "sample_count": 8,
+    "ready_topic_count": 21,
+    "strategic_rotation_count": 4,
+    "strategic_rotation_blocked": 0,
+    "sample_source_mix": [
+      [
+        "量子位",
+        4
+      ],
+      [
+        "极客公园",
+        2
+      ],
+      [
+        "机器之心",
+        2
+      ]
+    ],
+    "median_first_image_after_text_paragraphs": 2.5,
+    "median_sample_image_count": 10.0,
+    "takeaways": [
+      "先用判断或反差把人拉住，再在前 10%-15% 内补齐背景。",
+      "证据要早，不要让读者一直听抽象判断。",
+      "图片要承担证明、解释、换气三种职责，而不是只做装饰。",
+      "写稿时优先补证、补背景、补图，而不是遇到问题就直接换题。",
+      "学习不只反哺写稿岗，还要反哺 source / seed / topic 三层，持续校正“今天该追什么题”。"
+    ],
+    "optimization_total": 5,
+    "optimization_active": 5,
+    "optimization_dismissed": 0
+  },
+  "samples": [
+    {
+      "source_name": "量子位",
+      "title": "马斯克破大防了：私信求和遭拒，怒喷奥特曼Brockman「全美最恶人」",
+      "published_at": "2026-05-05 14:00:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/xhMYA3iwuQqchhr7nPn-5w",
+      "char_count": 5344,
+      "image_count": 16,
+      "first_image_after_text_paragraphs": 5,
+      "hook_excerpt": "henry 发自 凹非寺 / 量子位 | 公众号 QbitAI",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "先给判断，再很快补一张证据图，图文切换节奏比较早。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260506_120737__马斯克破大防了_私信求和遭拒_怒喷奥特曼brockman_全美最恶人__deep-article.md"
+    },
+    {
+      "source_name": "量子位",
+      "title": "豆包要收费了：三档订阅最贵500元/月，保留免费基础版",
+      "published_at": "2026-05-05 11:51:03 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/izhyNSFKuObuk3nvHWP9mA",
+      "char_count": 2516,
+      "image_count": 8,
+      "first_image_after_text_paragraphs": 6,
+      "hook_excerpt": "鱼羊 发自 凹非寺 / 量子位 | 公众号 QbitAI",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "先给判断，再很快补一张证据图，图文切换节奏比较早。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260506_120725__豆包要收费了_三档订阅最贵500元_月_保留免费基础版__deep-article.md"
+    },
+    {
+      "source_name": "极客公园",
+      "title": "谷歌、英伟达押注，这家估值 40 亿美元的 AI 公司，想把科学家直接干掉",
+      "published_at": "2026-05-05 12:00:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/nRy1hLyREGgXDlK8gGAm9A",
+      "char_count": 3878,
+      "image_count": 7,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "自学习 AI 的融资神话，正在告诉我们一件事——这场 AI 军备竞赛，连研究员本身都要被「卷」进去了。 / 作者｜桦林舞王",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260506_120713__谷歌_英伟达押注_这家估值_40_亿美元的_ai_公司_想把科学家直接干掉__deep-article.md"
+    },
+    {
+      "source_name": "量子位",
+      "title": "“DeepSeek版Claude Code”，Github 2.3k星",
+      "published_at": "2026-05-04 12:23:33 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/TJs_LzkFaBxAD0rbrUXLxA",
+      "char_count": 3611,
+      "image_count": 19,
+      "first_image_after_text_paragraphs": 7,
+      "hook_excerpt": "克雷西 发自 凹非寺 / 量子位 | 公众号 QbitAI",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首图位置相对靠后，更像是在结构展开后用图片换气。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260505_122040__deepseek版claude_code_github_2_3k星__deep-article.md"
+    },
+    {
+      "source_name": "极客公园",
+      "title": "Anthropic 搞了个全是 AI 的闲鱼群，大模型在里面互割起了韭菜",
+      "published_at": "2026-05-04 12:00:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/f-TA9pmFxqZeVevMnvMvew",
+      "char_count": 4788,
+      "image_count": 11,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "AI 时代的算力代差，是最高昂的智商税。 / 作者｜",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260505_122028__anthropic_搞了个全是_ai_的闲鱼群_大模型在里面互割起了韭菜__deep-article.md"
+    },
+    {
+      "source_name": "量子位",
+      "title": "不好！1930年的AI都来抢程序员饭碗了",
+      "published_at": "2026-05-03 17:11:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/qVdcVlKJ3GFglsuTCLbQ1w",
+      "char_count": 2591,
+      "image_count": 7,
+      "first_image_after_text_paragraphs": 8,
+      "hook_excerpt": "Jay 发自 凹非寺 / 量子位 | 公众号 QbitAI",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首图位置相对靠后，更像是在结构展开后用图片换气。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260504_131455__不好_1930年的ai都来抢程序员饭碗了__deep-article.md"
+    },
+    {
+      "source_name": "机器之心",
+      "title": "CVPR 2026 Highlight | 超越传统检索方法！我们的激光雷达重定位方法在精度和效率上双丰收",
+      "published_at": "2026-05-03 13:34:44 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/Swkvg5mRNFRws6f5Lp6tyw",
+      "char_count": 3061,
+      "image_count": 9,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "在自动驾驶的日常测试视频里，我们常能看到这样的场景： / 一辆无人车驶入幽深的地下车库，GPS 信号瞬间罢工，它只能靠激光雷达扫描周围环境，试图弄清楚 “我在哪”。然而，车辆可能已经原地掉头，拐过了好几个弯，周围只有冰冷的墙壁和立柱。就像你蒙上眼睛转了几圈，再睁开眼，面对一片空白的天花板，要准确说出自己面对的方向和所处的位置。",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260504_131443__cvpr_2026_highlight_超越传统检索方法_我们的激光雷达重定位方法在精度和效率上双丰收__deep-article.md"
+    },
+    {
+      "source_name": "机器之心",
+      "title": "CTO不香了？百亿公司高管们为何集体转身，去Anthropic当工程师",
+      "published_at": "2026-05-03 13:34:44 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/-Jcdiwal0Uh8SL-xy15ySw",
+      "char_count": 3524,
+      "image_count": 11,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "机器之心编辑部 / 一件看似「反常」的人才大迁徙，正在硅谷悄然发生……",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260504_131429__cto不香了_百亿公司高管们为何集体转身_去anthropic当工程师__deep-article.md"
+    }
+  ],
+  "strategic_rotation": [
+    {
+      "source_name": "赛博禅心",
+      "status": "archive",
+      "status_label": "历史回看",
+      "title": "Token 的译名，不再是量子位",
+      "published_at": "2026-03-24 18:54:27 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/T4sSJY2LhMsnh55rv1UtJA",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首图位置相对靠后，更像是在结构展开后用图片换气。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_231628__token_的译名_不再是量子位__deep-article.md",
+      "note": "该号近 14 天内暂无新 deep article，暂回看最近一篇高质量样本，避免战略学习断档。",
+      "source_packet_count": 23,
+      "deep_article_count": 38
+    },
+    {
+      "source_name": "数字生命卡兹克",
+      "status": "archive",
+      "status_label": "历史回看",
+      "title": "所有用OpenClaw的朋友，我都劝你先装上这个能保命的Skill。",
+      "published_at": "2026-03-13 10:49:09 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/ElpuiIh3css7XtmI9Ciwgw",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_105553__所有用openclaw的朋友_我都劝你先装上这个能保命的skill__deep-article.md",
+      "note": "该号近 14 天内暂无新 deep article，暂回看最近一篇高质量样本，避免战略学习断档。",
+      "source_packet_count": 21,
+      "deep_article_count": 15
+    },
+    {
+      "source_name": "饼干哥哥AGI",
+      "status": "archive",
+      "status_label": "历史回看",
+      "title": "用龙虾模型把跨境电商的业务SOP转成OpenClaw的Skill",
+      "published_at": "2026-03-17 15:56:16 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/ybPAEUFW4RqzmR1uOpL1gg",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "先给判断，再很快补一张证据图，图文切换节奏比较早。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_110508__用龙虾模型把跨境电商的业务sop转成openclaw的skill__deep-article.md",
+      "note": "该号近 14 天内暂无新 deep article，暂回看最近一篇高质量样本，避免战略学习断档。",
+      "source_packet_count": 25,
+      "deep_article_count": 19
+    },
+    {
+      "source_name": "袋鼠帝AI客栈",
+      "status": "archive",
+      "status_label": "历史回看",
+      "title": "阿里出手了！终于不怕OpenClaw烧token啦，直接算力自由～",
+      "published_at": "2026-02-22 17:47:58 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/ZYRkRzaDeX3lB5kIS2jDsg",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "先给判断，再很快补一张证据图，图文切换节奏比较早。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_110905__阿里出手了_终于不怕openclaw烧token啦_直接算力自由__deep-article.md",
+      "note": "该号近 14 天内暂无新 deep article，暂回看最近一篇高质量样本，避免战略学习断档。",
+      "source_packet_count": 23,
+      "deep_article_count": 7
+    }
+  ],
+  "ready_drafts": [
+    {
+      "topic_key": "ai_morning_brief_20260410",
+      "topic_title": "4月10日",
+      "approved_angle": "把 2026-04-09 17:00 到 2026-04-10 05:00 的 9 个 AI / 科技热点整理成一篇晨间聚合早报：前半段先给太长不看版，后半段逐条展开，兼顾官方更新、开发者扩散与中文圈值得继续追踪的主线。",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260410/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260410",
+      "preview": "从昨天傍晚到今天凌晨，Anthropic 的动作一口气占了三条",
+      "char_count": 3697,
+      "section_count": 4,
+      "visual_asset_count": 1,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `1` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "ai_morning_brief_20260413",
+      "topic_title": "4月13日",
+      "approved_angle": "把 T-1 17:00 到 T 05:00 的 8-10 个 AI / 科技热点，整理成一篇适合早晨快速阅读的聚合早报；前半段先做太长不看，后半段再逐条展开，并在文末呼应今日最值得继续追踪的线索。",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260413/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260413",
+      "preview": "清明后第一个完整工作周，AI圈没有\"假期休整\"这回事",
+      "char_count": 4760,
+      "section_count": 4,
+      "visual_asset_count": 1,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `1` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "ai_morning_brief_20260414",
+      "topic_title": "4月14日",
+      "approved_angle": "把 T-1 17:00 到 T 05:00 的 8-10 个 AI / 科技热点，整理成一篇适合早晨快速阅读的聚合早报；前半段先做“太长不看”，后半段再逐条展开，并在文末呼应今日最值得继续追踪的线索。",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260414/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260414",
+      "preview": "4月14日，昨夜今晨的AI圈依然没停。",
+      "char_count": 2528,
+      "section_count": 4,
+      "visual_asset_count": 1,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `1` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "ai_morning_brief_20260415",
+      "topic_title": "4月15日",
+      "approved_angle": "把 T-1 17:00 到 T 05:00 的 8-10 个 AI / 科技热点，整理成一篇适合早晨快速阅读的聚合早报；前半段先做“太长不看”，后半段再逐条展开，并在文末呼应今日最值得继续追踪的线索。",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260415/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260415",
+      "preview": "4月14日这一夜，AI 圈发生了不少值得关注的事——商业化口水仗、模型效率分化、大厂重组信号、芯片新进展，8件事，同行资本用一篇早报全部消化完",
+      "char_count": 3380,
+      "section_count": 4,
+      "visual_asset_count": 1,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `1` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "ai_morning_brief_20260416",
+      "topic_title": "4月16日",
+      "approved_angle": "把 T-1 17:00 到 T 05:00 的 8-10 个 AI / 科技热点，整理成一篇适合早晨快速阅读的聚合早报；前半段先做“太长不看”，后半段再逐条展开，并在文末呼应今日最值得继续追踪的线索。",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260416/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260416",
+      "preview": "![AI早报封面｜4月16日](asset://cover-ai-morning-brief-20260416)",
+      "char_count": 5580,
+      "section_count": 3,
+      "visual_asset_count": 1,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `1` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "ai_morning_brief_20260420",
+      "topic_title": "4月20日",
+      "approved_angle": "把 T-1 17:00 到 T 05:00 的 8-10 个 AI / 科技热点，整理成一篇适合早晨快速阅读的聚合早报；前半段先做'太长不看'，后半段再逐条展开，并在文末呼应今日最值得继续追踪的线索。",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260420/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260420",
+      "preview": "同行资本 TH Capital | AI 领域晨间信息聚合",
+      "char_count": 1969,
+      "section_count": 3,
+      "visual_asset_count": 1,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `1` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "ai_morning_brief_20260421",
+      "topic_title": "4月21日",
+      "approved_angle": "把 T-1 17:00 到 T 05:00 的 8-10 个 AI / 科技热点，整理成一篇适合早晨快速阅读的聚合早报；前半段先做“太长不看”，后半段再逐条展开，并在文末呼应今日最值得继续追踪的线索。",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260421/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260421",
+      "preview": "同行资本AI早报，每周一到周五早晨更新。筛选昨夜到今晨最具参考价值的AI与科技动态，用\"太长不看 + 详细展开\"的双层结构，帮你在通勤路上快速扫完、在有空时细读。",
+      "char_count": 2900,
+      "section_count": 1,
+      "visual_asset_count": 1,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `1` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+        "长文分层还不够，阅读节奏容易发闷。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。；长文分层还不够，阅读节奏容易发闷。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "ai_morning_brief_20260424",
+      "topic_title": "4月24日",
+      "approved_angle": "把 T-1 17:00 到 T 05:00 的 8-10 个 AI / 科技热点，整理成一篇适合早晨快速阅读的聚合早报；前半段先做'太长不看'，后半段再逐条展开，并在文末呼应今日最值得继续追踪的线索。",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260424/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260424",
+      "preview": "同行资本｜AI早8点前送达，每天一次，照常理一遍",
+      "char_count": 4904,
+      "section_count": 2,
+      "visual_asset_count": 1,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `1` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+        "长文分层还不够，阅读节奏容易发闷。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。；长文分层还不够，阅读节奏容易发闷。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "ai_morning_brief_20260425",
+      "topic_title": "4月25日",
+      "approved_angle": "把 T-1 17:00 到 T 05:00 的 8-10 个 AI / 科技热点，整理成一篇适合早晨快速阅读的聚合早报；前半段先做“太长不看”，后半段再逐条展开，并在文末呼应今日最值得继续追踪的线索。",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260425/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260425",
+      "preview": "同行资本 TH Capital｜每日 AI 产业信号追踪",
+      "char_count": 3073,
+      "section_count": 3,
+      "visual_asset_count": 1,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `1` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "ai_morning_brief_20260426",
+      "topic_title": "4月26日",
+      "approved_angle": "把 T-1 17:00 到 T 05:00 的 8-10 个 AI / 科技热点，整理成一篇适合早晨快速阅读的聚合早报；前半段先做太长不看，后半段再逐条展开，并在文末呼应今日最值得继续追踪的线索。",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260426/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260426",
+      "preview": "![divider](https://img.forliance.cn/th-capital/divider-placeholder.png)",
+      "char_count": 3576,
+      "section_count": 4,
+      "visual_asset_count": 1,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `1` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "ai_morning_brief_20260428",
+      "topic_title": "4月28日",
+      "approved_angle": "把 T-1 17:00 到 T 05:00 的 8-10 个 AI / 科技热点，整理成一篇适合早晨快速阅读的聚合早报；前半段先做“太长不看”，后半段再逐条展开，并在文末呼应今日最值得继续追踪的线索。",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260428/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260428",
+      "preview": "![AI早报 · 4月28日 · 8条热点速览](media/tool-image-generation/ai_morning_brief_20260428_banner---f18a444b-6510-41f1-be0d-6c7380e9f9f4.jpg)",
+      "char_count": 3577,
+      "section_count": 3,
+      "visual_asset_count": 1,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `1` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "ai_morning_brief_20260429",
+      "topic_title": "4月29日",
+      "approved_angle": "把 T-1 17:00 到 T 05:00 的 8-10 个 AI / 科技热点，整理成一篇适合早晨快速阅读的聚合早报；前半段先做“太长不看”，后半段再逐条展开，并在文末呼应今日最值得继续追踪的线索。",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260429/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260429",
+      "preview": "![AI早报 · 4月29日 · 8条热点速览](media/tool-image-generation/ai_morning_brief_20260429_banner---18b04855-5d30-4167-83b4-e134b6dad894.jpg)",
+      "char_count": 3009,
+      "section_count": 3,
+      "visual_asset_count": 1,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `1` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "ai_morning_brief_20260502",
+      "topic_title": "5月2日",
+      "approved_angle": "把 T-1 17:00 到 T 05:00 的 8-10 个 AI / 科技热点，整理成一篇适合早晨快速阅读的聚合早报；前半段先做太长不看，后半段再逐条展开，并在文末呼应今日最值得继续追踪的线索。",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260502/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260502",
+      "preview": "五一假期刚结束，AI圈并没有因为假期而冷却。",
+      "char_count": 4741,
+      "section_count": 4,
+      "visual_asset_count": 1,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `1` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "anthropic_30b_revenue_tpu_deal",
+      "topic_title": "Anthropic年化收入破300亿美元、签下3.5GW算力大单：这次不是爆款，是基础层",
+      "approved_angle": "Anthropic年化收入从90亿美元飙升至300亿美元，签下3.5GW TPU算力大单（Google+Broadcom），这个数字背后的基础设施规模含义、对竞争对手的追赶压力、以及这对投资人意味着什么",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/anthropic_30b_revenue_tpu_deal/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/anthropic_30b_revenue_tpu_deal",
+      "preview": "很多人看到\"3.5GW算力大单\"会习惯性地当成一条快讯划过。",
+      "char_count": 1963,
+      "section_count": 5,
+      "visual_asset_count": 5,
+      "strengths": [
+        "首屏已经有判断句，读者不至于一开始就掉线。",
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `5` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": true,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "anthropic_three_agent_harness_20260406",
+      "topic_title": "Anthropic亮出三 Agent 架构：让 AI 编码不再「失忆」、不再「自嗨」",
+      "approved_angle": "Anthropic发布三agent框架(planner+generator+evaluator)，用结构化工件和上下文重置解决长程自主任务中的失忆问题；evaluator独立评判防止生成agent自评过高；适用于前端设计与全栈开发；4月4日官方工程博客首发，多家媒体跟进；本文明确有别于既有Claude Code leak、karpathy等晨间题——本次聚焦Anthropic工程方法论而非模型发布",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/anthropic_three_agent_harness_20260406/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/anthropic_three_agent_harness_20260406",
+      "preview": "同行资本 TH Capital｜关注 AI 落地的工程方法论",
+      "char_count": 2155,
+      "section_count": 6,
+      "visual_asset_count": 4,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `4` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "claude_code_cache_bugs_20260331",
+      "topic_title": "Claude Code 两个缓存 Bug，为什么会把你的 API 账单悄悄放大 10—20 倍",
+      "approved_angle": "Claude Code 独立版两个缓存 Bug 导致 API 成本暴增 10-20 倍；有 GitHub Issues 完整证据链 + workaround；开发者直接受影响",
+      "platforms": [
+        "微信公众号",
+        "知乎",
+        "X"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/claude_code_cache_bugs_20260331/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/claude_code_cache_bugs_20260331",
+      "preview": "很多团队会把 AI 编程工具的成本，理解成“模型单价 × token 用量”。但过去 48 小时里，Claude Code 社区曝出的这两个缓存相关 Bug，提醒我们另一件更要命的事：同样的模型、同样的上下文，如果缓存链路悄悄失效，你最后看到的可能不是“小贵一点”的账单，而是被放大 10—20 倍的成本曲线。",
+      "char_count": 3030,
+      "section_count": 7,
+      "visual_asset_count": 10,
+      "strengths": [
+        "首屏已经有判断句，读者不至于一开始就掉线。",
+        "前几段已经开始补对象 / 事件 / why now，不是完全悬空分析。",
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `10` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [],
+      "gap_summary": "当前主问题已经从结构层补到可发布精修层。",
+      "has_internal_packaging": false,
+      "has_early_background": true,
+      "has_early_judgment": true,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "gemma_4_viral_angle_qwen3_5_comparison",
+      "topic_title": "谷歌开源 Gemma 4：以更小体量，超越更大模型",
+      "approved_angle": "Gemma 4 以小博大：Google 开源多模态模型以 1B 参数规模超越 13 倍体量的 Qwen3.5，Apache 2 许可证，机器之心首页推流，NVIDIA 官方博客加速背书，新角度切入开源模型竞争格局",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/gemma_4_viral_angle_qwen3_5_comparison/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/gemma_4_viral_angle_qwen3_5_comparison",
+      "preview": "---",
+      "char_count": 2076,
+      "section_count": 3,
+      "visual_asset_count": 4,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `4` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "karpathy_cmdline_revival_20260407",
+      "topic_title": "Karpathy强推，大厂抢着「复古」命令行",
+      "approved_angle": "AI圈复古命令行风潮：背景原因、Karpathy推文影响、大厂案例、为什么现在爆发；解读CLI工具在AI时代的意外复兴以及开发者/极客受众的实际收益",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/karpathy_cmdline_revival_20260407/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/karpathy_cmdline_revival_20260407",
+      "preview": "封面图建议：命令行终端截图叠加\"Star 1000+\"徽章，下方加一行\"AI时代，命令行反而最稳？\"",
+      "char_count": 1858,
+      "section_count": 5,
+      "visual_asset_count": 4,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `4` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "muse_spark_meta_ai_model_20260409",
+      "topic_title": "Muse Spark：Meta深夜放大招，个人超级智能来了？",
+      "approved_angle": "Meta AI新模型Muse Spark深夜上线HN引发高热讨论，定位个人超级智能，与Opus 4.6正面对决；本文明早第一波解读，给读者讲清楚这意味着什么、为什么值得关注",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/muse_spark_meta_ai_model_20260409/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/muse_spark_meta_ai_model_20260409",
+      "preview": "---",
+      "char_count": 1923,
+      "section_count": 6,
+      "visual_asset_count": 4,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `4` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "robots_bury_you_in_work_17_agents_20260331",
+      "topic_title": "我用 17 个 AI 帮自己打工",
+      "approved_angle": "开发者用 17 个 AI Agent 管理 12 个并行项目，月 1400+ commits；\"生产力陷阱\"叙事与主流 AI 焦虑反向，易破圈",
+      "platforms": [
+        "小红书",
+        "X"
+      ],
+      "representative_platform": "xiaohongshu",
+      "representative_platform_label": "小红书",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/robots_bury_you_in_work_17_agents_20260331/xiaohongshu.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/robots_bury_you_in_work_17_agents_20260331",
+      "preview": "副文案：月入 1400+ commits——但我比上班还累",
+      "char_count": 1464,
+      "section_count": 7,
+      "visual_asset_count": 4,
+      "strengths": [
+        "首屏已经有判断句，读者不至于一开始就掉线。",
+        "前几段已经开始补对象 / 事件 / why now，不是完全悬空分析。",
+        "本地已落 `4` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "正文前仍残留内部包装 / 标题候选等工序痕迹，离一键发布还差“去工单味”。",
+        "首屏证据锚点偏弱，读者会先看到判断，后看到凭据。"
+      ],
+      "gap_summary": "正文前仍残留内部包装 / 标题候选等工序痕迹，离一键发布还差“去工单味”。；首屏证据锚点偏弱，读者会先看到判断，后看到凭据。",
+      "has_internal_packaging": true,
+      "has_early_background": true,
+      "has_early_judgment": true,
+      "has_early_evidence": false
+    },
+    {
+      "topic_key": "taco_prediction_skill_20260409",
+      "topic_title": "今天你 TACO 了没？一套能帮你少亏钱的预测方法",
+      "approved_angle": "别再被特朗普的反复横跳来回收割。把 TACO 从一个市场梗，拆成一套可复用的方法论：如何做一个 agent / skill，去读特朗普发言、识别让步触发器、判断他背后的真实动机，并估算这次 TACO 的概率。",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/taco_prediction_skill_20260409/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/taco_prediction_skill_20260409",
+      "preview": "最近每天盯特朗普的人，情绪大概率已经分裂了。",
+      "char_count": 2849,
+      "section_count": 7,
+      "visual_asset_count": 6,
+      "strengths": [
+        "前几段已经开始补对象 / 事件 / why now，不是完全悬空分析。",
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `6` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "正文前仍残留内部包装 / 标题候选等工序痕迹，离一键发布还差“去工单味”。"
+      ],
+      "gap_summary": "正文前仍残留内部包装 / 标题候选等工序痕迹，离一键发布还差“去工单味”。",
+      "has_internal_packaging": true,
+      "has_early_background": true,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    }
+  ],
+  "selection_review": {
+    "selection_topics": [
+      {
+        "topic_key": "zhihu_hot_ai_68_500_ai_20260506",
+        "title": "豆包付费版本曝光，每月 68-500 元三档，你愿意付费吗？国产 AI 推付费服务是一种趋势吗？",
+        "status": "pool",
+        "status_label": "池内待捞回",
+        "score_total": "19 / 30",
+        "signal_summary": "知乎热榜出现了 AI 相关问题“豆包付费版本曝光，每月 68-500 元三档，你愿意付费吗？国产 AI 推付费服务是一种趋势吗？”。 当前热度 161 万热度。它适合作为中文问答场域的破圈验证和用户疑问观察层。",
+        "why_selected": "有明确扩散热度入口；具备天然讨论空间；更接近官方 / 主流媒体共识",
+        "lanes": [
+          "行业落地 / 医疗 / 场景翻译"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260506__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "bilibili_popular_ai_bv1jorvbyee3_20260506",
+        "title": "选一条路，决定你接下来的旅途",
+        "status": "pool",
+        "status_label": "池内待捞回",
+        "score_total": "19 / 30",
+        "signal_summary": "B站热门榜抓到 AI 相关视频“选一条路，决定你接下来的旅途”。它适合作为中文视频热榜入口，帮助判断 AI 话题是否开始向大众用户扩散，并识别可被重构的话题切口。",
+        "why_selected": "partial source；有明确扩散热度入口；具备天然讨论空间",
+        "lanes": [
+          "视频 / 多模态 / 语音",
+          "行业落地 / 医疗 / 场景翻译"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260506__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "reddit_claude_vibe_coding_vs_production_reality_20260506",
+        "title": "Vibe Coding vs. Production reality",
+        "status": "pool",
+        "status_label": "池内待捞回",
+        "score_total": "22 / 30",
+        "signal_summary": "Reddit / r/ClaudeAI 的日榜 RSS 收录了“Vibe Coding vs. Production reality”，当前位于本轮抓取顺序第 2 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。",
+        "why_selected": "有明确扩散热度入口；具备天然讨论空间；与 AI / Agent / 一人公司主线高度一致",
+        "lanes": [
+          "模型 / 研究进展",
+          "行业落地 / 医疗 / 场景翻译"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260506__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "youtube_ai_dot_engineer_ralph_loops_build_dumb_ai_loops_that_ship_chris_parsons_cherrypick_20260506",
+        "title": "Ralph Loops: Build Dumb AI Loops That Ship — Chris Parsons, Cherrypick",
+        "status": "pool",
+        "status_label": "池内待捞回",
+        "score_total": "19 / 30",
+        "signal_summary": "AI Engineer YouTube 频道页抓到新视频“Ralph Loops: Build Dumb AI Loops That Ship — Chris Parsons, Cherrypick”。Jina 频道快照现在可稳定保留标题、链接与相对发布时间，适合作为视频线索的硬成功入口。",
+        "why_selected": "partial source；与 AI / Agent / 一人公司主线高度一致",
+        "lanes": [
+          "视频 / 多模态 / 语音",
+          "模型 / 研究进展"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260506__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "reddit_localllama_llama_cpp_mtp_support_now_in_beta_20260506",
+        "title": "Llama.cpp MTP support now in beta!",
+        "status": "pool",
+        "status_label": "池内待捞回",
+        "score_total": "21 / 30",
+        "signal_summary": "Reddit / r/LocalLLaMA 的日榜 RSS 收录了“Llama.cpp MTP support now in beta!”，当前位于本轮抓取顺序第 4 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。",
+        "why_selected": "有明确扩散热度入口；具备天然讨论空间",
+        "lanes": [
+          "开源 / Infra / 推理优化",
+          "行业落地 / 医疗 / 场景翻译"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260506__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "baidu_realtime_baidu_hot_20260506",
+        "title": "女学生照片被改黄图涉事男子已道歉",
+        "status": "pool",
+        "status_label": "池内待捞回",
+        "score_total": "19 / 30",
+        "signal_summary": "百度热搜出现了与 AI / agent / robotics 相关的话题“女学生照片被改黄图涉事男子已道歉”。当前热搜指数 6186355，它适合作为中文破圈验证信号，而不是事实源。",
+        "why_selected": "有明确扩散热度入口；具备天然讨论空间；与 AI / Agent / 一人公司主线高度一致",
+        "lanes": [
+          "机器人 / 硬件 / 具身智能",
+          "模型 / 研究进展"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260506__top20-screening-pack__reworked.md"
+      }
+    ],
+    "head_media_focus": [
+      {
+        "lane": "社会影响 / 就业伦理",
+        "count": 4,
+        "examples": [
+          "马斯克破大防了：私信求和遭拒，怒喷奥特曼Brockman「全美最恶人」",
+          "豆包要收费了：三档订阅最贵500元/月，保留免费基础版"
+        ],
+        "why": "这类题带公共讨论张力，容易出圈，但需要更强的边界和多方视角。"
+      },
+      {
+        "lane": "模型 / 研究进展",
+        "count": 2,
+        "examples": [
+          "谷歌、英伟达押注，这家估值 40 亿美元的 AI 公司，想把科学家直接干掉",
+          "Anthropic 搞了个全是 AI 的闲鱼群，大模型在里面互割起了韭菜"
+        ],
+        "why": "这类题能代表前沿，但需要快速翻译成“到底多了什么能力、对谁有影响”。"
+      },
+      {
+        "lane": "融资 / 商业化 / 资本信号",
+        "count": 1,
+        "examples": [
+          "谷歌、英伟达押注，这家估值 40 亿美元的 AI 公司，想把科学家直接干掉"
+        ],
+        "why": "这类题能直接回答“钱往哪流、商业上有没有成立”，更容易承接投资判断和行业观察。"
+      },
+      {
+        "lane": "开源 / Infra / 推理优化",
+        "count": 1,
+        "examples": [
+          "“DeepSeek版Claude Code”，Github 2.3k星"
+        ],
+        "why": "这类题适合做专业壁垒和品牌判断，但首屏必须更早翻译成普通读者能感知的意义。"
+      }
+    ],
+    "our_pool_focus": [
+      {
+        "lane": "行业落地 / 医疗 / 场景翻译",
+        "count": 4,
+        "examples": [
+          "豆包付费版本曝光，每月 68-500 元三档，你愿意付费吗？国产 AI 推付费服务是一种趋势吗？",
+          "选一条路，决定你接下来的旅途"
+        ],
+        "why": "这类题更容易让读者立刻感到 stakes，头部号常用它来拉宽受众。"
+      },
+      {
+        "lane": "模型 / 研究进展",
+        "count": 3,
+        "examples": [
+          "Vibe Coding vs. Production reality",
+          "Ralph Loops: Build Dumb AI Loops That Ship — Chris Parsons, Cherrypick"
+        ],
+        "why": "这类题能代表前沿，但需要快速翻译成“到底多了什么能力、对谁有影响”。"
+      },
+      {
+        "lane": "视频 / 多模态 / 语音",
+        "count": 2,
+        "examples": [
+          "选一条路，决定你接下来的旅途",
+          "Ralph Loops: Build Dumb AI Loops That Ship — Chris Parsons, Cherrypick"
+        ],
+        "why": "这类题更容易被头部号选中，因为天然有产品感、演示感和大众入口。"
+      },
+      {
+        "lane": "开源 / Infra / 推理优化",
+        "count": 1,
+        "examples": [
+          "Llama.cpp MTP support now in beta!"
+        ],
+        "why": "这类题适合做专业壁垒和品牌判断，但首屏必须更早翻译成普通读者能感知的意义。"
+      }
+    ],
+    "our_active_focus": [],
+    "shared_lanes": [],
+    "head_media_only_lanes": [
+      {
+        "lane": "社会影响 / 就业伦理",
+        "examples": [
+          "马斯克破大防了：私信求和遭拒，怒喷奥特曼Brockman「全美最恶人」",
+          "豆包要收费了：三档订阅最贵500元/月，保留免费基础版"
+        ],
+        "takeaway": "头部号在 `社会影响 / 就业伦理` 连续给出样本，而我们的 Top6 主池还没覆盖，优先检查 seed / source lane 是否漏了，而不是先认定这题不值得做。"
+      },
+      {
+        "lane": "融资 / 商业化 / 资本信号",
+        "examples": [
+          "谷歌、英伟达押注，这家估值 40 亿美元的 AI 公司，想把科学家直接干掉"
+        ],
+        "takeaway": "头部号在 `融资 / 商业化 / 资本信号` 连续给出样本，而我们的 Top6 主池还没覆盖，优先检查 seed / source lane 是否漏了，而不是先认定这题不值得做。"
+      },
+      {
+        "lane": "综合 / 其他",
+        "examples": [
+          "CTO不香了？百亿公司高管们为何集体转身，去Anthropic当工程师"
+        ],
+        "takeaway": "头部号在 `综合 / 其他` 连续给出样本，而我们的 Top6 主池还没覆盖，优先检查 seed / source lane 是否漏了，而不是先认定这题不值得做。"
+      }
+    ],
+    "our_only_lanes": [],
+    "verdicts": [
+      "头部号这轮更偏 `社会影响 / 就业伦理×4、模型 / 研究进展×2`，说明它们优先抓“普通读者能立刻感到 stakes”的题材。",
+      "我们当前已下发主池更偏 `暂无稳定题材`，说明系统这轮更偏一手性、可防守性和品牌判断力。",
+      "裁判结论不是谁绝对更好，而是两边各赢一部分：头部号在传播势能和大众转译上更强，我们在可核验与可防守性上更稳。后续应保持“硬信号主池 + 大众 stakes 补位池”双轨，而不是二选一。",
+      "当前 ready 库里还有 `ai_morning_brief_20260410, ai_morning_brief_20260413, ai_morning_brief_20260414` 这类历史题，和今天 task sheet 已下发对象不完全同频，所以学习板后续必须同时对照“当日 task sheet + 当前 ready 稿”，不能只看现成库存。"
+    ],
+    "role_actions": [
+      {
+        "owner": "seed-refresh / source-scouting",
+        "action": "若头部号连续两轮在某题材高频而我们的 Top6 没覆盖，下轮必须补至少 2 个对应来源或动态搜源规则。"
+      },
+      {
+        "owner": "source-capture / citation",
+        "action": "准备补位的题材必须先补一手原链、截图和中文工作摘要，再交给 radar，不允许只拿二手摘要就入池。"
+      },
+      {
+        "owner": "topic-radar",
+        "action": "筛 Top20 时同时看“确定性”和“普通读者 stakes”，避免候选池只剩硬核技术题。"
+      },
+      {
+        "owner": "topic-approval",
+        "action": "当最终锁的是和头部号不同的题，必须显式写明“我们为什么不跟”和“我们靠什么打赢”。"
+      },
+      {
+        "owner": "draft-pack / hook / context / render",
+        "action": "如果坚持更垂直的差异化题，首屏必须更早补背景、利益相关性和图证，不然再好的选题也会输在转译层。"
+      }
+    ],
+    "ready_only_topic_keys": [
+      "ai_morning_brief_20260410",
+      "ai_morning_brief_20260413",
+      "ai_morning_brief_20260414",
+      "ai_morning_brief_20260415",
+      "ai_morning_brief_20260416",
+      "ai_morning_brief_20260420",
+      "ai_morning_brief_20260421",
+      "ai_morning_brief_20260424",
+      "ai_morning_brief_20260425",
+      "ai_morning_brief_20260426",
+      "ai_morning_brief_20260428",
+      "ai_morning_brief_20260429",
+      "ai_morning_brief_20260502",
+      "anthropic_30b_revenue_tpu_deal",
+      "anthropic_three_agent_harness_20260406",
+      "claude_code_cache_bugs_20260331",
+      "gemma_4_viral_angle_qwen3_5_comparison",
+      "karpathy_cmdline_revival_20260407",
+      "muse_spark_meta_ai_model_20260409",
+      "robots_bury_you_in_work_17_agents_20260331",
+      "taco_prediction_skill_20260409"
+    ]
+  },
+  "gap_cards": [
+    {
+      "title": "成品化清理不够彻底",
+      "severity": "high",
+      "why": "头部样本的正文几乎不暴露“标题候选 / 包装说明 / 引用占位”，用户只会看到成品。",
+      "current_gap": "当前有 2/21 个 ready 主题还保留内部编辑结构，最典型的是 `robots_bury_you_in_work_17_agents_20260331`。",
+      "next_action": "写稿阶段最后一轮必须做“去工单味”清理：只保留读者该看到的标题、正文、图文与来源。"
+    },
+    {
+      "title": "背景桥接还要再早",
+      "severity": "high",
+      "why": "学习样本普遍在前 2-4 段就把“发生了什么 / 对象是谁 / 为什么现在值得看”交代清楚。",
+      "current_gap": "当前有 18/21 个 ready 主题在首屏仍偏判断先行、背景偏晚。",
+      "next_action": "优先补对象、事件、why now，不先换题；冷启动读者必须在前屏内知道你在说什么。"
+    },
+    {
+      "title": "证据锚点还不够前置",
+      "severity": "medium",
+      "why": "头部样本喜欢很早给原话、数据、链接或关键截图，不让文章一直漂在抽象判断上。",
+      "current_gap": "当前有 1/21 个 ready 主题在前段还缺明确凭据。",
+      "next_action": "补原始链接、关键数字或截图位；优先补证据，再谈换题。"
+    }
+  ],
+  "next_actions": [
+    "先把 `robots_bury_you_in_work_17_agents_20260331` 做一次“去工单味”清理，确保成品页只剩读者该看到的内容。",
+    "把所有 ready 稿的背景桥接前移到首屏前 10%-15%，先补对象 / 事件 / why now。",
+    "明天继续从 `量子位×4、极客公园×2` 这类高密度样本增量学习，维持学习池稳定刷新。"
+  ],
+  "optimization_items": [
+    {
+      "id": "opt_eb834988da",
+      "title": "成品化清理不够彻底",
+      "severity": "high",
+      "owner": "content-writer / content-polish",
+      "landing_layer": "skills + draft-pack final sweep",
+      "landing_targets": [
+        "09_runbooks/skills/th-draft-pack/SKILL.md",
+        "09_runbooks/skills/th-content-polish/SKILL.md"
+      ],
+      "why": "头部样本的正文几乎不暴露“标题候选 / 包装说明 / 引用占位”，用户只会看到成品。",
+      "current_gap": "当前有 2/21 个 ready 主题还保留内部编辑结构，最典型的是 `robots_bury_you_in_work_17_agents_20260331`。",
+      "next_action": "写稿阶段最后一轮必须做“去工单味”清理：只保留读者该看到的标题、正文、图文与来源。",
+      "source_basis": "量子位×4、极客公园×2、机器之心×2",
+      "status": "active",
+      "status_label": "待优化"
+    },
+    {
+      "id": "opt_6da62bd643",
+      "title": "背景桥接还要再早",
+      "severity": "high",
+      "owner": "topic-approval + draft-pack + content-polish",
+      "landing_layer": "skills + approved-topic handoff",
+      "landing_targets": [
+        "09_runbooks/skills/th-topic-approval/SKILL.md",
+        "09_runbooks/skills/th-draft-pack/SKILL.md",
+        "09_runbooks/skills/th-content-polish/SKILL.md"
+      ],
+      "why": "学习样本普遍在前 2-4 段就把“发生了什么 / 对象是谁 / 为什么现在值得看”交代清楚。",
+      "current_gap": "当前有 18/21 个 ready 主题在首屏仍偏判断先行、背景偏晚。",
+      "next_action": "优先补对象、事件、why now，不先换题；冷启动读者必须在前屏内知道你在说什么。",
+      "source_basis": "量子位×4、极客公园×2、机器之心×2",
+      "status": "active",
+      "status_label": "待优化"
+    },
+    {
+      "id": "opt_a4ad1052e8",
+      "title": "证据锚点还不够前置",
+      "severity": "medium",
+      "owner": "signal-scout + writer + visual-intelligence",
+      "landing_layer": "skills + visual asset plan",
+      "landing_targets": [
+        "09_runbooks/skills/th-topic-radar/SKILL.md",
+        "09_runbooks/skills/th-market-visual-intelligence/SKILL.md",
+        "09_runbooks/skills/th-content-polish/SKILL.md"
+      ],
+      "why": "头部样本喜欢很早给原话、数据、链接或关键截图，不让文章一直漂在抽象判断上。",
+      "current_gap": "当前有 1/21 个 ready 主题在前段还缺明确凭据。",
+      "next_action": "补原始链接、关键数字或截图位；优先补证据，再谈换题。",
+      "source_basis": "量子位×4、极客公园×2、机器之心×2",
+      "status": "active",
+      "status_label": "待优化"
+    },
+    {
+      "id": "opt_e3ce95046a",
+      "title": "把题材 × 人群 × 文风匹配持续沉淀到岗位规则",
+      "severity": "medium",
+      "owner": "content-analyst + core skills",
+      "landing_layer": "skills + learning rulebook",
+      "landing_targets": [
+        "08_brand_assets/latest__head-media-learning-rulebook-v1.md",
+        "09_runbooks/skills/th-topic-radar/SKILL.md",
+        "09_runbooks/skills/th-draft-pack/SKILL.md",
+        "09_runbooks/skills/th-content-polish/SKILL.md",
+        "09_runbooks/skills/th-market-visual-intelligence/SKILL.md"
+      ],
+      "why": "头部号真正可复用的不是口头禅，而是不同题材会自动切换叙述密度、术语阈值和证据呈现方式。",
+      "current_gap": "系统已有结构学习，但“事件科普 / 产品推荐 / 产业判断 / builder 拆解”对应的文风匹配规律还需要继续积累和显式沉淀。",
+      "next_action": "继续把长期学习结果写进稳定规则手册，并让 topic-radar、draft-pack、content-polish、visual-intelligence 每次执行时显式加载。",
+      "source_basis": "量子位×4、极客公园×2、机器之心×2",
+      "status": "active",
+      "status_label": "待优化"
+    },
+    {
+      "id": "opt_432a129d7b",
+      "title": "把选题判断复盘前置到 seed / source / topic 三层",
+      "severity": "high",
+      "owner": "source-capture + seed-refresh + topic-radar + topic-approval",
+      "landing_layer": "skills + learning rulebook + next-round source lanes",
+      "landing_targets": [
+        "08_brand_assets/latest__head-media-learning-rulebook-v1.md",
+        "09_runbooks/skills/th-source-capture-and-citation/SKILL.md",
+        "09_runbooks/skills/th-seed-refresh-and-source-scouting/SKILL.md",
+        "09_runbooks/skills/th-topic-radar/SKILL.md",
+        "09_runbooks/skills/th-topic-approval/SKILL.md"
+      ],
+      "why": "头部号学习不能只反哺写法，还要让上游岗位知道今天什么题更值得做、我们为什么没做、是漏抓还是故意不跟。",
+      "current_gap": "现有规则手册已有写法学习，但对“头部号今天在追什么 / 我们今天为什么押另一个题 / 哪边更优”的复盘还不够前置到上游岗位。",
+      "next_action": "让 source-capture、seed-refresh、topic-radar、topic-approval 执行前显式读取规则手册中的选题复盘，并把共识题 / 漏题 / 差异化题写回下一轮动作。",
+      "source_basis": "量子位×4、极客公园×2、机器之心×2",
+      "status": "active",
+      "status_label": "待优化"
+    }
+  ],
+  "optimization_events": []
+}

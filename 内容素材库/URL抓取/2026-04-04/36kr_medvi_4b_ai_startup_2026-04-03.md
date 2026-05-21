@@ -1,0 +1,11 @@
+# 36kr: 一人干翻2000人大厂，41岁程序员靠AI年入4亿美元
+- **URL**: https://36kr.com/p/3751033979093760
+- **Source**: 36kr
+- **Published**: 2026-04-03T21:55 (China)
+- **Fetched**: 2026-04-04T19:13:59+00:00
+- **Trigger type**: Product/Business model
+- **Key entities**: Medvi, Matthew Gallagher, Elliot Gallagher, GLP-1减肥药, CareValidate, OpenLoop Health,奥特曼
+- **Significance**: 41岁程序员Matthew Gallagher用AI Agent做出年收入4.01亿美元的远程医疗公司Medvi。仅2名正式员工。奥特曼说想见他。验证"一人十亿美元公司"的AI时代预言。
+- **China relevance**: 中国超级个体/一人公司生态参考；AI编程工具对中国开发者影响
+- **Classification**: formal_candidate
+- **Queue status**: structured_accept

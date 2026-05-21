@@ -1,0 +1,12 @@
+{
+  "entity_name": "I told Claude to stop using em dashes. It happily obliged...",
+  "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1th83ul/i_told_claude_to_stop_using_em_dashes_it_happily/",
+  "score": 5,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_claude_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/salty_dragonfly1"
+}

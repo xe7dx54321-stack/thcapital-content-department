@@ -1,0 +1,12 @@
+{
+  "entity_name": "Is there any &lt;3B model with usable 200k+ context window?",
+  "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1th8l5e/is_there_any_3b_model_with_usable_200k_context/",
+  "score": 20,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_localllama_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/madmax_br5"
+}

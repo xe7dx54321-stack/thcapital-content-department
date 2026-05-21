@@ -1,0 +1,12 @@
+{
+  "entity_name": "I tested 42 LLMs on their willingness to build the apocalypse. The &quot;safest&quot; closed-source models are lying to you.",
+  "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tgm0k9/i_tested_42_llms_on_their_willingness_to_build/",
+  "score": 15,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_localllama_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/Ok-Awareness9993"
+}

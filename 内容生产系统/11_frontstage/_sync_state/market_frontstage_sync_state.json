@@ -1,0 +1,23 @@
+{
+  "close_out_sent_for": "2026-04-12",
+  "last_board_date": "2026-05-07",
+  "last_board_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260507__market-frontstage-board.md",
+  "last_dry_run_at": "2026-04-21 18:09:11 CST",
+  "last_dry_run_log_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/10_logs/20260421_180911__market-frontstage-sync-execution.md",
+  "last_dry_run_reason": "routine_issues",
+  "last_key_reason": "top5_ready,approved_topic,draft_progress,waiting_human_publish,dirty_waiting_publish,final_gate_blocked",
+  "last_key_sent_at": "2026-05-07 21:41:03 CST",
+  "last_key_signature": "11ca349c315725b02f0737b0f27e62efbdc3bc91ba07178ed2c7022f830e9105",
+  "last_morning_flash_blocker": "P1: tldr summaries under-length (items 4/5/8/9 at 8-17 chars vs 50-char min); P1: closing paragraph empty; bridge_status=pending",
+  "last_morning_flash_leader_check_at": "2026-04-11 05:37 CST",
+  "last_morning_flash_leader_check_decision": "rework",
+  "last_morning_flash_leader_check_topic": "ai_morning_brief_20260411",
+  "last_refresh_at": "2026-05-07 21:40:59 CST",
+  "last_routine_close_out_reason": "routine_issues",
+  "last_routine_close_out_sent_at": "2026-04-12 22:28:30 CST",
+  "last_routine_close_out_signature": "95a94aa35784d8b39880ad5cdb180a028eaae7ad622473d8979792042419e392",
+  "last_routine_key_reason": "routine_issues",
+  "last_routine_key_sent_at": "2026-04-12 09:26:06 CST",
+  "last_routine_key_signature": "1f1b11a978adb7a1d221570e00114f2fcf33a3ed679a1bbc02d24fa621b6c0b4",
+  "last_sync_log_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/10_logs/20260507_214103__market-frontstage-sync-execution.md"
+}

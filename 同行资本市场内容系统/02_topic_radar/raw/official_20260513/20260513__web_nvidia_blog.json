@@ -1,0 +1,213 @@
+{
+  "source_id": "web__nvidia_blog",
+  "label": "NVIDIA Blog",
+  "type": "rss",
+  "captured_at": "2026-05-13T22:53:28.309639",
+  "entry_count": 18,
+  "entries": [
+    {
+      "entity_name": "OpenAI’s New GPT-5.5 Powers Codex on NVIDIA Infrastructure — and NVIDIA Is Alrea",
+      "source_url": "https://blogs.nvidia.com/blog/openai-codex-gpt-5-5-ai-agents/",
+      "title_text": "OpenAI’s New GPT-5.5 Powers Codex on NVIDIA Infrastructure — and NVIDIA Is Already Putting It to Work",
+      "body_snippet": "<![CDATA[AI agents have revolutionized developer workflows, and their next frontier is knowledge work: processing information, solving complex problems, coming up with new ideas and driving innovation",
+      "score": 47,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "NVIDIA and SAP Bring Trust to Specialized Agents",
+      "source_url": "https://blogs.nvidia.com/blog/sap-specialized-agents/",
+      "title_text": "NVIDIA and SAP Bring Trust to Specialized Agents",
+      "body_snippet": "<![CDATA[Announced today at SAP Sapphire — where NVIDIA founder and CEO Jensen Huang joined  SAP CEO Christian Klein’s keynote by video — SAP and NVIDIA’s expanded collaboration helps enterprises run ",
+      "score": 39,
+      "signal_reasons": [
+        "突发信号"
+      ],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "NVIDIA Launches Nemotron 3 Nano Omni Model, Unifying Vision, Audio and Language ",
+      "source_url": "https://blogs.nvidia.com/blog/nemotron-3-nano-omni-multimodal-ai-agents/",
+      "title_text": "NVIDIA Launches Nemotron 3 Nano Omni Model, Unifying Vision, Audio and Language for up to 9x More Efficient AI Agents",
+      "body_snippet": "<![CDATA[AI agent systems today juggle separate models for vision, speech and language — losing time and context as they pass data from one model to the other. Unveiled today, NVIDIA Nemotron 3 Nano O",
+      "score": 32,
+      "signal_reasons": [
+        "突发信号"
+      ],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "NVIDIA, Ineffable Intelligence Team Up to Build the Future of Reinforcement Lear",
+      "source_url": "https://blogs.nvidia.com/blog/ineffable-intelligence-reinforcement-learning-infrastructure/",
+      "title_text": "NVIDIA, Ineffable Intelligence Team Up to Build the Future of Reinforcement Learning Infrastructure",
+      "body_snippet": "<![CDATA[Reinforcement-learning agents — AI systems that learn by trial and error — can convert computation into new knowledge. That’s the focus of a new engineering-level collaboration between NVIDIA",
+      "score": 29,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "NVIDIA and Google Cloud Collaborate to Advance Agentic and Physical AI",
+      "source_url": "https://blogs.nvidia.com/blog/google-cloud-agentic-physical-ai-factories/",
+      "title_text": "NVIDIA and Google Cloud Collaborate to Advance Agentic and Physical AI",
+      "body_snippet": "<![CDATA[NVIDIA and Google Cloud have collaborated for more than a decade, co‑engineering a full‑stack AI platform that spans every technology layer — from performance‑optimized libraries and framewor",
+      "score": 27,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "NVIDIA and ServiceNow Partner on New Autonomous AI Agents for Enterprises",
+      "source_url": "https://blogs.nvidia.com/blog/servicenow-autonomous-ai-agents-enterprises/",
+      "title_text": "NVIDIA and ServiceNow Partner on New Autonomous AI Agents for Enterprises",
+      "body_snippet": "<![CDATA[Enterprise AI has learned to generate. It has learned to reason. Now companies are asking the next question: How should AI act? Early agent systems have shown what’s possible, moving beyond s",
+      "score": 22,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "It’s Gonna Be May: 16 Games Hit the Cloud This Month, With More NVIDIA GeForce R",
+      "source_url": "https://blogs.nvidia.com/blog/geforce-now-thursday-may-2026-games-list/",
+      "title_text": "It’s Gonna Be May: 16 Games Hit the Cloud This Month, With More NVIDIA GeForce RTX 5080 Power",
+      "body_snippet": "<![CDATA[[Editor&#8217;s note] The blog has been updated to note that GeForce RTX 5080-power expansion also extends to the Install-to-Play library. It’s gonna be May — and the cloud’s in full festival",
+      "score": 20,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "Autonomous AI at Scale: Adobe Agents Unlock Breakthrough Creative Intelligence W",
+      "source_url": "https://blogs.nvidia.com/blog/adobe-ai-agents-nvidia-wpp/",
+      "title_text": "Autonomous AI at Scale: Adobe Agents Unlock Breakthrough Creative Intelligence With NVIDIA and WPP",
+      "body_snippet": "<![CDATA[AI agents are transforming how work gets done across all industries, accelerating everything from content creation to decision-making. NVIDIA’s expanded strategic collaborations with Adobe an",
+      "score": 20,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "Hermes Unlocks Self-Improving AI Agents, Powered by NVIDIA RTX PCs and DGX Spark",
+      "source_url": "https://blogs.nvidia.com/blog/rtx-ai-garage-hermes-agent-dgx-spark/",
+      "title_text": "Hermes Unlocks Self-Improving AI Agents, Powered by NVIDIA RTX PCs and DGX Spark",
+      "body_snippet": "<![CDATA[Agentic AI is changing the way users get work done. Following the success of OpenClaw, the community is embracing new open source agentic frameworks. The latest is Hermes Agent, which crossed",
+      "score": 19,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "NVIDIA Spectrum-X — the Open, AI-Native Ethernet Fabric — Sets the Standard for ",
+      "source_url": "https://blogs.nvidia.com/blog/spectrum-x-ethernet-mrc/",
+      "title_text": "NVIDIA Spectrum-X — the Open, AI-Native Ethernet Fabric — Sets the Standard for Gigascale AI, Now With MRC",
+      "body_snippet": "<![CDATA[The race to build the world’s most powerful AI factories demands networking that keeps pace with the ambitions of AI itself.  NVIDIA Spectrum-X Ethernet scale-out infrastructure stands at the",
+      "score": 18,
+      "signal_reasons": [
+        "突发信号"
+      ],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "‘Your Career Starts at the Beginning of the AI Revolution,’ NVIDIA CEO Tells Gra",
+      "source_url": "https://blogs.nvidia.com/blog/nvidia-ceo-carnegie-mellon-commencement-address/",
+      "title_text": "‘Your Career Starts at the Beginning of the AI Revolution,’ NVIDIA CEO Tells Graduates",
+      "body_snippet": "<![CDATA[“You are entering the world at an extraordinary moment,” NVIDIA founder and CEO Jensen Huang told graduates as he delivered the keynote address at Carnegie Mellon University&#8217;s 128th com",
+      "score": 12,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "Powering the Next American Century: US Energy Secretary Chris Wright and NVIDIA’",
+      "source_url": "https://blogs.nvidia.com/blog/energy-secretary-chris-wright-ian-buck/",
+      "title_text": "Powering the Next American Century: US Energy Secretary Chris Wright and NVIDIA’s Ian Buck on the Genesis Mission",
+      "body_snippet": "<![CDATA[AI will help build the energy it needs. That’s the case U.S. Energy Secretary Chris Wright and NVIDIA Vice President of Hyperscale and High-Performance Computing Ian Buck made Thursday mornin",
+      "score": 7,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "Nemotron Labs: What OpenClaw Agents Mean for Every Organization",
+      "source_url": "https://blogs.nvidia.com/blog/what-openclaw-agents-mean-for-every-organization/",
+      "title_text": "Nemotron Labs: What OpenClaw Agents Mean for Every Organization",
+      "body_snippet": "<![CDATA[By early 2026, the open source project OpenClaw had become a phenomenon. In January, its GitHub star count crossed 100,000 as developer interest surged.]]>",
+      "score": 7,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "Making Sense of the Early Universe",
+      "source_url": "https://blogs.nvidia.com/blog/ai-gpu-early-universe-astronomy/",
+      "title_text": "Making Sense of the Early Universe",
+      "body_snippet": "<![CDATA[This Spring Astronomy Day, here’s a look at how AI and GPUs are helping astronomers work through unprecedented volumes of cosmic data.]]>",
+      "score": 7,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "From Rainforests to Recycling Plants: 5 Ways NVIDIA AI Is Protecting the Planet",
+      "source_url": "https://blogs.nvidia.com/blog/earth-day-2026-ai-accelerated-computing/",
+      "title_text": "From Rainforests to Recycling Plants: 5 Ways NVIDIA AI Is Protecting the Planet",
+      "body_snippet": "<![CDATA[Across climate, conservation, disaster monitoring and recycling, NVIDIA AI is enabling applications protecting the planet.]]>",
+      "score": 7,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "Linked and Loaded: Gaijin Single Sign-On Now Available on GeForce NOW",
+      "source_url": "https://blogs.nvidia.com/blog/geforce-now-thursday-gaijin-sso/",
+      "title_text": "Linked and Loaded: Gaijin Single Sign-On Now Available on GeForce NOW",
+      "body_snippet": "<![CDATA[Less typing, more tanking. Faster logins mean more time in the gaming action — and this week provides GeForce NOW members with a smoother path straight into the battlefield. Cloud gaming is a",
+      "score": 3,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "Tag, You’re It: GeForce NOW Levels Up Game Discovery With Xbox Game Pass and Ubi",
+      "source_url": "https://blogs.nvidia.com/blog/geforce-now-thursday-in-app-labels/",
+      "title_text": "Tag, You’re It: GeForce NOW Levels Up Game Discovery With Xbox Game Pass and Ubisoft+ Labels",
+      "body_snippet": "<![CDATA[GeForce NOW is doubling down on what matters most: gamers. This week’s upgrades bring smarter libraries, making it easier than ever for gamers to turn a PC collection into a cloud-powered fle",
+      "score": 3,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    },
+    {
+      "entity_name": "Into the Omniverse: Manufacturing’s Simulation-First Era Has Arrived",
+      "source_url": "https://blogs.nvidia.com/blog/manufacturing-simulation-first/",
+      "title_text": "Into the Omniverse: Manufacturing’s Simulation-First Era Has Arrived",
+      "body_snippet": "<![CDATA[Manufacturing’s traditional design-build-test cycle rested on a single assumption: Real-world testing was the only reliable test environment. ]]>",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__nvidia_blog",
+      "label": "NVIDIA Blog"
+    }
+  ]
+}

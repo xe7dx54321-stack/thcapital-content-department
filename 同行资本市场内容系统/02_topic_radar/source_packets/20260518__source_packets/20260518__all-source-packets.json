@@ -1,0 +1,422 @@
+[
+  {
+    "entity_name": "Actually, Democracy Dies in H.R.",
+    "source_url": "https://www.nytimes.com/2026/05/18/world/americas/actually-democracy-dies-in-hr.html",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 27,
+    "hn_comments": 11,
+    "_fetched_at": "2026-05-18T23:10:25.967272"
+  },
+  {
+    "entity_name": "Shame them, shun them, ban them, beat them",
+    "source_url": "https://www.experimental-history.com/p/shame-them-shun-them-ban-them-beat",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 4,
+    "hn_comments": 0,
+    "_fetched_at": "2026-05-18T23:10:25.967386"
+  },
+  {
+    "entity_name": "Show HN: Files.md – Open-source alternative to Obsidian",
+    "source_url": "https://github.com/zakirullin/files.md",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 103,
+    "hn_comments": 49,
+    "_fetched_at": "2026-05-18T23:10:25.967390"
+  },
+  {
+    "entity_name": "'We mould trees to grow into the shape of chairs'",
+    "source_url": "https://www.bbc.co.uk/news/articles/cvg0yy3gp71o",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 63,
+    "hn_comments": 23,
+    "_fetched_at": "2026-05-18T23:10:25.967392"
+  },
+  {
+    "entity_name": "Enough with the AI FOMO, go slow-mo, says Domo CDO",
+    "source_url": "https://www.theregister.com/ai-ml/2026/05/17/enough-with-the-ai-fomo-go-slow-mo-says-domo-cdo/5240840",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 77,
+    "hn_comments": 34,
+    "_fetched_at": "2026-05-18T23:10:25.967395"
+  },
+  {
+    "entity_name": "AI eats the world (Spring 26) [pdf]",
+    "source_url": "https://static1.squarespace.com/static/50363cf324ac8e905e7df861/t/6a0af5d0484fbf5fe9a7743e/1779103184855/2026-Spring-AI.pdf",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 100,
+    "hn_comments": 52,
+    "_fetched_at": "2026-05-18T23:10:25.967397"
+  },
+  {
+    "entity_name": "Linux security mailing list 'almost unmanageable'",
+    "source_url": "https://www.theregister.com/security/2026/05/18/linus-torvalds-says-ai-powered-bug-hunters-have-made-linux-security-mailing-list-almost-entirely-unmanageable/5241633",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 91,
+    "hn_comments": 40,
+    "_fetched_at": "2026-05-18T23:10:25.967399"
+  },
+  {
+    "entity_name": "When Kierkegaard Got Cancelled",
+    "source_url": "https://www.plough.com/en/topics/faith/discipleship/when-kierkegaard-got-cancelled",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 7,
+    "hn_comments": 4,
+    "_fetched_at": "2026-05-18T23:10:25.967402"
+  },
+  {
+    "entity_name": "Show HN: Auto-identity-remove – Automated data broker opt-out runner for macOS",
+    "source_url": "https://github.com/stephenlthorn/auto-identity-remove",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 282,
+    "hn_comments": 112,
+    "_fetched_at": "2026-05-18T23:10:25.967404"
+  },
+  {
+    "entity_name": "NASA still maintains some of the Voyager spacecraft code from the 70s era",
+    "source_url": "https://spacedaily.com/nasa-still-maintains-some-of-the-voyager-spacecraft-code-in-a-1970s-era-programming-language-that-almost-nobody-on-earth-fully-understands-anymore-and-the-handful-of-engineers-who-do-are-now-in-their/",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 45,
+    "hn_comments": 48,
+    "_fetched_at": "2026-05-18T23:10:25.967406"
+  },
+  {
+    "entity_name": "The foundations of a provably secure operating system (PSOS) (1979) [pdf]",
+    "source_url": "http://www.csl.sri.com/users/neumann/psos.pdf",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 77,
+    "hn_comments": 43,
+    "_fetched_at": "2026-05-18T23:10:25.967409"
+  },
+  {
+    "entity_name": "Don't Answer the First Question",
+    "source_url": "https://lalitm.com/post/dont-answer-the-first-question/",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 29,
+    "hn_comments": 16,
+    "_fetched_at": "2026-05-18T23:10:25.967411"
+  },
+  {
+    "entity_name": "Why is Google Maps back to showing old satellite images of Altadena?",
+    "source_url": "https://www.reddit.com/r/pasadena/s/94BHlkE84r",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 79,
+    "hn_comments": 36,
+    "_fetched_at": "2026-05-18T23:10:25.967413"
+  },
+  {
+    "entity_name": "It is time to give up the dualism introduced by the debate on consciousness",
+    "source_url": "https://www.noemamag.com/there-is-no-hard-problem-of-consciousness/",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 189,
+    "hn_comments": 481,
+    "_fetched_at": "2026-05-18T23:10:25.967415"
+  },
+  {
+    "entity_name": "WriteUp: 16 Bytes of x86 that turn Matrix rain into sound",
+    "source_url": "https://hellmood.111mb.de//wake_up_16b_writeup.html",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 173,
+    "hn_comments": 31,
+    "_fetched_at": "2026-05-18T23:10:25.967417"
+  },
+  {
+    "entity_name": "Two EA-18 fighter jets collide at Mountain Home airshow, pilots ejected safely",
+    "source_url": "https://idahonews.com/news/local/two-f-18-fighter-jets-have-crashed-during-an-airshow-at-mountain-home-air-force-base",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 229,
+    "hn_comments": 233,
+    "_fetched_at": "2026-05-18T23:10:25.967420"
+  },
+  {
+    "entity_name": "GenCAD",
+    "source_url": "https://gencad.github.io/",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 389,
+    "hn_comments": 102,
+    "_fetched_at": "2026-05-18T23:10:25.967422"
+  },
+  {
+    "entity_name": "Prolog Coding Horror",
+    "source_url": "https://www.metalevel.at/prolog/horror",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 171,
+    "hn_comments": 66,
+    "_fetched_at": "2026-05-18T23:10:25.967424"
+  },
+  {
+    "entity_name": "Show HN: Semble – Code search for agents that uses 98% fewer tokens than grep",
+    "source_url": "https://github.com/MinishLab/semble",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 391,
+    "hn_comments": 130,
+    "_fetched_at": "2026-05-18T23:10:25.967426"
+  },
+  {
+    "entity_name": "I turned a $80 RK3562 Android tablet into a Debian Linux workstation",
+    "source_url": "https://github.com/tech4bot/rk3562deb",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "discussion",
+    "_source": "trend__hn_frontpage",
+    "hn_points": 407,
+    "hn_comments": 207,
+    "_fetched_at": "2026-05-18T23:10:25.967428"
+  },
+  {
+    "entity_name": "IVGT: Implicit Visual Geometry Transformer for Neural Scene Representation",
+    "source_url": "http://arxiv.org/abs/2605.16258v1",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Yuqi Wu",
+    "_fetched_at": "2026-05-18T23:10:46.289418"
+  },
+  {
+    "entity_name": "Designing Datacenter Power Delivery Hierarchies for the AI Era",
+    "source_url": "http://arxiv.org/abs/2605.16255v1",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Grant Wilkins",
+    "_fetched_at": "2026-05-18T23:10:46.289518"
+  },
+  {
+    "entity_name": "A Generative AI Framework for Intelligent Utility Billing CO 2 Analytics and Sustainable Resource Optimisation",
+    "source_url": "http://arxiv.org/abs/2605.16250v1",
+    "score": 10,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Pavan Manjunath",
+    "_fetched_at": "2026-05-18T23:10:46.289522"
+  },
+  {
+    "entity_name": "AI-Mediated Communication Can Steer Collective Opinion",
+    "source_url": "http://arxiv.org/abs/2605.16245v1",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Stratis Tsirtsis",
+    "_fetched_at": "2026-05-18T23:10:46.289526"
+  },
+  {
+    "entity_name": "Offline Semantic Guidance for Efficient Vision-Language-Action Policy Distillation",
+    "source_url": "http://arxiv.org/abs/2605.16241v1",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Jin Shi",
+    "_fetched_at": "2026-05-18T23:10:46.289529"
+  },
+  {
+    "entity_name": "Prospective multi-pathogen disease forecasting using autonomous LLM-guided tree search",
+    "source_url": "http://arxiv.org/abs/2605.16238v1",
+    "score": 10,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Sarah Martinson",
+    "_fetched_at": "2026-05-18T23:10:46.289532"
+  },
+  {
+    "entity_name": "Layer Equivalence Is Not a Property of Layers Alone: How You Test Redundancy Changes What You Find",
+    "source_url": "http://arxiv.org/abs/2605.16234v1",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Gabriel Garcia",
+    "_fetched_at": "2026-05-18T23:10:46.289535"
+  },
+  {
+    "entity_name": "FORGE: Self-Evolving Agent Memory With No Weight Updates via Population Broadcast",
+    "source_url": "http://arxiv.org/abs/2605.16233v1",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Igor Bogdanov",
+    "_fetched_at": "2026-05-18T23:10:46.289538"
+  },
+  {
+    "entity_name": "A Unified Generative-AI Framework for Smart Energy Infrastructure: Intelligent Gas Distribution, Utility Billing, Carbon",
+    "source_url": "http://arxiv.org/abs/2605.16232v1",
+    "score": 10,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Pavan Manjunath",
+    "_fetched_at": "2026-05-18T23:10:46.289541"
+  },
+  {
+    "entity_name": "Evaluating Design Video Generation: Metrics for Compositional Fidelity",
+    "source_url": "http://arxiv.org/abs/2605.16223v1",
+    "score": 0,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Adrienne Deganutti",
+    "_fetched_at": "2026-05-18T23:10:46.289543"
+  },
+  {
+    "entity_name": "Argus: Evidence Assembly for Scalable Deep Research Agents",
+    "source_url": "http://arxiv.org/abs/2605.16217v1",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Zhen Zhang",
+    "_fetched_at": "2026-05-18T23:10:46.289546"
+  },
+  {
+    "entity_name": "Fully Open Meditron: An Auditable Pipeline for Clinical LLMs",
+    "source_url": "http://arxiv.org/abs/2605.16215v1",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Xavier Theimer-Lienhard",
+    "_fetched_at": "2026-05-18T23:10:46.289549"
+  },
+  {
+    "entity_name": "Confirming Correct, Missing the Rest: LLM Tutoring Agents Struggle Where Feedback Matters Most",
+    "source_url": "http://arxiv.org/abs/2605.16207v1",
+    "score": 10,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Tahreem Yasir",
+    "_fetched_at": "2026-05-18T23:10:46.289552"
+  },
+  {
+    "entity_name": "Context, Reasoning, and Hierarchy: A Cost-Performance Study of Compound LLM Agent Design in an Adversarial POMDP",
+    "source_url": "http://arxiv.org/abs/2605.16205v1",
+    "score": 20,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Igor Bogdanov",
+    "_fetched_at": "2026-05-18T23:10:46.289555"
+  },
+  {
+    "entity_name": "Formal Methods Meet LLMs: Auditing, Monitoring, and Intervention for Compliance of Advanced AI Systems",
+    "source_url": "http://arxiv.org/abs/2605.16198v1",
+    "score": 10,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Parand A. Alamdari",
+    "_fetched_at": "2026-05-18T23:10:46.289558"
+  },
+  {
+    "entity_name": "paper.json: A Coordination Convention for LLM-Agent-Actionable Papers",
+    "source_url": "http://arxiv.org/abs/2605.16194v1",
+    "score": 10,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Arquimedes Canedo",
+    "_fetched_at": "2026-05-18T23:10:46.289561"
+  },
+  {
+    "entity_name": "Second-Order Multi-Level Variance Correction for Modality Competition in Multimodal Models",
+    "source_url": "http://arxiv.org/abs/2605.16165v1",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Yishun Lu",
+    "_fetched_at": "2026-05-18T23:10:46.289563"
+  },
+  {
+    "entity_name": "An Algebraic Exposition of the Theory of Dyadic Morality",
+    "source_url": "http://arxiv.org/abs/2605.16153v1",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Kush R. Varshney",
+    "_fetched_at": "2026-05-18T23:10:46.289566"
+  },
+  {
+    "entity_name": "Look Before You Leap: Autonomous Exploration for LLM Agents",
+    "source_url": "http://arxiv.org/abs/2605.16143v1",
+    "score": 15,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Ziang Ye",
+    "_fetched_at": "2026-05-18T23:10:46.289569"
+  },
+  {
+    "entity_name": "Property-Guided LLM Program Synthesis for Planning",
+    "source_url": "http://arxiv.org/abs/2605.16142v1",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "research_paper",
+    "_source": "trend__arxiv_cs_ai_recent",
+    "arxiv_author": "Augusto B. Corrêa",
+    "_fetched_at": "2026-05-18T23:10:46.289572"
+  }
+]

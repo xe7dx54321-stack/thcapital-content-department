@@ -1,0 +1,12 @@
+{
+  "entity_name": "Is the $20 plan worth?",
+  "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1th7e4j/is_the_20_plan_worth/",
+  "score": 5,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_claude_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/Icy-Argument7855"
+}

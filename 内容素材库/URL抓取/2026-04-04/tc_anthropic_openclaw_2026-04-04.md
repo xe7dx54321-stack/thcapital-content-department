@@ -1,0 +1,11 @@
+# TC: Anthropic says Claude Code subscribers will need to pay extra for OpenClaw usage
+- **URL**: https://techcrunch.com/2026/04/04/anthropic-says-claude-code-subscribers-will-need-to-pay-extra-for-openclaw-support/
+- **Source**: techcrunch
+- **Published**: 2026-04-04T14:12:00+00:00 (3h ago)
+- **Fetched**: 2026-04-04T19:12:47+00:00
+- **Trigger type**: Product/Pricing change
+- **Key entities**: Anthropic, Claude Code, OpenClaw, Peter Steinberger
+- **Significance**: Anthropic moves to separate OpenClaw from Claude Code subscription, creating pricing friction for the OpenClaw ecosystem. Peter Steinberger (creator of open-source libraries used by OpenClaw) publicly joined OpenAI in protest.
+- **China relevance**: OpenClaw has Chinese developer community; this may affect local AI coding tooling ecosystem
+- **Classification**: formal_candidate
+- **Queue status**: structured_accept

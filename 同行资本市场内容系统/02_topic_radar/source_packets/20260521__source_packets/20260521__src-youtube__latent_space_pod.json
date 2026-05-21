@@ -1,0 +1,141 @@
+{
+  "youtube__latent_space_pod": [
+    {
+      "entity_name": "The Agent-Native Cloud: 3M Users, 100K Signups/Wk, Data Centers, &amp; Death PRs — Jake Cooper, Rail",
+      "source_url": "https://www.youtube.com/watch?v=LzCUYNP5UTI",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__latent_space_pod",
+      "_fetched_at": "2026-05-21T22:06:19.431911"
+    },
+    {
+      "entity_name": "The Next War Is Already Here — Yaroslav Azhnyuk, The Fourth Law &amp; Noah Smith, Noahpinion",
+      "source_url": "https://www.youtube.com/watch?v=UmCZBwsibgs",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__latent_space_pod",
+      "_fetched_at": "2026-05-21T22:06:19.431973"
+    },
+    {
+      "entity_name": "Inside Abridge: The AI Listening to 100 Million Doctor Visits — Abridge's Janie Lee &amp; Chai Asawa",
+      "source_url": "https://www.youtube.com/watch?v=vUARtyOvh5U",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__latent_space_pod",
+      "_fetched_at": "2026-05-21T22:06:19.431978"
+    },
+    {
+      "entity_name": "Senior Dev: This &quot;Grill Me&quot; Prompt Is Going Viral Among Top Engineers",
+      "source_url": "https://www.youtube.com/watch?v=rlM_fAKxB3Q",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__latent_space_pod",
+      "_fetched_at": "2026-05-21T22:06:19.431981"
+    },
+    {
+      "entity_name": "🔬How GPT‑5 derived new results in theoretical physics and quantum gravity — Alex Lupsasca, OpenAI",
+      "source_url": "https://www.youtube.com/watch?v=9d899Ram9Bs",
+      "score": 15,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "video",
+      "_source": "youtube__latent_space_pod",
+      "_fetched_at": "2026-05-21T22:06:19.431984"
+    },
+    {
+      "entity_name": "⚡️ Competing with ChatGPT and Sierra, building a $10M ARR company — Yasser Elsaid, Founder, Chatbase",
+      "source_url": "https://www.youtube.com/watch?v=CSYWbbP_OkY",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__latent_space_pod",
+      "_fetched_at": "2026-05-21T22:06:19.431987"
+    },
+    {
+      "entity_name": "The $15B Physical AI Company: Simulation, Autonomy OS, Neural Sim, &amp; 1K Engineers—Applied Intuit",
+      "source_url": "https://www.youtube.com/watch?v=rv23_KcHt4s",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__latent_space_pod",
+      "_fetched_at": "2026-05-21T22:06:19.431990"
+    },
+    {
+      "entity_name": "AI-Native Engineering: 100% adoption, 5x search throughput, unlimited tokens — Mikhail Parakhin",
+      "source_url": "https://www.youtube.com/watch?v=RrkGoX3Cw7o",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__latent_space_pod",
+      "_fetched_at": "2026-05-21T22:06:19.431993"
+    },
+    {
+      "entity_name": "🔬 Training Transformers to solve 95% failure rate of Cancer Trials — Ron Alfa &amp; Daniel Bear, Noe",
+      "source_url": "https://www.youtube.com/watch?v=uqM8qjbLRHA",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__latent_space_pod",
+      "_fetched_at": "2026-05-21T22:06:19.431996"
+    },
+    {
+      "entity_name": "⚡️ How to turn Documents into Knowledge: Graphs in Modern AI — Emil Eifrem, CEO Neo4J",
+      "source_url": "https://www.youtube.com/watch?v=yyuVR-ML9X8",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__latent_space_pod",
+      "_fetched_at": "2026-05-21T22:06:19.431999"
+    },
+    {
+      "entity_name": "Notion’s Sarah Sachs &amp; Simon Last on Custom Agents, Evals, and the Future of Work",
+      "source_url": "https://www.youtube.com/watch?v=ATt7QJgt-2k",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__latent_space_pod",
+      "_fetched_at": "2026-05-21T22:06:19.432002"
+    },
+    {
+      "entity_name": "⚡️ The best engineers don't write the most code. They delete the most code. — Stay Sassy",
+      "source_url": "https://www.youtube.com/watch?v=5KnCKadxSPY",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__latent_space_pod",
+      "_fetched_at": "2026-05-21T22:06:19.432006"
+    },
+    {
+      "entity_name": "Extreme Harness Engineering: 1M LOC, 1B toks/day, 0% human code or review — Ryan Lopopolo, OpenAI",
+      "source_url": "https://www.youtube.com/watch?v=CeOXx-XTYek",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__latent_space_pod",
+      "_fetched_at": "2026-05-21T22:06:19.432009"
+    },
+    {
+      "entity_name": "Marc Andreessen introspects on Death of the Browser, Pi + OpenClaw, and Why &quot;This Time Is Diffe",
+      "source_url": "https://www.youtube.com/watch?v=knx2wrILP1M",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__latent_space_pod",
+      "_fetched_at": "2026-05-21T22:06:19.432012"
+    },
+    {
+      "entity_name": "Moonlake: Interactive, Multimodal World Models — with Chris Manning and Fan-yun Sun",
+      "source_url": "https://www.youtube.com/watch?v=oBWRHnggscM",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__latent_space_pod",
+      "_fetched_at": "2026-05-21T22:06:19.432015"
+    }
+  ]
+}

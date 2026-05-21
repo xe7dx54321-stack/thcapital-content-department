@@ -1,0 +1,12 @@
+{
+  "entity_name": "Did claude bring back the 60 minutes context cache?",
+  "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1th007q/did_claude_bring_back_the_60_minutes_context_cache/",
+  "score": 10,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_claude_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/Background_Fox2241"
+}

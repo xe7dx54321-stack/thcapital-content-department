@@ -1,0 +1,147 @@
+{
+  "generated_at": "2026-05-09 17:44:21 CST",
+  "source_name": "机器之心",
+  "slug": "jiqizhixin",
+  "overlay_skill_name": "th-style-overlay-jiqizhixin",
+  "sample_gate_passed": true,
+  "distinct_recent_articles_used": 8,
+  "total_distinct_available": 190,
+  "observed_window": {
+    "latest": "2026-05-09 12:15:21 CST",
+    "oldest": "2026-05-05 09:48:31 CST"
+  },
+  "aggregate": {
+    "median_char_count": 4467,
+    "median_image_count": 10.5,
+    "median_first_image_after_text_paragraphs": 0.0,
+    "median_short_para_ratio": 0.467,
+    "median_image_density_per_1000_chars": 2.465,
+    "early_image_share": 1.0,
+    "dense_visual_share": 0.75,
+    "first_person_opening_share": 0.125,
+    "reader_address_opening_share": 0.125,
+    "opening_modes": {
+      "对象/事件先落地": 4,
+      "事件/变化切入": 1,
+      "问题/提问切入": 3
+    },
+    "title_modes": {
+      "对象直给型标题": 6,
+      "快讯/变化型标题": 2
+    }
+  },
+  "articles": [
+    {
+      "title": "价值模型不是没用，是架构不对！生成式Critic重新定义LLM强化学习信用分配",
+      "published_at": "2026-05-09 12:15:21 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/ZiFy5-Nay7sPVRHpQq89kw",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260509_144849__价值模型不是没用_是架构不对_生成式critic重新定义llm强化学习信用分配__deep-article.md",
+      "char_count": 3584,
+      "image_count": 10,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.356,
+      "opening_excerpt": "本文第一作者单子康是北京大学二年级在读博士生，研究方向为大语言模型与强化学习，曾于 ICML 2025 以共同一作发表 Spotlight 论文，本工作为微软亚洲研究院实习期间完成。本文最后一作赵立是微软亚洲研究院高级研究员，现任微软亚洲研究院机器学习组负责人。 强化学习（RL）已经成为大语言模型（LLM）后训练阶段最重要的技术之一。早期伴随着 ChatGPT 的出圈，价值对齐 RL 受到广泛关注；DeepSeek-R1 以大规模可验证 RL 激发了模型的推理能力，引领了推理 RL 的热潮；如今的智能体（Agent）训练更是离不开 RL。 可以说，大模型时代的能力演进，很大程度上是 RL 范式不断深化应用的过程。",
+      "note": "对象/事件先落地；很早上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "活久见，时代少年团给大模型上了一课",
+      "published_at": "2026-05-09 12:15:21 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/L-kAMgXcufHa_yynGWKqWQ",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260509_144913__活久见_时代少年团给大模型上了一课__deep-article.md",
+      "char_count": 4915,
+      "image_count": 11,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.452,
+      "opening_excerpt": "机器之心编辑部 大模型 「",
+      "note": "对象/事件先落地；很早上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "曝DeepSeek融资500亿元：梁文锋自掏四成，估值飙至3500亿",
+      "published_at": "2026-05-09 10:58:23 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/468uA3g9RZCZEepuS_yp4g",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260509_144901__曝deepseek融资500亿元_梁文锋自掏四成_估值飙至3500亿__deep-article.md",
+      "char_count": 1527,
+      "image_count": 4,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "事件/变化切入",
+      "title_mode": "快讯/变化型标题",
+      "short_para_ratio": 0.519,
+      "opening_excerpt": "机器之心编辑部 DeepSeek 正在进行一轮 73 亿美元的巨额融资， 估值高达约 515 亿美元",
+      "note": "事件/变化切入；很早上图；短段密度高"
+    },
+    {
+      "title": "VLA的PyTorch时刻已至！港科大联手社区开源StarVLA：一个框架揭秘所有主流VLA",
+      "published_at": "2026-05-09 10:58:23 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/xb9DKivxlMV7LTsuqFXelg",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260509_144925__vla的pytorch时刻已至_港科大联手社区开源starvla_一个框架揭秘所有主流vla__deep-article.md",
+      "char_count": 4424,
+      "image_count": 10,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "快讯/变化型标题",
+      "short_para_ratio": 0.708,
+      "opening_excerpt": "如果说 2017 年的 PyTorch 让深度学习从 \"少数派的炼丹炉\" 变成了 \"人人可用的工程平台\"，那么具身智能（Embodied AI）正在等待属于它自己的 \"PyTorch 时刻\"。 过去两年，VLA（Vision-Language-Action，视觉-语言-动作）模型几乎是机器人领域最火热的方向：从 Google 的 RT-2、Physical Intelligence 的 π₀，到 NVIDIA 的 GR00T、OpenVLA、Cosmos…… 几乎每隔几周就有新模型刷屏。但走进任何一个机器人实验室你都会发现一个尴尬的现实： 想复现一篇论文？代码不全、数据接口对不上；",
+      "note": "对象/事件先落地；很早上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "Anthropic联创定下deadline：2028年AI实现自我进化，没有人类了",
+      "published_at": "2026-05-05 11:58:47 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/FcTzvVjn3OVNpLDDZk-ctA",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260505_191905__anthropic联创定下deadline_2028年ai实现自我进化_没有人类了__deep-article.md",
+      "char_count": 10816,
+      "image_count": 12,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "问题/提问切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.301,
+      "opening_excerpt": "编辑｜杨文、陈陈 AI 很快就能自己改造自己了？ Anthropic 联合创始人 Jack Clark 发帖称，他最近几周阅读了大量公开的 AI 开发数据后，认为到 2028 年底，递归自我改进（recursive self-improvement）发生的概率有 60%。",
+      "note": "问题/提问切入；很早上图；图文节奏偏密"
+    },
+    {
+      "title": "大型挂机现场：马斯克的55万英伟达GPU，利用率才11%",
+      "published_at": "2026-05-05 11:58:47 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/dFpSDgadB7NiTkaa4OBAeg",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260505_191840__大型挂机现场_马斯克的55万英伟达gpu_利用率才11__deep-article.md",
+      "char_count": 1728,
+      "image_count": 4,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "问题/提问切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.273,
+      "opening_excerpt": "编辑 | 泽南 AI 时代堆 GPU，原来是这么个堆法？ 马斯克旗下的 xAI 目前 GPU 资源利用率只有大概 11%。相关报告指出，其 AI 软件栈的优化效果不尽如人意。近日，《The Information》的报道引发了人们的关注。",
+      "note": "问题/提问切入；很早上图"
+    },
+    {
+      "title": "Agent-World：扩展真实世界环境，让智能体与环境协同进化！",
+      "published_at": "2026-05-05 11:58:47 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/Tn2_cNiVIKDl2MU-AFTG-A",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260505_191853__agent_world_扩展真实世界环境_让智能体与环境协同进化__deep-article.md",
+      "char_count": 6554,
+      "image_count": 22,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.939,
+      "opening_excerpt": "随着 MCP 、",
+      "note": "对象/事件先落地；很早上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "CVPR 2026 Oral｜横扫室内3D场景，港科大（广州）打造单目开放词汇占据预测新SOTA",
+      "published_at": "2026-05-05 09:48:31 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/soeH_VlEH2J1fsGo98u5ZA",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260505_191916__cvpr_2026_oral_横扫室内3d场景_港科大_广州_打造单目开放词汇占据预测新sota__deep-article.md",
+      "char_count": 4510,
+      "image_count": 13,
+      "first_image_after_text_paragraphs": 0,
+      "opening_mode": "问题/提问切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.481,
+      "opening_excerpt": "在具身智能研究中，如何让智能体精准理解周围环境的精细几何结构与开放语义信息，始终是具身感知的核心难题。近年来，语义占据预测（Semantic Occupancy Prediction） 将稠密几何与语义信息统一到三维体素网格中，用于构建 3D 语义占据地图，为机器人的空间推理、导航与交互操作提供了场景表达基础。 然而，现有方法大多建立在封闭词汇（Closed-vocabulary） 设定下，模型只能识别训练阶段预先定义好的有限类别。一旦进入真实环境，场景中的语义往往是开放且长尾的 —— 用户可能会直接问：「 鞋子在哪儿？",
+      "note": "问题/提问切入；很早上图；短段密度高；图文节奏偏密"
+    }
+  ]
+}

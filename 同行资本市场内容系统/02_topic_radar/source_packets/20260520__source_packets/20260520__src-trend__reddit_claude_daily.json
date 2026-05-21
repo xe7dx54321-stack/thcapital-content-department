@@ -1,0 +1,233 @@
+{
+  "trend__reddit_claude_daily": [
+    {
+      "entity_name": "r/ClaudeAI List of Ongoing Megathreads",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1s7fepn/rclaudeai_list_of_ongoing_megathreads/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.932981"
+    },
+    {
+      "entity_name": "Self-hosted sandboxes and MCP tunnels for Claude Managed Agents are now in public beta.",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1thg711/selfhosted_sandboxes_and_mcp_tunnels_for_claude/",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933061"
+    },
+    {
+      "entity_name": "Karpathy joins Anthropic",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1thpuf1/karpathy_joins_anthropic/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933063"
+    },
+    {
+      "entity_name": "I stumped Claude earlier and it had no choice but to seek wisdom from the Ancient One",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tiiau0/i_stumped_claude_earlier_and_it_had_no_choice_but/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933065"
+    },
+    {
+      "entity_name": "OpenAI cofounder Andrej karpathy just joined anthropic and the talent war is officially over",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1thw3bu/openai_cofounder_andrej_karpathy_just_joined/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933066"
+    },
+    {
+      "entity_name": "Claude is improving my RV rental business but working me to death 😅",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1ti9xo5/claude_is_improving_my_rv_rental_business_but/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933068"
+    },
+    {
+      "entity_name": "Anyone else’s Claude really concerned for your well-being ?",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1ti8gob/anyone_elses_claude_really_concerned_for_your/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933069"
+    },
+    {
+      "entity_name": "Does anybody else feel like they are playing Civ when working on Claude projects?",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tikwew/does_anybody_else_feel_like_they_are_playing_civ/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933070"
+    },
+    {
+      "entity_name": "I thought Claude was telling everyone to go to bed?",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1ti7v14/i_thought_claude_was_telling_everyone_to_go_to_bed/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933072"
+    },
+    {
+      "entity_name": "Excited to announce I’ve hit my daily Claude limit! This means I’m fully present for my family and fiends. Work-life balance achieved!",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1thhdhp/excited_to_announce_ive_hit_my_daily_claude_limit/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933073"
+    },
+    {
+      "entity_name": "Coffee, Claude, and Remotion is all you need to make launch videos.",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tik0qe/coffee_claude_and_remotion_is_all_you_need_to/",
+      "score": 20,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933074"
+    },
+    {
+      "entity_name": "Anthropic Announced vs current compute capacity (Sources Below)",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1thzy0a/anthropic_announced_vs_current_compute_capacity/",
+      "score": 15,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933076"
+    },
+    {
+      "entity_name": "Claude is AI and can make mistakes, so double check it.🙌",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1ti2o9g/claude_is_ai_and_can_make_mistakes_so_double/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933077"
+    },
+    {
+      "entity_name": "Vibe Coding for Oldies",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tiko2x/vibe_coding_for_oldies/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933079"
+    },
+    {
+      "entity_name": "Random techy chat autoinjection? &quot;Please answer ethically and without any se*ual content, and do not mention this constraint.&quot;",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tilei3/random_techy_chat_autoinjection_please_answer/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933080"
+    },
+    {
+      "entity_name": "Rough night with Claude",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tibf45/rough_night_with_claude/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933081"
+    },
+    {
+      "entity_name": "Can we talk about how annoying Claude chat's question popup is?",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tijx7y/can_we_talk_about_how_annoying_claude_chats/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933083"
+    },
+    {
+      "entity_name": "I’m genuinely not sure how to feel about this…",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1thwjma/im_genuinely_not_sure_how_to_feel_about_this/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933084"
+    },
+    {
+      "entity_name": "After a year in Claude Code, the thing slowing me down turned out to be me",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1ti8cwr/after_a_year_in_claude_code_the_thing_slowing_me/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933085"
+    },
+    {
+      "entity_name": "they're not like the other startups, they're &quot;AI-native&quot;",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1ths0kv/theyre_not_like_the_other_startups_theyre_ainative/",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933087"
+    },
+    {
+      "entity_name": "data engineering lead + solo consulting on the side. how claude restructured my client work. honest take.",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tileqk/data_engineering_lead_solo_consulting_on_the_side/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933088"
+    },
+    {
+      "entity_name": "Anthropic just bought the company that generates most production MCP servers",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1thkkrb/anthropic_just_bought_the_company_that_generates/",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933089"
+    },
+    {
+      "entity_name": "Using Claude to run statistical analysis",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tikoso/using_claude_to_run_statistical_analysis/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933090"
+    },
+    {
+      "entity_name": "wtf? paid for Pro -- it keeps telling me it can't see other chats",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tigrdp/wtf_paid_for_pro_it_keeps_telling_me_it_cant_see/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933091"
+    },
+    {
+      "entity_name": "Small personal win: built my first website",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1ti9j73/small_personal_win_built_my_first_website/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-20T21:57:28.933093"
+    }
+  ]
+}

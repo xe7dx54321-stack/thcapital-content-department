@@ -1,0 +1,12 @@
+{
+  "entity_name": "Well THAT is crazy",
+  "source_url": "https://old.reddit.com/r/ChatGPT/comments/1tgr7me/well_that_is_crazy/",
+  "score": 5,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_chatgpt_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/Shot-Bandicoot641"
+}

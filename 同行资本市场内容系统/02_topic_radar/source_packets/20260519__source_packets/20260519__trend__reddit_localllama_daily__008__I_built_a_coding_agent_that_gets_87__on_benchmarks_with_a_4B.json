@@ -1,0 +1,13 @@
+{
+  "entity_name": "I built a coding agent that gets 87% on benchmarks with a 4B parameter model, here's how",
+  "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tgecrq/i_built_a_coding_agent_that_gets_87_on_benchmarks/",
+  "score": 33,
+  "signal_reasons": [
+    "Reddit高频讨论",
+    "评测性能"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_localllama_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/Glittering_Focus1538"
+}

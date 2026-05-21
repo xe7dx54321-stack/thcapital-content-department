@@ -1,0 +1,89 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editors
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Node / frontend build output
+node_modules/
+.npm/
+.yarn/
+.pnpm-store/
+dist/
+build/
+coverage/
+.cache/
+.turbo/
+.next/
+
+# Runtime state and logs
+*.log
+*.pid
+*.tmp
+*.temp
+*.sock
+logs/
+**/logs/
+内容工厂控制台/runtime/current-url.txt
+内容工厂控制台/runtime/server.json
+内容工厂控制台/runtime/server.pid
+内容工厂控制台/logs/
+内容生产系统/02_topic_radar/asset_chains/
+内容生产系统/02_topic_radar/deep_articles/
+内容生产系统/02_topic_radar/itjuzi_live_snapshot/
+内容生产系统/02_topic_radar/raw/
+内容生产系统/02_topic_radar/source_packets/
+内容生产系统/05_draft_packs/
+内容生产系统/06_publish_queue/
+内容生产系统/07_performance_reviews/
+内容生产系统/07_wechat_bridge_outbox/consumer-heartbeat.json
+内容生产系统/07_wechat_bridge_outbox/logs/
+内容生产系统/07_wechat_bridge_outbox/requests/
+内容生产系统/10_logs/
+内容生产系统/11_frontstage/_console_state/
+同行资本市场内容系统/10_logs/*.log
+
+# Local databases / private state
+*.sqlite
+*.sqlite3
+*.db
+*.local
+
+# Archives and local backups
+_archive/
+内容素材库/备份/
+内容生产系统/99_rehearsal_backups/
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+*.rar
+
+# Large/generated raw capture material
+内容素材库/灵感素材库/微信抓取/
+内容素材库/灵感素材库/URL抓取/
+内容素材库/微信抓取/
+内容素材库/灵感素材库/*抓取素材/
+内容素材库/灵感素材库/automation/
+内容素材库/内容工厂/
+
+# Obsidian personal workspace state
+内容素材库/.obsidian/workspace*.json
+内容素材库/.obsidian/cache/

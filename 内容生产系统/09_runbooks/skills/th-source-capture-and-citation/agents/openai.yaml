@@ -1,0 +1,4 @@
+interface:
+  display_name: "TH Source Capture"
+  short_description: "抓取信源、保留引用链、整理 source packet"
+  default_prompt: "Capture AI-domain sources fairly, preserve citations, normalize them into source packets, and prepare them for topic radar."

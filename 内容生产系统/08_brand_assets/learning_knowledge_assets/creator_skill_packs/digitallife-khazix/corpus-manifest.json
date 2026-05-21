@@ -1,0 +1,150 @@
+{
+  "generated_at": "2026-05-09 17:44:21 CST",
+  "source_name": "数字生命卡兹克",
+  "slug": "digitallife-khazix",
+  "overlay_skill_name": "th-style-overlay-digitallife-khazix",
+  "sample_gate_passed": true,
+  "distinct_recent_articles_used": 8,
+  "total_distinct_available": 21,
+  "observed_window": {
+    "latest": "2026-03-28 17:20:49 CST",
+    "oldest": "2026-03-20 10:08:00 CST"
+  },
+  "aggregate": {
+    "median_char_count": 4500,
+    "median_image_count": 20.0,
+    "median_first_image_after_text_paragraphs": 4.5,
+    "median_short_para_ratio": 0.55,
+    "median_image_density_per_1000_chars": 4.185,
+    "early_image_share": 0.375,
+    "dense_visual_share": 0.625,
+    "first_person_opening_share": 0.75,
+    "reader_address_opening_share": 0.375,
+    "opening_modes": {
+      "场景/自述切入": 4,
+      "数字/清单切入": 2,
+      "判断句先行": 1,
+      "对象/事件先落地": 1
+    },
+    "title_modes": {
+      "快讯/变化型标题": 1,
+      "对象直给型标题": 4,
+      "收益/教程型标题": 1,
+      "观点/判断型标题": 2
+    }
+  },
+  "articles": [
+    {
+      "title": "刚刚，飞书CLI开源，Claude Code也可以丝滑操控飞书了。",
+      "published_at": "2026-03-28 17:20:49 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/fvjxT_GgbEgxgsPCUlo-RQ",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200159__刚刚_飞书cli开源_claude_code也可以丝滑操控飞书了__deep-article.md",
+      "char_count": 4221,
+      "image_count": 32,
+      "first_image_after_text_paragraphs": 1,
+      "opening_mode": "场景/自述切入",
+      "title_mode": "快讯/变化型标题",
+      "short_para_ratio": 0.597,
+      "opening_excerpt": "大周末的，起床第一件事，就看到，飞书开源CLI了。。。 这个事情的意义之重大，我真的觉得，不亚于OpenClaw第一次可以接入飞书的那一天。 因为现在，飞书，这个我们公司天天在用的工具，我终于有一种全新的使用方式了。",
+      "note": "场景/自述切入；很早上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "杨植麟、张鹏、罗福莉等齐聚一堂，他们关于OpenClaw的观点值得一听。",
+      "published_at": "2026-03-27 14:21:30 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/huv31nYzRx_vueNhBHEC_w",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_105541__杨植麟_张鹏_罗福莉等齐聚一堂_他们关于openclaw的观点值得一听__deep-article.md",
+      "char_count": 9901,
+      "image_count": 3,
+      "first_image_after_text_paragraphs": 2,
+      "opening_mode": "数字/清单切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.459,
+      "opening_excerpt": "今天是2026中关村论坛的人工智能主题日。 我也定了个一早的闹钟准时起来看。 这个活动海淀已经办了第三年，但今年的议程密度确实有点夸张。",
+      "note": "数字/清单切入；很早上图；短段密度高"
+    },
+    {
+      "title": "安利一个11万Star的必装插件，能让你的Agent体验直接质变。",
+      "published_at": "2026-03-26 10:27:19 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/06zQ7izFKN7oZnzVaNwkdw",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200121__安利一个11万star的必装插件_能让你的agent体验直接质变__deep-article.md",
+      "char_count": 5111,
+      "image_count": 32,
+      "first_image_after_text_paragraphs": 7,
+      "opening_mode": "判断句先行",
+      "title_mode": "收益/教程型标题",
+      "short_para_ratio": 0.536,
+      "opening_excerpt": "最近一直在聊Agent、聊Vibe Coding。 但是在给越来越多的朋友安利的时候，发现其实，一直有一个问题被忽略了。 就是，真正卡住大多数人的，是自己没有一个标准的工作流程。",
+      "note": "判断句先行；结构展开后再上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "Claude能直接操控你的电脑微信了，这才是真正的上位小龙虾。",
+      "published_at": "2026-03-25 10:08:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/Trc0nbnE_faVTbG1IjDX3w",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200146__claude能直接操控你的电脑微信了_这才是真正的上位小龙虾__deep-article.md",
+      "char_count": 4780,
+      "image_count": 31,
+      "first_image_after_text_paragraphs": 1,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "观点/判断型标题",
+      "short_para_ratio": 0.45,
+      "opening_excerpt": "昨天，Claude凌晨的时候，新发了一个更新。 可以让Claude，通过Computer use，纯视觉的方案，来对你的电脑进行操控。 这个意义极度重大，不亚于当时豆包手机出来的时候，对一众没有开放自己权限的三方APP的冲击。",
+      "note": "对象/事件先落地；很早上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "给所有AIFUT大会购票用户的致歉声明。",
+      "published_at": "2026-03-23 22:29:15 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/W4FoZL-VmUryM0t-uMjTDw",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_105406__给所有aifut大会购票用户的致歉声明__deep-article.md",
+      "char_count": 1039,
+      "image_count": 0,
+      "first_image_after_text_paragraphs": null,
+      "opening_mode": "场景/自述切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.844,
+      "opening_excerpt": "给所有AIFUT大会购票用户的致歉声明。 今天，我们发了 关于AIFUT大会的预告。",
+      "note": "场景/自述切入；短段密度高"
+    },
+    {
+      "title": "2026，我们倾尽所有，想为大家办一场万人AI大会丨AIFUT。",
+      "published_at": "2026-03-23 10:08:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/TVpDvuHMd2OvWdIsnlp9bA",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200134__2026_我们倾尽所有_想为大家办一场万人ai大会丨aifut__deep-article.md",
+      "char_count": 3922,
+      "image_count": 9,
+      "first_image_after_text_paragraphs": 10,
+      "opening_mode": "数字/清单切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.564,
+      "opening_excerpt": "3个月前，我跟朋友们说，我想做一个可能最好玩最接地气的AI大会。 主会场+外围展区，大概能到万人规模。 所有听了我计划的人，都说我疯了。",
+      "note": "数字/清单切入；结构展开后再上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "聊聊微信的Agent野心。",
+      "published_at": "2026-03-22 21:17:57 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/te-n9a4yAnwF5b6ioatR1A",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_105247__聊聊微信的agent野心__deep-article.md",
+      "char_count": 1066,
+      "image_count": 0,
+      "first_image_after_text_paragraphs": null,
+      "opening_mode": "场景/自述切入",
+      "title_mode": "观点/判断型标题",
+      "short_para_ratio": 0.738,
+      "opening_excerpt": "聊聊微信的Agent野心。 今天微信上线了官方的ClawBot插件。 打开微信 → 我 → 设置 → 插件，你会看到一个红色图标的新面孔。",
+      "note": "场景/自述切入；短段密度高"
+    },
+    {
+      "title": "分享10个你可能不知道的Claude Code隐藏命令。",
+      "published_at": "2026-03-20 10:08:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/XopaISgwzSgoqZctym_Ajg",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_105210__分享10个你可能不知道的claude_code隐藏命令__deep-article.md",
+      "char_count": 5099,
+      "image_count": 31,
+      "first_image_after_text_paragraphs": 16,
+      "opening_mode": "场景/自述切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.521,
+      "opening_excerpt": "最近发现一个很有意思的现象。 我们公司很多很多的小伙伴，都在用Claude Code，因为这玩意，在很多时候，确实就是最牛逼的通用Agent。 但，公司的小伙伴，大家的用法差异巨大。",
+      "note": "场景/自述切入；结构展开后再上图；短段密度高；图文节奏偏密"
+    }
+  ]
+}

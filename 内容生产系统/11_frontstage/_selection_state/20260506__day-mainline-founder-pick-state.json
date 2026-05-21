@@ -1,0 +1,122 @@
+{
+  "date": "2026-05-06",
+  "generated_at": "2026-05-06 19:24:16 CST",
+  "board_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260506__daily-top8-to-top5.md",
+  "board_signature": "da6c0c6830188ae4548f60c219a74eefc2a62426d182ef128c9ae96fc444220d",
+  "status": "selected_pending_downstream_delivery",
+  "briefing_at": "2026-05-06 17:40:00 CST",
+  "default_pick_at": "2026-05-06 18:00:00 CST",
+  "draftbox_deadline": "2026-05-06 19:00:00 CST",
+  "default_choice_rank": 2,
+  "selected_rank": 2,
+  "selected_candidate_key": "mistral_le_chat_remote_agents_work_mode_20260506",
+  "selected_at": "2026-05-06 19:17:12 CST",
+  "selected_reason": "default_first_after_1800",
+  "approved_topic_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/04_approved_topics/20260506_191712__mistral_le_chat_remote_agents_work_mode_20260506__approved-topic.md",
+  "draft_pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/mistral_le_chat_remote_agents_work_mode_20260506",
+  "bridge_request_id": "",
+  "briefing_sent_at": "",
+  "briefing_sent_signature": "",
+  "recommended_cards": [
+    {
+      "date": "2026-05-06",
+      "card_role": "recommended",
+      "card_label": "推荐 1",
+      "rank": 2,
+      "candidate_key": "mistral_le_chat_remote_agents_work_mode_20260506",
+      "title": "Mistral 为 Le Chat 新增 Remote Agents 与 Work Mode",
+      "display_title": "Mistral 为 Le Chat 新增 Remote Age…",
+      "topic_line": "Mistral 为 Le Chat 新增 Remote Agents 与 Work Mode",
+      "outline": "先讲旧痛点和新方案，再拆它怎么工作、谁最适合用、真实收益和不该高估的地方。 具体展开时围绕：以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "style_route": "工具体验 / builder 拆解 / 产品推荐",
+      "style_profile": {
+        "primary_creator": "饼干哥哥AGI",
+        "primary_skill": "th-style-overlay-cookie-brother-agi",
+        "secondary_creator": "袋鼠帝AI客栈",
+        "secondary_skill": "th-style-overlay-kangaroo-ai-inn",
+        "support_creator": "",
+        "support_skill": "",
+        "borrowed_layers": "收益点前置 / 步骤感 / 门槛转译 / 场景感"
+      },
+      "special_instructions": "style_route=工具体验 / builder 拆解 / 产品推荐; primary_overlay=饼干哥哥AGI; secondary_overlay=袋鼠帝AI客栈; borrowed_layers=收益点前置 / 步骤感 / 门槛转译 / 场景感; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "image_outline": [
+        "封面：对象名 + 旧痛点/新收益对照，别做抽象海报。",
+        "正文图：对象与界面截图，放在首屏后，核心作用是第一张图必须是产品本体，不要先做抽象海报。。",
+        "正文图：前后对比图，放在收益点段前，核心作用是适合省步骤、省时间、少踩坑的收益段。。",
+        "正文图：适合谁 / 不适合谁矩阵，放在边界段前，核心作用是不要把所有产品都写成人人都该上。。"
+      ],
+      "default_pick": true,
+      "draftbox_deadline": "2026-05-06 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260506__recommended_2__mistral_le_chat_remote_agents_work_mode_20260506.md"
+    },
+    {
+      "date": "2026-05-06",
+      "card_role": "recommended",
+      "card_label": "推荐 2",
+      "rank": 3,
+      "candidate_key": "openai_gpt_5_5_instant_chatgpt_default_20260506",
+      "title": "GPT-5.5 Instant 正式上线：ChatGPT 默认模型切换，个性化记忆升级",
+      "display_title": "GPT-5.5 Instant 正式上线：ChatGPT 默认…",
+      "topic_line": "GPT-5.5 Instant 正式上线：ChatGPT 默认模型切换，个性化记忆升级",
+      "outline": "先交代读者为什么总会判断失真，再拆方法结构、关键步骤、怎么每天执行，最后补边界与风险。 具体展开时围绕：以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "style_route": "方法论 / workflow / skill / agent 教程",
+      "style_profile": {
+        "primary_creator": "赛博禅心",
+        "primary_skill": "th-style-overlay-cyber-zenmind",
+        "secondary_creator": "数字生命卡兹克",
+        "secondary_skill": "th-style-overlay-digitallife-khazix",
+        "support_creator": "饼干哥哥AGI",
+        "support_skill": "th-style-overlay-cookie-brother-agi",
+        "borrowed_layers": "对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置"
+      },
+      "special_instructions": "style_route=方法论 / workflow / skill / agent 教程; primary_overlay=赛博禅心; secondary_overlay=数字生命卡兹克; support_overlay=饼干哥哥AGI; borrowed_layers=对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "image_outline": [
+        "封面：主标题做成判断句，右侧用 3 层方法框架或核心步骤提示这是一篇可执行教程。",
+        "正文图：原始证据锚点，放在首屏后 / why-now 段后，核心作用是第一张图必须把对象钉住，不要让读者先看抽象判断。。",
+        "正文图：约束 / 变量分类图，放在背景讲清后，核心作用是适合‘盯这几类 / 只回答这几个问题 / 方法分层输入’这类段落。。",
+        "正文图：分层架构图，放在核心方法段前，核心作用是适合‘五层 / 分层 / 上下游 / 输入输出链路’这类段落。。",
+        "正文图：workflow 循环图，放在执行步骤段前，核心作用是适合‘每天怎么跑 / 如何更新 / 如何迭代’这类段落。。"
+      ],
+      "default_pick": false,
+      "draftbox_deadline": "2026-05-06 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260506__recommended_3__openai_gpt_5_5_instant_chatgpt_default_20260506.md"
+    }
+  ],
+  "holdout_cards": [
+    {
+      "date": "2026-05-06",
+      "card_role": "holdout",
+      "card_label": "候补 1",
+      "rank": 1,
+      "candidate_key": "youtube_ai_dot_engineer_ralph_loops_build_dumb_ai_loops_that_ship_chris_parsons_cherrypick_20260506",
+      "title": "Ralph Loops: Build Dumb AI Loops That Ship — Chris Parsons, Cherrypick",
+      "display_title": "Ralph Loops: Build Dumb AI Loop…",
+      "topic_line": "事件本身",
+      "outline": "先交代读者为什么总会判断失真，再拆方法结构、关键步骤、怎么每天执行，最后补边界与风险。 具体展开时围绕：以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "style_route": "方法论 / workflow / skill / agent 教程",
+      "style_profile": {
+        "primary_creator": "赛博禅心",
+        "primary_skill": "th-style-overlay-cyber-zenmind",
+        "secondary_creator": "数字生命卡兹克",
+        "secondary_skill": "th-style-overlay-digitallife-khazix",
+        "support_creator": "饼干哥哥AGI",
+        "support_skill": "th-style-overlay-cookie-brother-agi",
+        "borrowed_layers": "对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置"
+      },
+      "special_instructions": "style_route=方法论 / workflow / skill / agent 教程; primary_overlay=赛博禅心; secondary_overlay=数字生命卡兹克; support_overlay=饼干哥哥AGI; borrowed_layers=对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "image_outline": [
+        "封面：主标题做成判断句，右侧用 3 层方法框架或核心步骤提示这是一篇可执行教程。",
+        "正文图：原始证据锚点，放在首屏后 / why-now 段后，核心作用是第一张图必须把对象钉住，不要让读者先看抽象判断。。",
+        "正文图：约束 / 变量分类图，放在背景讲清后，核心作用是适合‘盯这几类 / 只回答这几个问题 / 方法分层输入’这类段落。。",
+        "正文图：分层架构图，放在核心方法段前，核心作用是适合‘五层 / 分层 / 上下游 / 输入输出链路’这类段落。。",
+        "正文图：workflow 循环图，放在执行步骤段前，核心作用是适合‘每天怎么跑 / 如何更新 / 如何迭代’这类段落。。"
+      ],
+      "default_pick": false,
+      "draftbox_deadline": "2026-05-06 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260506__holdout_1__youtube_ai_dot_engineer_ralph_loops_build_dumb_ai_loops_that_ship_chris_parsons_cherrypick_20260506.md"
+    }
+  ]
+}

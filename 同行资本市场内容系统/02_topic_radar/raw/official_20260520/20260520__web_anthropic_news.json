@@ -1,0 +1,64 @@
+{
+  "source_id": "web__anthropic_news",
+  "label": "Anthropic News",
+  "type": "page",
+  "captured_at": "2026-05-20T20:55:51.669016",
+  "entry_count": 5,
+  "entries": [
+    {
+      "entity_name": "Responsible Scaling Policy",
+      "source_url": "https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy",
+      "title_text": "Responsible Scaling Policy",
+      "body_snippet": "",
+      "score": 8,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__anthropic_news",
+      "label": "Anthropic News"
+    },
+    {
+      "entity_name": "Consumer health data privacy policy",
+      "source_url": "https://www.anthropic.com/legal/consumer-health-data-privacy-policy",
+      "title_text": "Consumer health data privacy policy",
+      "body_snippet": "",
+      "score": 4,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__anthropic_news",
+      "label": "Anthropic News"
+    },
+    {
+      "entity_name": "Responsible disclosure policy",
+      "source_url": "https://www.anthropic.com/responsible-disclosure-policy",
+      "title_text": "Responsible disclosure policy",
+      "body_snippet": "",
+      "score": 8,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__anthropic_news",
+      "label": "Anthropic News"
+    },
+    {
+      "entity_name": "Terms of service: Commercial",
+      "source_url": "https://www.anthropic.com/legal/commercial-terms",
+      "title_text": "Terms of service: Commercial",
+      "body_snippet": "",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__anthropic_news",
+      "label": "Anthropic News"
+    },
+    {
+      "entity_name": "Terms of service: Consumer",
+      "source_url": "https://www.anthropic.com/legal/consumer-terms",
+      "title_text": "Terms of service: Consumer",
+      "body_snippet": "",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__anthropic_news",
+      "label": "Anthropic News"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "entity_name": "club-5060ti follow-up: cleaner RTX 5060 Ti local LLM recipes, benchmark explorer, and CUDA GPU compatibility notes",
+  "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1th633w/club5060ti_followup_cleaner_rtx_5060_ti_local_llm/",
+  "score": 28,
+  "signal_reasons": [
+    "Reddit高频讨论",
+    "评测性能"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_localllama_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/do_u_think_im_spooky"
+}

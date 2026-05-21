@@ -1,0 +1,635 @@
+{
+  "meta": {
+    "generated_at": "2026-04-05 22:42:09 CST",
+    "date": "2026-04-05",
+    "window_rule": "T-1 17:00 → T 14:30"
+  },
+  "paths": {
+    "markdown": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260405__head-media-learning-board.md",
+    "html": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260405__head-media-learning-board.html",
+    "json": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260405__head-media-learning-board.snapshot.json",
+    "rulebook_markdown": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/20260405__head-media-learning-rulebook-v1.md",
+    "rulebook_latest": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/latest__head-media-learning-rulebook-v1.md",
+    "optimization_state": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/_console_state/learning_optimization_state.json"
+  },
+  "overview": {
+    "sample_count": 8,
+    "ready_topic_count": 3,
+    "strategic_rotation_count": 4,
+    "strategic_rotation_blocked": 0,
+    "sample_source_mix": [
+      [
+        "机器之心",
+        4
+      ],
+      [
+        "智东西",
+        3
+      ],
+      [
+        "Founder Park",
+        1
+      ]
+    ],
+    "median_first_image_after_text_paragraphs": 0.0,
+    "median_sample_image_count": 8.5,
+    "takeaways": [
+      "先用判断或反差把人拉住，再在前 10%-15% 内补齐背景。",
+      "证据要早，不要让读者一直听抽象判断。",
+      "图片要承担证明、解释、换气三种职责，而不是只做装饰。",
+      "写稿时优先补证、补背景、补图，而不是遇到问题就直接换题。",
+      "学习不只反哺写稿岗，还要反哺 source / seed / topic 三层，持续校正“今天该追什么题”。"
+    ],
+    "optimization_total": 3,
+    "optimization_active": 3,
+    "optimization_dismissed": 0
+  },
+  "samples": [
+    {
+      "source_name": "机器之心",
+      "title": "大模型SFT后效果≠RL潜力！港科大、阿里提出自适应冷启动新范式",
+      "published_at": "2026-04-04 11:26:13 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/XThWpLxqMT0TKrAQ3kibmg",
+      "char_count": 3653,
+      "image_count": 11,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "本文第一作者是来自香港科技大学的博士生李欣然，并由胡张广达、厦门大学沈思淇副教授、阿里集团陈庆国、徐昭、骆卫华、张凯夫和香港科技大学张军教授合作完成。 / 自 2025 年以来，强化学习（RL）逐渐成为了大语言模型（LLM）后训练（Post-training）阶段的默认范式。大量研究与实践表明：不依赖海量人工标注，仅靠 RL 就能激发出…",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260405_120805__大模型sft后效果_rl潜力_港科大_阿里提出自适应冷启动新范式__deep-article.md"
+    },
+    {
+      "source_name": "机器之心",
+      "title": "全网开骂！Claude订阅「封杀」OpenClaw，想用龙虾？得加钱！",
+      "published_at": "2026-04-04 11:26:13 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/F9mimuW3ym61JL5SqqwGbQ",
+      "char_count": 3153,
+      "image_count": 10,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "机器之心编辑部 / Anthropic「封杀」OpenClaw 了？",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260405_120754__全网开骂_claude订阅_封杀_openclaw_想用龙虾_得加钱__deep-article.md"
+    },
+    {
+      "source_name": "机器之心",
+      "title": "AI 视频生成的战场如何从「模型秀场」转向「工作流」？",
+      "published_at": "2026-04-04 10:30:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/ixF2OeCyQQosOKjuBHZ2BQ",
+      "char_count": 1927,
+      "image_count": 3,
+      "first_image_after_text_paragraphs": 1,
+      "hook_excerpt": "本文来自PRO会员通讯内容，文末关注「机器之心PRO会员」，查看更多专题解读。 / 自 OpenAI Sora 在 2024 年发布以来，国内外相继涌现出诸多视频生成模型。伴随模型的迭代和能力的改进，视频生成厂家的竞争力不再仅聚焦于模型本身的性能，而是扩散至视频生成能力对业务带来的增益。AI 视频赛道的战场正在从「模型修长」转向如何将视…",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260405_120742__ai_视频生成的战场如何从_模型秀场_转向_工作流__deep-article.md"
+    },
+    {
+      "source_name": "机器之心",
+      "title": "从任务专用到通用智能：基础模型重塑具身导航",
+      "published_at": "2026-04-03 20:08:29 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/JPm27i2Ox_T9FS85HoTPug",
+      "char_count": 3852,
+      "image_count": 8,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "团队介绍：北京邮电大学徐梦炜副教授研究团队专注于端侧具身智能算法和系统软件，在相关领域的顶级会议及期刊发表论文50余篇，曾获中国高校首个USENIX ATC 2024最佳论文奖，推出了面向端侧异构算力芯片的高效推理引擎mllm（GitHub 1.4K Stars）。 / 具身导航是机器人从 “看懂环境” 走向 “真正行动起来” 的关键能…",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260404_121722__从任务专用到通用智能_基础模型重塑具身导航__deep-article.md"
+    },
+    {
+      "source_name": "Founder Park",
+      "title": "拍照即交互、专为Z世代打造，Chance AI做了世界首款视觉Agent产品",
+      "published_at": "2026-04-03 17:36:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/KMLsSMuUUBDW25fibNmDGg",
+      "char_count": 14367,
+      "image_count": 8,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "一款 AI 产品出现在了国际顶级的艺术展览中，而且是充当解说员的身份。 / 上周，亚洲当代艺术博览会 Art Central 落幕。Chance AI 作为这届博览会官方引入的首个 AI 产品，负责帮观众解读艺术品。观众举起手机，对准一幅画，拍照即交互，听 AI 解释：这件作品为什么成立，它背后意味着什么。",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260404_121643__拍照即交互_专为z世代打造_chance_ai做了世界首款视觉agent产品__deep-article.md"
+    },
+    {
+      "source_name": "智东西",
+      "title": "微软向OpenAI说“不”？三款自研AI模型重磅发布，实测来了",
+      "published_at": "2026-04-03 20:00:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/FwGFLAxWlNl9BvRJ5nwSqA",
+      "char_count": 1447,
+      "image_count": 12,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "微软一口气发布三款自研AI模型。 / 作者 |",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260404_121618__微软向openai说_不_三款自研ai模型重磅发布_实测来了__deep-article.md"
+    },
+    {
+      "source_name": "智东西",
+      "title": "机器人舞姿爆红背后：具身智能行业“卡脖子”难题，终于有了新解法",
+      "published_at": "2026-04-03 19:37:21 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/A73KO7lOUmSB3a2F78mBGg",
+      "char_count": 2246,
+      "image_count": 7,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "🤖头图由 / 智象未来AI大模型生成",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260404_121605__机器人舞姿爆红背后_具身智能行业_卡脖子_难题_终于有了新解法__deep-article.md"
+    },
+    {
+      "source_name": "智东西",
+      "title": "11人，年入3000万美元，被OpenAI收购了",
+      "published_at": "2026-04-03 19:37:21 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/PrjWAkurdaz2zD4dMwBj8g",
+      "char_count": 3303,
+      "image_count": 9,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "OpenAI为这笔收购支付了数亿美元。 / 编译 |",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260404_121552__11人_年入3000万美元_被openai收购了__deep-article.md"
+    }
+  ],
+  "strategic_rotation": [
+    {
+      "source_name": "赛博禅心",
+      "status": "archive",
+      "status_label": "历史回看",
+      "title": "飞书出了官方 CLI，消息、文档、日历、邮箱都能用 Agent 操作了",
+      "published_at": "2026-03-28 15:04:50 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/lrihiZonqug-xi4sHMviVg",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首图位置相对靠后，更像是在结构展开后用图片换气。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200250__飞书出了官方_cli_消息_文档_日历_邮箱都能用_agent_操作了__deep-article.md",
+      "note": "该号近 7 天内暂无新 deep article，暂回看最近一篇高质量样本，避免战略学习断档。",
+      "source_packet_count": 4,
+      "deep_article_count": 4
+    },
+    {
+      "source_name": "数字生命卡兹克",
+      "status": "archive",
+      "status_label": "历史回看",
+      "title": "刚刚，飞书CLI开源，Claude Code也可以丝滑操控飞书了。",
+      "published_at": "2026-03-28 17:20:49 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/fvjxT_GgbEgxgsPCUlo-RQ",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200159__刚刚_飞书cli开源_claude_code也可以丝滑操控飞书了__deep-article.md",
+      "note": "该号近 7 天内暂无新 deep article，暂回看最近一篇高质量样本，避免战略学习断档。",
+      "source_packet_count": 4,
+      "deep_article_count": 4
+    },
+    {
+      "source_name": "饼干哥哥AGI",
+      "status": "archive",
+      "status_label": "历史回看",
+      "title": "OpenClaw的最佳省钱攻略：几十块的方舟Coding Plan直接让跨境 AI 团队成本降了 90%",
+      "published_at": "2026-03-25 15:30:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/hJpI_JPAaMSEO_FPPa1NJw",
+      "learning_takeaway": "开头直接塞进数字或对象，让读者先感到“这事是真的，而且现在就值得看”。",
+      "visual_takeaway": "首图位置相对靠后，更像是在结构展开后用图片换气。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200109__openclaw的最佳省钱攻略_几十块的方舟coding_plan直接让跨境_ai_团队成本降了_90__deep-article.md",
+      "note": "该号近 7 天内暂无新 deep article，暂回看最近一篇高质量样本，避免战略学习断档。",
+      "source_packet_count": 4,
+      "deep_article_count": 3
+    },
+    {
+      "source_name": "袋鼠帝AI客栈",
+      "status": "rotation",
+      "status_label": "轮转补位",
+      "title": "终于找到免费的本地Agent了！量大管饱，真干活～",
+      "published_at": "2026-03-27 10:44:14 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/6xa7WYaWTh2e8g_XXHJmnw",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "先给判断，再很快补一张证据图，图文切换节奏比较早。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260331_125315__终于找到免费的本地agent了_量大管饱_真干活__deep-article.md",
+      "note": "主学习池仍按业务窗采样；该号本轮通过近 7 天轮转补位进入学习池，不污染当天主样本。",
+      "source_packet_count": 4,
+      "deep_article_count": 1
+    }
+  ],
+  "ready_drafts": [
+    {
+      "topic_key": "claude_code_linux_vulnerability",
+      "topic_title": "AI coding 工具在真实生产环境中的价值验证——不是 demo，是真正改变了代码安全审查的范式",
+      "approved_angle": "Claude Code 发现 Linux 内核 23 年隐藏漏洞，AI coding 能力的真实世界证明",
+      "platforms": [
+        "微信公众号",
+        "X"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/claude_code_linux_vulnerability/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/claude_code_linux_vulnerability",
+      "preview": "一个「顺手发现」，为什么值得所有开发者认真看",
+      "char_count": 2672,
+      "section_count": 0,
+      "visual_asset_count": 4,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `4` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+        "长文分层还不够，阅读节奏容易发闷。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。；长文分层还不够，阅读节奏容易发闷。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "glm5_benchmark_yc_bench",
+      "topic_title": "模型能力 vs 成本的真实长程验证——不是 benchmark 跑分，而是模拟创业公司 CEO 运行一整年的决策质量对比",
+      "approved_angle": "GLM-5 用 1/11 成本接近 Claude Opus 4.6，YC-Bench 长程任务验证，一手硬数据",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/glm5_benchmark_yc_bench/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/glm5_benchmark_yc_bench",
+      "preview": "最近有一个测试结果在 AI 圈子里传得很快，但它既不是哪家厂商自己发的 PR稿，也不是常见的\"谁家 MMLU 又高了几分\"。",
+      "char_count": 3190,
+      "section_count": 7,
+      "visual_asset_count": 4,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `4` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "xreal_ar_glasses_ipo_hk_2026",
+      "topic_title": "XREAL冲刺AR眼镜第一股：9年融22亿难盈利，年营收5亿净亏4亿",
+      "approved_angle": "XREAL港股IPO：年营收5亿亏4亿，谷歌第二大客户，AR眼镜第一股成色几何？——9年22亿融资、阿里快手爱奇艺押注的硬件独角兽，财务数据首次完整披露",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/xreal_ar_glasses_ipo_hk_2026/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/xreal_ar_glasses_ipo_hk_2026",
+      "preview": "谷歌是第二大客户、阿里快手爱奇艺押注——XR 行业终于有了第一个 IPO 闯关者，但它真的准备好了吗？",
+      "char_count": 2134,
+      "section_count": 6,
+      "visual_asset_count": 1,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `1` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    }
+  ],
+  "selection_review": {
+    "selection_topics": [
+      {
+        "topic_key": "glm5_benchmark_yc_bench",
+        "title": "We gave 12 LLMs a startup to run for a year. GLM-5 nearly matched Claude Opus 4.6 at 11× lower cost.",
+        "status": "active",
+        "status_label": "已下发",
+        "score_total": "26/30",
+        "signal_summary": "Reddit 高热帖，帖主构建 YC-Bench 基准——让 LLM 扮演模拟创业公司 CEO 运行一整年（数百轮决策）。GLM-5（智谱）在成本为 Claude Opus 4.6 约 1/11 的情况下效果接近。硬数据：12 个模型对比、运行一整年的长程任务、全程可复现。有 arxiv 论文 + GitHub 代码库 + 完整 leaderboard，证据链今日 pack 最完整。",
+        "why_selected": "模型能力对比有硬数据，跨中美模型叙事，有投资参考价值；内容可延展性强（快讯 + 深度解读 + 成本分析）；证据链最完整，top3 排序修正升第1",
+        "lanes": [
+          "开源 / Infra / 推理优化",
+          "模型 / 研究进展"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260405__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "claude_code_linux_vulnerability",
+        "title": "Claude Code found a Linux vulnerability hidden for 23 years",
+        "status": "active",
+        "status_label": "已下发",
+        "score_total": "24/30",
+        "signal_summary": "HN 头条热帖，Claude Code（Anthropic）发现 Linux 内核中隐藏 23 年的安全漏洞。巨大的 AI coding 能力信号，病毒式传播，GitHub Trending 双平台上榜。",
+        "why_selected": "AI coding 能力的真实世界证明，23 年漏洞有新闻价值，破圈到安全 / 开发 / 科技媒体多圈层",
+        "lanes": [
+          "安全 / 风险 / 漏洞",
+          "开源 / Infra / 推理优化"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260405__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "anthropic_coefficient_bio_acquisition",
+        "title": "Anthropic buys biotech startup Coefficient Bio in $400M deal: Reports",
+        "status": "active",
+        "status_label": "已下发",
+        "score_total": "24/30",
+        "signal_summary": "Anthropic 以约 4 亿美元收购 biotech 初创 Coefficient Bio，进入生物科学垂直应用。标志着大模型公司向垂直行业硬件 / 数据层扩张。",
+        "why_selected": "AI 头部公司收购首例，有赛道标杆意义；$400M 硬数据；可关联讨论 AI + Science 投资逻辑",
+        "lanes": [
+          "机器人 / 硬件 / 具身智能",
+          "开源 / Infra / 推理优化"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260405__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "anthropic_openclaw_pricing_change",
+        "title": "Anthropic says Claude Code subscribers will need to pay extra for OpenClaw usage",
+        "status": "active",
+        "status_label": "已下发",
+        "score_total": "22/30",
+        "signal_summary": "TechCrunch 确认报道：Anthropic 将对 Claude Code 订阅者使用 OpenClaw 等第三方工具额外收费。Reddit r/Claude 日榜已有高热讨论（Boris Cherny 完整反驳链），机器之心同步编译。是 04-04 封杀 OpenClaw OAuth 事件的直接后续——Anthropic 正式将第三方工具使用纳入收费范围。",
+        "why_selected": "Anthropic 定价策略变动的直接证据；社区强烈反弹有持续讨论空间；影响 OpenClaw 用户实际成本；跨中文社区同步",
+        "lanes": [
+          "行业落地 / 医疗 / 场景翻译"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260405__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "nvidia_robotics_physical_ai",
+        "title": "National Robotics Week: Latest Physical AI Research Breakthroughs",
+        "status": "active",
+        "status_label": "已下发",
+        "score_total": "20/30",
+        "signal_summary": "NVIDIA 官方博客发文总览 National Robotics Week（美国机器人周）期间的 Physical AI 前沿研究突破。",
+        "why_selected": "NVIDIA 官方出品，一手性强；Physical AI 是 2026 年重要赛道；与机器人周时间节点吻合",
+        "lanes": [
+          "机器人 / 硬件 / 具身智能",
+          "模型 / 研究进展"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260405__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "deeptune_series_a_43m",
+        "title": "Deeptune Raises $43M in Series A Funding",
+        "status": "pool",
+        "status_label": "池内待捞回",
+        "score_total": "22/30",
+        "signal_summary": "AI 赛道，$43M Series A，硬数字，一级市场新融资信号。",
+        "why_selected": "大额 A 轮，AI 方向，内容工厂关于融资入口的稳定产出",
+        "lanes": [
+          "融资 / 商业化 / 资本信号",
+          "机器人 / 硬件 / 具身智能"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260405__top20-screening-pack__reworked.md"
+      }
+    ],
+    "head_media_focus": [
+      {
+        "lane": "模型 / 研究进展",
+        "count": 5,
+        "examples": [
+          "大模型SFT后效果≠RL潜力！港科大、阿里提出自适应冷启动新范式",
+          "AI 视频生成的战场如何从「模型秀场」转向「工作流」？"
+        ],
+        "why": "这类题能代表前沿，但需要快速翻译成“到底多了什么能力、对谁有影响”。"
+      },
+      {
+        "lane": "综合 / 其他",
+        "count": 2,
+        "examples": [
+          "全网开骂！Claude订阅「封杀」OpenClaw，想用龙虾？得加钱！",
+          "11人，年入3000万美元，被OpenAI收购了"
+        ],
+        "why": "这类题材目前还偏混合，说明系统需要继续积累更稳定的分类经验。"
+      },
+      {
+        "lane": "机器人 / 硬件 / 具身智能",
+        "count": 2,
+        "examples": [
+          "从任务专用到通用智能：基础模型重塑具身导航",
+          "机器人舞姿爆红背后：具身智能行业“卡脖子”难题，终于有了新解法"
+        ],
+        "why": "这类题自带强画面和具象对象，但如果没有用户 stakes，容易只剩酷炫而缺少转译。"
+      },
+      {
+        "lane": "视频 / 多模态 / 语音",
+        "count": 1,
+        "examples": [
+          "AI 视频生成的战场如何从「模型秀场」转向「工作流」？"
+        ],
+        "why": "这类题更容易被头部号选中，因为天然有产品感、演示感和大众入口。"
+      }
+    ],
+    "our_pool_focus": [
+      {
+        "lane": "开源 / Infra / 推理优化",
+        "count": 3,
+        "examples": [
+          "We gave 12 LLMs a startup to run for a year. GLM-5 nearly matched Claude Opus 4.6 at 11× lower cost.",
+          "Claude Code found a Linux vulnerability hidden for 23 years"
+        ],
+        "why": "这类题适合做专业壁垒和品牌判断，但首屏必须更早翻译成普通读者能感知的意义。"
+      },
+      {
+        "lane": "机器人 / 硬件 / 具身智能",
+        "count": 3,
+        "examples": [
+          "Anthropic buys biotech startup Coefficient Bio in $400M deal: Reports",
+          "National Robotics Week: Latest Physical AI Research Breakthroughs"
+        ],
+        "why": "这类题自带强画面和具象对象，但如果没有用户 stakes，容易只剩酷炫而缺少转译。"
+      },
+      {
+        "lane": "模型 / 研究进展",
+        "count": 2,
+        "examples": [
+          "We gave 12 LLMs a startup to run for a year. GLM-5 nearly matched Claude Opus 4.6 at 11× lower cost.",
+          "National Robotics Week: Latest Physical AI Research Breakthroughs"
+        ],
+        "why": "这类题能代表前沿，但需要快速翻译成“到底多了什么能力、对谁有影响”。"
+      },
+      {
+        "lane": "安全 / 风险 / 漏洞",
+        "count": 1,
+        "examples": [
+          "Claude Code found a Linux vulnerability hidden for 23 years"
+        ],
+        "why": "这类题兼具反常识、风险感和专业背书，既适合传播，也适合建立判断力。"
+      }
+    ],
+    "our_active_focus": [
+      {
+        "lane": "开源 / Infra / 推理优化",
+        "count": 3,
+        "examples": [
+          "We gave 12 LLMs a startup to run for a year. GLM-5 nearly matched Claude Opus 4.6 at 11× lower cost.",
+          "Claude Code found a Linux vulnerability hidden for 23 years"
+        ],
+        "why": "这类题适合做专业壁垒和品牌判断，但首屏必须更早翻译成普通读者能感知的意义。"
+      },
+      {
+        "lane": "模型 / 研究进展",
+        "count": 2,
+        "examples": [
+          "We gave 12 LLMs a startup to run for a year. GLM-5 nearly matched Claude Opus 4.6 at 11× lower cost.",
+          "National Robotics Week: Latest Physical AI Research Breakthroughs"
+        ],
+        "why": "这类题能代表前沿，但需要快速翻译成“到底多了什么能力、对谁有影响”。"
+      },
+      {
+        "lane": "机器人 / 硬件 / 具身智能",
+        "count": 2,
+        "examples": [
+          "Anthropic buys biotech startup Coefficient Bio in $400M deal: Reports",
+          "National Robotics Week: Latest Physical AI Research Breakthroughs"
+        ],
+        "why": "这类题自带强画面和具象对象，但如果没有用户 stakes，容易只剩酷炫而缺少转译。"
+      },
+      {
+        "lane": "安全 / 风险 / 漏洞",
+        "count": 1,
+        "examples": [
+          "Claude Code found a Linux vulnerability hidden for 23 years"
+        ],
+        "why": "这类题兼具反常识、风险感和专业背书，既适合传播，也适合建立判断力。"
+      }
+    ],
+    "shared_lanes": [
+      "模型 / 研究进展",
+      "机器人 / 硬件 / 具身智能",
+      "开源 / Infra / 推理优化",
+      "行业落地 / 医疗 / 场景翻译"
+    ],
+    "head_media_only_lanes": [
+      {
+        "lane": "综合 / 其他",
+        "examples": [
+          "全网开骂！Claude订阅「封杀」OpenClaw，想用龙虾？得加钱！",
+          "11人，年入3000万美元，被OpenAI收购了"
+        ],
+        "takeaway": "头部号在 `综合 / 其他` 连续给出样本，而我们的 Top6 主池还没覆盖，优先检查 seed / source lane 是否漏了，而不是先认定这题不值得做。"
+      },
+      {
+        "lane": "视频 / 多模态 / 语音",
+        "examples": [
+          "AI 视频生成的战场如何从「模型秀场」转向「工作流」？"
+        ],
+        "takeaway": "头部号在 `视频 / 多模态 / 语音` 连续给出样本，而我们的 Top6 主池还没覆盖，优先检查 seed / source lane 是否漏了，而不是先认定这题不值得做。"
+      }
+    ],
+    "our_only_lanes": [
+      {
+        "lane": "安全 / 风险 / 漏洞",
+        "examples": [
+          "Claude Code found a Linux vulnerability hidden for 23 years"
+        ],
+        "takeaway": "我们在 `安全 / 风险 / 漏洞` 上主动保留了更硬的一手题，但这类题一旦脱离大众语境，draft / hook / context 就必须更早补“普通人为什么该关心”。"
+      }
+    ],
+    "verdicts": [
+      "头部号这轮更偏 `模型 / 研究进展×5、综合 / 其他×2`，说明它们优先抓“普通读者能立刻感到 stakes”的题材。",
+      "我们当前已下发主池更偏 `开源 / Infra / 推理优化×3、模型 / 研究进展×2`，说明系统这轮更偏一手性、可防守性和品牌判断力。",
+      "裁判结论不是谁绝对更好，而是两边各赢一部分：头部号在传播势能和大众转译上更强，我们在可核验与可防守性上更稳。后续应保持“硬信号主池 + 大众 stakes 补位池”双轨，而不是二选一。",
+      "当前 ready 库里还有 `xreal_ar_glasses_ipo_hk_2026` 这类历史题，和今天 task sheet 已下发对象不完全同频，所以学习板后续必须同时对照“当日 task sheet + 当前 ready 稿”，不能只看现成库存。"
+    ],
+    "role_actions": [
+      {
+        "owner": "seed-refresh / source-scouting",
+        "action": "若头部号连续两轮在某题材高频而我们的 Top6 没覆盖，下轮必须补至少 2 个对应来源或动态搜源规则。"
+      },
+      {
+        "owner": "source-capture / citation",
+        "action": "准备补位的题材必须先补一手原链、截图和中文工作摘要，再交给 radar，不允许只拿二手摘要就入池。"
+      },
+      {
+        "owner": "topic-radar",
+        "action": "筛 Top20 时同时看“确定性”和“普通读者 stakes”，避免候选池只剩硬核技术题。"
+      },
+      {
+        "owner": "topic-approval",
+        "action": "当最终锁的是和头部号不同的题，必须显式写明“我们为什么不跟”和“我们靠什么打赢”。"
+      },
+      {
+        "owner": "draft-pack / hook / context / render",
+        "action": "如果坚持更垂直的差异化题，首屏必须更早补背景、利益相关性和图证，不然再好的选题也会输在转译层。"
+      }
+    ],
+    "ready_only_topic_keys": [
+      "xreal_ar_glasses_ipo_hk_2026"
+    ]
+  },
+  "gap_cards": [
+    {
+      "title": "背景桥接还要再早",
+      "severity": "high",
+      "why": "学习样本普遍在前 2-4 段就把“发生了什么 / 对象是谁 / 为什么现在值得看”交代清楚。",
+      "current_gap": "当前有 3/3 个 ready 主题在首屏仍偏判断先行、背景偏晚。",
+      "next_action": "优先补对象、事件、why now，不先换题；冷启动读者必须在前屏内知道你在说什么。"
+    }
+  ],
+  "next_actions": [
+    "先把 `claude_code_linux_vulnerability` 做一次“去工单味”清理，确保成品页只剩读者该看到的内容。",
+    "把所有 ready 稿的背景桥接前移到首屏前 10%-15%，先补对象 / 事件 / why now。",
+    "明天继续从 `机器之心×4、智东西×3` 这类高密度样本增量学习，维持学习池稳定刷新。"
+  ],
+  "optimization_items": [
+    {
+      "id": "opt_b486be6742",
+      "title": "背景桥接还要再早",
+      "severity": "high",
+      "owner": "topic-approval + draft-pack + content-polish",
+      "landing_layer": "skills + approved-topic handoff",
+      "landing_targets": [
+        "09_runbooks/skills/th-topic-approval/SKILL.md",
+        "09_runbooks/skills/th-draft-pack/SKILL.md",
+        "09_runbooks/skills/th-content-polish/SKILL.md"
+      ],
+      "why": "学习样本普遍在前 2-4 段就把“发生了什么 / 对象是谁 / 为什么现在值得看”交代清楚。",
+      "current_gap": "当前有 3/3 个 ready 主题在首屏仍偏判断先行、背景偏晚。",
+      "next_action": "优先补对象、事件、why now，不先换题；冷启动读者必须在前屏内知道你在说什么。",
+      "source_basis": "机器之心×4、智东西×3、Founder Park×1",
+      "status": "active",
+      "status_label": "待优化"
+    },
+    {
+      "id": "opt_e3ce95046a",
+      "title": "把题材 × 人群 × 文风匹配持续沉淀到岗位规则",
+      "severity": "medium",
+      "owner": "content-analyst + core skills",
+      "landing_layer": "skills + learning rulebook",
+      "landing_targets": [
+        "08_brand_assets/latest__head-media-learning-rulebook-v1.md",
+        "09_runbooks/skills/th-topic-radar/SKILL.md",
+        "09_runbooks/skills/th-draft-pack/SKILL.md",
+        "09_runbooks/skills/th-content-polish/SKILL.md",
+        "09_runbooks/skills/th-market-visual-intelligence/SKILL.md"
+      ],
+      "why": "头部号真正可复用的不是口头禅，而是不同题材会自动切换叙述密度、术语阈值和证据呈现方式。",
+      "current_gap": "系统已有结构学习，但“事件科普 / 产品推荐 / 产业判断 / builder 拆解”对应的文风匹配规律还需要继续积累和显式沉淀。",
+      "next_action": "继续把长期学习结果写进稳定规则手册，并让 topic-radar、draft-pack、content-polish、visual-intelligence 每次执行时显式加载。",
+      "source_basis": "机器之心×4、智东西×3、Founder Park×1",
+      "status": "active",
+      "status_label": "待优化"
+    },
+    {
+      "id": "opt_432a129d7b",
+      "title": "把选题判断复盘前置到 seed / source / topic 三层",
+      "severity": "high",
+      "owner": "source-capture + seed-refresh + topic-radar + topic-approval",
+      "landing_layer": "skills + learning rulebook + next-round source lanes",
+      "landing_targets": [
+        "08_brand_assets/latest__head-media-learning-rulebook-v1.md",
+        "09_runbooks/skills/th-source-capture-and-citation/SKILL.md",
+        "09_runbooks/skills/th-seed-refresh-and-source-scouting/SKILL.md",
+        "09_runbooks/skills/th-topic-radar/SKILL.md",
+        "09_runbooks/skills/th-topic-approval/SKILL.md"
+      ],
+      "why": "头部号学习不能只反哺写法，还要让上游岗位知道今天什么题更值得做、我们为什么没做、是漏抓还是故意不跟。",
+      "current_gap": "现有规则手册已有写法学习，但对“头部号今天在追什么 / 我们今天为什么押另一个题 / 哪边更优”的复盘还不够前置到上游岗位。",
+      "next_action": "让 source-capture、seed-refresh、topic-radar、topic-approval 执行前显式读取规则手册中的选题复盘，并把共识题 / 漏题 / 差异化题写回下一轮动作。",
+      "source_basis": "机器之心×4、智东西×3、Founder Park×1",
+      "status": "active",
+      "status_label": "待优化"
+    }
+  ],
+  "optimization_events": []
+}

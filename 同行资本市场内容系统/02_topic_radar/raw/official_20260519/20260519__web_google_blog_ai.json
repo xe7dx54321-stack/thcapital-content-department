@@ -1,0 +1,163 @@
+{
+  "source_id": "web__google_blog_ai",
+  "label": "Google AI Blog",
+  "type": "page",
+  "captured_at": "2026-05-19T21:16:25.448783",
+  "entry_count": 14,
+  "entries": [
+    {
+      "entity_name": "Google Ads &amp; Commerce blog",
+      "source_url": "https://blog.google/products/ads-commerce/",
+      "title_text": "Google Ads &amp; Commerce blog",
+      "body_snippet": "",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__google_blog_ai",
+      "label": "Google AI Blog"
+    },
+    {
+      "entity_name": "Innovation &amp; AI",
+      "source_url": "https://blog.google/innovation-and-ai/",
+      "title_text": "Innovation &amp; AI",
+      "body_snippet": "",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__google_blog_ai",
+      "label": "Google AI Blog"
+    },
+    {
+      "entity_name": "AI Impact Summit 2026: How we’re partnering to make AI work for everyone\n      \n",
+      "source_url": "https://blog.google/innovation-and-ai/technology/ai/ai-impact-summit-2026-india/",
+      "title_text": "AI Impact Summit 2026: How we’re partnering to make AI work for everyone\n      \n    \n    \n    \n      An overview of Google’s new global partnerships and funding announcements at the AI Impact Summit in India.",
+      "body_snippet": "",
+      "score": 13,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__google_blog_ai",
+      "label": "Google AI Blog"
+    },
+    {
+      "entity_name": "Digitize your paper notes with Gemini.",
+      "source_url": "https://blog.google/innovation-and-ai/products/gemini-app/digitize-notes-gemini-study-guide/",
+      "title_text": "Digitize your paper notes with Gemini.",
+      "body_snippet": "",
+      "score": 7,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__google_blog_ai",
+      "label": "Google AI Blog"
+    },
+    {
+      "entity_name": "You can now easily generate files in Gemini.",
+      "source_url": "https://blog.google/innovation-and-ai/products/gemini-app/generate-files-in-gemini/",
+      "title_text": "You can now easily generate files in Gemini.",
+      "body_snippet": "",
+      "score": 7,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__google_blog_ai",
+      "label": "Google AI Blog"
+    },
+    {
+      "entity_name": "Find out what’s new in the Gemini app in April&#x27;s Gemini Drop.",
+      "source_url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-april-2026/",
+      "title_text": "Find out what’s new in the Gemini app in April&#x27;s Gemini Drop.",
+      "body_snippet": "",
+      "score": 12,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__google_blog_ai",
+      "label": "Google AI Blog"
+    },
+    {
+      "entity_name": "Building superconducting and neutral atom quantum computers",
+      "source_url": "https://blog.google/innovation-and-ai/technology/research/neutral-atom-quantum-computers/",
+      "title_text": "Building superconducting and neutral atom quantum computers",
+      "body_snippet": "",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__google_blog_ai",
+      "label": "Google AI Blog"
+    },
+    {
+      "entity_name": "Our new study explores how AI can reduce the climate impact of air travel.",
+      "source_url": "https://blog.google/innovation-and-ai/models-and-research/google-research/contrail-avoidance-research/",
+      "title_text": "Our new study explores how AI can reduce the climate impact of air travel.",
+      "body_snippet": "",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__google_blog_ai",
+      "label": "Google AI Blog"
+    },
+    {
+      "entity_name": "Groundsource: using AI to help communities better predict natural disasters",
+      "source_url": "https://blog.google/innovation-and-ai/technology/research/gemini-help-communities-predict-crisis/",
+      "title_text": "Groundsource: using AI to help communities better predict natural disasters",
+      "body_snippet": "",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__google_blog_ai",
+      "label": "Google AI Blog"
+    },
+    {
+      "entity_name": "View more from Google Research",
+      "source_url": "https://blog.google/innovation-and-ai/technology/research/",
+      "title_text": "View more from Google Research",
+      "body_snippet": "",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__google_blog_ai",
+      "label": "Google AI Blog"
+    },
+    {
+      "entity_name": "Gemini API File Search is now multimodal: build efficient, verifiable RAG",
+      "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanded-gemini-api-file-search-multimodal-rag/",
+      "title_text": "Gemini API File Search is now multimodal: build efficient, verifiable RAG",
+      "body_snippet": "",
+      "score": 17,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__google_blog_ai",
+      "label": "Google AI Blog"
+    },
+    {
+      "entity_name": "Accelerating Gemma 4: faster inference with  multi-token prediction drafters",
+      "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/multi-token-prediction-gemma-4/",
+      "title_text": "Accelerating Gemma 4: faster inference with  multi-token prediction drafters",
+      "body_snippet": "",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__google_blog_ai",
+      "label": "Google AI Blog"
+    },
+    {
+      "entity_name": "Reduce friction and latency for long-running jobs with Webhooks in Gemini API",
+      "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/event-driven-webhooks/",
+      "title_text": "Reduce friction and latency for long-running jobs with Webhooks in Gemini API",
+      "body_snippet": "",
+      "score": 17,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__google_blog_ai",
+      "label": "Google AI Blog"
+    },
+    {
+      "entity_name": "View more from Developer tools",
+      "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/",
+      "title_text": "View more from Developer tools",
+      "body_snippet": "",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "official_page",
+      "_source": "web__google_blog_ai",
+      "label": "Google AI Blog"
+    }
+  ]
+}

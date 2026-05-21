@@ -1,0 +1,134 @@
+[
+  {
+    "entity_name": "RJ Scaringe has raised more than $12B across three startups and investors still want more",
+    "source_url": "https://techcrunch.com/2026/05/15/rj-scaringe-has-raised-more-than-12-billion-across-three-startups-and-investors-still-want-more/",
+    "score": 10,
+    "signal_reasons": [],
+    "type": "article",
+    "_source": "web__techcrunch_ai",
+    "_fetched_at": "2026-05-16T19:57:58.614384"
+  },
+  {
+    "entity_name": "General Catalyst posted VC rage bait and it worked, especially on a16z",
+    "source_url": "https://techcrunch.com/2026/05/15/general-catalyst-posted-vc-rage-bait-and-it-worked-especially-on-a16z/",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "article",
+    "_source": "web__techcrunch_ai",
+    "_fetched_at": "2026-05-16T19:57:58.614478"
+  },
+  {
+    "entity_name": "Silicon Valley’s vacationland needs a new energy provider just as AI is driving prices up",
+    "source_url": "https://techcrunch.com/2026/05/15/silicon-valleys-vacationland-needs-a-new-energy-provider-just-as-ai-is-driving-prices-up/",
+    "score": 15,
+    "signal_reasons": [
+      "新产品信号"
+    ],
+    "type": "article",
+    "_source": "web__techcrunch_ai",
+    "_fetched_at": "2026-05-16T19:57:58.614482"
+  },
+  {
+    "entity_name": "Tesla reveals two Robotaxi crashes involving teleoperators",
+    "source_url": "https://techcrunch.com/2026/05/15/tesla-reveals-two-robotaxi-crashes-involving-teleoperators/",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "article",
+    "_source": "web__techcrunch_ai",
+    "_fetched_at": "2026-05-16T19:57:58.614485"
+  },
+  {
+    "entity_name": "OpenAI launches ChatGPT for personal finance, will let you connect bank accounts",
+    "source_url": "https://techcrunch.com/2026/05/15/openai-launches-chatgpt-for-personal-finance-will-let-you-connect-bank-accounts/",
+    "score": 20,
+    "signal_reasons": [
+      "新产品信号"
+    ],
+    "type": "article",
+    "_source": "web__techcrunch_ai",
+    "_fetched_at": "2026-05-16T19:57:58.614488"
+  },
+  {
+    "entity_name": "US orders travelers on Air Force One to throw away gifts, pins, and burner phones after China trip",
+    "source_url": "https://techcrunch.com/2026/05/15/us-orders-travelers-on-air-force-one-to-throw-away-gifts-pins-and-burner-phones-after-china-trip/",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "article",
+    "_source": "web__techcrunch_ai",
+    "_fetched_at": "2026-05-16T19:57:58.614490"
+  },
+  {
+    "entity_name": "Runway started by helping filmmakers — now it wants to beat Google at AI",
+    "source_url": "https://techcrunch.com/2026/05/15/runway-started-by-helping-filmmakers-now-it-wants-to-beat-google-at-ai/",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "article",
+    "_source": "web__techcrunch_ai",
+    "_fetched_at": "2026-05-16T19:57:58.614494"
+  },
+  {
+    "entity_name": "Meridian Ventures launched a $35M fund with a focus on MBA-deferred founders",
+    "source_url": "https://techcrunch.com/2026/05/15/meridian-ventures-launched-35m-fund-to-back-mba-deferred-founders/",
+    "score": 15,
+    "signal_reasons": [
+      "新产品信号"
+    ],
+    "type": "article",
+    "_source": "web__techcrunch_ai",
+    "_fetched_at": "2026-05-16T19:57:58.614498"
+  },
+  {
+    "entity_name": "Osaurus brings both local and cloud AI models to your Mac",
+    "source_url": "https://techcrunch.com/2026/05/15/osaurus-brings-both-local-and-cloud-ai-models-to-your-mac/",
+    "score": 10,
+    "signal_reasons": [],
+    "type": "article",
+    "_source": "web__techcrunch_ai",
+    "_fetched_at": "2026-05-16T19:57:58.614501"
+  },
+  {
+    "entity_name": "Indian Uber rival Rapido raises $240M at $3B valuation",
+    "source_url": "https://techcrunch.com/2026/05/15/indian-uber-rival-rapido-raises-240m-at-3b-valuation/",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "article",
+    "_source": "web__techcrunch_ai",
+    "_fetched_at": "2026-05-16T19:57:58.614504"
+  },
+  {
+    "entity_name": "Elon Musk&#8217;s SpaceXAI has been bleeding staff since its merger",
+    "source_url": "https://techcrunch.com/2026/05/14/elon-musks-spacexai-has-been-bleeding-staff-since-its-merger/",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "article",
+    "_source": "web__techcrunch_ai",
+    "_fetched_at": "2026-05-16T19:57:58.614507"
+  },
+  {
+    "entity_name": "OpenAI says Codex is coming to your phone",
+    "source_url": "https://techcrunch.com/2026/05/14/openai-says-codex-is-coming-to-your-phone/",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "article",
+    "_source": "web__techcrunch_ai",
+    "_fetched_at": "2026-05-16T19:57:58.614510"
+  },
+  {
+    "entity_name": "What happens when AI starts building itself?",
+    "source_url": "https://techcrunch.com/2026/05/14/what-happens-when-ai-starts-building-itself/",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "article",
+    "_source": "web__techcrunch_ai",
+    "_fetched_at": "2026-05-16T19:57:58.614513"
+  },
+  {
+    "entity_name": "OpenAI is reportedly preparing legal action against Apple; it wouldn&#8217;t be the first partner to feel burned",
+    "source_url": "https://techcrunch.com/2026/05/14/openai-is-reportedly-preparing-legal-action-against-apple-it-wouldnt-be-the-first-partner-to-feel-burned/",
+    "score": 5,
+    "signal_reasons": [],
+    "type": "article",
+    "_source": "web__techcrunch_ai",
+    "_fetched_at": "2026-05-16T19:57:58.614516"
+  }
+]

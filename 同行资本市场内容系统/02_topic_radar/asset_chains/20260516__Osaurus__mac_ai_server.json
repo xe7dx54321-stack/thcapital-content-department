@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "asset_id": "20260516__osaurus__mac_ai_server",
+    "source": "web__techcrunch_ai",
+    "article_url": "https://techcrunch.com/2026/05/15/osaurus-brings-both-local-and-cloud-ai-models-to-your-mac/",
+    "entity_name": "Osaurus",
+    "entity_type": "newco",
+    "derived_at": "2026-05-16T00:43:00Z",
+    "score": 10,
+    "signal_reasons": ["新产品信号"],
+    "skip_reason": null
+  },
+  "company_profile": {
+    "name": "Osaurus",
+    "tagline": "Own your AI – open source Apple-only LLM server",
+    "赛道": "AI Infrastructure / Local AI / MLX",
+    "地点": "Apple-only (US-based startup)",
+    "founded": "2025 (inferred from GitHub activity)",
+    "stage": "early (114k downloads, open source)"
+  },
+  "hard_links": {
+    "官网": "https://osaurus.ai/",
+    "GitHub_repo": "https://github.com/osaurus-ai/osaurus",
+    "LinkedIn_cofounder": "https://www.linkedin.com/in/tdpae/"
+  },
+  "asset_breakdown": {
+    "官网_状态": "✅ LIVE – 产品清晰：Native Swift / MLX / MIT license / 114k downloads / 5.3k stars",
+    "GitHub_repo": "✅ 存在 – 开源公开，readme 可查架构",
+    "docs_or_demo": "⚠️ 待查 – 需确认是否有独立 docs site 或 product demo video",
+    "social_X": "⚠️ 待查 – 需找 @osaurus_ai 或类似账号",
+    "product_screenshot": "✅ 官网可见产品 UI"
+  },
+  "signal_value": {
+    "summary": "Osaurus 是 macOS 本地 AI server 赛道的有力竞争者，核心差异：MLX 加速 Apple Silicon + 开源 MIT + 本地优先 + 跨云/本地模型自由切换。对标 OpenClaw 类 harness 工具但专注 Apple 平台。创始团队有 Tesla/Netflix 背景。114k downloads + 5.3k stars 说明已积累真实开发者用户。",
+    "传播性": "高 – 开源社区传播 + Apple 开发者圈层 + TechCrunch 报道",
+    "破圈性": "中 – 偏技术圈但 Apple AI 生态叙事有媒体潜力",
+    "数据硬度": "高 – 有官网/GitHub/下载量三方验证",
+    "视觉素材": "官网有产品截图；GitHub 有架构图；无独立 demo video"
+  },
+  "query_chain": {
+    "next_hops": [
+      {"query": "Osaurus AI demo video YouTube", "priority": "medium", "resolved": false, "result": "未找到独立 demo video；官网产品截图可替代"},
+      {"query": "osaurus.ai documentation site", "priority": "medium", "resolved": false, "result": "无独立 docs site；GitHub readme 为唯一文档入口"},
+      {"query": "Osaurus Twitter/X account", "priority": "low", "resolved": false, "result": "无官方账号；仅有创始人个人账号"}
+    ],
+    "weak_links_resolved": true
+  },
+  "weak_chain_resolution": {
+    "executed_at": "2026-05-16T12:27:00Z",
+    "objects_checked": 1,
+    "fully_linked": 1,
+    "hard_blocker_objects": 0,
+    "notes": "GitHub live 验证通过；无独立 docs/demo/demo video 为非阻断性备注，不影响核心信号"
+  },
+  "runbook_ref": "market-asset-derivation-runbook (manual exec per cron)"
+}

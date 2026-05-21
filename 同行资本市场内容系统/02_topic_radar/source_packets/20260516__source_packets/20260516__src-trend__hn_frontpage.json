@@ -1,0 +1,224 @@
+{
+  "trend__hn_frontpage": [
+    {
+      "entity_name": "Someone Shared a Real Monet Painting as AI and Asked for Critiques",
+      "source_url": "https://petapixel.com/2026/05/14/someone-shared-a-real-monet-painting-as-ai-and-asked-for-critiques/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 14,
+      "hn_comments": 7,
+      "_fetched_at": "2026-05-16T17:50:41.997063"
+    },
+    {
+      "entity_name": "Frontier AI has broken the open CTF format",
+      "source_url": "https://kabir.au/blog/the-ctf-scene-is-dead",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 112,
+      "hn_comments": 89,
+      "_fetched_at": "2026-05-16T17:50:41.997142"
+    },
+    {
+      "entity_name": "Show HN: Epiq – Distributed Git based issue tracker TUI",
+      "source_url": "https://ljtn.github.io/epiq/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 58,
+      "hn_comments": 20,
+      "_fetched_at": "2026-05-16T17:50:41.997145"
+    },
+    {
+      "entity_name": "The main thing about P2P meth is that there's so much of it (2021)",
+      "source_url": "https://dynomight.net/p2p-meth/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 119,
+      "hn_comments": 139,
+      "_fetched_at": "2026-05-16T17:50:41.997147"
+    },
+    {
+      "entity_name": "Erlang/OTP 29.0",
+      "source_url": "https://www.erlang.org/news/188",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 202,
+      "hn_comments": 36,
+      "_fetched_at": "2026-05-16T17:50:41.997149"
+    },
+    {
+      "entity_name": "SQL patterns I use to catch transaction fraud",
+      "source_url": "https://analytics.fixelsmith.com/posts/sql-fraud-patterns/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 210,
+      "hn_comments": 66,
+      "_fetched_at": "2026-05-16T17:50:41.997152"
+    },
+    {
+      "entity_name": "Orthrus-Qwen3: up to 7.8×tokens/forward on Qwen3, identical output distribution",
+      "source_url": "https://github.com/chiennv2000/orthrus",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 86,
+      "hn_comments": 14,
+      "_fetched_at": "2026-05-16T17:50:41.997154"
+    },
+    {
+      "entity_name": "How to Write to SSDs [pdf]",
+      "source_url": "https://www.vldb.org/pvldb/vol19/p1469-lee.pdf",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 110,
+      "hn_comments": 13,
+      "_fetched_at": "2026-05-16T17:50:41.997156"
+    },
+    {
+      "entity_name": "I believe there are entire companies right now under AI psychosis",
+      "source_url": "https://twitter.com/mitchellh/status/2055380239711457578",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 1336,
+      "hn_comments": 659,
+      "_fetched_at": "2026-05-16T17:50:41.997158"
+    },
+    {
+      "entity_name": "Bill to block publishers from killing online games advances in California",
+      "source_url": "https://arstechnica.com/gaming/2026/05/bill-to-keep-online-games-playable-clears-key-hurdle-in-california/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 482,
+      "hn_comments": 302,
+      "_fetched_at": "2026-05-16T17:50:41.997160"
+    },
+    {
+      "entity_name": "The Zulip Foundation",
+      "source_url": "https://blog.zulip.com/2026/05/15/announcing-zulip-foundation/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 271,
+      "hn_comments": 70,
+      "_fetched_at": "2026-05-16T17:50:41.997162"
+    },
+    {
+      "entity_name": "I designed a nibble-oriented CPU in Verilog to build a scientific calculator",
+      "source_url": "https://github.com/gdevic/FPGA-Calculator",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 103,
+      "hn_comments": 33,
+      "_fetched_at": "2026-05-16T17:50:41.997164"
+    },
+    {
+      "entity_name": "Hightouch (YC S19) Is Hiring",
+      "source_url": "https://hightouch.com/careers",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 0,
+      "hn_comments": 0,
+      "_fetched_at": "2026-05-16T17:50:41.997166"
+    },
+    {
+      "entity_name": "Bun Rust rewrite: \"codebase fails basic miri checks, allows for UB in safe rust\"",
+      "source_url": "https://github.com/oven-sh/bun/issues/30719",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 406,
+      "hn_comments": 285,
+      "_fetched_at": "2026-05-16T17:50:41.997168"
+    },
+    {
+      "entity_name": "Project Gutenberg – keeps getting better",
+      "source_url": "https://www.gutenberg.org/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 930,
+      "hn_comments": 197,
+      "_fetched_at": "2026-05-16T17:50:41.997170"
+    },
+    {
+      "entity_name": "Image-blaster: Creates 3D environments, SFX, and meshes from a single image",
+      "source_url": "https://github.com/neilsonnn/image-blaster",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 160,
+      "hn_comments": 31,
+      "_fetched_at": "2026-05-16T17:50:41.997172"
+    },
+    {
+      "entity_name": "Additive Blending on the Nintendo 64",
+      "source_url": "https://phoboslab.org/log/2026/05/n64-additive-blending",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 108,
+      "hn_comments": 9,
+      "_fetched_at": "2026-05-16T17:50:41.997174"
+    },
+    {
+      "entity_name": "ASCII by Jason Scott",
+      "source_url": "https://ascii.textfiles.com/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 192,
+      "hn_comments": 22,
+      "_fetched_at": "2026-05-16T17:50:41.997176"
+    },
+    {
+      "entity_name": "A 0-click exploit chain for the Pixel 10",
+      "source_url": "https://projectzero.google/2026/05/pixel-10-exploit.html",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 376,
+      "hn_comments": 205,
+      "_fetched_at": "2026-05-16T17:50:41.997178"
+    },
+    {
+      "entity_name": "SigNoz (YC W21, open source Datadog) Is hiring for growth and engineering roles",
+      "source_url": "https://signoz.io/careers",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 0,
+      "hn_comments": 0,
+      "_fetched_at": "2026-05-16T17:50:41.997181"
+    }
+  ]
+}

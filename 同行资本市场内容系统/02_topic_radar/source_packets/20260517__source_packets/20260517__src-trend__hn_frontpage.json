@@ -1,0 +1,226 @@
+{
+  "trend__hn_frontpage": [
+    {
+      "entity_name": "Security researcher says Microsoft built a Bitlocker backdoor, releases exploit",
+      "source_url": "https://www.techspot.com/news/112410-security-researcher-microsoft-secretly-built-backdoor-bitlocker-releases.html",
+      "score": 10,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 87,
+      "hn_comments": 37,
+      "_fetched_at": "2026-05-17T23:06:17.177571"
+    },
+    {
+      "entity_name": "WHO Declares Ebola Outbreak a Global Health Emergency",
+      "source_url": "https://www.nytimes.com/2026/05/17/world/africa/ebola-congo-uganda-who-public-health-emergency.html",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 88,
+      "hn_comments": 24,
+      "_fetched_at": "2026-05-17T23:06:17.177653"
+    },
+    {
+      "entity_name": "I turned a $80 RK3562 Android tablet into a Debian Linux workstation",
+      "source_url": "https://github.com/tech4bot/rk3562deb",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 15,
+      "hn_comments": 2,
+      "_fetched_at": "2026-05-17T23:06:17.177657"
+    },
+    {
+      "entity_name": "AI is a technology not a product",
+      "source_url": "https://daringfireball.net/2026/05/ai_is_technology_not_a_product",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 53,
+      "hn_comments": 6,
+      "_fetched_at": "2026-05-17T23:06:17.177659"
+    },
+    {
+      "entity_name": "CUDA Books",
+      "source_url": "https://github.com/alternbits/awesome-cuda-books",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 8,
+      "hn_comments": 0,
+      "_fetched_at": "2026-05-17T23:06:17.177661"
+    },
+    {
+      "entity_name": "I don't think AI will make your processes go faster",
+      "source_url": "https://frederickvanbrabant.com/blog/2026-05-15-i-dont-think-ai-will-make-your-processes-go-faster/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 158,
+      "hn_comments": 102,
+      "_fetched_at": "2026-05-17T23:06:17.177664"
+    },
+    {
+      "entity_name": "Apple Silicon costs more than OpenRouter",
+      "source_url": "https://www.williamangel.net/blog/2026/05/17/offline-llm-energy-use.html",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 132,
+      "hn_comments": 98,
+      "_fetched_at": "2026-05-17T23:06:17.177666"
+    },
+    {
+      "entity_name": "Scientists believe ibogaine can help veterans overcome PTSD",
+      "source_url": "https://www.bbc.com/future/article/20260514-how-hallucinogenic-ibogaine-helps-veterans-overcome-ptsd",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 14,
+      "hn_comments": 10,
+      "_fetched_at": "2026-05-17T23:06:17.177668"
+    },
+    {
+      "entity_name": "Native all the way, until you need text",
+      "source_url": "https://justsitandgrin.im/posts/native-all-the-way-until-you-need-text/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 195,
+      "hn_comments": 126,
+      "_fetched_at": "2026-05-17T23:06:17.177670"
+    },
+    {
+      "entity_name": "Every AI Subscription Is a Ticking Time Bomb for Enterprise",
+      "source_url": "https://www.thestateofbrand.com/news/ai-subscription-time-bomb",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 120,
+      "hn_comments": 83,
+      "_fetched_at": "2026-05-17T23:06:17.177673"
+    },
+    {
+      "entity_name": "Playing Atari ST Music on the Amiga with Zero CPU",
+      "source_url": "https://arnaud-carre.github.io/2026-05-15-ym-fast-emu/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 79,
+      "hn_comments": 29,
+      "_fetched_at": "2026-05-17T23:06:17.177675"
+    },
+    {
+      "entity_name": "Mozilla to UK regulators: VPNs are essential privacy and security tools",
+      "source_url": "https://blog.mozilla.org/netpolicy/2026/05/15/mozilla-to-uk-regulators-vpns-are-essential-privacy-and-security-tools-and-should-not-be-undermined/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 423,
+      "hn_comments": 176,
+      "_fetched_at": "2026-05-17T23:06:17.177677"
+    },
+    {
+      "entity_name": "Hosting a website on an 8-bit microcontroller",
+      "source_url": "https://maurycyz.com/projects/mcusite/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 177,
+      "hn_comments": 15,
+      "_fetched_at": "2026-05-17T23:06:17.177679"
+    },
+    {
+      "entity_name": "A nicer voltmeter clock",
+      "source_url": "https://lcamtuf.substack.com/p/a-nicer-voltmeter-clock",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 256,
+      "hn_comments": 30,
+      "_fetched_at": "2026-05-17T23:06:17.177681"
+    },
+    {
+      "entity_name": "Zerostack – A Unix-inspired coding agent written in pure Rust",
+      "source_url": "https://crates.io/crates/zerostack/1.0.0",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 480,
+      "hn_comments": 254,
+      "_fetched_at": "2026-05-17T23:06:17.177683"
+    },
+    {
+      "entity_name": "Twilight of the Velocipede: Typesetting Races Before the Age of Linotype",
+      "source_url": "https://publicdomainreview.org/essay/twilight-of-the-velocipede/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 32,
+      "hn_comments": 1,
+      "_fetched_at": "2026-05-17T23:06:17.177685"
+    },
+    {
+      "entity_name": "OpenAI and Government of Malta partner to roll out ChatGPT Plus to all citizens",
+      "source_url": "https://openai.com/index/malta-chatgpt-plus-partnership/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 255,
+      "hn_comments": 297,
+      "_fetched_at": "2026-05-17T23:06:17.177687"
+    },
+    {
+      "entity_name": "SANA-WM, a 2.6B open-source world model for 1-minute 720p video",
+      "source_url": "https://nvlabs.github.io/Sana/WM/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 371,
+      "hn_comments": 143,
+      "_fetched_at": "2026-05-17T23:06:17.177690"
+    },
+    {
+      "entity_name": "Kyber (YC W23) Is Hiring a Founding Marketer",
+      "source_url": "https://www.ycombinator.com/companies/kyber/jobs/1rLQAro-founding-marketer-content-community",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 0,
+      "hn_comments": 0,
+      "_fetched_at": "2026-05-17T23:06:17.177692"
+    },
+    {
+      "entity_name": "Accelerando (2005)",
+      "source_url": "https://www.antipope.org/charlie/blog-static/fiction/accelerando/accelerando.html",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 311,
+      "hn_comments": 177,
+      "_fetched_at": "2026-05-17T23:06:17.177694"
+    }
+  ]
+}

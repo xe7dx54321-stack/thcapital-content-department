@@ -1,0 +1,139 @@
+{
+  "youtube__openai": [
+    {
+      "entity_name": "Built with GPT-5.5: Abridge Clinical AI Notes",
+      "source_url": "https://www.youtube.com/watch?v=z2bpPuK7eYI",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-21T22:06:13.827136"
+    },
+    {
+      "entity_name": "The Erdős Breakthrough",
+      "source_url": "https://www.youtube.com/watch?v=Br4l9YjCyRU",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-21T22:06:13.827275"
+    },
+    {
+      "entity_name": "Kunal vs Motorcycle | With ChatGPT",
+      "source_url": "https://www.youtube.com/watch?v=_BY9YTTh6kE",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-21T22:06:13.827280"
+    },
+    {
+      "entity_name": "Update and audit a finance model in Excel with ChatGPT",
+      "source_url": "https://www.youtube.com/watch?v=CaBXLZyaJYU",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-21T22:06:13.827283"
+    },
+    {
+      "entity_name": "Codex for Everyday Work: AI Agents Beyond Coding",
+      "source_url": "https://www.youtube.com/watch?v=DLP9CagE3dU",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-21T22:06:13.827286"
+    },
+    {
+      "entity_name": "Now in preview: Codex in the ChatGPT mobile app.",
+      "source_url": "https://www.youtube.com/shorts/tk9qrk5G4RQ",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-21T22:06:13.827290"
+    },
+    {
+      "entity_name": "Inside image generation’s Renaissance moment — the OpenAI Podcast Ep. 19",
+      "source_url": "https://www.youtube.com/watch?v=bH2nP-aCFjk",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-21T22:06:13.827293"
+    },
+    {
+      "entity_name": "Build Hour: GPT-Realtime-2",
+      "source_url": "https://www.youtube.com/watch?v=qGS9Ghnq1RU",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-21T22:06:13.827297"
+    },
+    {
+      "entity_name": "Suraj vs The Future | With ChatGPT",
+      "source_url": "https://www.youtube.com/watch?v=bMmEEa8-6fU",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-21T22:06:13.827300"
+    },
+    {
+      "entity_name": "Computer use in Codex",
+      "source_url": "https://www.youtube.com/watch?v=D_FCYsshMI4",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-21T22:06:13.827303"
+    },
+    {
+      "entity_name": "Life before Codex, and after Codex - Endava",
+      "source_url": "https://www.youtube.com/shorts/2nV_jnbCqP4",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-21T22:06:13.827306"
+    },
+    {
+      "entity_name": "What Codex Unlocks for Endava",
+      "source_url": "https://www.youtube.com/watch?v=J886DPhhZLg",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-21T22:06:13.827309"
+    },
+    {
+      "entity_name": "Codex can now use Chrome directly on macOS and Windows.",
+      "source_url": "https://www.youtube.com/watch?v=b6Mxcv1pyBU",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-21T22:06:13.827312"
+    },
+    {
+      "entity_name": "We’re introducing three audio models in the API",
+      "source_url": "https://www.youtube.com/watch?v=JOu8v6CBjkE",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-21T22:06:13.827315"
+    },
+    {
+      "entity_name": "GPT-5.5 is a game changer for finance",
+      "source_url": "https://www.youtube.com/shorts/eoyHCYXoNMQ",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__openai",
+      "_fetched_at": "2026-05-21T22:06:13.827318"
+    }
+  ]
+}

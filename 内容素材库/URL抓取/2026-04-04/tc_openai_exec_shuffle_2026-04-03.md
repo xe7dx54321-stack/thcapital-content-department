@@ -1,0 +1,11 @@
+# TC: OpenAI executive shuffle includes new role for COO Brad Lightcap to lead 'special projects'
+- **URL**: https://techcrunch.com/2026/04/03/openai-executive-shuffle-new-roles-coo-brad-lightcap-fidji-simo-kate-rouch/
+- **Source**: techcrunch
+- **Published**: 2026-04-03T20:35:34+00:00
+- **Fetched**: 2026-04-04T19:12:51+00:00
+- **Trigger type**: Personnel/Leadership change
+- **Key entities**: OpenAI, Brad Lightcap (COO), Fidji Simo (AGI CEO), Kate Rouch (CMO), Denise Dresser (CRO), Greg Brockman
+- **Significance**: COO Lightcap shifts to "special projects" covering complex deals/investments; Fidji Simo takes medical leave; CMO Rouch steps down for cancer recovery. Greg Brockman manages product during transition.
+- **China relevance**: OpenAI China strategy and market approach may shift with leadership flux
+- **Classification**: formal_candidate
+- **Queue status**: structured_accept

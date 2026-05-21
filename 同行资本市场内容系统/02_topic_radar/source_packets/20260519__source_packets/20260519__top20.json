@@ -1,0 +1,249 @@
+[
+  {
+    "entity_name": "I built a coding agent that gets 87% on benchmarks with a 4B parameter model, here's how",
+    "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tgecrq/i_built_a_coding_agent_that_gets_87_on_benchmarks/",
+    "score": 33,
+    "signal_reasons": [
+      "Reddit高频讨论",
+      "评测性能"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_localllama_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/Glittering_Focus1538"
+  },
+  {
+    "entity_name": "club-5060ti follow-up: cleaner RTX 5060 Ti local LLM recipes, benchmark explorer, and CUDA GPU compatibility notes",
+    "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1th633w/club5060ti_followup_cleaner_rtx_5060_ti_local_llm/",
+    "score": 28,
+    "signal_reasons": [
+      "Reddit高频讨论",
+      "评测性能"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_localllama_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/do_u_think_im_spooky"
+  },
+  {
+    "entity_name": "What happens to local LLM if/when LLMs are no longer released for free?",
+    "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tgmjq0/what_happens_to_local_llm_ifwhen_llms_are_no/",
+    "score": 25,
+    "signal_reasons": [
+      "Reddit高频讨论",
+      "新产品信号"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_localllama_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/JohnBooty"
+  },
+  {
+    "entity_name": "21 GPU's benchmarked running a small TTS model (vram peak: 5GB)",
+    "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1th2f5w/21_gpus_benchmarked_running_a_small_tts_model/",
+    "score": 23,
+    "signal_reasons": [
+      "Reddit高频讨论",
+      "评测性能"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_localllama_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/urarthur"
+  },
+  {
+    "entity_name": "favorite Agentic Coding Harness",
+    "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1th5t1b/favorite_agentic_coding_harness/",
+    "score": 20,
+    "signal_reasons": [
+      "Reddit高频讨论"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_localllama_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/chibop1"
+  },
+  {
+    "entity_name": "Is there any &lt;3B model with usable 200k+ context window?",
+    "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1th8l5e/is_there_any_3b_model_with_usable_200k_context/",
+    "score": 20,
+    "signal_reasons": [
+      "Reddit高频讨论"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_localllama_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/madmax_br5"
+  },
+  {
+    "entity_name": "New models when? Forecasting release date.",
+    "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tgh8to/new_models_when_forecasting_release_date/",
+    "score": 20,
+    "signal_reasons": [
+      "Reddit高频讨论",
+      "新产品信号"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_localllama_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/LegacyRemaster"
+  },
+  {
+    "entity_name": "NEW BITNET MODELS!",
+    "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tgjwdf/new_bitnet_models/",
+    "score": 20,
+    "signal_reasons": [
+      "Reddit高频讨论",
+      "新产品信号"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_localllama_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/Silver-Champion-4846"
+  },
+  {
+    "entity_name": "Claude Code weekly limits are increasing 50%, now through July 13.",
+    "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tc9oa0/claude_code_weekly_limits_are_increasing_50_now/",
+    "score": 18,
+    "signal_reasons": [
+      "Reddit高频讨论",
+      "评测性能"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_claude_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/ClaudeOfficial"
+  },
+  {
+    "entity_name": "Qwen cant wait to release 3.7 models",
+    "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tgrpqc/qwen_cant_wait_to_release_37_models/",
+    "score": 15,
+    "signal_reasons": [
+      "Reddit高频讨论"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_localllama_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/GotHereLateNameTaken"
+  },
+  {
+    "entity_name": "I tested 42 LLMs on their willingness to build the apocalypse. The &quot;safest&quot; closed-source models are lying to you.",
+    "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tgm0k9/i_tested_42_llms_on_their_willingness_to_build/",
+    "score": 15,
+    "signal_reasons": [
+      "Reddit高频讨论"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_localllama_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/Ok-Awareness9993"
+  },
+  {
+    "entity_name": "What’s your current local LLM setup in 2026?",
+    "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1th7f24/whats_your_current_local_llm_setup_in_2026/",
+    "score": 15,
+    "signal_reasons": [
+      "Reddit高频讨论"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_localllama_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/Prestigious-Pop-3735"
+  },
+  {
+    "entity_name": "We have sub-agents at home",
+    "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1th8a43/we_have_subagents_at_home/",
+    "score": 10,
+    "signal_reasons": [
+      "Reddit高频讨论"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_localllama_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/sisyphus-cycle"
+  },
+  {
+    "entity_name": "MTP (Multi-Token Prediction): 2x Faster Token Generation on AMD Strix Halo &amp; Radeon 9700 AI Pro",
+    "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1th154i/mtp_multitoken_prediction_2x_faster_token/",
+    "score": 10,
+    "signal_reasons": [
+      "Reddit高频讨论"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_localllama_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/Intrepid_Rub_3566"
+  },
+  {
+    "entity_name": "Qwen 3.6 27B on 24GB VRAM setup: backend comparisons, quant choice and settings (llama.cpp, ik_llama.cpp, BeeLlama, vllm)",
+    "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tgis7s/qwen_36_27b_on_24gb_vram_setup_backend/",
+    "score": 10,
+    "signal_reasons": [
+      "Reddit高频讨论"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_localllama_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/VolandBerlioz"
+  },
+  {
+    "entity_name": "OpenCoffer: Self-hosted personal finance and BYO-LLM chat",
+    "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1thbtx9/opencoffer_selfhosted_personal_finance_and_byollm/",
+    "score": 10,
+    "signal_reasons": [
+      "Reddit高频讨论"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_localllama_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/osiris970"
+  },
+  {
+    "entity_name": "r/ClaudeAI List of Ongoing Megathreads",
+    "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1s7fepn/rclaudeai_list_of_ongoing_megathreads/",
+    "score": 10,
+    "signal_reasons": [
+      "Reddit高频讨论"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_claude_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/sixbillionthsheep"
+  },
+  {
+    "entity_name": "I used Claude AI to build an $86 million underground bunker bible. I have autism. This is my happy doc.",
+    "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1th8z1m/i_used_claude_ai_to_build_an_86_million/",
+    "score": 10,
+    "signal_reasons": [
+      "Reddit高频讨论"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_claude_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/Unable_Internet4626"
+  },
+  {
+    "entity_name": "Just finished the Claude Code certification and would heavily recommend it to all “vibe coders”",
+    "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tgnuhe/just_finished_the_claude_code_certification_and/",
+    "score": 10,
+    "signal_reasons": [
+      "Reddit高频讨论"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_claude_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/Alex_runs247"
+  },
+  {
+    "entity_name": "Fast mode now defaults to Opus 4.7 in Claude Code.",
+    "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tgzjrm/fast_mode_now_defaults_to_opus_47_in_claude_code/",
+    "score": 10,
+    "signal_reasons": [
+      "Reddit高频讨论"
+    ],
+    "type": "discussion",
+    "_source": "trend__reddit_claude_daily",
+    "reddit_upvotes": 0,
+    "reddit_author": "/u/alOOshXL"
+  }
+]

@@ -1,0 +1,11 @@
+# TC: The final days of the Tesla Model X and S are here. All bets are on the Cybercab
+- **URL**: https://techcrunch.com/2026/04/03/the-final-days-of-the-tesla-model-x-and-s-are-here-all-bets-are-on-the-cybercab/
+- **Source**: techcrunch
+- **Published**: 2026-04-03T16:48:09+00:00
+- **Fetched**: 2026-04-04T19:12:51+00:00
+- **Trigger type**: Product/Strategy shift
+- **Key entities**: Tesla, Elon Musk, Model S, Model X, Cybercab, Optimus robot, Zoox (Amazon)
+- **Significance**: Tesla ends Model S/X custom orders; Cybercab production starts April at Austin factory. S/X peaked 101k units in 2017, fell to 50k in 2025. Zoox cleared regulatory path for driverless vehicles. Tesla Q1 2026: 358k deliveries (+6% YoY) below 368k expectations.
+- **China relevance**: China BYD overtook Tesla as top global EV seller 2025 (2.26M units); Chinese EV makers copying Tesla's robotaxi ambitions
+- **Classification**: formal_candidate
+- **Queue status**: structured_accept

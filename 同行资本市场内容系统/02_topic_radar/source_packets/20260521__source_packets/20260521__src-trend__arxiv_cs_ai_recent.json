@@ -1,0 +1,204 @@
+{
+  "trend__arxiv_cs_ai_recent": [
+    {
+      "entity_name": "Variance Reduction for Expectations with Diffusion Teachers",
+      "source_url": "http://arxiv.org/abs/2605.21489v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Jesse Bettencourt",
+      "_fetched_at": "2026-05-21T13:49:59.077247"
+    },
+    {
+      "entity_name": "Quantifying Hyperparameter Transfer and the Importance of Embedding Layer Learning Rate",
+      "source_url": "http://arxiv.org/abs/2605.21486v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Dayal Singh Kalra",
+      "_fetched_at": "2026-05-21T13:49:59.077328"
+    },
+    {
+      "entity_name": "DeepWeb-Bench: A Deep Research Benchmark Demanding Massive Cross-Source Evidence and Long-Horizon Derivation",
+      "source_url": "http://arxiv.org/abs/2605.21482v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Sixiong Xie",
+      "_fetched_at": "2026-05-21T13:49:59.077332"
+    },
+    {
+      "entity_name": "AiraXiv: An AI-Driven Open-Access Platform for Human and AI Scientists",
+      "source_url": "http://arxiv.org/abs/2605.21481v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Junshu Pan",
+      "_fetched_at": "2026-05-21T13:49:59.077336"
+    },
+    {
+      "entity_name": "WikiVQABench: A Knowledge-Grounded Visual Question Answering Benchmark from Wikipedia and Wikidata",
+      "source_url": "http://arxiv.org/abs/2605.21479v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Basel Shbita",
+      "_fetched_at": "2026-05-21T13:49:59.077339"
+    },
+    {
+      "entity_name": "Agent JIT Compilation for Latency-Optimizing Web Agent Planning and Scheduling",
+      "source_url": "http://arxiv.org/abs/2605.21470v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Caleb Winston",
+      "_fetched_at": "2026-05-21T13:49:59.077342"
+    },
+    {
+      "entity_name": "Mem-$π$: Adaptive Memory through Learning When and What to Generate",
+      "source_url": "http://arxiv.org/abs/2605.21463v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Xiaoqiang Wang",
+      "_fetched_at": "2026-05-21T13:49:59.077345"
+    },
+    {
+      "entity_name": "HITL-D: Human In The Loop Diffusion Assisted Shared Control",
+      "source_url": "http://arxiv.org/abs/2605.21460v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Riley Zilka",
+      "_fetched_at": "2026-05-21T13:49:59.077348"
+    },
+    {
+      "entity_name": "Mind the Sim-to-Real Gap &amp; Think Like a Scientist",
+      "source_url": "http://arxiv.org/abs/2605.21458v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Harsh Parikh",
+      "_fetched_at": "2026-05-21T13:49:59.077351"
+    },
+    {
+      "entity_name": "Quality and Security Signals in AI-Generated Python Refactoring Pull Requests",
+      "source_url": "http://arxiv.org/abs/2605.21453v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Mohamed Almukhtar",
+      "_fetched_at": "2026-05-21T13:49:59.077353"
+    },
+    {
+      "entity_name": "Approximation Theory for Neural Networks: Old and New",
+      "source_url": "http://arxiv.org/abs/2605.21451v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Soumendu Sundar Mukherjee",
+      "_fetched_at": "2026-05-21T13:49:59.077356"
+    },
+    {
+      "entity_name": "Lost in Fog: Sensor Perturbations Expose Reasoning Fragility in Driving VLAs",
+      "source_url": "http://arxiv.org/abs/2605.21446v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Abhinaw Priyadershi",
+      "_fetched_at": "2026-05-21T13:49:59.077359"
+    },
+    {
+      "entity_name": "TempGlitch: Evaluating Vision-Language Models for Temporal Glitch Detection in Gameplay Videos",
+      "source_url": "http://arxiv.org/abs/2605.21443v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Yakun Yu",
+      "_fetched_at": "2026-05-21T13:49:59.077362"
+    },
+    {
+      "entity_name": "torchtune: PyTorch native post-training library",
+      "source_url": "http://arxiv.org/abs/2605.21442v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Mark Obozov",
+      "_fetched_at": "2026-05-21T13:49:59.077364"
+    },
+    {
+      "entity_name": "PALS: Power-Aware LLM Serving for Mixture-of-Experts Models",
+      "source_url": "http://arxiv.org/abs/2605.21427v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Can Hankendi",
+      "_fetched_at": "2026-05-21T13:49:59.077367"
+    },
+    {
+      "entity_name": "HiRes: Inspectable Precedent Memory for Reaction Condition Recommendation",
+      "source_url": "http://arxiv.org/abs/2605.21420v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Shreyas Vinaya Sathyanarayana",
+      "_fetched_at": "2026-05-21T13:49:59.077370"
+    },
+    {
+      "entity_name": "FedCritic: Serverless Federated Critic Learning-based Resource Allocation for Multi-Cell OFDMA in 6G",
+      "source_url": "http://arxiv.org/abs/2605.21418v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Amin Farajzadeh",
+      "_fetched_at": "2026-05-21T13:49:59.077373"
+    },
+    {
+      "entity_name": "Ordering Matters: Rank-Aware Selective Fusion for Blended Emotion Recognition",
+      "source_url": "http://arxiv.org/abs/2605.21417v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Junghyun Lee",
+      "_fetched_at": "2026-05-21T13:49:59.077376"
+    },
+    {
+      "entity_name": "Teaching AI Through Benchmark Construction: QuestBench as a Course-Based Practice for Accountable Knowledge Work",
+      "source_url": "http://arxiv.org/abs/2605.21413v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Haiyang Shen",
+      "_fetched_at": "2026-05-21T13:49:59.077379"
+    },
+    {
+      "entity_name": "Stdlib or Third-Party? Empirical Performance and Correctness of LLM-Assisted Zero-Dependency Python Libraries",
+      "source_url": "http://arxiv.org/abs/2605.21405v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Peng Ding",
+      "_fetched_at": "2026-05-21T13:49:59.077382"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "entity_name": "Average LinkedIn profile today",
+  "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tg5x5e/average_linkedin_profile_today/",
+  "score": 10,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_claude_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/AdCritical5383"
+}

@@ -1,0 +1,384 @@
+{
+  "meta": {
+    "generated_at": "2026-03-29 23:08:41 CST",
+    "date": "2026-03-29",
+    "window_rule": "T-1 19:00 → T 12:20"
+  },
+  "paths": {
+    "markdown": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260329__head-media-learning-board.md",
+    "html": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260329__head-media-learning-board.html",
+    "json": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260329__head-media-learning-board.snapshot.json",
+    "rulebook_markdown": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/20260329__head-media-learning-rulebook-v1.md",
+    "rulebook_latest": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/latest__head-media-learning-rulebook-v1.md",
+    "optimization_state": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/_console_state/learning_optimization_state.json"
+  },
+  "overview": {
+    "sample_count": 8,
+    "ready_topic_count": 5,
+    "sample_source_mix": [
+      [
+        "量子位",
+        3
+      ],
+      [
+        "极客公园",
+        2
+      ],
+      [
+        "Founder Park",
+        2
+      ],
+      [
+        "机器之心",
+        1
+      ]
+    ],
+    "median_first_image_after_text_paragraphs": 0.0,
+    "median_sample_image_count": 6.5,
+    "takeaways": [
+      "先用判断或反差把人拉住，再在前 10%-15% 内补齐背景。",
+      "证据要早，不要让读者一直听抽象判断。",
+      "图片要承担证明、解释、换气三种职责，而不是只做装饰。",
+      "写稿时优先补证、补背景、补图，而不是遇到问题就直接换题。"
+    ],
+    "optimization_total": 3,
+    "optimization_active": 3,
+    "optimization_dismissed": 0
+  },
+  "samples": [
+    {
+      "source_name": "量子位",
+      "title": "疯狂小扎边裁员边给高管发钱！元宇宙硬件成重灾区",
+      "published_at": "2026-03-27 17:02:33 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/9zcHAv9sZ2sveMawEgBhsA",
+      "char_count": 3330,
+      "image_count": 7,
+      "first_image_after_text_paragraphs": 16,
+      "hook_excerpt": "梦瑶 发自 凹非寺 / 量子位 | 公众号 QbitAI",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首图位置相对靠后，更像是在结构展开后用图片换气。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260415_233914__疯狂小扎边裁员边给高管发钱_元宇宙硬件成重灾区__deep-article.md"
+    },
+    {
+      "source_name": "量子位",
+      "title": "国产玩家亮剑世界模型！把全模态卷到顶后，天工AI不藏了",
+      "published_at": "2026-03-27 21:49:20 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/lNdMYYhM3bYHPvLD7Bkr1A",
+      "char_count": 1541,
+      "image_count": 18,
+      "first_image_after_text_paragraphs": 15,
+      "hook_excerpt": "一水 发自 凹非寺 / 量子位 | 公众号 QbitAI",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首图位置相对靠后，更像是在结构展开后用图片换气。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260415_233902__国产玩家亮剑世界模型_把全模态卷到顶后_天工ai不藏了__deep-article.md"
+    },
+    {
+      "source_name": "量子位",
+      "title": "龙虾安全被3层硬核架构焊死了！一份面向开发者的硬核生存指南",
+      "published_at": "2026-03-27 17:02:33 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/SiYE61NO_m1q8MjTzvK5qQ",
+      "char_count": 6050,
+      "image_count": 4,
+      "first_image_after_text_paragraphs": 30,
+      "hook_excerpt": "允中 发自 凹非寺 / 量子位 | 公众号 QbitAI",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首图位置相对靠后，更像是在结构展开后用图片换气。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260415_233850__龙虾安全被3层硬核架构焊死了_一份面向开发者的硬核生存指南__deep-article.md"
+    },
+    {
+      "source_name": "机器之心",
+      "title": "不止Deep，更要Wide：清华、无问芯穹发布多智能体系统WideSeek-R1，4B模型比肩671B模型！",
+      "published_at": "2026-03-27 12:01:55 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/qgGe51RcwJxkZ25DxQEpBA",
+      "char_count": 4849,
+      "image_count": 12,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "DeepSeek-R1 的成功证明了 / 「深度",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260415_233838__不止deep_更要wide_清华_无问芯穹发布多智能体系统wideseek_r1_4b模型比肩671b模型__deep-article.md"
+    },
+    {
+      "source_name": "极客公园",
+      "title": "开放 Siri，苹果决定打开万亿「AI 生态」",
+      "published_at": "2026-03-27 13:31:11 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/aJZKf9WefHQDwFQiYgVPGw",
+      "char_count": 3259,
+      "image_count": 6,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "苹果正在把 Siri ，变成一个 AI 分发平台。 / 作者｜桦林舞王",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260415_233653__开放_siri_苹果决定打开万亿_ai_生态__deep-article.md"
+    },
+    {
+      "source_name": "极客公园",
+      "title": "「Context 才是新操作系统」：从大疆、云鲸离开后，他要做 Agent Computer",
+      "published_at": "2026-03-27 11:04:57 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/UbVodOvPprScY4VK4bVrYQ",
+      "char_count": 10000,
+      "image_count": 6,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "只做对 Context 有价值的事情，打造面向 Agent 时代的「个人计算」底层设备。 / 作者｜苏子华",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260415_233629__context_才是新操作系统_从大疆_云鲸离开后_他要做_agent_computer__deep-article.md"
+    },
+    {
+      "source_name": "Founder Park",
+      "title": "对话贝陪科技：好的 AI 陪伴产品，应该让 AI 少说话",
+      "published_at": "2026-03-26 19:43:25 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/NOEEN8SDpwMT_K0ATx3FPg",
+      "char_count": 16296,
+      "image_count": 7,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "同样是儿童陪伴产品，贝陪科技的产品「可豆陪陪」有点不一样。 / 毛绒娃娃没有 AI 能力，智能交互都在娃娃的智能眼镜上；押注纯语音，而是做了大量 NFC 卡牌，涵盖故事播放、探案游戏等等，并将 NFC 卡牌视作孩子的 AI 入口。",
+      "learning_takeaway": "开头直接塞进数字或对象，让读者先感到“这事是真的，而且现在就值得看”。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260415_233617__对话贝陪科技_好的_ai_陪伴产品_应该让_ai_少说话__deep-article.md"
+    },
+    {
+      "source_name": "Founder Park",
+      "title": "黄仁勋：芯片公司的时代已经结束了，现在是 AI 工厂的时代",
+      "published_at": "2026-03-25 20:35:15 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/wwM7dlz1s0y8N8Ff8g6p0A",
+      "char_count": 16796,
+      "image_count": 4,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "最擅长做深度访谈的 Lex Fridman 采访黄仁勋，肯定是值得看的。 / 对谈中，老黄聊了聊他对于现在整个 AI 行业逻辑的理解：AI 已经不是一种软件功能了，更像是工业产品。同样，OpenClaw 这类 Agent 不再是聊天工具，是一种持续运行的算力消耗。",
+      "learning_takeaway": "首屏先抛判断句，不先做百科式背景。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260415_233606__黄仁勋_芯片公司的时代已经结束了_现在是_ai_工厂的时代__deep-article.md"
+    }
+  ],
+  "ready_drafts": [
+    {
+      "topic_key": "aibuildai-mle-bench-top",
+      "topic_title": "如何看待AIBuildAI 自动搭模型？",
+      "approved_angle": "AIBuildAI 把“让 AI 自动构建 AI 模型”这件事推进到可 benchmark 的阶段，Agent 正开始吃掉部分建模工作流",
+      "platforms": [
+        "知乎"
+      ],
+      "representative_platform": "zhihu",
+      "representative_platform_label": "知乎",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/aibuildai-mle-bench-top/zhihu.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/aibuildai-mle-bench-top",
+      "preview": "先说结论：AIBuildAI 把“自然语言描述任务 → 自动构建 AI 模型”推进到可 benchmark 的层级，并拿到 OpenAI MLE-Bench 榜单第一。",
+      "char_count": 1363,
+      "section_count": 7,
+      "visual_asset_count": 4,
+      "strengths": [
+        "首屏已经有判断句，读者不至于一开始就掉线。",
+        "前几段已经开始补对象 / 事件 / why now，不是完全悬空分析。",
+        "本地已落 `4` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "首屏证据锚点偏弱，读者会先看到判断，后看到凭据。"
+      ],
+      "gap_summary": "首屏证据锚点偏弱，读者会先看到判断，后看到凭据。",
+      "has_internal_packaging": false,
+      "has_early_background": true,
+      "has_early_judgment": true,
+      "has_early_evidence": false
+    },
+    {
+      "topic_key": "apple-siri-chatgpt-entry",
+      "topic_title": "如果 Siri 真换上 ChatGPT 级大脑，你的 iPhone 最先会少做这 3 件事",
+      "approved_angle": "AI 进入大众终端的强 consumer 入口",
+      "platforms": [
+        "小红书",
+        "今日头条"
+      ],
+      "representative_platform": "xiaohongshu",
+      "representative_platform_label": "小红书",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/apple-siri-chatgpt-entry/xiaohongshu.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/apple-siri-chatgpt-entry",
+      "preview": "这次如果成了，不是 Siri “聪明了一点”，而是你的手机可能第一次变成 可对话的执行入口。",
+      "char_count": 1594,
+      "section_count": 7,
+      "visual_asset_count": 2,
+      "strengths": [
+        "首屏已经有判断句，读者不至于一开始就掉线。",
+        "前几段已经开始补对象 / 事件 / why now，不是完全悬空分析。",
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `2` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [],
+      "gap_summary": "当前主问题已经从结构层补到可发布精修层。",
+      "has_internal_packaging": false,
+      "has_early_background": true,
+      "has_early_judgment": true,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "kunlun-agi-three-models-2026",
+      "topic_title": "昆仑万维连发 3 个模型，大厂模型竞争开始换打法",
+      "approved_angle": "昆仑万维一口气发布 3 个模型并亮出 2026 AGI 战略，是国产大模型竞争进入“矩阵战 + 路线战”的强信号",
+      "platforms": [
+        "微信公众号",
+        "知乎"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/kunlun-agi-three-models-2026/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/kunlun-agi-three-models-2026",
+      "preview": "很多人会把“昆仑万维连发 3 个模型”当成一条快讯，但如果把它放回今天的行业竞争里看，真正重要的不是发布本身，而是 昆仑万维一口气发布 3 个模型并亮出 2026 AGI 战略。",
+      "char_count": 1790,
+      "section_count": 8,
+      "visual_asset_count": 4,
+      "strengths": [
+        "首屏已经有判断句，读者不至于一开始就掉线。",
+        "前几段已经开始补对象 / 事件 / why now，不是完全悬空分析。",
+        "本地已落 `4` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "正文前仍残留内部包装 / 标题候选等工序痕迹，离一键发布还差“去工单味”。",
+        "首屏证据锚点偏弱，读者会先看到判断，后看到凭据。"
+      ],
+      "gap_summary": "正文前仍残留内部包装 / 标题候选等工序痕迹，离一键发布还差“去工单味”。；首屏证据锚点偏弱，读者会先看到判断，后看到凭据。",
+      "has_internal_packaging": true,
+      "has_early_background": true,
+      "has_early_judgment": true,
+      "has_early_evidence": false
+    },
+    {
+      "topic_key": "openai-foundation-strategy",
+      "topic_title": "为什么 OpenAI 这次讲的不只是公益，而是平台长期合法性叙事",
+      "approved_angle": "Foundation 不是单纯 PR，它在补商业化之外的“社会许可”",
+      "platforms": [
+        "X"
+      ],
+      "representative_platform": "x",
+      "representative_platform_label": "X",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/openai-foundation-strategy/x.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/openai-foundation-strategy",
+      "preview": "---",
+      "char_count": 1396,
+      "section_count": 0,
+      "visual_asset_count": 4,
+      "strengths": [
+        "前几段已经开始补对象 / 事件 / why now，不是完全悬空分析。",
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `4` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "长文分层还不够，阅读节奏容易发闷。"
+      ],
+      "gap_summary": "长文分层还不够，阅读节奏容易发闷。",
+      "has_internal_packaging": false,
+      "has_early_background": true,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "turboquant-qwen-macbook-air",
+      "topic_title": "你的 MacBook Air 也能跑 AI 大模型了",
+      "approved_angle": "Google TurboQuant 量化算法让 Qwen 3.5-9B 在普通 MacBook Air 本地跑通 20K context，AI 普惠硬件门槛降至消费级",
+      "platforms": [
+        "小红书",
+        "B站",
+        "X"
+      ],
+      "representative_platform": "xiaohongshu",
+      "representative_platform_label": "小红书",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/turboquant-qwen-macbook-air/xiaohongshu.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/turboquant-qwen-macbook-air",
+      "preview": "副文案：消费级硬件也能跑大模型",
+      "char_count": 1295,
+      "section_count": 7,
+      "visual_asset_count": 4,
+      "strengths": [
+        "首屏已经有判断句，读者不至于一开始就掉线。",
+        "前几段已经开始补对象 / 事件 / why now，不是完全悬空分析。",
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `4` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "正文前仍残留内部包装 / 标题候选等工序痕迹，离一键发布还差“去工单味”。"
+      ],
+      "gap_summary": "正文前仍残留内部包装 / 标题候选等工序痕迹，离一键发布还差“去工单味”。",
+      "has_internal_packaging": true,
+      "has_early_background": true,
+      "has_early_judgment": true,
+      "has_early_evidence": true
+    }
+  ],
+  "gap_cards": [
+    {
+      "title": "成品化清理不够彻底",
+      "severity": "high",
+      "why": "头部样本的正文几乎不暴露“标题候选 / 包装说明 / 引用占位”，用户只会看到成品。",
+      "current_gap": "当前有 2/5 个 ready 主题还保留内部编辑结构，最典型的是 `kunlun-agi-three-models-2026`。",
+      "next_action": "写稿阶段最后一轮必须做“去工单味”清理：只保留读者该看到的标题、正文、图文与来源。"
+    },
+    {
+      "title": "证据锚点还不够前置",
+      "severity": "medium",
+      "why": "头部样本喜欢很早给原话、数据、链接或关键截图，不让文章一直漂在抽象判断上。",
+      "current_gap": "当前有 2/5 个 ready 主题在前段还缺明确凭据。",
+      "next_action": "补原始链接、关键数字或截图位；优先补证据，再谈换题。"
+    }
+  ],
+  "next_actions": [
+    "先把 `kunlun-agi-three-models-2026` 做一次“去工单味”清理，确保成品页只剩读者该看到的内容。",
+    "明天继续从 `量子位×3、极客公园×2` 这类高密度样本增量学习，维持学习池稳定刷新。"
+  ],
+  "optimization_items": [
+    {
+      "id": "opt_1db65f907b",
+      "title": "成品化清理不够彻底",
+      "severity": "high",
+      "owner": "content-writer / content-polish",
+      "landing_layer": "skills + draft-pack final sweep",
+      "landing_targets": [
+        "09_runbooks/skills/th-draft-pack/SKILL.md",
+        "09_runbooks/skills/th-content-polish/SKILL.md"
+      ],
+      "why": "头部样本的正文几乎不暴露“标题候选 / 包装说明 / 引用占位”，用户只会看到成品。",
+      "current_gap": "当前有 2/5 个 ready 主题还保留内部编辑结构，最典型的是 `kunlun-agi-three-models-2026`。",
+      "next_action": "写稿阶段最后一轮必须做“去工单味”清理：只保留读者该看到的标题、正文、图文与来源。",
+      "source_basis": "量子位×3、极客公园×2、Founder Park×2",
+      "status": "active",
+      "status_label": "待优化"
+    },
+    {
+      "id": "opt_30d4f0b547",
+      "title": "证据锚点还不够前置",
+      "severity": "medium",
+      "owner": "signal-scout + writer + visual-intelligence",
+      "landing_layer": "skills + visual asset plan",
+      "landing_targets": [
+        "09_runbooks/skills/th-topic-radar/SKILL.md",
+        "09_runbooks/skills/th-market-visual-intelligence/SKILL.md",
+        "09_runbooks/skills/th-content-polish/SKILL.md"
+      ],
+      "why": "头部样本喜欢很早给原话、数据、链接或关键截图，不让文章一直漂在抽象判断上。",
+      "current_gap": "当前有 2/5 个 ready 主题在前段还缺明确凭据。",
+      "next_action": "补原始链接、关键数字或截图位；优先补证据，再谈换题。",
+      "source_basis": "量子位×3、极客公园×2、Founder Park×2",
+      "status": "active",
+      "status_label": "待优化"
+    },
+    {
+      "id": "opt_e3ce95046a",
+      "title": "把题材 × 人群 × 文风匹配持续沉淀到岗位规则",
+      "severity": "medium",
+      "owner": "content-analyst + core skills",
+      "landing_layer": "skills + learning rulebook",
+      "landing_targets": [
+        "08_brand_assets/latest__head-media-learning-rulebook-v1.md",
+        "09_runbooks/skills/th-topic-radar/SKILL.md",
+        "09_runbooks/skills/th-draft-pack/SKILL.md",
+        "09_runbooks/skills/th-content-polish/SKILL.md",
+        "09_runbooks/skills/th-market-visual-intelligence/SKILL.md"
+      ],
+      "why": "头部号真正可复用的不是口头禅，而是不同题材会自动切换叙述密度、术语阈值和证据呈现方式。",
+      "current_gap": "系统已有结构学习，但“事件科普 / 产品推荐 / 产业判断 / builder 拆解”对应的文风匹配规律还需要继续积累和显式沉淀。",
+      "next_action": "继续把长期学习结果写进稳定规则手册，并让 topic-radar、draft-pack、content-polish、visual-intelligence 每次执行时显式加载。",
+      "source_basis": "量子位×3、极客公园×2、Founder Park×2",
+      "status": "active",
+      "status_label": "待优化"
+    }
+  ],
+  "optimization_events": []
+}

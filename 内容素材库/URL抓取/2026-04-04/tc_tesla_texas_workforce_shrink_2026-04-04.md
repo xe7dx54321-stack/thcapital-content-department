@@ -1,0 +1,11 @@
+# TC: Tesla's Texas factory workforce reportedly shrunk 22% in 2025
+- **URL**: https://techcrunch.com/2026/04/04/teslas-texas-factory-workforce-reportedly-shrunk-22-in-2025/
+- **Source**: techcrunch
+- **Published**: 2026-04-04
+- **Fetched**: 2026-04-04T19:13:25+00:00
+- **Trigger type**: Workforce/Operational
+- **Key entities**: Tesla, Austin Texas factory
+- **Significance**: Tesla Texas factory workforce down 22% in 2025, amid shift away from Model S/X production and toward Cybercab/Optimus
+- **China relevance**: Chinese EV supply chain implications if Tesla US production contracting
+- **Classification**: formal_candidate
+- **Queue status**: structured_accept

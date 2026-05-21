@@ -1,0 +1,11 @@
+# TC: Anthropic buys biotech startup Coefficient Bio in $400M deal: Reports
+- **URL**: https://techcrunch.com/2026/04/03/anthropic-buys-biotech-startup-coefficient-bio-in-400m-deal-reports/
+- **Source**: techcrunch
+- **Published**: 2026-04-03T20:28:40+00:00
+- **Fetched**: 2026-04-04T19:12:51+00:00
+- **Trigger type**: M&A/Deal
+- **Key entities**: Anthropic, Coefficient Bio, Samuel Stanton, Nathan C. Frey, Genentech Prescient Design
+- **Significance**: Anthropic acquires 10-person biotech AI startup 8 months after founding; founders from Genentech's Prescient Design computational drug discovery team. ~$400M stock deal. Supports Claude for Life Sciences push.
+- **China relevance**: AI drug discovery competition in China (Insilico Medicine, XtalPi); Anthropic M&A signals health AI as priority
+- **Classification**: formal_candidate
+- **Queue status**: structured_accept

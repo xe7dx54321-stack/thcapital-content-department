@@ -1,0 +1,83 @@
+{
+  "date": "2026-04-09",
+  "generated_at": "2026-04-09 22:21:28 CST",
+  "board_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260409__daily-top8-to-top5.md",
+  "status": "awaiting_founder_selection",
+  "briefing_at": "2026-04-09 17:40:00 CST",
+  "default_pick_at": "2026-04-09 18:00:00 CST",
+  "draftbox_deadline": "2026-04-09 19:00:00 CST",
+  "default_choice_rank": 1,
+  "selected_rank": null,
+  "selected_candidate_key": "",
+  "selected_at": "",
+  "selected_reason": "",
+  "approved_topic_path": "",
+  "draft_pack_dir": "",
+  "bridge_request_id": "",
+  "recommended_cards": [
+    {
+      "date": "2026-04-09",
+      "card_role": "recommended",
+      "card_label": "推荐 1",
+      "rank": 1,
+      "candidate_key": "hn_frontpage_47692102_muse_spark_meta_superintelligence_labs_20260409",
+      "title": "Muse Spark – Meta Superintelligence Labs",
+      "topic_line": "围绕「Muse Spark」这个新信号，讲清它为什么今天值得看。",
+      "outline": "先把对象和原始信号说清，再解释 why now、普通人 stakes、深层变化，以及现在还不能下死结论的边界。 这题优先成立的原因是：partial source；有明确扩散热度入口；仍处业务窗内高时效；具备天然讨论空间",
+      "style_route": "大热点解释 / 冷启动用户较多的事件稿",
+      "style_profile": {
+        "primary_creator": "量子位",
+        "primary_skill": "th-style-overlay-qbitai",
+        "secondary_creator": "机器之心",
+        "secondary_skill": "th-style-overlay-jiqizhixin",
+        "support_creator": "",
+        "support_skill": "",
+        "borrowed_layers": "对象识别 / 首屏证据 / why now / stakes / 大众转译"
+      },
+      "special_instructions": "style_route=大热点解释 / 冷启动用户较多的事件稿; primary_overlay=量子位; secondary_overlay=机器之心; borrowed_layers=对象识别 / 首屏证据 / why now / stakes / 大众转译; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以 Muse Spark – Meta Superintelligence Labs 为入口，讲清对象、why now、影响链和当前阶段判断。",
+      "image_outline": [
+        "封面：对象 + why now 的一句判断，优先让冷启动读者知道这件事是什么。",
+        "正文图：事件原始证据图，放在首屏后，核心作用是第一张图要像证据，不要像气氛图。。",
+        "正文图：对象解释卡，放在背景 bridge 段后，核心作用是这一张负责回答‘这到底是什么事’。。",
+        "正文图：变量 / 时间线图，放在核心论证段前，核心作用是适合 why now、影响链和变量变化段。。",
+        "正文图：风险边界卡，放在风险段前，核心作用是防止热点稿写成情绪稿。。"
+      ],
+      "default_pick": true,
+      "draftbox_deadline": "2026-04-09 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260409__recommended_1__hn_frontpage_47692102_muse_spark_meta_superintelligence_labs_20260409.md"
+    },
+    {
+      "date": "2026-04-09",
+      "card_role": "recommended",
+      "card_label": "推荐 2",
+      "rank": 2,
+      "candidate_key": "github_trending_virattt_ai_hedge_fund_20260409",
+      "title": "virattt/ai-hedge-fund",
+      "topic_line": "围绕「virattt」这个新信号，讲清它为什么今天值得看。",
+      "outline": "先讲旧痛点和新方案，再拆它怎么工作、谁最适合用、真实收益和不该高估的地方。 这题优先成立的原因是：partial source；有明确扩散热度入口；仍处业务窗内高时效；具备天然讨论空间；与 AI / Agent / 一人公司主线高度一致",
+      "style_route": "工具体验 / builder 拆解 / 产品推荐",
+      "style_profile": {
+        "primary_creator": "饼干哥哥AGI",
+        "primary_skill": "th-style-overlay-cookie-brother-agi",
+        "secondary_creator": "袋鼠帝AI客栈",
+        "secondary_skill": "th-style-overlay-kangaroo-ai-inn",
+        "support_creator": "",
+        "support_skill": "",
+        "borrowed_layers": "收益点前置 / 步骤感 / 门槛转译 / 场景感"
+      },
+      "special_instructions": "style_route=工具体验 / builder 拆解 / 产品推荐; primary_overlay=饼干哥哥AGI; secondary_overlay=袋鼠帝AI客栈; borrowed_layers=收益点前置 / 步骤感 / 门槛转译 / 场景感; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "围绕 virattt/ai-hedge-fund，讲清真实痛点、具体收益、适合人群和边界。",
+      "image_outline": [
+        "封面：对象名 + 旧痛点/新收益对照，别做抽象海报。",
+        "正文图：对象与界面截图，放在首屏后，核心作用是第一张图必须是产品本体，不要先做抽象海报。。",
+        "正文图：前后对比图，放在收益点段前，核心作用是适合省步骤、省时间、少踩坑的收益段。。",
+        "正文图：适合谁 / 不适合谁矩阵，放在边界段前，核心作用是不要把所有产品都写成人人都该上。。"
+      ],
+      "default_pick": false,
+      "draftbox_deadline": "2026-04-09 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260409__recommended_2__github_trending_virattt_ai_hedge_fund_20260409.md"
+    }
+  ],
+  "holdout_cards": []
+}

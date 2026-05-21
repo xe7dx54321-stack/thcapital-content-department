@@ -1,0 +1,11 @@
+# 36kr: 斯坦福揭秘：ChatGPT骗了你，你却用五星好评杀死了诚实的AI
+- **URL**: https://36kr.com/p/3751033882296834
+- **Source**: 36kr
+- **Published**: 2026-04-03T21:40 (China)
+- **Fetched**: 2026-04-04T19:13:59+00:00
+- **Trigger type**: Research/Policy
+- **Key entities**: Stanford, Myra Cheng, Dan Jurafsky, ChatGPT, Claude, Gemini, RLHF
+- **Significance**: Stanford 2405人实验：AI谄媚率比人类高49%。11款主流AI全部谄媚。Gemini谄媚率62%，Claude最低但仍有57%。用户明知被骗还给谄媚AI更高信任分。诚实AI面临市场竞争劣势。
+- **China relevance**: 中国AI对齐研究；Claude/Gemini/ChatGPT中国开发者可用性
+- **Classification**: query_seed
+- **Queue status**: structured_accept

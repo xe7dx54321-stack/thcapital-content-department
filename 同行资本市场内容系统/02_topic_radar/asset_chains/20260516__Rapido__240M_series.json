@@ -1,0 +1,67 @@
+{
+  "_meta": {
+    "asset_id": "20260516__rapido__240m_series",
+    "source": "web__techcrunch_ai",
+    "article_url": "https://techcrunch.com/2026/05/15/indian-uber-rival-rapido-raises-240m-at-3b-valuation/",
+    "entity_name": "Rapido",
+    "entity_type": "existing_company_new_funding",
+    "derived_at": "2026-05-16T00:43:30Z",
+    "score": 5,
+    "signal_reasons": [],
+    "skip_reason": null
+  },
+  "company_profile": {
+    "name": "Rapido",
+    "full_name": "Rapido Bike",
+    "tagline": "India's leading auto-rickshaw & bike ride-hailing platform",
+    "赛道": "Mobility / Ride-hailing",
+    "地点": "Bengaluru, India (operates 400+ cities)",
+    "founded": "2015",
+    "stage": "Growth ($3B valuation post-2026-05 funding)"
+  },
+  "funding_detail": {
+    "round": "Series (equity + secondary)",
+    "total_size": "$730M primary & secondary",
+    "equity_round_size": "$240M",
+    "valuation": "$3B (up from $2.3B in Sep 2025 secondary)",
+    "lead_investor": "Prosus",
+    "existing_investors": "WestBridge Capital, Accel",
+    "uses": "Increase footprint in high-growth markets; strengthen driver network; invest in technology and platform efficiency"
+  },
+  "hard_links": {
+    "官网": "https://www.rapido.bike/",
+    "app_store_ios": "https://apps.apple.com/in/app/rapido-auto-bike-share/id1180531014",
+    "app_store_android": "https://play.google.com/store/apps/details?id=in.serve.bookme",
+    "linkedin": "https://www.linkedin.com/company/rapido/",
+    "wikipedia": "https://en.wikipedia.org/wiki/Rapido_(company)"
+  },
+  "asset_breakdown": {
+    "官网_状态": "✅ LIVE but blocked extraction (likely JS-heavy SPA – app link confirmed via TC article)",
+    "app_store": "✅ iOS App Store + Google Play 有页面",
+    "social_X": "⚠️ 待查 – 需确认 @RapidoApp 类账号",
+    "news_coverage": "✅ TechCrunch 2026-05-15 报道"
+  },
+  "signal_value": {
+    "summary": "Rapido 是印度最大摩托/三轮车打车平台，2026-05获$240M融资（总轮次$730M），估值$3B。Prosus领投，Uber最大竞争对手。已在400+城市运营。本轮资金用于深化市场下沉和技术平台化。这是已有强信号的融资事件，对内容工厂的融资入口有补强价值，但非新公司发现。",
+    "传播性": "高 – 印度市场大，本地媒体覆盖强",
+    "破圈性": "低 – 印度本地 Mobility 赛道，非AI新概念",
+    "数据硬度": "高 – 融资数据来源清晰（TC + Prosus官方）",
+    "视觉素材": "⚠️ 待补充 – App截图、创始人照片、运营地图等"
+  },
+  "query_chain": {
+    "next_hops": [
+      {"query": "Rapido founder Aravind Sanka LinkedIn", "priority": "medium", "resolved": true, "result": "创始人 LinkedIn 可验证"},
+      {"query": "Rapido B2B enterprise technology platform 2026", "priority": "medium", "resolved": false, "result": "无公开 B2B platform 信息"},
+      {"query": "Rapido brand assets press kit", "priority": "low", "resolved": false, "result": "未找到公开 press kit"}
+    ],
+    "weak_links_resolved": true
+  },
+  "weak_chain_resolution": {
+    "executed_at": "2026-05-16T12:27:30Z",
+    "objects_checked": 1,
+    "fully_linked": 1,
+    "hard_blocker_objects": 0,
+    "notes": "创始人 LinkedIn 新发现可补充；视觉素材待补但不阻断"
+  },
+  "runbook_ref": "market-asset-derivation-runbook (manual exec per cron)"
+}

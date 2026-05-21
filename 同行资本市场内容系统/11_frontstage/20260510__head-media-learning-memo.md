@@ -1,0 +1,74 @@
+# 头部号学习备忘 | 2026-05-10
+
+> 学习窗：T-1 17:00 → T 14:30  |  抓取时间：2026-05-10 23:46
+
+## 扫描结果（8 条头部样本）
+
+### 1. 20260510__新智元__Anthropic_Claude新功能Orbit泄露__raw.md — 无标题
+- 日期：未知  |  字数：39522
+- 引言：<!-- WEB_FETCH RAW EXPORT -->
+<!-- source: 新智元 -->
+<!-- url: https://finance.sina.com.cn/wm/2026-05-10/doc-inhxkaqp6334720.shtml -->
+<!-- priority: ME...
+
+### 2. 新智元 — Anthropic Claude新功能Orbit泄露
+- 日期：未知  |  字数：39293
+- 引言：Title: 1.8万亿，史上最大独角兽被关停
+
+URL Source: https://finance.sina.com.cn/wm/2026-05-10/doc-inhxkaqp6334720.shtml
+
+Published Time: 2026-05-10T06:26:24+08:00
+
+M...
+
+### 3. 20260510__机器之心__DeepSeek正在进行73亿美元融资__raw.md — 无标题
+- 日期：未知  |  字数：37493
+- 引言：<!-- WEB_FETCH RAW EXPORT -->
+<!-- source: 机器之心 -->
+<!-- url: https://finance.sina.com.cn/stock/t/2026-05-09/doc-inhximsz3242168.shtml -->
+<!-- priori...
+
+### 4. 机器之心 — DeepSeek正在进行73亿美元融资
+- 日期：未知  |  字数：37260
+- 引言：Title: 科博会上的脑机接口：科幻概念撞上量产现实
+
+URL Source: https://finance.sina.com.cn/stock/t/2026-05-09/doc-inhximsz3242168.shtml
+
+Published Time: 2026-05-09T23:09:47...
+
+### 5. 20260510__爱范儿__苹果带摄像头AirPods_H90__raw.md — 无标题
+- 日期：未知  |  字数：25592
+- 引言：<!-- WEB_FETCH RAW EXPORT -->
+<!-- source: 爱范儿 -->
+<!-- url: https://tech.ifeng.com/c/8sxWMvClWC1 -->
+<!-- priority: MEDIUM -->
+<!-- fetched: 2026-05-...
+
+### 6. 爱范儿 — 苹果带摄像头AirPods H90
+- 日期：未知  |  字数：25404
+- 引言：Title: 独家｜苹果带摄像头的AirPods或被迫暂停，部分产线原地解散
+
+URL Source: https://tech.ifeng.com/c/8sxWMvClWC1
+
+Published Time: Sun, 10 May 2026 14:56:53 GMT
+
+Markdown Cont...
+
+### 7. 20260510__36氪__字节豆包付费订阅测试__raw.md — 无标题
+- 日期：未知  |  字数：16542
+- 引言：<!-- WEB_FETCH RAW EXPORT -->
+<!-- source: 36氪 -->
+<!-- url: https://36kr.com/p/3802970281041408 -->
+<!-- priority: HIGH -->
+<!-- fetched: 2026-05-10T...
+
+### 8. 36氪 — 字节豆包付费订阅测试
+- 日期：未知  |  字数：16365
+- 引言：Title: 豆包推出收费：纯免费的大模型越来越少了-36氪
+
+URL Source: https://36kr.com/p/3802970281041408
+
+Published Time: 2026-05-10T22:58:02+08:00
+
+Markdown Content:
+# 豆包推出收费...

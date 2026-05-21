@@ -1,0 +1,40 @@
+{
+  "deliveries": {
+    "2026-04-15::gpt_5_4_cyber_vs_mythos_openai_anthropic_ai": {
+      "draft_pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/gpt_5_4_cyber_vs_mythos_openai_anthropic_ai",
+      "feishu_doc_url": "https://feishu.cn/docx/Syv1dJtrpoiMtJxSOe6coVubnvc",
+      "media_id": "",
+      "notified_at": "2026-04-15 19:36:47 CST",
+      "request_id": "wechat_bridge__gpt_5_4_cyber_vs_mythos_openai_anthropic_ai"
+    },
+    "2026-04-16::openai_agents_sdk_enterprise": {
+      "draft_pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/openai_agents_sdk_enterprise",
+      "feishu_doc_url": "https://feishu.cn/docx/C9k7dnUzQoqtKQxHpv4cqMnynMb",
+      "media_id": "",
+      "notified_at": "2026-04-16 19:40:33 CST",
+      "request_id": "wechat_bridge__openai_agents_sdk_enterprise"
+    },
+    "2026-04-24::hn_frontpage_47878905_an_update_on_recent_claude_code_quality_reports_20260424": {
+      "draft_pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/hn_frontpage_47878905_an_update_on_recent_claude_code_quality_reports_20260424",
+      "feishu_doc_url": "n/a",
+      "media_id": "",
+      "notified_at": "2026-04-24 21:33:12 CST",
+      "request_id": "wechat_bridge__hn_frontpage_47878905_an_update_on_recent_claude_code_quality_reports_20260424"
+    },
+    "2026-04-26::deepseek_v4_kimi_k2_technical_rivalry": {
+      "draft_pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/deepseek_v4_kimi_k2_technical_rivalry",
+      "feishu_doc_url": "n/a",
+      "media_id": "",
+      "notified_at": "2026-04-26 19:29:10 CST",
+      "request_id": "wechat_bridge__deepseek_v4_kimi_k2_technical_rivalry"
+    },
+    "2026-04-27::hn_frontpage_47910388_swe_bench_verified_no_longer_measures_frontier_coding_capabilit_20260427": {
+      "draft_pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/hn_frontpage_47910388_swe_bench_verified_no_longer_measures_frontier_coding_capabilit_20260427",
+      "feishu_doc_url": "n/a",
+      "media_id": "",
+      "notified_at": "2026-04-27 20:22:48 CST",
+      "request_id": "wechat_bridge__hn_frontpage_47910388_swe_bench_verified_no_longer_measures_frontier_coding_capabilit_20260427"
+    }
+  },
+  "last_checked_at": "2026-04-27 20:22:48 CST"
+}

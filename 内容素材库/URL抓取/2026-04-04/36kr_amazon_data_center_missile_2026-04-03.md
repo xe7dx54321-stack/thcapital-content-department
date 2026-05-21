@@ -1,0 +1,11 @@
+# 36kr: 一颗导弹击中亚马逊数据中心之后
+- **URL**: https://36kr.com/p/3751021118915332
+- **Source**: 36kr
+- **Published**: 2026-04-03T21:17 (China)
+- **Fetched**: 2026-04-04T19:18:40+00:00
+- **Trigger type**: Infrastructure/Geopolitics
+- **Key entities**: Amazon AWS, Bahrain data center, Middle East AI infrastructure, Microsoft/Google/Meta/Apple, 18 US companies
+- **Significance**: AWS Bahrain data center hit by missile; 3 AWS可用区 in UAE struck in March, 2 went offline. $500M/GW AI data center; AWS four facilities direct losses in billions. 2026 US tech giants plan $630B capex (up 62% from $388B in 2025); ~75% ($450B) for AI infrastructure. Knight Frank: by 2030 Middle East data center capacity to triple to 3.3GW+.数据中心成为战略打击目标；双重用途属性（民用+AI训练）。
+- **China relevance**: 中国AI基础设施安全评估；数据中心战略价值评估；战区算力风险
+- **Classification**: formal_candidate
+- **Queue status**: structured_accept

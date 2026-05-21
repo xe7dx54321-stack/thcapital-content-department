@@ -1,0 +1,26 @@
+{
+  "entity": "Ornadyne",
+  "seed_source": "trend__yc_launches_ai",
+  "seed_url": "https://www.ycombinator.com/companies/ornadyne",
+  "entity_type": "company",
+  "domain": "Hard Tech / Defense Robotics / Bio-inspired Drones",
+  "derived_links": {
+    "yc_company_page": "https://www.ycombinator.com/companies/ornadyne",
+    "youtube_demo": "https://youtu.be/ByrhebaiNGw",
+    "linkedin": "https://www.linkedin.com/company/ornadyne"
+  },
+  "next_hop_queries": {
+    "ornadyne_website": "Ornadyne robot birds surveillance official website",
+    "founder_linkedin": "Geourg Armen Ornadyne founders",
+    "defense_contract_status": "Ornadyne defense contracts DoD",
+    "product_specs": "Ornadyne flapping wing drone specs flight time"
+  },
+  "score": {
+    "object_clarity": 4,
+    "link_density": 3,
+    "social_presence": 2,
+    "demo_docs_available": 3,
+    "funding_hardness": 3
+  },
+  "notes": "YC S26. Hard tech defense. Robot birds for military surveillance. Ex NASA JPL + SpaceX founders. Hour-class flight times, low acoustic signature. YC rare hard tech entry. No external funding disclosed."
+}

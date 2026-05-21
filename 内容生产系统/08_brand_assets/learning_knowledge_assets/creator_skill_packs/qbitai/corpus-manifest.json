@@ -1,0 +1,146 @@
+{
+  "generated_at": "2026-05-09 17:44:21 CST",
+  "source_name": "量子位",
+  "slug": "qbitai",
+  "overlay_skill_name": "th-style-overlay-qbitai",
+  "sample_gate_passed": true,
+  "distinct_recent_articles_used": 8,
+  "total_distinct_available": 214,
+  "observed_window": {
+    "latest": "2026-05-05 14:00:00 CST",
+    "oldest": "2026-05-03 14:36:00 CST"
+  },
+  "aggregate": {
+    "median_char_count": 2553,
+    "median_image_count": 7.5,
+    "median_first_image_after_text_paragraphs": 8.0,
+    "median_short_para_ratio": 0.793,
+    "median_image_density_per_1000_chars": 2.585,
+    "early_image_share": 0.0,
+    "dense_visual_share": 0.625,
+    "first_person_opening_share": 0.125,
+    "reader_address_opening_share": 0.25,
+    "opening_modes": {
+      "对象/事件先落地": 5,
+      "问题/提问切入": 2,
+      "场景/自述切入": 1
+    },
+    "title_modes": {
+      "对象直给型标题": 8
+    }
+  },
+  "articles": [
+    {
+      "title": "马斯克破大防了：私信求和遭拒，怒喷奥特曼Brockman「全美最恶人」",
+      "published_at": "2026-05-05 14:00:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/xhMYA3iwuQqchhr7nPn-5w",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260506_120737__马斯克破大防了_私信求和遭拒_怒喷奥特曼brockman_全美最恶人__deep-article.md",
+      "char_count": 5344,
+      "image_count": 16,
+      "first_image_after_text_paragraphs": 5,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.567,
+      "opening_excerpt": "henry 发自 凹非寺 量子位 | 公众号 QbitAI 马斯克vsOpenAI两兄弟（奥特曼&Brockman）庭审进入第二周，又爆惊天大瓜。",
+      "note": "对象/事件先落地；判断后很快补图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "豆包要收费了：三档订阅最贵500元/月，保留免费基础版",
+      "published_at": "2026-05-05 11:51:03 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/izhyNSFKuObuk3nvHWP9mA",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260506_120725__豆包要收费了_三档订阅最贵500元_月_保留免费基础版__deep-article.md",
+      "char_count": 2516,
+      "image_count": 8,
+      "first_image_after_text_paragraphs": 6,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.778,
+      "opening_excerpt": "鱼羊 发自 凹非寺 量子位 | 公众号 QbitAI 五一假期余额不足之际，低调了有一段时间的",
+      "note": "对象/事件先落地；结构展开后再上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "量子位编辑作者招聘",
+      "published_at": "2026-05-05 11:51:03 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/letqz0b-qUsTM3UvROYwDw",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260506_120749__量子位编辑作者招聘__deep-article.md",
+      "char_count": 1729,
+      "image_count": 2,
+      "first_image_after_text_paragraphs": 8,
+      "opening_mode": "问题/提问切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.845,
+      "opening_excerpt": "编辑部 发自 凹非寺 量子位 | 公众号 QbitAI AI热潮还在汹涌，但如果你还不知道如何参与……那为什么不来",
+      "note": "问题/提问切入；结构展开后再上图；短段密度高"
+    },
+    {
+      "title": "“DeepSeek版Claude Code”，Github 2.3k星",
+      "published_at": "2026-05-04 12:23:33 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/TJs_LzkFaBxAD0rbrUXLxA",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260505_122040__deepseek版claude_code_github_2_3k星__deep-article.md",
+      "char_count": 3611,
+      "image_count": 19,
+      "first_image_after_text_paragraphs": 7,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.674,
+      "opening_excerpt": "克雷西 发自 凹非寺 量子位 | 公众号 QbitAI DeepSeek也有自己专属的Coding Agent了。",
+      "note": "对象/事件先落地；结构展开后再上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "量子位编辑作者招聘",
+      "published_at": "2026-05-04 12:23:33 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/iG1J5O5lzxD5v6cLHqObxQ",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260505_122052__量子位编辑作者招聘__deep-article.md",
+      "char_count": 1729,
+      "image_count": 2,
+      "first_image_after_text_paragraphs": 8,
+      "opening_mode": "问题/提问切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.845,
+      "opening_excerpt": "编辑部 发自 凹非寺 量子位 | 公众号 QbitAI AI热潮还在汹涌，但如果你还不知道如何参与……那为什么不来",
+      "note": "问题/提问切入；结构展开后再上图；短段密度高"
+    },
+    {
+      "title": "5月20日，马上AI起来！峰会首波嘉宾已官宣",
+      "published_at": "2026-05-04 10:01:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/CC9FogehWfXv9FBudXLKig",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260504_131518__5月20日_马上ai起来_峰会首波嘉宾已官宣__deep-article.md",
+      "char_count": 527,
+      "image_count": 0,
+      "first_image_after_text_paragraphs": null,
+      "opening_mode": "场景/自述切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.889,
+      "opening_excerpt": "5月20日，马上AI起来！峰会首波嘉宾已官宣 今年5月20日，我们将在北京金茂万丽酒店举办一年一度的 #中国AIGC产业峰会",
+      "note": "场景/自述切入；短段密度高"
+    },
+    {
+      "title": "不好！1930年的AI都来抢程序员饭碗了",
+      "published_at": "2026-05-03 17:11:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/qVdcVlKJ3GFglsuTCLbQ1w",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260504_131455__不好_1930年的ai都来抢程序员饭碗了__deep-article.md",
+      "char_count": 2591,
+      "image_count": 7,
+      "first_image_after_text_paragraphs": 8,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.807,
+      "opening_excerpt": "Jay 发自 凹非寺 量子位 | 公众号 QbitAI 劳动节，马上100岁的vintage大模型也得劳动。",
+      "note": "对象/事件先落地；结构展开后再上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "OpenAI参与，重卷ImageNet：终于把FID做成训练",
+      "published_at": "2026-05-03 14:36:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/kDQPprKA0ZTUsGh8efuPKA",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260504_131418__openai参与_重卷imagenet_终于把fid做成训练__deep-article.md",
+      "char_count": 4447,
+      "image_count": 11,
+      "first_image_after_text_paragraphs": 21,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.679,
+      "opening_excerpt": "衡宇 发自 凹非寺 量子位 | 公众号 QbitAI 统治AI图像生成近10年的黄金标准，第一次被拉下场当了教练。",
+      "note": "对象/事件先落地；结构展开后再上图；短段密度高；图文节奏偏密"
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "trend__arxiv_cs_ai_recent": [
+    {
+      "entity_name": "DashAttention: Differentiable and Adaptive Sparse Hierarchical Attention",
+      "source_url": "http://arxiv.org/abs/2605.18753v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Yuxiang Huang",
+      "_fetched_at": "2026-05-19T22:55:55.470690"
+    },
+    {
+      "entity_name": "Code as Agent Harness",
+      "source_url": "http://arxiv.org/abs/2605.18747v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Xuying Ning",
+      "_fetched_at": "2026-05-19T22:55:55.470790"
+    },
+    {
+      "entity_name": "ESI-Bench: Towards Embodied Spatial Intelligence that Closes the Perception-Action Loop",
+      "source_url": "http://arxiv.org/abs/2605.18746v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Yining Hong",
+      "_fetched_at": "2026-05-19T22:55:55.470794"
+    },
+    {
+      "entity_name": "Actionable World Representation",
+      "source_url": "http://arxiv.org/abs/2605.18743v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Kunqi Xu",
+      "_fetched_at": "2026-05-19T22:55:55.470797"
+    },
+    {
+      "entity_name": "Vision-OPD: Learning to See Fine Details for Multimodal LLMs via On-Policy Self-Distillation",
+      "source_url": "http://arxiv.org/abs/2605.18740v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Qianhao Yuan",
+      "_fetched_at": "2026-05-19T22:55:55.470800"
+    },
+    {
+      "entity_name": "What Does the AI Doctor Value? Auditing Pluralism in the Clinical Ethics of Language Models",
+      "source_url": "http://arxiv.org/abs/2605.18738v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Payal Chandak",
+      "_fetched_at": "2026-05-19T22:55:55.470803"
+    },
+    {
+      "entity_name": "Predictable Confabulations: Factual Recall by LLMs Scales with Model Size and Topic Frequency",
+      "source_url": "http://arxiv.org/abs/2605.18732v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Matthew L. Smith",
+      "_fetched_at": "2026-05-19T22:55:55.470806"
+    },
+    {
+      "entity_name": "DexHoldem: Playing Texas Hold'em with Dexterous Embodied System",
+      "source_url": "http://arxiv.org/abs/2605.18727v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Feng Chen",
+      "_fetched_at": "2026-05-19T22:55:55.470808"
+    },
+    {
+      "entity_name": "Semantic Generative Tuning for Unified Multimodal Models",
+      "source_url": "http://arxiv.org/abs/2605.18714v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Songsong Yu",
+      "_fetched_at": "2026-05-19T22:55:55.470811"
+    },
+    {
+      "entity_name": "Distilling Tabular Foundation Models for Structured Health Data",
+      "source_url": "http://arxiv.org/abs/2605.18702v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Aditya Tanna",
+      "_fetched_at": "2026-05-19T22:55:55.470814"
+    },
+    {
+      "entity_name": "PopPy: Opportunistically Exploiting Parallelism in Python Compound AI Applications",
+      "source_url": "http://arxiv.org/abs/2605.18697v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Stephen Mell",
+      "_fetched_at": "2026-05-19T22:55:55.470817"
+    },
+    {
+      "entity_name": "Ensembling Tabular Foundation Models - A Diversity Ceiling And A Calibration Trap",
+      "source_url": "http://arxiv.org/abs/2605.18696v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Aditya Tanna",
+      "_fetched_at": "2026-05-19T22:55:55.470820"
+    },
+    {
+      "entity_name": "SkillGenBench: Benchmarking Skill Generation Pipelines for LLM Agents",
+      "source_url": "http://arxiv.org/abs/2605.18693v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Yifan Zhou",
+      "_fetched_at": "2026-05-19T22:55:55.470823"
+    },
+    {
+      "entity_name": "Democratizing Large-Scale Re-Optimization with LLM-Guided Model Patches",
+      "source_url": "http://arxiv.org/abs/2605.18692v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Tinghan Ye",
+      "_fetched_at": "2026-05-19T22:55:55.470826"
+    },
+    {
+      "entity_name": "Reversa: A Reverse Documentation Engineering Framework for Converting Legacy Software into Operational Specifications fo",
+      "source_url": "http://arxiv.org/abs/2605.18684v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Sanderson Oliveira de Macedo",
+      "_fetched_at": "2026-05-19T22:55:55.470829"
+    },
+    {
+      "entity_name": "Learning Quantifiable Visual Explanations Without Ground-Truth",
+      "source_url": "http://arxiv.org/abs/2605.18681v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Amritpal Singh",
+      "_fetched_at": "2026-05-19T22:55:55.470832"
+    },
+    {
+      "entity_name": "Lance: Unified Multimodal Modeling by Multi-Task Synergy",
+      "source_url": "http://arxiv.org/abs/2605.18678v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Fengyi Fu",
+      "_fetched_at": "2026-05-19T22:55:55.470835"
+    },
+    {
+      "entity_name": "COOPO: Cyclic Offline-Online Policy Optimization Algorithm",
+      "source_url": "http://arxiv.org/abs/2605.18675v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Qisai Liu",
+      "_fetched_at": "2026-05-19T22:55:55.470837"
+    },
+    {
+      "entity_name": "Efficient Lookahead Encoding and Abstracted Width for Learning General Policies in Classical Planning",
+      "source_url": "http://arxiv.org/abs/2605.18674v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Michael Aichmüller",
+      "_fetched_at": "2026-05-19T22:55:55.470840"
+    },
+    {
+      "entity_name": "Position: A Three-Layer Probabilistic Assume-Guarantee Architecture Is Structurally Required for Safe LLM Agent Deployme",
+      "source_url": "http://arxiv.org/abs/2605.18672v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "S. Bensalem",
+      "_fetched_at": "2026-05-19T22:55:55.470843"
+    }
+  ]
+}

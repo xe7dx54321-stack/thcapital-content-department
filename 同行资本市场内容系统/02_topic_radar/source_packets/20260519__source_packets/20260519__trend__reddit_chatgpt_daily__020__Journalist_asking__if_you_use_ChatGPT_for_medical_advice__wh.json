@@ -1,0 +1,12 @@
+{
+  "entity_name": "Journalist asking: if you use ChatGPT for medical advice, what prompted you to start?",
+  "source_url": "https://old.reddit.com/r/ChatGPT/comments/1thd2we/journalist_asking_if_you_use_chatgpt_for_medical/",
+  "score": 5,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_chatgpt_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/jollyette"
+}

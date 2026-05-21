@@ -1,0 +1,23 @@
+# Market Source Manifest 2026-05-18
+- **trend__hn_frontpage** [Hacker News Front Page]: 20 entries
+- **trend__github_trending** [GitHub Trending]: 0 entries
+- **trend__huggingface_daily_papers** [HuggingFace Daily Papers]: 0 entries
+- **trend__arxiv_cs_ai_recent** [arXiv cs.AI Recent]: 20 entries
+- **web__simon_willison** [Simon Willison]: 0 entries
+- **web__latent_space** [Latent Space Blog]: 0 entries
+- **web__one_useful_thing** [One Useful Thing]: 0 entries
+- **web__interconnects** [Interconnects.ai]: 0 entries
+- **web__understanding_ai** [Understanding AI]: 0 entries
+- **web__deeplearningai_batch** [DeepLearning.ai Batch]: 0 entries
+- **web__infoq_ai_ml** [InfoQ AI/ML]: 0 entries
+- **web__semianalysis** [SemiAnalysis]: 0 entries
+- **web__huggingface_blog** [HuggingFace Blog]: 0 entries
+- **x__karpathy** [X / @karpathy]: 0 entries
+- **x__swyx** [X / @swyx]: 0 entries
+- **x__hwchase17** [X / @hwchase17]: 0 entries
+- **web__jiqizhixin_site** [机器之心]: 0 entries
+- **web__qbitai_site** [QbitAI]: 0 entries
+- **web__zhidx** [至顶网]: 0 entries
+- **web__36kr_ai** [36氪 AI]: 0 entries
+- **web__ifanr_ai** [爱范儿 AI]: 0 entries
+- **web__sspai_ai** [少数派 AI]: 0 entries

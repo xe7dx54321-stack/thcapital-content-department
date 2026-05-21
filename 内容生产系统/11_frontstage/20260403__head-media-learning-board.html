@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>头部号学习池 / 对标池</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --line: #dbe5f3;
+      --text: #132238;
+      --muted: #5c708f;
+      --accent: #2251cc;
+      --good: #0d9b6b;
+      --warn: #d38700;
+      --high: #d13232;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC",sans-serif; background: var(--bg); color: var(--text); }
+    .page { max-width: 1460px; margin: 0 auto; padding: 28px 24px 64px; }
+    .hero { background: linear-gradient(135deg, #132238, #1b3359); color: #fff; border-radius: 24px; padding: 28px; margin-bottom: 18px; }
+    .hero h1 { margin: 0 0 8px; font-size: 34px; }
+    .hero p { margin: 0; color: rgba(255,255,255,0.84); }
+    .meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .chip { display: inline-flex; align-items: center; padding: 6px 10px; background: rgba(255,255,255,0.12); border-radius: 999px; font-size: 12px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 18px; }
+    .metric, .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; }
+    .metric { padding: 16px 18px; }
+    .metric .label { color: var(--muted); font-size: 13px; }
+    .metric .value { font-size: 28px; font-weight: 800; margin-top: 8px; }
+    .metric .sub { color: var(--muted); font-size: 12px; margin-top: 6px; }
+    .panel { padding: 20px; margin-bottom: 18px; }
+    .panel h2 { margin: 0 0 6px; font-size: 22px; }
+    .panel-sub { color: var(--muted); margin-bottom: 12px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 14px; }
+    th { color: var(--muted); font-weight: 700; }
+    .title { font-weight: 800; line-height: 1.45; }
+    .sub { color: var(--muted); font-size: 12px; line-height: 1.6; margin-top: 4px; }
+    .takeaways { margin: 0; padding-left: 18px; }
+    .takeaways li + li { margin-top: 8px; }
+    .draft-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px; }
+    .draft-card, .gap-card { border: 1px solid var(--line); border-radius: 16px; padding: 16px; background: #fff; }
+    .draft-head, .gap-head { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
+    .badge { background: #eef3ff; color: var(--accent); padding: 5px 10px; border-radius: 999px; font-size: 12px; }
+    .block + .block { margin-top: 12px; }
+    .block strong { display: block; margin-bottom: 6px; }
+    .block p { margin: 0; line-height: 1.7; }
+    .block ul { margin: 0; padding-left: 18px; }
+    .block li + li { margin-top: 6px; }
+    .draft-foot { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 12px; margin-top: 14px; }
+    .severity { padding: 4px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-transform: uppercase; }
+    .severity-high { background: rgba(209,50,50,0.12); color: var(--high); }
+    .severity-medium { background: rgba(211,135,0,0.12); color: var(--warn); }
+    .severity-low { background: rgba(13,155,107,0.12); color: var(--good); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .empty { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <h1>头部号学习池 / 对标池</h1>
+      <p>这张板只回答两个问题：别人是怎么拿结果的，我们现在还差在哪。</p>
+      <div class="meta">
+        <span class="chip">业务日 2026-04-03</span>
+        <span class="chip">窗口 T-1 17:00 → T 14:30</span>
+        <span class="chip">生成 2026-04-03 22:56:32 CST</span>
+        <span class="chip">智东西 3</span><span class="chip">机器之心 3</span><span class="chip">量子位 2</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="metric"><div class="label">学习样本</div><div class="value">8</div><div class="sub">深抓头部号样本</div></div>
+      <div class="metric"><div class="label">战略号轮转</div><div class="value">4</div><div class="sub">其中阻塞 0 个</div></div>
+      <div class="metric"><div class="label">当前 ready 主题</div><div class="value">2</div><div class="sub">进入对标池的当前稿件</div></div>
+      <div class="metric"><div class="label">样本首图节奏</div><div class="value">0.0</div><div class="sub">首图前文字段落中位数</div></div>
+      <div class="metric"><div class="label">样本图片密度</div><div class="value">13.5</div><div class="sub">单篇图片数中位数</div></div>
+    </section>
+
+    <section class="panel">
+      <h2>一眼结论</h2>
+      <div class="panel-sub">先把头部号稳定做对的事记牢，再看我们该补哪里。</div>
+      <ul class="takeaways"><li>先用判断或反差把人拉住，再在前 10%-15% 内补齐背景。</li><li>证据要早，不要让读者一直听抽象判断。</li><li>图片要承担证明、解释、换气三种职责，而不是只做装饰。</li><li>写稿时优先补证、补背景、补图，而不是遇到问题就直接换题。</li><li>学习不只反哺写稿岗，还要反哺 source / seed / topic 三层，持续校正“今天该追什么题”。</li></ul>
+    </section>
+
+    <section class="panel">
+      <h2>学习样本池</h2>
+      <div class="panel-sub">来自公众号深抓的真实样本，不只看标题，也看开头和图文节奏。</div>
+      <table>
+        <thead>
+          <tr>
+            <th>来源</th>
+            <th>标题 / 开头</th>
+            <th>发布时间</th>
+            <th>图片数</th>
+            <th>首图前文字段落</th>
+            <th>值得学什么</th>
+            <th>动作</th>
+          </tr>
+        </thead>
+        <tbody><tr><td>量子位</td><td><div class="title">OpenAI收购了一家脱口秀公司</div><div class="sub">henry 发自 凹非寺 / 量子位 | 公众号 QbitAI</div></td><td>2026-04-03 08:18:57 CST</td><td>13</td><td>3</td><td>开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。<div class="sub">先给判断，再很快补一张证据图，图文切换节奏比较早。</div></td><td><a href="https://mp.weixin.qq.com/s/RnwMehqNPWIgKzghvpJ7XA" target="_blank" rel="noreferrer">原文</a><br><a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260403_121903__openai收购了一家脱口秀公司__deep-article.md">deep article</a></td></tr><tr><td>智东西</td><td><div class="title">雷军投的前英伟达员工要IPO了！冲刺“AI眼镜第一股”</div><div class="sub">去年营收5.16亿元，净亏损4.56亿元。 / 作者 |</div></td><td>2026-04-02 13:45:00 CST</td><td>26</td><td>0</td><td>开头直接塞进数字或对象，让读者先感到“这事是真的，而且现在就值得看”。<div class="sub">首屏或前两段就上图，先把事件锚住，再继续展开。</div></td><td><a href="https://mp.weixin.qq.com/s/Edf-RmbmzJfx493sjwl6zw" target="_blank" rel="noreferrer">原文</a><br><a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260403_121827__雷军投的前英伟达员工要ipo了_冲刺_ai眼镜第一股__deep-article.md">deep article</a></td></tr><tr><td>智东西</td><td><div class="title">网易龙虾腾讯混元领衔！AI智能体论坛最新嘉宾公布，还有大模型记忆研讨会议程揭晓</div><div class="sub">4月21-22日北京站将正式举行~ / 4月21-22日，</div></td><td>2026-04-02 20:50:57 CST</td><td>9</td><td>0</td><td>开头直接塞进数字或对象，让读者先感到“这事是真的，而且现在就值得看”。<div class="sub">首屏或前两段就上图，先把事件锚住，再继续展开。</div></td><td><a href="https://mp.weixin.qq.com/s/taPqPCRIjVZbLJKmTVrPbA" target="_blank" rel="noreferrer">原文</a><br><a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260403_121803__网易龙虾腾讯混元领衔_ai智能体论坛最新嘉宾公布_还有大模型记忆研讨会议程揭晓__deep-article.md">deep article</a></td></tr><tr><td>智东西</td><td><div class="title">首款“龙虾”戒指，来了！2000元一枚</div><div class="sub">主打“言出法随”，瞄准AI Agent交互最短路径。 / 作者 |</div></td><td>2026-04-02 19:07:38 CST</td><td>14</td><td>0</td><td>开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。<div class="sub">首屏或前两段就上图，先把事件锚住，再继续展开。</div></td><td><a href="https://mp.weixin.qq.com/s/KSP5By-y4BrERF2k6rL9gQ" target="_blank" rel="noreferrer">原文</a><br><a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260403_121752__首款_龙虾_戒指_来了_2000元一枚__deep-article.md">deep article</a></td></tr><tr><td>量子位</td><td><div class="title">OpenAI股票“打折”无人问津，Anthropic溢价遭疯抢</div><div class="sub">克雷西 发自 凹非寺 / 量子位 | 公众号 QbitAI</div></td><td>2026-04-02 17:00:36 CST</td><td>6</td><td>7</td><td>开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。<div class="sub">首图位置相对靠后，更像是在结构展开后用图片换气。</div></td><td><a href="https://mp.weixin.qq.com/s/9uwnZJ4S5IvA5vE_ujHZXA" target="_blank" rel="noreferrer">原文</a><br><a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260403_121740__openai股票_打折_无人问津_anthropic溢价遭疯抢__deep-article.md">deep article</a></td></tr><tr><td>机器之心</td><td><div class="title">刚刚，龙虾军团有了最强「视力」！一眼看图直接写代码</div><div class="sub">机器之心编辑部 / 真实世界里，超过 80% 的信息以视觉形态存在。前端 UI、架构图、数据看板 …… 开发者日常面对的绝大部分需求，都是以视觉形态存在的。但一直以来，国内许多代码大模型却在「盲人摸象」，只能依赖纯文本描述来猜测页面布局与结构。</div></td><td>2026-04-02 16:21:08 CST</td><td>18</td><td>0</td><td>开头直接塞进数字或对象，让读者先感到“这事是真的，而且现在就值得看”。<div class="sub">首屏或前两段就上图，先把事件锚住，再继续展开。</div></td><td><a href="https://mp.weixin.qq.com/s/f3fW_YStN8rWBBl-rK9xig" target="_blank" rel="noreferrer">原文</a><br><a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260403_121652__刚刚_龙虾军团有了最强_视力_一眼看图直接写代码__deep-article.md">deep article</a></td></tr><tr><td>机器之心</td><td><div class="title">HSImul3R：给三维交互重建装上物理大脑</div><div class="sub">在具身智能狂飙突进的今天，让机器人像人一样在复杂场景中灵活交互，已成为学术界与工业界的共同愿景。其中的核心挑战在于 / 人体</div></td><td>2026-04-02 16:21:08 CST</td><td>7</td><td>0</td><td>开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。<div class="sub">首屏或前两段就上图，先把事件锚住，再继续展开。</div></td><td><a href="https://mp.weixin.qq.com/s/q3L8n_uMiXYqiL5ZR1_8iQ" target="_blank" rel="noreferrer">原文</a><br><a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260403_121640__hsimul3r_给三维交互重建装上物理大脑__deep-article.md">deep article</a></td></tr><tr><td>机器之心</td><td><div class="title">快手广告系统全面迈入生成式推荐时代！GR4AD：从Token到Revenue的全链路重构</div><div class="sub">机器之心发布 / 当推荐系统遇上大模型范式，广告变现的天花板被再次打破。快手提出 GR4AD，作为国内生成式推荐在大规模广告场景下的首次全量落地，实现广告收入提升 4.2%，服务 4 亿 + 用户。</div></td><td>2026-04-02 20:10:44 CST</td><td>19</td><td>0</td><td>开头直接塞进数字或对象，让读者先感到“这事是真的，而且现在就值得看”。<div class="sub">首屏或前两段就上图，先把事件锚住，再继续展开。</div></td><td><a href="https://mp.weixin.qq.com/s/5RE9tbI6YONwltZM9XjZww" target="_blank" rel="noreferrer">原文</a><br><a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260403_121629__快手广告系统全面迈入生成式推荐时代_gr4ad_从token到revenue的全链路重构__deep-article.md">deep article</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>战略号轮转补位</h2>
+      <div class="panel-sub">主学习池继续只看当天业务窗；这张表负责保证战略号不断学，同时把没跑通的主链直接暴露出来。</div>
+      <table>
+        <thead>
+          <tr>
+            <th>来源</th>
+            <th>状态</th>
+            <th>当前学习对象</th>
+            <th>发布时间</th>
+            <th>说明</th>
+            <th>动作</th>
+          </tr>
+        </thead>
+        <tbody><tr><td>赛博禅心</td><td>轮转补位</td><td><div class="title">飞书出了官方 CLI，消息、文档、日历、邮箱都能用 Agent 操作了</div><div class="sub">source_packet=4 / deep_article=4</div></td><td>2026-03-28 15:04:50 CST</td><td>主学习池仍按业务窗采样；该号本轮通过近 7 天轮转补位进入学习池，不污染当天主样本。</td><td><a href="https://mp.weixin.qq.com/s/lrihiZonqug-xi4sHMviVg" target="_blank" rel="noreferrer">原文</a><br><a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200250__飞书出了官方_cli_消息_文档_日历_邮箱都能用_agent_操作了__deep-article.md">deep article</a></td></tr><tr><td>数字生命卡兹克</td><td>轮转补位</td><td><div class="title">刚刚，飞书CLI开源，Claude Code也可以丝滑操控飞书了。</div><div class="sub">source_packet=4 / deep_article=4</div></td><td>2026-03-28 17:20:49 CST</td><td>主学习池仍按业务窗采样；该号本轮通过近 7 天轮转补位进入学习池，不污染当天主样本。</td><td><a href="https://mp.weixin.qq.com/s/fvjxT_GgbEgxgsPCUlo-RQ" target="_blank" rel="noreferrer">原文</a><br><a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200159__刚刚_飞书cli开源_claude_code也可以丝滑操控飞书了__deep-article.md">deep article</a></td></tr><tr><td>饼干哥哥AGI</td><td>轮转补位</td><td><div class="title">OpenClaw的最佳省钱攻略：几十块的方舟Coding Plan直接让跨境 AI 团队成本降了 90%</div><div class="sub">source_packet=4 / deep_article=3</div></td><td>2026-03-25 15:30:00 CST</td><td>主学习池仍按业务窗采样；该号本轮通过近 7 天轮转补位进入学习池，不污染当天主样本。</td><td><a href="https://mp.weixin.qq.com/s/hJpI_JPAaMSEO_FPPa1NJw" target="_blank" rel="noreferrer">原文</a><br><a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200109__openclaw的最佳省钱攻略_几十块的方舟coding_plan直接让跨境_ai_团队成本降了_90__deep-article.md">deep article</a></td></tr><tr><td>袋鼠帝AI客栈</td><td>轮转补位</td><td><div class="title">终于找到免费的本地Agent了！量大管饱，真干活～</div><div class="sub">source_packet=4 / deep_article=1</div></td><td>2026-03-27 10:44:14 CST</td><td>主学习池仍按业务窗采样；该号本轮通过近 7 天轮转补位进入学习池，不污染当天主样本。</td><td><a href="https://mp.weixin.qq.com/s/6xa7WYaWTh2e8g_XXHJmnw" target="_blank" rel="noreferrer">原文</a><br><a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260331_125315__终于找到免费的本地agent了_量大管饱_真干活__deep-article.md">deep article</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>当前 ready 稿对照</h2>
+      <div class="panel-sub">把今天已经 ready 的稿件拉进来，直接看“已有长处”和“还差哪一刀”。</div>
+      <div class="draft-grid"><div class="draft-card"><div class="draft-head"><div><div class="title">Claude Code 两个缓存 Bug，为什么会把你的 API 账单悄悄放大 10—20 倍</div><div class="sub">claude_code_cache_bugs_20260331 · 微信公众号 / 知乎 / X</div></div><div class="badge">微信公众号</div></div><div class="block"><strong>当前预览</strong><p>很多团队会把 AI 编程工具的成本，理解成“模型单价 × token 用量”。但过去 48 小时里，Claude Code 社区曝出的这两个缓存相关 Bug，提醒我们另一件更要命的事：同样的模型、同样的上下文，如果缓存链路悄悄失效，你最后看到的可能不是“小贵一点”的账单，而是被放大 10—20 倍的成本曲线。</p></div><div class="block"><strong>已有长处</strong><ul><li>首屏已经有判断句，读者不至于一开始就掉线。</li><li>前几段已经开始补对象 / 事件 / why now，不是完全悬空分析。</li><li>正文早段已经有链接、数字或事实锚点，判断不是空转。</li><li>本地已落 `10` 张视觉素材，具备真实图文化基础。</li></ul></div><div class="block"><strong>当前差距</strong><ul></ul></div><div class="draft-foot"><span>视觉资产 10 张 · section 7</span><span><a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/claude_code_cache_bugs_20260331/wechat.md">稿件</a> · <a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/claude_code_cache_bugs_20260331">pack</a></span></div></div><div class="draft-card"><div class="draft-head"><div><div class="title">我用 17 个 AI 帮自己打工</div><div class="sub">robots_bury_you_in_work_17_agents_20260331 · 小红书 / X</div></div><div class="badge">小红书</div></div><div class="block"><strong>当前预览</strong><p>副文案：月入 1400+ commits——但我比上班还累</p></div><div class="block"><strong>已有长处</strong><ul><li>首屏已经有判断句，读者不至于一开始就掉线。</li><li>前几段已经开始补对象 / 事件 / why now，不是完全悬空分析。</li><li>本地已落 `4` 张视觉素材，具备真实图文化基础。</li></ul></div><div class="block"><strong>当前差距</strong><ul><li>正文前仍残留内部包装 / 标题候选等工序痕迹，离一键发布还差“去工单味”。</li><li>首屏证据锚点偏弱，读者会先看到判断，后看到凭据。</li></ul></div><div class="draft-foot"><span>视觉资产 4 张 · section 7</span><span><a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/robots_bury_you_in_work_17_agents_20260331/xiaohongshu.md">稿件</a> · <a href="file:///Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/robots_bury_you_in_work_17_agents_20260331">pack</a></span></div></div></div>
+    </section>
+
+    <section class="panel">
+      <h2>选题判断复盘</h2>
+      <div class="panel-sub">不只学怎么写，还要学“头部号今天为什么做这个题，我们为什么押另外一个题”。</div>
+      <table>
+        <thead>
+          <tr>
+            <th>视角</th>
+            <th>题材带</th>
+            <th>样本数</th>
+            <th>代表对象</th>
+            <th>为什么会被选中</th>
+          </tr>
+        </thead>
+        <tbody><tr><td>头部号样本</td><td>模型 / 研究进展</td><td>4</td><td><div class="title">网易龙虾腾讯混元领衔！AI智能体论坛最新嘉宾公布，还有大模型记忆研讨会议程揭晓；首款“龙虾”戒指，来了！2000元一枚</div></td><td>这类题能代表前沿，但需要快速翻译成“到底多了什么能力、对谁有影响”。</td></tr><tr><td>头部号样本</td><td>社会影响 / 就业伦理</td><td>2</td><td><div class="title">OpenAI收购了一家脱口秀公司；OpenAI股票“打折”无人问津，Anthropic溢价遭疯抢</div></td><td>这类题带公共讨论张力，容易出圈，但需要更强的边界和多方视角。</td></tr><tr><td>头部号样本</td><td>融资 / 商业化 / 资本信号</td><td>2</td><td><div class="title">雷军投的前英伟达员工要IPO了！冲刺“AI眼镜第一股”；快手广告系统全面迈入生成式推荐时代！GR4AD：从Token到Revenue的全链路重构</div></td><td>这类题能直接回答“钱往哪流、商业上有没有成立”，更容易承接投资判断和行业观察。</td></tr><tr><td>头部号样本</td><td>机器人 / 硬件 / 具身智能</td><td>1</td><td><div class="title">HSImul3R：给三维交互重建装上物理大脑</div></td><td>这类题自带强画面和具象对象，但如果没有用户 stakes，容易只剩酷炫而缺少转译。</td></tr><tr><td>我们已下发主池</td><td>视频 / 多模态 / 语音</td><td>2</td><td><div class="title">SpaceX Acquires xAI — $1.25 Trillion Combined Entity, xAI Valued at $250B；Welcome Gemma 4: Frontier multimodal intelligence on device</div></td><td>这类题更容易被头部号选中，因为天然有产品感、演示感和大众入口。</td></tr><tr><td>我们已下发主池</td><td>融资 / 商业化 / 资本信号</td><td>1</td><td><div class="title">SpaceX Acquires xAI — $1.25 Trillion Combined Entity, xAI Valued at $250B</div></td><td>这类题能直接回答“钱往哪流、商业上有没有成立”，更容易承接投资判断和行业观察。</td></tr><tr><td>我们已下发主池</td><td>机器人 / 硬件 / 具身智能</td><td>1</td><td><div class="title">Welcome Gemma 4: Frontier multimodal intelligence on device</div></td><td>这类题自带强画面和具象对象，但如果没有用户 stakes，容易只剩酷炫而缺少转译。</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>今天我们的主池</h2>
+      <div class="panel-sub">把 task sheet / top6 主池也拉进来，避免学习只盯着旧库存 ready 稿。</div>
+      <table>
+        <thead>
+          <tr>
+            <th>状态</th>
+            <th>主题</th>
+            <th>题材带</th>
+            <th>为什么保留</th>
+          </tr>
+        </thead>
+        <tbody><tr><td>已下发</td><td><div class="title">SpaceX Acquires xAI — $1.25 Trillion Combined Entity, xAI Valued at $250B</div><div class="sub">spacex-acquires-xai-major-event</div></td><td>融资 / 商业化 / 资本信号 / 视频 / 多模态 / 语音</td><td>MAJOR 级产业事件。$1.25T 合并实体意味着 AI + 航天 + 信息平台的超级平台正式登场；信号本身超越当日所有其他候选；与 xAI 产品线（Grok Business/Enterprise/Voice Agent API）形成完整叙事。</td></tr><tr><td>池内待捞回</td><td><div class="title">Grok Business and Grok Enterprise — xAI 首个企业级 AI 产品线</div><div class="sub">xai-grok-business-enterprise</div></td><td>融资 / 商业化 / 资本信号 / 安全 / 风险 / 漏洞</td><td>官方一手；企业级 AI 助手赛道重要新玩家；与 SpaceX 收购 xAI 合并叙事可形成&quot;商业化+资本&quot;双视角；与 OpenAI/Anthropic 企业市场直接竞争。</td></tr><tr><td>池内待捞回</td><td><div class="title">Grok Voice Agent API — xAI 进入语音 Agent 赛道</div><div class="sub">xai-grok-voice-agent-api</div></td><td>视频 / 多模态 / 语音 / 模型 / 研究进展</td><td>官方一手；语音 Agent 赛道已有 OpenAI/Heypresso/Char旦等玩家，xAI 入局竞争格局变化值得关注。</td></tr><tr><td>池内待捞回</td><td><div class="title">Some personal news: I am joining OpenAI (again :))</div><div class="sub">karpathy-openai-return</div></td><td>行业落地 / 医疗 / 场景翻译</td><td>顶级 KOL 身份切换是产业标志性事件；跨全平台（X / HN / 微信 / 知乎）快速扩散；可出快讯、人物解读、AI 行业人心向背分析。</td></tr><tr><td>池内待捞回</td><td><div class="title">OpenAI acquires TBPN — 媒体话语权战略布局</div><div class="sub">openai-acquires-tbpn</div></td><td>综合 / 其他</td><td>官方一手确认；AI 公司媒体资产收购代表话语权生态争夺；可做公司战略分析、内容行业影响、对话类媒体在 AI 时代价值重估。</td></tr><tr><td>已下发</td><td><div class="title">Welcome Gemma 4: Frontier multimodal intelligence on device</div><div class="sub">gemma-4-multimodal-on-device</div></td><td>机器人 / 硬件 / 具身智能 / 视频 / 多模态 / 语音</td><td>官方一手；开源多模态 SOTA 模型；Google + Hugging Face + NVIDIA 三方联合背书；强烈匹配 AI 主线；可做开源模型横向评测、端侧 AI 赛道分析。</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>裁判结论</h2>
+      <div class="panel-sub">这里回答“哪边更优、为什么、下轮怎么改”。</div>
+      <ul class="takeaways"><li>头部号这轮更偏 `模型 / 研究进展×4、社会影响 / 就业伦理×2`，说明它们优先抓“普通读者能立刻感到 stakes”的题材。</li><li>我们当前已下发主池更偏 `视频 / 多模态 / 语音×2、融资 / 商业化 / 资本信号×1`，说明系统这轮更偏一手性、可防守性和品牌判断力。</li><li>裁判结论不是谁绝对更好，而是两边各赢一部分：头部号在传播势能和大众转译上更强，我们在可核验与可防守性上更稳。后续应保持“硬信号主池 + 大众 stakes 补位池”双轨，而不是二选一。</li><li>当前 ready 库里还有 `claude_code_cache_bugs_20260331, robots_bury_you_in_work_17_agents_20260331` 这类历史题，和今天 task sheet 已下发对象不完全同频，所以学习板后续必须同时对照“当日 task sheet + 当前 ready 稿”，不能只看现成库存。</li></ul>
+    </section>
+
+    <section class="panel">
+      <h2>题材错位与补位</h2>
+      <div class="panel-sub">把“别人做了我们没做”和“我们主动做差异化”的对象分开看。</div>
+      <div class="draft-grid"><div class="gap-card"><div class="gap-head"><strong>头部号在做、我们没进主池</strong><span class="severity severity-medium">delta</span></div><p><strong>题材带：</strong>社会影响 / 就业伦理</p><p><strong>代表对象：</strong>OpenAI收购了一家脱口秀公司；OpenAI股票“打折”无人问津，Anthropic溢价遭疯抢</p><p><strong>该怎么学：</strong>头部号在 `社会影响 / 就业伦理` 连续给出样本，而我们的 Top6 主池还没覆盖，优先检查 seed / source lane 是否漏了，而不是先认定这题不值得做。</p></div><div class="gap-card"><div class="gap-head"><strong>我们主动差异化</strong><span class="severity severity-medium">delta</span></div><p><strong>题材带：</strong>视频 / 多模态 / 语音</p><p><strong>代表对象：</strong>SpaceX Acquires xAI — $1.25 Trillion Combined Entity, xAI Valued at $250B；Welcome Gemma 4: Frontier multimodal intelligence on device</p><p><strong>该怎么学：</strong>我们在 `视频 / 多模态 / 语音` 上主动保留了更硬的一手题，但这类题一旦脱离大众语境，draft / hook / context 就必须更早补“普通人为什么该关心”。</p></div></div>
+    </section>
+
+    <section class="panel">
+      <h2>我们差在哪</h2>
+      <div class="panel-sub">这里只放高杠杆差距，不做碎碎念。</div>
+      <div class="draft-grid"><div class="gap-card"><div class="gap-head"><strong>成品化清理不够彻底</strong><span class="severity severity-high">high</span></div><p><strong>为什么要补：</strong>头部样本的正文几乎不暴露“标题候选 / 包装说明 / 引用占位”，用户只会看到成品。</p><p><strong>我们现在差在哪：</strong>当前有 1/2 个 ready 主题还保留内部编辑结构，最典型的是 `robots_bury_you_in_work_17_agents_20260331`。</p><p><strong>下一步：</strong>写稿阶段最后一轮必须做“去工单味”清理：只保留读者该看到的标题、正文、图文与来源。</p></div><div class="gap-card"><div class="gap-head"><strong>证据锚点还不够前置</strong><span class="severity severity-medium">medium</span></div><p><strong>为什么要补：</strong>头部样本喜欢很早给原话、数据、链接或关键截图，不让文章一直漂在抽象判断上。</p><p><strong>我们现在差在哪：</strong>当前有 1/2 个 ready 主题在前段还缺明确凭据。</p><p><strong>下一步：</strong>补原始链接、关键数字或截图位；优先补证据，再谈换题。</p></div></div>
+    </section>
+
+    <section class="panel">
+      <h2>优化建议表</h2>
+      <div class="panel-sub">这层不是总结，而是把学习结果转成真正要落到岗位和能力层的动作。</div>
+      <table>
+        <thead>
+          <tr>
+            <th>建议</th>
+            <th>Owner</th>
+            <th>落地层</th>
+            <th>状态</th>
+            <th>下一步</th>
+            <th>落点</th>
+          </tr>
+        </thead>
+        <tbody><tr><td><div class="title">成品化清理不够彻底</div><div class="sub">头部样本的正文几乎不暴露“标题候选 / 包装说明 / 引用占位”，用户只会看到成品。</div></td><td>content-writer / content-polish</td><td>skills + draft-pack final sweep</td><td>待优化</td><td>写稿阶段最后一轮必须做“去工单味”清理：只保留读者该看到的标题、正文、图文与来源。</td><td><div class="sub">09_runbooks/skills/th-draft-pack/SKILL.md；09_runbooks/skills/th-content-polish/SKILL.md</div></td></tr><tr><td><div class="title">证据锚点还不够前置</div><div class="sub">头部样本喜欢很早给原话、数据、链接或关键截图，不让文章一直漂在抽象判断上。</div></td><td>signal-scout + writer + visual-intelligence</td><td>skills + visual asset plan</td><td>待优化</td><td>补原始链接、关键数字或截图位；优先补证据，再谈换题。</td><td><div class="sub">09_runbooks/skills/th-topic-radar/SKILL.md；09_runbooks/skills/th-market-visual-intelligence/SKILL.md；09_runbooks/skills/th-content-polish/SKILL.md</div></td></tr><tr><td><div class="title">把题材 × 人群 × 文风匹配持续沉淀到岗位规则</div><div class="sub">头部号真正可复用的不是口头禅，而是不同题材会自动切换叙述密度、术语阈值和证据呈现方式。</div></td><td>content-analyst + core skills</td><td>skills + learning rulebook</td><td>待优化</td><td>继续把长期学习结果写进稳定规则手册，并让 topic-radar、draft-pack、content-polish、visual-intelligence 每次执行时显式加载。</td><td><div class="sub">08_brand_assets/latest__head-media-learning-rulebook-v1.md；09_runbooks/skills/th-topic-radar/SKILL.md；09_runbooks/skills/th-draft-pack/SKILL.md；09_runbooks/skills/th-content-polish/SKILL.md；09_runbooks/skills/th-market-visual-intelligence/SKILL.md</div></td></tr><tr><td><div class="title">把选题判断复盘前置到 seed / source / topic 三层</div><div class="sub">头部号学习不能只反哺写法，还要让上游岗位知道今天什么题更值得做、我们为什么没做、是漏抓还是故意不跟。</div></td><td>source-capture + seed-refresh + topic-radar + topic-approval</td><td>skills + learning rulebook + next-round source lanes</td><td>待优化</td><td>让 source-capture、seed-refresh、topic-radar、topic-approval 执行前显式读取规则手册中的选题复盘，并把共识题 / 漏题 / 差异化题写回下一轮动作。</td><td><div class="sub">08_brand_assets/latest__head-media-learning-rulebook-v1.md；09_runbooks/skills/th-source-capture-and-citation/SKILL.md；09_runbooks/skills/th-seed-refresh-and-source-scouting/SKILL.md；09_runbooks/skills/th-topic-radar/SKILL.md；09_runbooks/skills/th-topic-approval/SKILL.md</div></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>反哺到岗位的动作</h2>
+      <div class="panel-sub">学习结果必须写回业务岗，而不是只停在总结和观后感。</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Owner</th>
+            <th>下轮必须落成什么动作</th>
+          </tr>
+        </thead>
+        <tbody><tr><td>seed-refresh / source-scouting</td><td>若头部号连续两轮在某题材高频而我们的 Top6 没覆盖，下轮必须补至少 2 个对应来源或动态搜源规则。</td></tr><tr><td>source-capture / citation</td><td>准备补位的题材必须先补一手原链、截图和中文工作摘要，再交给 radar，不允许只拿二手摘要就入池。</td></tr><tr><td>topic-radar</td><td>筛 Top20 时同时看“确定性”和“普通读者 stakes”，避免候选池只剩硬核技术题。</td></tr><tr><td>topic-approval</td><td>当最终锁的是和头部号不同的题，必须显式写明“我们为什么不跟”和“我们靠什么打赢”。</td></tr><tr><td>draft-pack / hook / context / render</td><td>如果坚持更垂直的差异化题，首屏必须更早补背景、利益相关性和图证，不然再好的选题也会输在转译层。</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>下一步动作</h2>
+      <div class="panel-sub">这些动作直接对应当前的流程返修与明天的学习增量。</div>
+      <ul class="takeaways"><li>先把 `robots_bury_you_in_work_17_agents_20260331` 做一次“去工单味”清理，确保成品页只剩读者该看到的内容。</li><li>明天继续从 `智东西×3、机器之心×3` 这类高密度样本增量学习，维持学习池稳定刷新。</li></ul>
+    </section>
+  </div>
+</body>
+</html>

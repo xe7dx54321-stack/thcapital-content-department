@@ -1,0 +1,129 @@
+{
+  "date": "2026-04-30",
+  "generated_at": "2026-04-30 18:46:21 CST",
+  "board_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260430__daily-top8-to-top5.md",
+  "board_signature": "b2a0ced136f4ff0d2e616908b4a9caacbfcc2c28c83426369924974d4289ffe6",
+  "status": "selected_pending_downstream_delivery",
+  "briefing_at": "2026-04-30 17:40:00 CST",
+  "default_pick_at": "2026-04-30 18:00:00 CST",
+  "draftbox_deadline": "2026-04-30 19:00:00 CST",
+  "default_choice_rank": 2,
+  "selected_rank": 2,
+  "selected_candidate_key": "anthropic_revenue_vs_openai_weekly_users_debate",
+  "selected_at": "2026-04-30 19:55:10 CST",
+  "selected_reason": "default_first_after_1800",
+  "approved_topic_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/04_approved_topics/20260430_195510__anthropic_revenue_vs_openai_weekly_users_debate__approved-topic.md",
+  "draft_pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/anthropic_revenue_vs_openai_weekly_users_debate",
+  "bridge_request_id": "",
+  "briefing_sent_at": "",
+  "briefing_sent_signature": "",
+  "recommended_cards": [
+    {
+      "date": "2026-04-30",
+      "card_role": "recommended",
+      "card_label": "推荐 1",
+      "rank": 2,
+      "candidate_key": "anthropic_revenue_vs_openai_weekly_users_debate",
+      "title": "Anthropic年收300亿，碾压OpenAI，为什么OpenAI坐拥9亿周活用户，却被后来者反超？",
+      "display_title": "Anthropic年收300亿，碾压OpenAI，为什么Ope…",
+      "topic_line": "商业对比叙事有强传播力；知乎热题代表中文高端受众关注点；讨论度持续偏高。",
+      "outline": "先交代读者为什么总会判断失真，再拆方法结构、关键步骤、怎么每天执行，最后补边界与风险。 具体展开时围绕：以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "style_route": "方法论 / workflow / skill / agent 教程",
+      "style_profile": {
+        "primary_creator": "赛博禅心",
+        "primary_skill": "th-style-overlay-cyber-zenmind",
+        "secondary_creator": "数字生命卡兹克",
+        "secondary_skill": "th-style-overlay-digitallife-khazix",
+        "support_creator": "饼干哥哥AGI",
+        "support_skill": "th-style-overlay-cookie-brother-agi",
+        "borrowed_layers": "对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置"
+      },
+      "special_instructions": "style_route=方法论 / workflow / skill / agent 教程; primary_overlay=赛博禅心; secondary_overlay=数字生命卡兹克; support_overlay=饼干哥哥AGI; borrowed_layers=对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "image_outline": [
+        "封面：主标题做成判断句，右侧用 3 层方法框架或核心步骤提示这是一篇可执行教程。",
+        "正文图：原始证据锚点，放在首屏后 / why-now 段后，核心作用是第一张图必须把对象钉住，不要让读者先看抽象判断。。",
+        "正文图：约束 / 变量分类图，放在背景讲清后，核心作用是适合‘盯这几类 / 只回答这几个问题 / 方法分层输入’这类段落。。",
+        "正文图：分层架构图，放在核心方法段前，核心作用是适合‘五层 / 分层 / 上下游 / 输入输出链路’这类段落。。",
+        "正文图：workflow 循环图，放在执行步骤段前，核心作用是适合‘每天怎么跑 / 如何更新 / 如何迭代’这类段落。。"
+      ],
+      "default_pick": true,
+      "draftbox_deadline": "2026-04-30 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260430__recommended_2__anthropic_revenue_vs_openai_weekly_users_debate.md"
+    },
+    {
+      "date": "2026-04-30",
+      "card_role": "recommended",
+      "card_label": "推荐 2",
+      "rank": 4,
+      "candidate_key": "shengshu_motubrain_robot_world_model_benchmark_top",
+      "title": "生数科技认领神秘登顶模型：AI视频公司拿出工业级Demo，跨本体跑通复杂长程任务",
+      "display_title": "生数科技认领神秘登顶模型：AI视频公司拿出工业级Demo，跨本…",
+      "topic_line": "双榜登顶+工业级Demo+跨界叙事三重叠加，兼具数据硬度和传播张力；视频→机器人路径在具身智能圈已引发三周猜测，认领后叙事完整；适合快讯+深度解读+行业趋势多形态内容。",
+      "outline": "先交代读者为什么总会判断失真，再拆方法结构、关键步骤、怎么每天执行，最后补边界与风险。 具体展开时围绕：以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "style_route": "方法论 / workflow / skill / agent 教程",
+      "style_profile": {
+        "primary_creator": "赛博禅心",
+        "primary_skill": "th-style-overlay-cyber-zenmind",
+        "secondary_creator": "数字生命卡兹克",
+        "secondary_skill": "th-style-overlay-digitallife-khazix",
+        "support_creator": "饼干哥哥AGI",
+        "support_skill": "th-style-overlay-cookie-brother-agi",
+        "borrowed_layers": "对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置"
+      },
+      "special_instructions": "style_route=方法论 / workflow / skill / agent 教程; primary_overlay=赛博禅心; secondary_overlay=数字生命卡兹克; support_overlay=饼干哥哥AGI; borrowed_layers=对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "image_outline": [
+        "封面：主标题做成判断句，右侧用 3 层方法框架或核心步骤提示这是一篇可执行教程。",
+        "正文图：原始证据锚点，放在首屏后 / why-now 段后，核心作用是第一张图必须把对象钉住，不要让读者先看抽象判断。。",
+        "正文图：约束 / 变量分类图，放在背景讲清后，核心作用是适合‘盯这几类 / 只回答这几个问题 / 方法分层输入’这类段落。。",
+        "正文图：分层架构图，放在核心方法段前，核心作用是适合‘五层 / 分层 / 上下游 / 输入输出链路’这类段落。。",
+        "正文图：workflow 循环图，放在执行步骤段前，核心作用是适合‘每天怎么跑 / 如何更新 / 如何迭代’这类段落。。"
+      ],
+      "default_pick": false,
+      "draftbox_deadline": "2026-04-30 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260430__recommended_4__shengshu_motubrain_robot_world_model_benchmark_top.md"
+    }
+  ],
+  "holdout_cards": [
+    {
+      "date": "2026-04-30",
+      "card_role": "holdout",
+      "card_label": "候补 1",
+      "rank": 1,
+      "candidate_key": "deepseek_multimodal_vision_confirmed",
+      "title": "DeepSeek终于能看图了！我第一时间用它算命` / `如何评价 DeepSeek 刚刚上线的多模态「识图模式」？",
+      "display_title": "DeepSeek终于能看图了！我第一时间用它算命` / `如何…",
+      "topic_line": "国产模型多模态能力重大更新，多源验证充分，知乎+微信双平台确认；用户真实反馈而非猜测；适合快讯+解读+玩法类内容多形态输出。",
+      "outline": "先交代读者为什么总会判断失真，再拆方法结构、关键步骤、怎么每天执行，最后补边界与风险。 具体展开时围绕：以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "style_route": "方法论 / workflow / skill / agent 教程",
+      "style_profile": {
+        "primary_creator": "赛博禅心",
+        "primary_skill": "th-style-overlay-cyber-zenmind",
+        "secondary_creator": "数字生命卡兹克",
+        "secondary_skill": "th-style-overlay-digitallife-khazix",
+        "support_creator": "饼干哥哥AGI",
+        "support_skill": "th-style-overlay-cookie-brother-agi",
+        "borrowed_layers": "对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置"
+      },
+      "special_instructions": "style_route=方法论 / workflow / skill / agent 教程; primary_overlay=赛博禅心; secondary_overlay=数字生命卡兹克; support_overlay=饼干哥哥AGI; borrowed_layers=对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "image_outline": [
+        "封面：主标题做成判断句，右侧用 3 层方法框架或核心步骤提示这是一篇可执行教程。",
+        "正文图：原始证据锚点，放在首屏后 / why-now 段后，核心作用是第一张图必须把对象钉住，不要让读者先看抽象判断。。",
+        "正文图：约束 / 变量分类图，放在背景讲清后，核心作用是适合‘盯这几类 / 只回答这几个问题 / 方法分层输入’这类段落。。",
+        "正文图：分层架构图，放在核心方法段前，核心作用是适合‘五层 / 分层 / 上下游 / 输入输出链路’这类段落。。",
+        "正文图：workflow 循环图，放在执行步骤段前，核心作用是适合‘每天怎么跑 / 如何更新 / 如何迭代’这类段落。。"
+      ],
+      "default_pick": false,
+      "draftbox_deadline": "2026-04-30 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260430__holdout_1__deepseek_multimodal_vision_confirmed.md"
+    }
+  ],
+  "feishu_doc_status": "",
+  "feishu_doc_mode": "",
+  "feishu_doc_title": "",
+  "feishu_doc_token": "",
+  "feishu_doc_url": "",
+  "feishu_doc_source_fingerprint": ""
+}

@@ -1,0 +1,12 @@
+{
+  "entity_name": "Claude advice for humans",
+  "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1thaj47/claude_advice_for_humans/",
+  "score": 5,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_claude_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/Asleep_Speaker4744"
+}

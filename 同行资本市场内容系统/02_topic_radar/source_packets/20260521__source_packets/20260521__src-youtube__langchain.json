@@ -1,0 +1,139 @@
+{
+  "youtube__langchain": [
+    {
+      "entity_name": "They made an AI become self-aware about spaghetti",
+      "source_url": "https://www.youtube.com/shorts/B9pX93xTXUs",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-21T22:06:21.642476"
+    },
+    {
+      "entity_name": "The Agent Development Lifecycle: Build, Test, Deploy, Monitor | Interrupt 26",
+      "source_url": "https://www.youtube.com/watch?v=jWy39wavbjY",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-21T22:06:21.642574"
+    },
+    {
+      "entity_name": "This AI monitors itself and opens its own PRs",
+      "source_url": "https://www.youtube.com/shorts/OuTIZBM1UqM",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-21T22:06:21.642577"
+    },
+    {
+      "entity_name": "Everyone's still debating this AI architecture question",
+      "source_url": "https://www.youtube.com/shorts/EqxXxncHEfI",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-21T22:06:21.642579"
+    },
+    {
+      "entity_name": "Introducing LangSmith Engine",
+      "source_url": "https://www.youtube.com/watch?v=L4pDS1uHl9o",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-21T22:06:21.642582"
+    },
+    {
+      "entity_name": "LangSmith Engine: Accelerate the Agent Development Lifecycle",
+      "source_url": "https://www.youtube.com/watch?v=vVyC4hvaA1k",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-21T22:06:21.642584"
+    },
+    {
+      "entity_name": "SmithDB: The data layer for agent observability",
+      "source_url": "https://www.youtube.com/watch?v=vYnM8v4x78Y",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-21T22:06:21.642586"
+    },
+    {
+      "entity_name": "What if AI agents skipped language entirely to communicate?",
+      "source_url": "https://www.youtube.com/shorts/PYJZJAna6pI",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-21T22:06:21.642589"
+    },
+    {
+      "entity_name": "How Ramp built an AI agent that can think outside of tokens | Alex Shevchenko",
+      "source_url": "https://www.youtube.com/watch?v=trEM9OKr5Sc",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-21T22:06:21.642591"
+    },
+    {
+      "entity_name": "How Clay manages 300M agent runs a month with LangSmith",
+      "source_url": "https://www.youtube.com/watch?v=cx6_tb6HCeY",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-21T22:06:21.642593"
+    },
+    {
+      "entity_name": "LangChain Live Stream",
+      "source_url": "https://www.youtube.com/watch?v=cmovqJ5X7yA",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-21T22:06:21.642595"
+    },
+    {
+      "entity_name": "Should You Use a Sandbox for Your Agent? | Max Agency #aidesign #aiinfrastructure",
+      "source_url": "https://www.youtube.com/shorts/g_OqeRku5Pc",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-21T22:06:21.642597"
+    },
+    {
+      "entity_name": "Great Agent Builders Share These 2 Traits | Max Agency #podcast #agenticai",
+      "source_url": "https://www.youtube.com/shorts/4TJ3AF5UZJM",
+      "score": 15,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-21T22:06:21.642599"
+    },
+    {
+      "entity_name": "Your AI Agent Can Ask for Feedback on Itself | Max Agency #podcast #agenticai",
+      "source_url": "https://www.youtube.com/shorts/ScRVmAdQ1j4",
+      "score": 15,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-21T22:06:21.642602"
+    },
+    {
+      "entity_name": "AI Agents That Build Their Own Data Tables | Max Agency #podcast #agenticai",
+      "source_url": "https://www.youtube.com/shorts/2SYwoqpoDzs",
+      "score": 15,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__langchain",
+      "_fetched_at": "2026-05-21T22:06:21.642604"
+    }
+  ]
+}

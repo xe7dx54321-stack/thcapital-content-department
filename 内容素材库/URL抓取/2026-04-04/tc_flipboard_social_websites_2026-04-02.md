@@ -1,0 +1,11 @@
+# TC: Flipboard's new 'social websites' help publishers and creators tap into the open social web
+- **URL**: https://techcrunch.com/2026/04/02/flipboard-surf-social-websites-help-publishers-and-creators-tap-into-the-open-social-web/
+- **Source**: techcrunch
+- **Published**: 2026-04-02T19:18:51+00:00
+- **Fetched**: 2026-04-04T19:13:25+00:00
+- **Trigger type**: Product launch
+- **Key entities**: Flipboard, Mike McCue, Bluesky, Mastodon, Threads, The Verge, Wired, Rolling Stone
+- **Significance**: Flipboard launches "Surf" social websites - consolidate profiles/posts from Bluesky, Mastodon, Threads, YouTube, podcasts, blogs, RSS. Publishers signed up.
+- **China relevance**: Chinese open social web ecosystem very limited; relates to Xiaohongshu/WeChat ecosystem comparison
+- **Classification**: query_seed
+- **Queue status**: structured_accept

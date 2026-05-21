@@ -1,0 +1,11 @@
+# TC: After fighting malware for decades, this cybersecurity veteran is now hacking drones
+- **URL**: https://techcrunch.com/2026/04/04/after-fighting-malware-for-decades-this-cybersecurity-veteran-is-now-hacking-drones/
+- **Source**: techcrunch
+- **Published**: 2026-04-04T13:00:00+00:00
+- **Fetched**: 2026-04-04T19:18:40+00:00
+- **Trigger type**: Personnel/Technology shift
+- **Key entities**: Mikko Hyppönen, Sensofusion, F-Secure, drones, Ukraine war
+- **Significance**: 35-year cybersecurity veteran Mikko Hyppönen pivots to anti-drone tech at Sensofusion. Industry parallel: malware defense → drone defense. Identifies protocol-level attacks on drones as "first step = last step." $250B cybersecurity industry → counter-drone market emerging.
+- **China relevance**: China is major drone manufacturer; anti-drone technology relevant to Taiwan strait scenario; Sensofusion's Finnish origin means potential NATO alignment
+- **Classification**: query_seed
+- **Queue status**: structured_accept

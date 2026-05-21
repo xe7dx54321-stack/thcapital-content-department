@@ -1,0 +1,11 @@
+# TC: Anthropic took down thousands of GitHub repos trying to yank its leaked source code
+- **URL**: https://techcrunch.com/2026/04/01/anthropic-took-down-thousands-of-github-repos-trying-to-yank-its-leaked-source-code-a-move-the-company-says-was-an-accident/
+- **Source**: techcrunch
+- **Published**: 2026-04-01T22:12:13+00:00
+- **Fetched**: 2026-04-04T19:20:30+00:00
+- **Trigger type**: Product/Security incident
+- **Key entities**: Anthropic, Claude Code, GitHub, Boris Cherny (Head of Claude Code), OpenClaw
+- **Significance**: Anthropic accidentally included Claude Code source code in a release; 8,100 GitHub repos taken down in DMCA; Boris Cherny confirmed accidental; limited to 1 repo + 96 forks. Related to earlier Claude Code/OpenClaw pricing separation news.
+- **China relevance**: OpenClaw has Chinese developer community; Claude Code source leak exposes architecture details relevant to OpenClaw ecosystem
+- **Classification**: formal_candidate
+- **Queue status**: structured_accept

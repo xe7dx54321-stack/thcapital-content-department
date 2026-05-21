@@ -1,0 +1,136 @@
+{
+  "web__techcrunch_ai": [
+    {
+      "entity_name": "Figma adds an AI assistant to its collaborative canvas",
+      "source_url": "https://techcrunch.com/2026/05/20/figma-adds-an-ai-assistant-to-its-collaborative-canvas/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-20T21:57:16.587159"
+    },
+    {
+      "entity_name": "&#8216;Ask YouTube&#8217; brings AI-powered conversational search to video, adds Gemini Omni to Shorts",
+      "source_url": "https://techcrunch.com/2026/05/19/ask-youtube-brings-ai-powered-conversational-search-to-video-adds-gemini-omni-to-shorts/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-20T21:57:16.587233"
+    },
+    {
+      "entity_name": "Google just declared itself a contender in AI design at IO 2026",
+      "source_url": "https://techcrunch.com/2026/05/19/ai-design-tools-are-the-next-big-battleground-and-google-is-going-all-in-at-io-2026/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-20T21:57:16.587237"
+    },
+    {
+      "entity_name": "You can now talk to your Gmail inbox, as seen at Google IO 2026",
+      "source_url": "https://techcrunch.com/2026/05/19/you-can-now-talk-to-your-gmail-inbox-as-seen-at-google-io-2026/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-20T21:57:16.587241"
+    },
+    {
+      "entity_name": "How to use Google’s new AI agents to go beyond your standard searches",
+      "source_url": "https://techcrunch.com/2026/05/19/how-to-use-googles-new-ai-agents-to-go-beyond-your-standard-searches/",
+      "score": 20,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-20T21:57:16.587244"
+    },
+    {
+      "entity_name": "From teen hacker to Iron Dome researcher, this founder raised $28M to fight AI phishing",
+      "source_url": "https://techcrunch.com/2026/05/19/from-teen-hacker-to-iron-dome-researcher-this-founder-raised-28m-to-fight-ai-phishing/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-20T21:57:16.587247"
+    },
+    {
+      "entity_name": "Elon Musk said Sam Altman &#8216;stole&#8217; a non-profit — but the trial showed he had similar aims",
+      "source_url": "https://techcrunch.com/2026/05/19/elon-musk-said-sam-altman-stole-a-non-profit-but-the-trial-showed-he-had-similar-aims/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-20T21:57:16.587250"
+    },
+    {
+      "entity_name": "Google takes a page out of Meta&#8217;s book, announces new audio-powered smart glasses at IO 2026",
+      "source_url": "https://techcrunch.com/2026/05/19/google-takes-a-page-out-of-metas-book-announces-new-audio-powered-smart-glasses-at-io-2026/",
+      "score": 10,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-20T21:57:16.587253"
+    },
+    {
+      "entity_name": "Google’s Genie world model can now simulate real streets with Street View",
+      "source_url": "https://techcrunch.com/2026/05/19/googles-genie-world-model-can-now-simulate-real-streets-with-street-view/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-20T21:57:16.587256"
+    },
+    {
+      "entity_name": "With Gemini 3.5 Flash, Google bets its next AI wave on agents, not chatbots",
+      "source_url": "https://techcrunch.com/2026/05/19/with-gemini-3-5-flash-google-bets-its-next-ai-wave-on-agents-not-chatbots/",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-20T21:57:16.587259"
+    },
+    {
+      "entity_name": "Google&#8217;s AI Studio now lets anyone build Android apps in minutes",
+      "source_url": "https://techcrunch.com/2026/05/19/googles-ai-studio-now-lets-anyone-build-android-apps-in-minutes/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-20T21:57:16.587262"
+    },
+    {
+      "entity_name": "Agentic app coding gets an upgrade with Google&#8217;s release of Android CLI",
+      "source_url": "https://techcrunch.com/2026/05/19/agentic-app-coding-gets-an-upgrade-with-googles-release-of-android-cli/",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-20T21:57:16.587264"
+    },
+    {
+      "entity_name": "Google&#8217;s new Universal Cart wants to follow your entire shopping journey across the internet",
+      "source_url": "https://techcrunch.com/2026/05/19/googles-new-universal-cart-wants-to-follow-your-entire-shopping-journey-across-the-internet/",
+      "score": 10,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-20T21:57:16.587267"
+    },
+    {
+      "entity_name": "Google introduces Gemini Spark, a 24/7 agentic assistant with Gmail integration, at IO 2026",
+      "source_url": "https://techcrunch.com/2026/05/19/google-introduces-gemini-spark-a-24-7-agentic-assistant-with-gmail-integration/",
+      "score": 15,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-20T21:57:16.587271"
+    }
+  ]
+}

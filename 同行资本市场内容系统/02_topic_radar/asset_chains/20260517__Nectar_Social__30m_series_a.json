@@ -1,0 +1,90 @@
+{
+  "_meta": {
+    "asset_id": "20260517__nectar_social__30m_series_a",
+    "source": "web__techcrunch_ai",
+    "article_url": "https://techcrunch.com/2026/05/16/marketing-operating-system-nectar-social-raises-30m-series-a-in-round-led-by-menlo/",
+    "entity_name": "Nectar Social",
+    "entity_type": "newco",
+    "derived_at": "2026-05-17T00:47:00Z",
+    "score": 10,
+    "signal_reasons": ["融资信号", "明确公司/产品信号"],
+    "skip_reason": null
+  },
+  "company_profile": {
+    "name": "Nectar Social",
+    "tagline": "Agentic Operating System for Modern Marketing",
+    "赛道": "AI × Marketing / Social Media Management / Agentic SaaS",
+    "founded": "2024 (stealth), publicly launched ~2025",
+    "stage": "Series A ($30M, Menlo Ventures + Anthropic Anthology Fund)",
+    "founders": "Misbah Uraizee (CEO) & Farah Uraizee, ex-Meta employees (sisters)",
+    "location": "US (inferred)"
+  },
+  "hard_links": {
+    "官网": "https://nectarsocial.com (待完整验证 – Business Wire PR 文中链接指向 businesswire 版本)",
+    "Business_Wire_PR": "https://www.businesswire.com/news/home/20260513604281/en/Nectar-Social-Raises-%2430M-Series-A-to-Build-the-Agentic-Operating-System-for-Modern-Marketing",
+    "LinkedIn_company": "https://www.linkedin.com/company/nectar-social/",
+    "LinkedIn_founder_CEO": "https://www.linkedin.com/in/misbah-uraizee/",
+    "Twitter_X": "待查"
+  },
+  "asset_breakdown": {
+    "官网_状态": "⚠️ 待完整验证 – Business Wire PR 内含官网链接，但 nectarsocial.com 直接抓取失败（403或DNS问题）",
+    "press_release": "✅ Business Wire 2026-05-13 全文发布",
+    "social_linkedin": "✅ LinkedIn company page 可访问（451阻断直接访问，但链接结构已知）",
+    "client_list": "✅ TC 原文提及：Liquid Death, Figma, e.l.f Beauty",
+    "investors": "✅ Menlo Ventures, Anthropic Anthology Fund, Gwyneth Paltrow's Kinship Ventures, GV, True Ventures",
+    "docs_or_demo": "❌ 未找到独立 docs site 或 product demo",
+    "social_X": "❌ 待查 @nectarsocial 或类似账号",
+    "visual_materials": "✅ TC 文章配图（产品 dashboard/UI 图）"
+  },
+  "product_signals": {
+    "summary": "AI agentic operating system for marketers，自动化社交内容运营、评论管理、创作者工作流、竞品情报、商业对话。Meta/Reddit 数据合作为核心差异化，让品牌方一处汇总多平台数据而不是分散管理。",
+    "buying_quote": "\"The buying conversation has moved into social, and no human team can staff every place it happens\" – Misbah Uraizee, CEO",
+    "key_differentiator": "Autonomous AI agents + Meta/Reddit data partnerships vs 传统社交管理工具"
+  },
+  "signal_value": {
+    "summary": "Nectar Social 是 AI+Marketing 赛道的明确融资信号，$30M Series A + Menlo + Anthropic Anthology Fund 背书，双重 AI 圈层信任状。创始团队 ex-Meta 背景 + 真实客户案例（Figma/Liquid Death）说明产品已过 PMF 阶段。Marketing OS 定位清晰，有媒体叙事潜力。",
+    "传播性": "高 – Menlo/Anthology 背书 + AI+MarTech 双圈层",
+    "破圈性": "中 – 垂直 MarTech 媒体关注高，泛科技媒体次之",
+    "数据硬度": "高 – 融资规模、资方、客户均来自 TC 原文验证",
+    "视觉素材": "中 – TC 配图 + PR 文配图；缺独立 product demo"
+  },
+  "query_chain": {
+    "next_hops": [
+      {
+        "query": "nectarsocial.com website full content",
+        "priority": "high",
+        "resolved": false,
+        "result": "DNS 解析正常 (198.202.211.1)，但 TCP 连接超时，服务器当前不可达。复验建议：次日再次测试。"
+      },
+      {
+        "query": "Nectar Social Twitter X account",
+        "priority": "medium",
+        "resolved": false,
+        "result": "未找到官方 @nectarsocial 账号；Web search + Twitter 直接搜索均无结果。"
+      },
+      {
+        "query": "Nectar Social product demo video",
+        "priority": "medium",
+        "resolved": false,
+        "result": "无独立演示站点，官网不可达。"
+      },
+      {
+        "query": "Nectar Social LinkedIn company page live",
+        "priority": "medium",
+        "resolved": false,
+        "result": "链接结构已知 (linkedin.com/company/nectar-social)，直接访问被屏蔽(999)，未直接验证 live 状态。"
+      }
+    ],
+    "weak_links_resolved": false
+  },
+  "weak_chain_resolution": {
+    "executed_at": "2026-05-17T08:56:00Z",
+    "resolution_round": "2026-05-17 morning",
+    "objects_checked": 1,
+    "fully_linked": 0,
+    "hard_blocker_objects": 0,
+    "non_blocker_weak_links": 1,
+    "notes": "官网不可达(DNS解析成功但TCP连接超时)为非阻断性弱链 — 融资事实由TC+间接Business Wire双源确认，资方(Menlo/Anthology)背书足够确立公司真实性。保留query chain，不写入虚拟VC运行台。"
+  },
+  "runbook_ref": "market-asset-query-resolution-runbook (cron 2026-05-17)"
+}

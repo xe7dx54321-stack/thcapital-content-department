@@ -1,0 +1,231 @@
+{
+  "trend__reddit_claude_daily": [
+    {
+      "entity_name": "r/ClaudeAI List of Ongoing Megathreads",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1s7fepn/rclaudeai_list_of_ongoing_megathreads/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438314"
+    },
+    {
+      "entity_name": "Self-hosted sandboxes and MCP tunnels for Claude Managed Agents are now in public beta.",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1thg711/selfhosted_sandboxes_and_mcp_tunnels_for_claude/",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438393"
+    },
+    {
+      "entity_name": "I'm a software engineer with a decade of experience. I vibe code all of my side projects from my phone using Claude Code and don't read any of the code. It's so fun. Here are the rules I follow:",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tj2i90/im_a_software_engineer_with_a_decade_of/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438396"
+    },
+    {
+      "entity_name": "from claude code to unicorn in 7 days",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tjb8x9/from_claude_code_to_unicorn_in_7_days/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438398"
+    },
+    {
+      "entity_name": "Anthropic is paying SpaceX $15 billion per year",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tj3jy9/anthropic_is_paying_spacex_15_billion_per_year/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438400"
+    },
+    {
+      "entity_name": "Instant anxiety when I see this in Claude's thoughts",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tj3pee/instant_anxiety_when_i_see_this_in_claudes/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438403"
+    },
+    {
+      "entity_name": "I stumped Claude earlier and it had no choice but to seek wisdom from the Ancient One",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tiiau0/i_stumped_claude_earlier_and_it_had_no_choice_but/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438405"
+    },
+    {
+      "entity_name": "Took my Claude on a hike",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tj15oa/took_my_claude_on_a_hike/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438407"
+    },
+    {
+      "entity_name": "Anthropic-SpaceX deal seems much larger than previously reported",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tj0bjz/anthropicspacex_deal_seems_much_larger_than/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438409"
+    },
+    {
+      "entity_name": "Claude is a real g",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tip9h6/claude_is_a_real_g/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438411"
+    },
+    {
+      "entity_name": "I feel like I’m going crazy.",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tj5mtg/i_feel_like_im_going_crazy/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438413"
+    },
+    {
+      "entity_name": "How to address vibe coding at the professional level?",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tis9s6/how_to_address_vibe_coding_at_the_professional/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438415"
+    },
+    {
+      "entity_name": "OpenAI bidding on the search term 'claude down' on Google Search",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tioq8k/openai_bidding_on_the_search_term_claude_down_on/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438417"
+    },
+    {
+      "entity_name": "I dont think Claude Design likes my idea",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tik0lj/i_dont_think_claude_design_likes_my_idea/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438419"
+    },
+    {
+      "entity_name": "Karpathy joins Anthropic",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1thpuf1/karpathy_joins_anthropic/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438421"
+    },
+    {
+      "entity_name": "Word on the street",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tjalb5/word_on_the_street/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438423"
+    },
+    {
+      "entity_name": "Does anybody else feel like they are playing Civ when working on Claude projects?",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tikwew/does_anybody_else_feel_like_they_are_playing_civ/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438425"
+    },
+    {
+      "entity_name": "Anyone else spending more time moving things between AI tools than actually building?",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tjbgp4/anyone_else_spending_more_time_moving_things/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438428"
+    },
+    {
+      "entity_name": "Feedback for a Claude Code Plush",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1timg1q/feedback_for_a_claude_code_plush/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438430"
+    },
+    {
+      "entity_name": "enterprise solutions architect 14 years. claude in enterprise consulting projects. what's working + what regulators are about to break.",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tiq6y3/enterprise_solutions_architect_14_years_claude_in/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438432"
+    },
+    {
+      "entity_name": "How do you guys maximize your usage?",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tj1b8c/how_do_you_guys_maximize_your_usage/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438434"
+    },
+    {
+      "entity_name": "Claude is improving my RV rental business but working me to death 😅",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1ti9xo5/claude_is_improving_my_rv_rental_business_but/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438436"
+    },
+    {
+      "entity_name": "A Cloud that Claude uses without login",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tjabxl/a_cloud_that_claude_uses_without_login/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438438"
+    },
+    {
+      "entity_name": "I kept hitting Claude limits every day. Here's what was actually wrong in my workflow.",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tj35q9/i_kept_hitting_claude_limits_every_day_heres_what/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438440"
+    },
+    {
+      "entity_name": "Coffee, Claude, and Remotion is all you need to make launch videos.",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tik0qe/coffee_claude_and_remotion_is_all_you_need_to/",
+      "score": 20,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "_fetched_at": "2026-05-21T14:45:42.438442"
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "generated_at": "2026-05-09 17:44:21 CST",
+  "source_name": "饼干哥哥AGI",
+  "slug": "cookie-brother-agi",
+  "overlay_skill_name": "th-style-overlay-cookie-brother-agi",
+  "sample_gate_passed": true,
+  "distinct_recent_articles_used": 8,
+  "total_distinct_available": 25,
+  "observed_window": {
+    "latest": "2026-03-26 16:40:59 CST",
+    "oldest": "2026-03-10 16:11:13 CST"
+  },
+  "aggregate": {
+    "median_char_count": 4037,
+    "median_image_count": 17.5,
+    "median_first_image_after_text_paragraphs": 11.0,
+    "median_short_para_ratio": 0.768,
+    "median_image_density_per_1000_chars": 4.16,
+    "early_image_share": 0.125,
+    "dense_visual_share": 0.875,
+    "first_person_opening_share": 0.375,
+    "reader_address_opening_share": 0.125,
+    "opening_modes": {
+      "问题/提问切入": 2,
+      "数字/清单切入": 2,
+      "场景/自述切入": 1,
+      "对象/事件先落地": 3
+    },
+    "title_modes": {
+      "对象直给型标题": 7,
+      "收益/教程型标题": 1
+    }
+  },
+  "articles": [
+    {
+      "title": "OpenClaw跑假数据的问题，被这个跨境电商Agent解决了",
+      "published_at": "2026-03-26 16:40:59 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/fW-8_10srRbHH0i0DjYhew",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200057__openclaw跑假数据的问题_被这个跨境电商agent解决了__deep-article.md",
+      "char_count": 4184,
+      "image_count": 20,
+      "first_image_after_text_paragraphs": 13,
+      "opening_mode": "问题/提问切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.597,
+      "opening_excerpt": "前两周 ，国家安全部门发文，OpenClaw 数据泄露风险警告。 这场全网的技术狂欢被瞬间泼了一盆冷水，全都在搜怎么卸载。",
+      "note": "问题/提问切入；结构展开后再上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "OpenClaw的最佳省钱攻略：几十块的方舟Coding Plan直接让跨境 AI 团队成本降了 90%",
+      "published_at": "2026-03-25 15:30:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/hJpI_JPAaMSEO_FPPa1NJw",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200109__openclaw的最佳省钱攻略_几十块的方舟coding_plan直接让跨境_ai_团队成本降了_90__deep-article.md",
+      "char_count": 5228,
+      "image_count": 17,
+      "first_image_after_text_paragraphs": 7,
+      "opening_mode": "数字/清单切入",
+      "title_mode": "收益/教程型标题",
+      "short_para_ratio": 0.757,
+      "opening_excerpt": "3月初的那篇文章用 OpenClaw 搭跨境电商 AI 团队，到现在几万阅读，私信就没停过。 用OpenClaw搭跨境电商团队：5个AI员工，跑通全平台矩阵！ 但有意思的是，有一半人在问：",
+      "note": "数字/清单切入；结构展开后再上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "用AI 48小时速通梅花易数之后，我想通了「学习」的最终解",
+      "published_at": "2026-03-23 17:49:29 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/EAj1ihqvmiy2mUu1D5eu7w",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200032__用ai_48小时速通梅花易数之后_我想通了_学习_的最终解__deep-article.md",
+      "char_count": 2693,
+      "image_count": 18,
+      "first_image_after_text_paragraphs": 13,
+      "opening_mode": "场景/自述切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.794,
+      "opening_excerpt": "我在ChatGPT来之前就是一个学习上瘾的人。 自学西班牙语，没学利索就飞哥伦比亚、墨西哥参展，用蹩脚西语跟本地老外硬聊，居然也谈成了几单。 自学数据分析，从0给前公司搭了数据库、BI、自动化报表，一整套数据中心。",
+      "note": "场景/自述切入；结构展开后再上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "小龙虾openclaw可以原生接入微信了",
+      "published_at": "2026-03-22 16:23:47 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/hr26sFFRIAsfN_rLPxuaMw",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200044__小龙虾openclaw可以原生接入微信了__deep-article.md",
+      "char_count": 671,
+      "image_count": 1,
+      "first_image_after_text_paragraphs": 26,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.884,
+      "opening_excerpt": "小龙虾openclaw可以原生接入微信了 iphone用户把微信更新到最新版8.0.7，然后重启微信，在设置-插件，就能看到openclaw插件了 配置非常简单，运行图中的命令后，微信扫一扫就可以了，形式跟元宝一样，是对话框。",
+      "note": "对象/事件先落地；结构展开后再上图；短段密度高"
+    },
+    {
+      "title": "OpenClaw企业落地的5个进阶配置，价值千亿的市场机会",
+      "published_at": "2026-03-19 16:37:04 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/wdOoVXjZOyVuaoW-bLypYA",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_110346__openclaw企业落地的5个进阶配置_价值千亿的市场机会__deep-article.md",
+      "char_count": 6617,
+      "image_count": 9,
+      "first_image_after_text_paragraphs": 16,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.779,
+      "opening_excerpt": "有个美国人把 OpenClaw 装进 MacBook，配上一套专门为屋顶承包商定制的 Skills，接好 HubSpot CRM，加上行业专属的 SOUL.md，然后直接寄给客户。 插电，AI 员工上班。 收费 5000 美元一台，后续 weekly 支持。",
+      "note": "对象/事件先落地；结构展开后再上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "用龙虾模型把跨境电商的业务SOP转成OpenClaw的Skill",
+      "published_at": "2026-03-17 15:56:16 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/ybPAEUFW4RqzmR1uOpL1gg",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_110508__用龙虾模型把跨境电商的业务sop转成openclaw的skill__deep-article.md",
+      "char_count": 4802,
+      "image_count": 17,
+      "first_image_after_text_paragraphs": 6,
+      "opening_mode": "问题/提问切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.603,
+      "opening_excerpt": "周末我在深圳办了两场AI跨境电商活动，加起来600人。 聊到OpenClaw 怎么落地的时候，问我最多的问题是：饼干哥哥，你用的是哪些 Skill，能不能分享一些好用的？ 我说，没有。",
+      "note": "问题/提问切入；结构展开后再上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "我们的GEO服务上315黑榜了？教你用「 骡子 」跑通海外垂直测评站！！",
+      "published_at": "2026-03-16 17:12:32 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/LmKe7FAAL67-z7ERA2xbTA",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_110250__我们的geo服务上315黑榜了_教你用_骡子_跑通海外垂直测评站__deep-article.md",
+      "char_count": 2761,
+      "image_count": 29,
+      "first_image_after_text_paragraphs": 2,
+      "opening_mode": "数字/清单切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.853,
+      "opening_excerpt": "昨晚 315 晚会，我在深圳办完 AI 跨境电商大会回程路上 好几个朋友给我转发了 AI大模型投毒服务 GEO 上热搜的新闻 我笑了，因为前一天我们才分享完",
+      "note": "数字/清单切入；很早上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "AI内容工厂2.0：我把OpenClaw换成ArkClaw，接管了整个飞书",
+      "published_at": "2026-03-10 16:11:13 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/vKA-Q4sOROg0mhol83Y1oQ",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_110223__ai内容工厂2_0_我把openclaw换成arkclaw_接管了整个飞书__deep-article.md",
+      "char_count": 3891,
+      "image_count": 27,
+      "first_image_after_text_paragraphs": 9,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.726,
+      "opening_excerpt": "之前写过一篇： 用 OpenClaw + Obsidian 搭建内容工厂，写出了百万阅读的爆文。 那篇文章有人复刻成功。但也有人用了一段时间后发现：灵感还是在积压，选题还是不知道选哪个，写完的文章还是找不到。",
+      "note": "对象/事件先落地；结构展开后再上图；短段密度高；图文节奏偏密"
+    }
+  ]
+}

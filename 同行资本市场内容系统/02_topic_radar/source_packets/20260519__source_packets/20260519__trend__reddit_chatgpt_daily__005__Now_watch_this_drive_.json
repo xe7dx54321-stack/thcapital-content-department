@@ -1,0 +1,12 @@
+{
+  "entity_name": "Now watch this drive.",
+  "source_url": "https://old.reddit.com/r/ChatGPT/comments/1tgzap0/now_watch_this_drive/",
+  "score": 5,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_chatgpt_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/Marino4K"
+}

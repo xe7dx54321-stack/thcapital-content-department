@@ -1,0 +1,123 @@
+{
+  "date": "2026-04-18",
+  "generated_at": "2026-04-18 18:59:23 CST",
+  "board_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260418__daily-top8-to-top5.md",
+  "board_signature": "d0fdb4741652df427b69165e797a656b11793003ec279a121b41352375e25808",
+  "status": "selected_pending_downstream_delivery",
+  "briefing_at": "2026-04-18 17:40:00 CST",
+  "default_pick_at": "2026-04-18 18:00:00 CST",
+  "draftbox_deadline": "2026-04-18 19:00:00 CST",
+  "default_choice_rank": 1,
+  "selected_rank": 1,
+  "selected_candidate_key": "openai-sora-shutdown-disney-contract-voided",
+  "selected_at": "2026-04-18 18:46:05 CST",
+  "selected_reason": "default_first_after_1800",
+  "approved_topic_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/04_approved_topics/20260418_184605__openai_sora_shutdown_disney_contract_voided__approved-topic.md",
+  "draft_pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/openai_sora_shutdown_disney_contract_voided",
+  "bridge_request_id": "",
+  "briefing_sent_at": "",
+  "briefing_sent_signature": "",
+  "recommended_cards": [
+    {
+      "date": "2026-04-18",
+      "card_role": "recommended",
+      "card_label": "推荐 1",
+      "rank": 1,
+      "candidate_key": "openai-sora-shutdown-disney-contract-voided",
+      "title": "OpenAI关停Sora，迪士尼10亿美元大单作废",
+      "display_title": "OpenAI关停Sora，迪士尼10亿美元大单作废",
+      "topic_line": "超30亿！中国迄今最大具身智能融资诞生",
+      "outline": "先交代读者为什么总会判断失真，再拆方法结构、关键步骤、怎么每天执行，最后补边界与风险。 具体展开时围绕：以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "style_route": "方法论 / workflow / skill / agent 教程",
+      "style_profile": {
+        "primary_creator": "赛博禅心",
+        "primary_skill": "th-style-overlay-cyber-zenmind",
+        "secondary_creator": "数字生命卡兹克",
+        "secondary_skill": "th-style-overlay-digitallife-khazix",
+        "support_creator": "饼干哥哥AGI",
+        "support_skill": "th-style-overlay-cookie-brother-agi",
+        "borrowed_layers": "对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置"
+      },
+      "special_instructions": "style_route=方法论 / workflow / skill / agent 教程; primary_overlay=赛博禅心; secondary_overlay=数字生命卡兹克; support_overlay=饼干哥哥AGI; borrowed_layers=对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "image_outline": [
+        "封面：主标题做成判断句，右侧用 3 层方法框架或核心步骤提示这是一篇可执行教程。",
+        "正文图：原始证据锚点，放在首屏后 / why-now 段后，核心作用是第一张图必须把对象钉住，不要让读者先看抽象判断。。",
+        "正文图：约束 / 变量分类图，放在背景讲清后，核心作用是适合‘盯这几类 / 只回答这几个问题 / 方法分层输入’这类段落。。",
+        "正文图：分层架构图，放在核心方法段前，核心作用是适合‘五层 / 分层 / 上下游 / 输入输出链路’这类段落。。",
+        "正文图：workflow 循环图，放在执行步骤段前，核心作用是适合‘每天怎么跑 / 如何更新 / 如何迭代’这类段落。。"
+      ],
+      "default_pick": true,
+      "draftbox_deadline": "2026-04-18 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260418__recommended_1__openai-sora-shutdown-disney-contract-voided.md"
+    },
+    {
+      "date": "2026-04-18",
+      "card_role": "recommended",
+      "card_label": "推荐 2",
+      "rank": 2,
+      "candidate_key": "jensen-huang-reasoning-inflection-edge-inference",
+      "title": "黄仁勋喊出\"推理拐点\"，边缘推理的机会窗口打开了吗",
+      "display_title": "黄仁勋喊出\"推理拐点\"，边缘推理的机会窗口打开了吗",
+      "topic_line": "黄仁勋喊出\"推理拐点\"，边缘推理的机会窗口打开了吗",
+      "outline": "先交代读者为什么总会判断失真，再拆方法结构、关键步骤、怎么每天执行，最后补边界与风险。 具体展开时围绕：以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "style_route": "方法论 / workflow / skill / agent 教程",
+      "style_profile": {
+        "primary_creator": "赛博禅心",
+        "primary_skill": "th-style-overlay-cyber-zenmind",
+        "secondary_creator": "数字生命卡兹克",
+        "secondary_skill": "th-style-overlay-digitallife-khazix",
+        "support_creator": "饼干哥哥AGI",
+        "support_skill": "th-style-overlay-cookie-brother-agi",
+        "borrowed_layers": "对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置"
+      },
+      "special_instructions": "style_route=方法论 / workflow / skill / agent 教程; primary_overlay=赛博禅心; secondary_overlay=数字生命卡兹克; support_overlay=饼干哥哥AGI; borrowed_layers=对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "image_outline": [
+        "封面：主标题做成判断句，右侧用 3 层方法框架或核心步骤提示这是一篇可执行教程。",
+        "正文图：原始证据锚点，放在首屏后 / why-now 段后，核心作用是第一张图必须把对象钉住，不要让读者先看抽象判断。。",
+        "正文图：约束 / 变量分类图，放在背景讲清后，核心作用是适合‘盯这几类 / 只回答这几个问题 / 方法分层输入’这类段落。。",
+        "正文图：分层架构图，放在核心方法段前，核心作用是适合‘五层 / 分层 / 上下游 / 输入输出链路’这类段落。。",
+        "正文图：workflow 循环图，放在执行步骤段前，核心作用是适合‘每天怎么跑 / 如何更新 / 如何迭代’这类段落。。"
+      ],
+      "default_pick": false,
+      "draftbox_deadline": "2026-04-18 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260418__recommended_2__jensen-huang-reasoning-inflection-edge-inference.md"
+    }
+  ],
+  "holdout_cards": [
+    {
+      "date": "2026-04-18",
+      "card_role": "holdout",
+      "card_label": "候补 1",
+      "rank": 3,
+      "candidate_key": "apple-ai-siri-iphone-takeover",
+      "title": "苹果版ChatGPT曝光，AI Siri将接管你iPhone上的一切",
+      "display_title": "苹果版ChatGPT曝光，AI Siri将接管你iPhone上…",
+      "topic_line": "OpenAI关停Sora，迪士尼10亿美元大单作废",
+      "outline": "先交代读者为什么总会判断失真，再拆方法结构、关键步骤、怎么每天执行，最后补边界与风险。 具体展开时围绕：以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "style_route": "方法论 / workflow / skill / agent 教程",
+      "style_profile": {
+        "primary_creator": "赛博禅心",
+        "primary_skill": "th-style-overlay-cyber-zenmind",
+        "secondary_creator": "数字生命卡兹克",
+        "secondary_skill": "th-style-overlay-digitallife-khazix",
+        "support_creator": "饼干哥哥AGI",
+        "support_skill": "th-style-overlay-cookie-brother-agi",
+        "borrowed_layers": "对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置"
+      },
+      "special_instructions": "style_route=方法论 / workflow / skill / agent 教程; primary_overlay=赛博禅心; secondary_overlay=数字生命卡兹克; support_overlay=饼干哥哥AGI; borrowed_layers=对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "image_outline": [
+        "封面：主标题做成判断句，右侧用 3 层方法框架或核心步骤提示这是一篇可执行教程。",
+        "正文图：原始证据锚点，放在首屏后 / why-now 段后，核心作用是第一张图必须把对象钉住，不要让读者先看抽象判断。。",
+        "正文图：约束 / 变量分类图，放在背景讲清后，核心作用是适合‘盯这几类 / 只回答这几个问题 / 方法分层输入’这类段落。。",
+        "正文图：分层架构图，放在核心方法段前，核心作用是适合‘五层 / 分层 / 上下游 / 输入输出链路’这类段落。。",
+        "正文图：workflow 循环图，放在执行步骤段前，核心作用是适合‘每天怎么跑 / 如何更新 / 如何迭代’这类段落。。"
+      ],
+      "default_pick": false,
+      "draftbox_deadline": "2026-04-18 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260418__holdout_3__apple-ai-siri-iphone-takeover.md"
+    }
+  ]
+}

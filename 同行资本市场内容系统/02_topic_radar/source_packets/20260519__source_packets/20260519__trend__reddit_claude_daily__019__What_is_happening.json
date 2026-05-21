@@ -1,0 +1,12 @@
+{
+  "entity_name": "What is happening",
+  "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tgry73/what_is_happening/",
+  "score": 5,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_claude_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/Strategy-Savings"
+}

@@ -1,0 +1,163 @@
+{
+  "web__techcrunch_ai": [
+    {
+      "entity_name": "The haves and have nots of the AI gold rush",
+      "source_url": "https://techcrunch.com/2026/05/16/the-haves-and-have-nots-of-the-ai-gold-rush/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642556"
+    },
+    {
+      "entity_name": "Marketing operating system Nectar Social raises $30M Series A led by Menlo",
+      "source_url": "https://techcrunch.com/2026/05/16/marketing-operating-system-nectar-social-raises-30m-series-a-in-round-led-by-menlo/",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642648"
+    },
+    {
+      "entity_name": "Research repository ArXiv will ban authors for a year if they let AI do all the work",
+      "source_url": "https://techcrunch.com/2026/05/16/research-repository-arxiv-will-ban-authors-for-a-year-if-they-let-ai-do-all-the-work/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642653"
+    },
+    {
+      "entity_name": "The offline desk gadget that actually got me to sit up straight",
+      "source_url": "https://techcrunch.com/2026/05/16/the-offline-desk-gadget-that-actually-got-me-to-sit-up-straight/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642656"
+    },
+    {
+      "entity_name": "OpenAI co-founder Greg Brockman takes charge of product strategy",
+      "source_url": "https://techcrunch.com/2026/05/16/openai-co-founder-greg-brockman-reportedly-takes-charge-of-product-strategy/",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642659"
+    },
+    {
+      "entity_name": "$60B AI chip darling Cerebras almost died early on, burning $8M a month",
+      "source_url": "https://techcrunch.com/2026/05/16/60b-ai-chip-darling-cerebras-almost-died-early-on-burning-8m-a-month/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642662"
+    },
+    {
+      "entity_name": "Users turn to jailbreaking their older Kindles as Amazon ends support",
+      "source_url": "https://techcrunch.com/2026/05/16/users-turn-to-jailbreaking-their-older-kindles-as-amazon-ends-support/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642665"
+    },
+    {
+      "entity_name": "RJ Scaringe has raised more than $12B across three startups and investors still want more",
+      "source_url": "https://techcrunch.com/2026/05/15/rj-scaringe-has-raised-more-than-12-billion-across-three-startups-and-investors-still-want-more/",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642668"
+    },
+    {
+      "entity_name": "General Catalyst posted VC rage bait and it worked, especially on a16z",
+      "source_url": "https://techcrunch.com/2026/05/15/general-catalyst-posted-vc-rage-bait-and-it-worked-especially-on-a16z/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642670"
+    },
+    {
+      "entity_name": "Silicon Valley’s vacationland needs a new energy provider just as AI is driving prices up",
+      "source_url": "https://techcrunch.com/2026/05/15/silicon-valleys-vacationland-needs-a-new-energy-provider-just-as-ai-is-driving-prices-up/",
+      "score": 15,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642673"
+    },
+    {
+      "entity_name": "Tesla reveals two Robotaxi crashes involving teleoperators",
+      "source_url": "https://techcrunch.com/2026/05/15/tesla-reveals-two-robotaxi-crashes-involving-teleoperators/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642676"
+    },
+    {
+      "entity_name": "OpenAI launches ChatGPT for personal finance, will let you connect bank accounts",
+      "source_url": "https://techcrunch.com/2026/05/15/openai-launches-chatgpt-for-personal-finance-will-let-you-connect-bank-accounts/",
+      "score": 20,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642679"
+    },
+    {
+      "entity_name": "US orders travelers on Air Force One to throw away gifts, pins, and burner phones after China trip",
+      "source_url": "https://techcrunch.com/2026/05/15/us-orders-travelers-on-air-force-one-to-throw-away-gifts-pins-and-burner-phones-after-china-trip/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642682"
+    },
+    {
+      "entity_name": "Runway started by helping filmmakers — now it wants to beat Google at AI",
+      "source_url": "https://techcrunch.com/2026/05/15/runway-started-by-helping-filmmakers-now-it-wants-to-beat-google-at-ai/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642684"
+    },
+    {
+      "entity_name": "Meridian Ventures launched a $35M fund with a focus on MBA-deferred founders",
+      "source_url": "https://techcrunch.com/2026/05/15/meridian-ventures-launched-35m-fund-to-back-mba-deferred-founders/",
+      "score": 15,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642687"
+    },
+    {
+      "entity_name": "Osaurus brings both local and cloud AI models to your Mac",
+      "source_url": "https://techcrunch.com/2026/05/15/osaurus-brings-both-local-and-cloud-ai-models-to-your-mac/",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642690"
+    },
+    {
+      "entity_name": "Indian Uber rival Rapido raises $240M at $3B valuation",
+      "source_url": "https://techcrunch.com/2026/05/15/indian-uber-rival-rapido-raises-240m-at-3b-valuation/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-17T20:45:24.642693"
+    }
+  ]
+}

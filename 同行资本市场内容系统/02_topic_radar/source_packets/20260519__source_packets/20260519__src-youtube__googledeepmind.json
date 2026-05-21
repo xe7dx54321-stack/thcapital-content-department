@@ -1,0 +1,141 @@
+{
+  "youtube__googledeepmind": [
+    {
+      "entity_name": "Reimagining the mouse pointer with AI",
+      "source_url": "https://www.youtube.com/watch?v=pZNzfQLgGsA",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-19T21:55:19.329086"
+    },
+    {
+      "entity_name": "What’s new in Gemma 4?",
+      "source_url": "https://www.youtube.com/shorts/6VV5Gvmtrl4",
+      "score": 10,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-19T21:55:19.329172"
+    },
+    {
+      "entity_name": "Teaching the foundations of AI in the classroom",
+      "source_url": "https://www.youtube.com/watch?v=udnhu43tTfk",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-19T21:55:19.329176"
+    },
+    {
+      "entity_name": "Introducing Lyria 3 Pro",
+      "source_url": "https://www.youtube.com/watch?v=hv8ZI7foGZk",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-19T21:55:19.329179"
+    },
+    {
+      "entity_name": "10 years of AlphaGo: The turning point for AI | Thore Graepel &amp; Pushmeet Kohli",
+      "source_url": "https://www.youtube.com/watch?v=qoinGjj60Fo",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-19T21:55:19.329183"
+    },
+    {
+      "entity_name": "Music AI Sandbox | AI x Creativity: Wyclef Jean",
+      "source_url": "https://www.youtube.com/watch?v=l5Wpm4o6k1A",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-19T21:55:19.329186"
+    },
+    {
+      "entity_name": "Gemini 3 Deep Think: Optimizing 2D semiconductor fabrication",
+      "source_url": "https://www.youtube.com/watch?v=IE0BmXsIzTI",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-19T21:55:19.329189"
+    },
+    {
+      "entity_name": "Gemini 3 Deep Think: Identifying logical errors in complex mathematics research",
+      "source_url": "https://www.youtube.com/watch?v=bNrbxCvFrKA",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-19T21:55:19.329192"
+    },
+    {
+      "entity_name": "Gemini 3 Deep Think: Accelerating mechanical engineering and rapid prototyping",
+      "source_url": "https://www.youtube.com/watch?v=eAOaRJj02HU",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-19T21:55:19.329194"
+    },
+    {
+      "entity_name": "Project Genie | Skydiving",
+      "source_url": "https://www.youtube.com/watch?v=wIE3-E9EN4g",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-19T21:55:19.329197"
+    },
+    {
+      "entity_name": "Project Genie | Silver Sphere",
+      "source_url": "https://www.youtube.com/watch?v=U6wb-zgYylk",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-19T21:55:19.329200"
+    },
+    {
+      "entity_name": "Project Genie | Shine and Seek",
+      "source_url": "https://www.youtube.com/watch?v=FZ9RQVQsDts",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-19T21:55:19.329203"
+    },
+    {
+      "entity_name": "Project Genie | Ruin Rover",
+      "source_url": "https://www.youtube.com/watch?v=MkJKoDEmxEQ",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-19T21:55:19.329206"
+    },
+    {
+      "entity_name": "Project Genie | Rollerball",
+      "source_url": "https://www.youtube.com/watch?v=HxapJDdSP9Y",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-19T21:55:19.329209"
+    },
+    {
+      "entity_name": "Project Genie | Puddle Jumper",
+      "source_url": "https://www.youtube.com/watch?v=UV_pGEAUZCk",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__googledeepmind",
+      "_fetched_at": "2026-05-19T21:55:19.329212"
+    }
+  ]
+}

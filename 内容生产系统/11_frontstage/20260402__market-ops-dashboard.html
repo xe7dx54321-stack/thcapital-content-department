@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>同行资本市场内容系统｜业务看板</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #11182d;
+      --panel-2: #151f39;
+      --line: rgba(255,255,255,0.08);
+      --text: #edf2ff;
+      --muted: #9eb0d9;
+      --good: #1ec98f;
+      --warn: #f59e0b;
+      --bad: #ff5d73;
+      --chip: rgba(255,255,255,0.08);
+      --shadow: 0 14px 40px rgba(0,0,0,0.28);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(0,168,255,0.10), transparent 25%),
+        radial-gradient(circle at top left, rgba(7,193,96,0.10), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a { color: #8ec5ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 28px 24px 72px;
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(18,28,52,0.94), rgba(22,34,60,0.96));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      line-height: 1.2;
+    }
+    .hero-meta {
+      color: var(--muted);
+      margin-bottom: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .metric-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+    .metric-label { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+    .metric-value { font-size: 28px; font-weight: 700; }
+    .metric-sub { color: var(--muted); font-size: 12px; margin-top: 6px; }
+    .warning-panel {
+      background: rgba(255,93,115,0.08);
+      border: 1px solid rgba(255,93,115,0.24);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+    .warning-panel h3 { margin: 0 0 10px; font-size: 16px; }
+    .warning-list { margin: 0; padding-left: 18px; color: #ffd5db; }
+    .warning-list li + li { margin-top: 8px; }
+    .good-note {
+      color: #d4ffef;
+      background: rgba(30,201,143,0.10);
+      border: 1px solid rgba(30,201,143,0.22);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .jump-nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(16px);
+      background: rgba(11, 16, 32, 0.82);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 12px 0 14px;
+      margin: 0 0 22px;
+    }
+    .jump-nav-inner {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .jump-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 14px;
+    }
+    .section {
+      background: linear-gradient(180deg, rgba(18,24,41,0.96), rgba(15,21,36,0.98));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .section h2 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+    .section-sub {
+      color: var(--muted);
+      margin-top: 6px;
+      font-size: 14px;
+    }
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: var(--chip);
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+    .chip-good { background: rgba(30,201,143,0.10); color: #cbffef; border-color: rgba(30,201,143,0.26); }
+    .chip-warn { background: rgba(245,158,11,0.12); color: #ffe2a7; border-color: rgba(245,158,11,0.28); }
+    .chip-bad { background: rgba(255,93,115,0.12); color: #ffd5db; border-color: rgba(255,93,115,0.28); }
+    .chip-neutral { background: rgba(255,255,255,0.06); }
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .status-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 16px;
+    }
+    .status-card strong { display: block; font-size: 15px; margin-bottom: 6px; }
+    .table-wrap {
+      width: 100%;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(8,12,24,0.45);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1080px;
+    }
+    th, td {
+      padding: 12px 14px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    th {
+      position: sticky;
+      top: 0;
+      background: rgba(14,21,38,0.98);
+      text-align: left;
+      color: var(--muted);
+      z-index: 1;
+    }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+    .summary-cell { min-width: 320px; }
+    .row-title { font-weight: 700; margin-bottom: 4px; }
+    .row-sub { color: var(--muted); font-size: 13px; }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .timeline-card {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      border-radius: 18px;
+      padding: 14px 16px;
+    }
+    .timeline-meta { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+    .timeline-headline { font-weight: 700; margin-bottom: 8px; }
+    .timeline-status { margin-bottom: 10px; }
+    .timeline-points { margin: 0; padding-left: 18px; color: var(--muted); }
+    .timeline-points li + li { margin-top: 6px; }
+    .timeline-link { margin-top: 12px; font-size: 13px; }
+    .platform-board {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+    }
+    .platform-lane {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      min-height: 220px;
+    }
+    .platform-lane-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 14px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(90deg, color-mix(in srgb, var(--lane-accent) 24%, transparent), rgba(255,255,255,0.02));
+    }
+    .platform-lane-body {
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+    .draft-card {
+      background: rgba(8,12,24,0.66);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+    .draft-card.status-missing {
+      border-style: dashed;
+      background: rgba(255,93,115,0.05);
+    }
+    .draft-card-meta {
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .draft-card-title {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+    .draft-card-topic {
+      color: #91a9df;
+      font-size: 12px;
+      word-break: break-all;
+    }
+    .draft-card-preview {
+      color: var(--muted);
+      font-size: 13px;
+      min-height: 44px;
+    }
+    .draft-card-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .draft-empty {
+      padding: 16px;
+      border: 1px dashed var(--line);
+      border-radius: 14px;
+      color: var(--muted);
+      text-align: center;
+    }
+    .empty-note {
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+      border: 1px dashed var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .search-box {
+      width: min(420px, 100%);
+      margin: 0 0 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      color: var(--text);
+      outline: none;
+    }
+    .footnote {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 12px;
+    }
+    @media (max-width: 900px) {
+      .page { padding: 20px 14px 56px; }
+      .hero h1 { font-size: 28px; }
+      .section { padding: 18px; }
+      .section-head { flex-direction: column; }
+      .chips { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="jump-nav">
+    <div class="jump-nav-inner">
+      <a href="#intake">① 信息 Intake</a>
+      <a href="#top20">② Top20</a>
+      <a href="#selection">③ 最终锁题</a>
+      <a href="#drafts">④ 稿件池</a>
+    </div>
+  </div>
+  <main class="page">
+    <section class="hero">
+      <h1>同行资本市场内容系统｜业务可视化看板</h1>
+      <div class="hero-meta">
+        <span>业务日：2026-04-02</span>
+        <span>Intake 口径：2026-04-02（按业务日归档 token 20260402）</span>
+        <span>流程时窗：2026-04-01 19:00 → 2026-04-02 12:20 CST</span>
+        <span>规则：source packet 统计按业务日 token 20260402；流程时窗参考 T-1 19:00 → T 12:20</span>
+        <span>生成时间：2026-04-02 12:49:19 CST</span>
+      </div>
+      <div class="metrics">
+        <div class="metric-card"><div class="metric-label">今日获取的信息</div><div class="metric-value">62</div><div class="metric-sub">按业务日归档统计，不按滚动时窗</div></div>
+        <div class="metric-card"><div class="metric-label">Top20 候选</div><div class="metric-value">20</div><div class="metric-sub">signal-scout 收束后的正式候选</div></div>
+        <div class="metric-card"><div class="metric-label">最终锁题</div><div class="metric-value">0</div><div class="metric-sub">approved topic 唯一 topic 数</div></div>
+        <div class="metric-card"><div class="metric-label">平台稿件卡</div><div class="metric-value">0</div><div class="metric-sub">真实草稿文件 + 待生成槽位</div></div>
+        <div class="metric-card"><div class="metric-label">流程异常</div><div class="metric-value">0</div><div class="metric-sub">用于暴露当前链路穿透与断点</div></div>
+      </div>
+      <div class="warning-panel">
+        <h3>当前最该盯的异常</h3>
+        <div class="empty-note good-note">当前没发现新的流程穿透问题。</div>
+      </div>
+    </section>
+
+    <section id="intake" class="section">
+      <div class="section-head">
+        <div>
+          <h2>① 今日获取的信息</h2>
+          <div class="section-sub">先看最新业务日真实归档了什么，再决定后面的筛选是不是站得住。</div>
+        </div>
+        <div class="chips">
+          <span class="chip chip-good">共 62 条</span>
+          <span class="chip chip-neutral">web 41</span><span class="chip chip-neutral">微信公众号 11</span><span class="chip chip-neutral">B站 4</span><span class="chip chip-neutral">知乎 4</span><span class="chip chip-neutral">youtube 2</span>
+        </div>
+      </div>
+      <div class="stage-grid">
+        <div class="status-card"><strong>业务日归档</strong>2026-04-02（按业务日归档 token 20260402）</div>
+        <div class="status-card"><strong>流程时窗</strong>2026-04-01 19:00 → 2026-04-02 12:20 CST</div>
+        <div class="status-card"><strong>一手性字段</strong>用 `primary_source` 显示官方 / 半一手 / 二手</div>
+        <div class="status-card"><strong>热度字段</strong>优先展示 `heat_hint`，不强行伪造统一分数</div>
+        <div class="status-card"><strong>可视素材</strong>直接展示 `visual_evidence_status`，方便看图文能力缺口</div>
+      </div>
+      <input class="search-box" id="sourceSearch" type="search" placeholder="筛今天拿到的线索：输入关键词 / 平台 / 来源名">
+      <div class="table-wrap">
+        <table id="sourceTable">
+          <thead>
+            <tr>
+              <th>一句话概述</th>
+              <th>平台</th>
+              <th>来源</th>
+              <th>热度线索</th>
+              <th>一手性</th>
+              <th>信号质量</th>
+              <th>引用可靠度</th>
+              <th>图片可用性</th>
+              <th>抓取时间</th>
+              <th>原文链接</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="summary-cell"><div class="row-title">百度热搜出现了与 AI / agent / robotics 相关的话题“男子利用AI编造谣言获刑6个月”。当前热搜指数 6854194，它适合作为中文破圈验证信号，而不是事实源。</div><div class="row-sub">男子利用AI编造谣言获刑6个月</div></td><td>web</td><td>百度热搜</td><td>breakout validation</td><td>1 / 二手</td><td>中</td><td>低</td><td>已探测</td><td>2026-04-02 12:24:17 CST</td><td><a href="https://www.baidu.com/s?wd=%E7%94%B7%E5%AD%90%E5%88%A9%E7%94%A8AI%E7%BC%96%E9%80%A0%E8%B0%A3%E8%A8%80%E8%8E%B7%E5%88%916%E4%B8%AA%E6%9C%88&amp;sa=fyb_news&amp;rsv_dl=fyb_news" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">百度热搜出现了与 AI / agent / robotics 相关的话题“我的专业真被AI取代了吗”。当前热搜指数 3390855，它适合作为中文破圈验证信号，而不是事实源。</div><div class="row-sub">我的专业真被AI取代了吗</div></td><td>web</td><td>百度热搜</td><td>breakout validation</td><td>1 / 二手</td><td>中</td><td>低</td><td>已探测</td><td>2026-04-02 12:24:17 CST</td><td><a href="https://www.baidu.com/s?wd=%E6%88%91%E7%9A%84%E4%B8%93%E4%B8%9A%E7%9C%9F%E8%A2%ABAI%E5%8F%96%E4%BB%A3%E4%BA%86%E5%90%97&amp;sa=fyb_news&amp;rsv_dl=fyb_news" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">飞瓜 B站热门视频榜抓到 AI 相关视频“Claude Code源码泄露！首发解读51万行代码！”。当前位于榜单第 2 位，适合作为中文视频场域的传播验证层。 当前已自动回链到 B站原视频。</div><div class="row-sub">Claude Code源码泄露！首发解读51万行代码！</div></td><td>B站</td><td>飞瓜 B站科技热视频榜</td><td>video ranking validation</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 12:24:17 CST</td><td><a href="https://www.bilibili.com/video/av116324273494732" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">飞瓜 B站热门视频榜抓到 AI 相关视频“《Science》最新研究：AI谄媚正在改变你的认知”。当前位于榜单第 3 位，适合作为中文视频场域的传播验证层。 当前已自动回链到 B站原视频。</div><div class="row-sub">《Science》最新研究：AI谄媚正在改变你的认知</div></td><td>B站</td><td>飞瓜 B站科技热视频榜</td><td>video ranking validation</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 12:24:17 CST</td><td><a href="https://www.bilibili.com/video/av116322629458159" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">知乎热榜出现了 AI 相关问题“有了AI之后，遇到问题忍不住想找AI帮忙，长期这样下去会不会丧失思考能力？”。 当前热度 198 万热度。它适合作为中文问答场域的破圈验证和用户疑问观察层。</div><div class="row-sub">有了AI之后，遇到问题忍不住想找AI帮忙，长期这样下去会不会丧失思考能力？</div></td><td>知乎</td><td>知乎热榜</td><td>198 万热度</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 12:24:17 CST</td><td><a href="https://www.zhihu.com/question/2020209448975607009" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">极客公园 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">星海图完成 20 亿元 B+ 轮融资，具身智能拐点将至</div></td><td>微信公众号</td><td>极客公园</td><td>media entrance</td><td>2 / 半一手</td><td>中</td><td>中</td><td>已探测</td><td>2026-04-02 12:09:26 CST</td><td><a href="https://mp.weixin.qq.com/s/nyUl8YRG4qoQje0Lg8RbBQ" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">极客公园 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">甲骨文全球裁员 3 万人，多为 AI 可替代职位；雷军将在今晚直播拆车；OpenAI 股票被曝转售市场滞销 | 极客早知道</div></td><td>微信公众号</td><td>极客公园</td><td>media entrance</td><td>2 / 半一手</td><td>中</td><td>中</td><td>已探测</td><td>2026-04-02 12:09:26 CST</td><td><a href="https://mp.weixin.qq.com/s/hbHdD4Il2ku1UgQ9U3J8dg" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">量子位 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">再融20亿！星海图把具身智能头部门槛抬到了200亿</div></td><td>微信公众号</td><td>量子位</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 12:09:26 CST</td><td><a href="https://mp.weixin.qq.com/s/Q-cy_kcexZ2roWqC1egnQw" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">量子位 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">封不住！Claude Code爆改Python版加冕最快10万星，且clone且珍惜</div></td><td>微信公众号</td><td>量子位</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 12:09:26 CST</td><td><a href="https://mp.weixin.qq.com/s/OZNc1MjdJEe2NtVarwp0AQ" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">B站热门榜抓到 AI 相关视频“【AI MV】“听我安排，保你命在！” 白头鹰唱出美国干预伊朗70年”。它适合作为中文视频热榜入口，帮助判断 AI 话题是否开始向大众用户扩散，并识别可被重构的话题切口。</div><div class="row-sub">【AI MV】“听我安排，保你命在！” 白头鹰唱出美国干预伊朗70年</div></td><td>B站</td><td>Bilibili Popular All / AI-Relevant</td><td>7万点赞</td><td>2 / 半一手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 12:03:25 CST</td><td><a href="https://www.bilibili.com/video/BV1mu9jBfExb" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">OpenAI YouTube 频道页直连抓到新视频“OpenAl x Gradient Labs Founder Spotlight”。当前直接解析频道页内的 ytInitialData，避免 Jina 波动对视频 lane 造成整组失真。</div><div class="row-sub">OpenAl x Gradient Labs Founder Spotlight</div></td><td>youtube</td><td>OpenAI YouTube</td><td>6 hours ago / 2,991 views / 1:05</td><td>3 / 一手</td><td>高</td><td>高</td><td>已探测</td><td>2026-04-02 12:03:25 CST</td><td><a href="https://www.youtube.com/watch?v=yNNTLllVbiE" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Hacker News RSS 抓到高热新条目。它适合作为 builder / startup / AI infra 话题的扩散入口，不是最终事实源。</div><div class="row-sub">Show HN: Zerobox – Sandbox any command with file, network, credential controls</div></td><td>web</td><td>Hacker News Frontpage</td><td>builder breakout signal</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 10:46:59 CST</td><td><a href="https://github.com/afshinm/zerobox" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Hacker News RSS 抓到高热新条目。它适合作为 builder / startup / AI infra 话题的扩散入口，不是最终事实源。</div><div class="row-sub">ZomboCom stolen by a hacker, sold, now replaced with AI-generated makeover</div></td><td>web</td><td>Hacker News Frontpage</td><td>builder breakout signal</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 10:46:59 CST</td><td><a href="https://old.reddit.com/r/oldinternet/comments/1raiz8v/zombocom_was_stolen_by_hacker_put_up_for_sale_and/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Interconnects 当前页提取到近期条目“What comes next with open models”。它适合作为官方更新、专家观察或中文传播层的单条入口，后续应回链原文继续核验。</div><div class="row-sub">What comes next with open models</div></td><td>web</td><td>Interconnects</td><td>expert media snapshot</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 10:46:59 CST</td><td><a href="https://www.interconnects.ai/p/the-next-phase-of-open-models" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">量子位官网 当前页提取到近期条目“封不住！Claude Code爆改Python版加冕最快10万星，且clone且珍惜”。它适合作为官方更新、专家观察或中文传播层的单条入口，后续应回链原文继续核验。</div><div class="row-sub">封不住！Claude Code爆改Python版加冕最快10万星，且clone且珍惜</div></td><td>web</td><td>量子位官网</td><td>cn media snapshot</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 10:46:59 CST</td><td><a href="https://www.qbitai.com/2026/04/394570.html" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/ChatGPT 的日榜 RSS 收录了“😭😭”，当前位于本轮抓取顺序第 1 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">😭😭</div></td><td>web</td><td>Reddit / ChatGPT Daily Top</td><td>daily top rss / rank 1</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 09:14:48 CST</td><td><a href="https://old.reddit.com/r/ChatGPT/comments/1s9sgu1/_/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/LocalLLaMA 的日榜 RSS 收录了“arcee-ai/Trinity-Large-Thinking · Hugging Face”，当前位于本轮抓取顺序第 4 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">arcee-ai/Trinity-Large-Thinking · Hugging Face</div></td><td>web</td><td>Reddit / LocalLLaMA Daily Top</td><td>daily top rss / rank 4</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 09:14:48 CST</td><td><a href="https://old.reddit.com/r/LocalLLaMA/comments/1s9pe0w/arceeaitrinitylargethinking_hugging_face/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/LocalLLaMA 的日榜 RSS 收录了“The Bonsai 1-bit models are very good”，当前位于本轮抓取顺序第 2 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">The Bonsai 1-bit models are very good</div></td><td>web</td><td>Reddit / LocalLLaMA Daily Top</td><td>daily top rss / rank 2</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 09:14:48 CST</td><td><a href="https://old.reddit.com/r/LocalLLaMA/comments/1s9zumi/the_bonsai_1bit_models_are_very_good/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">FinSMEs AI Funding / Google News Fallback RSS 抓到新条目“AdZen Closes Seed Funding - FinSMEs”。这类媒体稿通常适合作为融资、新产品、新公司与产业变动的入口，后续需要继续回链公司官网、融资公告或创始人原话。</div><div class="row-sub">AdZen Closes Seed Funding - FinSMEs</div></td><td>web</td><td>FinSMEs AI Funding / Google News Fallback</td><td>financing entrance + blocked-source fallback</td><td>1 / 二手</td><td>偏低</td><td>低</td><td>已探测</td><td>2026-04-02 08:23:17 CST</td><td><a href="https://news.google.com/rss/articles/CBMib0FVX3lxTFB1NERHUTNzNHV3djZMOXZlVVMwb21CbUlHT3NLTk8zaFRPY0FUbDJsSzFTVEdCdmczZS1PNDBLQkJNX3k2RzVEakFDRzFOT29Vd3FVdXpyaU9XRTU3NWN0T3NTMXdJQngzajRnUWJGTQ?oc=5" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">TechCrunch AI RSS 抓到新条目“Anthropic took down thousands of GitHub repos trying to yank its leaked source code — a move the company says was an accident”。这类媒体稿通常适合作为融资、新产品、新公司与产业变动的入口，后续需要继续回链公司官网、融资公告或创始人原话。</div><div class="row-sub">Anthropic took down thousands of GitHub repos trying to yank its leaked source code — a move the company says was an accident</div></td><td>web</td><td>TechCrunch AI</td><td>media entrance</td><td>1 / 二手</td><td>偏高</td><td>中</td><td>已探测</td><td>2026-04-02 08:23:17 CST</td><td><a href="https://techcrunch.com/2026/04/01/anthropic-took-down-thousands-of-github-repos-trying-to-yank-its-leaked-source-code-a-move-the-company-says-was-an-accident/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">百度热搜出现了与 AI / agent / robotics 相关的话题“被AI短剧盗脸成丑角 女模特发声”。当前热搜指数 4834962，它适合作为中文破圈验证信号，而不是事实源。</div><div class="row-sub">被AI短剧盗脸成丑角 女模特发声</div></td><td>web</td><td>百度热搜</td><td>breakout validation</td><td>1 / 二手</td><td>中</td><td>低</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://www.baidu.com/s?wd=%E8%A2%ABAI%E7%9F%AD%E5%89%A7%E7%9B%97%E8%84%B8%E6%88%90%E4%B8%91%E8%A7%92+%E5%A5%B3%E6%A8%A1%E7%89%B9%E5%8F%91%E5%A3%B0&amp;sa=fyb_news&amp;rsv_dl=fyb_news" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">B站热门榜抓到 AI 相关视频“精卫日语填词改编《清姬》「唯焦げた祈り、唯燃え果てた名残」/AI東 雪蓮”。它适合作为中文视频热榜入口，帮助判断 AI 话题是否开始向大众用户扩散，并识别可被重构的话题切口。</div><div class="row-sub">精卫日语填词改编《清姬》「唯焦げた祈り、唯燃え果てた名残」/AI東 雪蓮</div></td><td>B站</td><td>Bilibili Popular All / AI-Relevant</td><td>5万点赞</td><td>2 / 半一手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://www.bilibili.com/video/BV1959VBZEJB" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">GitHub Trending 抓到仓库 openai/codex。当前总 stars 71,578、今日新增 2,345；它适合作为开源 agent / workflow / infra 真实 traction 的入口。</div><div class="row-sub">openai/codex</div></td><td>web</td><td>GitHub Trending</td><td>open-source traction</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://github.com/openai/codex" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Google AI Blog RSS 抓到新条目。它属于官方一手源，适合判断 Google AI 平台层和产品层的真实变化。</div><div class="row-sub">The latest AI news we announced in March 2026</div></td><td>web</td><td>Google AI Blog</td><td>official update</td><td>3 / 一手</td><td>高</td><td>高</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Google AI Blog RSS 抓到新条目。它属于官方一手源，适合判断 Google AI 平台层和产品层的真实变化。</div><div class="row-sub">We’re creating a new satellite imagery map to help protect Brazil’s forests.</div></td><td>web</td><td>Google AI Blog</td><td>official update</td><td>3 / 一手</td><td>高</td><td>高</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://blog.google/products-and-platforms/products/earth/satellite-imagery-brazilian-deforestation/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Hacker News RSS 抓到高热新条目。它适合作为 builder / startup / AI infra 话题的扩散入口，不是最终事实源。</div><div class="row-sub">Claude wrote a full FreeBSD remote kernel RCE with root shell</div></td><td>web</td><td>Hacker News Frontpage</td><td>builder breakout signal</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://github.com/califio/publications/blob/main/MADBugs/CVE-2026-4747/write-up.md" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Hacker News RSS 抓到高热新条目。它适合作为 builder / startup / AI infra 话题的扩散入口，不是最终事实源。</div><div class="row-sub">Ask HN: Who is hiring? (April 2026)</div></td><td>web</td><td>Hacker News Frontpage</td><td>builder breakout signal</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://news.ycombinator.com/item?id=47601859" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Hacker News RSS 抓到高热新条目。它适合作为 builder / startup / AI infra 话题的扩散入口，不是最终事实源。</div><div class="row-sub">The OpenAI graveyard: All the deals and products that haven&#x27;t happened</div></td><td>web</td><td>Hacker News Frontpage</td><td>builder breakout signal</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://www.forbes.com/sites/phoebeliu/2026/03/31/openai-graveyard-deals-and-products-havent-happened-openai/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Hacker News RSS 抓到高热新条目。它适合作为 builder / startup / AI infra 话题的扩散入口，不是最终事实源。</div><div class="row-sub">StepFun 3.5 Flash is #1 cost-effective model for OpenClaw tasks (300 battles)</div></td><td>web</td><td>Hacker News Frontpage</td><td>builder breakout signal</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://app.uniclaw.ai/arena?tab=costEffectiveness&amp;via=hn" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Hacker News RSS 抓到高热新条目。它适合作为 builder / startup / AI infra 话题的扩散入口，不是最终事实源。</div><div class="row-sub">AI for American-produced cement and concrete</div></td><td>web</td><td>Hacker News Frontpage</td><td>builder breakout signal</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://engineering.fb.com/2026/03/30/data-center-engineering/ai-for-american-produced-cement-and-concrete/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Hacker News RSS 抓到高热新条目。它适合作为 builder / startup / AI infra 话题的扩散入口，不是最终事实源。</div><div class="row-sub">The AI Marketing BS Index</div></td><td>web</td><td>Hacker News Frontpage</td><td>builder breakout signal</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://bastian.rieck.me/blog/2026/bs/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">InfoQ AI/ML 当前页提取到近期条目“Google Unveils AppFunctions to Connect AI Agents and Android Apps”。它适合作为官方更新、专家观察或中文传播层的单条入口，后续应回链原文继续核验。</div><div class="row-sub">Google Unveils AppFunctions to Connect AI Agents and Android Apps</div></td><td>web</td><td>InfoQ AI/ML</td><td>expert media snapshot</td><td>2 / 半一手</td><td>中</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://www.infoq.com/news/2026/03/android-appfunctions-agents/?topicPageSponsorship=7df4d3fb-9793-47e1-bc5f-b352b728d053" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">InfoQ AI/ML 当前页提取到近期条目“Microsoft Launches Azure Copilot Migration Agent to Accelerate Cloud Migration Planning”。它适合作为官方更新、专家观察或中文传播层的单条入口，后续应回链原文继续核验。</div><div class="row-sub">Microsoft Launches Azure Copilot Migration Agent to Accelerate Cloud Migration Planning</div></td><td>web</td><td>InfoQ AI/ML</td><td>expert media snapshot</td><td>2 / 半一手</td><td>中</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://www.infoq.com/news/2026/03/azure-copilot-migration-agent/?topicPageSponsorship=7df4d3fb-9793-47e1-bc5f-b352b728d053" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">InfoQ AI/ML 当前页提取到近期条目“ProxySQL Introduces Multi Tier Release Strategy with Stable, Innovative, and AI Tracks”。它适合作为官方更新、专家观察或中文传播层的单条入口，后续应回链原文继续核验。</div><div class="row-sub">ProxySQL Introduces Multi Tier Release Strategy with Stable, Innovative, and AI Tracks</div></td><td>web</td><td>InfoQ AI/ML</td><td>expert media snapshot</td><td>2 / 半一手</td><td>中</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://www.infoq.com/news/2026/03/proxysql-multi-tier-release/?topicPageSponsorship=7df4d3fb-9793-47e1-bc5f-b352b728d053" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">IT 桔子 / 中国人工智能融资报告 当前页提取到近期条目“从生成式 AI 的爆发式应用到多模态大模型的持续突破 ，AI 技术正在改变各行各业 ，重构”。它适合作为官方更新、专家观察或中文传播层的单条入口，后续应回链原文继续核验。</div><div class="row-sub">从生成式 AI 的爆发式应用到多模态大模型的持续突破 ，AI 技术正在改变各行各业 ，重构</div></td><td>web</td><td>IT 桔子 / 中国人工智能融资报告</td><td>official financing report</td><td>3 / 一手</td><td>高</td><td>高</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://cdn.itjuzi.com/pdf/1a5ee188cfde75809136ad47f4077d3a.pdf" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">机器之心官网 当前页提取到近期条目“Claude Code 源码泄露了，有人用Python复刻了一个极简版”。它适合作为官方更新、专家观察或中文传播层的单条入口，后续应回链原文继续核验。</div><div class="row-sub">Claude Code 源码泄露了，有人用Python复刻了一个极简版</div></td><td>web</td><td>机器之心官网</td><td>cn media snapshot</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://www.jiqizhixin.com/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">机器之心官网 当前页提取到近期条目“TurboQuant团队学术不端？谷歌回应了，但争议更大了”。它适合作为官方更新、专家观察或中文传播层的单条入口，后续应回链原文继续核验。</div><div class="row-sub">TurboQuant团队学术不端？谷歌回应了，但争议更大了</div></td><td>web</td><td>机器之心官网</td><td>cn media snapshot</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://www.jiqizhixin.com/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">机器之心官网 当前页提取到近期条目“破局X射线断层成像修复！KAUST、上智院等提出通用自监督基础模型HorusEye，登Nature子刊”。它适合作为官方更新、专家观察或中文传播层的单条入口，后续应回链原文继续核验。</div><div class="row-sub">破局X射线断层成像修复！KAUST、上智院等提出通用自监督基础模型HorusEye，登Nature子刊</div></td><td>web</td><td>机器之心官网</td><td>cn media snapshot</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://www.jiqizhixin.com/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/ChatGPT 的日榜 RSS 收录了“Uhhhhhh??”，当前位于本轮抓取顺序第 3 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">Uhhhhhh??</div></td><td>web</td><td>Reddit / ChatGPT Daily Top</td><td>daily top rss / rank 3</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://old.reddit.com/r/ChatGPT/comments/1s9ava8/uhhhhhh/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/ClaudeAI 的日榜 RSS 收录了“AI’s fault, or more AI? That’s the question”，当前位于本轮抓取顺序第 4 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">AI’s fault, or more AI? That’s the question</div></td><td>web</td><td>Reddit / ClaudeAI Daily Top</td><td>daily top rss / rank 4</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://old.reddit.com/r/ClaudeAI/comments/1s9c5af/ais_fault_or_more_ai_thats_the_question/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/ClaudeAI 的日榜 RSS 收录了“Anthropic staff reacts to Claude code leak 👀”，当前位于本轮抓取顺序第 3 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">Anthropic staff reacts to Claude code leak 👀</div></td><td>web</td><td>Reddit / ClaudeAI Daily Top</td><td>daily top rss / rank 3</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://old.reddit.com/r/ClaudeAI/comments/1s9dvi8/anthropic_staff_reacts_to_claude_code_leak/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/ClaudeAI 的日榜 RSS 收录了“Brother”，当前位于本轮抓取顺序第 1 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">Brother</div></td><td>web</td><td>Reddit / ClaudeAI Daily Top</td><td>daily top rss / rank 1</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://old.reddit.com/r/ClaudeAI/comments/1s9iyp3/brother/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/LocalLLaMA 的日榜 RSS 收录了“Falcon-OCR and Falcon-Perception”，当前位于本轮抓取顺序第 4 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">Falcon-OCR and Falcon-Perception</div></td><td>web</td><td>Reddit / LocalLLaMA Daily Top</td><td>daily top rss / rank 4</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://old.reddit.com/r/LocalLLaMA/comments/1s9hdye/falconocr_and_falconperception/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/LocalLLaMA 的日榜 RSS 收录了“FOR ME, Qwen3.5-27B is better than Gemini 3.1 Pro and GPT-5.3 Codex”，当前位于本轮抓取顺序第 2 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">FOR ME, Qwen3.5-27B is better than Gemini 3.1 Pro and GPT-5.3 Codex</div></td><td>web</td><td>Reddit / LocalLLaMA Daily Top</td><td>daily top rss / rank 2</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://old.reddit.com/r/LocalLLaMA/comments/1s93n1j/for_me_qwen3527b_is_better_than_gemini_31_pro_and/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/LocalLLaMA 的日榜 RSS 收录了“PrismML — Announcing 1-bit Bonsai: The First Commercially Viable 1-bit LLMs”，当前位于本轮抓取顺序第 3 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">PrismML — Announcing 1-bit Bonsai: The First Commercially Viable 1-bit LLMs</div></td><td>web</td><td>Reddit / LocalLLaMA Daily Top</td><td>daily top rss / rank 3</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://old.reddit.com/r/LocalLLaMA/comments/1s90wo4/prismml_announcing_1bit_bonsai_the_first/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Reddit / r/LocalLLaMA 的日榜 RSS 收录了“TurboQuant isn’t just for KV: Qwen3.5-27B at near-Q4_0 quality, about 10% smaller, and finally fitting on my 16GB 5060 Ti”，当前位于本轮抓取顺序第 1 位。它更适合判断真实用户问题、真实体验和外部对象入口，不适合直接当正式事实证据。</div><div class="row-sub">TurboQuant isn’t just for KV: Qwen3.5-27B at near-Q4_0 quality, about 10% smaller, and finally fitting on my 16GB 5060 Ti</div></td><td>web</td><td>Reddit / LocalLLaMA Daily Top</td><td>daily top rss / rank 1</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://old.reddit.com/r/LocalLLaMA/comments/1s9ig5r/turboquant_isnt_just_for_kv_qwen3527b_at_nearq4_0/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">TechCrunch AI RSS 抓到新条目“Cognichip wants AI to design the chips that power AI, and just raised $60M to try”。这类媒体稿通常适合作为融资、新产品、新公司与产业变动的入口，后续需要继续回链公司官网、融资公告或创始人原话。</div><div class="row-sub">Cognichip wants AI to design the chips that power AI, and just raised $60M to try</div></td><td>web</td><td>TechCrunch AI</td><td>media entrance</td><td>1 / 二手</td><td>偏高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://techcrunch.com/2026/04/01/cognichip-wants-ai-to-design-the-chips-that-power-ai-and-just-raised-60m-to-try/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">TechCrunch AI RSS 抓到新条目“Less than a month: StrictlyVC San Francisco brings leaders from TDK Ventures, Replit, and more together”。这类媒体稿通常适合作为融资、新产品、新公司与产业变动的入口，后续需要继续回链公司官网、融资公告或创始人原话。</div><div class="row-sub">Less than a month: StrictlyVC San Francisco brings leaders from TDK Ventures, Replit, and more together</div></td><td>web</td><td>TechCrunch AI</td><td>media entrance</td><td>1 / 二手</td><td>偏高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://techcrunch.com/2026/04/01/join-the-first-strictlyvc-of-2026-in-sf-with-leaders-from-tdk-ventures-and-replits-co-founder/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">TechCrunch AI RSS 抓到新条目“Meta’s natural gas binge could power South Dakota”。这类媒体稿通常适合作为融资、新产品、新公司与产业变动的入口，后续需要继续回链公司官网、融资公告或创始人原话。</div><div class="row-sub">Meta’s natural gas binge could power South Dakota</div></td><td>web</td><td>TechCrunch AI</td><td>media entrance</td><td>1 / 二手</td><td>偏高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://techcrunch.com/2026/04/01/metas-natural-gas-binge-could-power-south-dakota/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">Founder Park 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">看看 Claude Code 怎么做 Harness，这才是 Agent 工程化的真正难点</div></td><td>微信公众号</td><td>Founder Park</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://mp.weixin.qq.com/s/2NUlZtRMbNHpBvgAe3__Qg" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">机器之心 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">Claude Code 源码泄露了，有人用Python复刻了一个极简版</div></td><td>微信公众号</td><td>机器之心</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://mp.weixin.qq.com/s/hMGcR9shwmtTUos4ZiVhYg" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">机器之心 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">TurboQuant团队学术不端？谷歌回应了，但争议更大了</div></td><td>微信公众号</td><td>机器之心</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://mp.weixin.qq.com/s/17k3UyeB4W3xZJcgRWLmCA" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">智东西 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">飞书开源！让所有AI都能用，斩获5.5k星</div></td><td>微信公众号</td><td>智东西</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://mp.weixin.qq.com/s/2iS-bnaSLoQAPyvmNOHF1Q" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">智东西 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">Claude Code开源发酵：负责人反省，平替版狂飙10万星，Anthropic紧急封杀</div></td><td>微信公众号</td><td>智东西</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://mp.weixin.qq.com/s/GEX4Du2Ov6cgjCjUB-Csgg" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">智东西 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">刚刚，阿里发了款能“捏脸”的新模型</div></td><td>微信公众号</td><td>智东西</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://mp.weixin.qq.com/s/kCEgDSR1jYoIGc18GbvI-A" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">智东西 微信 RSS 抓到新条目。它更适合作为中文热点、产品观察和玩法讨论的入口，不宜直接当最终事实结论。</div><div class="row-sub">智谱Z.ai负责人李子玄：深度拆解 GLM-5.1 训练全流程｜GenAICon 2026</div></td><td>微信公众号</td><td>智东西</td><td>media entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://mp.weixin.qq.com/s/O2zFXBCz2VKA2xnu8JacIQ" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">YC Launches 抓到 awen 的新 launch：Awen。当前 batch 为 Winter 2025，票数 8；它适合作为新项目 / 新业务 / 创始团队的发现入口，后续继续回链官网、创始人账号与 demo。</div><div class="row-sub">Awen</div></td><td>web</td><td>YC Launches / AI-Relevant</td><td>newco + product launch entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://www.ycombinator.com/launches/Ppr-awen" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">YC Launches 抓到 Replicas 的新 launch：Replicas - End-to-End Background Coding Agents。当前 batch 为 Spring 2026，票数 46；它适合作为新项目 / 新业务 / 创始团队的发现入口，后续继续回链官网、创始人账号与 demo。</div><div class="row-sub">Replicas - End-to-End Background Coding Agents</div></td><td>web</td><td>YC Launches / AI-Relevant</td><td>newco + product launch entrance</td><td>2 / 半一手</td><td>高</td><td>中</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://www.ycombinator.com/launches/PpP-replicas-end-to-end-background-coding-agents" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">OpenAI YouTube 频道页直连抓到新视频“What Codex Unlocks for Ramp”。当前直接解析频道页内的 ytInitialData，避免 Jina 波动对视频 lane 造成整组失真。</div><div class="row-sub">What Codex Unlocks for Ramp</div></td><td>youtube</td><td>OpenAI YouTube</td><td>46 minutes ago / 1,015 views / 1:02</td><td>3 / 一手</td><td>高</td><td>高</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://www.youtube.com/watch?v=ZXEAuZOSLs0" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">知乎热榜出现了 AI 相关问题“如何看待3.31 Claude Code源码泄露一事？”。 当前热度 93 万热度。它适合作为中文问答场域的破圈验证和用户疑问观察层。</div><div class="row-sub">如何看待3.31 Claude Code源码泄露一事？</div></td><td>知乎</td><td>知乎热榜</td><td>93 万热度</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://www.zhihu.com/question/2022398469655074136" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">知乎热榜出现了 AI 相关问题“如何把 AI 训练成自己的「第二大脑」？”。 当前热度 75 万热度。它适合作为中文问答场域的破圈验证和用户疑问观察层。</div><div class="row-sub">如何把 AI 训练成自己的「第二大脑」？</div></td><td>知乎</td><td>知乎热榜</td><td>75 万热度</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://www.zhihu.com/question/2017266017961736190" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td class="summary-cell"><div class="row-title">知乎热榜出现了 AI 相关问题“Claude 正在自己设计下一代 Claude，当 AI 开始自我进化，将对行业带来哪些影响？”。 当前热度 88 万热度。它适合作为中文问答场域的破圈验证和用户疑问观察层。</div><div class="row-sub">Claude 正在自己设计下一代 Claude，当 AI 开始自我进化，将对行业带来哪些影响？</div></td><td>知乎</td><td>知乎热榜</td><td>88 万热度</td><td>1 / 二手</td><td>中</td><td>偏低</td><td>已探测</td><td>2026-04-02 05:07:15 CST</td><td><a href="https://www.zhihu.com/question/2022254775757009403" target="_blank" rel="noreferrer">原文</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="footnote">这块刻意不直接用“覆盖度”打分，因为 stage 1 的职责是把真实输入拿回来；覆盖度与破圈验证在后续 Top20 / 锁题阶段再算更合理。</div>
+    </section>
+
+    <section id="top20" class="section">
+      <div class="section-head">
+        <div>
+          <h2>② 今日入选 Top20</h2>
+          <div class="section-sub">看 signal-scout 把什么送进了候选池，以及这一轮攻防到底把哪些问题打出来了。</div>
+        </div>
+        <div class="chips">
+          <span class="chip chip-good">Top20 20 条</span>
+          <span class="chip chip-neutral">revision: n/a</span>
+          <span class="chip chip-good">看板会主动标记文件不一致</span>
+        </div>
+      </div>
+      <div class="stage-grid">
+        <div class="status-card"><strong>当前包</strong><a href="file:///Users/apple/Documents/%E5%90%8C%E8%A1%8C%E8%B5%84%E6%9C%AC%E5%B8%82%E5%9C%BA%E5%86%85%E5%AE%B9%E7%B3%BB%E7%BB%9F/03_topic_candidates/20260402__top20-screening-pack.md">20260402__top20-screening-pack.md</a></div>
+        <div class="status-card"><strong>包生成时间</strong>2026-04-02 05:15 CST</div>
+        <div class="status-card"><strong>流程告警</strong>当前未发现额外告警</div>
+      </div>
+      <div class="empty-note good-note">当前没发现新的流程穿透问题。</div>
+      <div class="table-wrap" style="margin-top:14px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>入选信息</th>
+              <th>主平台</th>
+              <th>一手性</th>
+              <th>传播性</th>
+              <th>破圈性</th>
+              <th>总分</th>
+              <th>入选原因</th>
+              <th>原文链接</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td class="summary-cell"><div class="row-title">Claude Code 源码泄露事件持续发酵</div><div class="row-sub">Claude Code 51万行源码被泄露至GitHub，开源社区迅速出现多个复刻版（狂飙10万星），Anthropic紧急封杀并由负责人公开反省。此事在HN、Reddit、知乎热榜、机器之心、极客公园等多平台同步发酵。知乎热榜有专帖讨论&quot;如何看待3.31 Claude Code源码泄露一事&quot;。&quot;</div></td><td>wechat__zhidx / 知乎 / HN / Reddit</td><td>n/a</td><td>n/a</td><td>n/a</td><td>26</td><td>年度级别安全事件，跨全球开发者社区与中国内容场的双向共振，一手信源多元（官方封杀+创始人反省+社区复刻+知乎讨论），可拆解快讯/深度/复盘多层次内容。</td><td><a href="https://mp.weixin.qq.com/s/GEX4Du2Ov6cgjCjUB-Csgg" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>2</td><td class="summary-cell"><div class="row-title">TurboQuant 团队学术不端争议</div><div class="row-sub">机器之心和Reddit同步报道TurboQuant团队涉嫌学术不端，谷歌已回应但争议持续。Reddit上另有实测帖&quot;TurboQuant isn&#x27;t just for KV: Qwen3.5-27B at near-Q4_0 quality&quot;，说明该技术本身仍有实际价值。争议性与技术价值形成张力。</div></td><td>机器之心官网 / Reddit / 微信</td><td>n/a</td><td>n/a</td><td>n/a</td><td>22</td><td>学术诚信话题在AI圈持续敏感，谷歌回应增加官方背书；技术真实性（TurboQuant量化方案）与声誉风险并存，具备持续讨论空间和研报拆解价值。</td><td><a href="https://www.jiqizhixin.com/ | https://old.reddit.com/r/LocalLLaMA/comments/..." target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>3</td><td class="summary-cell"><div class="row-title">Qwen3.5-27B 实测性能对比</div><div class="row-sub">Reddit用户实测Qwen3.5-27B在多项指标上接近或超越Gemini 3.1 Pro和GPT-5.3 Codex，且结合TurboQuant可在16GB 5060 Ti上运行至near-Q4_0质量。开源模型性能追赶闭头的实测证据。</div></td><td>Reddit /r/LocalLLaMA</td><td>n/a</td><td>n/a</td><td>n/a</td><td>21</td><td>开源模型性能突破的实测证据，具体硬件要求（16GB 5060 Ti）有强参考价值；可与TurboQuant争议形成对比报道（技术有实力但团队有争议）。</td><td><a href="https://old.reddit.com/r/LocalLLaMA/comments/..." target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>4</td><td class="summary-cell"><div class="row-title">1-bit Bonsai：首个商业可行1-bit LLM</div><div class="row-sub">PrismML宣布推出1-bit Bonsai，号称首个商业可行1-bit LLM。Reddit社区讨论热烈，但目前信息量有限，需要跟进官网/论文。</div></td><td>Reddit /r/LocalLLaMA</td><td>n/a</td><td>n/a</td><td>n/a</td><td>20</td><td>模型效率方向的重要进展，1-bit LLM商业可行性的首次正式宣布；赛道匹配度高（模型/infra/效率），值得持续跟踪。</td><td><a href="https://old.reddit.com/r/LocalLLaMA/comments/1s90wo4/prismml_announcing_1bit_bonsai_the_first/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>5</td><td class="summary-cell"><div class="row-title">OpenAI Codex GitHub Trending</div><div class="row-sub">OpenAI Codex在GitHub Trending上位列第一，71,578 stars，24小时内新增2,345。YouTube上有&quot;What Codex Unlocks for Ramp&quot;视频。官方仓库一手开源信号。</div></td><td>GitHub Trending / YouTube</td><td>n/a</td><td>n/a</td><td>n/a</td><td>19</td><td>OpenAI官方Agent编码工具，GitHub高热验证开发者需求旺盛；72K stars是强信号，适合作为Agent工具链入口报道。</td><td><a href="https://github.com/openai/codex" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>6</td><td class="summary-cell"><div class="row-title">Cognichip $60M AI芯片设计融资</div><div class="row-sub">Cognichip宣布获得$60M融资，目标是让AI设计AI芯片。TechCrunch报道，一手融资新闻，有明确的商业价值和产业意义。</div></td><td>TechCrunch AI</td><td>n/a</td><td>n/a</td><td>n/a</td><td>22</td><td>AI for Chip Design是今年硬科技热门赛道；$60M融资金额明确，TechCrunch背书；可作为AI基础设施投资线索。</td><td><a href="https://techcrunch.com/2026/04/01/cognichip-wants-ai-to-design-the-chips-that-power-ai-and-just-raised-60m-to-try/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>7</td><td class="summary-cell"><div class="row-title">知乎热榜：Claude自我进化问题</div><div class="row-sub">知乎热榜问题，探讨Claude自我进化对行业的影响。75万热度级别，中文圈强传播，具备哲学+产业双讨论空间。</div></td><td>知乎热榜</td><td>n/a</td><td>n/a</td><td>n/a</td><td>18</td><td>知乎75万热度验证中文大众对AI自我进化的强烈好奇；问题本身即内容框架，适合做观点聚合+专家解读。</td><td><a href="https://www.zhihu.com/question/2022254775757009403" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>8</td><td class="summary-cell"><div class="row-title">Claude写了完整的FreeBSD远程内核RCE</div><div class="row-sub">HN报道Claude写出了完整的FreeBSD远程内核RCE漏洞利用（含root shell），CVE-2026-4747编号。这是AI安全能力的重大演示，也是危险信号。</div></td><td>HN Frontpage</td><td>n/a</td><td>n/a</td><td>n/a</td><td>21</td><td>AI安全能力边界的实测案例；开发者圈层高度关注；CVE编号提供硬数据；可拆解安全研究者视角+产业影响双层内容。</td><td><a href="https://github.com/califio/publications/blob/main/MADBugs/CVE-2026-4747/write-up.md" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>9</td><td class="summary-cell"><div class="row-title">Google March 2026 AI官方更新汇总</div><div class="row-sub">Google AI Blog发布3月AI更新汇总，官方一手信源，内容包括Veo 3.1 Lite、Gemini 3.1 Flash Live更新、Translate实时翻译等。Google官方RSS确认。</div></td><td>Google AI Blog</td><td>n/a</td><td>n/a</td><td>n/a</td><td>19</td><td>官方一手信源，Google产品节奏全景图；适合做AI大厂动态快讯框架的锚点；硬数据+官方说明确保内容可信度。</td><td><a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>10</td><td class="summary-cell"><div class="row-title">机器之心×KAUST HorusEye登Nature子刊</div><div class="row-sub">KAUST和上智院联合发布HorusEye，一个用于X射线断层成像修复的通用自监督基础模型，登上Nature子刊。学术研究+产业应用双重价值。</div></td><td>机器之心官网</td><td>n/a</td><td>n/a</td><td>n/a</td><td>17</td><td>Nature子刊背书，学术影响力高；KAUST是中东AI研究重镇；AI+医疗影像赛道匹配；可拆解学术价值+商业落地双视角。</td><td><a href="https://www.jiqizhixin.com/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>11</td><td class="summary-cell"><div class="row-title">Replicas：YC背景编码Agent</div><div class="row-sub">YC Launches新上线项目Replicas，提供端到端后台编码Agent。YC官方背书，一手Startup信息。</div></td><td>YC Launches</td><td>n/a</td><td>n/a</td><td>n/a</td><td>19</td><td>YC Launches是优质早期项目入口；背景编码Agent是今年Infra/Agent主线；Replicas具体方案待挖掘，适合作为NewCo发现线索。</td><td><a href="https://www.ycombinator.com/launches/PpP-replicas-end-to-end-background-coding-agents" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>12</td><td class="summary-cell"><div class="row-title">知乎3.31 Claude Code泄露专帖</div><div class="row-sub">知乎热榜第2条，专门讨论Claude Code泄露事件。中文开发者社区的主要讨论场，热度高，可与第1条联动。</div></td><td>知乎热榜</td><td>n/a</td><td>n/a</td><td>n/a</td><td>20</td><td>中文开发者社区对Claude Code泄露的核心讨论场；高热问题意味着大众关注度；可与HN/Reddit信息互补形成跨场域报道。</td><td><a href="https://www.zhihu.com/question/2022398469655074136" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>13</td><td class="summary-cell"><div class="row-title">The OpenAI Graveyard</div><div class="row-sub">Forbes报道OpenAI未能落地的交易和产品清单，HN作为趋势入口验证讨论度。这是对OpenAI战略质疑的系统性梳理。</div></td><td>HN Frontpage / Forbes</td><td>n/a</td><td>n/a</td><td>n/a</td><td>18</td><td>对OpenAI有系统性批判视角；适合做AI大厂战略复盘内容；事实基础较强（Forbes背书）。</td><td><a href="https://www.forbes.com/sites/phoebeliu/2026/03/31/openai-graveyard-deals-and-products-havent-happened-openai/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>14</td><td class="summary-cell"><div class="row-title">飞书开源AI项目获5.5k星</div><div class="row-sub">飞书（字节旗下）开源AI项目，获得5.5k GitHub stars。智东西和微信传播，中文AI圈关注。</div></td><td>微信 / 智东西</td><td>n/a</td><td>n/a</td><td>n/a</td><td>16</td><td>字节跳动在AI Infra的开源动作；5.5k stars有一定说服力；飞书在办公场景的AI落地值得跟踪。</td><td><a href="https://mp.weixin.qq.com/s/..." target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>15</td><td class="summary-cell"><div class="row-title">StepFun 3.5 Flash登顶OpenClaw任务性价比</div><div class="row-sub">HN讨论StepFun 3.5 Flash在OpenClaw任务中以300次对比成为成本效益最高的模型。开源模型实测数据，具体可验证。</div></td><td>HN Frontpage</td><td>n/a</td><td>n/a</td><td>n/a</td><td>15</td><td>中国开源模型获得海外开发者认可的具体案例；300 battles数据有说服力；StepFun是今年值得关注的中国AI公司。</td><td>HN Frontpage</td></tr><tr><td>16</td><td class="summary-cell"><div class="row-title">阿里达摩院开源架构CPU直指AI Agent</div><div class="row-sub">阿里达摩院发布开源架构CPU，定位直指AI Agent场景。智东西和机器之心同步报道。</div></td><td>智东西 / 机器之心</td><td>n/a</td><td>n/a</td><td>n/a</td><td>17</td><td>阿里达摩院是AI芯片重要力量；开源CPU+AI Agent组合具战略意义；中国AI硬件开源信号。</td><td><a href="https://zhidx.com/p/542389.html" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>17</td><td class="summary-cell"><div class="row-title">智谱Z.ai负责人深度拆解GLM-5.1</div><div class="row-sub">智谱Z.ai负责人在GenAICon 2026深度拆解GLM-5.1训练全流程。智谱是中国头部大模型公司，GLM-5.1是核心产品。</div></td><td>微信 / 智东西</td><td>n/a</td><td>n/a</td><td>n/a</td><td>17</td><td>中国大模型公司核心技术披露；GenAIConconference背书增加可信度；可作为大模型技术解读内容素材。</td><td><a href="https://mp.weixin.qq.com/s/O2zFXBCz2VKA2xnu8JacIQ" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>18</td><td class="summary-cell"><div class="row-title">Founder Park: Claude Code Harness深度解读</div><div class="row-sub">Founder Park深度分析Claude Code的Harness实现，探讨Agent工程化的真正难点。中文优质科技媒体，深度解读角度稀缺。</div></td><td>微信 / Founder Park</td><td>n/a</td><td>n/a</td><td>n/a</td><td>18</td><td>Agent工程化是今年技术主线；Founder Park是中文优质科技媒体；Claude Code Harness的工程细节在国内传播价值高。</td><td><a href="https://mp.weixin.qq.com/s/2NUlZtRMbNHpBvgAe3__Qg" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>19</td><td class="summary-cell"><div class="row-title">机器之心：Claude Code Python复刻版</div><div class="row-sub">机器之心报道GitHub上出现Python极简版Claude Code复刻。开源社区对Claude Code泄露的工程响应。</div></td><td>机器之心官网 / 微信</td><td>n/a</td><td>n/a</td><td>n/a</td><td>16</td><td>Python版复刻降低社区参与门槛；与第1条Claude Code泄露主事件联动；展现开源社区的快速响应能力。</td><td><a href="https://www.jiqizhixin.com/" target="_blank" rel="noreferrer">原文</a></td></tr><tr><td>20</td><td class="summary-cell"><div class="row-title">AI Marketing BS Index</div><div class="row-sub">HN报道一个用于衡量AI营销BS程度的指数，作者Bastian Rieck。独立研究者出品，HN背书。</div></td><td>HN Frontpage</td><td>n/a</td><td>n/a</td><td>n/a</td><td>15</td><td>AI营销泡沫是行业持续话题；独特视角和框架具备传播性；HN是开发者社区信任源。</td><td><a href="https://bastian.rieck.me/blog/2026/bs/" target="_blank" rel="noreferrer">原文</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 style="margin:18px 0 10px;">Top20 攻防记录</h3>
+      <div class="timeline">
+        <div class="timeline-card"><div class="timeline-meta">2026-04-02 06:47 CST · market-editor</div><div class="timeline-headline">裁判打分 7，结论 continuity_only / top20_mini_slate</div><div class="timeline-status"><span class="chip chip-warn">continuity_only / top20_mini_slate</span></div><ul class="timeline-points"><li>TurboQuant 候选：必须补原始 Reddit/论文链接，证明&quot;争议有据可查、技术有硬核实测&quot;。</li><li>HorusEye：published_at 必须有明确时间，original_link 不能是空泛的机器之心官网，需指向具体文章或论文。</li><li>飞书开源 5.5k 星：GitHub 仓库 URL 必须存在，当前 original_link 是`mp.weixin.qq.com/s/...`截断，无法验证。</li></ul><div class="timeline-link"><a href="file:///Users/apple/Documents/%E5%90%8C%E8%A1%8C%E8%B5%84%E6%9C%AC%E5%B8%82%E5%9C%BA%E5%86%85%E5%AE%B9%E7%B3%BB%E7%BB%9F/10_logs/20260402__top20__stage-gate-scorecard.md">查看文件</a></div></div><div class="timeline-card"><div class="timeline-meta">2026-04-02 07:05 CST · redteam-reviewer</div><div class="timeline-headline">整体框架合格，但一手性严重注水，链接截断率高，视觉素材实际可用率低，同一事件多条候选造成重复计数，评分与事实存在多处分歧。这不是&quot;7分可补强&quot;，这是&quot;系统性材料缺失&quot;。</div><div class="timeline-status"><span class="chip chip-bad">rework</span></div><ul class="timeline-points"><li>A：链接截断率高达25%，一手性形同虚设</li><li>B：同一事件被当成3个独立候选，严重重复计数</li><li>C：HorusEye候选有两条fatal级缺陷，时间戳和链接同时缺失</li></ul><div class="timeline-link"><a href="file:///Users/apple/Documents/%E5%90%8C%E8%A1%8C%E8%B5%84%E6%9C%AC%E5%B8%82%E5%9C%BA%E5%86%85%E5%AE%B9%E7%B3%BB%E7%BB%9F/10_logs/20260402__top20__redteam-review.md">查看文件</a></div></div>
+      </div>
+    </section>
+
+    <section id="selection" class="section">
+      <div class="section-head">
+        <div>
+          <h2>③ 20 进几，最后留下了谁</h2>
+          <div class="section-sub">这里按真实 downstream 对象展示：当前已经物化成 approved topic 的唯一题目集合。</div>
+        </div>
+        <div class="chips">
+          <span class="chip chip-good">20 → 0</span>
+          <span class="chip chip-neutral">approved topic = 真正往下游走的对象</span>
+        </div>
+      </div>
+      <div class="stage-grid">
+        <div class="status-card"><strong>Top5 推荐板</strong><a href="file:///Users/apple/Documents/%E5%90%8C%E8%A1%8C%E8%B5%84%E6%9C%AC%E5%B8%82%E5%9C%BA%E5%86%85%E5%AE%B9%E7%B3%BB%E7%BB%9F/03_topic_candidates/20260402__daily-top8-to-top5.md">20260402__daily-top8-to-top5.md</a></div>
+        <div class="status-card"><strong>平台任务单</strong><a href="file:///Users/apple/Documents/%E5%90%8C%E8%A1%8C%E8%B5%84%E6%9C%AC%E5%B8%82%E5%9C%BA%E5%86%85%E5%AE%B9%E7%B3%BB%E7%BB%9F/03_topic_candidates/20260402__platform-task-sheet.md">20260402__platform-task-sheet.md</a></div>
+        <div class="status-card"><strong>当前流程风险</strong>没有发现平台锁题穿透</div>
+      </div>
+      <div class="empty-note good-note">当前没发现新的流程穿透问题。</div>
+      <div class="table-wrap" style="margin-top:14px;">
+        <table>
+          <thead>
+            <tr>
+              <th>原序号</th>
+              <th>最终留下的题</th>
+              <th>目标平台</th>
+              <th>锁题角度</th>
+              <th>入选原因</th>
+              <th>状态</th>
+              <th>锁题时间</th>
+              <th>任务卡</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="8">当前还没有锁题结果；如果这里应当有题，但 Top20 / 任务单 / approved topic 不一致，说明流程存在穿透或 provenance 错配。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 style="margin:18px 0 10px;">锁题攻防记录</h3>
+      <div class="timeline">
+        <div class="empty-note">当前还没有拿到这一环节的攻防记录。</div>
+      </div>
+    </section>
+
+    <section id="drafts" class="section">
+      <div class="section-head">
+        <div>
+          <h2>④ 稿件池 / 平台草稿箱</h2>
+          <div class="section-sub">这块先做成虚拟草稿箱，但全部基于真实 draft pack 和平台稿文件渲染，不贴历史大版本，只展示当前成品与攻防要点。</div>
+        </div>
+        <div class="chips">
+          <span class="chip chip-good">草稿卡 0 张</span>
+          <span class="chip chip-neutral">攻防摘要 0 条</span>
+        </div>
+      </div>
+      <div class="empty-note good-note">当前没发现新的流程穿透问题。</div>
+      <div class="platform-board" style="margin-top:14px;">
+        <div class="platform-lane" style="--lane-accent:#07c160"><div class="platform-lane-head"><span>微信公众号</span><span>0</span></div><div class="platform-lane-body"><div class="draft-empty">今日这个平台还没有落到草稿箱的稿件。</div></div></div><div class="platform-lane" style="--lane-accent:#ff2442"><div class="platform-lane-head"><span>小红书</span><span>0</span></div><div class="platform-lane-body"><div class="draft-empty">今日这个平台还没有落到草稿箱的稿件。</div></div></div><div class="platform-lane" style="--lane-accent:#1677ff"><div class="platform-lane-head"><span>知乎</span><span>0</span></div><div class="platform-lane-body"><div class="draft-empty">今日这个平台还没有落到草稿箱的稿件。</div></div></div><div class="platform-lane" style="--lane-accent:#111111"><div class="platform-lane-head"><span>X</span><span>0</span></div><div class="platform-lane-body"><div class="draft-empty">今日这个平台还没有落到草稿箱的稿件。</div></div></div><div class="platform-lane" style="--lane-accent:#00a1d6"><div class="platform-lane-head"><span>B站</span><span>0</span></div><div class="platform-lane-body"><div class="draft-empty">今日这个平台还没有落到草稿箱的稿件。</div></div></div><div class="platform-lane" style="--lane-accent:#ff4d4f"><div class="platform-lane-head"><span>今日头条</span><span>0</span></div><div class="platform-lane-body"><div class="draft-empty">今日这个平台还没有落到草稿箱的稿件。</div></div></div><div class="platform-lane" style="--lane-accent:#376bff"><div class="platform-lane-head"><span>百家号</span><span>0</span></div><div class="platform-lane-body"><div class="draft-empty">今日这个平台还没有落到草稿箱的稿件。</div></div></div>
+      </div>
+      <h3 style="margin:22px 0 10px;">成品攻防摘要</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>topic</th>
+              <th>平台</th>
+              <th>pack 状态</th>
+              <th>最后动作</th>
+              <th>裁判分 / 状态</th>
+              <th>本轮主要不合格</th>
+              <th>下一步该改什么</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="footnote">如果你想看某一篇的全过程，这里会给你当前最新 redteam / scorecard 的摘要；不会把历史整稿直接贴满页面。</div>
+    </section>
+  </main>
+  <script>
+    const searchInput = document.getElementById('sourceSearch');
+    const sourceTable = document.getElementById('sourceTable');
+    if (searchInput && sourceTable) {
+      searchInput.addEventListener('input', (event) => {
+        const keyword = event.target.value.trim().toLowerCase();
+        const rows = sourceTable.querySelectorAll('tbody tr');
+        rows.forEach((row) => {
+          const text = row.innerText.toLowerCase();
+          row.style.display = !keyword || text.includes(keyword) ? '' : 'none';
+        });
+      });
+    }
+  </script>
+</body>
+</html>

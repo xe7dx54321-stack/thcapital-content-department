@@ -1,0 +1,13 @@
+{
+  "entity_name": "What happens to local LLM if/when LLMs are no longer released for free?",
+  "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tgmjq0/what_happens_to_local_llm_ifwhen_llms_are_no/",
+  "score": 25,
+  "signal_reasons": [
+    "Reddit高频讨论",
+    "新产品信号"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_localllama_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/JohnBooty"
+}

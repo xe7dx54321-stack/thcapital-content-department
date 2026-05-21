@@ -1,0 +1,4 @@
+interface:
+  display_name: "TH Market Brand Context"
+  short_description: "TH Capital 公域品牌定位、平台角色与转化感知表达约束"
+  default_prompt: "Use TH Capital's public brand context to plan, draft, rewrite, or review public-facing content with clear platform fit and soft conversion awareness."

@@ -1,0 +1,111 @@
+{
+  "generated_at": "2026-05-09 17:44:21 CST",
+  "date": "2026-05-09",
+  "creator_skill_packs": [
+    {
+      "source_name": "数字生命卡兹克",
+      "overlay_skill_name": "th-style-overlay-digitallife-khazix",
+      "sample_gate": "8/20",
+      "skill_card": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/digitallife-khazix/skill-card.md",
+      "text_patterns": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/digitallife-khazix/text-patterns.md",
+      "visual_patterns": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/digitallife-khazix/visual-patterns.md",
+      "style_audit": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/digitallife-khazix/style-audit.md",
+      "sample_index": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/digitallife-khazix/sample-index.md",
+      "corpus_manifest": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/digitallife-khazix/corpus-manifest.json",
+      "legacy_summary": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_dossiers/digitallife-khazix__style-dossier.md"
+    },
+    {
+      "source_name": "赛博禅心",
+      "overlay_skill_name": "th-style-overlay-cyber-zenmind",
+      "sample_gate": "8/20",
+      "skill_card": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/cyber-zenmind/skill-card.md",
+      "text_patterns": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/cyber-zenmind/text-patterns.md",
+      "visual_patterns": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/cyber-zenmind/visual-patterns.md",
+      "style_audit": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/cyber-zenmind/style-audit.md",
+      "sample_index": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/cyber-zenmind/sample-index.md",
+      "corpus_manifest": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/cyber-zenmind/corpus-manifest.json",
+      "legacy_summary": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_dossiers/cyber-zenmind__style-dossier.md"
+    },
+    {
+      "source_name": "饼干哥哥AGI",
+      "overlay_skill_name": "th-style-overlay-cookie-brother-agi",
+      "sample_gate": "8/20",
+      "skill_card": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/cookie-brother-agi/skill-card.md",
+      "text_patterns": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/cookie-brother-agi/text-patterns.md",
+      "visual_patterns": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/cookie-brother-agi/visual-patterns.md",
+      "style_audit": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/cookie-brother-agi/style-audit.md",
+      "sample_index": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/cookie-brother-agi/sample-index.md",
+      "corpus_manifest": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/cookie-brother-agi/corpus-manifest.json",
+      "legacy_summary": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_dossiers/cookie-brother-agi__style-dossier.md"
+    },
+    {
+      "source_name": "袋鼠帝AI客栈",
+      "overlay_skill_name": "th-style-overlay-kangaroo-ai-inn",
+      "sample_gate": "8/20",
+      "skill_card": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/kangaroo-ai-inn/skill-card.md",
+      "text_patterns": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/kangaroo-ai-inn/text-patterns.md",
+      "visual_patterns": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/kangaroo-ai-inn/visual-patterns.md",
+      "style_audit": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/kangaroo-ai-inn/style-audit.md",
+      "sample_index": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/kangaroo-ai-inn/sample-index.md",
+      "corpus_manifest": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/kangaroo-ai-inn/corpus-manifest.json",
+      "legacy_summary": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_dossiers/kangaroo-ai-inn__style-dossier.md"
+    },
+    {
+      "source_name": "量子位",
+      "overlay_skill_name": "th-style-overlay-qbitai",
+      "sample_gate": "8/20",
+      "skill_card": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/qbitai/skill-card.md",
+      "text_patterns": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/qbitai/text-patterns.md",
+      "visual_patterns": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/qbitai/visual-patterns.md",
+      "style_audit": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/qbitai/style-audit.md",
+      "sample_index": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/qbitai/sample-index.md",
+      "corpus_manifest": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/qbitai/corpus-manifest.json",
+      "legacy_summary": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_dossiers/qbitai__style-dossier.md"
+    },
+    {
+      "source_name": "机器之心",
+      "overlay_skill_name": "th-style-overlay-jiqizhixin",
+      "sample_gate": "8/20",
+      "skill_card": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/jiqizhixin/skill-card.md",
+      "text_patterns": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/jiqizhixin/text-patterns.md",
+      "visual_patterns": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/jiqizhixin/visual-patterns.md",
+      "style_audit": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/jiqizhixin/style-audit.md",
+      "sample_index": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/jiqizhixin/sample-index.md",
+      "corpus_manifest": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/jiqizhixin/corpus-manifest.json",
+      "legacy_summary": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_dossiers/jiqizhixin__style-dossier.md"
+    },
+    {
+      "source_name": "智东西",
+      "overlay_skill_name": "th-style-overlay-zhidx",
+      "sample_gate": "8/20",
+      "skill_card": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/zhidx/skill-card.md",
+      "text_patterns": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/zhidx/text-patterns.md",
+      "visual_patterns": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/zhidx/visual-patterns.md",
+      "style_audit": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/zhidx/style-audit.md",
+      "sample_index": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/zhidx/sample-index.md",
+      "corpus_manifest": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_skill_packs/zhidx/corpus-manifest.json",
+      "legacy_summary": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_dossiers/zhidx__style-dossier.md"
+    }
+  ],
+  "creator_dossiers": [
+    "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_dossiers/digitallife-khazix__style-dossier.md",
+    "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_dossiers/cyber-zenmind__style-dossier.md",
+    "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_dossiers/cookie-brother-agi__style-dossier.md",
+    "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_dossiers/kangaroo-ai-inn__style-dossier.md",
+    "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_dossiers/qbitai__style-dossier.md",
+    "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_dossiers/jiqizhixin__style-dossier.md",
+    "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/creator_dossiers/zhidx__style-dossier.md"
+  ],
+  "content_type_playbooks": [
+    "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/content_type_playbooks/event_explainer__playbook.md",
+    "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/content_type_playbooks/product_experience__playbook.md",
+    "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/content_type_playbooks/industry_analysis__playbook.md",
+    "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/content_type_playbooks/builder_teardown__playbook.md",
+    "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/content_type_playbooks/opinionated_commentary__playbook.md"
+  ],
+  "packaging_playbook": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/packaging_playbooks/th_capital_packaging_playbook_v2.md",
+  "visual_playbook": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/visual_playbooks/th_capital_visual_playbook_v2.md",
+  "failure_patterns": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/failure_patterns/content_failure_patterns_v2.md",
+  "style_router": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/latest__style-router.md",
+  "index": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/learning_knowledge_assets/latest__learning-knowledge-index.md"
+}

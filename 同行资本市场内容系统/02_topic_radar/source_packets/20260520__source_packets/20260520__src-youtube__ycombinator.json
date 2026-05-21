@@ -1,0 +1,139 @@
+{
+  "youtube__ycombinator": [
+    {
+      "entity_name": "How to Build a Self-Improving Company with AI",
+      "source_url": "https://www.youtube.com/watch?v=t-G67yKAHBQ",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__ycombinator",
+      "_fetched_at": "2026-05-20T21:57:32.963820"
+    },
+    {
+      "entity_name": "How a Private Chef Startup Went All In on AI Agents",
+      "source_url": "https://www.youtube.com/watch?v=jikOaczZxTY",
+      "score": 15,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__ycombinator",
+      "_fetched_at": "2026-05-20T21:57:32.963901"
+    },
+    {
+      "entity_name": "How to Give AI Agents Enough Context to Be Useful",
+      "source_url": "https://www.youtube.com/watch?v=1egwM88T3C0",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__ycombinator",
+      "_fetched_at": "2026-05-20T21:57:32.963906"
+    },
+    {
+      "entity_name": "How to Build an Internal AI Agent That Evolves Itself",
+      "source_url": "https://www.youtube.com/watch?v=DGD9b8K42lk",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__ycombinator",
+      "_fetched_at": "2026-05-20T21:57:32.963910"
+    },
+    {
+      "entity_name": "Circle CEO: 3 Things That Will Transform Stablecoins in 2027",
+      "source_url": "https://www.youtube.com/watch?v=ZVdgiuiOQ7E",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__ycombinator",
+      "_fetched_at": "2026-05-20T21:57:32.963913"
+    },
+    {
+      "entity_name": "Meet The DevTool Founders Building For AI Agents",
+      "source_url": "https://www.youtube.com/watch?v=RMmEB9ajmdo",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__ycombinator",
+      "_fetched_at": "2026-05-20T21:57:32.963916"
+    },
+    {
+      "entity_name": "This $1.5 Trillion Industry Still Runs on Paper and Fax Machines",
+      "source_url": "https://www.youtube.com/watch?v=21L-iujzy9U",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__ycombinator",
+      "_fetched_at": "2026-05-20T21:57:32.963919"
+    },
+    {
+      "entity_name": "From Zapier for Devs to Powering 90% AI Agents",
+      "source_url": "https://www.youtube.com/watch?v=_y7siiS-V5A",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__ycombinator",
+      "_fetched_at": "2026-05-20T21:57:32.963923"
+    },
+    {
+      "entity_name": "The Tool the Best Engineers Are Using Right Now",
+      "source_url": "https://www.youtube.com/watch?v=u2z44EkIEHE",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__ycombinator",
+      "_fetched_at": "2026-05-20T21:57:32.963926"
+    },
+    {
+      "entity_name": "The Data Layer for the Robot Economy",
+      "source_url": "https://www.youtube.com/watch?v=cSBdukYWWxQ",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__ycombinator",
+      "_fetched_at": "2026-05-20T21:57:32.963929"
+    },
+    {
+      "entity_name": "This Startup Built AI That 80% of Callers Think Is Human",
+      "source_url": "https://www.youtube.com/watch?v=ZxwYGbCOuDQ",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__ycombinator",
+      "_fetched_at": "2026-05-20T21:57:32.963932"
+    },
+    {
+      "entity_name": "This Startup Is Automating America's Biggest Hospitals",
+      "source_url": "https://www.youtube.com/watch?v=00YZWlvAMsQ",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__ycombinator",
+      "_fetched_at": "2026-05-20T21:57:32.963935"
+    },
+    {
+      "entity_name": "The End of Manual Debugging",
+      "source_url": "https://www.youtube.com/watch?v=UGYnC9zqa-k",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__ycombinator",
+      "_fetched_at": "2026-05-20T21:57:32.963938"
+    },
+    {
+      "entity_name": "The Q/A Layer for the AI Coding Era",
+      "source_url": "https://www.youtube.com/watch?v=UpWNdSVWA7M",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__ycombinator",
+      "_fetched_at": "2026-05-20T21:57:32.963941"
+    },
+    {
+      "entity_name": "Senator Scott Wiener Press Conference at YC",
+      "source_url": "https://www.youtube.com/watch?v=Yr9mHKxOkLg",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__ycombinator",
+      "_fetched_at": "2026-05-20T21:57:32.963944"
+    }
+  ]
+}

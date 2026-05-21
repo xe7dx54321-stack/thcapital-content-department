@@ -1,0 +1,123 @@
+{
+  "date": "2026-04-11",
+  "generated_at": "2026-04-12 22:36:16 CST",
+  "board_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260411__daily-top8-to-top5.md",
+  "board_signature": "6c0f9bb14444e89c48cf9f7aa8c5c98f4195f2c29be120612da463fc7856b6c7",
+  "status": "awaiting_founder_selection",
+  "briefing_at": "2026-04-11 17:40:00 CST",
+  "default_pick_at": "2026-04-11 18:00:00 CST",
+  "draftbox_deadline": "2026-04-11 19:00:00 CST",
+  "default_choice_rank": 1,
+  "selected_rank": null,
+  "selected_candidate_key": "",
+  "selected_at": "",
+  "selected_reason": "",
+  "approved_topic_path": "",
+  "draft_pack_dir": "",
+  "bridge_request_id": "",
+  "briefing_sent_at": "",
+  "briefing_sent_signature": "",
+  "recommended_cards": [
+    {
+      "date": "2026-04-11",
+      "card_role": "recommended",
+      "card_label": "推荐 1",
+      "rank": 1,
+      "candidate_key": "hn_frontpage_47717587_openai_backs_illinois_bill_that_would_limit_when_ai_labs_can_be_20260411",
+      "title": "OpenAI backs Illinois bill that would limit when AI labs can be held liable",
+      "display_title": "OpenAI 为伊州 AI 责任法案背书",
+      "topic_line": "OpenAI 为伊州 AI 责任法案背书",
+      "outline": "先把对象和原始信号说清，再解释 why now、普通人 stakes、深层变化，以及现在还不能下死结论的边界。 这题优先成立的原因是：partial source；有明确扩散热度入口；仍处业务窗内高时效；具备天然讨论空间；与 AI / Agent / 一人公司主线高度一致",
+      "style_route": "大热点解释 / 冷启动用户较多的事件稿",
+      "style_profile": {
+        "primary_creator": "量子位",
+        "primary_skill": "th-style-overlay-qbitai",
+        "secondary_creator": "机器之心",
+        "secondary_skill": "th-style-overlay-jiqizhixin",
+        "support_creator": "",
+        "support_skill": "",
+        "borrowed_layers": "对象识别 / 首屏证据 / why now / stakes / 大众转译"
+      },
+      "special_instructions": "style_route=大热点解释 / 冷启动用户较多的事件稿; primary_overlay=量子位; secondary_overlay=机器之心; borrowed_layers=对象识别 / 首屏证据 / why now / stakes / 大众转译; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以 OpenAI backs Illinois bill that would limit when AI labs can be held liable 为入口，讲清对象、why now、影响链和当前阶段判断。",
+      "image_outline": [
+        "封面：对象 + why now 的一句判断，优先让冷启动读者知道这件事是什么。",
+        "正文图：事件原始证据图，放在首屏后，核心作用是第一张图要像证据，不要像气氛图。。",
+        "正文图：对象解释卡，放在背景 bridge 段后，核心作用是这一张负责回答‘这到底是什么事’。。",
+        "正文图：变量 / 时间线图，放在核心论证段前，核心作用是适合 why now、影响链和变量变化段。。",
+        "正文图：风险边界卡，放在风险段前，核心作用是防止热点稿写成情绪稿。。"
+      ],
+      "default_pick": true,
+      "draftbox_deadline": "2026-04-11 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260411__recommended_1__hn_frontpage_47717587_openai_backs_illinois_bill_that_would_limit_when_ai_labs_can_be_20260411.md"
+    },
+    {
+      "date": "2026-04-11",
+      "card_role": "recommended",
+      "card_label": "推荐 2",
+      "rank": 2,
+      "candidate_key": "hn_frontpage_47722096_molotov_cocktail_is_hurled_at_home_of_sam_altman_20260411",
+      "title": "Molotov cocktail is hurled at home of Sam Altman",
+      "display_title": "有人向 Sam Altman 家投掷燃烧弹",
+      "topic_line": "有人向 Sam Altman 家投掷燃烧弹",
+      "outline": "先把对象和原始信号说清，再解释 why now、普通人 stakes、深层变化，以及现在还不能下死结论的边界。 这题优先成立的原因是：partial source；有明确扩散热度入口；仍处业务窗内高时效；具备天然讨论空间",
+      "style_route": "大热点解释 / 冷启动用户较多的事件稿",
+      "style_profile": {
+        "primary_creator": "量子位",
+        "primary_skill": "th-style-overlay-qbitai",
+        "secondary_creator": "机器之心",
+        "secondary_skill": "th-style-overlay-jiqizhixin",
+        "support_creator": "",
+        "support_skill": "",
+        "borrowed_layers": "对象识别 / 首屏证据 / why now / stakes / 大众转译"
+      },
+      "special_instructions": "style_route=大热点解释 / 冷启动用户较多的事件稿; primary_overlay=量子位; secondary_overlay=机器之心; borrowed_layers=对象识别 / 首屏证据 / why now / stakes / 大众转译; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以 Molotov cocktail is hurled at home of Sam Altman 为入口，讲清对象、why now、影响链和当前阶段判断。",
+      "image_outline": [
+        "封面：对象 + why now 的一句判断，优先让冷启动读者知道这件事是什么。",
+        "正文图：事件原始证据图，放在首屏后，核心作用是第一张图要像证据，不要像气氛图。。",
+        "正文图：对象解释卡，放在背景 bridge 段后，核心作用是这一张负责回答‘这到底是什么事’。。",
+        "正文图：变量 / 时间线图，放在核心论证段前，核心作用是适合 why now、影响链和变量变化段。。",
+        "正文图：风险边界卡，放在风险段前，核心作用是防止热点稿写成情绪稿。。"
+      ],
+      "default_pick": false,
+      "draftbox_deadline": "2026-04-11 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260411__recommended_2__hn_frontpage_47722096_molotov_cocktail_is_hurled_at_home_of_sam_altman_20260411.md"
+    }
+  ],
+  "holdout_cards": [
+    {
+      "date": "2026-04-11",
+      "card_role": "holdout",
+      "card_label": "候补 1",
+      "rank": 5,
+      "candidate_key": "reddit_localllama_glm_5_1_tops_the_code_arena_rankings_for_open_models_20260411",
+      "title": "GLM 5.1 tops the code arena rankings for open models",
+      "display_title": "GLM 5.1 tops the code arena ran…",
+      "topic_line": "围绕「GLM 5.1 tops the code arena rankings for open models」这个新…",
+      "outline": "先把对象和原始信号说清，再解释 why now、普通人 stakes、深层变化，以及现在还不能下死结论的边界。 这题优先成立的原因是：有明确扩散热度入口；仍处业务窗内高时效；具备天然讨论空间；与 AI / Agent / 一人公司主线高度一致",
+      "style_route": "大热点解释 / 冷启动用户较多的事件稿",
+      "style_profile": {
+        "primary_creator": "量子位",
+        "primary_skill": "th-style-overlay-qbitai",
+        "secondary_creator": "机器之心",
+        "secondary_skill": "th-style-overlay-jiqizhixin",
+        "support_creator": "",
+        "support_skill": "",
+        "borrowed_layers": "对象识别 / 首屏证据 / why now / stakes / 大众转译"
+      },
+      "special_instructions": "style_route=大热点解释 / 冷启动用户较多的事件稿; primary_overlay=量子位; secondary_overlay=机器之心; borrowed_layers=对象识别 / 首屏证据 / why now / stakes / 大众转译; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以 GLM 5.1 tops the code arena rankings for open models 为入口，讲清对象、why now、影响链和当前阶段判断。",
+      "image_outline": [
+        "封面：对象 + why now 的一句判断，优先让冷启动读者知道这件事是什么。",
+        "正文图：事件原始证据图，放在首屏后，核心作用是第一张图要像证据，不要像气氛图。。",
+        "正文图：对象解释卡，放在背景 bridge 段后，核心作用是这一张负责回答‘这到底是什么事’。。",
+        "正文图：变量 / 时间线图，放在核心论证段前，核心作用是适合 why now、影响链和变量变化段。。",
+        "正文图：风险边界卡，放在风险段前，核心作用是防止热点稿写成情绪稿。。"
+      ],
+      "default_pick": false,
+      "draftbox_deadline": "2026-04-11 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260411__holdout_5__reddit_localllama_glm_5_1_tops_the_code_arena_rankings_for_open_models_20260411.md"
+    }
+  ]
+}

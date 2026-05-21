@@ -1,0 +1,12 @@
+{
+  "entity_name": "We have sub-agents at home",
+  "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1th8a43/we_have_subagents_at_home/",
+  "score": 10,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_localllama_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/sisyphus-cycle"
+}

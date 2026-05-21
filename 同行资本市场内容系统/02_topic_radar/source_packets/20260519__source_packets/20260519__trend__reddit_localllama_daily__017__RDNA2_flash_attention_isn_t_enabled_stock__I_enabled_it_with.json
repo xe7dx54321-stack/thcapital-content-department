@@ -1,0 +1,12 @@
+{
+  "entity_name": "RDNA2 flash attention isn’t enabled stock, I enabled it with this build and doubled my speed",
+  "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1thbzvf/rdna2_flash_attention_isnt_enabled_stock_i/",
+  "score": 5,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_localllama_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/DiscipleofDeceit666"
+}

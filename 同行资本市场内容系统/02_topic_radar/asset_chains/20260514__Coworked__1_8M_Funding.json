@@ -1,0 +1,25 @@
+{
+  "entity": "Coworked",
+  "seed_source": "web__finsmes_ai_gnews",
+  "seed_url": "https://www.finsmes.com/2026/05/coworked-raises-1-8m-in-funding.html",
+  "entity_type": "company",
+  "domain": "Agentic AI Project Management",
+  "derived_links": {
+    "finsmes_article": "https://www.finsmes.com/2026/05/coworked-raises-1-8m-in-funding.html",
+    "product_platform": "https://www.coworked.ai/"
+  },
+  "next_hop_queries": {
+    "coworked_ai_website": "Coworked Harmony AI project management official",
+    "product_screenshots_g2": "Coworked AI project management G2 Capterra reviews",
+    "founder_details": "Coworked AI founders Boston",
+    "open_opportunity_fund": "Coworked Open Opportunity Fund Two Ravens investors"
+  },
+  "score": {
+    "object_clarity": 4,
+    "link_density": 3,
+    "social_presence": 2,
+    "demo_docs_available": 2,
+    "funding_hardness": 5
+  },
+  "notes": "$1.8M funding (small round). Boston. Agentic AI project management platform 'Coworked Harmony'. Open Opportunity Fund + Two Ravens co-led. Engineering + deployment team expansion. Website blocked via Cloudflare but product platform confirmed."
+}

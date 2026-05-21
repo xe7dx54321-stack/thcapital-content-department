@@ -1,0 +1,11 @@
+# 36kr: 一群00后极客和这家机器人公司共处72小时
+- **URL**: https://36kr.com/p/3752115857638145
+- **Source**: 36kr
+- **Published**: 2026-04-04T14:11 (China)
+- **Fetched**: 2026-04-04T19:13:59+00:00
+- **Trigger type**: Product/Event
+- **Key entities**: 自变量机器人, 王潜在 (CEO), 王昊 (CTO), 甘如怡 (算法合伙人), 58到家, 科创学院
+- **Significance**: 自变量机器人办全球首届具身智能开发者大会，20组00后选手72小时开发，100+ PFLOPs算力，Pi0.5/WALL-OSS/英伟达DreamZero开源基模。与58到家合作推出机器人保洁服务落地。与OpenClaw类比：具身智能平权。
+- **China relevance**: 直接中国具身智能公司和生态
+- **Classification**: formal_candidate
+- **Queue status**: structured_accept

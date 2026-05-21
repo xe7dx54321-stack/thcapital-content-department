@@ -1,0 +1,204 @@
+{
+  "trend__arxiv_cs_ai_recent": [
+    {
+      "entity_name": "EntityBench: Towards Entity-Consistent Long-Range Multi-Shot Video Generation",
+      "source_url": "http://arxiv.org/abs/2605.15199v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Ruozhen He",
+      "_fetched_at": "2026-05-17T13:50:39.820512"
+    },
+    {
+      "entity_name": "ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both",
+      "source_url": "http://arxiv.org/abs/2605.15198v1",
+      "score": 20,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Ziyu Guo",
+      "_fetched_at": "2026-05-17T13:50:39.820587"
+    },
+    {
+      "entity_name": "FutureSim: Replaying World Events to Evaluate Adaptive Agents",
+      "source_url": "http://arxiv.org/abs/2605.15188v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Shashwat Goel",
+      "_fetched_at": "2026-05-17T13:50:39.820589"
+    },
+    {
+      "entity_name": "VGGT-Edit: Feed-forward Native 3D Scene Editing with Residual Field Prediction",
+      "source_url": "http://arxiv.org/abs/2605.15186v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Kaixin Zhu",
+      "_fetched_at": "2026-05-17T13:50:39.820590"
+    },
+    {
+      "entity_name": "Quantitative Video World Model Evaluation for Geometric-Consistency",
+      "source_url": "http://arxiv.org/abs/2605.15185v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Jiaxin Wu",
+      "_fetched_at": "2026-05-17T13:50:39.820592"
+    },
+    {
+      "entity_name": "Eradicating Negative Transfer in Multi-Physics Foundation Models via Sparse Mixture-of-Experts Routing",
+      "source_url": "http://arxiv.org/abs/2605.15179v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Ellwil Sharma",
+      "_fetched_at": "2026-05-17T13:50:39.820593"
+    },
+    {
+      "entity_name": "OpenDeepThink: Parallel Reasoning via Bradley--Terry Aggregation",
+      "source_url": "http://arxiv.org/abs/2605.15177v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Shang Zhou",
+      "_fetched_at": "2026-05-17T13:50:39.820595"
+    },
+    {
+      "entity_name": "Evidential Reasoning Advances Interpretable Real-World Disease Screening",
+      "source_url": "http://arxiv.org/abs/2605.15171v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Chenyu Lian",
+      "_fetched_at": "2026-05-17T13:50:39.820596"
+    },
+    {
+      "entity_name": "Text Knows What, Tables Know When: Clinical Timeline Reconstruction via Retrieval-Augmented Multimodal Alignment",
+      "source_url": "http://arxiv.org/abs/2605.15168v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Sayantan Kumar",
+      "_fetched_at": "2026-05-17T13:50:39.820598"
+    },
+    {
+      "entity_name": "Position: Behavioural Assurance Cannot Verify the Safety Claims Governance Now Demands",
+      "source_url": "http://arxiv.org/abs/2605.15164v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Pratinav Seth",
+      "_fetched_at": "2026-05-17T13:50:39.820599"
+    },
+    {
+      "entity_name": "MeMo: Memory as a Model",
+      "source_url": "http://arxiv.org/abs/2605.15156v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Ryan Wei Heng Quek",
+      "_fetched_at": "2026-05-17T13:50:39.820601"
+    },
+    {
+      "entity_name": "Self-Distilled Agentic Reinforcement Learning",
+      "source_url": "http://arxiv.org/abs/2605.15155v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Zhengxi Lu",
+      "_fetched_at": "2026-05-17T13:50:39.820602"
+    },
+    {
+      "entity_name": "Pelican-Unified 1.0: A Unified Embodied Intelligence Model for Understanding, Reasoning, Imagination and Action",
+      "source_url": "http://arxiv.org/abs/2605.15153v1",
+      "score": 15,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Yi Zhang",
+      "_fetched_at": "2026-05-17T13:50:39.820603"
+    },
+    {
+      "entity_name": "Widening the Gap: Exploiting LLM Quantization via Outlier Injection",
+      "source_url": "http://arxiv.org/abs/2605.15152v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Xiaohua Zhan",
+      "_fetched_at": "2026-05-17T13:50:39.820605"
+    },
+    {
+      "entity_name": "APWA: A Distributed Architecture for Parallelizable Agentic Workflows",
+      "source_url": "http://arxiv.org/abs/2605.15132v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Evan Rose",
+      "_fetched_at": "2026-05-17T13:50:39.820606"
+    },
+    {
+      "entity_name": "Understanding How International Students in the U.S. Are Using Conversational AI to Support Cross-Cultural Adaptation",
+      "source_url": "http://arxiv.org/abs/2605.15127v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Laleh Nourian",
+      "_fetched_at": "2026-05-17T13:50:39.820608"
+    },
+    {
+      "entity_name": "CLOVER: Closed-Loop Value Estimation \\&amp; Ranking for End-to-End Autonomous Driving Planning",
+      "source_url": "http://arxiv.org/abs/2605.15120v1",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Sining Ang",
+      "_fetched_at": "2026-05-17T13:50:39.820609"
+    },
+    {
+      "entity_name": "Why Neighborhoods Matter: Traversal Context and Provenance in Agentic GraphRAG",
+      "source_url": "http://arxiv.org/abs/2605.15109v1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Riccardo Terrenzi",
+      "_fetched_at": "2026-05-17T13:50:39.820610"
+    },
+    {
+      "entity_name": "Logging Policy Design for Off-Policy Evaluation",
+      "source_url": "http://arxiv.org/abs/2605.15108v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Connor Douglas",
+      "_fetched_at": "2026-05-17T13:50:39.820612"
+    },
+    {
+      "entity_name": "Improving Multi-turn Dialogue Consistency with Self-Recall Thinking",
+      "source_url": "http://arxiv.org/abs/2605.15102v1",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "research_paper",
+      "_source": "trend__arxiv_cs_ai_recent",
+      "arxiv_author": "Renning Pang",
+      "_fetched_at": "2026-05-17T13:50:39.820613"
+    }
+  ]
+}

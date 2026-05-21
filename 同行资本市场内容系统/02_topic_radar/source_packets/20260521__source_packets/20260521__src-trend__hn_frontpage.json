@@ -1,0 +1,224 @@
+{
+  "trend__hn_frontpage": [
+    {
+      "entity_name": "Google's Antigravity Bait and Switch",
+      "source_url": "https://www.0xsid.com/blog/antigravity-bait-n-switch",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 50,
+      "hn_comments": 19,
+      "_fetched_at": "2026-05-21T22:42:04.338086"
+    },
+    {
+      "entity_name": "AI is just unauthorised plagiarism at a bigger scale",
+      "source_url": "https://axelk.ee/ai-is-just-unauthorised-plagiarism-at-a-bigger-scale/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 225,
+      "hn_comments": 104,
+      "_fetched_at": "2026-05-21T22:42:04.338209"
+    },
+    {
+      "entity_name": "Hating AI Is Good",
+      "source_url": "https://www.thehandbasket.co/p/hating-ai-is-good-actually",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 193,
+      "hn_comments": 194,
+      "_fetched_at": "2026-05-21T22:42:04.338212"
+    },
+    {
+      "entity_name": "US employers spend more than $1.5B a year to fight labor unions, report finds",
+      "source_url": "https://www.theguardian.com/us-news/2026/may/20/how-much-companies-spend-fight-unions",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 67,
+      "hn_comments": 20,
+      "_fetched_at": "2026-05-21T22:42:04.338214"
+    },
+    {
+      "entity_name": "Magic the Gathering format: Fun 40",
+      "source_url": "https://fabiensanglard.net/mtg/fun//index.html",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 21,
+      "hn_comments": 16,
+      "_fetched_at": "2026-05-21T22:42:04.338217"
+    },
+    {
+      "entity_name": "A Bipartisan Amendment Would End Police License Plate Tracking Nationwide",
+      "source_url": "https://www.wired.com/story/a-bipartisan-amendment-would-end-police-license-plate-tracking-nationwide/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 32,
+      "hn_comments": 1,
+      "_fetched_at": "2026-05-21T22:42:04.338219"
+    },
+    {
+      "entity_name": "Who Wins and Who Loses in Prediction Markets? Evidence from Polymarket",
+      "source_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6443103",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 19,
+      "hn_comments": 6,
+      "_fetched_at": "2026-05-21T22:42:04.338221"
+    },
+    {
+      "entity_name": "FatGid: FreeBSD 14.x kernel local privilege escalation",
+      "source_url": "https://fatgid.io/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 30,
+      "hn_comments": 1,
+      "_fetched_at": "2026-05-21T22:42:04.338223"
+    },
+    {
+      "entity_name": "Cekura (YC F24) Is Hiring",
+      "source_url": "https://www.ycombinator.com/companies/cekura-ai/jobs/AiWwUxI-forward-deployed-engineer-us",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 0,
+      "hn_comments": 0,
+      "_fetched_at": "2026-05-21T22:42:04.338225"
+    },
+    {
+      "entity_name": "Python 3.15: features that didn't make the headlines",
+      "source_url": "https://blog.changs.co.uk/python-315-features-that-didnt-make-the-headlines.html",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 137,
+      "hn_comments": 64,
+      "_fetched_at": "2026-05-21T22:42:04.338228"
+    },
+    {
+      "entity_name": "Flipper One – we need your help",
+      "source_url": "https://blog.flipper.net/flipper-one-we-need-your-help/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 436,
+      "hn_comments": 236,
+      "_fetched_at": "2026-05-21T22:42:04.338230"
+    },
+    {
+      "entity_name": "Lost Images from the 1945 Trinity Nuclear Test Restored",
+      "source_url": "https://spectrum.ieee.org/trinity-nuclear-test",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 80,
+      "hn_comments": 19,
+      "_fetched_at": "2026-05-21T22:42:04.338232"
+    },
+    {
+      "entity_name": "IBM invented semiconductor manufacturing automation",
+      "source_url": "https://spectrum.ieee.org/semiconductor-fabrication",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 22,
+      "hn_comments": 0,
+      "_fetched_at": "2026-05-21T22:42:04.338234"
+    },
+    {
+      "entity_name": "Google officially announces that ads will be included in AI Mode search results",
+      "source_url": "https://blog.google/products/ads-commerce/google-marketing-live-search-ads/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 345,
+      "hn_comments": 290,
+      "_fetched_at": "2026-05-21T22:42:04.338236"
+    },
+    {
+      "entity_name": "No Slop Grenade",
+      "source_url": "https://noslopgrenade.com/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 189,
+      "hn_comments": 101,
+      "_fetched_at": "2026-05-21T22:42:04.338238"
+    },
+    {
+      "entity_name": "Show HN: Rmux – A programmable terminal multiplexer with a Playwright-style SDK",
+      "source_url": "https://github.com/helvesec/rmux",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 122,
+      "hn_comments": 60,
+      "_fetched_at": "2026-05-21T22:42:04.338240"
+    },
+    {
+      "entity_name": "Typewise (YC S22) Is Hiring an AI Growth Engineer (Zurich or Remote)",
+      "source_url": "https://www.ycombinator.com/companies/typewise/jobs/HmCzfBK-ai-growth-engineer",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 0,
+      "hn_comments": 0,
+      "_fetched_at": "2026-05-21T22:42:04.338242"
+    },
+    {
+      "entity_name": "Haskell Foundation 2026 Update",
+      "source_url": "https://discourse.haskell.org/t/haskell-foundation-2026-update/14136",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 152,
+      "hn_comments": 52,
+      "_fetched_at": "2026-05-21T22:42:04.338244"
+    },
+    {
+      "entity_name": "The Letter S, by Donald Knuth (1980) [pdf]",
+      "source_url": "https://gwern.net/doc/design/typography/1980-knuth.pdf",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 225,
+      "hn_comments": 38,
+      "_fetched_at": "2026-05-21T22:42:04.338247"
+    },
+    {
+      "entity_name": "Show HN: I reverse engineered Apple's video wallpapers",
+      "source_url": "https://github.com/kageroumado/phosphene",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 354,
+      "hn_comments": 82,
+      "_fetched_at": "2026-05-21T22:42:04.338249"
+    }
+  ]
+}

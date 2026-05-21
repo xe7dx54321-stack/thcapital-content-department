@@ -1,0 +1,11 @@
+# TC: Cognichip wants AI to design the chips that power AI, and just raised $60M to try
+- **URL**: https://techcrunch.com/2026/04/03/cognichip-wants-ai-to-design-the-chips-that-power-ai-and-just-raised-60m-to-try/
+- **Source**: techcrunch
+- **Published**: 2026-04-03
+- **Fetched**: 2026-04-04T19:12:47+00:00
+- **Trigger type**: Funding/Product
+- **Key entities**: Cognichip, AI chip design automation, $60M raise
+- **Significance**: Startup using AI to accelerate chip design itself; $60M to scale. Addresses shortage of human chip designers.
+- **China relevance**: China chip self-sufficiency push; Chinese chip design AI tools
+- **Classification**: formal_candidate
+- **Queue status**: structured_accept

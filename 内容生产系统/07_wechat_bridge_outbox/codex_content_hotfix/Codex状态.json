@@ -1,0 +1,13 @@
+{
+  "updated_at": "2026-04-02 14:26:26 CST",
+  "request_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/07_wechat_bridge_outbox/codex_content_hotfix/老板给Codex.md",
+  "reply_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/07_wechat_bridge_outbox/codex_content_hotfix/Codex回复.md",
+  "log_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/07_wechat_bridge_outbox/codex_content_hotfix/处理记录.md",
+  "last_processed_at": "2026-04-02 14:26:26 CST",
+  "last_processed_request_sha256": "9fc12673cddbd3d3462c58ece7f30f54f9c4815647ee1d2c33d6ded79a7f0fd7",
+  "last_processed_request_preview": "收到指令后，给我去看下内容工厂这边当前的业务运行情况，今天这个业务日已经完成哪些工作了，现在在进行哪些工作？简要汇报即可。",
+  "last_processed_summary": "已完成内容工厂业务运行情况巡检并写回回复文件",
+  "last_reply_sha256": "11a294572c7dc5e8162a71c9c9ad3f0e4b440d09b72c6d41aa451dc67d3d7b37",
+  "last_reply_preview": "# Codex 回复 - 处理时间：2026-04-02 14:23 CST - 当前状态：已处理本轮老板指令 - 本次请求摘要：查看内容工厂当前业务运行情况，简要汇报“这个业务日已完成什么、正在做什么”。 ## 简要结论 内容工厂今天这个业务日**已经正常跑起来了上游 intake 和晨间快反主线**，但**白天主…",
+  "request_is_empty": false
+}

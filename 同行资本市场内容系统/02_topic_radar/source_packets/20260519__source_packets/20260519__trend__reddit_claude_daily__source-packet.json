@@ -1,0 +1,282 @@
+{
+  "source_id": "trend__reddit_claude_daily",
+  "date": "20260519",
+  "entries": [
+    {
+      "entity_name": "r/ClaudeAI List of Ongoing Megathreads",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1s7fepn/rclaudeai_list_of_ongoing_megathreads/",
+      "score": 10,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/sixbillionthsheep"
+    },
+    {
+      "entity_name": "Claude Code weekly limits are increasing 50%, now through July 13.",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tc9oa0/claude_code_weekly_limits_are_increasing_50_now/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/ClaudeOfficial"
+    },
+    {
+      "entity_name": "11 Claude things I wish someone had told me 12 months ago",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tgqnsl/11_claude_things_i_wish_someone_had_told_me_12/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/No-Yogurtcloset4086"
+    },
+    {
+      "entity_name": "I used Claude AI to build an $86 million underground bunker bible. I have autism. This is my happy doc.",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1th8z1m/i_used_claude_ai_to_build_an_86_million/",
+      "score": 10,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/Unable_Internet4626"
+    },
+    {
+      "entity_name": "I gave Claude access to my M365 account using Power Automate + a small MCP server",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1thabze/i_gave_claude_access_to_my_m365_account_using/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/ChiGamerr"
+    },
+    {
+      "entity_name": "Just finished the Claude Code certification and would heavily recommend it to all “vibe coders”",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tgnuhe/just_finished_the_claude_code_certification_and/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/Alex_runs247"
+    },
+    {
+      "entity_name": "Project Glasswing: what Mythos showed us (Cloudflare)",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tgubpo/project_glasswing_what_mythos_showed_us_cloudflare/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/error1212"
+    },
+    {
+      "entity_name": "Cowork just removed my contact data from all major providers in a few hours!",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tggzm5/cowork_just_removed_my_contact_data_from_all/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/TheCoffeeLoop"
+    },
+    {
+      "entity_name": "Interesting Typo",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1th71t7/interesting_typo/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/Drumstick210"
+    },
+    {
+      "entity_name": "Fast mode now defaults to Opus 4.7 in Claude Code.",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tgzjrm/fast_mode_now_defaults_to_opus_47_in_claude_code/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/alOOshXL"
+    },
+    {
+      "entity_name": "Claude advice for humans",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1thaj47/claude_advice_for_humans/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/Asleep_Speaker4744"
+    },
+    {
+      "entity_name": "I told Claude to stop using em dashes. It happily obliged...",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1th83ul/i_told_claude_to_stop_using_em_dashes_it_happily/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/salty_dragonfly1"
+    },
+    {
+      "entity_name": "Claude Code helped me bring my dead passion project back to life",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tgpip8/claude_code_helped_me_bring_my_dead_passion/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/AFDStudios"
+    },
+    {
+      "entity_name": "Backend dev for 11 years. Honest question about my Claude Code days",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tghcyc/backend_dev_for_11_years_honest_question_about_my/",
+      "score": 10,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/Logical-Gain4805"
+    },
+    {
+      "entity_name": "Average LinkedIn profile today",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tg5x5e/average_linkedin_profile_today/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/AdCritical5383"
+    },
+    {
+      "entity_name": "Is the $20 plan worth?",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1th7e4j/is_the_20_plan_worth/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/Icy-Argument7855"
+    },
+    {
+      "entity_name": "Centralize SKILLs",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1thc7pg/centralize_skills/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/Antony_Ma"
+    },
+    {
+      "entity_name": "Claude 2.0",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1th5lif/claude_20/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/Iliketobeoutdoors"
+    },
+    {
+      "entity_name": "Did claude bring back the 60 minutes context cache?",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1th007q/did_claude_bring_back_the_60_minutes_context_cache/",
+      "score": 25,
+      "signal_reasons": [
+        "融资信号",
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/Background_Fox2241"
+    },
+    {
+      "entity_name": "What is happening",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tgry73/what_is_happening/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/Strategy-Savings"
+    },
+    {
+      "entity_name": "Is Claude Cowork the best solution for the daily &quot;chat amnesia&quot;? (Managing 4 different sites)",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1thbmbh/is_claude_cowork_the_best_solution_for_the_daily/",
+      "score": 10,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/cicerone-you"
+    },
+    {
+      "entity_name": "Things I want my future self to remember",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1th9lyd/things_i_want_my_future_self_to_remember/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/GiveMoreMoney"
+    },
+    {
+      "entity_name": "Claude Status Update : Elevated errors for Claude Opus 4.7 on 2026-05-18T22:10:49.000Z",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1th37lh/claude_status_update_elevated_errors_for_claude/",
+      "score": 10,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/ClaudeAI-mod-bot"
+    },
+    {
+      "entity_name": "Claude + Strava + Runna + Peloton",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1tha57h/claude_strava_runna_peloton/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/albus_fulger"
+    },
+    {
+      "entity_name": "Use prompt to make your thinking transferable.",
+      "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1th9ll7/use_prompt_to_make_your_thinking_transferable/",
+      "score": 5,
+      "signal_reasons": [
+        "Reddit高频讨论"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_claude_daily",
+      "reddit_author": "/u/Final-Wrap-8978"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+# TC: Anthropic is having a moment in the private markets; SpaceX could spoil the party
+- **URL**: https://techcrunch.com/2026/04/03/anthropic-is-having-a-moment-in-the-private-markets-spacex-could-spoil-the-party/
+- **Source**: techcrunch
+- **Published**: 2026-04-03T20:42:00+00:00
+- **Fetched**: 2026-04-04T19:12:48+00:00
+- **Trigger type**: Market/Funding signal
+- **Key entities**: Anthropic, SpaceX, OpenAI, secondary market
+- **Significance**: Anthropic valuation surging on secondary market; SpaceX IPO may redirect VC attention and capital. OpenAI perceived as struggling with governance issues.
+- **China relevance**: Anthropic Chinese market positioning vs OpenAI; Chinese LLM companies may benefit from OpenAI distraction
+- **Classification**: formal_candidate
+- **Queue status**: structured_accept

@@ -1,0 +1,27 @@
+{
+  "entity": "Andco",
+  "seed_source": "trend__yc_launches_ai",
+  "seed_url": "https://www.ycombinator.com/companies/andco",
+  "entity_type": "company",
+  "domain": "Legal AI / Agentic Workflow / Personal Injury",
+  "derived_links": {
+    "official_website": "https://www.andco.ai/",
+    "yc_company_page": "https://www.ycombinator.com/companies/andco",
+    "linkedin": "https://www.linkedin.com/company/andco-ai",
+    "twitter": "https://twitter.com/andco_ai"
+  },
+  "next_hop_queries": {
+    "product_demo": "Andco AI personal injury case workup demo",
+    "founding_team": "Ryan Xue CEO Andco founder",
+    "customer_case_studies": "Andco PI law firm case study results",
+    "pricing_model": "Andco pricing legal AI"
+  },
+  "score": {
+    "object_clarity": 5,
+    "link_density": 4,
+    "social_presence": 3,
+    "demo_docs_available": 3,
+    "funding_hardness": 3
+  },
+  "notes": "YC S26. AI agents handle pre-litigation workup for PI firms. 8hrs saved in first 24hrs of case. Founded by repeat founders + ex-lawyers. Still early (no external funding disclosed in source)."
+}

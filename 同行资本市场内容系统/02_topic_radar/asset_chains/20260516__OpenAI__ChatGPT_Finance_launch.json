@@ -1,0 +1,50 @@
+{
+  "_meta": {
+    "asset_id": "20260516__openai__chatgpt_finance_launch",
+    "source": "web__techcrunch_ai",
+    "article_url": "https://techcrunch.com/2026/05/15/openai-launches-chatgpt-for-personal-finance-will-let-you-connect-bank-accounts/",
+    "entity_name": "ChatGPT Finance (OpenAI)",
+    "entity_type": "product_feature_launch",
+    "derived_at": "2026-05-16T00:44:00Z",
+    "score": 20,
+    "signal_reasons": ["新产品信号"],
+    "skip_reason": null
+  },
+  "company_profile": {
+    "name": "OpenAI / ChatGPT Finance",
+    "parent_entity": "OpenAI",
+    "tagline": "AI-powered personal finance assistant in ChatGPT",
+    "赛道": "AI × Personal Finance / Fintech",
+    "location": "US (ChatGPT Pro subscribers)",
+    "launch_date": "2026-05-15 (preview launch)",
+    "stage": "Preview (Pro subscribers only)"
+  },
+  "hard_links": {
+    "product_page": "chat.openai.com – Finances tab in sidebar",
+    "plaid_partnership": "Plaid (12,000+ financial institutions)",
+    "press_release": "OpenAI official (2026-05-15)",
+    "hiro_acquisition": "OpenAI acquired Hiro team (April 2026) – General Catalyst, Ribbit, Restive backed"
+  },
+  "asset_breakdown": {
+    "product_demo": "✅ In-product: sidebar Finances tab; @Finances agent command",
+    "supported_institutions": "✅ Schwab, Fidelity, Chase, Robinhood, Amex, Capital One + 12,000 via Plaid",
+    "technical_deep_dive": "✅ GPT-5.5 model; finance benchmark built with experts",
+    "press_kit": "✅ TC coverage + OpenAI blog",
+    "visual_materials": "✅ Dashboard screenshots in TC article"
+  },
+  "signal_value": {
+    "summary": "OpenAI 通过 Plaid 集成推出 ChatGPT 个人财务工具（预览版），让 Pro 用户连接银行账户做消费分析、投资组合跟踪、买房规划等。月活 200M 用户中已有金融问询需求，这是 OpenAI 从通用 AI 向垂直行业落地的重大步骤。收购 Hiro 团队后快速推出产品。",
+    "传播性": "极高 – OpenAI 品牌 + 200M 用户基础",
+    "破圈性": "高 – AI+金融Privacy争议 + Plaid 数据问题媒体潜力",
+    "数据硬度": "高 – OpenAI 官方发布 + TC 验证 + Plaid 合作确认",
+    "视觉素材": "✅ Dashboard 截图；Plaid 连接 flow"
+  },
+  "query_chain": {
+    "next_hops": [
+      {"query": "OpenAI ChatGPT Finance privacy policy Plaid data", "priority": "high"},
+      {"query": "Hiro startup OpenAI acquisition details April 2026", "priority": "high"},
+      {"query": "ChatGPT Finance GPT-5.5 benchmark finance accuracy", "priority": "medium"}
+    ]
+  },
+  "runbook_ref": "market-asset-derivation-runbook (script absent, executed manually per cron request)"
+}

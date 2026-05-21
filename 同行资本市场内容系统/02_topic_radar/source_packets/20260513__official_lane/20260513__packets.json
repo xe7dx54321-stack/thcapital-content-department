@@ -1,0 +1,711 @@
+[
+  {
+    "source_id": "web__openai_news",
+    "label": "OpenAI News",
+    "type": "rss",
+    "captured_at": "2026-05-13T22:53:13.656275",
+    "entry_count": 20,
+    "entries": [
+      {
+        "entity_name": "Parloa builds service agents customers want to talk to",
+        "source_url": "https://openai.com/index/parloa",
+        "title_text": "Parloa builds service agents customers want to talk to",
+        "body_snippet": "<![CDATA[Parloa leverages OpenAI models to power scalable, voice-driven AI customer service agents, enabling enterprises to design, simulate, and deploy reliable, real-time interactions.]]>",
+        "score": 36,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "Advancing voice intelligence with new models in the API",
+        "source_url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api",
+        "title_text": "Advancing voice intelligence with new models in the API",
+        "body_snippet": "<![CDATA[Explore new realtime voice models in the OpenAI API that can reason, translate, and transcribe speech, enabling more natural and intelligent voice experiences.]]>",
+        "score": 36,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "OpenAI launches DeployCo to help businesses build around intelligence",
+        "source_url": "https://openai.com/index/openai-launches-the-deployment-company",
+        "title_text": "OpenAI launches DeployCo to help businesses build around intelligence",
+        "body_snippet": "<![CDATA[OpenAI launches DeployCo, a new enterprise deployment company built to help organizations bring frontier AI into production and turn it into measurable business impact.]]>",
+        "score": 25,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "How frontier firms are pulling ahead",
+        "source_url": "https://openai.com/index/introducing-b2b-signals",
+        "title_text": "How frontier firms are pulling ahead",
+        "body_snippet": "<![CDATA[OpenAI’s B2B Signals research shows how frontier enterprises deepen AI adoption, scale Codex-powered agentic workflows, and build durable competitive advantage.]]>",
+        "score": 24,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber",
+        "source_url": "https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber",
+        "title_text": "Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber",
+        "body_snippet": "<![CDATA[OpenAI expands Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber, helping verified defenders accelerate vulnerability research and protect critical infrastructure.]]>",
+        "score": 22,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "Unlocking large scale AI training networks with MRC (Multipath Reliable Connecti",
+        "source_url": "https://openai.com/index/mrc-supercomputer-networking",
+        "title_text": "Unlocking large scale AI training networks with MRC (Multipath Reliable Connection)",
+        "body_snippet": "<![CDATA[OpenAI introduces MRC (Multipath Reliable Connection), a new supercomputer networking protocol released via OCP to improve resilience and performance in large-scale AI training clusters.]]>",
+        "score": 22,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "How NVIDIA engineers and researchers build with Codex",
+        "source_url": "https://openai.com/index/nvidia",
+        "title_text": "How NVIDIA engineers and researchers build with Codex",
+        "body_snippet": "<![CDATA[Teams use Codex with GPT-5.5 to ship production systems and turn research ideas into runnable experiments.]]>",
+        "score": 21,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "Running Codex safely at OpenAI",
+        "source_url": "https://openai.com/index/running-codex-safely",
+        "title_text": "Running Codex safely at OpenAI",
+        "body_snippet": "<![CDATA[How OpenAI runs Codex securely with sandboxing, approvals, network policies, and agent-native telemetry to support safe and compliant coding agent adoption.]]>",
+        "score": 21,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "GPT-5.5 Instant: smarter, clearer, and more personalized",
+        "source_url": "https://openai.com/index/gpt-5-5-instant",
+        "title_text": "GPT-5.5 Instant: smarter, clearer, and more personalized",
+        "body_snippet": "<![CDATA[GPT-5.5 Instant updates ChatGPT’s default model with smarter, more accurate answers, reduced hallucinations, and improved personalization controls.]]>",
+        "score": 19,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "New ways to buy ChatGPT ads",
+        "source_url": "https://openai.com/index/new-ways-to-buy-chatgpt-ads",
+        "title_text": "New ways to buy ChatGPT ads",
+        "body_snippet": "<![CDATA[OpenAI expands ChatGPT ads with a beta self-serve Ads Manager, CPC bidding, and enhanced measurement tools—built to protect privacy and keep conversations separate from ads.]]>",
+        "score": 19,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "Simplex rethinks software development with Codex",
+        "source_url": "https://openai.com/index/simplex",
+        "title_text": "Simplex rethinks software development with Codex",
+        "body_snippet": "<![CDATA[Simplex boosts software development with ChatGPT Enterprise and Codex, reducing design, build, and testing time while scaling AI-driven workflows.]]>",
+        "score": 17,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "OpenAI and PwC collaborate to reimagine the office of the CFO",
+        "source_url": "https://openai.com/index/openai-pwc-finance-collaboration",
+        "title_text": "OpenAI and PwC collaborate to reimagine the office of the CFO",
+        "body_snippet": "<![CDATA[OpenAI and PwC are partnering to help enterprises use AI agents to automate finance workflows, improve forecasting, strengthen controls, and modernize the CFO function.]]>",
+        "score": 17,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "Introducing Trusted Contact in ChatGPT",
+        "source_url": "https://openai.com/index/introducing-trusted-contact-in-chatgpt",
+        "title_text": "Introducing Trusted Contact in ChatGPT",
+        "body_snippet": "<![CDATA[Introducing Trusted Contact in ChatGPT, an optional safety feature that notifies someone you trust if serious self-harm concerns are detected.]]>",
+        "score": 15,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "Advancing youth safety and wellbeing in EMEA",
+        "source_url": "https://openai.com/index/advancing-youth-safety-in-emea",
+        "title_text": "Advancing youth safety and wellbeing in EMEA",
+        "body_snippet": "<![CDATA[Explore OpenAI’s European Youth Safety Blueprint and EMEA Youth & Wellbeing Grants, advancing safe, responsible AI for teens, families, and educators.]]>",
+        "score": 15,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "How finance teams use Codex",
+        "source_url": "https://openai.com/academy/how-finance-teams-use-codex",
+        "title_text": "How finance teams use Codex",
+        "body_snippet": "<![CDATA[See how finance teams can use Codex to build MBRs, reporting packs, variance bridges, model checks, and planning scenarios from real work inputs.]]>",
+        "score": 14,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "What Parameter Golf taught us about AI-assisted research",
+        "source_url": "https://openai.com/index/what-parameter-golf-taught-us",
+        "title_text": "What Parameter Golf taught us about AI-assisted research",
+        "body_snippet": "<![CDATA[Parameter Golf brought together 1,000+ participants and 2,000+ submissions to explore AI-assisted machine learning research, coding agents, quantization, and novel model design under strict c",
+        "score": 14,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "AutoScout24 scales engineering with AI-powered workflows",
+        "source_url": "https://openai.com/index/autoscout24",
+        "title_text": "AutoScout24 scales engineering with AI-powered workflows",
+        "body_snippet": "<![CDATA[Learn how AutoScout24 Group uses Codex and ChatGPT to speed development cycles, improve code quality, and expand AI adoption.]]>",
+        "score": 14,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "Testing ads in ChatGPT",
+        "source_url": "https://openai.com/index/testing-ads-in-chatgpt",
+        "title_text": "Testing ads in ChatGPT",
+        "body_snippet": "<![CDATA[OpenAI begins testing ads in ChatGPT to support free access, with clear labeling, answer independence, strong privacy protections, and user control.]]>",
+        "score": 14,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "How ChatGPT learns about the world while protecting privacy",
+        "source_url": "https://openai.com/index/how-chatgpt-protects-privacy",
+        "title_text": "How ChatGPT learns about the world while protecting privacy",
+        "body_snippet": "<![CDATA[Learn how ChatGPT safeguards your privacy, reduces personal data in training, and gives you control over whether your conversations improve AI models.]]>",
+        "score": 14,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      },
+      {
+        "entity_name": "Singular Bank helps bankers move fast with ChatGPT and Codex",
+        "source_url": "https://openai.com/index/singular-bank",
+        "title_text": "Singular Bank helps bankers move fast with ChatGPT and Codex",
+        "body_snippet": "<![CDATA[Singular Bank built Singularity, an internal assistant using ChatGPT and Codex to help bankers save 60–90 minutes daily on meeting prep, portfolio analysis, and follow-up.]]>",
+        "score": 14,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__openai_news",
+        "label": "OpenAI News"
+      }
+    ]
+  },
+  {
+    "source_id": "web__google_blog_ai",
+    "label": "Google AI Blog",
+    "type": "page",
+    "captured_at": "2026-05-13T22:53:15.316246",
+    "entry_count": 14,
+    "entries": [
+      {
+        "entity_name": "Google Ads &amp; Commerce blog",
+        "source_url": "https://blog.google/products/ads-commerce/",
+        "title_text": "Google Ads &amp; Commerce blog",
+        "body_snippet": "",
+        "score": 0,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__google_blog_ai",
+        "label": "Google AI Blog"
+      },
+      {
+        "entity_name": "Innovation &amp; AI",
+        "source_url": "https://blog.google/innovation-and-ai/",
+        "title_text": "Innovation &amp; AI",
+        "body_snippet": "",
+        "score": 0,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__google_blog_ai",
+        "label": "Google AI Blog"
+      },
+      {
+        "entity_name": "AI Impact Summit 2026: How we’re partnering to make AI work for everyone\n      \n",
+        "source_url": "https://blog.google/innovation-and-ai/technology/ai/ai-impact-summit-2026-india/",
+        "title_text": "AI Impact Summit 2026: How we’re partnering to make AI work for everyone\n      \n    \n    \n    \n      An overview of Google’s new global partnerships and funding announcements at the AI Impact Summit in India.",
+        "body_snippet": "",
+        "score": 13,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__google_blog_ai",
+        "label": "Google AI Blog"
+      },
+      {
+        "entity_name": "Digitize your paper notes with Gemini.",
+        "source_url": "https://blog.google/innovation-and-ai/products/gemini-app/digitize-notes-gemini-study-guide/",
+        "title_text": "Digitize your paper notes with Gemini.",
+        "body_snippet": "",
+        "score": 7,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__google_blog_ai",
+        "label": "Google AI Blog"
+      },
+      {
+        "entity_name": "You can now easily generate files in Gemini.",
+        "source_url": "https://blog.google/innovation-and-ai/products/gemini-app/generate-files-in-gemini/",
+        "title_text": "You can now easily generate files in Gemini.",
+        "body_snippet": "",
+        "score": 7,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__google_blog_ai",
+        "label": "Google AI Blog"
+      },
+      {
+        "entity_name": "Find out what’s new in the Gemini app in April&#x27;s Gemini Drop.",
+        "source_url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-april-2026/",
+        "title_text": "Find out what’s new in the Gemini app in April&#x27;s Gemini Drop.",
+        "body_snippet": "",
+        "score": 12,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__google_blog_ai",
+        "label": "Google AI Blog"
+      },
+      {
+        "entity_name": "Building superconducting and neutral atom quantum computers",
+        "source_url": "https://blog.google/innovation-and-ai/technology/research/neutral-atom-quantum-computers/",
+        "title_text": "Building superconducting and neutral atom quantum computers",
+        "body_snippet": "",
+        "score": 0,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__google_blog_ai",
+        "label": "Google AI Blog"
+      },
+      {
+        "entity_name": "Our new study explores how AI can reduce the climate impact of air travel.",
+        "source_url": "https://blog.google/innovation-and-ai/models-and-research/google-research/contrail-avoidance-research/",
+        "title_text": "Our new study explores how AI can reduce the climate impact of air travel.",
+        "body_snippet": "",
+        "score": 5,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__google_blog_ai",
+        "label": "Google AI Blog"
+      },
+      {
+        "entity_name": "Groundsource: using AI to help communities better predict natural disasters",
+        "source_url": "https://blog.google/innovation-and-ai/technology/research/gemini-help-communities-predict-crisis/",
+        "title_text": "Groundsource: using AI to help communities better predict natural disasters",
+        "body_snippet": "",
+        "score": 0,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__google_blog_ai",
+        "label": "Google AI Blog"
+      },
+      {
+        "entity_name": "View more from Google Research",
+        "source_url": "https://blog.google/innovation-and-ai/technology/research/",
+        "title_text": "View more from Google Research",
+        "body_snippet": "",
+        "score": 0,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__google_blog_ai",
+        "label": "Google AI Blog"
+      },
+      {
+        "entity_name": "Gemini API File Search is now multimodal: build efficient, verifiable RAG",
+        "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanded-gemini-api-file-search-multimodal-rag/",
+        "title_text": "Gemini API File Search is now multimodal: build efficient, verifiable RAG",
+        "body_snippet": "",
+        "score": 17,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__google_blog_ai",
+        "label": "Google AI Blog"
+      },
+      {
+        "entity_name": "Accelerating Gemma 4: faster inference with  multi-token prediction drafters",
+        "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/multi-token-prediction-gemma-4/",
+        "title_text": "Accelerating Gemma 4: faster inference with  multi-token prediction drafters",
+        "body_snippet": "",
+        "score": 0,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__google_blog_ai",
+        "label": "Google AI Blog"
+      },
+      {
+        "entity_name": "Reduce friction and latency for long-running jobs with Webhooks in Gemini API",
+        "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/event-driven-webhooks/",
+        "title_text": "Reduce friction and latency for long-running jobs with Webhooks in Gemini API",
+        "body_snippet": "",
+        "score": 17,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__google_blog_ai",
+        "label": "Google AI Blog"
+      },
+      {
+        "entity_name": "View more from Developer tools",
+        "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/",
+        "title_text": "View more from Developer tools",
+        "body_snippet": "",
+        "score": 0,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__google_blog_ai",
+        "label": "Google AI Blog"
+      }
+    ]
+  },
+  {
+    "source_id": "web__anthropic_news",
+    "label": "Anthropic News",
+    "type": "page",
+    "captured_at": "2026-05-13T22:53:23.365166",
+    "entry_count": 5,
+    "entries": [
+      {
+        "entity_name": "Responsible Scaling Policy",
+        "source_url": "https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy",
+        "title_text": "Responsible Scaling Policy",
+        "body_snippet": "",
+        "score": 8,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__anthropic_news",
+        "label": "Anthropic News"
+      },
+      {
+        "entity_name": "Consumer health data privacy policy",
+        "source_url": "https://www.anthropic.com/legal/consumer-health-data-privacy-policy",
+        "title_text": "Consumer health data privacy policy",
+        "body_snippet": "",
+        "score": 4,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__anthropic_news",
+        "label": "Anthropic News"
+      },
+      {
+        "entity_name": "Responsible disclosure policy",
+        "source_url": "https://www.anthropic.com/responsible-disclosure-policy",
+        "title_text": "Responsible disclosure policy",
+        "body_snippet": "",
+        "score": 8,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__anthropic_news",
+        "label": "Anthropic News"
+      },
+      {
+        "entity_name": "Terms of service: Commercial",
+        "source_url": "https://www.anthropic.com/legal/commercial-terms",
+        "title_text": "Terms of service: Commercial",
+        "body_snippet": "",
+        "score": 0,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__anthropic_news",
+        "label": "Anthropic News"
+      },
+      {
+        "entity_name": "Terms of service: Consumer",
+        "source_url": "https://www.anthropic.com/legal/consumer-terms",
+        "title_text": "Terms of service: Consumer",
+        "body_snippet": "",
+        "score": 0,
+        "signal_reasons": [],
+        "type": "official_page",
+        "_source": "web__anthropic_news",
+        "label": "Anthropic News"
+      }
+    ]
+  },
+  {
+    "source_id": "web__deepmind_blog",
+    "label": "DeepMind Blog",
+    "type": "page",
+    "captured_at": "2026-05-13T22:53:25.618861",
+    "entry_count": 0,
+    "entries": []
+  },
+  {
+    "source_id": "web__xai_news",
+    "label": "xAI News",
+    "type": "page",
+    "captured_at": "2026-05-13T22:53:25.951784",
+    "entry_count": 0,
+    "entries": []
+  },
+  {
+    "source_id": "web__nvidia_blog",
+    "label": "NVIDIA Blog",
+    "type": "rss",
+    "captured_at": "2026-05-13T22:53:28.309639",
+    "entry_count": 18,
+    "entries": [
+      {
+        "entity_name": "OpenAI’s New GPT-5.5 Powers Codex on NVIDIA Infrastructure — and NVIDIA Is Alrea",
+        "source_url": "https://blogs.nvidia.com/blog/openai-codex-gpt-5-5-ai-agents/",
+        "title_text": "OpenAI’s New GPT-5.5 Powers Codex on NVIDIA Infrastructure — and NVIDIA Is Already Putting It to Work",
+        "body_snippet": "<![CDATA[AI agents have revolutionized developer workflows, and their next frontier is knowledge work: processing information, solving complex problems, coming up with new ideas and driving innovation",
+        "score": 47,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "NVIDIA and SAP Bring Trust to Specialized Agents",
+        "source_url": "https://blogs.nvidia.com/blog/sap-specialized-agents/",
+        "title_text": "NVIDIA and SAP Bring Trust to Specialized Agents",
+        "body_snippet": "<![CDATA[Announced today at SAP Sapphire — where NVIDIA founder and CEO Jensen Huang joined  SAP CEO Christian Klein’s keynote by video — SAP and NVIDIA’s expanded collaboration helps enterprises run ",
+        "score": 39,
+        "signal_reasons": [
+          "突发信号"
+        ],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "NVIDIA Launches Nemotron 3 Nano Omni Model, Unifying Vision, Audio and Language ",
+        "source_url": "https://blogs.nvidia.com/blog/nemotron-3-nano-omni-multimodal-ai-agents/",
+        "title_text": "NVIDIA Launches Nemotron 3 Nano Omni Model, Unifying Vision, Audio and Language for up to 9x More Efficient AI Agents",
+        "body_snippet": "<![CDATA[AI agent systems today juggle separate models for vision, speech and language — losing time and context as they pass data from one model to the other. Unveiled today, NVIDIA Nemotron 3 Nano O",
+        "score": 32,
+        "signal_reasons": [
+          "突发信号"
+        ],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "NVIDIA, Ineffable Intelligence Team Up to Build the Future of Reinforcement Lear",
+        "source_url": "https://blogs.nvidia.com/blog/ineffable-intelligence-reinforcement-learning-infrastructure/",
+        "title_text": "NVIDIA, Ineffable Intelligence Team Up to Build the Future of Reinforcement Learning Infrastructure",
+        "body_snippet": "<![CDATA[Reinforcement-learning agents — AI systems that learn by trial and error — can convert computation into new knowledge. That’s the focus of a new engineering-level collaboration between NVIDIA",
+        "score": 29,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "NVIDIA and Google Cloud Collaborate to Advance Agentic and Physical AI",
+        "source_url": "https://blogs.nvidia.com/blog/google-cloud-agentic-physical-ai-factories/",
+        "title_text": "NVIDIA and Google Cloud Collaborate to Advance Agentic and Physical AI",
+        "body_snippet": "<![CDATA[NVIDIA and Google Cloud have collaborated for more than a decade, co‑engineering a full‑stack AI platform that spans every technology layer — from performance‑optimized libraries and framewor",
+        "score": 27,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "NVIDIA and ServiceNow Partner on New Autonomous AI Agents for Enterprises",
+        "source_url": "https://blogs.nvidia.com/blog/servicenow-autonomous-ai-agents-enterprises/",
+        "title_text": "NVIDIA and ServiceNow Partner on New Autonomous AI Agents for Enterprises",
+        "body_snippet": "<![CDATA[Enterprise AI has learned to generate. It has learned to reason. Now companies are asking the next question: How should AI act? Early agent systems have shown what’s possible, moving beyond s",
+        "score": 22,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "It’s Gonna Be May: 16 Games Hit the Cloud This Month, With More NVIDIA GeForce R",
+        "source_url": "https://blogs.nvidia.com/blog/geforce-now-thursday-may-2026-games-list/",
+        "title_text": "It’s Gonna Be May: 16 Games Hit the Cloud This Month, With More NVIDIA GeForce RTX 5080 Power",
+        "body_snippet": "<![CDATA[[Editor&#8217;s note] The blog has been updated to note that GeForce RTX 5080-power expansion also extends to the Install-to-Play library. It’s gonna be May — and the cloud’s in full festival",
+        "score": 20,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "Autonomous AI at Scale: Adobe Agents Unlock Breakthrough Creative Intelligence W",
+        "source_url": "https://blogs.nvidia.com/blog/adobe-ai-agents-nvidia-wpp/",
+        "title_text": "Autonomous AI at Scale: Adobe Agents Unlock Breakthrough Creative Intelligence With NVIDIA and WPP",
+        "body_snippet": "<![CDATA[AI agents are transforming how work gets done across all industries, accelerating everything from content creation to decision-making. NVIDIA’s expanded strategic collaborations with Adobe an",
+        "score": 20,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "Hermes Unlocks Self-Improving AI Agents, Powered by NVIDIA RTX PCs and DGX Spark",
+        "source_url": "https://blogs.nvidia.com/blog/rtx-ai-garage-hermes-agent-dgx-spark/",
+        "title_text": "Hermes Unlocks Self-Improving AI Agents, Powered by NVIDIA RTX PCs and DGX Spark",
+        "body_snippet": "<![CDATA[Agentic AI is changing the way users get work done. Following the success of OpenClaw, the community is embracing new open source agentic frameworks. The latest is Hermes Agent, which crossed",
+        "score": 19,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "NVIDIA Spectrum-X — the Open, AI-Native Ethernet Fabric — Sets the Standard for ",
+        "source_url": "https://blogs.nvidia.com/blog/spectrum-x-ethernet-mrc/",
+        "title_text": "NVIDIA Spectrum-X — the Open, AI-Native Ethernet Fabric — Sets the Standard for Gigascale AI, Now With MRC",
+        "body_snippet": "<![CDATA[The race to build the world’s most powerful AI factories demands networking that keeps pace with the ambitions of AI itself.  NVIDIA Spectrum-X Ethernet scale-out infrastructure stands at the",
+        "score": 18,
+        "signal_reasons": [
+          "突发信号"
+        ],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "‘Your Career Starts at the Beginning of the AI Revolution,’ NVIDIA CEO Tells Gra",
+        "source_url": "https://blogs.nvidia.com/blog/nvidia-ceo-carnegie-mellon-commencement-address/",
+        "title_text": "‘Your Career Starts at the Beginning of the AI Revolution,’ NVIDIA CEO Tells Graduates",
+        "body_snippet": "<![CDATA[“You are entering the world at an extraordinary moment,” NVIDIA founder and CEO Jensen Huang told graduates as he delivered the keynote address at Carnegie Mellon University&#8217;s 128th com",
+        "score": 12,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "Powering the Next American Century: US Energy Secretary Chris Wright and NVIDIA’",
+        "source_url": "https://blogs.nvidia.com/blog/energy-secretary-chris-wright-ian-buck/",
+        "title_text": "Powering the Next American Century: US Energy Secretary Chris Wright and NVIDIA’s Ian Buck on the Genesis Mission",
+        "body_snippet": "<![CDATA[AI will help build the energy it needs. That’s the case U.S. Energy Secretary Chris Wright and NVIDIA Vice President of Hyperscale and High-Performance Computing Ian Buck made Thursday mornin",
+        "score": 7,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "Nemotron Labs: What OpenClaw Agents Mean for Every Organization",
+        "source_url": "https://blogs.nvidia.com/blog/what-openclaw-agents-mean-for-every-organization/",
+        "title_text": "Nemotron Labs: What OpenClaw Agents Mean for Every Organization",
+        "body_snippet": "<![CDATA[By early 2026, the open source project OpenClaw had become a phenomenon. In January, its GitHub star count crossed 100,000 as developer interest surged.]]>",
+        "score": 7,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "Making Sense of the Early Universe",
+        "source_url": "https://blogs.nvidia.com/blog/ai-gpu-early-universe-astronomy/",
+        "title_text": "Making Sense of the Early Universe",
+        "body_snippet": "<![CDATA[This Spring Astronomy Day, here’s a look at how AI and GPUs are helping astronomers work through unprecedented volumes of cosmic data.]]>",
+        "score": 7,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "From Rainforests to Recycling Plants: 5 Ways NVIDIA AI Is Protecting the Planet",
+        "source_url": "https://blogs.nvidia.com/blog/earth-day-2026-ai-accelerated-computing/",
+        "title_text": "From Rainforests to Recycling Plants: 5 Ways NVIDIA AI Is Protecting the Planet",
+        "body_snippet": "<![CDATA[Across climate, conservation, disaster monitoring and recycling, NVIDIA AI is enabling applications protecting the planet.]]>",
+        "score": 7,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "Linked and Loaded: Gaijin Single Sign-On Now Available on GeForce NOW",
+        "source_url": "https://blogs.nvidia.com/blog/geforce-now-thursday-gaijin-sso/",
+        "title_text": "Linked and Loaded: Gaijin Single Sign-On Now Available on GeForce NOW",
+        "body_snippet": "<![CDATA[Less typing, more tanking. Faster logins mean more time in the gaming action — and this week provides GeForce NOW members with a smoother path straight into the battlefield. Cloud gaming is a",
+        "score": 3,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "Tag, You’re It: GeForce NOW Levels Up Game Discovery With Xbox Game Pass and Ubi",
+        "source_url": "https://blogs.nvidia.com/blog/geforce-now-thursday-in-app-labels/",
+        "title_text": "Tag, You’re It: GeForce NOW Levels Up Game Discovery With Xbox Game Pass and Ubisoft+ Labels",
+        "body_snippet": "<![CDATA[GeForce NOW is doubling down on what matters most: gamers. This week’s upgrades bring smarter libraries, making it easier than ever for gamers to turn a PC collection into a cloud-powered fle",
+        "score": 3,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      },
+      {
+        "entity_name": "Into the Omniverse: Manufacturing’s Simulation-First Era Has Arrived",
+        "source_url": "https://blogs.nvidia.com/blog/manufacturing-simulation-first/",
+        "title_text": "Into the Omniverse: Manufacturing’s Simulation-First Era Has Arrived",
+        "body_snippet": "<![CDATA[Manufacturing’s traditional design-build-test cycle rested on a single assumption: Real-world testing was the only reliable test environment. ]]>",
+        "score": 0,
+        "signal_reasons": [],
+        "type": "official_rss",
+        "_source": "web__nvidia_blog",
+        "label": "NVIDIA Blog"
+      }
+    ]
+  },
+  {
+    "source_id": "x__openai",
+    "label": "@OpenAI (X)",
+    "type": "x",
+    "captured_at": "2026-05-13T22:53:30.752444",
+    "entry_count": 0,
+    "entries": []
+  },
+  {
+    "source_id": "x__openaidevs",
+    "label": "@OpenAIDevs (X)",
+    "type": "x",
+    "captured_at": "2026-05-13T22:53:33.075665",
+    "entry_count": 0,
+    "entries": []
+  },
+  {
+    "source_id": "x__anthropic_ai",
+    "label": "@AnthropicAI (X)",
+    "type": "x",
+    "captured_at": "2026-05-13T22:53:35.906357",
+    "entry_count": 0,
+    "entries": []
+  }
+]

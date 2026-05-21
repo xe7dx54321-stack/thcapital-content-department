@@ -1,0 +1,11 @@
+# 36kr: "AI照骗"流行，居然是视频作者的法宝？
+- **URL**: https://36kr.com/p/3751003580547846
+- **Source**: 36kr
+- **Published**: 2026-04-03T21:09 (China)
+- **Fetched**: 2026-04-04T19:18:40+00:00
+- **Trigger type**: Product/Content
+- **Key entities**: AI生图, 抖音, B站, 版权风险, 吃播封面
+- **Significance**: AI生成封面被用于影视动漫混剪骗点击；规避版权风险同时利用算法推荐漏洞。AI生图局限性：面条/烤肉画面表现最佳（2023年以来专项训练成果）。AI封面还能"骗"平台推荐算法获得额外流量。
+- **China relevance**: 中国短视频平台AI内容生态；抖音/B站AI生成内容监管；中国AI生图能力边界
+- **Classification**: query_seed
+- **Queue status**: structured_accept

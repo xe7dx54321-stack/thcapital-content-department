@@ -1,0 +1,224 @@
+{
+  "trend__hn_frontpage": [
+    {
+      "entity_name": "PyTorch Landscape",
+      "source_url": "https://pytorch.landscape2.io",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 16,
+      "hn_comments": 0,
+      "_fetched_at": "2026-05-19T14:18:07.161759"
+    },
+    {
+      "entity_name": "Codex-maxxing",
+      "source_url": "https://jxnl.co/writing/2026/05/10/codex-maxxing/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 27,
+      "hn_comments": 17,
+      "_fetched_at": "2026-05-19T14:18:07.161838"
+    },
+    {
+      "entity_name": "Show HN: Hsrs – Type-Safe Haskell Bindings Generator for Rust",
+      "source_url": "https://github.com/harmont-dev/hsrs",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 8,
+      "hn_comments": 0,
+      "_fetched_at": "2026-05-19T14:18:07.161841"
+    },
+    {
+      "entity_name": "LLMCap – A proxy that hard-stops LLM API calls when you hit a dollar cap",
+      "source_url": "https://www.llmcap.io/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 5,
+      "hn_comments": 2,
+      "_fetched_at": "2026-05-19T14:18:07.161843"
+    },
+    {
+      "entity_name": "Peter Neumann has died",
+      "source_url": "https://www.tuhs.org/pipermail/tuhs/2026-May/033748.html",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 12,
+      "hn_comments": 1,
+      "_fetched_at": "2026-05-19T14:18:07.161846"
+    },
+    {
+      "entity_name": "Peter Salus has died",
+      "source_url": "https://www.tuhs.org/pipermail/tuhs/2026-May/033750.html",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 102,
+      "hn_comments": 8,
+      "_fetched_at": "2026-05-19T14:18:07.161853"
+    },
+    {
+      "entity_name": "The last six months in LLMs in five minutes",
+      "source_url": "https://simonwillison.net/2026/May/19/5-minute-llms/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 206,
+      "hn_comments": 99,
+      "_fetched_at": "2026-05-19T14:18:07.161855"
+    },
+    {
+      "entity_name": "Pope Leo XIV’s first encyclical Magnifica humanitas to be published May 25",
+      "source_url": "https://www.vaticannews.va/en/pope/news/2026-05/pope-leo-xiv-first-encyclical-magnifica-humanitas.html",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 180,
+      "hn_comments": 104,
+      "_fetched_at": "2026-05-19T14:18:07.161857"
+    },
+    {
+      "entity_name": "Click (2016)",
+      "source_url": "https://clickclickclick.click/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 260,
+      "hn_comments": 64,
+      "_fetched_at": "2026-05-19T14:18:07.161860"
+    },
+    {
+      "entity_name": "Alignment pretraining: AI discourse creates self-fulfilling (mis)alignment",
+      "source_url": "https://arxiv.org/abs/2601.10160",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 45,
+      "hn_comments": 17,
+      "_fetched_at": "2026-05-19T14:18:07.161862"
+    },
+    {
+      "entity_name": "Hyperpolyglot Lisp: Common Lisp, Racket, Clojure, Emacs Lisp",
+      "source_url": "https://hyperpolyglot.org/lisp",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 149,
+      "hn_comments": 34,
+      "_fetched_at": "2026-05-19T14:18:07.161864"
+    },
+    {
+      "entity_name": "Agora-1: The Multi-Agent World Model",
+      "source_url": "https://odyssey.ml/introducing-agora-1",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 99,
+      "hn_comments": 18,
+      "_fetched_at": "2026-05-19T14:18:07.161866"
+    },
+    {
+      "entity_name": "We let AIs run radio stations",
+      "source_url": "https://andonlabs.com/blog/andon-fm",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 221,
+      "hn_comments": 186,
+      "_fetched_at": "2026-05-19T14:18:07.161868"
+    },
+    {
+      "entity_name": "Elon Musk has lost his lawsuit against Sam Altman and OpenAI",
+      "source_url": "https://techcrunch.com/2026/05/18/elon-musk-has-lost-his-lawsuit-against-sam-altman-and-openai/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 894,
+      "hn_comments": 446,
+      "_fetched_at": "2026-05-19T14:18:07.161870"
+    },
+    {
+      "entity_name": "Cursor Introduces Composer 2.5",
+      "source_url": "https://cursor.com/blog/composer-2-5",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 94,
+      "hn_comments": 52,
+      "_fetched_at": "2026-05-19T14:18:07.161872"
+    },
+    {
+      "entity_name": "Anthropic acquires Stainless",
+      "source_url": "https://www.anthropic.com/news/anthropic-acquires-stainless",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 413,
+      "hn_comments": 286,
+      "_fetched_at": "2026-05-19T14:18:07.161874"
+    },
+    {
+      "entity_name": "We stopped AI bot spam in our GitHub repo using Git's –author flag",
+      "source_url": "https://archestra.ai/blog/only-responsible-ai",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 453,
+      "hn_comments": 207,
+      "_fetched_at": "2026-05-19T14:18:07.161877"
+    },
+    {
+      "entity_name": "1024000^2 Blocks, 2B2T Minecraft Server World Download Project, and Discoveries",
+      "source_url": "https://github.com/2b2tplace/1m_release",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 130,
+      "hn_comments": 77,
+      "_fetched_at": "2026-05-19T14:18:07.161879"
+    },
+    {
+      "entity_name": "Project Glasswing: what Mythos showed us",
+      "source_url": "https://blog.cloudflare.com/cyber-frontier-models/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 314,
+      "hn_comments": 122,
+      "_fetched_at": "2026-05-19T14:18:07.161881"
+    },
+    {
+      "entity_name": "Show HN: Files.md – Open-source alternative to Obsidian",
+      "source_url": "https://github.com/zakirullin/files.md",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__hn_frontpage",
+      "hn_points": 606,
+      "hn_comments": 297,
+      "_fetched_at": "2026-05-19T14:18:07.161883"
+    }
+  ]
+}

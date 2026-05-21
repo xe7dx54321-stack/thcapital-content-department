@@ -1,0 +1,11 @@
+# TC: Anthropic ramps up its political activities with a new PAC
+- **URL**: https://techcrunch.com/2026/04/03/anthropic-ramps-up-its-political-activities-with-a-new-pac/
+- **Source**: techcrunch
+- **Published**: 2026-04-03T20:22:18+00:00
+- **Fetched**: 2026-04-04T19:12:51+00:00
+- **Trigger type**: Policy/Politics
+- **Key entities**: Anthropic, AnthroPAC, Allison Rossi (Treasurer), DoD lawsuit
+- **Significance**: Anthropic forms AnthroPAC for midterm contributions (employee-funded, $5k cap). AI companies contributed $185M to midterms. Anthropic also in ongoing DoD lawsuit over government AI model usage guidelines.
+- **China relevance**: Anthropic's US policy agenda; Chinese AI companies face different regulatory environment
+- **Classification**: query_seed
+- **Queue status**: structured_accept

@@ -1,0 +1,229 @@
+{
+  "trend__reddit_localllama_daily": [
+    {
+      "entity_name": "Qwen will release another 27B with high probability",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tiwnpc/qwen_will_release_another_27b_with_high/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709646"
+    },
+    {
+      "entity_name": "Re. what ever happened to Cohere’s Command-A series of models?",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tizmar/re_what_ever_happened_to_coheres_commanda_series/",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709731"
+    },
+    {
+      "entity_name": "Back again, many changes have taken place.",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tj8d9i/back_again_many_changes_have_taken_place/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709734"
+    },
+    {
+      "entity_name": "HuggingFace benchmark datasets now let you filter by model size",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tilvit/huggingface_benchmark_datasets_now_let_you_filter/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709737"
+    },
+    {
+      "entity_name": "Training a vision model from scratch on iPod touch 4 images",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tjaedo/training_a_vision_model_from_scratch_on_ipod/",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709739"
+    },
+    {
+      "entity_name": "Same task in github-copilot, pi, claude-code, and opencode with Qwen3.6 27B",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tjbhjk/same_task_in_githubcopilot_pi_claudecode_and/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709741"
+    },
+    {
+      "entity_name": "Waiting on Qwen to drop those 3.7 models be like:",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tiqcwu/waiting_on_qwen_to_drop_those_37_models_be_like/",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709743"
+    },
+    {
+      "entity_name": "Qwen3.6 27B and llama.cpp appreciation post",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tjbi24/qwen36_27b_and_llamacpp_appreciation_post/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709745"
+    },
+    {
+      "entity_name": "AMD Ryzen AI Halo PC will cost 3999$ with 128GB memory on board",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tinl98/amd_ryzen_ai_halo_pc_will_cost_3999_with_128gb/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709748"
+    },
+    {
+      "entity_name": "Qwen 3.6 35B GGUF: NTP vs MTP quantization results across GPUs and CPUs",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tipihx/qwen_36_35b_gguf_ntp_vs_mtp_quantization_results/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709750"
+    },
+    {
+      "entity_name": "AMD BC-250 and the search for Cheap Compute",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tj4unp/amd_bc250_and_the_search_for_cheap_compute/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709752"
+    },
+    {
+      "entity_name": "CohereLabs/command-a-plus-05-2026-bf16 · Hugging Face",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tiphqe/coherelabscommandaplus052026bf16_hugging_face/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709754"
+    },
+    {
+      "entity_name": "How can you stop your model from looping",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tj6d4r/how_can_you_stop_your_model_from_looping/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709756"
+    },
+    {
+      "entity_name": "HalBench: I built a custom sycophancy and hallucination benchmark and tested 4 frontier models (Sonnet 4.6, Grok 4.3, GPT 5.4 and Gemini 3.1 Pro), looking for input on what OSS models to run next!",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tizvih/halbench_i_built_a_custom_sycophancy_and/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709758"
+    },
+    {
+      "entity_name": "I guess 4 units wasn’t enough.",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tirisb/i_guess_4_units_wasnt_enough/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709760"
+    },
+    {
+      "entity_name": "[WIP] Gemma 4 MTP",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tijpwl/wip_gemma_4_mtp/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709762"
+    },
+    {
+      "entity_name": "Qwen3.7 Max scored by Artificial Analysis, 27B/35B waiting room",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tie6gy/qwen37_max_scored_by_artificial_analysis_27b35b/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709764"
+    },
+    {
+      "entity_name": "Move to backend sampling for MTP draft path by gaugarg-nv · Pull Request #23287 · ggml-org/llama.cpp",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tis73j/move_to_backend_sampling_for_mtp_draft_path_by/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709767"
+    },
+    {
+      "entity_name": "&quot;AWS secures rare Mac Studios while ordinary Apple customers remain completely locked out&quot;",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tio2i5/aws_secures_rare_mac_studios_while_ordinary_apple/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709769"
+    },
+    {
+      "entity_name": "Build 9254 fixes my TG regression and adds PDL for NVIDIA GPUs",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tj393d/build_9254_fixes_my_tg_regression_and_adds_pdl/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709771"
+    },
+    {
+      "entity_name": "RTX 5080 16GB: Qwen3.6 35B MoE at 128k context — 56 tok/s, and why MTP doesn't help",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tiixql/rtx_5080_16gb_qwen36_35b_moe_at_128k_context_56/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709773"
+    },
+    {
+      "entity_name": "I got Qwen3-VL-Embedding-2B working with rkllm on an Orange Pi 5b",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tivvd4/i_got_qwen3vlembedding2b_working_with_rkllm_on_an/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709775"
+    },
+    {
+      "entity_name": "Opinions/improvements for my Qwen3.6-35B-A3B-FP8 + Hermes Agent setup on NVIDIA DGX Spark?",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tj3fvf/opinionsimprovements_for_my_qwen3635ba3bfp8/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709777"
+    },
+    {
+      "entity_name": "24GB M4 Mac - is Qwen 9B only option while system is running?",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tiuern/24gb_m4_mac_is_qwen_9b_only_option_while_system/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709779"
+    },
+    {
+      "entity_name": "PDF and non-text local file reading with AnythingLLM?",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tj7zba/pdf_and_nontext_local_file_reading_with/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-21T14:45:40.709781"
+    }
+  ]
+}

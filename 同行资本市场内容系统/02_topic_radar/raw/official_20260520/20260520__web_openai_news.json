@@ -1,0 +1,229 @@
+{
+  "source_id": "web__openai_news",
+  "label": "OpenAI News",
+  "type": "rss",
+  "captured_at": "2026-05-20T20:55:40.917329",
+  "entry_count": 20,
+  "entries": [
+    {
+      "entity_name": "Parloa builds service agents customers want to talk to",
+      "source_url": "https://openai.com/index/parloa",
+      "title_text": "Parloa builds service agents customers want to talk to",
+      "body_snippet": "<![CDATA[Parloa leverages OpenAI models to power scalable, voice-driven AI customer service agents, enabling enterprises to design, simulate, and deploy reliable, real-time interactions.]]>",
+      "score": 36,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "Advancing voice intelligence with new models in the API",
+      "source_url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api",
+      "title_text": "Advancing voice intelligence with new models in the API",
+      "body_snippet": "<![CDATA[Explore new realtime voice models in the OpenAI API that can reason, translate, and transcribe speech, enabling more natural and intelligent voice experiences.]]>",
+      "score": 36,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "OpenAI and Dell partner to bring Codex to hybrid and on-premise enterprise envir",
+      "source_url": "https://openai.com/index/dell-codex-enterprise-partnership",
+      "title_text": "OpenAI and Dell partner to bring Codex to hybrid and on-premise enterprise environments",
+      "body_snippet": "<![CDATA[OpenAI and Dell partner to bring Codex to hybrid and on-premise environments, helping enterprises deploy AI coding agents securely across data and workflows.]]>",
+      "score": 29,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "Databricks brings GPT-5.5 to enterprise agent workflows",
+      "source_url": "https://openai.com/index/databricks",
+      "title_text": "Databricks brings GPT-5.5 to enterprise agent workflows",
+      "body_snippet": "<![CDATA[Databricks uses GPT-5.5 for enterprise agent workflows after the model set a new state of the art on the OfficeQA Pro benchmark.]]>",
+      "score": 29,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "OpenAI launches DeployCo to help businesses build around intelligence",
+      "source_url": "https://openai.com/index/openai-launches-the-deployment-company",
+      "title_text": "OpenAI launches DeployCo to help businesses build around intelligence",
+      "body_snippet": "<![CDATA[OpenAI launches DeployCo, a new enterprise deployment company built to help organizations bring frontier AI into production and turn it into measurable business impact.]]>",
+      "score": 25,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber",
+      "source_url": "https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber",
+      "title_text": "Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber",
+      "body_snippet": "<![CDATA[OpenAI expands Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber, helping verified defenders accelerate vulnerability research and protect critical infrastructure.]]>",
+      "score": 22,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "Helping ChatGPT better recognize context in sensitive conversations",
+      "source_url": "https://openai.com/index/chatgpt-recognize-context-in-sensitive-conversations",
+      "title_text": "Helping ChatGPT better recognize context in sensitive conversations",
+      "body_snippet": "<![CDATA[Learn how new ChatGPT safety updates improve context awareness in sensitive conversations, helping detect risk over time and respond more safely.]]>",
+      "score": 21,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "Building a safe, effective sandbox to enable Codex on Windows",
+      "source_url": "https://openai.com/index/building-codex-windows-sandbox",
+      "title_text": "Building a safe, effective sandbox to enable Codex on Windows",
+      "body_snippet": "<![CDATA[Learn how OpenAI built a secure sandbox for Codex on Windows, enabling safe, efficient coding agents with controlled file access and network restrictions.]]>",
+      "score": 21,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "How NVIDIA engineers and researchers build with Codex",
+      "source_url": "https://openai.com/index/nvidia",
+      "title_text": "How NVIDIA engineers and researchers build with Codex",
+      "body_snippet": "<![CDATA[Teams use Codex with GPT-5.5 to ship production systems and turn research ideas into runnable experiments.]]>",
+      "score": 21,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "Running Codex safely at OpenAI",
+      "source_url": "https://openai.com/index/running-codex-safely",
+      "title_text": "Running Codex safely at OpenAI",
+      "body_snippet": "<![CDATA[How OpenAI runs Codex securely with sandboxing, approvals, network policies, and agent-native telemetry to support safe and compliant coding agent adoption.]]>",
+      "score": 21,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "Introducing OpenAI for Singapore",
+      "source_url": "https://openai.com/index/introducing-openai-for-singapore",
+      "title_text": "Introducing OpenAI for Singapore",
+      "body_snippet": "<![CDATA[OpenAI for Singapore launches a multi-year AI partnership to expand deployment, build local talent, and support businesses and public services with AI.]]>",
+      "score": 20,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "Sea's View on the Future of Agentic Software Development with Codex",
+      "source_url": "https://openai.com/index/sea-david-chen",
+      "title_text": "Sea's View on the Future of Agentic Software Development with Codex",
+      "body_snippet": "<![CDATA[Sea Limited's CPO explains why the company is deploying Codex across engineering teams to accelerate AI-native software development in Asia.]]>",
+      "score": 19,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "Simplex rethinks software development with Codex",
+      "source_url": "https://openai.com/index/simplex",
+      "title_text": "Simplex rethinks software development with Codex",
+      "body_snippet": "<![CDATA[Simplex boosts software development with ChatGPT Enterprise and Codex, reducing design, build, and testing time while scaling AI-driven workflows.]]>",
+      "score": 17,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "The next phase of OpenAI’s Education for Countries",
+      "source_url": "https://openai.com/index/the-next-phase-of-education-for-countries",
+      "title_text": "The next phase of OpenAI’s Education for Countries",
+      "body_snippet": "<![CDATA[OpenAI advances Education for Countries, expanding AI adoption in schools with new partnerships, teacher training, and tools to improve global learning outcomes.]]>",
+      "score": 15,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "Introducing Trusted Contact in ChatGPT",
+      "source_url": "https://openai.com/index/introducing-trusted-contact-in-chatgpt",
+      "title_text": "Introducing Trusted Contact in ChatGPT",
+      "body_snippet": "<![CDATA[Introducing Trusted Contact in ChatGPT, an optional safety feature that notifies someone you trust if serious self-harm concerns are detected.]]>",
+      "score": 15,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "OpenAI and Malta partner to bring ChatGPT Plus to all citizens",
+      "source_url": "https://openai.com/index/malta-chatgpt-plus-partnership",
+      "title_text": "OpenAI and Malta partner to bring ChatGPT Plus to all citizens",
+      "body_snippet": "<![CDATA[OpenAI and Malta partner to expand AI access, offering ChatGPT Plus and training to help citizens build practical AI skills and use AI responsibly.]]>",
+      "score": 14,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "Work with Codex from anywhere",
+      "source_url": "https://openai.com/index/work-with-codex-from-anywhere",
+      "title_text": "Work with Codex from anywhere",
+      "body_snippet": "<![CDATA[Use Codex anywhere with the ChatGPT mobile app. Monitor, steer, and approve coding tasks in real time across devices and remote environments.]]>",
+      "score": 14,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "How finance teams use Codex",
+      "source_url": "https://openai.com/academy/how-finance-teams-use-codex",
+      "title_text": "How finance teams use Codex",
+      "body_snippet": "<![CDATA[See how finance teams can use Codex to build MBRs, reporting packs, variance bridges, model checks, and planning scenarios from real work inputs.]]>",
+      "score": 14,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "What Parameter Golf taught us about AI-assisted research",
+      "source_url": "https://openai.com/index/what-parameter-golf-taught-us",
+      "title_text": "What Parameter Golf taught us about AI-assisted research",
+      "body_snippet": "<![CDATA[Parameter Golf brought together 1,000+ participants and 2,000+ submissions to explore AI-assisted machine learning research, coding agents, quantization, and novel model design under strict c",
+      "score": 14,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    },
+    {
+      "entity_name": "AutoScout24 scales engineering with AI-powered workflows",
+      "source_url": "https://openai.com/index/autoscout24",
+      "title_text": "AutoScout24 scales engineering with AI-powered workflows",
+      "body_snippet": "<![CDATA[Learn how AutoScout24 Group uses Codex and ChatGPT to speed development cycles, improve code quality, and expand AI adoption.]]>",
+      "score": 14,
+      "signal_reasons": [],
+      "type": "official_rss",
+      "_source": "web__openai_news",
+      "label": "OpenAI News"
+    }
+  ]
+}

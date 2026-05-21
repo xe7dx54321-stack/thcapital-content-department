@@ -1,0 +1,643 @@
+{
+  "meta": {
+    "generated_at": "2026-03-30 23:00:38 CST",
+    "date": "2026-03-30",
+    "window_rule": "T-1 19:00 → T 12:20"
+  },
+  "paths": {
+    "markdown": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260330__head-media-learning-board.md",
+    "html": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260330__head-media-learning-board.html",
+    "json": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260330__head-media-learning-board.snapshot.json",
+    "rulebook_markdown": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/20260330__head-media-learning-rulebook-v1.md",
+    "rulebook_latest": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/latest__head-media-learning-rulebook-v1.md",
+    "optimization_state": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/_console_state/learning_optimization_state.json"
+  },
+  "overview": {
+    "sample_count": 8,
+    "ready_topic_count": 2,
+    "strategic_rotation_count": 4,
+    "strategic_rotation_blocked": 1,
+    "sample_source_mix": [
+      [
+        "量子位",
+        4
+      ],
+      [
+        "机器之心",
+        3
+      ],
+      [
+        "极客公园",
+        1
+      ]
+    ],
+    "median_first_image_after_text_paragraphs": 3.0,
+    "median_sample_image_count": 10.0,
+    "takeaways": [
+      "先用判断或反差把人拉住，再在前 10%-15% 内补齐背景。",
+      "证据要早，不要让读者一直听抽象判断。",
+      "图片要承担证明、解释、换气三种职责，而不是只做装饰。",
+      "写稿时优先补证、补背景、补图，而不是遇到问题就直接换题。",
+      "学习不只反哺写稿岗，还要反哺 source / seed / topic 三层，持续校正“今天该追什么题”。"
+    ],
+    "optimization_total": 4,
+    "optimization_active": 4,
+    "optimization_dismissed": 0
+  },
+  "samples": [
+    {
+      "source_name": "量子位",
+      "title": "预测这件事，人类越犹豫，这个大模型越有优势",
+      "published_at": "2026-03-30 09:33:47 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/sT4MLuqO0lg9evb-OUfNUw",
+      "char_count": 4814,
+      "image_count": 6,
+      "first_image_after_text_paragraphs": 23,
+      "hook_excerpt": "允中 发自 凹非寺 / 量子位 | 公众号 QbitAI",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首图位置相对靠后，更像是在结构展开后用图片换气。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260330_125617__预测这件事_人类越犹豫_这个大模型越有优势__deep-article.md"
+    },
+    {
+      "source_name": "量子位",
+      "title": "美国开源AI最后的旗帜，也倒了",
+      "published_at": "2026-03-30 09:33:47 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/-wiI0kgkhvFV8vBWUGJbxA",
+      "char_count": 3952,
+      "image_count": 19,
+      "first_image_after_text_paragraphs": 8,
+      "hook_excerpt": "听雨 发自 凹非寺 / 量子位 | 公众号 QbitAI",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首图位置相对靠后，更像是在结构展开后用图片换气。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260330_125605__美国开源ai最后的旗帜_也倒了__deep-article.md"
+    },
+    {
+      "source_name": "极客公园",
+      "title": "中国医生「不信 AI」的死结怎么解？",
+      "published_at": "2026-03-30 08:23:25 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/miDY2U4GjKDzblr_HJp8JA",
+      "char_count": 4454,
+      "image_count": 8,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "当 AI 医疗从「能查」走向「可信」，变革才算真正开始。 / 在循证医学领域，一个根本性的矛盾正愈演愈烈。",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260330_125542__中国医生_不信_ai_的死结怎么解__deep-article.md"
+    },
+    {
+      "source_name": "量子位",
+      "title": "打破代码大模型训练瓶颈：微软&剑桥&普林推出MicroCoder，算法、数据、框架、训练经验全面升级",
+      "published_at": "2026-03-29 13:27:51 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/OnfS_JMNrfhzGcE4qxDBuQ",
+      "char_count": 4412,
+      "image_count": 7,
+      "first_image_after_text_paragraphs": 6,
+      "hook_excerpt": "MicroCoder团队 投稿 / 量子位 | 公众号 QbitAI",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "先给判断，再很快补一张证据图，图文切换节奏比较早。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260329_222144__打破代码大模型训练瓶颈_微软_剑桥_普林推出microcoder_算法_数据_框架_训练经验全面升级__deep-article.md"
+    },
+    {
+      "source_name": "量子位",
+      "title": "Claude 90分钟挖穿20年漏洞！5w星“安全”系统跌下神坛，Linux内核也未能幸免",
+      "published_at": "2026-03-29 13:27:51 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/L__y3rN94lWx8sdAJNBgNQ",
+      "char_count": 2708,
+      "image_count": 12,
+      "first_image_after_text_paragraphs": 9,
+      "hook_excerpt": "鹭羽 发自 凹非寺 / 量子位 | 公众号 QbitAI",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首图位置相对靠后，更像是在结构展开后用图片换气。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260329_222133__claude_90分钟挖穿20年漏洞_5w星_安全_系统跌下神坛_linux内核也未能幸免__deep-article.md"
+    },
+    {
+      "source_name": "机器之心",
+      "title": "连续两篇 ICLR，南京大学林浩鑫将世界模型动力学推演推进到上千步",
+      "published_at": "2026-03-29 15:16:29 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/8z1aMAHu0mCq8XlSp037Aw",
+      "char_count": 6279,
+      "image_count": 20,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "机器之心发布 / 当世界模型越来越大，真正制约它走向「内部模拟器」的，未必是表征能力，而可能是动力学建模。",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260329_222121__连续两篇_iclr_南京大学林浩鑫将世界模型动力学推演推进到上千步__deep-article.md"
+    },
+    {
+      "source_name": "机器之心",
+      "title": "让中小团队也玩得起Deep Research：TAMU/Waterloo团队把研究智能体的训练做成了开源流水线",
+      "published_at": "2026-03-29 13:03:07 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/s9wsIeh3aFQBpiPe9iCk_g",
+      "char_count": 6733,
+      "image_count": 13,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "训练一个能像人类研究员一样「搜索→浏览→推理」的深度研究智能体 (Deep Research Agent)，最大的瓶颈往往不是模型能力，而是高质量长程研究轨迹数据的严重匮乏。现有的轨迹采集方案要么依赖昂贵且不稳定的在线搜索 API，要么只能生成 2-5 轮的浅层交互，远不足以覆盖真实深度研究中动辄数十轮甚至上百轮的复杂推理需求。 / 针…",
+      "learning_takeaway": "首屏先抛判断句，不先做百科式背景。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260329_222109__让中小团队也玩得起deep_research_tamu_waterloo团队把研究智能体的训练做成了开源流水线__deep-article.md"
+    },
+    {
+      "source_name": "机器之心",
+      "title": "AI 为什么不会规划？Yann LeCun团队：问题出在「时间是弯的」",
+      "published_at": "2026-03-29 13:03:07 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/7u45QuQP1Qtqenqrb1vYdw",
+      "char_count": 2707,
+      "image_count": 8,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "机器之心编辑部 / 在人工智能的发展历程中，有一位科学家几乎贯穿了整个深度学习时代 —— 他就是 Yann LeCun。",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260329_222056__ai_为什么不会规划_yann_lecun团队_问题出在_时间是弯的__deep-article.md"
+    }
+  ],
+  "strategic_rotation": [
+    {
+      "source_name": "赛博禅心",
+      "status": "rotation",
+      "status_label": "轮转补位",
+      "title": "飞书出了官方 CLI，消息、文档、日历、邮箱都能用 Agent 操作了",
+      "published_at": "2026-03-28 15:04:50 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/lrihiZonqug-xi4sHMviVg",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首图位置相对靠后，更像是在结构展开后用图片换气。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200250__飞书出了官方_cli_消息_文档_日历_邮箱都能用_agent_操作了__deep-article.md",
+      "note": "主学习池仍按业务窗采样；该号本轮通过近 7 天轮转补位进入学习池，不污染当天主样本。",
+      "source_packet_count": 4,
+      "deep_article_count": 4
+    },
+    {
+      "source_name": "数字生命卡兹克",
+      "status": "rotation",
+      "status_label": "轮转补位",
+      "title": "刚刚，飞书CLI开源，Claude Code也可以丝滑操控飞书了。",
+      "published_at": "2026-03-28 17:20:49 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/fvjxT_GgbEgxgsPCUlo-RQ",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200159__刚刚_飞书cli开源_claude_code也可以丝滑操控飞书了__deep-article.md",
+      "note": "主学习池仍按业务窗采样；该号本轮通过近 7 天轮转补位进入学习池，不污染当天主样本。",
+      "source_packet_count": 4,
+      "deep_article_count": 4
+    },
+    {
+      "source_name": "饼干哥哥AGI",
+      "status": "rotation",
+      "status_label": "轮转补位",
+      "title": "OpenClaw的最佳省钱攻略：几十块的方舟Coding Plan直接让跨境 AI 团队成本降了 90%",
+      "published_at": "2026-03-25 15:30:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/hJpI_JPAaMSEO_FPPa1NJw",
+      "learning_takeaway": "开头直接塞进数字或对象，让读者先感到“这事是真的，而且现在就值得看”。",
+      "visual_takeaway": "首图位置相对靠后，更像是在结构展开后用图片换气。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200109__openclaw的最佳省钱攻略_几十块的方舟coding_plan直接让跨境_ai_团队成本降了_90__deep-article.md",
+      "note": "主学习池仍按业务窗采样；该号本轮通过近 7 天轮转补位进入学习池，不污染当天主样本。",
+      "source_packet_count": 4,
+      "deep_article_count": 3
+    },
+    {
+      "source_name": "袋鼠帝AI客栈",
+      "status": "blocked",
+      "status_label": "主链待补通",
+      "title": "暂无可学习 deep article",
+      "published_at": "n/a",
+      "canonical_url": "n/a",
+      "learning_takeaway": "RSS 已接入，但这个号还没真正进入 source packet / deep article 学习主链。",
+      "visual_takeaway": "先补通主链，再谈图文节奏学习。",
+      "path": "n/a",
+      "note": "当前记录为 source_packet=0 / deep_article=0。需要先补抓源或深抓，不然学习池无法持续吸收该号。",
+      "source_packet_count": 0,
+      "deep_article_count": 0
+    }
+  ],
+  "ready_drafts": [
+    {
+      "topic_key": "turboquant-qwen-macbook-air",
+      "topic_title": "你的 MacBook Air 也能跑 AI 大模型了",
+      "approved_angle": "Google TurboQuant 量化算法让 Qwen 3.5-9B 在普通 MacBook Air 本地跑通 20K context，AI 普惠硬件门槛降至消费级",
+      "platforms": [
+        "小红书",
+        "B站",
+        "X"
+      ],
+      "representative_platform": "xiaohongshu",
+      "representative_platform_label": "小红书",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/turboquant-qwen-macbook-air/xiaohongshu.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/turboquant-qwen-macbook-air",
+      "preview": "---",
+      "char_count": 2309,
+      "section_count": 6,
+      "visual_asset_count": 4,
+      "strengths": [
+        "首屏已经有判断句，读者不至于一开始就掉线。",
+        "前几段已经开始补对象 / 事件 / why now，不是完全悬空分析。",
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `4` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "正文前仍残留内部包装 / 标题候选等工序痕迹，离一键发布还差“去工单味”。"
+      ],
+      "gap_summary": "正文前仍残留内部包装 / 标题候选等工序痕迹，离一键发布还差“去工单味”。",
+      "has_internal_packaging": true,
+      "has_early_background": true,
+      "has_early_judgment": true,
+      "has_early_evidence": true
+    },
+    {
+      "topic_key": "unitree-ipo-economics",
+      "topic_title": "别只看宇树机器人跳舞，真正该看的，是招股书里那几组数字",
+      "approved_angle": "具身智能里少见的“能赚钱、毛利高、数据硬”样本",
+      "platforms": [
+        "微信公众号",
+        "小红书",
+        "B站"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/unitree-ipo-economics/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/unitree-ipo-economics",
+      "preview": "过去一年，宇树在大众视野里最出圈的画面，还是机器人跑步、跳舞、后空翻。",
+      "char_count": 2048,
+      "section_count": 7,
+      "visual_asset_count": 6,
+      "strengths": [
+        "首屏已经有判断句，读者不至于一开始就掉线。",
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `6` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": true,
+      "has_early_evidence": true
+    }
+  ],
+  "selection_review": {
+    "selection_topics": [
+      {
+        "topic_key": "ai-video-sora-shutdown-openai-pivot",
+        "title": "Sora's shutdown could be a reality check moment for AI video",
+        "status": "active",
+        "status_label": "已下发",
+        "score_total": "22/30",
+        "signal_summary": "OpenAI 官方确认 Sora 分两阶段关停（App 4/26、API 9/24）；Disney $1B 合作取消；战略重心转向企业级/coding 工具；研究团队转向机器人 world simulation。AI 视频行业面临重大现实检验。",
+        "why_selected": "唯一经官方+多主流媒体交叉确认的重大事件；跨科技+娱乐+商业三场域；叙事弧完整（发布→冷淡→关停→转向）；Premium 级内容锚点；当日乃至本周最强信号。",
+        "lanes": [
+          "机器人 / 硬件 / 具身智能",
+          "视频 / 多模态 / 语音"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260330__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "nicolas-carlini-claude-security-vulnerability-research",
+        "title": "Nicolas Carlini：Claude 是比他更好的安全研究员，AI 发现零日漏洞成为现实",
+        "status": "active",
+        "status_label": "已下发",
+        "score_total": "19/30",
+        "signal_summary": "两个独立事实：① Carlini 公开表示 Claude 是比他更好的安全研究员（AI 漏洞研究能力里程碑）；② Carlini 本人用 AI 赚了 $370 万美元（智能合约）、发现 Linux/Ghost 漏洞（AI 在安全研究领域的真实生产力已超越顶级专家）。",
+        "why_selected": "一手 podcast 来历清晰；数字具体（$370万）；漏洞类型具体（Linux/Ghost）；讨论 AI 安全能力边界；Carlini 在安全社区公信力极高；可拆分为\"AI 安全研究员替代\"和\"AI 漏洞猎手\"双叙事线。",
+        "lanes": [
+          "安全 / 风险 / 漏洞",
+          "模型 / 研究进展"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260330__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "moonshot-ai-1b-funding-kimi-claw-revenue",
+        "title": "月之暗面启动 $1B 新融资，估值 $18B；Kimi Claw 20 天收入超 2025 全年总和",
+        "status": "pool",
+        "status_label": "池内待捞回",
+        "score_total": "18/30",
+        "signal_summary": "月之暗面成中国估值最高大模型独角兽（$18B）；三条硬数据（8280%月增、Claw 20天>2025全年、三轮合计约 $8.5B+）；\"资本+订单\"投资结构反映产业资本深度绑定；K3 2026年内发布计划；杨植麟称 AI 研发将更多由 AI 主导。",
+        "why_selected": "替代 #3 Kimi K2.6/K3 Reddit 传闻（反事实·fatal）；本条来自东方财富/36Kr/新浪财经多重交叉，事实可查；中国大模型格局核心玩家重大融资事件；Kimi Claw 商业化数据是罕见的一手量化指标；叙事锚点清晰。",
+        "lanes": [
+          "融资 / 商业化 / 资本信号",
+          "开源 / Infra / 推理优化"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260330__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "llama-cpp-kv-rotation-pr21038-aime25",
+        "title": "KV rotation PR in llama.cpp recovers AIME25 performance lost to q8 KV quantization",
+        "status": "active",
+        "status_label": "已下发",
+        "score_total": "18/30",
+        "signal_summary": "llama.cpp 社区发现 q8_kv 量化会严重损害 AIME25 数学推理基准；PR #21038 引入 KV rotation 技术，在保留内存优势的同时大幅恢复推理性能；是开源 AI infra 赛道的技术突破。",
+        "why_selected": "GitHub 一手信源；AIME25 硬基准量化数据；技术社区关注度高；涉及开源 AI infra 核心工具（llama.cpp）；对推理优化方向有重要参考价值；可派生\"大模型量化优化\"\"开源推理加速\"等话题。",
+        "lanes": [
+          "开源 / Infra / 推理优化",
+          "模型 / 研究进展"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260330__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "claude-code-no-coder-6-products一人公司叙事",
+        "title": "I am fully addicted to building dumb little AI web apps. I love it.",
+        "status": "pool",
+        "status_label": "池内待捞回",
+        "score_total": "14/30",
+        "signal_summary": "完全不会编程的用户用 Claude Code 开发了 6 个网站：Hit or Miss（AI 产品发现）、FLOID/Floot AI（AI 应用构建）、Bentu、Spork、Plainsight、ThisIsNotAnApp。展现了\"一人公司\"AI 原生工作流。Hit or Miss 和 Floot AI 均在 ProductHunt 有记录，证实产品真实存在。",
+        "why_selected": "命中 AI Agent / 一人公司赛道；典型\"AI 降低编程门槛\"叙事；6 个具体产品（部分已核实）；平台适配性强（公众号/小红书/B 站均适合）；社区真实反馈（Reddit评论区）",
+        "lanes": [
+          "模型 / 研究进展",
+          "行业落地 / 医疗 / 场景翻译"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260330__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "voxtral-tts-mistral-ai-voice-cloning-open-source",
+        "title": "The missing piece of Voxtral TTS to enable voice cloning: codec encoder weights are missing",
+        "status": "pool",
+        "status_label": "池内待捞回",
+        "score_total": "16/30",
+        "signal_summary": "Mistral AI 发布 Voxtral TTS 开源语音克隆基础模型；3 秒参考音频即可克隆声音；Creative Commons 许可；支持 9 语言；Hugging Face 一手可查；与 OpenAI XTTS 直接竞争；voice cloning 功能官方尚未开放（Hugging Face 社区正在探索非官方补全路径）。",
+        "why_selected": "开源 TTS / voice cloning 赛道；Mistral AI 背书；Hugging Face 一手信源；voice cloning 是 AI 热点方向；开源 vs 闭源叙事清晰；技术细节（3秒克隆、9语言）可做对比图表",
+        "lanes": [
+          "视频 / 多模态 / 语音",
+          "开源 / Infra / 推理优化"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260330__top20-screening-pack__reworked.md"
+      }
+    ],
+    "head_media_focus": [
+      {
+        "lane": "模型 / 研究进展",
+        "count": 4,
+        "examples": [
+          "预测这件事，人类越犹豫，这个大模型越有优势",
+          "打破代码大模型训练瓶颈：微软&剑桥&普林推出MicroCoder，算法、数据、框架、训练经验全面升级"
+        ],
+        "why": "这类题能代表前沿，但需要快速翻译成“到底多了什么能力、对谁有影响”。"
+      },
+      {
+        "lane": "社会影响 / 就业伦理",
+        "count": 4,
+        "examples": [
+          "预测这件事，人类越犹豫，这个大模型越有优势",
+          "美国开源AI最后的旗帜，也倒了"
+        ],
+        "why": "这类题带公共讨论张力，容易出圈，但需要更强的边界和多方视角。"
+      },
+      {
+        "lane": "开源 / Infra / 推理优化",
+        "count": 2,
+        "examples": [
+          "美国开源AI最后的旗帜，也倒了",
+          "让中小团队也玩得起Deep Research：TAMU/Waterloo团队把研究智能体的训练做成了开源流水线"
+        ],
+        "why": "这类题适合做专业壁垒和品牌判断，但首屏必须更早翻译成普通读者能感知的意义。"
+      },
+      {
+        "lane": "行业落地 / 医疗 / 场景翻译",
+        "count": 1,
+        "examples": [
+          "中国医生「不信 AI」的死结怎么解？"
+        ],
+        "why": "这类题更容易让读者立刻感到 stakes，头部号常用它来拉宽受众。"
+      }
+    ],
+    "our_pool_focus": [
+      {
+        "lane": "模型 / 研究进展",
+        "count": 3,
+        "examples": [
+          "Nicolas Carlini：Claude 是比他更好的安全研究员，AI 发现零日漏洞成为现实",
+          "KV rotation PR in llama.cpp recovers AIME25 performance lost to q8 KV quantization"
+        ],
+        "why": "这类题能代表前沿，但需要快速翻译成“到底多了什么能力、对谁有影响”。"
+      },
+      {
+        "lane": "开源 / Infra / 推理优化",
+        "count": 3,
+        "examples": [
+          "月之暗面启动 $1B 新融资，估值 $18B；Kimi Claw 20 天收入超 2025 全年总和",
+          "KV rotation PR in llama.cpp recovers AIME25 performance lost to q8 KV quantization"
+        ],
+        "why": "这类题适合做专业壁垒和品牌判断，但首屏必须更早翻译成普通读者能感知的意义。"
+      },
+      {
+        "lane": "视频 / 多模态 / 语音",
+        "count": 2,
+        "examples": [
+          "Sora's shutdown could be a reality check moment for AI video",
+          "The missing piece of Voxtral TTS to enable voice cloning: codec encoder weights are missing"
+        ],
+        "why": "这类题更容易被头部号选中，因为天然有产品感、演示感和大众入口。"
+      },
+      {
+        "lane": "机器人 / 硬件 / 具身智能",
+        "count": 1,
+        "examples": [
+          "Sora's shutdown could be a reality check moment for AI video"
+        ],
+        "why": "这类题自带强画面和具象对象，但如果没有用户 stakes，容易只剩酷炫而缺少转译。"
+      }
+    ],
+    "our_active_focus": [
+      {
+        "lane": "模型 / 研究进展",
+        "count": 2,
+        "examples": [
+          "Nicolas Carlini：Claude 是比他更好的安全研究员，AI 发现零日漏洞成为现实",
+          "KV rotation PR in llama.cpp recovers AIME25 performance lost to q8 KV quantization"
+        ],
+        "why": "这类题能代表前沿，但需要快速翻译成“到底多了什么能力、对谁有影响”。"
+      },
+      {
+        "lane": "机器人 / 硬件 / 具身智能",
+        "count": 1,
+        "examples": [
+          "Sora's shutdown could be a reality check moment for AI video"
+        ],
+        "why": "这类题自带强画面和具象对象，但如果没有用户 stakes，容易只剩酷炫而缺少转译。"
+      },
+      {
+        "lane": "视频 / 多模态 / 语音",
+        "count": 1,
+        "examples": [
+          "Sora's shutdown could be a reality check moment for AI video"
+        ],
+        "why": "这类题更容易被头部号选中，因为天然有产品感、演示感和大众入口。"
+      },
+      {
+        "lane": "安全 / 风险 / 漏洞",
+        "count": 1,
+        "examples": [
+          "Nicolas Carlini：Claude 是比他更好的安全研究员，AI 发现零日漏洞成为现实"
+        ],
+        "why": "这类题兼具反常识、风险感和专业背书，既适合传播，也适合建立判断力。"
+      }
+    ],
+    "shared_lanes": [
+      "模型 / 研究进展",
+      "开源 / Infra / 推理优化",
+      "安全 / 风险 / 漏洞"
+    ],
+    "head_media_only_lanes": [
+      {
+        "lane": "社会影响 / 就业伦理",
+        "examples": [
+          "预测这件事，人类越犹豫，这个大模型越有优势",
+          "美国开源AI最后的旗帜，也倒了"
+        ],
+        "takeaway": "头部号在 `社会影响 / 就业伦理` 连续给出样本，而我们的 Top6 主池还没覆盖，优先检查 seed / source lane 是否漏了，而不是先认定这题不值得做。"
+      },
+      {
+        "lane": "综合 / 其他",
+        "examples": [
+          "AI 为什么不会规划？Yann LeCun团队：问题出在「时间是弯的」"
+        ],
+        "takeaway": "头部号在 `综合 / 其他` 连续给出样本，而我们的 Top6 主池还没覆盖，优先检查 seed / source lane 是否漏了，而不是先认定这题不值得做。"
+      }
+    ],
+    "our_only_lanes": [
+      {
+        "lane": "机器人 / 硬件 / 具身智能",
+        "examples": [
+          "Sora's shutdown could be a reality check moment for AI video"
+        ],
+        "takeaway": "我们在 `机器人 / 硬件 / 具身智能` 上主动保留了更硬的一手题，但这类题一旦脱离大众语境，draft / hook / context 就必须更早补“普通人为什么该关心”。"
+      },
+      {
+        "lane": "视频 / 多模态 / 语音",
+        "examples": [
+          "Sora's shutdown could be a reality check moment for AI video"
+        ],
+        "takeaway": "我们在 `视频 / 多模态 / 语音` 上主动保留了更硬的一手题，但这类题一旦脱离大众语境，draft / hook / context 就必须更早补“普通人为什么该关心”。"
+      }
+    ],
+    "verdicts": [
+      "头部号这轮更偏 `模型 / 研究进展×4、社会影响 / 就业伦理×4`，说明它们优先抓“普通读者能立刻感到 stakes”的题材。",
+      "我们当前已下发主池更偏 `模型 / 研究进展×2、机器人 / 硬件 / 具身智能×1`，说明系统这轮更偏一手性、可防守性和品牌判断力。",
+      "裁判结论不是谁绝对更好，而是两边各赢一部分：头部号在传播势能和大众转译上更强，我们在可核验与可防守性上更稳。后续应保持“硬信号主池 + 大众 stakes 补位池”双轨，而不是二选一。",
+      "当前 ready 库里还有 `turboquant-qwen-macbook-air, unitree-ipo-economics` 这类历史题，和今天 task sheet 已下发对象不完全同频，所以学习板后续必须同时对照“当日 task sheet + 当前 ready 稿”，不能只看现成库存。"
+    ],
+    "role_actions": [
+      {
+        "owner": "seed-refresh / source-scouting",
+        "action": "若头部号连续两轮在某题材高频而我们的 Top6 没覆盖，下轮必须补至少 2 个对应来源或动态搜源规则。"
+      },
+      {
+        "owner": "source-capture / citation",
+        "action": "准备补位的题材必须先补一手原链、截图和中文工作摘要，再交给 radar，不允许只拿二手摘要就入池。"
+      },
+      {
+        "owner": "topic-radar",
+        "action": "筛 Top20 时同时看“确定性”和“普通读者 stakes”，避免候选池只剩硬核技术题。"
+      },
+      {
+        "owner": "topic-approval",
+        "action": "当最终锁的是和头部号不同的题，必须显式写明“我们为什么不跟”和“我们靠什么打赢”。"
+      },
+      {
+        "owner": "draft-pack / hook / context / render",
+        "action": "如果坚持更垂直的差异化题，首屏必须更早补背景、利益相关性和图证，不然再好的选题也会输在转译层。"
+      }
+    ],
+    "ready_only_topic_keys": [
+      "turboquant-qwen-macbook-air",
+      "unitree-ipo-economics"
+    ]
+  },
+  "gap_cards": [
+    {
+      "title": "成品化清理不够彻底",
+      "severity": "high",
+      "why": "头部样本的正文几乎不暴露“标题候选 / 包装说明 / 引用占位”，用户只会看到成品。",
+      "current_gap": "当前有 1/2 个 ready 主题还保留内部编辑结构，最典型的是 `turboquant-qwen-macbook-air`。",
+      "next_action": "写稿阶段最后一轮必须做“去工单味”清理：只保留读者该看到的标题、正文、图文与来源。"
+    },
+    {
+      "title": "背景桥接还要再早",
+      "severity": "high",
+      "why": "学习样本普遍在前 2-4 段就把“发生了什么 / 对象是谁 / 为什么现在值得看”交代清楚。",
+      "current_gap": "当前有 1/2 个 ready 主题在首屏仍偏判断先行、背景偏晚。",
+      "next_action": "优先补对象、事件、why now，不先换题；冷启动读者必须在前屏内知道你在说什么。"
+    }
+  ],
+  "next_actions": [
+    "先把 `turboquant-qwen-macbook-air` 做一次“去工单味”清理，确保成品页只剩读者该看到的内容。",
+    "把所有 ready 稿的背景桥接前移到首屏前 10%-15%，先补对象 / 事件 / why now。",
+    "明天继续从 `量子位×4、机器之心×3` 这类高密度样本增量学习，维持学习池稳定刷新。",
+    "把 `袋鼠帝AI客栈` 的 source packet / deep article 主链补通，避免已接入账号持续不进学习池。"
+  ],
+  "optimization_items": [
+    {
+      "id": "opt_9dd1b1e83d",
+      "title": "成品化清理不够彻底",
+      "severity": "high",
+      "owner": "content-writer / content-polish",
+      "landing_layer": "skills + draft-pack final sweep",
+      "landing_targets": [
+        "09_runbooks/skills/th-draft-pack/SKILL.md",
+        "09_runbooks/skills/th-content-polish/SKILL.md"
+      ],
+      "why": "头部样本的正文几乎不暴露“标题候选 / 包装说明 / 引用占位”，用户只会看到成品。",
+      "current_gap": "当前有 1/2 个 ready 主题还保留内部编辑结构，最典型的是 `turboquant-qwen-macbook-air`。",
+      "next_action": "写稿阶段最后一轮必须做“去工单味”清理：只保留读者该看到的标题、正文、图文与来源。",
+      "source_basis": "量子位×4、机器之心×3、极客公园×1",
+      "status": "active",
+      "status_label": "待优化"
+    },
+    {
+      "id": "opt_06ec217b97",
+      "title": "背景桥接还要再早",
+      "severity": "high",
+      "owner": "topic-approval + draft-pack + content-polish",
+      "landing_layer": "skills + approved-topic handoff",
+      "landing_targets": [
+        "09_runbooks/skills/th-topic-approval/SKILL.md",
+        "09_runbooks/skills/th-draft-pack/SKILL.md",
+        "09_runbooks/skills/th-content-polish/SKILL.md"
+      ],
+      "why": "学习样本普遍在前 2-4 段就把“发生了什么 / 对象是谁 / 为什么现在值得看”交代清楚。",
+      "current_gap": "当前有 1/2 个 ready 主题在首屏仍偏判断先行、背景偏晚。",
+      "next_action": "优先补对象、事件、why now，不先换题；冷启动读者必须在前屏内知道你在说什么。",
+      "source_basis": "量子位×4、机器之心×3、极客公园×1",
+      "status": "active",
+      "status_label": "待优化"
+    },
+    {
+      "id": "opt_e3ce95046a",
+      "title": "把题材 × 人群 × 文风匹配持续沉淀到岗位规则",
+      "severity": "medium",
+      "owner": "content-analyst + core skills",
+      "landing_layer": "skills + learning rulebook",
+      "landing_targets": [
+        "08_brand_assets/latest__head-media-learning-rulebook-v1.md",
+        "09_runbooks/skills/th-topic-radar/SKILL.md",
+        "09_runbooks/skills/th-draft-pack/SKILL.md",
+        "09_runbooks/skills/th-content-polish/SKILL.md",
+        "09_runbooks/skills/th-market-visual-intelligence/SKILL.md"
+      ],
+      "why": "头部号真正可复用的不是口头禅，而是不同题材会自动切换叙述密度、术语阈值和证据呈现方式。",
+      "current_gap": "系统已有结构学习，但“事件科普 / 产品推荐 / 产业判断 / builder 拆解”对应的文风匹配规律还需要继续积累和显式沉淀。",
+      "next_action": "继续把长期学习结果写进稳定规则手册，并让 topic-radar、draft-pack、content-polish、visual-intelligence 每次执行时显式加载。",
+      "source_basis": "量子位×4、机器之心×3、极客公园×1",
+      "status": "active",
+      "status_label": "待优化"
+    },
+    {
+      "id": "opt_432a129d7b",
+      "title": "把选题判断复盘前置到 seed / source / topic 三层",
+      "severity": "high",
+      "owner": "source-capture + seed-refresh + topic-radar + topic-approval",
+      "landing_layer": "skills + learning rulebook + next-round source lanes",
+      "landing_targets": [
+        "08_brand_assets/latest__head-media-learning-rulebook-v1.md",
+        "09_runbooks/skills/th-source-capture-and-citation/SKILL.md",
+        "09_runbooks/skills/th-seed-refresh-and-source-scouting/SKILL.md",
+        "09_runbooks/skills/th-topic-radar/SKILL.md",
+        "09_runbooks/skills/th-topic-approval/SKILL.md"
+      ],
+      "why": "头部号学习不能只反哺写法，还要让上游岗位知道今天什么题更值得做、我们为什么没做、是漏抓还是故意不跟。",
+      "current_gap": "现有规则手册已有写法学习，但对“头部号今天在追什么 / 我们今天为什么押另一个题 / 哪边更优”的复盘还不够前置到上游岗位。",
+      "next_action": "让 source-capture、seed-refresh、topic-radar、topic-approval 执行前显式读取规则手册中的选题复盘，并把共识题 / 漏题 / 差异化题写回下一轮动作。",
+      "source_basis": "量子位×4、机器之心×3、极客公园×1",
+      "status": "active",
+      "status_label": "待优化"
+    }
+  ],
+  "optimization_events": []
+}

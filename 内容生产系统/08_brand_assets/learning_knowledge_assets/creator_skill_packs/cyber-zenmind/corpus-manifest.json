@@ -1,0 +1,148 @@
+{
+  "generated_at": "2026-05-09 17:44:21 CST",
+  "source_name": "赛博禅心",
+  "slug": "cyber-zenmind",
+  "overlay_skill_name": "th-style-overlay-cyber-zenmind",
+  "sample_gate_passed": true,
+  "distinct_recent_articles_used": 8,
+  "total_distinct_available": 22,
+  "observed_window": {
+    "latest": "2026-03-28 15:04:50 CST",
+    "oldest": "2026-03-24 10:26:15 CST"
+  },
+  "aggregate": {
+    "median_char_count": 3365,
+    "median_image_count": 2.5,
+    "median_first_image_after_text_paragraphs": 11.0,
+    "median_short_para_ratio": 0.7,
+    "median_image_density_per_1000_chars": 0.665,
+    "early_image_share": 0.0,
+    "dense_visual_share": 0.25,
+    "first_person_opening_share": 0.25,
+    "reader_address_opening_share": 0.125,
+    "opening_modes": {
+      "场景/自述切入": 4,
+      "数字/清单切入": 1,
+      "对象/事件先落地": 1,
+      "事件/变化切入": 1,
+      "问题/提问切入": 1
+    },
+    "title_modes": {
+      "对象直给型标题": 8
+    }
+  },
+  "articles": [
+    {
+      "title": "飞书出了官方 CLI，消息、文档、日历、邮箱都能用 Agent 操作了",
+      "published_at": "2026-03-28 15:04:50 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/lrihiZonqug-xi4sHMviVg",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200250__飞书出了官方_cli_消息_文档_日历_邮箱都能用_agent_操作了__deep-article.md",
+      "char_count": 3472,
+      "image_count": 6,
+      "first_image_after_text_paragraphs": 8,
+      "opening_mode": "场景/自述切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.673,
+      "opening_excerpt": "PRODUCT 飞书 CLI（命令行工具，让 AI 通过文字指令操作飞书的接口）今天正式开源。Go 语言写的，MIT 协议 装上之后，你的 AI Agent 可以直接操作飞书：发消息、查日历、写文档、建多维表格、发邮件、管任务、搜知识库。你跟 AI 说一句话，它自己去飞书里把事情办了",
+      "note": "场景/自述切入；结构展开后再上图；短段密度高；图文节奏偏密"
+    },
+    {
+      "title": "爱马仕：一家做了 189 年 Harness 的公司",
+      "published_at": "2026-03-27 22:59:29 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/2NWvKt6M1ZXUfMFHCr5CtQ",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_231056__爱马仕_一家做了_189_年_harness_的公司__deep-article.md",
+      "char_count": 2494,
+      "image_count": 2,
+      "first_image_after_text_paragraphs": 11,
+      "opening_mode": "数字/清单切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.713,
+      "opening_excerpt": "ESSAY 1837 年，蒂埃里·爱马仕在巴黎开了一家马具工坊 那时候马是主要交通工具，贵族出行全靠马车。蒂埃里观察到一个问题：巴黎市面上的马具质量参差不齐，很多马在运输途中因为不合身的挽具而动作受限。",
+      "note": "数字/清单切入；结构展开后再上图；短段密度高"
+    },
+    {
+      "title": "给 AI 配张银行卡：Stripe 半年搭完的 Agent 支付全景",
+      "published_at": "2026-03-27 09:13:05 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/3Pzo4iu7j1YP1_uO4NwGkQ",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200238__给_ai_配张银行卡_stripe_半年搭完的_agent_支付全景__deep-article.md",
+      "char_count": 5622,
+      "image_count": 3,
+      "first_image_after_text_paragraphs": 11,
+      "opening_mode": "对象/事件先落地",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.708,
+      "opening_excerpt": "STRIPE · AGENT PAYMENTS 3 月中旬，一个叫 AgentCard",
+      "note": "对象/事件先落地；结构展开后再上图；短段密度高"
+    },
+    {
+      "title": "林俊旸离职后首发长文：从「想得更久」到「为行动而想」",
+      "published_at": "2026-03-26 20:42:33 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/omLaxHMxqH8mApSgowGQ1Q",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_231506__林俊旸离职后首发长文_从_想得更久_到_为行动而想__deep-article.md",
+      "char_count": 17718,
+      "image_count": 1,
+      "first_image_after_text_paragraphs": 4,
+      "opening_mode": "场景/自述切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.381,
+      "opening_excerpt": "NOTE 3 月 4 日凌晨发出那句「me stepping down. bye my beloved qwen」之后，林俊旸在社交媒体上沉默了三周 今天，他在 X（Twitter）上发布了离职以来的",
+      "note": "场景/自述切入；判断后很快补图；短段密度高"
+    },
+    {
+      "title": "Google 新算法，Mac Mini 也能跑 Qwen3.5",
+      "published_at": "2026-03-26 16:10:42 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/CHaTnxpmK9SUdSY0AOxoJA",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_231442__google_新算法_mac_mini_也能跑_qwen3_5__deep-article.md",
+      "char_count": 4686,
+      "image_count": 4,
+      "first_image_after_text_paragraphs": 33,
+      "opening_mode": "事件/变化切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.692,
+      "opening_excerpt": "RESEARCH 3 月 24 日，Google Research 发布了一套量化压缩算法，叫 TurboQuant",
+      "note": "事件/变化切入；结构展开后再上图；短段密度高"
+    },
+    {
+      "title": "Sora 关停，迪士尼 10 亿美元投资作废",
+      "published_at": "2026-03-25 10:53:30 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/oWAZE_p8yzQ0YxMLPiu5wQ",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_231616__sora_关停_迪士尼_10_亿美元投资作废__deep-article.md",
+      "char_count": 1534,
+      "image_count": 0,
+      "first_image_after_text_paragraphs": null,
+      "opening_mode": "场景/自述切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.581,
+      "opening_excerpt": "NEWS 今天，OpenAI 宣布关停 Sora 包括独立 App、API，以及 ChatGPT 内的视频生成功能，全部下线。具体关停时间表还没公布，官方说「稍后会分享更多细节」",
+      "note": "场景/自述切入；短段密度高"
+    },
+    {
+      "title": "Token 的译名，不再是量子位",
+      "published_at": "2026-03-24 18:54:27 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/T4sSJY2LhMsnh55rv1UtJA",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_231628__token_的译名_不再是量子位__deep-article.md",
+      "char_count": 1658,
+      "image_count": 0,
+      "first_image_after_text_paragraphs": null,
+      "opening_mode": "问题/提问切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.769,
+      "opening_excerpt": "ESSAY Token 在中文里活了好几年，一直处在量子位的叠加态 所以呢...过去几年里，词元、令牌、代币、标记、托肯，多个值同时存在，谁也没把谁按下去。上周的时候，我还在那儿一本正经地论证 Token 应该叫「",
+      "note": "问题/提问切入；短段密度高"
+    },
+    {
+      "title": "Agent，能自动做生意、赚真钱了",
+      "published_at": "2026-03-24 10:26:15 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/rf9T4VFKosFJYt1s9_fOwQ",
+      "deep_article_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260328_200213__agent_能自动做生意_赚真钱了__deep-article.md",
+      "char_count": 3258,
+      "image_count": 6,
+      "first_image_after_text_paragraphs": 11,
+      "opening_mode": "场景/自述切入",
+      "title_mode": "对象直给型标题",
+      "short_para_ratio": 0.74,
+      "opening_excerpt": "PRODUCT 我的第一桶金是大学之前赚的，靠的淘宝与亚马逊；今天，这套东西已经 Agent 化了 今天，阿里上线了",
+      "note": "场景/自述切入；结构展开后再上图；短段密度高；图文节奏偏密"
+    }
+  ]
+}

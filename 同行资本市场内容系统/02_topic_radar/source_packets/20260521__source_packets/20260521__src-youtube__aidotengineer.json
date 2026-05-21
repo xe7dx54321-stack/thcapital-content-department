@@ -1,0 +1,139 @@
+{
+  "youtube__aidotengineer": [
+    {
+      "entity_name": "Your Coding Agent Should Do AI System Engineering — Ben Burtenshaw, Hugging Face",
+      "source_url": "https://www.youtube.com/watch?v=JomVvNDjGb8",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-21T22:06:18.356512"
+    },
+    {
+      "entity_name": "Any-to-Any: Building Native Multimodal Agents - Patrick Löber, Google DeepMind",
+      "source_url": "https://www.youtube.com/watch?v=GIRpQEfYf3U",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-21T22:06:18.356560"
+    },
+    {
+      "entity_name": "Skill issue: Lessons from skilling up coding agents to use Langfuse - Marc Klingen, Clickhouse",
+      "source_url": "https://www.youtube.com/watch?v=vNCY9kXXyDQ",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-21T22:06:18.356563"
+    },
+    {
+      "entity_name": "From 46% to 90%: Fine-Tuning Tiny LLMs for On-Device Agents — Cormac Brick, Google",
+      "source_url": "https://www.youtube.com/watch?v=-TiET_K-E_g",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-21T22:06:18.356566"
+    },
+    {
+      "entity_name": "What Breaks When You Build AI Under Sovereignty Constraints - Bilge Yücel, deepset GmbH",
+      "source_url": "https://www.youtube.com/watch?v=x2bH0RKPgdc",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-21T22:06:18.356568"
+    },
+    {
+      "entity_name": "Don't Build Slop (4 Levels of AI Agent Maturity) - Ara Khan, Cline",
+      "source_url": "https://www.youtube.com/watch?v=yUmS-F9IX90",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-21T22:06:18.356570"
+    },
+    {
+      "entity_name": "Personalization in the Era of LLMs - Shivam Verma, Spotify",
+      "source_url": "https://www.youtube.com/watch?v=5YSJEP0HWzM",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-21T22:06:18.356573"
+    },
+    {
+      "entity_name": "Rewiring the State — Eoin Mulgrew, No. 10 (Downing Street)",
+      "source_url": "https://www.youtube.com/watch?v=ObNKGf9YR0g",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-21T22:06:18.356575"
+    },
+    {
+      "entity_name": "Let's go Bananas with GenMedia — Guillaume Vernade, Google DeepMind",
+      "source_url": "https://www.youtube.com/watch?v=BcWFc3H7Khg",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-21T22:06:18.356577"
+    },
+    {
+      "entity_name": "Build Agents That Run for Hours (Without Losing the Plot) — Ash Prabaker &amp; Andrew Wilson, Anthro",
+      "source_url": "https://www.youtube.com/watch?v=mR-WAvEPRwE",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-21T22:06:18.356580"
+    },
+    {
+      "entity_name": "Harnesses in AI: A Deep Dive — Tejas Kumar, IBM",
+      "source_url": "https://www.youtube.com/watch?v=C_GG5g38vLU",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-21T22:06:18.356582"
+    },
+    {
+      "entity_name": "Fighting AI with AI — Lawrence Jones, Incident",
+      "source_url": "https://www.youtube.com/watch?v=L2r6vLlLgs8",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-21T22:06:18.356584"
+    },
+    {
+      "entity_name": "Why Your AI UX Is Broken (and It's Not the Model's Fault) — Mike Christensen, Ably",
+      "source_url": "https://www.youtube.com/watch?v=YNJvm7t3yq8",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-21T22:06:18.356586"
+    },
+    {
+      "entity_name": "AIE Singapore Day 2 ft. Google DeepMind, OpenClaw, Adaption, Arize, Cloudflare, Robot Company &amp; ",
+      "source_url": "https://www.youtube.com/watch?v=m12vGjfbNlo",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-21T22:06:18.356588"
+    },
+    {
+      "entity_name": "Beyond Code Coverage: Functionality Testing with Playwright MCP — Marlene Mhangami, Microsoft",
+      "source_url": "https://www.youtube.com/watch?v=FWEInOtngmM",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-21T22:06:18.356591"
+    }
+  ]
+}

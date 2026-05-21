@@ -1,0 +1,235 @@
+{
+  "trend__reddit_localllama_daily": [
+    {
+      "entity_name": "HuggingFace benchmark datasets now let you filter by model size",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tilvit/huggingface_benchmark_datasets_now_let_you_filter/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749711"
+    },
+    {
+      "entity_name": "Qwen3.7 Max scored by Artificial Analysis, 27B/35B waiting room",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tie6gy/qwen37_max_scored_by_artificial_analysis_27b35b/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749782"
+    },
+    {
+      "entity_name": "[WIP] Gemma 4 MTP",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tijpwl/wip_gemma_4_mtp/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749785"
+    },
+    {
+      "entity_name": "RTX 5080 16GB: Qwen3.6 35B MoE at 128k context — 56 tok/s, and why MTP doesn't help",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tiixql/rtx_5080_16gb_qwen36_35b_moe_at_128k_context_56/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749787"
+    },
+    {
+      "entity_name": "LM Studio finally added support for MTP Speculative Decoding",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1ti99an/lm_studio_finally_added_support_for_mtp/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749789"
+    },
+    {
+      "entity_name": "48GB VRAM users, what are your daily drivers? Do you wish you had more VRAM? What would you run if you did?",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1ti2ga0/48gb_vram_users_what_are_your_daily_drivers_do/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749791"
+    },
+    {
+      "entity_name": "Intel's Crescent Island PCB Leaks, Showing a Massive Xe3P GPU, 16-Pin Connector, 160GB LPDDR5X as Intel Sidesteps the HBM Shortage",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1thxig9/intels_crescent_island_pcb_leaks_showing_a/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749793"
+    },
+    {
+      "entity_name": "How accurate can “whichllm” be?",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tij57l/how_accurate_can_whichllm_be/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749795"
+    },
+    {
+      "entity_name": "A streamlined Hugging Face model search utility coded by Qwen 3.6-27B",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tikgej/a_streamlined_hugging_face_model_search_utility/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749797"
+    },
+    {
+      "entity_name": "A tool I built to generate 3D objects with functional, articulated parts. It's on github, and is mostly LLM-agnostic.",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1thucyj/a_tool_i_built_to_generate_3d_objects_with/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749799"
+    },
+    {
+      "entity_name": "bytedance released an open source model that attempts to do just about anything with only 3b parameters",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1thkwgk/bytedance_released_an_open_source_model_that/",
+      "score": 15,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749801"
+    },
+    {
+      "entity_name": "Gemma 4 MTP with LlamaCPP",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tif9vv/gemma_4_mtp_with_llamacpp/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749802"
+    },
+    {
+      "entity_name": "got my first &quot;rm -rf /&quot; today",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1thosnt/got_my_first_rm_rf_today/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749804"
+    },
+    {
+      "entity_name": "Guardrails take an 8B model from 53% to 99% on agentic tasks [ACM CAIS '26 preprint]",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1ticykd/guardrails_take_an_8b_model_from_53_to_99_on/",
+      "score": 20,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749806"
+    },
+    {
+      "entity_name": "Google AI Edge Gallery v1.0.13 &amp; v1.0.14 updates: Gemma 4 Multi-Token Prediction, Pixel TPU support, experimental MCP, new skills, now saves chat history",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1ti0g0k/google_ai_edge_gallery_v1013_v1014_updates_gemma/",
+      "score": 15,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749807"
+    },
+    {
+      "entity_name": "Let’s talk quants of Gemma and Qwen - 16 vs Q8 vs Q4 - any experiences?",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1ti7fld/lets_talk_quants_of_gemma_and_qwen_16_vs_q8_vs_q4/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749809"
+    },
+    {
+      "entity_name": "Qwen is cooking hard",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1theffd/qwen_is_cooking_hard/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749811"
+    },
+    {
+      "entity_name": "New SOTA 1B model? HRM-text",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1ti150n/new_sota_1b_model_hrmtext/",
+      "score": 15,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749812"
+    },
+    {
+      "entity_name": "Running DeepSeek-V4 locally with 4x legacy RTX 2080 Ti ($2k budget setup). Custom Turing kernels, W8A8 quantization, and 255 prefill tok/s!",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1ti5sxu/running_deepseekv4_locally_with_4x_legacy_rtx/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749814"
+    },
+    {
+      "entity_name": "Carbon: Decoding the Language of Life",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1thsw7b/carbon_decoding_the_language_of_life/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749816"
+    },
+    {
+      "entity_name": "Do you think there is room for optimization? llama.cpp/qwen3.6 27b on two 6000 Blackwell",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1tifr7c/do_you_think_there_is_room_for_optimization/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749818"
+    },
+    {
+      "entity_name": "Nemotron-Labs-Diffusion from NVIDIA",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1thv6du/nemotronlabsdiffusion_from_nvidia/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749820"
+    },
+    {
+      "entity_name": "Decent deal on RTX 3080 20GB on ebay - $30 per GB",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1ti8rnk/decent_deal_on_rtx_3080_20gb_on_ebay_30_per_gb/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749822"
+    },
+    {
+      "entity_name": "Time to update llama.cpp to get som MTP improvements!",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1thlmsx/time_to_update_llamacpp_to_get_som_mtp/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749824"
+    },
+    {
+      "entity_name": "Qwen3.6:27B VRAM 16GB 5080: MTP Quant, Speeds, and Configs",
+      "source_url": "https://old.reddit.com/r/LocalLLaMA/comments/1thyvum/qwen3627b_vram_16gb_5080_mtp_quant_speeds_and/",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "discussion",
+      "_source": "trend__reddit_localllama_daily",
+      "_fetched_at": "2026-05-20T21:57:26.749826"
+    }
+  ]
+}

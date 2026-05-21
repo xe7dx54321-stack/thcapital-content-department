@@ -1,0 +1,140 @@
+{
+  "date": "2026-04-20",
+  "generated_at": "2026-04-20 18:45:23 CST",
+  "board_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260420__daily-top8-to-top5.md",
+  "board_signature": "d1264906cd9b301e214f7c64b710d0f3db76141ce4f5da85477bbb45d338b6d7",
+  "status": "selected_pending_downstream_delivery",
+  "briefing_at": "2026-04-20 17:40:00 CST",
+  "default_pick_at": "2026-04-20 18:00:00 CST",
+  "draftbox_deadline": "2026-04-20 19:00:00 CST",
+  "default_choice_rank": 2,
+  "selected_rank": 2,
+  "selected_candidate_key": "claude_design_figma_disruption",
+  "selected_at": "2026-04-20 19:28:43 CST",
+  "selected_reason": "default_first_after_1800",
+  "approved_topic_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/04_approved_topics/20260420_192843__claude_design_figma_disruption__approved-topic.md",
+  "draft_pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/claude_design_figma_disruption",
+  "bridge_request_id": "",
+  "briefing_sent_at": "",
+  "briefing_sent_signature": "",
+  "recommended_cards": [
+    {
+      "date": "2026-04-20",
+      "card_role": "recommended",
+      "card_label": "推荐 1",
+      "rank": 2,
+      "candidate_key": "claude_design_figma_disruption",
+      "title": "如何评价 Claude design 功能发布后 Figma 股价下跌 7%？",
+      "display_title": "如何评价 Claude design 功能发布后 Figma…",
+      "topic_line": "AI产品层直接颠覆成熟商业软件的第一个可量化案例（股价）。对一人公司、Agent替代SAAS叙事有强信号意义。有截图、有股价、有用户反馈，证据链完整。",
+      "outline": "先交代读者为什么总会判断失真，再拆方法结构、关键步骤、怎么每天执行，最后补边界与风险。 具体展开时围绕：以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "style_route": "方法论 / workflow / skill / agent 教程",
+      "style_profile": {
+        "primary_creator": "赛博禅心",
+        "primary_skill": "th-style-overlay-cyber-zenmind",
+        "secondary_creator": "数字生命卡兹克",
+        "secondary_skill": "th-style-overlay-digitallife-khazix",
+        "support_creator": "饼干哥哥AGI",
+        "support_skill": "th-style-overlay-cookie-brother-agi",
+        "borrowed_layers": "对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置"
+      },
+      "special_instructions": "style_route=方法论 / workflow / skill / agent 教程; primary_overlay=赛博禅心; secondary_overlay=数字生命卡兹克; support_overlay=饼干哥哥AGI; borrowed_layers=对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "image_outline": [
+        "封面：主标题做成判断句，右侧用 3 层方法框架或核心步骤提示这是一篇可执行教程。",
+        "正文图：原始证据锚点，放在首屏后 / why-now 段后，核心作用是第一张图必须把对象钉住，不要让读者先看抽象判断。。",
+        "正文图：约束 / 变量分类图，放在背景讲清后，核心作用是适合‘盯这几类 / 只回答这几个问题 / 方法分层输入’这类段落。。",
+        "正文图：分层架构图，放在核心方法段前，核心作用是适合‘五层 / 分层 / 上下游 / 输入输出链路’这类段落。。",
+        "正文图：workflow 循环图，放在执行步骤段前，核心作用是适合‘每天怎么跑 / 如何更新 / 如何迭代’这类段落。。"
+      ],
+      "default_pick": true,
+      "draftbox_deadline": "2026-04-20 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260420__recommended_2__claude_design_figma_disruption.md"
+    },
+    {
+      "date": "2026-04-20",
+      "card_role": "recommended",
+      "card_label": "推荐 2",
+      "rank": 3,
+      "candidate_key": "opus47_negative_reception",
+      "title": "Claude Opus 4.7，全网差评，刚升级就翻车，用户怒斥：还我4.6",
+      "display_title": "Claude Opus 4.7，全网差评，刚升级就翻车，用户怒…",
+      "topic_line": "Anthropic模型口碑问题是AI爱好者社区持续焦点。负面信号有时比正面信号更有传播力，也更能揭示模型能力边界的真实状态。用户反弹=商业竞争空隙。",
+      "outline": "先交代读者为什么总会判断失真，再拆方法结构、关键步骤、怎么每天执行，最后补边界与风险。 具体展开时围绕：以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "style_route": "方法论 / workflow / skill / agent 教程",
+      "style_profile": {
+        "primary_creator": "赛博禅心",
+        "primary_skill": "th-style-overlay-cyber-zenmind",
+        "secondary_creator": "数字生命卡兹克",
+        "secondary_skill": "th-style-overlay-digitallife-khazix",
+        "support_creator": "饼干哥哥AGI",
+        "support_skill": "th-style-overlay-cookie-brother-agi",
+        "borrowed_layers": "对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置"
+      },
+      "special_instructions": "style_route=方法论 / workflow / skill / agent 教程; primary_overlay=赛博禅心; secondary_overlay=数字生命卡兹克; support_overlay=饼干哥哥AGI; borrowed_layers=对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "image_outline": [
+        "封面：主标题做成判断句，右侧用 3 层方法框架或核心步骤提示这是一篇可执行教程。",
+        "正文图：原始证据锚点，放在首屏后 / why-now 段后，核心作用是第一张图必须把对象钉住，不要让读者先看抽象判断。。",
+        "正文图：约束 / 变量分类图，放在背景讲清后，核心作用是适合‘盯这几类 / 只回答这几个问题 / 方法分层输入’这类段落。。",
+        "正文图：分层架构图，放在核心方法段前，核心作用是适合‘五层 / 分层 / 上下游 / 输入输出链路’这类段落。。",
+        "正文图：workflow 循环图，放在执行步骤段前，核心作用是适合‘每天怎么跑 / 如何更新 / 如何迭代’这类段落。。"
+      ],
+      "default_pick": false,
+      "draftbox_deadline": "2026-04-20 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260420__recommended_3__opus47_negative_reception.md"
+    }
+  ],
+  "holdout_cards": [
+    {
+      "date": "2026-04-20",
+      "card_role": "holdout",
+      "card_label": "候补 1",
+      "rank": 1,
+      "candidate_key": "ram_shortage_ai_infra",
+      "title": "The RAM shortage could last years",
+      "display_title": "The RAM shortage could last yea…",
+      "topic_line": "从\"模型能力不足\"转向\"硬件供给不足\"，是AI产业叙事的重要切换点。与去CUDA化形成逻辑呼应：国产芯片突围的时机恰逢全球算力瓶颈。对AI Infra投资、算力租赁、芯片创业均有直接影响。",
+      "outline": "先交代读者为什么总会判断失真，再拆方法结构、关键步骤、怎么每天执行，最后补边界与风险。 具体展开时围绕：以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "style_route": "方法论 / workflow / skill / agent 教程",
+      "style_profile": {
+        "primary_creator": "赛博禅心",
+        "primary_skill": "th-style-overlay-cyber-zenmind",
+        "secondary_creator": "数字生命卡兹克",
+        "secondary_skill": "th-style-overlay-digitallife-khazix",
+        "support_creator": "饼干哥哥AGI",
+        "support_skill": "th-style-overlay-cookie-brother-agi",
+        "borrowed_layers": "对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置"
+      },
+      "special_instructions": "style_route=方法论 / workflow / skill / agent 教程; primary_overlay=赛博禅心; secondary_overlay=数字生命卡兹克; support_overlay=饼干哥哥AGI; borrowed_layers=对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "image_outline": [
+        "封面：主标题做成判断句，右侧用 3 层方法框架或核心步骤提示这是一篇可执行教程。",
+        "正文图：原始证据锚点，放在首屏后 / why-now 段后，核心作用是第一张图必须把对象钉住，不要让读者先看抽象判断。。",
+        "正文图：约束 / 变量分类图，放在背景讲清后，核心作用是适合‘盯这几类 / 只回答这几个问题 / 方法分层输入’这类段落。。",
+        "正文图：分层架构图，放在核心方法段前，核心作用是适合‘五层 / 分层 / 上下游 / 输入输出链路’这类段落。。",
+        "正文图：workflow 循环图，放在执行步骤段前，核心作用是适合‘每天怎么跑 / 如何更新 / 如何迭代’这类段落。。"
+      ],
+      "default_pick": false,
+      "draftbox_deadline": "2026-04-20 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260420__holdout_1__ram_shortage_ai_infra.md"
+    }
+  ],
+  "status": "selected_delivery_complete_wechat_pending_feishu_blocked",
+  "bridge_request_id": "wechat_bridge__claude_design_figma_disruption",
+  "feishu_doc_status": "blocked",
+  "feishu_doc_mode": "blocked",
+  "feishu_doc_title": "Claude Design vs Figma：AI层颠覆SaaS的第一个量化信号 | 同行资本",
+  "feishu_doc_token": "",
+  "feishu_doc_url": "",
+  "feishu_doc_source_fingerprint": "32a7c4c81bad74a726ab0620cd97711785795645d7155c498cf502b0b9fc1897",
+  "feishu_doc_block_reason": "openclaw agent returned empty stdout / feishu app missing docx:document:write scope",
+  "delivery_summary": {
+    "wechat_draft_request": "written to outbox: /Users/apple/Documents/同行资本内容部门/内容生产系统/07_wechat_bridge_outbox/requests/wechat_bridge__claude_design_figma_disruption/",
+    "feishu_doc": "blocked - feishu app only has messaging permissions, no document creation scope",
+    "draft_pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/claude_design_figma_disruption",
+    "article_title": "如何评价 Claude Design 发布后 Figma 股价下跌 7%？",
+    "draft_status": "ready",
+    "images_attached": ["00__cover.png", "80__slot_1.png", "81__slot_2.png", "82__slot_3.png", "83__slot_4.png"]
+  }
+}

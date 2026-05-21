@@ -1,0 +1,27 @@
+{
+  "entity": "Kuli",
+  "seed_source": "trend__yc_launches_ai",
+  "seed_url": "https://www.ycombinator.com/companies/kuli",
+  "entity_type": "company",
+  "domain": "Consumer AI / Influencer Marketing Automation",
+  "derived_links": {
+    "yc_company_page": "https://www.ycombinator.com/companies/kuli",
+    "product_demo_video": "https://www.youtube.com/watch?v=0wdu4XS7BHk",
+    "twitter": "https://twitter.com/kuli_ai",
+    "linkedin": "https://www.linkedin.com/company/kuli-ai"
+  },
+  "next_hop_queries": {
+    "kuli_website": "Kuli AI influencer marketing official website",
+    "founder_details": "Michael Hodara Kuli AI founder",
+    "customer_brand_list": "Kuli Fortune 100 entertainment brand case study",
+    "pricing_gtm": "Kuli AI marketing pricing go-to-market"
+  },
+  "score": {
+    "object_clarity": 4,
+    "link_density": 3,
+    "social_presence": 3,
+    "demo_docs_available": 3,
+    "funding_hardness": 3
+  },
+  "notes": "YC S26. AI coworker for influencer marketing at consumer brands. Fortune 100 entertainment brand + mobile gaming studio + cosmetics brands using. 3x more campaigns, no extra headcount. 5 months old. No external funding disclosed."
+}

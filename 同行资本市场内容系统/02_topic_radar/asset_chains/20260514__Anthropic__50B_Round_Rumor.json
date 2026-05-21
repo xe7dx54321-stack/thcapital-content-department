@@ -1,0 +1,25 @@
+{
+  "entity": "Anthropic (Mega Round Context)",
+  "seed_source": "web__techcrunch_ai",
+  "seed_url": "https://news.crunchbase.com/venture/global-startup-funding-april-2026-anthropic-jeff-bezos-project-prometheus-biggest-deals/",
+  "entity_type": "company",
+  "domain": "AI Lab / Foundation Model",
+  "derived_links": {
+    "crunchbase_page": "https://www.crunchbase.com/organization/anthropic",
+    "四月mega_round": "Anthropic $15B April 2026 (confirmed, not $50B rumored)"
+  },
+  "next_hop_queries": {
+    "series_f_confirmation": "Anthropic Series F $50B May 2026 confirmed or denied",
+    "valuation_900b": "Anthropic $900B valuation latest round",
+    "investor_list": "Anthropic latest round investors Jeff Bezos",
+    "product_claude": "Anthropic Claude 4 release date 2026"
+  },
+  "score": {
+    "object_clarity": 3,
+    "link_density": 3,
+    "social_presence": 5,
+    "demo_docs_available": 5,
+    "funding_hardness": 3
+  },
+  "notes": "$50B round is unconfirmed market rumor. Confirmed: $15B in April 2026 (already past). TechCrunch report on potential $50B at $900B valuation — not officially confirmed. Source is market speculation. Use caution on this specific signal."
+}

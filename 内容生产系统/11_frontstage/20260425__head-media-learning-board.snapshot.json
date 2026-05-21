@@ -1,0 +1,582 @@
+{
+  "meta": {
+    "generated_at": "2026-04-25 23:34:37 CST",
+    "date": "2026-04-25",
+    "window_rule": "T-1 17:00 → T 14:30"
+  },
+  "paths": {
+    "markdown": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260425__head-media-learning-board.md",
+    "html": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260425__head-media-learning-board.html",
+    "json": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/20260425__head-media-learning-board.snapshot.json",
+    "rulebook_markdown": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/20260425__head-media-learning-rulebook-v1.md",
+    "rulebook_latest": "/Users/apple/Documents/同行资本内容部门/内容生产系统/08_brand_assets/latest__head-media-learning-rulebook-v1.md",
+    "optimization_state": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/_console_state/learning_optimization_state.json"
+  },
+  "overview": {
+    "sample_count": 8,
+    "ready_topic_count": 1,
+    "strategic_rotation_count": 4,
+    "strategic_rotation_blocked": 0,
+    "sample_source_mix": [
+      [
+        "智东西",
+        4
+      ],
+      [
+        "量子位",
+        3
+      ],
+      [
+        "机器之心",
+        1
+      ]
+    ],
+    "median_first_image_after_text_paragraphs": 0.0,
+    "median_sample_image_count": 14.0,
+    "takeaways": [
+      "先用判断或反差把人拉住，再在前 10%-15% 内补齐背景。",
+      "证据要早，不要让读者一直听抽象判断。",
+      "图片要承担证明、解释、换气三种职责，而不是只做装饰。",
+      "写稿时优先补证、补背景、补图，而不是遇到问题就直接换题。",
+      "学习不只反哺写稿岗，还要反哺 source / seed / topic 三层，持续校正“今天该追什么题”。"
+    ],
+    "optimization_total": 3,
+    "optimization_active": 3,
+    "optimization_dismissed": 0
+  },
+  "samples": [
+    {
+      "source_name": "智东西",
+      "title": "DeepSeek V4登顶了！梁文锋把四大技术秘方公开",
+      "published_at": "2026-04-24 18:37:44 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/gTsIKShVuhhHKI_yCraLcQ",
+      "char_count": 5707,
+      "image_count": 14,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "架构、基础设施、训练过程全升级。 / 作者 |",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260425_122346__deepseek_v4登顶了_梁文锋把四大技术秘方公开__deep-article.md"
+    },
+    {
+      "source_name": "智东西",
+      "title": "实测在DeepSeek-V4上烧1000万token，我发现了3个惊喜和1个意外",
+      "published_at": "2026-04-24 18:37:44 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/2QGjDDibkYA3yef35PTBZw",
+      "char_count": 2777,
+      "image_count": 26,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "复杂智能体编程和长程任务成V4亮点。 / 作者 |",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260425_122335__实测在deepseek_v4上烧1000万token_我发现了3个惊喜和1个意外__deep-article.md"
+    },
+    {
+      "source_name": "智东西",
+      "title": "独家对话涂鸦“班长”：从AI家庭、机器人到能源，Agent时代需要生态共赢",
+      "published_at": "2026-04-24 19:58:33 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/2UoLRM7TydnnQ-dhcUQtzg",
+      "char_count": 7309,
+      "image_count": 16,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "背靠180万开发者10亿智能设备，涂鸦给出Agent时代AI应用落地更优解。 / 作者 |",
+      "learning_takeaway": "开头直接塞进数字或对象，让读者先感到“这事是真的，而且现在就值得看”。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260425_122323__独家对话涂鸦_班长_从ai家庭_机器人到能源_agent时代需要生态共赢__deep-article.md"
+    },
+    {
+      "source_name": "智东西",
+      "title": "罗福莉又上分了！小米连甩4款模型，让AI超逼真配音",
+      "published_at": "2026-04-24 12:55:55 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/--uX-TK4z8_3liH3huuXow",
+      "char_count": 4477,
+      "image_count": 10,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "小米MiMo-V2.5系列模型全数亮相，雷军发文：继续进步。 / 作者 |",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260425_122311__罗福莉又上分了_小米连甩4款模型_让ai超逼真配音__deep-article.md"
+    },
+    {
+      "source_name": "量子位",
+      "title": "谷歌再发香蕉！通用视觉模型Vision Banana刷新2D/3D多项SOTA，何恺明谢赛宁参与",
+      "published_at": "2026-04-24 16:00:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/BbgZdFXqAEX7DOcvUihaHA",
+      "char_count": 3309,
+      "image_count": 12,
+      "first_image_after_text_paragraphs": 12,
+      "hook_excerpt": "闻乐 发自 凹非寺 / 量子位 | 公众号 QbitAI",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首图位置相对靠后，更像是在结构展开后用图片换气。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260425_122300__谷歌再发香蕉_通用视觉模型vision_banana刷新2d_3d多项sota_何恺明谢赛宁参与__deep-article.md"
+    },
+    {
+      "source_name": "量子位",
+      "title": "DeepSeek V4报告太详尽了！484天换代之路全公开",
+      "published_at": "2026-04-25 08:58:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/IED0AJ7p6LJoETNP7PlVAQ",
+      "char_count": 7304,
+      "image_count": 17,
+      "first_image_after_text_paragraphs": 4,
+      "hook_excerpt": "henry 发自 凹非寺 / 量子位 | 公众号 QbitAI",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "先给判断，再很快补一张证据图，图文切换节奏比较早。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260425_122248__deepseek_v4报告太详尽了_484天换代之路全公开__deep-article.md"
+    },
+    {
+      "source_name": "量子位",
+      "title": "0博士组合拿下ICLR时间检验奖！两个GPT天才本科生+二本逆袭LeCun弟子，十年论文终封神",
+      "published_at": "2026-04-25 08:58:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/vV7TIWgQ8P3LdLyJxivLcA",
+      "char_count": 3124,
+      "image_count": 14,
+      "first_image_after_text_paragraphs": 6,
+      "hook_excerpt": "鹭羽 发自 凹非寺 / 量子位 | 公众号 QbitAI",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "先给判断，再很快补一张证据图，图文切换节奏比较早。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260425_122225__0博士组合拿下iclr时间检验奖_两个gpt天才本科生_二本逆袭lecun弟子_十年论文终封神__deep-article.md"
+    },
+    {
+      "source_name": "机器之心",
+      "title": "机器人马拉松超越人类之后：本体走到尽头，智能成为下半场",
+      "published_at": "2026-04-24 17:00:00 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/NYAHoj8EOHWxNpi3t3IbrA",
+      "char_count": 3594,
+      "image_count": 6,
+      "first_image_after_text_paragraphs": 0,
+      "hook_excerpt": "机器之心发布 / 近日，人形机器人第一次在真正意义上，“超越” 了人类。",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260425_122214__机器人马拉松超越人类之后_本体走到尽头_智能成为下半场__deep-article.md"
+    }
+  ],
+  "strategic_rotation": [
+    {
+      "source_name": "赛博禅心",
+      "status": "archive",
+      "status_label": "历史回看",
+      "title": "Token 的译名，不再是量子位",
+      "published_at": "2026-03-24 18:54:27 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/T4sSJY2LhMsnh55rv1UtJA",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首图位置相对靠后，更像是在结构展开后用图片换气。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_231628__token_的译名_不再是量子位__deep-article.md",
+      "note": "该号近 14 天内暂无新 deep article，暂回看最近一篇高质量样本，避免战略学习断档。",
+      "source_packet_count": 23,
+      "deep_article_count": 38
+    },
+    {
+      "source_name": "数字生命卡兹克",
+      "status": "archive",
+      "status_label": "历史回看",
+      "title": "所有用OpenClaw的朋友，我都劝你先装上这个能保命的Skill。",
+      "published_at": "2026-03-13 10:49:09 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/ElpuiIh3css7XtmI9Ciwgw",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "首屏或前两段就上图，先把事件锚住，再继续展开。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_105553__所有用openclaw的朋友_我都劝你先装上这个能保命的skill__deep-article.md",
+      "note": "该号近 14 天内暂无新 deep article，暂回看最近一篇高质量样本，避免战略学习断档。",
+      "source_packet_count": 21,
+      "deep_article_count": 15
+    },
+    {
+      "source_name": "饼干哥哥AGI",
+      "status": "archive",
+      "status_label": "历史回看",
+      "title": "用龙虾模型把跨境电商的业务SOP转成OpenClaw的Skill",
+      "published_at": "2026-03-17 15:56:16 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/ybPAEUFW4RqzmR1uOpL1gg",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "先给判断，再很快补一张证据图，图文切换节奏比较早。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_110508__用龙虾模型把跨境电商的业务sop转成openclaw的skill__deep-article.md",
+      "note": "该号近 14 天内暂无新 deep article，暂回看最近一篇高质量样本，避免战略学习断档。",
+      "source_packet_count": 25,
+      "deep_article_count": 19
+    },
+    {
+      "source_name": "袋鼠帝AI客栈",
+      "status": "archive",
+      "status_label": "历史回看",
+      "title": "阿里出手了！终于不怕OpenClaw烧token啦，直接算力自由～",
+      "published_at": "2026-02-22 17:47:58 CST",
+      "canonical_url": "https://mp.weixin.qq.com/s/ZYRkRzaDeX3lB5kIS2jDsg",
+      "learning_takeaway": "开头更像“对象 + 事件 + why now”同步落地，读者不容易迷路。",
+      "visual_takeaway": "先给判断，再很快补一张证据图，图文切换节奏比较早。",
+      "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/02_topic_radar/deep_articles/20260409_110905__阿里出手了_终于不怕openclaw烧token啦_直接算力自由__deep-article.md",
+      "note": "该号近 14 天内暂无新 deep article，暂回看最近一篇高质量样本，避免战略学习断档。",
+      "source_packet_count": 23,
+      "deep_article_count": 7
+    }
+  ],
+  "ready_drafts": [
+    {
+      "topic_key": "ai_morning_brief_20260425",
+      "topic_title": "AI早报｜4月25日",
+      "approved_angle": "把 T-1 17:00 到 T 05:00 的 8-10 个 AI / 科技热点，整理成一篇适合早晨快速阅读的聚合早报；前半段先做“太长不看”，后半段再逐条展开，并在文末呼应今日最值得继续追踪的线索。",
+      "platforms": [
+        "微信公众号"
+      ],
+      "representative_platform": "wechat",
+      "representative_platform_label": "微信公众号",
+      "representative_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260425/wechat.md",
+      "pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/ai_morning_brief_20260425",
+      "preview": "同行资本 TH Capital｜每日 AI 产业信号追踪",
+      "char_count": 3073,
+      "section_count": 3,
+      "visual_asset_count": 1,
+      "strengths": [
+        "正文早段已经有链接、数字或事实锚点，判断不是空转。",
+        "本地已落 `1` 张视觉素材，具备真实图文化基础。"
+      ],
+      "gaps": [
+        "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。"
+      ],
+      "gap_summary": "冷启动读者的背景桥接还不够早，容易读到一半才知道这件事到底是什么。",
+      "has_internal_packaging": false,
+      "has_early_background": false,
+      "has_early_judgment": false,
+      "has_early_evidence": true
+    }
+  ],
+  "selection_review": {
+    "selection_topics": [
+      {
+        "topic_key": "ai-agent-ecosystem",
+        "title": "独家对话涂鸦\"班长\"：从AI家庭、机器人到能源，Agent时代需要生态共赢",
+        "status": "active",
+        "status_label": "已下发",
+        "score_total": "14` / 30（⚡ 强化：+1 数据硬度）",
+        "signal_summary": "智东西独家对话涂鸦智能 CEO（班长），覆盖 AI 家庭、机器人、能源三大场景。核心议题：Agent 时代生态共赢模式。涂鸦平台背靠 180 万开发者、10 亿智能设备，为生态论断提供量化锚点。",
+        "why_selected": "Agent 落地话题贴近产业，生态视角有差异化；180万开发者/10亿设备数据提升一手性；大厂/明星创始人背书利于传播。",
+        "lanes": [
+          "机器人 / 硬件 / 具身智能",
+          "开源 / Infra / 推理优化"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260425__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "deepseek-v4-benchmark",
+        "title": "实测在DeepSeek-V4上烧1000万token，我发现了3个惊喜和1个意外",
+        "status": "active",
+        "status_label": "已下发",
+        "score_total": "13` / 30（⚡ 强化：+1 数据硬度）",
+        "signal_summary": "实测 DeepSeek-V4 处理 1000 万 token，发现 3 个惊喜 + 1 个意外。HF 官方博客同期确认：V4 Pro（1.6T 总参/49B 激活）、V4 Flash（284B/13B 激活），均为 1M token 上下文，聚焦 agent 长任务场景。两个来源交叉印证，硬核测试内容 + 官方规格背书。",
+        "why_selected": "DeepSeek V4 是当周最热模型话题；实测类内容在开发者社区有强传播性；HF 官方博客提供模型规格锚点，双源交叉验证提升数据硬度。",
+        "lanes": [
+          "模型 / 研究进展",
+          "行业落地 / 医疗 / 场景翻译"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260425__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "deepseek-v4-technical",
+        "title": "DeepSeek V4登顶了！梁文锋把四大技术秘方公开",
+        "status": "active",
+        "status_label": "已下发",
+        "score_total": "13` / 30（⚡ 强化：+1 数据硬度）",
+        "signal_summary": "DeepSeek V4 发布后登顶多项基准测试；梁文锋（创始人）公开四大技术方向。技术 + 创始人 IP 双驱动。HF 官方博客确认：V4 聚焦 long-running agentic workloads，架构层面专门解决长上下文 KV cache 和 GPU 占用问题，为业内难题提供了 community follow 路径。",
+        "why_selected": "模型发布是当周最硬的一手信源；创始人公开技术路线对投资研究有直接价值；HF 博客架构层分析进一步提升一手性；破圈性强（科技 + 资本双圈层）。",
+        "lanes": [
+          "机器人 / 硬件 / 具身智能",
+          "开源 / Infra / 推理优化"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260425__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "meta-amazon-ai-chip-deal",
+        "title": "In another wild turn for AI chips, Meta signs deal for millions of Amazon AI CPUs",
+        "status": "pool",
+        "status_label": "池内待捞回",
+        "score_total": "11` / 30",
+        "signal_summary": "Meta 与 Amazon 签署大规模 AI 芯片采购协议，百万量级 CPU 订单。硬新闻 + 产业格局变化信号，可验证官方公告。",
+        "why_selected": "本 bundle 中唯一 primary_source=true 的条目；Meta 采购大单直接反映算力投资趋势；TechCrunch 是英文科技圈权威源。",
+        "lanes": [
+          "融资 / 商业化 / 资本信号",
+          "机器人 / 硬件 / 具身智能"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260425__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "vision-banana-google-ai-vision",
+        "title": "谷歌再发香蕉！通用视觉模型Vision Banana刷新2D/3D多项SOTA，何恺明谢赛宁参与",
+        "status": "pool",
+        "status_label": "池内待捞回",
+        "score_total": "12` / 30（⚡ 强化：+1 破圈性 → 何恺明/谢赛宁参与提升学术圈层扩散）",
+        "signal_summary": "谷歌发布 Vision Banana 通用视觉模型，刷新 2D/3D 多项 SOTA。论文核心洞察：图像生成预训练可成为通用视觉学习范式。何恺明（ResNet 联合作者）、谢赛宁（知名 AI 研究者）参与，学术背书极强，利于跨学术圈和产业圈双层传播。",
+        "why_selected": "Google 发布 + 多项 SOTA 是强一手信号；何恺明/谢赛宁参与为模型可信度背书；图像生成预训练作为通用范式有长期影响；跨学术+产业双圈层破圈性强。",
+        "lanes": [
+          "模型 / 研究进展"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260425__top20-screening-pack__reworked.md"
+      },
+      {
+        "topic_key": "minimax-cannes-ai-art",
+        "title": "MiniMax 登上戛纳，AI 与艺术的全球和解开始了？",
+        "status": "pool",
+        "status_label": "池内待捞回",
+        "score_total": "11` / 30",
+        "signal_summary": "MiniMax 亮相戛纳电影节，AI 生成内容与艺术创作的碰撞。文化事件 + 商业出海的复合叙事。",
+        "why_selected": "MiniMax 作为中国 AI 公司出海戛纳具有标志性；AI+艺术是跨圈层讨论的好题材；戛纳是天然高关注度场景。",
+        "lanes": [
+          "行业落地 / 医疗 / 场景翻译"
+        ],
+        "path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260425__top20-screening-pack__reworked.md"
+      }
+    ],
+    "head_media_focus": [
+      {
+        "lane": "模型 / 研究进展",
+        "count": 5,
+        "examples": [
+          "DeepSeek V4登顶了！梁文锋把四大技术秘方公开",
+          "独家对话涂鸦“班长”：从AI家庭、机器人到能源，Agent时代需要生态共赢"
+        ],
+        "why": "这类题能代表前沿，但需要快速翻译成“到底多了什么能力、对谁有影响”。"
+      },
+      {
+        "lane": "社会影响 / 就业伦理",
+        "count": 3,
+        "examples": [
+          "谷歌再发香蕉！通用视觉模型Vision Banana刷新2D/3D多项SOTA，何恺明谢赛宁参与",
+          "DeepSeek V4报告太详尽了！484天换代之路全公开"
+        ],
+        "why": "这类题带公共讨论张力，容易出圈，但需要更强的边界和多方视角。"
+      },
+      {
+        "lane": "机器人 / 硬件 / 具身智能",
+        "count": 2,
+        "examples": [
+          "独家对话涂鸦“班长”：从AI家庭、机器人到能源，Agent时代需要生态共赢",
+          "机器人马拉松超越人类之后：本体走到尽头，智能成为下半场"
+        ],
+        "why": "这类题自带强画面和具象对象，但如果没有用户 stakes，容易只剩酷炫而缺少转译。"
+      },
+      {
+        "lane": "综合 / 其他",
+        "count": 1,
+        "examples": [
+          "实测在DeepSeek-V4上烧1000万token，我发现了3个惊喜和1个意外"
+        ],
+        "why": "这类题材目前还偏混合，说明系统需要继续积累更稳定的分类经验。"
+      }
+    ],
+    "our_pool_focus": [
+      {
+        "lane": "机器人 / 硬件 / 具身智能",
+        "count": 3,
+        "examples": [
+          "独家对话涂鸦\"班长\"：从AI家庭、机器人到能源，Agent时代需要生态共赢",
+          "DeepSeek V4登顶了！梁文锋把四大技术秘方公开"
+        ],
+        "why": "这类题自带强画面和具象对象，但如果没有用户 stakes，容易只剩酷炫而缺少转译。"
+      },
+      {
+        "lane": "开源 / Infra / 推理优化",
+        "count": 2,
+        "examples": [
+          "独家对话涂鸦\"班长\"：从AI家庭、机器人到能源，Agent时代需要生态共赢",
+          "DeepSeek V4登顶了！梁文锋把四大技术秘方公开"
+        ],
+        "why": "这类题适合做专业壁垒和品牌判断，但首屏必须更早翻译成普通读者能感知的意义。"
+      },
+      {
+        "lane": "模型 / 研究进展",
+        "count": 2,
+        "examples": [
+          "实测在DeepSeek-V4上烧1000万token，我发现了3个惊喜和1个意外",
+          "谷歌再发香蕉！通用视觉模型Vision Banana刷新2D/3D多项SOTA，何恺明谢赛宁参与"
+        ],
+        "why": "这类题能代表前沿，但需要快速翻译成“到底多了什么能力、对谁有影响”。"
+      },
+      {
+        "lane": "行业落地 / 医疗 / 场景翻译",
+        "count": 2,
+        "examples": [
+          "实测在DeepSeek-V4上烧1000万token，我发现了3个惊喜和1个意外",
+          "MiniMax 登上戛纳，AI 与艺术的全球和解开始了？"
+        ],
+        "why": "这类题更容易让读者立刻感到 stakes，头部号常用它来拉宽受众。"
+      }
+    ],
+    "our_active_focus": [
+      {
+        "lane": "机器人 / 硬件 / 具身智能",
+        "count": 2,
+        "examples": [
+          "独家对话涂鸦\"班长\"：从AI家庭、机器人到能源，Agent时代需要生态共赢",
+          "DeepSeek V4登顶了！梁文锋把四大技术秘方公开"
+        ],
+        "why": "这类题自带强画面和具象对象，但如果没有用户 stakes，容易只剩酷炫而缺少转译。"
+      },
+      {
+        "lane": "开源 / Infra / 推理优化",
+        "count": 2,
+        "examples": [
+          "独家对话涂鸦\"班长\"：从AI家庭、机器人到能源，Agent时代需要生态共赢",
+          "DeepSeek V4登顶了！梁文锋把四大技术秘方公开"
+        ],
+        "why": "这类题适合做专业壁垒和品牌判断，但首屏必须更早翻译成普通读者能感知的意义。"
+      },
+      {
+        "lane": "模型 / 研究进展",
+        "count": 1,
+        "examples": [
+          "实测在DeepSeek-V4上烧1000万token，我发现了3个惊喜和1个意外"
+        ],
+        "why": "这类题能代表前沿，但需要快速翻译成“到底多了什么能力、对谁有影响”。"
+      },
+      {
+        "lane": "行业落地 / 医疗 / 场景翻译",
+        "count": 1,
+        "examples": [
+          "实测在DeepSeek-V4上烧1000万token，我发现了3个惊喜和1个意外"
+        ],
+        "why": "这类题更容易让读者立刻感到 stakes，头部号常用它来拉宽受众。"
+      }
+    ],
+    "shared_lanes": [
+      "模型 / 研究进展",
+      "机器人 / 硬件 / 具身智能"
+    ],
+    "head_media_only_lanes": [
+      {
+        "lane": "综合 / 其他",
+        "examples": [
+          "实测在DeepSeek-V4上烧1000万token，我发现了3个惊喜和1个意外"
+        ],
+        "takeaway": "头部号在 `综合 / 其他` 连续给出样本，而我们的 Top6 主池还没覆盖，优先检查 seed / source lane 是否漏了，而不是先认定这题不值得做。"
+      },
+      {
+        "lane": "社会影响 / 就业伦理",
+        "examples": [
+          "谷歌再发香蕉！通用视觉模型Vision Banana刷新2D/3D多项SOTA，何恺明谢赛宁参与",
+          "DeepSeek V4报告太详尽了！484天换代之路全公开"
+        ],
+        "takeaway": "头部号在 `社会影响 / 就业伦理` 连续给出样本，而我们的 Top6 主池还没覆盖，优先检查 seed / source lane 是否漏了，而不是先认定这题不值得做。"
+      }
+    ],
+    "our_only_lanes": [
+      {
+        "lane": "开源 / Infra / 推理优化",
+        "examples": [
+          "独家对话涂鸦\"班长\"：从AI家庭、机器人到能源，Agent时代需要生态共赢",
+          "DeepSeek V4登顶了！梁文锋把四大技术秘方公开"
+        ],
+        "takeaway": "我们在 `开源 / Infra / 推理优化` 上主动保留了更硬的一手题，但这类题一旦脱离大众语境，draft / hook / context 就必须更早补“普通人为什么该关心”。"
+      },
+      {
+        "lane": "行业落地 / 医疗 / 场景翻译",
+        "examples": [
+          "实测在DeepSeek-V4上烧1000万token，我发现了3个惊喜和1个意外"
+        ],
+        "takeaway": "我们在 `行业落地 / 医疗 / 场景翻译` 上主动保留了更硬的一手题，但这类题一旦脱离大众语境，draft / hook / context 就必须更早补“普通人为什么该关心”。"
+      }
+    ],
+    "verdicts": [
+      "头部号这轮更偏 `模型 / 研究进展×5、社会影响 / 就业伦理×3`，说明它们优先抓“普通读者能立刻感到 stakes”的题材。",
+      "我们当前已下发主池更偏 `机器人 / 硬件 / 具身智能×2、开源 / Infra / 推理优化×2`，说明系统这轮更偏一手性、可防守性和品牌判断力。",
+      "裁判结论不是谁绝对更好，而是两边各赢一部分：头部号在传播势能和大众转译上更强，我们在可核验与可防守性上更稳。后续应保持“硬信号主池 + 大众 stakes 补位池”双轨，而不是二选一。",
+      "当前 ready 库里还有 `ai_morning_brief_20260425` 这类历史题，和今天 task sheet 已下发对象不完全同频，所以学习板后续必须同时对照“当日 task sheet + 当前 ready 稿”，不能只看现成库存。"
+    ],
+    "role_actions": [
+      {
+        "owner": "seed-refresh / source-scouting",
+        "action": "若头部号连续两轮在某题材高频而我们的 Top6 没覆盖，下轮必须补至少 2 个对应来源或动态搜源规则。"
+      },
+      {
+        "owner": "source-capture / citation",
+        "action": "准备补位的题材必须先补一手原链、截图和中文工作摘要，再交给 radar，不允许只拿二手摘要就入池。"
+      },
+      {
+        "owner": "topic-radar",
+        "action": "筛 Top20 时同时看“确定性”和“普通读者 stakes”，避免候选池只剩硬核技术题。"
+      },
+      {
+        "owner": "topic-approval",
+        "action": "当最终锁的是和头部号不同的题，必须显式写明“我们为什么不跟”和“我们靠什么打赢”。"
+      },
+      {
+        "owner": "draft-pack / hook / context / render",
+        "action": "如果坚持更垂直的差异化题，首屏必须更早补背景、利益相关性和图证，不然再好的选题也会输在转译层。"
+      }
+    ],
+    "ready_only_topic_keys": [
+      "ai_morning_brief_20260425"
+    ]
+  },
+  "gap_cards": [
+    {
+      "title": "背景桥接还要再早",
+      "severity": "high",
+      "why": "学习样本普遍在前 2-4 段就把“发生了什么 / 对象是谁 / 为什么现在值得看”交代清楚。",
+      "current_gap": "当前有 1/1 个 ready 主题在首屏仍偏判断先行、背景偏晚。",
+      "next_action": "优先补对象、事件、why now，不先换题；冷启动读者必须在前屏内知道你在说什么。"
+    }
+  ],
+  "next_actions": [
+    "先把 `ai_morning_brief_20260425` 做一次“去工单味”清理，确保成品页只剩读者该看到的内容。",
+    "把所有 ready 稿的背景桥接前移到首屏前 10%-15%，先补对象 / 事件 / why now。",
+    "明天继续从 `智东西×4、量子位×3` 这类高密度样本增量学习，维持学习池稳定刷新。"
+  ],
+  "optimization_items": [
+    {
+      "id": "opt_377846c872",
+      "title": "背景桥接还要再早",
+      "severity": "high",
+      "owner": "topic-approval + draft-pack + content-polish",
+      "landing_layer": "skills + approved-topic handoff",
+      "landing_targets": [
+        "09_runbooks/skills/th-topic-approval/SKILL.md",
+        "09_runbooks/skills/th-draft-pack/SKILL.md",
+        "09_runbooks/skills/th-content-polish/SKILL.md"
+      ],
+      "why": "学习样本普遍在前 2-4 段就把“发生了什么 / 对象是谁 / 为什么现在值得看”交代清楚。",
+      "current_gap": "当前有 1/1 个 ready 主题在首屏仍偏判断先行、背景偏晚。",
+      "next_action": "优先补对象、事件、why now，不先换题；冷启动读者必须在前屏内知道你在说什么。",
+      "source_basis": "智东西×4、量子位×3、机器之心×1",
+      "status": "active",
+      "status_label": "待优化"
+    },
+    {
+      "id": "opt_e3ce95046a",
+      "title": "把题材 × 人群 × 文风匹配持续沉淀到岗位规则",
+      "severity": "medium",
+      "owner": "content-analyst + core skills",
+      "landing_layer": "skills + learning rulebook",
+      "landing_targets": [
+        "08_brand_assets/latest__head-media-learning-rulebook-v1.md",
+        "09_runbooks/skills/th-topic-radar/SKILL.md",
+        "09_runbooks/skills/th-draft-pack/SKILL.md",
+        "09_runbooks/skills/th-content-polish/SKILL.md",
+        "09_runbooks/skills/th-market-visual-intelligence/SKILL.md"
+      ],
+      "why": "头部号真正可复用的不是口头禅，而是不同题材会自动切换叙述密度、术语阈值和证据呈现方式。",
+      "current_gap": "系统已有结构学习，但“事件科普 / 产品推荐 / 产业判断 / builder 拆解”对应的文风匹配规律还需要继续积累和显式沉淀。",
+      "next_action": "继续把长期学习结果写进稳定规则手册，并让 topic-radar、draft-pack、content-polish、visual-intelligence 每次执行时显式加载。",
+      "source_basis": "智东西×4、量子位×3、机器之心×1",
+      "status": "active",
+      "status_label": "待优化"
+    },
+    {
+      "id": "opt_432a129d7b",
+      "title": "把选题判断复盘前置到 seed / source / topic 三层",
+      "severity": "high",
+      "owner": "source-capture + seed-refresh + topic-radar + topic-approval",
+      "landing_layer": "skills + learning rulebook + next-round source lanes",
+      "landing_targets": [
+        "08_brand_assets/latest__head-media-learning-rulebook-v1.md",
+        "09_runbooks/skills/th-source-capture-and-citation/SKILL.md",
+        "09_runbooks/skills/th-seed-refresh-and-source-scouting/SKILL.md",
+        "09_runbooks/skills/th-topic-radar/SKILL.md",
+        "09_runbooks/skills/th-topic-approval/SKILL.md"
+      ],
+      "why": "头部号学习不能只反哺写法，还要让上游岗位知道今天什么题更值得做、我们为什么没做、是漏抓还是故意不跟。",
+      "current_gap": "现有规则手册已有写法学习，但对“头部号今天在追什么 / 我们今天为什么押另一个题 / 哪边更优”的复盘还不够前置到上游岗位。",
+      "next_action": "让 source-capture、seed-refresh、topic-radar、topic-approval 执行前显式读取规则手册中的选题复盘，并把共识题 / 漏题 / 差异化题写回下一轮动作。",
+      "source_basis": "智东西×4、量子位×3、机器之心×1",
+      "status": "active",
+      "status_label": "待优化"
+    }
+  ],
+  "optimization_events": []
+}

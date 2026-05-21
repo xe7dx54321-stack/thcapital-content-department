@@ -1,0 +1,37 @@
+{
+  "brand": {
+    "badge": "同行资本 TH Capital",
+    "name": "同行资本 TH Capital",
+    "slogan": "把 AI、Agent 与一人公司的变化讲明白。",
+    "description": "看热点，也看热点背后的结构变化。",
+    "accent": "#0f4c81",
+    "secondary": "#1d4ed8",
+    "surface": "#f5f9ff",
+    "border": "#dbe7ff",
+    "title_color": "#0f172a",
+    "body_color": "#475569"
+  },
+  "follow": {
+    "label": "继续关注",
+    "prompt": "如果你想继续看同行资本对 AI、Agent 与一人公司的跟踪拆解，欢迎顺手关注这个号。",
+    "description": "这里会持续更新热点快拆、产业判断、真实 workflow 与一人公司实验。",
+    "action": "微信搜索：同行资本 TH Capital",
+    "profile_url": "",
+    "surface": "#f8fafc",
+    "border": "#e2e8f0",
+    "accent": "#0f4c81",
+    "pill_surface": "#e9f2ff",
+    "pill_text": "#1d4ed8",
+    "label_color": "#64748b",
+    "title_color": "#0f172a",
+    "body_color": "#475569"
+  },
+  "heading": {
+    "h2_text": "#0f172a",
+    "h2_accent": "#1f6feb",
+    "h2_rule": "#bfdbfe",
+    "h3_surface": "#edf5ff",
+    "h3_border": "#cfe0ff",
+    "h3_text": "#1d4ed8"
+  }
+}

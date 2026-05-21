@@ -1,0 +1,12 @@
+{
+  "entity_name": "Glia – Local-first shared memory layer (SQLite-vec + FTS5 + Offline Knowledge Graph)",
+  "source_url": "https://old.reddit.com/r/ChatGPT/comments/1ther0u/glia_localfirst_shared_memory_layer_sqlitevec/",
+  "score": 10,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_chatgpt_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/Better-Platypus-3420"
+}

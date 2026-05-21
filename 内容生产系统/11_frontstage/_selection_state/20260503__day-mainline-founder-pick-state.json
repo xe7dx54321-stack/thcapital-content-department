@@ -1,0 +1,128 @@
+{
+  "date": "2026-05-03",
+  "generated_at": "2026-05-03 19:09:01 CST",
+  "board_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260503__daily-top8-to-top5.md",
+  "board_signature": "60317385dccd40e30232946861cea462b41fc5c381af239668cacd7165f2d034",
+  "status": "selected_pending_downstream_delivery",
+  "briefing_at": "2026-05-03 17:40:00 CST",
+  "default_pick_at": "2026-05-03 18:00:00 CST",
+  "draftbox_deadline": "2026-05-03 19:00:00 CST",
+  "default_choice_rank": 1,
+  "selected_rank": 1,
+  "selected_candidate_key": "hn_frontpage_47988501_flue_is_a_typescript_framework_for_building_the_next_generation_20260503",
+  "selected_at": "2026-05-03 19:09:15 CST",
+  "selected_reason": "default_first_after_1800",
+  "approved_topic_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/04_approved_topics/20260503_190915__hn_frontpage_47988501_flue_is_a_typescript_framework_for_building_the_next_generation_20260503__approved-topic.md",
+  "draft_pack_dir": "/Users/apple/Documents/同行资本内容部门/内容生产系统/05_draft_packs/hn_frontpage_47988501_flue_is_a_typescript_framework_for_building_the_next_generation_20260503",
+  "bridge_request_id": "",
+  "briefing_sent_at": "",
+  "briefing_sent_signature": "",
+  "recommended_cards": [
+    {
+      "date": "2026-05-03",
+      "card_role": "recommended",
+      "card_label": "推荐 1",
+      "rank": 1,
+      "candidate_key": "hn_frontpage_47988501_flue_is_a_typescript_framework_for_building_the_next_generation_20260503",
+      "title": "Flue is a TypeScript framework for building the next generation of agents",
+      "display_title": "Flue is a TypeScript framework…",
+      "topic_line": "partial source；有明确扩散热度入口；仍处业务窗内高时效；具备天然讨论空间；与 AI / Agent / 一人公司主线高度一致",
+      "outline": "先交代读者为什么总会判断失真，再拆方法结构、关键步骤、怎么每天执行，最后补边界与风险。 具体展开时围绕：以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "style_route": "方法论 / workflow / skill / agent 教程",
+      "style_profile": {
+        "primary_creator": "赛博禅心",
+        "primary_skill": "th-style-overlay-cyber-zenmind",
+        "secondary_creator": "数字生命卡兹克",
+        "secondary_skill": "th-style-overlay-digitallife-khazix",
+        "support_creator": "饼干哥哥AGI",
+        "support_skill": "th-style-overlay-cookie-brother-agi",
+        "borrowed_layers": "对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置"
+      },
+      "special_instructions": "style_route=方法论 / workflow / skill / agent 教程; primary_overlay=赛博禅心; secondary_overlay=数字生命卡兹克; support_overlay=饼干哥哥AGI; borrowed_layers=对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "image_outline": [
+        "封面：主标题做成判断句，右侧用 3 层方法框架或核心步骤提示这是一篇可执行教程。",
+        "正文图：原始证据锚点，放在首屏后 / why-now 段后，核心作用是第一张图必须把对象钉住，不要让读者先看抽象判断。。",
+        "正文图：约束 / 变量分类图，放在背景讲清后，核心作用是适合‘盯这几类 / 只回答这几个问题 / 方法分层输入’这类段落。。",
+        "正文图：分层架构图，放在核心方法段前，核心作用是适合‘五层 / 分层 / 上下游 / 输入输出链路’这类段落。。",
+        "正文图：workflow 循环图，放在执行步骤段前，核心作用是适合‘每天怎么跑 / 如何更新 / 如何迭代’这类段落。。"
+      ],
+      "default_pick": true,
+      "draftbox_deadline": "2026-05-03 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260503__recommended_1__hn_frontpage_47988501_flue_is_a_typescript_framework_for_building_the_next_generation_20260503.md"
+    },
+    {
+      "date": "2026-05-03",
+      "card_role": "recommended",
+      "card_label": "推荐 2",
+      "rank": 2,
+      "candidate_key": "hn_frontpage_47990675_the_agent_harness_belongs_outside_the_sandbox_20260503",
+      "title": "The agent harness belongs outside the sandbox",
+      "display_title": "The agent harness belongs outsi…",
+      "topic_line": "partial source；有明确扩散热度入口；仍处业务窗内高时效；具备天然讨论空间；与 AI / Agent / 一人公司主线高度一致",
+      "outline": "先讲旧痛点和新方案，再拆它怎么工作、谁最适合用、真实收益和不该高估的地方。 具体展开时围绕：从产品取舍和开发者真实需求切入，说明它解决了什么旧痛点，以及为什么现在会形成扩散。",
+      "style_route": "工具体验 / builder 拆解 / 产品推荐",
+      "style_profile": {
+        "primary_creator": "饼干哥哥AGI",
+        "primary_skill": "th-style-overlay-cookie-brother-agi",
+        "secondary_creator": "袋鼠帝AI客栈",
+        "secondary_skill": "th-style-overlay-kangaroo-ai-inn",
+        "support_creator": "",
+        "support_skill": "",
+        "borrowed_layers": "收益点前置 / 步骤感 / 门槛转译 / 场景感"
+      },
+      "special_instructions": "style_route=工具体验 / builder 拆解 / 产品推荐; primary_overlay=饼干哥哥AGI; secondary_overlay=袋鼠帝AI客栈; borrowed_layers=收益点前置 / 步骤感 / 门槛转译 / 场景感; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "从产品取舍和开发者真实需求切入，说明它解决了什么旧痛点，以及为什么现在会形成扩散。",
+      "image_outline": [
+        "封面：对象名 + 旧痛点/新收益对照，别做抽象海报。",
+        "正文图：对象与界面截图，放在首屏后，核心作用是第一张图必须是产品本体，不要先做抽象海报。。",
+        "正文图：前后对比图，放在收益点段前，核心作用是适合省步骤、省时间、少踩坑的收益段。。",
+        "正文图：适合谁 / 不适合谁矩阵，放在边界段前，核心作用是不要把所有产品都写成人人都该上。。"
+      ],
+      "default_pick": false,
+      "draftbox_deadline": "2026-05-03 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260503__recommended_2__hn_frontpage_47990675_the_agent_harness_belongs_outside_the_sandbox_20260503.md"
+    }
+  ],
+  "holdout_cards": [
+    {
+      "date": "2026-05-03",
+      "card_role": "holdout",
+      "card_label": "候补 1",
+      "rank": 5,
+      "candidate_key": "hn_frontpage_47977026_deepseek_v4_almost_on_the_frontier_a_fraction_of_the_price_20260503",
+      "title": "DeepSeek V4–almost on the frontier, a fraction of the price",
+      "display_title": "DeepSeek V4–almost on the front…",
+      "topic_line": "partial source；有明确扩散热度入口；具备天然讨论空间；与 AI / Agent / 一人公司主线高度一致",
+      "outline": "先交代读者为什么总会判断失真，再拆方法结构、关键步骤、怎么每天执行，最后补边界与风险。 具体展开时围绕：以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "style_route": "方法论 / workflow / skill / agent 教程",
+      "style_profile": {
+        "primary_creator": "赛博禅心",
+        "primary_skill": "th-style-overlay-cyber-zenmind",
+        "secondary_creator": "数字生命卡兹克",
+        "secondary_skill": "th-style-overlay-digitallife-khazix",
+        "support_creator": "饼干哥哥AGI",
+        "support_skill": "th-style-overlay-cookie-brother-agi",
+        "borrowed_layers": "对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置"
+      },
+      "special_instructions": "style_route=方法论 / workflow / skill / agent 教程; primary_overlay=赛博禅心; secondary_overlay=数字生命卡兹克; support_overlay=饼干哥哥AGI; borrowed_layers=对象落地 / 步骤结构 / 背景桥接 / 判断句先行 / 收益点前置; 必须保留 TH Capital 判断边界; 正文必须服务微信公众号成稿与草稿箱交付",
+      "approved_angle": "以事件本身为入口，但正文要继续深挖一层：这个信号为什么现在值得看，以及它对我们关注的 agent / builder / 一人公司主线意味着什么。",
+      "image_outline": [
+        "封面：主标题做成判断句，右侧用 3 层方法框架或核心步骤提示这是一篇可执行教程。",
+        "正文图：原始证据锚点，放在首屏后 / why-now 段后，核心作用是第一张图必须把对象钉住，不要让读者先看抽象判断。。",
+        "正文图：约束 / 变量分类图，放在背景讲清后，核心作用是适合‘盯这几类 / 只回答这几个问题 / 方法分层输入’这类段落。。",
+        "正文图：分层架构图，放在核心方法段前，核心作用是适合‘五层 / 分层 / 上下游 / 输入输出链路’这类段落。。",
+        "正文图：workflow 循环图，放在执行步骤段前，核心作用是适合‘每天怎么跑 / 如何更新 / 如何迭代’这类段落。。"
+      ],
+      "default_pick": false,
+      "draftbox_deadline": "2026-05-03 19:00:00 CST",
+      "card_path": "/Users/apple/Documents/同行资本内容部门/内容生产系统/11_frontstage/day_mainline_briefing_cards/20260503__holdout_5__hn_frontpage_47977026_deepseek_v4_almost_on_the_frontier_a_fraction_of_the_price_20260503.md"
+    }
+  ],
+  "feishu_doc_status": "",
+  "feishu_doc_mode": "",
+  "feishu_doc_title": "",
+  "feishu_doc_token": "",
+  "feishu_doc_url": "",
+  "feishu_doc_source_fingerprint": ""
+}

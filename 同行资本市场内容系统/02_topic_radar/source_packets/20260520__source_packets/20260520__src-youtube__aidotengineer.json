@@ -1,0 +1,139 @@
+{
+  "youtube__aidotengineer": [
+    {
+      "entity_name": "From 46% to 90%: Fine-Tuning Tiny LLMs for On-Device Agents — Cormac Brick, Google",
+      "source_url": "https://www.youtube.com/watch?v=-TiET_K-E_g",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-20T21:57:35.144042"
+    },
+    {
+      "entity_name": "What Breaks When You Build AI Under Sovereignty Constraints - Bilge Yücel, deepset GmbH",
+      "source_url": "https://www.youtube.com/watch?v=x2bH0RKPgdc",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-20T21:57:35.144113"
+    },
+    {
+      "entity_name": "Don't Build Slop (4 Levels of AI Agent Maturity) - Ara Khan, Cline",
+      "source_url": "https://www.youtube.com/watch?v=yUmS-F9IX90",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-20T21:57:35.144118"
+    },
+    {
+      "entity_name": "Personalization in the Era of LLMs - Shivam Verma, Spotify",
+      "source_url": "https://www.youtube.com/watch?v=5YSJEP0HWzM",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-20T21:57:35.144121"
+    },
+    {
+      "entity_name": "Rewiring the State — Eoin Mulgrew, No. 10 (Downing Street)",
+      "source_url": "https://www.youtube.com/watch?v=ObNKGf9YR0g",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-20T21:57:35.144132"
+    },
+    {
+      "entity_name": "Let's go Bananas with GenMedia — Guillaume Vernade, Google DeepMind",
+      "source_url": "https://www.youtube.com/watch?v=BcWFc3H7Khg",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-20T21:57:35.144135"
+    },
+    {
+      "entity_name": "Build Agents That Run for Hours (Without Losing the Plot) — Ash Prabaker &amp; Andrew Wilson, Anthro",
+      "source_url": "https://www.youtube.com/watch?v=mR-WAvEPRwE",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-20T21:57:35.144138"
+    },
+    {
+      "entity_name": "Harnesses in AI: A Deep Dive — Tejas Kumar, IBM",
+      "source_url": "https://www.youtube.com/watch?v=C_GG5g38vLU",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-20T21:57:35.144141"
+    },
+    {
+      "entity_name": "Fighting AI with AI — Lawrence Jones, Incident",
+      "source_url": "https://www.youtube.com/watch?v=L2r6vLlLgs8",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-20T21:57:35.144144"
+    },
+    {
+      "entity_name": "Why Your AI UX Is Broken (and It's Not the Model's Fault) — Mike Christensen, Ably",
+      "source_url": "https://www.youtube.com/watch?v=YNJvm7t3yq8",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-20T21:57:35.144147"
+    },
+    {
+      "entity_name": "AIE Singapore Day 2 ft. Google DeepMind, OpenClaw, Adaption, Arize, Cloudflare, Robot Company &amp; ",
+      "source_url": "https://www.youtube.com/watch?v=m12vGjfbNlo",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-20T21:57:35.144150"
+    },
+    {
+      "entity_name": "Beyond Code Coverage: Functionality Testing with Playwright MCP — Marlene Mhangami, Microsoft",
+      "source_url": "https://www.youtube.com/watch?v=FWEInOtngmM",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-20T21:57:35.144153"
+    },
+    {
+      "entity_name": "How to Leverage Domain Expertise — Chris Lovejoy, Notius Labs",
+      "source_url": "https://www.youtube.com/watch?v=kfSDc2eVLo4",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-20T21:57:35.144156"
+    },
+    {
+      "entity_name": "Connecting the Dots with Context Graphs — Stephen Chin, Neo4j",
+      "source_url": "https://www.youtube.com/watch?v=eW_vxrjvERk",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-20T21:57:35.144159"
+    },
+    {
+      "entity_name": "AIE Singapore Day 1 ft. Minister, NanoClaw, OpenAI, Google, Vercel, Cursor &amp; more",
+      "source_url": "https://www.youtube.com/watch?v=_xQnSNlBP_w",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "video",
+      "_source": "youtube__aidotengineer",
+      "_fetched_at": "2026-05-20T21:57:35.144162"
+    }
+  ]
+}

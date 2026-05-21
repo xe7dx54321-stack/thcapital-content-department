@@ -1,0 +1,12 @@
+{
+  "entity_name": "Claude Status Update : Elevated errors for Claude Opus 4.7 on 2026-05-18T22:10:49.000Z",
+  "source_url": "https://old.reddit.com/r/ClaudeAI/comments/1th37lh/claude_status_update_elevated_errors_for_claude/",
+  "score": 5,
+  "signal_reasons": [
+    "Reddit高频讨论"
+  ],
+  "type": "discussion",
+  "_source": "trend__reddit_claude_daily",
+  "reddit_upvotes": 0,
+  "reddit_author": "/u/ClaudeAI-mod-bot"
+}

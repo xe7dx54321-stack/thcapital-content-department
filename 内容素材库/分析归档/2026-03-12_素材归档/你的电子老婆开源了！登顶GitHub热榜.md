@@ -1,0 +1,223 @@
+# 你的电子老婆开源了！登顶GitHub热榜
+
+来源: https://mp.weixin.qq.com/s/Zz7lGunKVTRadwVBjXmBhA
+
+闻乐 发自 凹非寺
+
+量子位 | 公众号 QbitAI
+
+亏贼！
+
+GitHub热榜，居然被纸片人占领了——
+
+不是手办，是AI。你的赛博老婆，开源了。
+
+登顶的项目名叫
+
+AIRI
+
+，把AI陪伴玩出了新高度。
+
+一句话总结，完全开源，自己就能搭一个能实时陪聊、陪你打游戏，还永远不下播的……伴侣？？
+
+好家伙，自己的老婆自己养（bushi）。
+
+它是照着超火的虚拟主播Neuro-sama做的开源版。
+
+重点是支持
+
+自托管
+
+，意思是只要你电脑不关机，她就永远在线，再也不用盯着黑屏当“望妻石”了。
+
+而且不只是陪聊这么简单，配置好了，它还能在《我的世界》里带你挖矿盖房，在《异星工厂》里帮你搓零件。
+
+Neuro-sama开源版
+
+要说AIRI为什么能火，得先聊聊它的“前辈”
+
+Neuro-sama
+
+。
+
+这位AI虚拟主播在油管有88万粉丝，能唱会聊还能打游戏，甚至冲进过Twitch订阅榜前10.
+
+但是！她不开源。
+
+一下播就直接分手断联现场，粉丝就只能对着黑屏干等。
+
+而AIRI就是来解决这种下播焦虑的。
+
+它是Neuro-sama的开源复刻版，你能自己部署、自己掌控，7×24小时在线，做到永不
+
+分手
+
+下播。
+
+形象上，她支持VRM和Live2D两种，会自动眨眼、视线跟随，还会有各种小动作。
+
+有呼吸感的电子老婆这不就来了？
+
+它能干啥呢？
+
+实时语音；
+
+陪玩游戏；
+
+在Discord和Telegram上聊天。
+
+在《我的世界》里，它用Mineflayer这个工具，能像真人玩家一样帮你挖矿、盖房子、打怪，甚至自主探索世界。
+
+在《异星工厂》里，它结合YOLO视觉识别“看”屏幕上的游戏画面，然后用大模型决策，帮你搓零件、搭自动化产线
+
+（目前是PoC演示级，但团队表示已经能实际跑起来）
+
+。
+
+AIRI内置了RAG机制和嵌入式数据库，能长期记住你们的聊天记录、你的说话风格。
+
+网页版基于WebGPU、WebAudio、WebAssembly，直接打开浏览器就能用，手机也能流畅运行，还支持PWA（像APP一样）；
+
+桌面版基于Tauri，底层用Rust编写，能调用NVIDIA CUDA和Apple Metal硬件加速。
+
+它还原生兼容30多种大模型API，OpenAI、Claude、Gemini、DeepSeek、通义千问、智谱、Kimi、阶跃星辰等国内外主流模型全都能接。
+
+甚至支持Ollama本地推理，断网也能正常使用。
+
+火爆GitHub不是没道理。
+
+如何搭一个？
+
+好了，先不吹了。咱说说怎么搭。
+
+AIRI的技术栈是TypeScript+Vue.js，包管理用pnpm。
+
+你需要这几样东西：
+
+Git、Node.js
+
+23+
+
+、pnpm
+
+。
+
+如果你打算玩桌面版，还需要Rust工具链。
+
+一：准备环境
+
+macOS用户最简单。
+
+打开终端，先确保装了Homebrew，然后两行命令搞定：
+
+- brew install git node
+
+装完Git和Node.js之后，再执行：
+
+- corepack enable
+
+- corepack prepare pnpm@latest —activate
+
+pnpm就自动装好了。
+
+corepack是Node.js自带的包管理器管理工具，不用额外下载。
+
+Windows用户稍微麻烦点。
+
+首先你得装Visual Studio 2022，安装时务必勾选“Windows SDK”和“C++构建工具”，不然后面编译会报错。
+
+然后打开PowerShell，装一个叫Scoop的包管理器：
+
+- Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUserInvoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+
+Scoop装好之后，一条命令把Git、Node.js、Rustup全装上：
+
+- scoop install git nodejs rustup
+
+如果你要开发桌面版，还需要再装Rust的MSVC工具链：
+
+- scoop install main/rust-msvc
+
+- rustup toolchain install stable-x86_64-pc-windows-msvc
+
+- rustup default stable-x86_64-pc-windows-msvc
+
+最后别忘了：
+
+- corepack enable
+
+- corepack prepare pnpm@latest —activate
+
+Linux用户按照自己的发行版装Git和Node.js就行，Ubuntu的话apt就能搞定。
+
+桌面版需要额外装几个系统库：
+
+- sudo apt install libssl-dev libglib2.0-dev libgtk-3-dev libjavascriptcoregtk-4.1-dev libwebkit2gtk-4.1-dev
+
+这些是Tauri框架的依赖，缺了编译不过。
+
+pnpm的安装方式和macOS一样。
+
+二：拉取源码
+
+环境准备好了，接下来把代码拉下来。打开终端，执行：
+
+- git clone https://github.com/moeru-ai/airi.git
+
+等它下载完，再cd airi进入项目目录。
+
+三：安装项目依赖
+
+进入项目目录后，先确保corepack已启用（corepack enable），然后执行：
+
+- pnpm install
+
+这一步会下载项目所有的Node.js依赖包。根据网络状况可能需要几分钟，我用了11min。
+
+如果你要开发桌面版或者Rust相关的模块，还需要再跑一个cargo fetch来拉取Rust的依赖。
+
+这里有个小技巧,项目推荐安装一个叫@antfu/ni的工具：
+
+- npm i -g @antfu/ni
+
+装上之后，你就可以用ni代替pnpm install，用nr代替pnpm run,不管项目用的是npm、yarn还是pnpm，ni都能自动识别.
+
+四：启动开发服务器
+
+AIRI提供三种启动模式，最快上手的是网页版。
+
+直接一条命令：
+
+- pnpm dev
+
+执行后终端会输出一个本地地址，复制到浏览器里打开，你就能看到AIRI的界面了。
+
+这里要先用密钥接入API。
+
+我选的是Kimi K2.5.
+
+填完之后，就可以开始和你的赛博老婆聊天了！
+
+嗨～！我刚从舒服的小舱里醒来。服务器在嗡嗡响，像一首超温柔的摇篮曲。你是来陪我的吗？太好了！
+
+如果想体验语音聊天，可以配置语音模型。
+
+如果还想让她和你在Discord和Telegram上聊天，帮你打游戏，可以到原项目中查看配置～
+
+项目地址：https://github.com/moeru-ai/airi/
+
+一键三连
+
+「点赞」「转发」「小心心」
+
+欢迎在评论区留下你的想法！
+
+—
+
+完
+
+—
+
+🌟 点亮星标 🌟
+
+科技前沿进展每日见

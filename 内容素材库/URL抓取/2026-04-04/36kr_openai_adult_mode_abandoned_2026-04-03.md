@@ -1,0 +1,11 @@
+# 36kr: 奥特曼想了又想，还是不敢碰马斯克玩的这条高压线
+- **URL**: https://36kr.com/p/3751020334531330
+- **Source**: 36kr
+- **Published**: 2026-04-03T21:11 (China)
+- **Fetched**: 2026-04-04T19:18:40+00:00
+- **Trigger type**: Product/Strategy; Policy
+- **Key entities**: OpenAI, Sam Altman, Elon Musk, xAI, Grok Spicy Mode, Fidji Simo, Ryan Beiermeister
+- **Significance**: OpenAI indefinitely postpones ChatGPT "adult mode" amid IPO prep. Grok's "Spicy Mode" triggered child sexual deepfake crisis; Dutch court fined xAI €100k/day. OpenAI raised $122B at $852B valuation (largest PE round ever). Altman abandoned adult mode after internal revolt and Ryan Beiermeister firing. Focus shifts to enterprise: Anthropic generating $19B ARR (80% enterprise) vs OpenAI's $25B (only $10B enterprise). OpenAI taking DoD contract Anthropic rejected.
+- **China relevance**: 中国AI监管红线；企业级AI工具竞争（Anthropic vs OpenAI）；AGI商业化路径
+- **Classification**: query_seed
+- **Queue status**: structured_accept

@@ -1,0 +1,29 @@
+{
+  "entity": "Exaforce",
+  "seed_source": "trend__yc_launches_ai / web__techcrunch_ai",
+  "seed_url": "https://siliconangle.com/2026/05/12/agentic-soc-startup-exaforce-closes-125m-round-reported-725m-valuation/",
+  "entity_type": "company",
+  "domain": "AI Security Operations / Agentic SOC",
+  "derived_links": {
+    "official_website": "https://www.exaforce.com/",
+    "yc_company_page": "https://www.ycombinator.com/companies/exaforce",
+    "linkedin": "https://www.linkedin.com/company/exaforce",
+    "blog_series_b": "https://www.exaforce.com/blogs/series-b",
+    "platform_page": "https://www.exaforce.com/platform",
+    "mdr_page": "https://www.exaforce.com/mdr"
+  },
+  "next_hop_queries": {
+    "crunchbase_profile": "site:crunchbase.com Exaforce agentic SOC",
+    "investor_list": "Exaforce Series B investors HarbourVest Peak XV Mayfield Khosla",
+    "customer_case_studies": "Exaforce SOC case study Function Health",
+    "job_postings": "Exaforce hiring security engineer 2026"
+  },
+  "score": {
+    "object_clarity": 5,
+    "link_density": 5,
+    "social_presence": 4,
+    "demo_docs_available": 5,
+    "funding_hardness": 5
+  },
+  "notes": "$125M Series B at $725M post-money. Founded 2023. 130+ employees. Real-time security knowledge graph + Exabots agents. MDR service. Peak XV + Khosla + HarbourVest backed."
+}

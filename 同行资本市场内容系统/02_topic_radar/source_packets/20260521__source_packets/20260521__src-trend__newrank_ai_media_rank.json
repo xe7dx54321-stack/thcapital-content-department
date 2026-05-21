@@ -1,0 +1,40 @@
+{
+  "trend__newrank_ai_media_rank": [
+    {
+      "entity_name": "社媒营销推广",
+      "source_url": "//chs.newrank.cn/favicon/favicon.ico",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "media_rank",
+      "_source": "trend__newrank_ai_media_rank",
+      "_fetched_at": "2026-05-21T13:29:29.317086"
+    },
+    {
+      "entity_name": "AI搜索营销「GEO」",
+      "source_url": "//n1.newrank.cn/new-main-html/_next/static/css/aa61b5d762c58048.css",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "media_rank",
+      "_source": "trend__newrank_ai_media_rank",
+      "_fetched_at": "2026-05-21T13:29:29.317181"
+    },
+    {
+      "entity_name": "GEO信源报告：我们深度分析了超 1600 万条 AI 引用数据，解密GEO站点偏好",
+      "source_url": "//n1.newrank.cn/new-main-html/_next/static/css/d73c66ac616a3992.css",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "media_rank",
+      "_source": "trend__newrank_ai_media_rank",
+      "_fetched_at": "2026-05-21T13:29:29.317184"
+    },
+    {
+      "entity_name": "【新榜×微博】2025微博泛二次元内容生态研究报告",
+      "source_url": "//n1.newrank.cn/new-main-html/_next/static/css/f0d7499e6edc8478.css",
+      "score": 0,
+      "signal_reasons": [],
+      "type": "media_rank",
+      "_source": "trend__newrank_ai_media_rank",
+      "_fetched_at": "2026-05-21T13:29:29.317186"
+    }
+  ]
+}

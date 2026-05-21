@@ -1,0 +1,26 @@
+# Approved Topic
+
+- `topic_key`: `opendataloader-pdf`
+- `topic_id`: `topic__20260410_180800__opendataloader_pdf`
+- `date`: `2026-04-10`
+- `rank`: `1`
+- `title`: `GitHub一天爆冲1k star：PDF解析为什么突然成了AI数据的瓶颈？`
+- `selected_rank`: `1`
+- `selection_bucket`: `top5_main_slot`
+- `requested_platforms`: `wechat`
+- `approved_angle`: `从 GitHub 1,012 today stars 切入，分析 PDF parser 为什么突然成为 AI 数据准备的瓶颈，以及 OpenDataLoader 的解法是否构成护城河`
+- `recommended_reason`: `今日 Top5 主槽；GitHub Trending 直接信号；开发者工具/Infra 赛道与同行资本品牌高度贴合`
+- `source_board_path`: `/Users/apple/Documents/同行资本内容部门/内容生产系统/03_topic_candidates/20260410__daily-top8-to-top5.md`
+- `source_top5_board_status`: `ready`
+- `lock_truth`: `explicit_lane_lock`
+- `selection_instruction`: `来自20260410 Top5主槽，今日唯一PDF/开发者工具向选题，GitHub Trending信号直接支撑`
+- `special_instructions`: `deadline=19:00 CST；目标读者=AI infra工程师、RAG/知识管理场景开发者；核心判断=PDF是AI时代的数据孤岛，1k star说明市场有真实缺口；信源=GitHub repo；风格=th-style-tech-analysis；交付要求=①微信草稿箱②飞书云文档同步发至本聊天框`
+- `delivery_lane`: `day_mainline`
+- `publish_mode`: `auto_api`
+- `dual_delivery`: `wechat_draft + feishu_cloud_doc`
+- `approved_by`: `老板`
+- `approved_at`: `2026-04-10 18:08:00 CST`
+- `delivery_deadline`: `2026-04-10 19:00:00 CST`
+- `selection_scope`: `20260410业务日`
+- `business_window_start`: `17:00`
+- `business_window_end`: `14:30`

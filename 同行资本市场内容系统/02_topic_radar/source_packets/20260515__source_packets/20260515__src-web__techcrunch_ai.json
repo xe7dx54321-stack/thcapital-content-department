@@ -1,0 +1,134 @@
+{
+  "web__techcrunch_ai": [
+    {
+      "entity_name": "Osaurus brings both local and cloud AI models to your Mac",
+      "source_url": "https://techcrunch.com/2026/05/15/osaurus-brings-both-local-and-cloud-ai-models-to-your-mac/",
+      "score": 10,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-15T21:00:06.959802"
+    },
+    {
+      "entity_name": "Indian Uber rival Rapido raises $240M at $3B valuation",
+      "source_url": "https://techcrunch.com/2026/05/15/indian-uber-rival-rapido-raises-240m-at-3b-valuation/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-15T21:00:06.959883"
+    },
+    {
+      "entity_name": "Elon Musk&#8217;s SpaceXAI has been bleeding staff since its merger",
+      "source_url": "https://techcrunch.com/2026/05/14/elon-musks-spacexai-has-been-bleeding-staff-since-its-merger/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-15T21:00:06.959887"
+    },
+    {
+      "entity_name": "OpenAI says Codex is coming to your phone",
+      "source_url": "https://techcrunch.com/2026/05/14/openai-says-codex-is-coming-to-your-phone/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-15T21:00:06.959891"
+    },
+    {
+      "entity_name": "What happens when AI starts building itself?",
+      "source_url": "https://techcrunch.com/2026/05/14/what-happens-when-ai-starts-building-itself/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-15T21:00:06.959894"
+    },
+    {
+      "entity_name": "OpenAI is reportedly preparing legal action against Apple; it wouldn&#8217;t be the first partner to feel burned",
+      "source_url": "https://techcrunch.com/2026/05/14/openai-is-reportedly-preparing-legal-action-against-apple-it-wouldnt-be-the-first-partner-to-feel-burned/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-15T21:00:06.959897"
+    },
+    {
+      "entity_name": "Cerebras raises $5.5B, then stock pops $108%, in the first huge tech IPO of 2026",
+      "source_url": "https://techcrunch.com/2026/05/14/cerebras-raises-5-5b-kicking-off-2026s-ipo-season-with-a-bang/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-15T21:00:06.959900"
+    },
+    {
+      "entity_name": "OpenAI says hackers stole some data after latest code security issue",
+      "source_url": "https://techcrunch.com/2026/05/14/openai-says-hackers-stole-some-data-after-latest-code-security-issue/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-15T21:00:06.959903"
+    },
+    {
+      "entity_name": "Spotify to adopt Apple’s new video podcast tech, offering creators easier cross-platform distribution",
+      "source_url": "https://techcrunch.com/2026/05/14/spotify-to-adopt-apples-new-video-podcast-tech-offering-creators-easier-cross-platform-distribution/",
+      "score": 10,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-15T21:00:06.959906"
+    },
+    {
+      "entity_name": "Khosla Ventures is betting $10M on Ian Crosby, whose first startup, Bench, imploded",
+      "source_url": "https://techcrunch.com/2026/05/14/khosla-ventures-is-betting-10m-on-ian-crosby-whose-last-startup-bench-imploded/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-15T21:00:06.959909"
+    },
+    {
+      "entity_name": "How to turn off Instagram&#8217;s new Instants feature and retract photos you accidentally shared",
+      "source_url": "https://techcrunch.com/2026/05/14/how-to-turn-of-instagrams-new-instants-feature-and-retract-photos-you-accidentally-shared/",
+      "score": 10,
+      "signal_reasons": [
+        "新产品信号"
+      ],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-15T21:00:06.959912"
+    },
+    {
+      "entity_name": "Cisco cuts nearly 4,000 jobs to spend more on AI, reports &#8216;record quarterly revenue&#8217;",
+      "source_url": "https://techcrunch.com/2026/05/14/cisco-cuts-nearly-4000-jobs-to-spend-more-on-ai-reports-record-quarterly-revenue/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-15T21:00:06.959915"
+    },
+    {
+      "entity_name": "Wirestock raises $23M to supply creative multimodal data to AI labs",
+      "source_url": "https://techcrunch.com/2026/05/14/wirestock-raises-23m-to-supply-multi-modal-data-to-ai-labs/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-15T21:00:06.959917"
+    },
+    {
+      "entity_name": "Two weeks left: Startup Battlefield 200 applications close May 27",
+      "source_url": "https://techcrunch.com/2026/05/14/two-weeks-left-startup-battlefield-200-applications-close-may-27/",
+      "score": 5,
+      "signal_reasons": [],
+      "type": "article",
+      "_source": "web__techcrunch_ai",
+      "_fetched_at": "2026-05-15T21:00:06.959920"
+    }
+  ]
+}

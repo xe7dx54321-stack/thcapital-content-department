@@ -1,0 +1,11 @@
+# 36kr: 中国机器人公司日薪50万招人！什么水平？
+- **URL**: https://36kr.com/p/3751846393987586
+- **Source**: 36kr
+- **Published**: 2026-04-04T09:40 (China)
+- **Fetched**: 2026-04-04T19:13:59+00:00
+- **Trigger type**: Hiring/Talent
+- **Key entities**: 优必选 (UBTECH, 人形机器人第一股), 乐聚机器人, 宇树机器人, 王兴兴
+- **Significance**: 优必选年薪1500万-1.24亿招聘具身智能首席科学家。2025年营收20.01亿，亏损7.90亿。1.24亿=全年营收6.2%。"十五五"具身智能2030年破数千亿/万亿。"百万人才缺口"。
+- **China relevance**: 直接中国机器人人才战
+- **Classification**: formal_candidate
+- **Queue status**: structured_accept
