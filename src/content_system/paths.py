@@ -5,15 +5,13 @@
 - 默认以当前 Git 仓库为根目录。
 - 允许通过环境变量覆盖本机真实路径。
 """
-
 from __future__ import annotations
 
 import os
 from dataclasses import dataclass
 from pathlib import Path
 
-
-REPO_MARKERS = ("README.md", ".gitignore")
+REPO_MARKERS = ("README.MD", ".gitignore")
 
 
 @dataclass(frozen=True)
@@ -66,8 +64,8 @@ def _env_path(name: str, default: Path) -> Path:
 def get_project_paths(start: Path | None = None) -> ProjectPaths:
     repo_root = _env_path("THCAP_CONTENT_REPO_ROOT", find_repo_root(start))
     _load_dotenv(repo_root)
-
     repo_root = _env_path("THCAP_CONTENT_REPO_ROOT", repo_root)
+
     market_root = _env_path("MARKET_CONTENT_ROOT", repo_root / "同行资本市场内容系统")
     legacy_root = _env_path("LEGACY_CONTENT_ROOT", repo_root / "内容生产系统")
     console_root = _env_path("CONTENT_FACTORY_CONSOLE_ROOT", repo_root / "内容工厂控制台")

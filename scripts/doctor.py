@@ -11,7 +11,6 @@
     python3 scripts/doctor.py
     make doctor
 """
-
 from __future__ import annotations
 
 import json
@@ -91,13 +90,13 @@ def print_results(results: list[CheckResult]) -> None:
     width = max(len(item.name) for item in results) if results else 20
     for item in results:
         icon = {"OK": "✅", "WARN": "⚠️", "FAIL": "❌"}.get(item.status, "•")
-        print(f"{icon} {item.name.ljust(width)}  {item.status:<4}  {item.detail}")
+        print(f"{icon} {item.name.ljust(width)} {item.status:<4} {item.detail}")
 
 
 def main() -> int:
     paths = get_project_paths(REPO_ROOT_CANDIDATE)
-
     results: list[CheckResult] = []
+
     results.append(ok("python", sys.version.split()[0]))
     results.append(check_exists("repo_root", paths.repo_root))
     results.append(check_exists("market_content_root", paths.market_content_root))
@@ -135,7 +134,6 @@ def main() -> int:
         "paths": {key: str(value) for key, value in asdict(paths).items()},
         "results": [asdict(item) for item in results],
     }
-
     report_path = paths.logs_root / "latest_doctor_report.json"
     try:
         paths.logs_root.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,17 @@
+# 同行资本内容部门本地环境变量示例
+# 使用方式：如需覆盖默认路径，可以复制本文件内容到仓库根目录的 .env 文件中。
+
+# 仓库根目录；通常不需要设置。
+# THCAP_CONTENT_REPO_ROOT=/Users/apple/Documents/thcapital-content-department
+
+# 活跃市场内容系统目录；默认是仓库根目录下的“同行资本市场内容系统”。
+# MARKET_CONTENT_ROOT=/Users/apple/Documents/thcapital-content-department/同行资本市场内容系统
+
+# 旧版内容生产系统目录；默认是仓库根目录下的“内容生产系统”。
+# LEGACY_CONTENT_ROOT=/Users/apple/Documents/thcapital-content-department/内容生产系统
+
+# 内容工厂控制台目录；默认是仓库根目录下的“内容工厂控制台”。
+# CONTENT_FACTORY_CONSOLE_ROOT=/Users/apple/Documents/thcapital-content-department/内容工厂控制台
+
+# 是否在 doctor 里检查网络。默认关闭，避免网络波动导致误报。
+# THCAP_DOCTOR_NETWORK_CHECK=1
