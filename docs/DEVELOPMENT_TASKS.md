@@ -1,26 +1,19 @@
 # 后续开发任务清单
 
-## 任务原则
-
-- 小步提交，每个任务可独立验收。
-- 优先修稳定性，再做智能化。
-- 先旁路新增，再逐步替换旧脚本。
-- 每个任务完成后更新 `docs/PROJECT_STATE.md`。
+> 本文件用于记录项目后续开发任务。每轮小步施工完成后都要更新。
 
 ## Phase 0：工程地基修复
 
-### P0-001 项目状态与健康检查底座
+### P0-001：项目状态与健康检查底座
 
-状态：待应用 / 待验收
+状态：进行中
 
-改动：
+目标：
 
-- 新增 `.env.example`
-- 新增 `Makefile`
-- 新增 `scripts/doctor.py`
-- 新增 `src/content_system/paths.py`
-- 新增 `docs/PROJECT_STATE.md`
-- 新增 `docs/DEVELOPMENT_TASKS.md`
+- 新增项目状态文档。
+- 新增任务清单。
+- 新增健康检查脚本。
+- 新增统一路径解析工具。
 
 验收：
 
@@ -28,164 +21,148 @@
 make doctor
 ```
 
-完成标准：
+预期输出：
 
-- 能打印关键路径与脚本状态。
-- 能检查 frontstage 和 logs 写权限。
-- 能写出 `latest_doctor_report.json`。
+- 控制台打印健康检查结果。
+- 生成 `同行资本市场内容系统/10_logs/latest_doctor_report.json`。
 
-### P0-002 统一路径配置第一轮
+### P0-002：路径硬编码审计
 
-状态：未开始
+状态：待开发
 
 目标：
 
-- 让后续新增代码全部从 `content_system.paths` 获取路径。
-- 梳理现有硬编码路径清单。
-- 暂不大规模改旧脚本，只输出迁移清单。
+- 扫描仓库中所有 `/Users/apple/Documents/...` 等本机硬编码路径。
+- 输出 Markdown 审计报告。
+- 为后续配置化改造建立问题地图。
 
-验收：
+预期输出：
 
-```bash
-python3 scripts/doctor.py
-```
+- `同行资本市场内容系统/10_logs/path-hardcode-audit.md`
 
-并生成：
+### P0-003：项目配置文件初版
 
-```text
-10_logs/path-hardcode-audit.md
-```
+状态：待开发
+
+目标：
+
+- 新增 `config/project.yaml`。
+- 把活跃系统根目录、日志目录、前台目录等纳入配置。
+- 新增配置加载器。
 
 ## Phase 1：采集稳定性工程
 
-### P1-001 信源注册表初版
+### P1-001：信源注册表初版
 
-状态：未开始
+状态：待开发
 
 目标：
 
 - 新增 `config/sources.yaml`。
-- 把官方源、开发者源、论文源、中文媒体源、社交源分层。
-- 不要求一次接入所有 fetcher，只先建立配置结构。
+- 将官方源、开发者源、论文源、中文媒体源、弱信号源分层管理。
 
-### P1-002 Source Health Report
+### P1-002：Source Health Report
 
-状态：未开始
-
-目标：
-
-- 每天输出每个信源的抓取状态。
-- 标记 OK / DEGRADED / FAILED / STALE / NOISY。
-- 输出 Markdown + JSON。
-
-### P1-003 Retry Queue
-
-状态：未开始
+状态：待开发
 
 目标：
 
-- 抓取失败的源进入 retry queue。
-- 支持单独重试失败源。
+- 每日输出每个源的成功/失败/抓取数量/异常原因。
+- 生成 JSON 和 Markdown 两类报告。
+
+### P1-003：采集失败重试队列
+
+状态：待开发
+
+目标：
+
+- 对失败源生成 retry queue。
+- 支持手动或定时重试。
 
 ## Phase 2：结构化信息层
 
-### P2-001 SQLite 状态库初版
+### P2-001：SQLite schema 初版
 
-状态：未开始
-
-核心表：
-
-- sources
-- source_runs
-- raw_items
-- normalized_items
-
-### P2-002 Normalized Item Schema
-
-状态：未开始
+状态：待开发
 
 目标：
 
-- 统一 title、url、source_id、published_at、summary、event_type、entities、domain_tags、evidence_claims。
+- 建立 `sources`、`source_runs`、`raw_items`、`normalized_items` 等基础表。
 
-### P2-003 Topic Cluster
+### P2-002：Normalized Item Schema
 
-状态：未开始
+状态：待开发
 
 目标：
 
-- 把散乱信息聚合成 topic cluster。
-- 支持 24h / 72h / 7d 三个窗口。
+- 将原始抓取结果转化为统一信息对象。
+
+### P2-003：Topic Cluster 初版
+
+状态：待开发
+
+目标：
+
+- 将相似信息聚合成 topic cluster，支持后续评分和内容生产。
 
 ## Phase 3：价值判断系统
 
-### P3-001 多维规则评分器
+### P3-001：多维评分规则
 
-状态：未开始
-
-评分维度：
-
-- source_authority
-- freshness
-- novelty
-- strategic_relevance
-- market_impact
-- technical_substance
-- narrative_potential
-- evidence_strength
-
-### P3-002 LLM Judge
-
-状态：未开始
+状态：待开发
 
 目标：
 
-- 对高分 topic 做结构化复核。
-- 输出是否值得写、推荐角度、风险、缺失证据。
+- 建立 source authority、freshness、novelty、strategic relevance、market impact 等评分维度。
+
+### P3-002：高价值选题池
+
+状态：待开发
+
+目标：
+
+- 每天输出 3-8 个高价值 topic。
 
 ## Phase 4：内容生产系统升级
 
-### P4-001 Content Brief Builder
+### P4-001：Content Brief Builder
 
-状态：未开始
-
-目标：
-
-- 不再直接从信息生成文章。
-- 先生成 content brief。
-
-### P4-002 Outline + Draft
-
-状态：未开始
+状态：待开发
 
 目标：
 
-- brief → outline → draft。
+- 每个选题先生成 brief，不直接写文章。
 
-### P4-003 Editor + Fact Check
+### P4-002：Outline → Draft 两阶段生成
 
-状态：未开始
-
-目标：
-
-- 生成质量报告。
-- 低于阈值不进入发布队列。
-
-## Phase 5：自我迭代与学习闭环
-
-### P5-001 Head Media Pattern Library
-
-状态：未开始
+状态：待开发
 
 目标：
 
-- 从头部内容中提取标题模式、开头模式、结构模式、证据模式。
+- 先产出大纲，再产出平台草稿。
 
-### P5-002 人工反馈闭环
+### P4-003：质量检查器
 
-状态：未开始
+状态：待开发
 
 目标：
 
-- 记录每篇内容的人工评分和问题标签。
-- 每周生成复盘报告。
+- 检查事实、证据、结构、原创判断、平台适配度。
+
+## Phase 5：自我迭代与头部内容学习
+
+### P5-001：Head Media Pattern Library
+
+状态：待开发
+
+目标：
+
+- 从头部内容中提取标题模式、开头模式、结构模式、叙事模式。
+
+### P5-002：人工反馈闭环
+
+状态：待开发
+
+目标：
+
+- 记录人工评价和发布表现，反哺选题评分和写作策略。

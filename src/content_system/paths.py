@@ -5,13 +5,14 @@
 - 默认以当前 Git 仓库为根目录。
 - 允许通过环境变量覆盖本机真实路径。
 """
+
 from __future__ import annotations
 
 import os
 from dataclasses import dataclass
 from pathlib import Path
 
-REPO_MARKERS = ("README.MD", ".gitignore")
+REPO_MARKERS = ("README.MD",)
 
 
 @dataclass(frozen=True)

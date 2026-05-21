@@ -54,7 +54,7 @@
 
 - 新增项目状态文档。
 - 新增任务清单。
-- 新增 `ENV_EXAMPLE.txt`。
+- 新增 `env.example`。
 - 新增 `Makefile`。
 - 新增 `scripts/doctor.py`。
 - 新增路径解析工具 `src/content_system/paths.py`。
@@ -73,12 +73,11 @@ make doctor
 
 ## 最近完成
 
-- P0-001：项目状态与健康检查底座。
-- P0-001-hotfix：修复首轮文件换行格式，避免 Python/Markdown 文件被提交成单行。
+- P0-001：项目状态与健康检查底座，待应用补丁后执行验收。
 
 ## 下一步候选
 
-1. P0-002：路径硬编码审计，扫描并生成现有脚本中的绝对路径清单。
+1. P0-002：路径配置化第一轮，把新增脚本全部走统一路径解析，不再新增硬编码路径。
 2. P1-001：建立 `config/sources.yaml` 信源注册表初版。
 3. P1-002：建立 source health report，每天输出每个源的成功/失败/数量/异常原因。
 4. P2-001：建立 SQLite schema，记录 sources、source_runs、raw_items。

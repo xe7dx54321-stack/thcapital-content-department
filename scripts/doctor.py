@@ -11,6 +11,7 @@
     python3 scripts/doctor.py
     make doctor
 """
+
 from __future__ import annotations
 
 import json
