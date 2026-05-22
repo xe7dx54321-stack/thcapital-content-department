@@ -8,7 +8,7 @@ doctor:
 
 # 扫描仓库中的本机绝对路径/硬编码路径，并生成审计报告。
 path-audit:
-	$(PYTHON) scripts/audit_hardcoded_paths.py --write
+	$(PYTHON) scripts/audit_hardcoded_paths.py
 
 # 兼容内容工厂控制台已有 status.sh。
 status:

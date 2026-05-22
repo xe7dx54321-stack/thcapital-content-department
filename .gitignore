@@ -58,6 +58,7 @@ logs/
 内容生产系统/10_logs/
 内容生产系统/11_frontstage/_console_state/
 同行资本市场内容系统/10_logs/*.log
+同行资本市场内容系统/10_logs/latest_doctor_report.json
 
 # Local databases / private state
 *.sqlite

@@ -1,14 +1,8 @@
 #!/usr/bin/env python3
-"""扫描仓库中的硬编码路径，并输出可审计报告。
+"""Audit hardcoded local paths in the repository.
 
-P0-002 的目标不是立刻修改所有历史脚本，而是先把路径问题地图画出来：
-- 找出 /Users/...、/Volumes/...、Windows 盘符路径、file:// 等硬编码路径。
-- 按文件位置和扩展名给出风险等级。
-- 生成 Markdown + JSON 报告，供后续逐步配置化改造。
-
-运行：
-    python3 scripts/audit_hardcoded_paths.py --write
-    make path-audit
+P0-002 builds a map of portability risks. It intentionally does not rewrite
+existing business scripts; it only reports findings for later configuration work.
 """
 
 from __future__ import annotations
@@ -24,353 +18,449 @@ from typing import Iterable
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_LOGS_DIR = REPO_ROOT / "同行资本市场内容系统" / "10_logs"
 
-SCAN_EXTENSIONS = {
-    ".py",
-    ".sh",
-    ".command",
-    ".md",
-    ".txt",
-    ".json",
-    ".yaml",
-    ".yml",
-    ".toml",
-    ".html",
-    ".css",
-    ".js",
-    ".ts",
-    ".tsx",
-    ".jsx",
-    ".sql",
-    ".env",
-    ".example",
+PATTERNS = {
+    "mac_user_path": re.compile(r"/Users/[A-Za-z0-9._-]+/[^\s\"'`<>)]*"),
+    "mac_volume_path": re.compile(r"/Volumes/[^\s\"'`<>)]*"),
+    "windows_drive_path": re.compile(r"\b[A-Za-z]:[\\/][^\s\"'`<>)]*"),
+    "file_url": re.compile(r"file://[^\s\"'`<>)]*"),
+    "home_documents_path": re.compile(r"~/[^\s\"'`<>)]*"),
 }
 
 EXCLUDED_DIR_NAMES = {
     ".git",
-    ".github",
-    ".idea",
-    ".vscode",
     "__pycache__",
-    ".pytest_cache",
-    ".mypy_cache",
-    ".ruff_cache",
-    "node_modules",
     ".venv",
     "venv",
+    "node_modules",
+    ".DS_Store",
     "runtime",
+    "tmp",
+    ".cache",
 }
 
-ARCHIVE_DIR_NAMES = {
-    "_archive",
-    "archive",
-    "archives",
-    "备份",
-    "归档",
+SKIPPED_FILE_NAMES = {
+    ".DS_Store",
+    "latest_doctor_report.json",
+    "latest_path_hardcode_audit.md",
+    "latest_path_hardcode_audit.json",
 }
 
-PATTERNS: list[tuple[str, re.Pattern[str], str]] = [
-    (
-        "mac_user_path",
-        re.compile(r"/Users/[A-Za-z0-9_.\-\u4e00-\u9fff]+(?:/[A-Za-z0-9_.\-\u4e00-\u9fff ()]+)+"),
-        "macOS 用户目录绝对路径，换机器或换用户名后容易失效。",
-    ),
-    (
-        "mac_volume_path",
-        re.compile(r"/Volumes/[A-Za-z0-9_.\-\u4e00-\u9fff ]+(?:/[A-Za-z0-9_.\-\u4e00-\u9fff ()]+)+"),
-        "macOS 外接盘/卷绝对路径，依赖本机挂载状态。",
-    ),
-    (
-        "windows_drive_path",
-        re.compile(r"\b[A-Za-z]:[\\/][^\s\"'`<>|]+"),
-        "Windows 盘符绝对路径，跨系统不可移植。",
-    ),
-    (
-        "file_url_path",
-        re.compile(r"file://[^\s\"'`<>]+"),
-        "本地 file:// URL，通常不能跨机器访问。",
-    ),
-]
+BINARY_SUFFIXES = {
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".gif",
+    ".webp",
+    ".pdf",
+    ".zip",
+    ".tar",
+    ".gz",
+    ".tgz",
+    ".sqlite",
+    ".sqlite3",
+    ".db",
+    ".pyc",
+    ".docx",
+    ".xlsx",
+    ".pptx",
+    ".mp4",
+    ".mov",
+}
+
+CODE_SUFFIXES = {".py", ".sh", ".command"}
+CONFIG_SUFFIXES = {".yaml", ".yml", ".json", ".toml", ".env", ".example"}
+TEXT_SUFFIXES = {".md", ".txt", ".html", ".css", ".js", ".jsx", ".ts", ".tsx", ".sql", ".csv"}
+RUNNING_PARTS = {"scripts", "src", "内容工厂控制台", "config"}
+HISTORICAL_PARTS = {"_archive", "archive", "archives", "备份", "归档", "00_planning", "planning", "docs"}
+RUNBOOK_PARTS = {"09_runbooks", "runbooks", "templates"}
 
 
 @dataclass(frozen=True)
 class Finding:
     file: str
     line: int
-    kind: str
-    severity: str
+    column: int
+    pattern: str
+    risk: str
     match: str
-    context: str
-    recommendation: str
+    line_text: str
 
 
-def is_archive_path(path: Path) -> bool:
-    return any(part in ARCHIVE_DIR_NAMES for part in path.parts)
+@dataclass(frozen=True)
+class ScanResult:
+    findings: list[Finding]
+    files_scanned: int
+    files_with_findings: int
+    files_skipped_decode: int
 
 
-def should_skip_dir(path: Path, include_archive: bool) -> bool:
-    if path.name in EXCLUDED_DIR_NAMES:
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Audit hardcoded local paths.")
+    parser.add_argument("--fail-on-high", action="store_true", help="Exit 1 when HIGH findings exist.")
+    parser.add_argument("--max-md-items", type=int, default=100, help="Maximum findings per risk section in Markdown.")
+    parser.add_argument("--root", type=Path, default=REPO_ROOT, help="Repository root. Defaults to this script's repo.")
+    parser.add_argument("--output-dir", type=Path, default=None, help="Report output directory.")
+    return parser.parse_args()
+
+
+def is_under_excluded_dir(path: Path, root: Path) -> bool:
+    try:
+        relative_parts = path.relative_to(root).parts
+    except ValueError:
+        relative_parts = path.parts
+    return any(part in EXCLUDED_DIR_NAMES for part in relative_parts)
+
+
+def should_skip_file(path: Path, root: Path) -> bool:
+    if path.name in SKIPPED_FILE_NAMES:
         return True
-    if not include_archive and path.name in ARCHIVE_DIR_NAMES:
+    if path.name.endswith("__path-hardcode-audit.md") or path.name.endswith("__path-hardcode-audit.json"):
         return True
-    return False
-
-
-def should_scan_file(path: Path) -> bool:
-    if path.name.startswith(".") and path.suffix not in {".env", ".example"}:
+    if is_under_excluded_dir(path, root):
+        return True
+    if path.suffix.lower() in BINARY_SUFFIXES:
+        return True
+    if path.name in {"Makefile", "Dockerfile"}:
         return False
-    if path.suffix in SCAN_EXTENSIONS:
+    if path.suffix.lower() in CODE_SUFFIXES | CONFIG_SUFFIXES | TEXT_SUFFIXES:
+        return False
+    return True
+
+
+def iter_scan_files(root: Path) -> Iterable[Path]:
+    for path in root.rglob("*"):
+        if not path.is_file():
+            continue
+        if should_skip_file(path, root):
+            continue
+        yield path
+
+
+def read_text(path: Path) -> tuple[str | None, bool]:
+    try:
+        return path.read_text(encoding="utf-8"), False
+    except UnicodeDecodeError:
+        try:
+            return path.read_text(encoding="utf-8", errors="ignore"), True
+        except OSError:
+            return None, True
+    except OSError:
+        return None, True
+
+
+def is_obvious_comment(line_text: str, suffix: str) -> bool:
+    stripped = line_text.lstrip()
+    if not stripped:
+        return False
+    if stripped.startswith("#"):
         return True
-    if path.name in {"Makefile", "Dockerfile", "env.example", ".env.example"}:
-        return True
+    if suffix in {".py", ".sh", ".command", ".yaml", ".yml", ".toml", ".env"}:
+        return stripped.startswith("#")
+    if suffix in {".js", ".jsx", ".ts", ".tsx", ".css"}:
+        return stripped.startswith("//") or stripped.startswith("/*") or stripped.startswith("*")
     return False
 
 
-def iter_files(root: Path, include_archive: bool) -> Iterable[Path]:
-    for path in root.rglob("*"):
-        if path.is_dir():
-            continue
-        if any(should_skip_dir(parent, include_archive) for parent in path.parents if parent != root):
-            continue
-        if should_scan_file(path):
-            yield path
-
-
-def classify_severity(path: Path, kind: str, include_archive: bool) -> str:
-    suffix = path.suffix.lower()
+def classify_risk(relative_path: str, line_text: str) -> str:
+    path = Path(relative_path)
     parts = set(path.parts)
+    suffix = path.suffix.lower()
 
-    if is_archive_path(path) and include_archive:
+    if parts & HISTORICAL_PARTS:
         return "LOW"
 
-    if suffix in {".py", ".sh", ".command"} or path.name in {"Makefile", "Dockerfile"}:
-        return "HIGH"
+    is_comment = is_obvious_comment(line_text, suffix)
+    is_code_or_entry = suffix in CODE_SUFFIXES or path.name in {"Makefile", "Dockerfile"}
+    is_runtime_config = suffix in CONFIG_SUFFIXES and bool(parts & (RUNNING_PARTS | RUNBOOK_PARTS))
+    is_runbook_or_template = bool(parts & RUNBOOK_PARTS)
+    is_running_location = bool(parts & RUNNING_PARTS) or "09_runbooks/scripts" in relative_path
 
-    if "09_runbooks" in parts or "内容工厂控制台" in parts:
+    if (is_code_or_entry or is_runtime_config or is_running_location) and not is_comment:
         return "HIGH"
-
-    if suffix in {".json", ".yaml", ".yml", ".toml", ".env", ".example"}:
+    if "config" in parts and is_comment:
         return "MEDIUM"
-
+    if is_comment and (is_code_or_entry or is_runtime_config):
+        return "MEDIUM"
+    if is_runbook_or_template:
+        return "MEDIUM"
+    if suffix in CONFIG_SUFFIXES:
+        return "MEDIUM"
     if suffix in {".md", ".txt", ".html"}:
-        return "MEDIUM"
-
+        return "LOW"
     return "LOW"
 
 
-def recommendation_for(kind: str) -> str:
-    if kind in {"mac_user_path", "mac_volume_path", "windows_drive_path"}:
-        return "改为环境变量、配置文件或基于仓库根目录的相对路径。"
-    if kind == "file_url_path":
-        return "改为可配置路径或仓库内相对链接；不要依赖本机 file:// URL。"
-    return "改为可移植配置。"
+def clean_match(value: str) -> str:
+    return value.rstrip(".,;:]}")
 
 
-def read_text(path: Path) -> str | None:
-    try:
-        return path.read_text(encoding="utf-8")
-    except UnicodeDecodeError:
-        try:
-            return path.read_text(encoding="utf-8", errors="ignore")
-        except OSError:
-            return None
-    except OSError:
-        return None
+def should_ignore_match(relative_path: str, line_text: str, matched_text: str) -> bool:
+    if relative_path == "scripts/audit_hardcoded_paths.py" and "re.compile(" in line_text:
+        return True
+    return "[^" in matched_text or "\\s" in matched_text or "[A-Za-z" in matched_text
 
 
-def scan_file(root: Path, path: Path, include_archive: bool) -> list[Finding]:
-    text = read_text(path)
+def scan_file(root: Path, path: Path) -> list[Finding]:
+    text, _decode_warning = read_text(path)
     if text is None:
         return []
 
+    relative_path = path.relative_to(root).as_posix()
     findings: list[Finding] = []
-    rel = path.relative_to(root).as_posix()
 
-    for line_number, line in enumerate(text.splitlines(), start=1):
-        for kind, pattern, _description in PATTERNS:
-            for match in pattern.finditer(line):
-                matched_text = match.group(0).rstrip(".,);]")
+    for line_number, line_text in enumerate(text.splitlines(), start=1):
+        for pattern_name, pattern in PATTERNS.items():
+            for match in pattern.finditer(line_text):
+                matched_text = clean_match(match.group(0))
+                if should_ignore_match(relative_path, line_text, matched_text):
+                    continue
                 findings.append(
                     Finding(
-                        file=rel,
+                        file=relative_path,
                         line=line_number,
-                        kind=kind,
-                        severity=classify_severity(path, kind, include_archive),
+                        column=match.start() + 1,
+                        pattern=pattern_name,
+                        risk=classify_risk(relative_path, line_text),
                         match=matched_text,
-                        context=line.strip()[:240],
-                        recommendation=recommendation_for(kind),
+                        line_text=line_text.strip()[:500],
                     )
                 )
 
     return findings
 
 
-def scan_repo(root: Path, include_archive: bool) -> list[Finding]:
+def scan_repo(root: Path) -> ScanResult:
     findings: list[Finding] = []
-    for path in iter_files(root, include_archive=include_archive):
-        findings.extend(scan_file(root, path, include_archive=include_archive))
-    return sorted(findings, key=lambda item: (item.severity, item.file, item.line, item.kind))
+    files_scanned = 0
+    files_with_findings = 0
+    files_skipped_decode = 0
+
+    for path in iter_scan_files(root):
+        text, decode_warning = read_text(path)
+        if text is None:
+            files_skipped_decode += 1
+            continue
+        if decode_warning:
+            files_skipped_decode += 1
+
+        files_scanned += 1
+        relative_path = path.relative_to(root).as_posix()
+        file_findings: list[Finding] = []
+
+        for line_number, line_text in enumerate(text.splitlines(), start=1):
+            for pattern_name, pattern in PATTERNS.items():
+                for match in pattern.finditer(line_text):
+                    matched_text = clean_match(match.group(0))
+                    if should_ignore_match(relative_path, line_text, matched_text):
+                        continue
+                    file_findings.append(
+                        Finding(
+                            file=relative_path,
+                            line=line_number,
+                            column=match.start() + 1,
+                            pattern=pattern_name,
+                            risk=classify_risk(relative_path, line_text),
+                            match=matched_text,
+                            line_text=line_text.strip()[:500],
+                        )
+                    )
+
+        if file_findings:
+            files_with_findings += 1
+            findings.extend(file_findings)
+
+    risk_order = {"HIGH": 0, "MEDIUM": 1, "LOW": 2}
+    findings.sort(key=lambda item: (risk_order.get(item.risk, 9), item.file, item.line, item.column, item.pattern))
+    return ScanResult(
+        findings=findings,
+        files_scanned=files_scanned,
+        files_with_findings=files_with_findings,
+        files_skipped_decode=files_skipped_decode,
+    )
 
 
-def summarize(findings: list[Finding]) -> dict[str, int]:
-    summary = {"HIGH": 0, "MEDIUM": 0, "LOW": 0, "TOTAL": len(findings)}
-    for item in findings:
-        summary[item.severity] = summary.get(item.severity, 0) + 1
-    return summary
+def build_summary(result: ScanResult) -> dict[str, int]:
+    high = sum(1 for item in result.findings if item.risk == "HIGH")
+    medium = sum(1 for item in result.findings if item.risk == "MEDIUM")
+    low = sum(1 for item in result.findings if item.risk == "LOW")
+    return {
+        "total_findings": len(result.findings),
+        "high": high,
+        "medium": medium,
+        "low": low,
+        "files_scanned": result.files_scanned,
+        "files_with_findings": result.files_with_findings,
+    }
 
 
-def render_markdown(root: Path, findings: list[Finding], include_archive: bool) -> str:
-    generated_at = datetime.now(timezone.utc).isoformat()
-    summary = summarize(findings)
+def build_payload(root: Path, result: ScanResult) -> dict[str, object]:
+    return {
+        "schema_version": "v1",
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "repo_root": ".",
+        "summary": build_summary(result),
+        "findings": [asdict(item) for item in result.findings],
+    }
+
+
+def escape_table_cell(value: object, max_length: int = 160) -> str:
+    text = str(value).replace("\n", " ").replace("\r", " ")
+    text = text.replace("|", "\\|")
+    if len(text) > max_length:
+        return text[: max_length - 1] + "..."
+    return text
+
+
+def recommendation_for(finding: Finding) -> str:
+    if finding.risk == "HIGH":
+        return "优先改为环境变量、配置项或基于仓库根目录的相对路径。"
+    if finding.risk == "MEDIUM":
+        return "确认是否参与运行；如参与运行，纳入 P0-003 配置化。"
+    return "保留历史记录即可；如会被脚本读取，再逐步清理。"
+
+
+def conclusion(summary: dict[str, int]) -> str:
+    if summary["total_findings"] == 0:
+        return "未发现目标类型的硬编码路径。"
+    if summary["high"] > 0:
+        return f"发现 {summary['high']} 个 HIGH 风险项，P0-003 应优先处理运行脚本、控制台入口和配置文件。"
+    if summary["medium"] > 0:
+        return "未发现 HIGH 风险项，但存在 MEDIUM 项，建议核对其是否参与运行。"
+    return "仅发现 LOW 风险项，主要集中在历史文档或说明材料中。"
+
+
+def render_section(title: str, findings: list[Finding], max_items: int) -> list[str]:
+    lines = [f"## {title}", ""]
+    if not findings:
+        lines.extend(["无。", ""])
+        return lines
+
+    lines.extend(
+        [
+            "| 文件 | 行号 | 类型 | 命中内容 | 建议 |",
+            "|---|---:|---|---|---|",
+        ]
+    )
+    for item in findings[:max_items]:
+        lines.append(
+            "| "
+            + " | ".join(
+                [
+                    f"`{escape_table_cell(item.file, 120)}`",
+                    str(item.line),
+                    f"`{escape_table_cell(item.pattern, 40)}`",
+                    f"`{escape_table_cell(item.match, 140)}`",
+                    escape_table_cell(recommendation_for(item), 120),
+                ]
+            )
+            + " |"
+        )
+    if len(findings) > max_items:
+        lines.append("")
+        lines.append(f"仅展示前 {max_items} 条；完整 findings 请查看 JSON 报告。")
+    lines.append("")
+    return lines
+
+
+def render_markdown(payload: dict[str, object], max_items: int) -> str:
+    summary = payload["summary"]
+    assert isinstance(summary, dict)
+    findings = [Finding(**item) for item in payload["findings"]]  # type: ignore[arg-type]
+
+    by_risk = {
+        "HIGH": [item for item in findings if item.risk == "HIGH"],
+        "MEDIUM": [item for item in findings if item.risk == "MEDIUM"],
+        "LOW": [item for item in findings if item.risk == "LOW"],
+    }
 
     lines = [
-        "# P0-002 路径硬编码审计报告",
+        "# 路径硬编码审计报告",
         "",
-        f"- 生成时间：`{generated_at}`",
-        f"- 扫描根目录：`{root}`",
-        f"- 是否包含归档目录：`{include_archive}`",
-        f"- 总发现数：`{summary['TOTAL']}`",
-        f"- HIGH：`{summary.get('HIGH', 0)}`",
-        f"- MEDIUM：`{summary.get('MEDIUM', 0)}`",
-        f"- LOW：`{summary.get('LOW', 0)}`",
+        f"生成时间：`{payload['generated_at']}`",
+        f"扫描文件数：`{summary['files_scanned']}`",
+        f"命中总数：`{summary['total_findings']}`",
+        f"HIGH：`{summary['high']}`",
+        f"MEDIUM：`{summary['medium']}`",
+        f"LOW：`{summary['low']}`",
         "",
-        "## 结论",
+        "## 结论摘要",
+        "",
+        conclusion(summary),  # type: ignore[arg-type]
         "",
     ]
 
-    if not findings:
-        lines.extend([
-            "未发现明显本机绝对路径硬编码。",
+    lines.extend(render_section("HIGH 风险项", by_risk["HIGH"], max_items))
+    lines.extend(render_section("MEDIUM 风险项", by_risk["MEDIUM"], max_items))
+    lines.extend(render_section("LOW 风险项", by_risk["LOW"], max_items))
+    lines.extend(
+        [
+            "## 下一步建议",
             "",
-        ])
-    else:
-        high_count = summary.get("HIGH", 0)
-        if high_count:
-            lines.extend([
-                f"发现 `{high_count}` 个 HIGH 级硬编码路径。建议优先处理脚本、Makefile、控制台入口中的路径。",
-                "",
-            ])
-        else:
-            lines.extend([
-                "未发现 HIGH 级硬编码路径。MEDIUM/LOW 项可按后续重构计划逐步处理。",
-                "",
-            ])
-
-    lines.extend([
-        "## 处理优先级建议",
-        "",
-        "1. 先处理 `.py`、`.sh`、`Makefile` 中的 HIGH 项。",
-        "2. 再处理 JSON/YAML/TOML 配置中的 MEDIUM 项。",
-        "3. 文档、归档、历史说明中的路径只要不参与运行，可以暂时保留或降级处理。",
-        "4. 所有运行路径最终应收敛到环境变量、配置文件或仓库根目录相对路径。",
-        "",
-    ])
-
-    if findings:
-        lines.extend([
-            "## 明细",
+            "1. P0-003 优先处理 HIGH 风险项中的运行脚本、控制台入口和配置文件。",
+            "2. 不一次性替换历史文档中的路径，避免制造无意义的大 diff。",
+            "3. 建议引入统一路径配置策略，优先使用仓库根目录相对路径和环境变量。",
+            "4. 每次路径配置化后重新运行 `make path-audit`，观察 HIGH 数量是否下降。",
             "",
-            "| Severity | File | Line | Kind | Match | Recommendation |",
-            "|---|---:|---:|---|---|---|",
-        ])
-        for item in findings:
-            match_text = item.match.replace("|", "\\|")
-            recommendation = item.recommendation.replace("|", "\\|")
-            lines.append(
-                f"| {item.severity} | `{item.file}` | {item.line} | `{item.kind}` | `{match_text}` | {recommendation} |"
-            )
-
-        lines.extend([
-            "",
-            "## 上下文摘录",
-            "",
-        ])
-        for index, item in enumerate(findings, start=1):
-            context = item.context.replace("`", "\\`")
-            lines.extend([
-                f"### {index}. {item.file}:{item.line}",
-                "",
-                f"- Severity：`{item.severity}`",
-                f"- Kind：`{item.kind}`",
-                f"- Match：`{item.match}`",
-                f"- Context：`{context}`",
-                f"- Recommendation：{item.recommendation}",
-                "",
-            ])
-
-    return "\n".join(lines).rstrip() + "\n"
+        ]
+    )
+    return "\n".join(lines)
 
 
-def write_reports(root: Path, findings: list[Finding], include_archive: bool, logs_dir: Path) -> tuple[Path, Path]:
-    logs_dir.mkdir(parents=True, exist_ok=True)
+def resolve_output_dir(root: Path, output_dir: Path) -> Path:
+    if output_dir.is_absolute():
+        return output_dir
+    return root / output_dir
+
+
+def write_reports(root: Path, output_dir: Path, payload: dict[str, object], markdown: str) -> tuple[Path, Path]:
+    output_dir.mkdir(parents=True, exist_ok=True)
     date_key = datetime.now().strftime("%Y%m%d")
 
-    json_path = logs_dir / f"{date_key}__path-hardcode-audit.json"
-    md_path = logs_dir / f"{date_key}__path-hardcode-audit.md"
+    dated_md = output_dir / f"{date_key}__path-hardcode-audit.md"
+    dated_json = output_dir / f"{date_key}__path-hardcode-audit.json"
+    latest_md = output_dir / "latest_path_hardcode_audit.md"
+    latest_json = output_dir / "latest_path_hardcode_audit.json"
 
-    payload = {
-        "schema_version": "p0-002.v1",
-        "generated_at": datetime.now(timezone.utc).isoformat(),
-        "root": str(root),
-        "include_archive": include_archive,
-        "summary": summarize(findings),
-        "findings": [asdict(item) for item in findings],
-    }
+    json_text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    markdown_text = markdown.rstrip() + "\n"
 
-    json_text = json.dumps(payload, ensure_ascii=False, indent=2)
-    md_text = render_markdown(root, findings, include_archive=include_archive)
+    dated_json.write_text(json_text, encoding="utf-8")
+    dated_md.write_text(markdown_text, encoding="utf-8")
+    latest_json.write_text(json_text, encoding="utf-8")
+    latest_md.write_text(markdown_text, encoding="utf-8")
 
-    json_path.write_text(json_text + "\n", encoding="utf-8")
-    md_path.write_text(md_text, encoding="utf-8")
-
-    (logs_dir / "latest_path_hardcode_audit.json").write_text(json_text + "\n", encoding="utf-8")
-    (logs_dir / "latest_path_hardcode_audit.md").write_text(md_text, encoding="utf-8")
-
-    return md_path, json_path
-
-
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="扫描仓库中的硬编码绝对路径。")
-    parser.add_argument("--root", type=Path, default=REPO_ROOT, help="仓库根目录，默认自动识别。")
-    parser.add_argument("--write", action="store_true", help="写入 Markdown/JSON 审计报告。")
-    parser.add_argument("--include-archive", action="store_true", help="包含 _archive/归档/备份 等目录。")
-    parser.add_argument("--fail-on-high", action="store_true", help="发现 HIGH 项时返回非 0 状态码。")
-    return parser.parse_args()
+    return dated_md.relative_to(root), dated_json.relative_to(root)
 
 
 def main() -> int:
     args = parse_args()
     root = args.root.resolve()
+    requested_output = args.output_dir or (root / "同行资本市场内容系统" / "10_logs")
+    output_dir = resolve_output_dir(root, requested_output)
 
     if not root.exists():
-        print(f"❌ root not found: {root}", file=sys.stderr)
+        print(f"root not found: {root}", file=sys.stderr)
         return 2
 
-    findings = scan_repo(root, include_archive=args.include_archive)
-    summary = summarize(findings)
+    result = scan_repo(root)
+    payload = build_payload(root, result)
+    markdown = render_markdown(payload, max_items=args.max_md_items)
+    md_path, json_path = write_reports(root, output_dir, payload, markdown)
+    summary = payload["summary"]
+    assert isinstance(summary, dict)
 
-    print("\nP0-002 路径硬编码审计")
-    print("=" * 60)
-    print(f"扫描根目录：{root}")
-    print(f"总发现数：{summary['TOTAL']}")
-    print(f"HIGH：{summary.get('HIGH', 0)}")
-    print(f"MEDIUM：{summary.get('MEDIUM', 0)}")
-    print(f"LOW：{summary.get('LOW', 0)}")
+    print("路径硬编码审计完成")
+    print(f"扫描文件数: {summary['files_scanned']}")
+    print(f"命中总数: {summary['total_findings']}")
+    print(f"HIGH: {summary['high']}")
+    print(f"MEDIUM: {summary['medium']}")
+    print(f"LOW: {summary['low']}")
+    print(f"Markdown: {md_path.as_posix()}")
+    print(f"JSON: {json_path.as_posix()}")
 
-    if findings:
-        print("\nTop findings:")
-        for item in findings[:20]:
-            print(f"- [{item.severity}] {item.file}:{item.line} {item.match}")
-
-    if args.write:
-        md_path, json_path = write_reports(root, findings, include_archive=args.include_archive, logs_dir=DEFAULT_LOGS_DIR)
-        print(f"\nMarkdown 报告：{md_path}")
-        print(f"JSON 报告：{json_path}")
-
-    if args.fail_on_high and summary.get("HIGH", 0) > 0:
+    if args.fail_on_high and int(summary["high"]) > 0:
         return 1
-
     return 0
 
 
