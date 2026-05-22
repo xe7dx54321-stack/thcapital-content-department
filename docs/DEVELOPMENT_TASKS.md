@@ -50,6 +50,23 @@ make path-audit
 同行资本市场内容系统/10_logs/latest_path_hardcode_audit.json
 ```
 
+### P0-002b：清理 path audit 生成产物入库问题
+
+状态：Done。
+
+目标：
+
+- 移除已提交的 path audit generated artifacts。
+- 更新 `.gitignore`，避免后续审计报告再次进入 Git。
+- 保留 P0-002 的代码能力和开发报告。
+
+验收：
+
+- `scripts/audit_hardcoded_paths.py` 仍在。
+- `make path-audit` 仍在。
+- `同行资本市场内容系统/10_logs/*path-hardcode-audit*` 不再被 Git 跟踪。
+- `.gitignore` 已忽略 path audit 生成报告。
+
 ## 下一步建议
 
 ### P0-003：路径配置化第一刀

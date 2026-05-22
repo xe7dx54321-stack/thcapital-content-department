@@ -60,6 +60,12 @@ logs/
 同行资本市场内容系统/10_logs/*.log
 同行资本市场内容系统/10_logs/latest_doctor_report.json
 
+# Generated path audit reports
+同行资本市场内容系统/10_logs/*path-hardcode-audit*.md
+同行资本市场内容系统/10_logs/*path-hardcode-audit*.json
+同行资本市场内容系统/10_logs/latest_path_hardcode_audit.md
+同行资本市场内容系统/10_logs/latest_path_hardcode_audit.json
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

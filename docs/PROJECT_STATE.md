@@ -14,6 +14,7 @@ Phase 0 工程化底座。
 
 - P0-001 项目状态与健康检查底座。
 - P0-002 路径硬编码审计工具。
+- P0-002b 清理 path audit 生成产物入库问题。
 
 ## 当前活跃主线
 
@@ -50,6 +51,10 @@ python3 scripts/audit_hardcoded_paths.py
 ```
 
 审计工具只发现问题，不直接修改历史路径。
+
+## P0-002b 交付状态
+
+P0-002 的审计工具已保留；审计运行产物已从 Git 跟踪中移除，并由 `.gitignore` 忽略。后续运行 `make path-audit` 会在本地生成报告，但完整 JSON/Markdown 审计结果默认不进入 Git。
 
 ## 当前目录判断
 
