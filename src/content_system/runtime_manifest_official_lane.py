@@ -1,0 +1,252 @@
+"""Pilot adapter for writing runtime manifests for the official update lane.
+
+P0-010 intentionally keeps the existing fetcher untouched. It can run
+``market_official_update_lane.py`` as a subprocess, then translates the
+existing official-lane source packet JSON into the P0-008 runtime manifest
+contract introduced earlier.
+"""
+
+from __future__ import annotations
+
+import json
+import subprocess
+import sys
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Iterable
+
+from content_system.paths import get_project_paths
+
+SCHEMA_VERSION = "v1"
+OFFICIAL_SCRIPT_RELATIVE = Path("同行资本市场内容系统/09_runbooks/scripts/market_official_update_lane.py")
+
+
+@dataclass(frozen=True)
+class PilotRunResult:
+    """Result metadata for the official-lane pilot wrapper."""
+
+    status: str
+    manifest_path: Path
+    latest_manifest_path: Path
+    source_count: int
+    total_items_found: int
+    command_returncode: int | None
+    packet_path: Path | None
+
+
+def date_id_from_run_date(run_date: str | None) -> str:
+    """Return YYYYMMDD for a run date string, falling back to today."""
+
+    if run_date:
+        return run_date.replace("-", "")
+    return datetime.now().strftime("%Y%m%d")
+
+
+def iso_now() -> str:
+    """Return a UTC ISO timestamp."""
+
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def repo_relative(path: Path, repo_root: Path) -> str:
+    """Return repo-relative path when possible."""
+
+    try:
+        return str(path.resolve().relative_to(repo_root.resolve()))
+    except ValueError:
+        return str(path)
+
+
+def run_official_lane(
+    repo_root: Path,
+    run_date: str | None = None,
+    source_ids: Iterable[str] = (),
+    extra_args: Iterable[str] = (),
+) -> subprocess.CompletedProcess[str]:
+    """Run the existing official update lane without changing its source code."""
+
+    script_path = repo_root / OFFICIAL_SCRIPT_RELATIVE
+    command = [sys.executable, str(script_path)]
+    if run_date:
+        command.extend(["--date", run_date])
+    for source_id in source_ids:
+        command.extend(["--source-id", source_id])
+    command.extend(list(extra_args))
+
+    return subprocess.run(
+        command,
+        cwd=str(repo_root),
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+
+
+def official_packet_path(market_root: Path, date_id: str) -> Path:
+    """Return the official-lane packet JSON path for a date id."""
+
+    return (
+        market_root
+        / "02_topic_radar"
+        / "source_packets"
+        / f"{date_id}__official_lane"
+        / f"{date_id}__packets.json"
+    )
+
+
+def load_packets(packet_path: Path) -> list[dict]:
+    """Load official-lane packets, returning an empty list when absent."""
+
+    if not packet_path.exists():
+        return []
+    try:
+        payload = json.loads(packet_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    if isinstance(payload, list):
+        return [item for item in payload if isinstance(item, dict)]
+    return []
+
+
+def status_for_packet(packet: dict) -> str:
+    """Translate existing packet fields into runtime manifest source status."""
+
+    count = int(packet.get("entry_count") or 0)
+    if count > 0:
+        return "SUCCESS"
+    return "SKIPPED"
+
+
+def build_manifest_payload(
+    *,
+    repo_root: Path,
+    market_root: Path,
+    run_date: str,
+    command_returncode: int | None,
+    stdout: str,
+    stderr: str,
+    packet_path: Path,
+    packets: list[dict],
+    started_at: str,
+    finished_at: str,
+) -> dict:
+    """Build a P0-008-compatible manifest from official-lane packets."""
+
+    date_id = run_date.replace("-", "")
+    source_records: list[dict] = []
+
+    for packet in packets:
+        source_id = str(packet.get("source_id") or "unknown_source")
+        count = int(packet.get("entry_count") or 0)
+        archive_path = (
+            market_root
+            / "02_topic_radar"
+            / "raw"
+            / f"official_{date_id}"
+            / f"{date_id}__{source_id.replace('__', '_')}.json"
+        )
+        source_records.append(
+            {
+                "source_id": source_id,
+                "status": status_for_packet(packet),
+                "items_found": count,
+                "items_written": count,
+                "started_at": started_at,
+                "finished_at": finished_at,
+                "error_type": None,
+                "error_message": None,
+                "artifact_paths": [repo_relative(archive_path, repo_root)],
+                "notes": str(packet.get("label") or ""),
+            }
+        )
+
+    if command_returncode not in (None, 0):
+        manifest_status = "FAILED"
+    elif not packets:
+        manifest_status = "UNKNOWN"
+    elif any(item["status"] == "SUCCESS" for item in source_records):
+        manifest_status = "SUCCESS"
+    else:
+        manifest_status = "PARTIAL"
+
+    notes = "Generated by P0-010 official-lane pilot wrapper."
+    if stdout:
+        notes += f" stdout_tail={stdout[-500:]}"
+    if stderr:
+        notes += f" stderr_tail={stderr[-500:]}"
+
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "generated_at": iso_now(),
+        "run_id": f"official_update_lane-{date_id}-{datetime.now().strftime('%H%M%S')}",
+        "run_date": run_date,
+        "pipeline_name": "official_update_lane",
+        "script_name": "market_official_update_lane.py",
+        "status": manifest_status,
+        "sources": source_records,
+        "notes": notes,
+        "artifacts": {
+            "source_packet": repo_relative(packet_path, repo_root),
+        },
+    }
+
+
+def write_manifest(payload: dict, logs_root: Path, date_id: str) -> tuple[Path, Path]:
+    """Write dated and latest runtime manifest files."""
+
+    logs_root.mkdir(parents=True, exist_ok=True)
+    dated_path = logs_root / f"{date_id}__official-runtime-manifest.json"
+    latest_path = logs_root / "latest_official_runtime_manifest.json"
+    text = json.dumps(payload, ensure_ascii=False, indent=2)
+    dated_path.write_text(text + "\n", encoding="utf-8")
+    latest_path.write_text(text + "\n", encoding="utf-8")
+    return dated_path, latest_path
+
+
+def build_official_lane_manifest(
+    *,
+    repo_root: Path | None = None,
+    run_date: str | None = None,
+    source_ids: Iterable[str] = (),
+    extra_args: Iterable[str] = (),
+    skip_run: bool = False,
+) -> PilotRunResult:
+    """Run official lane optionally and write a runtime manifest from packets."""
+
+    paths = get_project_paths(repo_root)
+    repo_root = paths.repo_root
+    run_date = run_date or datetime.now().strftime("%Y-%m-%d")
+    date_id = date_id_from_run_date(run_date)
+    packet_path = official_packet_path(paths.market_content_root, date_id)
+
+    started_at = iso_now()
+    completed: subprocess.CompletedProcess[str] | None = None
+    if not skip_run:
+        completed = run_official_lane(repo_root, run_date, source_ids, extra_args)
+    finished_at = iso_now()
+
+    packets = load_packets(packet_path)
+    payload = build_manifest_payload(
+        repo_root=repo_root,
+        market_root=paths.market_content_root,
+        run_date=run_date,
+        command_returncode=completed.returncode if completed is not None else None,
+        stdout=completed.stdout if completed is not None else "",
+        stderr=completed.stderr if completed is not None else "",
+        packet_path=packet_path,
+        packets=packets,
+        started_at=started_at,
+        finished_at=finished_at,
+    )
+    dated_path, latest_path = write_manifest(payload, paths.logs_root, date_id)
+
+    return PilotRunResult(
+        status=str(payload["status"]),
+        manifest_path=dated_path,
+        latest_manifest_path=latest_path,
+        source_count=len(payload["sources"]),
+        total_items_found=sum(int(item.get("items_found", 0)) for item in payload["sources"]),
+        command_returncode=completed.returncode if completed is not None else None,
+        packet_path=packet_path if packet_path.exists() else None,
+    )

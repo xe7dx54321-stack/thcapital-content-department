@@ -1,4 +1,4 @@
-.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets status
+.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest status
 
 PYTHON ?= python3
 
@@ -22,6 +22,9 @@ manifest-validate:
 
 manifest-write-from-packets:
 	$(PYTHON) scripts/write_runtime_manifest_from_packets.py
+
+official-lane-with-manifest:
+	$(PYTHON) scripts/run_official_lane_with_manifest.py
 
 status:
 	bash 内容工厂控制台/status.sh
