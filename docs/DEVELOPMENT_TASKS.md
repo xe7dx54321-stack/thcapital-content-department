@@ -127,33 +127,54 @@ make path-audit
 - HIGH 风险项较 P0-003 后继续下降，或剩余 HIGH 已明确属于非当前运行入口。
 - path audit generated reports 不进入 Git。
 
-## 下一步建议
-
 ### P0-005：采集稳定性工程第一步 —— Source Registry v1
+
+状态：Done。
 
 目标：
 
-- 建立统一 `config/sources.yaml`。
-- 为后续 source health、retry、fallback 做准备。
-- 不重写现有 fetcher，只先建立 registry 和读取能力。
+- 新增 `config/sources.yaml`。
+- 新增 source registry 读取与校验模块。
+- 新增 `make sources-validate`。
+- 不重写现有 fetcher，不改变业务输出格式。
+
+验收：
+
+- `python3 -m py_compile src/content_system/sources.py` 通过。
+- `python3 -m py_compile scripts/validate_sources.py` 通过。
+- `make sources-validate` 通过。
+- `python3 scripts/validate_sources.py --list` 可输出 source 简表。
+- `make doctor` 通过。
+- `make path-audit` 通过且不引入新的 HIGH 路径。
+
+## 下一步建议
+
+### P0-006：Source Health v1
+
+目标：
+
+- 基于 `config/sources.yaml` 建立 source health report。
+- 统计每个 source 的 enabled/tier/category、最近运行状态、预期频率、是否缺失。
+- 先做静态 health/coverage 报告，不改现有 fetcher。
+- 为后续 retry/fallback 做准备。
 
 范围建议：
 
-- 从活跃市场系统当前已有信源常量中提取最小可用 registry。
-- 保留现有 fetcher 的输入输出格式。
-- 先做读取和校验能力，不做调度系统重写。
+- 新增只读报告命令，不改变现有抓取脚本输出。
+- 读取 registry 和现有日志/产物目录，先做 coverage 视角。
+- 不引入数据库、不做 retry queue。
 
 验收标准：
 
-- `config/sources.yaml` 存在并可被标准库或轻量读取器解析。
-- 有最小读取脚本或模块测试。
+- source health report 可生成。
+- registry 中 source 覆盖状态可统计。
 - `make doctor` 通过。
 - `make path-audit` 通过且不引入新的 HIGH 路径。
 
 ## 暂不开始
 
-### P1-001：source registry 初版
+### P1-001：内容生成链路工程化
 
-目标：把主要信源从脚本内常量抽到 `config/sources.yaml`。
+目标：在 Phase 0 采集稳定性、路径和状态底座完成后，再推进内容生成链路的配置化和质量评估。
 
-等待 Phase 0 路径和审计稳定后再做。
+等待 Phase 0 采集稳定性工程稳定后再做。

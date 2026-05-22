@@ -1,0 +1,251 @@
+schema_version: v1
+updated_at: "2026-05-22"
+description: "AI/Agent content source registry for TH Capital content system."
+
+sources:
+  - source_id: openai_blog
+    label: "OpenAI Blog"
+    tier: A
+    category: official
+    language: en
+    enabled: true
+    fetch_method: rss_or_html
+    primary_url: "https://openai.com/news/"
+    fallback_methods:
+      - sitemap
+      - search
+    expected_frequency: daily
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Official OpenAI updates. Current scripts also read OpenAI RSS where available."
+  - source_id: anthropic_news
+    label: "Anthropic News"
+    tier: A
+    category: official
+    language: en
+    enabled: true
+    fetch_method: html
+    primary_url: "https://www.anthropic.com/news/"
+    fallback_methods:
+      - search
+    expected_frequency: daily
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Official Anthropic product and research updates."
+  - source_id: google_deepmind_blog
+    label: "Google DeepMind Blog"
+    tier: A
+    category: official
+    language: en
+    enabled: true
+    fetch_method: rss_or_html
+    primary_url: "https://deepmind.google/blog/"
+    fallback_methods:
+      - search
+    expected_frequency: daily
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Official DeepMind blog. Used by the official update lane."
+  - source_id: google_ai_blog
+    label: "Google AI Blog"
+    tier: A
+    category: official
+    language: en
+    enabled: true
+    fetch_method: html
+    primary_url: "https://blog.google/technology/ai/"
+    fallback_methods:
+      - search
+    expected_frequency: daily
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Official Google AI and product update surface."
+  - source_id: meta_ai_blog
+    label: "Meta AI Blog"
+    tier: A
+    category: official
+    language: en
+    enabled: true
+    fetch_method: html
+    primary_url: "https://ai.meta.com/blog/"
+    fallback_methods:
+      - search
+    expected_frequency: weekly
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Official Meta AI blog. Registry-only in v1; existing fetchers are not changed."
+  - source_id: nvidia_technical_blog
+    label: "NVIDIA Technical Blog"
+    tier: A
+    category: official
+    language: en
+    enabled: true
+    fetch_method: rss_or_html
+    primary_url: "https://developer.nvidia.com/blog/category/generative-ai/"
+    fallback_methods:
+      - search
+    expected_frequency: daily
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Official NVIDIA technical signal for chips, inference and AI infrastructure."
+  - source_id: github_trending_ai
+    label: "GitHub Trending AI"
+    tier: B
+    category: developer_community
+    language: en
+    enabled: true
+    fetch_method: github
+    primary_url: "https://github.com/trending"
+    fallback_methods:
+      - search
+    expected_frequency: daily
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Developer trend signal. Mirrors the current GitHub trending lane."
+  - source_id: hacker_news_ai
+    label: "Hacker News Front Page"
+    tier: B
+    category: developer_community
+    language: en
+    enabled: true
+    fetch_method: rss
+    primary_url: "https://hnrss.org/frontpage"
+    fallback_methods:
+      - html
+      - search
+    expected_frequency: daily
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Builder and developer weak-signal surface."
+  - source_id: huggingface_papers
+    label: "Hugging Face Daily Papers"
+    tier: B
+    category: developer_community
+    language: en
+    enabled: true
+    fetch_method: huggingface
+    primary_url: "https://huggingface.co/papers.rss"
+    fallback_methods:
+      - html
+      - search
+    expected_frequency: daily
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Daily model and paper discussion signal already referenced by the topic capture lane."
+  - source_id: arxiv_ai
+    label: "arXiv cs.AI Recent"
+    tier: C
+    category: research
+    language: en
+    enabled: true
+    fetch_method: arxiv
+    primary_url: "https://export.arxiv.org/api/query?search_query=cat:cs.AI&sortBy=submittedDate&sort_order=descending&max_results=20"
+    fallback_methods:
+      - search
+    expected_frequency: daily
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Research freshness signal from arXiv cs.AI."
+  - source_id: papers_with_code
+    label: "Papers with Code AI"
+    tier: C
+    category: research
+    language: en
+    enabled: true
+    fetch_method: html
+    primary_url: "https://paperswithcode.com/area/artificial-intelligence"
+    fallback_methods:
+      - search
+    expected_frequency: weekly
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Research and benchmark context. Registry-only in v1."
+  - source_id: wechat_jiqizhixin
+    label: "机器之心"
+    tier: D
+    category: chinese_media
+    language: zh
+    enabled: true
+    fetch_method: wechat_search
+    primary_url: "https://weixin.sogou.com/weixin?type=1&query=机器之心"
+    fallback_methods:
+      - search
+      - manual
+    expected_frequency: daily
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Chinese AI media and learning source already used by the WeChat refresh lane."
+  - source_id: wechat_xinzhiyuan
+    label: "新智元"
+    tier: D
+    category: chinese_media
+    language: zh
+    enabled: true
+    fetch_method: wechat_search
+    primary_url: "https://weixin.sogou.com/weixin?type=1&query=新智元"
+    fallback_methods:
+      - search
+      - manual
+    expected_frequency: daily
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Chinese AI media and learning source already used by the WeChat refresh lane."
+  - source_id: wechat_liangziwei
+    label: "量子位"
+    tier: D
+    category: chinese_media
+    language: zh
+    enabled: true
+    fetch_method: wechat_search
+    primary_url: "https://weixin.sogou.com/weixin?type=1&query=量子位"
+    fallback_methods:
+      - search
+      - manual
+    expected_frequency: daily
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Chinese AI media and learning source already used by the WeChat refresh lane."
+  - source_id: wechat_zhidx
+    label: "智东西"
+    tier: D
+    category: chinese_media
+    language: zh
+    enabled: true
+    fetch_method: wechat_search
+    primary_url: "https://weixin.sogou.com/weixin?type=1&query=智东西"
+    fallback_methods:
+      - search
+      - manual
+    expected_frequency: daily
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Chinese AI media and industry signal source already used by the WeChat refresh lane."
+  - source_id: reddit_machinelearning
+    label: "Reddit r/MachineLearning"
+    tier: E
+    category: social_signal
+    language: en
+    enabled: true
+    fetch_method: rss
+    primary_url: "https://old.reddit.com/r/MachineLearning/hot.rss"
+    fallback_methods:
+      - search
+    expected_frequency: daily
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Weak-signal research and community discussion surface."
+  - source_id: youtube_ai_channels
+    label: "YouTube AI Channels"
+    tier: E
+    category: social_signal
+    language: en
+    enabled: true
+    fetch_method: youtube
+    primary_url: "https://www.youtube.com/@OpenAI"
+    fallback_methods:
+      - search
+      - manual
+    expected_frequency: weekly
+    expected_min_items_per_run: 0
+    owner: content_system
+    notes: "Grouped YouTube surface for AI official and builder channels. Registry-only in v1."

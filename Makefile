@@ -1,4 +1,4 @@
-.PHONY: doctor status path-audit
+.PHONY: doctor path-audit sources-validate status
 
 PYTHON ?= python3
 
@@ -9,6 +9,10 @@ doctor:
 # 扫描仓库中的本机绝对路径/硬编码路径，并生成审计报告。
 path-audit:
 	$(PYTHON) scripts/audit_hardcoded_paths.py
+
+# 校验采集信源注册表。
+sources-validate:
+	$(PYTHON) scripts/validate_sources.py
 
 # 兼容内容工厂控制台已有 status.sh。
 status:
