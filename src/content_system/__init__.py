@@ -4,4 +4,5 @@ __all__ = [
     "paths",
     "sources",
     "source_health",
+    "source_runtime_health",
 ]
