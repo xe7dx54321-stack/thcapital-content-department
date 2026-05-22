@@ -77,22 +77,51 @@ Phase 0：工程化底座与采集稳定性地基。
 - `make source-runtime-health` 仍通过。
 - generated runtime manifest 不进入 Git。
 
+### P0-010b：忽略 official lane / runtime health 运行产物
+
+状态：Done。
+
+目标：
+
+- 补齐 `.gitignore`，避免 official lane raw/source packets/top20/source manifest/runtime manifest/source runtime health 产物进入 Git。
+
+### P0-011A：Source Runtime Health Manifest Reader
+
+状态：Done。
+
+目标：
+
+- 让 `make source-runtime-health` 优先读取 P0-008 runtime manifest。
+- 保留 legacy text scan 作为旧产物 fallback。
+- 不修改 official lane 主脚本。
+- 不做 retry/fallback。
+- 不新增数据库。
+
+验收：
+
+- `python3 -m py_compile src/content_system/source_runtime_health.py` 通过。
+- `make source-runtime-health` 可运行。
+- 如果存在 `latest_official_runtime_manifest.json`，报告中的 `manifest_count` 大于 0。
+- Evidence 中可出现 `runtime_manifest` 类型。
+- generated reports 不进入 Git。
+
 ## 下一步
 
-### P0-011：Runtime Manifest Official Lane Direct Writer v1
+### P0-011B：Official Lane Runtime Manifest Direct Writer v1 / Wrapper 观察增强
 
 状态：Planned。
 
 目标：
 
-- 基于 P0-010 wrapper 的运行效果，决定是否把 runtime manifest 写入能力以最小改动方式嵌入 `market_official_update_lane.py`。
-- 如果 wrapper 足够稳定，可以把 P0-010 wrapper 作为正式入口，不强行改 fetcher。
+- 基于 P0-010/P0-011A 的运行效果，决定是否继续采用 wrapper 作为正式入口，还是最小侵入地嵌入 `market_official_update_lane.py`。
+- 如果嵌入主脚本，必须不改变原输出格式。
 - 不改其他抓取脚本。
 - 不做 retry/fallback。
 - 不新增数据库。
 
 验收建议：
 
-- 至少能对官方 lane 输出一份 runtime manifest。
-- 该 manifest 可被 P0-008 校验工具读取。
-- 该 manifest 可被 P0-007 source runtime health 识别。
+- official lane 仍能输出原有 source packet、official top20 和 source manifest。
+- runtime manifest 可被 P0-008 校验工具读取。
+- runtime manifest 可被 P0-011A source runtime health 结构化识别。
+- 运行产物不进入 Git。

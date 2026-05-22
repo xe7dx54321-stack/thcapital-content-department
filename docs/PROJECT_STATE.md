@@ -10,7 +10,7 @@
 
 Phase 0：工程化底座与采集稳定性地基。
 
-最新 checkpoint：**P0-010 Runtime Manifest Pilot Integration v1**。
+最新 checkpoint：**P0-011A Source Runtime Health Manifest Reader**。
 
 ## 已完成 checkpoint
 
@@ -27,6 +27,8 @@ Phase 0：工程化底座与采集稳定性地基。
 - P0-008：Runtime Manifest Contract v1。
 - P0-009：Runtime Manifest Writer v1。
 - P0-010：Runtime Manifest Pilot Integration v1。
+- P0-010b：忽略 official lane/runtime health 运行产物。
+- P0-011A：Source Runtime Health Manifest Reader。
 
 ## 当前能力
 
@@ -34,16 +36,16 @@ Phase 0：工程化底座与采集稳定性地基。
 - `make path-audit`：路径硬编码审计。
 - `make sources-validate`：Source Registry 校验。
 - `make source-health`：静态 source health/coverage 报告。
-- `make source-runtime-health`：基于既有运行产物的 runtime source health 报告。
+- `make source-runtime-health`：基于 runtime manifest 与既有运行产物的 runtime source health 报告。
 - `make manifest-validate`：Runtime Manifest 合约校验。
 - `make manifest-write-from-packets`：从既有 source packets 生成 runtime manifest。
 - `make official-lane-with-manifest`：P0-010 pilot，运行官方更新 lane 并额外写出 runtime manifest。
 
-## P0-010 状态
+## P0-010 / P0-011A 状态
 
-P0-010 采用低风险 wrapper 方式集成，不直接修改 `market_official_update_lane.py`。它会运行官方更新 lane，然后从现有 official source packet JSON 生成符合 P0-008 合约的 runtime manifest。
+P0-010 采用低风险 wrapper 方式集成，不直接修改 `market_official_update_lane.py`。本地验证显示 official lane wrapper 可成功运行，生成 official runtime manifest。
 
-这样可以验证 manifest 合约与真实运行链路的衔接，同时不破坏现有抓取脚本的输出格式。
+P0-011A 让 `source-runtime-health` 优先消费结构化 P0-008 runtime manifest，再回退到旧的 manifest/source packet/log 文本扫描。这使 runtime health 从 best-effort 文本匹配向结构化运行事实对齐过渡。
 
 ## 当前工程原则
 
@@ -55,6 +57,6 @@ P0-010 采用低风险 wrapper 方式集成，不直接修改 `market_official_u
 
 ## 下一步建议
 
-P0-011：Runtime Manifest Official Lane Direct Writer v1。
+P0-011B：Official Lane Runtime Manifest Direct Writer v1 或 wrapper 观察增强。
 
-目标：在 P0-010 wrapper 跑通后，评估是否把 runtime manifest 写入能力以最小改动方式嵌入 `market_official_update_lane.py`，或继续以 wrapper 作为稳定入口。
+目标：继续观察 P0-010 wrapper 是否足够稳定；如要嵌入主脚本，也必须最小侵入，不改变原输出格式，不做 retry/fallback，不新增数据库。
