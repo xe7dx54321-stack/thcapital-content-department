@@ -7,6 +7,7 @@
 *.swp
 *.swo
 *~
+.env
 .idea/
 .vscode/
 
@@ -19,11 +20,6 @@ __pycache__/
 .venv/
 venv/
 env/
-
-# Local environment
-.env
-.env.*
-!.env.example
 
 # Node / frontend build output
 node_modules/
@@ -50,6 +46,7 @@ logs/
 内容工厂控制台/runtime/server.pid
 内容工厂控制台/logs/
 
+# Generated content-system runtime artifacts
 内容生产系统/02_topic_radar/asset_chains/
 内容生产系统/02_topic_radar/deep_articles/
 内容生产系统/02_topic_radar/itjuzi_live_snapshot/
@@ -64,6 +61,7 @@ logs/
 内容生产系统/10_logs/
 内容生产系统/11_frontstage/_console_state/
 
+# Generated market-system logs and reports
 同行资本市场内容系统/10_logs/*.log
 同行资本市场内容系统/10_logs/latest_doctor_report.json
 
@@ -76,11 +74,16 @@ logs/
 # Generated source health reports
 同行资本市场内容系统/10_logs/*source-health*.md
 同行资本市场内容系统/10_logs/*source-health*.json
-同行资本市场内容系统/10_logs/latest_source_health.md
-同行资本市场内容系统/10_logs/latest_source_health.json
 同行资本市场内容系统/11_frontstage/*source-health*.md
 同行资本市场内容系统/11_frontstage/*source-health*.json
 同行资本市场内容系统/11_frontstage/latest_source_health_board.md
+
+# Generated source runtime health reports
+同行资本市场内容系统/10_logs/*source-runtime-health*.md
+同行资本市场内容系统/10_logs/*source-runtime-health*.json
+同行资本市场内容系统/11_frontstage/*source-runtime-health*.md
+同行资本市场内容系统/11_frontstage/*source-runtime-health*.json
+同行资本市场内容系统/11_frontstage/latest_source_runtime_health_board.md
 
 # Local databases / private state
 *.sqlite
@@ -90,6 +93,7 @@ logs/
 
 # Archives and local backups
 _archive/
+information_旧素材库/
 内容素材库/备份/
 内容生产系统/99_rehearsal_backups/
 *.tar
