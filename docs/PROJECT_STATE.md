@@ -10,7 +10,7 @@
 
 Phase 0：工程化底座与采集稳定性地基。
 
-最新 checkpoint：**P0-011A Source Runtime Health Manifest Reader**。
+最新 checkpoint：**P0-011B Official Lane Health Check Wrapper v1**。
 
 ## 已完成 checkpoint
 
@@ -27,8 +27,9 @@ Phase 0：工程化底座与采集稳定性地基。
 - P0-008：Runtime Manifest Contract v1。
 - P0-009：Runtime Manifest Writer v1。
 - P0-010：Runtime Manifest Pilot Integration v1。
-- P0-010b：忽略 official lane/runtime health 运行产物。
+- P0-010b：忽略 official lane / runtime health 运行产物。
 - P0-011A：Source Runtime Health Manifest Reader。
+- P0-011B：Official Lane Health Check Wrapper v1。
 
 ## 当前能力
 
@@ -39,13 +40,18 @@ Phase 0：工程化底座与采集稳定性地基。
 - `make source-runtime-health`：基于 runtime manifest 与既有运行产物的 runtime source health 报告。
 - `make manifest-validate`：Runtime Manifest 合约校验。
 - `make manifest-write-from-packets`：从既有 source packets 生成 runtime manifest。
-- `make official-lane-with-manifest`：P0-010 pilot，运行官方更新 lane 并额外写出 runtime manifest。
+- `make official-lane-with-manifest`：运行官方更新 lane 并额外写出 runtime manifest。
+- `make official-lane-health-check`：运行 official lane wrapper、校验 official runtime manifest，并刷新 source runtime health。
 
-## P0-010 / P0-011A 状态
+## P0-011B 状态
 
-P0-010 采用低风险 wrapper 方式集成，不直接修改 `market_official_update_lane.py`。本地验证显示 official lane wrapper 可成功运行，生成 official runtime manifest。
+P0-011B 继续采用低风险 wrapper 路线，不直接修改 `market_official_update_lane.py`。
 
-P0-011A 让 `source-runtime-health` 优先消费结构化 P0-008 runtime manifest，再回退到旧的 manifest/source packet/log 文本扫描。这使 runtime health 从 best-effort 文本匹配向结构化运行事实对齐过渡。
+本轮新增 `scripts/run_official_lane_health_check.py`，把以下三步串成一个健康检查入口：
+
+1. 运行 `scripts/run_official_lane_with_manifest.py`。
+2. 校验 `latest_official_runtime_manifest.json`。
+3. 运行 `scripts/build_source_runtime_health.py`，让 P0-011A 读取 runtime manifest evidence。
 
 ## 当前工程原则
 
@@ -57,6 +63,6 @@ P0-011A 让 `source-runtime-health` 优先消费结构化 P0-008 runtime manifes
 
 ## 下一步建议
 
-P0-011B：Official Lane Runtime Manifest Direct Writer v1 或 wrapper 观察增强。
+P0-012：Official Lane Daily Entry v1。
 
-目标：继续观察 P0-010 wrapper 是否足够稳定；如要嵌入主脚本，也必须最小侵入，不改变原输出格式，不做 retry/fallback，不新增数据库。
+目标：在确认 wrapper 路线稳定后，将 `official-lane-health-check` 明确为官方更新 lane 的推荐日常入口，并补齐 README/runbook 说明；仍不强行改 official lane 主脚本。
