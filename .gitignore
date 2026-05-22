@@ -201,6 +201,44 @@ logs/
 同行资本市场内容系统/11_frontstage/*phase1-daily-pipeline*.md
 同行资本市场内容系统/11_frontstage/latest_phase1_daily_pipeline_board.md
 
+# Phase 2 generated artifacts
+同行资本市场内容系统/05_draft_packs/*content-briefs*.json
+同行资本市场内容系统/05_draft_packs/*content-briefs*.md
+同行资本市场内容系统/05_draft_packs/latest_content_briefs.json
+同行资本市场内容系统/05_draft_packs/latest_content_briefs.md
+
+同行资本市场内容系统/05_draft_packs/*content-outlines*.json
+同行资本市场内容系统/05_draft_packs/*content-outlines*.md
+同行资本市场内容系统/05_draft_packs/latest_content_outlines.json
+同行资本市场内容系统/05_draft_packs/latest_content_outlines.md
+
+同行资本市场内容系统/05_draft_packs/*content-drafts*.json
+同行资本市场内容系统/05_draft_packs/*content-drafts*.md
+同行资本市场内容系统/05_draft_packs/latest_content_drafts.json
+同行资本市场内容系统/05_draft_packs/latest_content_drafts.md
+
+同行资本市场内容系统/05_draft_packs/*content-quality-review*.json
+同行资本市场内容系统/05_draft_packs/*content-quality-review*.md
+同行资本市场内容系统/05_draft_packs/latest_content_quality_review.json
+同行资本市场内容系统/05_draft_packs/latest_content_quality_review.md
+
+同行资本市场内容系统/05_draft_packs/*platform-packages*.json
+同行资本市场内容系统/05_draft_packs/*platform-packages*.md
+同行资本市场内容系统/05_draft_packs/latest_platform_packages.json
+同行资本市场内容系统/05_draft_packs/latest_platform_packages.md
+
+同行资本市场内容系统/10_logs/*phase2-daily-pipeline*.json
+同行资本市场内容系统/10_logs/*phase2-daily-pipeline*.md
+同行资本市场内容系统/10_logs/latest_phase2_daily_pipeline.json
+同行资本市场内容系统/10_logs/latest_phase2_daily_pipeline.md
+同行资本市场内容系统/11_frontstage/*phase2-daily-pipeline*.md
+同行资本市场内容系统/11_frontstage/latest_phase2_daily_pipeline_board.md
+
+同行资本市场内容系统/10_logs/*content-workbench*.json
+同行资本市场内容系统/10_logs/latest_content_workbench.json
+同行资本市场内容系统/11_frontstage/*content-workbench*.md
+同行资本市场内容系统/11_frontstage/latest_content_workbench.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

@@ -61,6 +61,20 @@ GENERATED_REPORT_NAME_MARKERS = (
     "topic_cluster_scores",
     "high-value-candidates",
     "high_value_candidates",
+    "content-briefs",
+    "content_briefs",
+    "content-outlines",
+    "content_outlines",
+    "content-drafts",
+    "content_drafts",
+    "content-quality-review",
+    "content_quality_review",
+    "platform-packages",
+    "platform_packages",
+    "content-workbench",
+    "content_workbench",
+    "phase2-daily-pipeline",
+    "phase2_daily_pipeline",
 )
 
 

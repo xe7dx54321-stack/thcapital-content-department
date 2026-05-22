@@ -2,11 +2,12 @@
 
 ## 开发原则
 
-- 小步交付，每个 checkpoint 都要有目标、变更文件、验收方式和下一步建议。
-- 优先维护工程底座、状态文档、检查工具和运行观测，再扩展业务能力。
-- 不大规模重写已有抓取主链路，尤其不破坏 official lane 和 topic capture lane 的现有输出。
+- 每个 checkpoint 都要有目标、变更文件、验收方式和下一步建议。
+- 先保证可运行、可检查、可交接，再扩大自动化范围。
+- 不破坏 official lane、topic capture lane 和现有生成产物格式。
 - generated artifacts 默认不进入 Git；需要共享时提取小型摘要。
 - 不提交 `.env`、本机绝对路径、cookie、token、数据库或本地运行态文件。
+- 自动发布、LLM 生成、真实平台 API、人工反馈学习都必须有独立 checkpoint。
 
 ## Phase 0：已完成
 
@@ -35,161 +36,176 @@
 - P0-016 Official Daily Full Run v1。
 - P0-017 Phase 0 Closeout。
 
-## Phase 1：采集稳定性与信息结构化 v1
+## Phase 1：已完成
 
-### P1-001：Official Lane Runtime Baseline v1
+- P1-001 Official Lane Runtime Baseline v1。
+- P1-002 Source Registry Coverage Alignment v1。
+- P1-003 Evidence Packet v1。
+- P1-004 Topic Cluster v1。
+- P1-005 Value Scoring v1。
+- P1-006 Daily High-Value Candidate Pool v1。
+- P1-007 Phase 1 Closeout。
 
-状态：Done。
-
-目标：
-
-- 把 official daily full run 的关键指标追加到 baseline。
-- 同一天重复运行更新同一条 record。
-- 支撑后续 7 天/30 天稳定性观察。
-
-验收：
-
-- `make runtime-baseline` 可生成 baseline JSON/Markdown。
-- baseline 记录 status、quality gate、items、missing expected、dashboard status 等核心指标。
-
-### P1-002：Source Registry Coverage Alignment v1
-
-状态：Done。
-
-目标：
-
-- 对齐 `config/sources.yaml` 与 latest official runtime manifest / source runtime health。
-- 标记 covered、registry-only、runtime-only 和 alias 命名差异。
-- 不修改 fetcher source_id。
-
-验收：
-
-- `make source-coverage` 可生成 coverage alignment 报告。
-- runtime-only source 与 registry-only source 被明确展示。
-
-### P1-003：Evidence Packet v1
-
-状态：Done。
-
-目标：
-
-- 从 official packet item 生成标准 evidence packet。
-- 规则型抽取 title、url、summary、event_type、entities、domain_tags 和基础分值。
-- 不使用 LLM，不生成文章。
-
-验收：
-
-- `make evidence-packets` 可生成合法 JSON/Markdown。
-- evidence packets 可以为空，但脚本不能崩溃。
-
-### P1-004：Topic Cluster v1
-
-状态：Done。
-
-目标：
-
-- 基于 evidence packet 做规则型聚类。
-- 优先使用 company/product/model 实体交集，其次使用 event_type + title token。
-- 不使用 embedding 或向量库。
-
-验收：
-
-- `make topic-clusters` 可生成合法 JSON/Markdown。
-- topic clusters 可以为空，但脚本不能崩溃。
-
-### P1-005：Value Scoring v1
-
-状态：Done。
-
-目标：
-
-- 对 topic cluster 进行规则型价值评分。
-- 评分维度包括 source authority、freshness、novelty、strategic relevance、market impact、technical substance、narrative potential、evidence strength。
-- 输出 score band 和 recommended action。
-
-验收：
-
-- `make value-scores` 可生成合法 JSON/Markdown。
-- `config/value_scoring_rules.json` 保存 v1 评分权重。
-
-### P1-006：Daily High-Value Candidate Pool v1
-
-状态：Done。
-
-目标：
-
-- 将 scored clusters 转成每天可读的 high-value candidate pool。
-- Markdown 展示 summary、top candidates、details、key evidence 和 risks / missing info。
-- 不进入成品内容生产。
-
-验收：
-
-- `make high-value-candidates` 可生成候选池 JSON/Markdown 和 frontstage board。
-
-### P1-007：Phase 1 Closeout
-
-状态：Done。
-
-目标：
-
-- 新增 Phase 1 closeout 报告。
-- 新增 `make phase1-daily` 总入口。
-- 明确 Phase 1 v1 的能力边界和 Phase 2 入口。
-
-验收：
-
-- `make phase1-daily` 可串联 Phase 1 v1 全链路。
-- generated artifacts 不进入 Git。
-
-## Phase 1 验收标准
-
-- `python3 -m py_compile` 对新增 scripts 和 modules 全部通过。
-- `make official-daily-full-run` 可运行。
-- `make runtime-baseline` 可运行。
-- `make source-coverage` 可运行。
-- `make evidence-packets` 可运行。
-- `make topic-clusters` 可运行。
-- `make value-scores` 可运行。
-- `make high-value-candidates` 可运行。
-- `make phase1-daily` 可运行。
-- `make doctor`、`make path-audit`、`make sources-validate`、`make source-health`、`make source-runtime-health`、`make manifest-validate` 继续可运行。
-- Phase 1 generated artifacts 不进入 Git。
-
-## Phase 2：内容生产质量链路
+## Phase 2：内容生产质量链路 v1
 
 ### P2-001：Content Brief Builder v1
 
+状态：Done。
+
 目标：
 
-- 从 high-value candidates 生成 content brief。
-- brief 包含核心事实、为什么重要、证据、反方观点、适合平台、推荐内容类型。
-- 不直接生成文章。
+- 从 high-value candidates 生成 content briefs。
+- brief 包含核心判断、为什么现在重要、证据、风险、缺口、目标平台和编辑优先级。
+- 不直接生成成品文章。
+
+验收：
+
+- `make content-briefs` 可生成 JSON/Markdown。
 
 ### P2-002：Outline Builder v1
 
+状态：Done。
+
 目标：
 
-- 从 content brief 生成结构化大纲。
-- 支持公众号长文、小红书短内容等不同平台的 outline 形态。
-- 不直接写成品稿。
+- 从 content briefs 生成结构化大纲。
+- 同时输出 wechat_outline 和 xiaohongshu_outline。
+- 保留 required evidence 和 editor notes。
+
+验收：
+
+- `make content-outlines` 可生成 JSON/Markdown。
 
 ### P2-003：Draft Writer v1
 
-目标：
-
-- 在 evidence 与 outline 约束下生成初稿。
-- 明确保留来源证据、未确认信息和禁止幻觉规则。
-
-### P2-004：Fact / Evidence Check v1
+状态：Done。
 
 目标：
 
-- 对 draft 中的事实、数字、引用和结论做 evidence check。
-- 输出可修订问题清单，而不是直接发布。
+- 用规则模板从 outlines 生成初稿。
+- 草稿必须包含核心判断、为什么现在重要、证据、风险提示和人工编辑提示。
+- 不调用 LLM，不假装最终可发布。
+
+验收：
+
+- `make content-drafts` 可生成 JSON/Markdown。
+
+### P2-004：Content Quality Review v1
+
+状态：Done。
+
+目标：
+
+- 对 drafts 做规则型质量检查。
+- 检查 evidence 数量、标题、正文长度、风险披露、source_id、evidence_id 和过强表述。
+- 输出 READY_FOR_HUMAN_REVIEW、NEEDS_LIGHT_EDIT、NEEDS_MAJOR_EDIT 或 HOLD。
+
+验收：
+
+- `make content-quality-review` 可生成 JSON/Markdown。
 
 ### P2-005：Platform Packaging v1
 
+状态：Done。
+
 目标：
 
-- 将通过检查的内容打包为微信公众号、小红书等平台格式。
-- 处理标题、摘要、封面提示、标签和发布前 checklist。
+- 将通过质量检查的 drafts 转成 wechat / xiaohongshu 平台包。
+- 所有 package 都保留 `human_review_required=true`。
+- HOLD 项不生成正式 package，只记录 blocked reason。
+
+验收：
+
+- `make platform-packages` 可生成 JSON/Markdown。
+
+### P2-006：Daily Content Production Pipeline v1
+
+状态：Done。
+
+目标：
+
+- 新增 `make phase2-daily`。
+- 串联 Phase 1 daily pipeline、brief、outline、draft、quality review、platform package 和 workbench。
+
+验收：
+
+- `make phase2-daily` 可运行，成功或合理 DEGRADED，但不能崩溃。
+
+### P2-007：Content Workbench Board v1
+
+状态：Done。
+
+目标：
+
+- 生成每天给人工编辑查看的内容工作台。
+- 展示 summary、ready for human review、needs editing、hold、top briefs 和 next actions。
+
+验收：
+
+- `make content-workbench` 可生成 frontstage Markdown 和 JSON。
+
+### P2-008：Phase 2 Closeout
+
+状态：Done。
+
+目标：
+
+- 新增 Phase 2 closeout 报告。
+- 更新项目状态与任务清单。
+- 明确 Phase 3 入口。
+
+验收：
+
+- `docs/PROJECT_STATE.md` 和 `docs/DEVELOPMENT_TASKS.md` 反映 Phase 2 完成态。
+
+## Phase 2 验收标准
+
+- 新增 Phase 2 scripts 和 modules 全部通过 `py_compile`。
+- `make phase1-daily` 可运行。
+- `make content-briefs` 可运行。
+- `make content-outlines` 可运行。
+- `make content-drafts` 可运行。
+- `make content-quality-review` 可运行。
+- `make platform-packages` 可运行。
+- `make content-workbench` 可运行。
+- `make phase2-daily` 可运行。
+- `make doctor`、`make path-audit`、`make sources-validate`、`make source-health`、`make source-runtime-health`、`make manifest-validate` 继续可运行。
+- Phase 2 generated artifacts 不进入 Git。
+
+## Phase 3：Agent Workflow 与人工审核闭环
+
+### P3-001：Content Review Queue v1
+
+目标：
+
+- 将 platform packages 放入人工审核队列。
+- 为每个 package 记录 review status。
+- 不自动发布。
+
+### P3-002：Human Feedback Capture v1
+
+目标：
+
+- 记录人工对 brief、outline、draft、package 的评分与修改意见。
+- 为后续规则和 Agent 工作流迭代提供数据。
+
+### P3-003：Agent Workflow Orchestrator v1
+
+目标：
+
+- 建立可配置 workflow，不再只靠 Makefile 串命令。
+- 仍保持人工可控。
+
+### P3-004：Publishing Queue v1
+
+目标：
+
+- 生成待发布队列。
+- 不接真实 API，先做文件级 queue。
+
+### P3-005：Learning Loop v1
+
+目标：
+
+- 将人工反馈回流到 value scoring、brief rules、outline rules。
+- 形成可审计的规则迭代记录。

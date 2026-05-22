@@ -6,13 +6,15 @@
 
 ## 当前阶段
 
-Phase 1：采集稳定性与信息结构化 v1。
+Phase 2：内容生产质量链路 v1。
 
 ## 最新 checkpoint
 
-P1-007：Phase 1 v1 Closeout。
+P2-008：Phase 2 v1 Closeout。
 
 ## 已完成
+
+### Phase 0
 
 - P0-001 项目状态与健康检查底座。
 - P0-002 路径硬编码审计工具。
@@ -38,6 +40,9 @@ P1-007：Phase 1 v1 Closeout。
 - P0-015b 补齐 Official Daily Dashboard 状态文档。
 - P0-016 Official Daily Full Run v1。
 - P0-017 Phase 0 Closeout。
+
+### Phase 1
+
 - P1-001 Official Lane Runtime Baseline v1。
 - P1-002 Source Registry Coverage Alignment v1。
 - P1-003 Evidence Packet v1。
@@ -46,77 +51,86 @@ P1-007：Phase 1 v1 Closeout。
 - P1-006 Daily High-Value Candidate Pool v1。
 - P1-007 Phase 1 Closeout。
 
+### Phase 2
+
+- P2-001 Content Brief Builder v1。
+- P2-002 Outline Builder v1。
+- P2-003 Draft Writer v1。
+- P2-004 Content Quality Review v1。
+- P2-005 Platform Packaging v1。
+- P2-006 Daily Content Production Pipeline v1。
+- P2-007 Content Workbench Board v1。
+- P2-008 Phase 2 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
 
-- `make doctor`：项目健康检查。
-- `make path-audit`：路径硬编码审计。
-- `src/content_system/paths.py`：统一路径配置。
-- `config/sources.yaml` 与 `make sources-validate`：source registry。
-- `make source-health`：静态 source health / coverage 报告。
-- `make source-runtime-health`：runtime evidence 对齐。
-- `make manifest-validate`：runtime manifest 合约校验。
-- `make manifest-write-from-packets`：从 packet 生成 manifest。
-- `make official-lane-with-manifest`：official lane manifest pilot。
-- `make official-lane-health-check`：official lane 健康检查 wrapper。
-- `make official-lane-daily` / `make daily-official-lane`：official lane 日常入口。
-- `make daily-source-summary`：每日 source run summary。
-- `make official-lane-quality-gate`：report-only quality gate。
-- `make official-daily-dashboard`：official daily dashboard。
-- `make official-daily-full-run` / `make daily-official-full-run`：official lane 全流程日常入口。
-- generated artifacts ignore 规则：运行产物默认不进入 Git。
+- official daily full run。
+- health check。
+- path audit。
+- source registry。
+- runtime manifest。
+- quality gate。
+- dashboard。
 
 ### Phase 1 能力
 
-- Official runtime baseline：`make runtime-baseline`。
-- Source coverage alignment：`make source-coverage`。
-- Evidence Packet v1：`make evidence-packets`。
-- Topic Cluster v1：`make topic-clusters`。
-- Value Scoring v1：`make value-scores`。
-- Daily High-Value Candidate Pool：`make high-value-candidates`。
-- Phase 1 daily pipeline：`make phase1-daily`。
+- evidence packet。
+- topic cluster。
+- value scoring。
+- high-value candidate pool。
+- phase1 daily pipeline。
+
+### Phase 2 能力
+
+- content brief。
+- outline。
+- draft。
+- quality review。
+- platform package。
+- content workbench。
+- phase2 daily pipeline。
 
 ## 当前推荐日常命令
 
 ```bash
-make phase1-daily
+make phase2-daily
 ```
 
-该命令串联 official daily full run、runtime baseline、source coverage、evidence packet、topic cluster、value scoring 和 high-value candidate pool。
+该命令串联 Phase 1 数据结构化链路和 Phase 2 内容生产质量链路，输出 brief、outline、draft、quality review、platform package 和 content workbench。
 
 ## 最近实测基线
 
-- `make official-daily-full-run`：SUCCESS。
-- official lane steps：5 个步骤全 OK。
-- source_count：9。
-- total_items_found：57。
-- quality_gate_status：GREEN。
+- `make phase2-daily`：SUCCESS。
+- content briefs：5。
+- content outlines：5。
+- content drafts：5。
+- quality reviews：5。
+- platform packages：5。
+- content workbench：ready_for_human_review 1，needs_edit 4，hold 0。
 - `make doctor`：通过，仅 network_check 默认跳过。
 - `make path-audit`：通过，HIGH 约 59。
-- `make sources-validate`：通过，17 sources，17 enabled，ERROR 0，WARN 0。
-- `make manifest-validate`：通过。
 
 ## 当前边界
 
-- Evidence packet 仍是规则型抽取。
-- Topic cluster 仍是规则型聚类。
-- Value scoring 仍是启发式规则评分。
-- 尚未进入 LLM 内容生成。
-- 尚未生成微信公众号/小红书成品内容。
+- Brief、outline、draft 都是规则型生成。
+- 尚未接入 LLM。
+- 尚未自动发布。
+- 尚未接公众号/小红书 API。
+- 尚未新增数据库。
 - 尚未做人工反馈学习。
-- 尚未做 retry/fallback。
-- 尚未新增数据库或调度系统。
-- Source runtime health 对非 official lane 的结构化覆盖仍有限。
+- 尚未做多 Agent 编排。
+- 所有 platform package 都要求 human review，不允许自动发布。
 
 ## 下一阶段
 
-Phase 2：内容生产质量链路。
+Phase 3：Agent Workflow 与人工审核闭环。
 
 优先任务：
 
-- P2-001：Content Brief Builder v1。
-- P2-002：Outline Builder v1。
-- P2-003：Draft Writer v1。
-- P2-004：Fact / Evidence Check v1。
-- P2-005：Platform Packaging v1。
+- P3-001：Content Review Queue v1。
+- P3-002：Human Feedback Capture v1。
+- P3-003：Agent Workflow Orchestrator v1。
+- P3-004：Publishing Queue v1。
+- P3-005：Learning Loop v1。

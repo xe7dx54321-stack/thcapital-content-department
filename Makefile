@@ -1,4 +1,4 @@
-.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily status
+.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily content-briefs content-outlines content-drafts content-quality-review platform-packages content-workbench phase2-daily status
 
 PYTHON ?= python3
 
@@ -74,6 +74,27 @@ high-value-candidates:
 
 phase1-daily:
 	$(PYTHON) scripts/run_phase1_daily_pipeline.py
+
+content-briefs:
+	$(PYTHON) scripts/build_content_briefs.py
+
+content-outlines:
+	$(PYTHON) scripts/build_content_outlines.py
+
+content-drafts:
+	$(PYTHON) scripts/build_content_drafts.py
+
+content-quality-review:
+	$(PYTHON) scripts/review_content_quality.py
+
+platform-packages:
+	$(PYTHON) scripts/build_platform_packages.py
+
+content-workbench:
+	$(PYTHON) scripts/build_content_workbench.py
+
+phase2-daily:
+	$(PYTHON) scripts/run_phase2_daily_pipeline.py
 
 status:
 	bash 内容工厂控制台/status.sh
