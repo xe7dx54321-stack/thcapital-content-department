@@ -31,6 +31,7 @@
 
 真正的数据与 HTML 快照仍然来自：
 
-- `/Users/apple/Documents/同行资本内容部门/内容生产系统`
+- 默认：仓库根目录下的 `内容生产系统/`
+- 可覆盖：`THCAP_LEGACY_CONTENT_ROOT`
 
-本目录只负责把内容工厂展示台以更稳定的方式拉起来。
+本目录只负责把内容工厂展示台以更稳定的方式拉起来。控制台自身目录可用 `THCAP_CONTENT_CONSOLE_ROOT` 覆盖，监听地址和端口可用 `CONTENT_FACTORY_DASHBOARD_HOST`、`CONTENT_FACTORY_DASHBOARD_PORT` 覆盖。

@@ -1,13 +1,17 @@
 #!/bin/bash
 set -euo pipefail
 
-APP_DIR="$(cd "$(dirname "$0")" && pwd)"
-CONTENT_ROOT="/Users/apple/Documents/同行资本内容部门/内容生产系统"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
+CONTENT_FACTORY_CONSOLE_ROOT="${THCAP_CONTENT_CONSOLE_ROOT:-${SCRIPT_DIR}}"
+CONTENT_ROOT="${THCAP_LEGACY_CONTENT_ROOT:-${REPO_ROOT}/内容生产系统}"
+MARKET_CONTENT_ROOT="${THCAP_MARKET_CONTENT_ROOT:-${REPO_ROOT}/同行资本市场内容系统}"
 SERVER_SCRIPT="$CONTENT_ROOT/09_runbooks/scripts/market_ops_console_server.py"
 FRONTSTAGE_BUILDER="$CONTENT_ROOT/09_runbooks/scripts/market_frontstage_board_builder.py"
 DASHBOARD_BUILDER="$CONTENT_ROOT/09_runbooks/scripts/market_ops_dashboard_builder.py"
 
-HOST="127.0.0.1"
+HOST="${CONTENT_FACTORY_DASHBOARD_HOST:-127.0.0.1}"
 PORT="${CONTENT_FACTORY_DASHBOARD_PORT:-8780}"
 DATE_ARG="${1:-$(TZ=Asia/Shanghai date +%F)}"
 WINDOW_START="${CONTENT_FACTORY_WINDOW_START:-19:00}"
@@ -15,13 +19,15 @@ WINDOW_END="${CONTENT_FACTORY_WINDOW_END:-12:20}"
 SCREEN_NAME="th_content_factory_dashboard"
 LABEL="com.thcapital.content-factory-dashboard"
 DOMAIN="gui/$(id -u)"
-PLIST_FILE="$APP_DIR/runtime/$LABEL.plist"
+PLIST_FILE="$CONTENT_FACTORY_CONSOLE_ROOT/runtime/$LABEL.plist"
 PYTHON_BIN="$(command -v python3)"
-LAUNCH_SCRIPT="$APP_DIR/runtime/$LABEL-launch.sh"
+LAUNCH_SCRIPT="$CONTENT_FACTORY_CONSOLE_ROOT/runtime/$LABEL-launch.sh"
 
-PID_FILE="$APP_DIR/runtime/server.pid"
-STATE_FILE="$APP_DIR/runtime/server.json"
-LOG_FILE="$APP_DIR/logs/server.log"
+PID_FILE="$CONTENT_FACTORY_CONSOLE_ROOT/runtime/server.pid"
+STATE_FILE="$CONTENT_FACTORY_CONSOLE_ROOT/runtime/server.json"
+LOG_FILE="$CONTENT_FACTORY_CONSOLE_ROOT/logs/server.log"
+
+mkdir -p "$CONTENT_FACTORY_CONSOLE_ROOT/runtime" "$CONTENT_FACTORY_CONSOLE_ROOT/logs"
 
 listening_pid() {
   lsof -nP -iTCP:"$PORT" -sTCP:LISTEN -t 2>/dev/null | head -n 1 || true
@@ -42,7 +48,7 @@ write_state() {
   echo "$pid" >"$PID_FILE"
   cat >"$STATE_FILE" <<EOF
 {
-  "host": "127.0.0.1",
+  "host": "$HOST",
   "port": $PORT,
   "date": "$DATE_ARG",
   "window_start": "$WINDOW_START",
@@ -54,7 +60,7 @@ write_state() {
   "entry_url": "http://$HOST:$PORT/intake?date=$DATE_ARG"
 }
 EOF
-  echo "http://$HOST:$PORT/intake?date=$DATE_ARG" >"$APP_DIR/runtime/current-url.txt"
+  echo "http://$HOST:$PORT/intake?date=$DATE_ARG" >"$CONTENT_FACTORY_CONSOLE_ROOT/runtime/current-url.txt"
 }
 
 write_launch_script() {

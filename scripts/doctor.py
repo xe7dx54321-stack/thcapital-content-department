@@ -28,7 +28,7 @@ from typing import Iterable
 REPO_ROOT_CANDIDATE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT_CANDIDATE / "src"))
 
-from content_system.paths import get_project_paths  # noqa: E402
+from content_system.paths import get_project_paths, path_config_sources  # noqa: E402
 
 
 @dataclass
@@ -101,9 +101,11 @@ def print_results(results: list[CheckResult]) -> None:
 
 def main() -> int:
     paths = get_project_paths(REPO_ROOT_CANDIDATE)
+    paths.logs_root.mkdir(parents=True, exist_ok=True)
     results: list[CheckResult] = []
 
     results.append(ok("python", sys.version.split()[0]))
+    results.append(ok("path_config", json.dumps(path_config_sources(), ensure_ascii=False)))
     results.append(check_exists("repo_root", paths.repo_root))
     results.append(check_exists("market_content_root", paths.market_content_root))
     results.append(check_optional_exists("legacy_content_root", paths.legacy_content_root))

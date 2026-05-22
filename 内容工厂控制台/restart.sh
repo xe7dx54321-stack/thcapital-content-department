@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-APP_DIR="$(cd "$(dirname "$0")" && pwd)"
-"$APP_DIR/stop.sh" || true
-"$APP_DIR/start.sh" "${1:-}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+"$SCRIPT_DIR/stop.sh" || true
+"$SCRIPT_DIR/start.sh" "${1:-}"

@@ -1,10 +1,11 @@
 #!/bin/bash
 set -euo pipefail
 
-APP_DIR="$(cd "$(dirname "$0")" && pwd)"
-PID_FILE="$APP_DIR/runtime/server.pid"
-STATE_FILE="$APP_DIR/runtime/server.json"
-HOST="127.0.0.1"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONTENT_FACTORY_CONSOLE_ROOT="${THCAP_CONTENT_CONSOLE_ROOT:-${SCRIPT_DIR}}"
+PID_FILE="$CONTENT_FACTORY_CONSOLE_ROOT/runtime/server.pid"
+STATE_FILE="$CONTENT_FACTORY_CONSOLE_ROOT/runtime/server.json"
+HOST="${CONTENT_FACTORY_DASHBOARD_HOST:-127.0.0.1}"
 PORT="${CONTENT_FACTORY_DASHBOARD_PORT:-8780}"
 SCREEN_NAME="th_content_factory_dashboard"
 
