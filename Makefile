@@ -1,4 +1,4 @@
-.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily content-briefs content-outlines content-drafts content-quality-review platform-packages content-workbench phase2-daily status
+.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily content-briefs content-outlines content-drafts content-quality-review platform-packages content-workbench phase2-daily review-queue proponent-reviews critic-reviews judge-gate revision-instructions human-exception-queue agent-review-dashboard phase3-daily status
 
 PYTHON ?= python3
 
@@ -95,6 +95,30 @@ content-workbench:
 
 phase2-daily:
 	$(PYTHON) scripts/run_phase2_daily_pipeline.py
+
+review-queue:
+	$(PYTHON) scripts/build_agent_review_queue.py
+
+proponent-reviews:
+	$(PYTHON) scripts/build_proponent_reviews.py
+
+critic-reviews:
+	$(PYTHON) scripts/build_critic_reviews.py
+
+judge-gate:
+	$(PYTHON) scripts/build_judge_gate.py
+
+revision-instructions:
+	$(PYTHON) scripts/build_revision_instructions.py
+
+human-exception-queue:
+	$(PYTHON) scripts/build_human_exception_queue.py
+
+agent-review-dashboard:
+	$(PYTHON) scripts/build_agent_review_dashboard.py
+
+phase3-daily:
+	$(PYTHON) scripts/run_phase3_daily_pipeline.py
 
 status:
 	bash 内容工厂控制台/status.sh

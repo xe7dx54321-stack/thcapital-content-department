@@ -46,166 +46,186 @@
 - P1-006 Daily High-Value Candidate Pool v1。
 - P1-007 Phase 1 Closeout。
 
-## Phase 2：内容生产质量链路 v1
+## Phase 2：已完成
 
-### P2-001：Content Brief Builder v1
+- P2-001 Content Brief Builder v1。
+- P2-002 Outline Builder v1。
+- P2-003 Draft Writer v1。
+- P2-004 Content Quality Review v1。
+- P2-005 Platform Packaging v1。
+- P2-006 Daily Content Production Pipeline v1。
+- P2-007 Content Workbench Board v1。
+- P2-008 Phase 2 Closeout。
 
-状态：Done。
+## Phase 3：Agent Review Workflow 与人工抽检闭环 v1
 
-目标：
-
-- 从 high-value candidates 生成 content briefs。
-- brief 包含核心判断、为什么现在重要、证据、风险、缺口、目标平台和编辑优先级。
-- 不直接生成成品文章。
-
-验收：
-
-- `make content-briefs` 可生成 JSON/Markdown。
-
-### P2-002：Outline Builder v1
+### P3-001：Agent Review Queue v1
 
 状态：Done。
 
 目标：
 
-- 从 content briefs 生成结构化大纲。
-- 同时输出 wechat_outline 和 xiaohongshu_outline。
-- 保留 required evidence 和 editor notes。
-
-验收：
-
-- `make content-outlines` 可生成 JSON/Markdown。
-
-### P2-003：Draft Writer v1
-
-状态：Done。
-
-目标：
-
-- 用规则模板从 outlines 生成初稿。
-- 草稿必须包含核心判断、为什么现在重要、证据、风险提示和人工编辑提示。
-- 不调用 LLM，不假装最终可发布。
-
-验收：
-
-- `make content-drafts` 可生成 JSON/Markdown。
-
-### P2-004：Content Quality Review v1
-
-状态：Done。
-
-目标：
-
-- 对 drafts 做规则型质量检查。
-- 检查 evidence 数量、标题、正文长度、风险披露、source_id、evidence_id 和过强表述。
-- 输出 READY_FOR_HUMAN_REVIEW、NEEDS_LIGHT_EDIT、NEEDS_MAJOR_EDIT 或 HOLD。
-
-验收：
-
-- `make content-quality-review` 可生成 JSON/Markdown。
-
-### P2-005：Platform Packaging v1
-
-状态：Done。
-
-目标：
-
-- 将通过质量检查的 drafts 转成 wechat / xiaohongshu 平台包。
-- 所有 package 都保留 `human_review_required=true`。
-- HOLD 项不生成正式 package，只记录 blocked reason。
-
-验收：
-
-- `make platform-packages` 可生成 JSON/Markdown。
-
-### P2-006：Daily Content Production Pipeline v1
-
-状态：Done。
-
-目标：
-
-- 新增 `make phase2-daily`。
-- 串联 Phase 1 daily pipeline、brief、outline、draft、quality review、platform package 和 workbench。
-
-验收：
-
-- `make phase2-daily` 可运行，成功或合理 DEGRADED，但不能崩溃。
-
-### P2-007：Content Workbench Board v1
-
-状态：Done。
-
-目标：
-
-- 生成每天给人工编辑查看的内容工作台。
-- 展示 summary、ready for human review、needs editing、hold、top briefs 和 next actions。
-
-验收：
-
-- `make content-workbench` 可生成 frontstage Markdown 和 JSON。
-
-### P2-008：Phase 2 Closeout
-
-状态：Done。
-
-目标：
-
-- 新增 Phase 2 closeout 报告。
-- 更新项目状态与任务清单。
-- 明确 Phase 3 入口。
-
-验收：
-
-- `docs/PROJECT_STATE.md` 和 `docs/DEVELOPMENT_TASKS.md` 反映 Phase 2 完成态。
-
-## Phase 2 验收标准
-
-- 新增 Phase 2 scripts 和 modules 全部通过 `py_compile`。
-- `make phase1-daily` 可运行。
-- `make content-briefs` 可运行。
-- `make content-outlines` 可运行。
-- `make content-drafts` 可运行。
-- `make content-quality-review` 可运行。
-- `make platform-packages` 可运行。
-- `make content-workbench` 可运行。
-- `make phase2-daily` 可运行。
-- `make doctor`、`make path-audit`、`make sources-validate`、`make source-health`、`make source-runtime-health`、`make manifest-validate` 继续可运行。
-- Phase 2 generated artifacts 不进入 Git。
-
-## Phase 3：Agent Workflow 与人工审核闭环
-
-### P3-001：Content Review Queue v1
-
-目标：
-
-- 将 platform packages 放入人工审核队列。
-- 为每个 package 记录 review status。
+- 将 platform packages 转成 Agent 审核队列。
+- 为每个 package 记录质量状态、风险、优先级和进入 Agent Review 的原因。
 - 不自动发布。
 
-### P3-002：Human Feedback Capture v1
+验收：
+
+- `make review-queue` 可生成 JSON/Markdown。
+
+### P3-002：Proponent Agent Review v1
+
+状态：Done。
 
 目标：
 
-- 记录人工对 brief、outline、draft、package 的评分与修改意见。
-- 为后续规则和 Agent 工作流迭代提供数据。
+- 用规则型 proponent editor simulation 输出“为什么值得推进”的提案 memo。
+- 生成 support_level、publish_argument、strongest_points、confidence。
 
-### P3-003：Agent Workflow Orchestrator v1
+验收：
 
-目标：
+- `make proponent-reviews` 可生成 JSON/Markdown。
 
-- 建立可配置 workflow，不再只靠 Makefile 串命令。
-- 仍保持人工可控。
+### P3-003：Critic Agent Review v1
 
-### P3-004：Publishing Queue v1
-
-目标：
-
-- 生成待发布队列。
-- 不接真实 API，先做文件级 queue。
-
-### P3-005：Learning Loop v1
+状态：Done。
 
 目标：
 
-- 将人工反馈回流到 value scoring、brief rules、outline rules。
-- 形成可审计的规则迭代记录。
+- 用规则型 critical senior editor simulation 挑出证据、逻辑、标题、平台适配和风险问题。
+- 输出建设性修改建议与 must-fix 列表。
+
+验收：
+
+- `make critic-reviews` 可生成 JSON/Markdown。
+
+### P3-004：Judge Agent Gate v1
+
+状态：Done。
+
+目标：
+
+- 汇总 queue item、proponent review、critic review、quality review 和 platform package。
+- 输出 APPROVED_FOR_QUEUE、NEEDS_REVISION、HOLD 或 ESCALATE_TO_HUMAN。
+
+验收：
+
+- `make judge-gate` 可生成 JSON/Markdown。
+
+### P3-005：Revision Instruction Builder v1
+
+状态：Done。
+
+目标：
+
+- 对 NEEDS_REVISION 和 ESCALATE_TO_HUMAN 项生成明确修改指令。
+- 分拆 title、opening、logic、evidence、risk 和 platform fixes。
+
+验收：
+
+- `make revision-instructions` 可生成 JSON/Markdown。
+
+### P3-006：Human Exception Queue v1
+
+状态：Done。
+
+目标：
+
+- 只把高风险、高争议、低置信或阈值附近的内容送入人工抽检队列。
+- 避免把所有 NEEDS_REVISION 都推给用户。
+
+验收：
+
+- `make human-exception-queue` 可生成 JSON/Markdown。
+
+### P3-007：Agent Review Dashboard v1
+
+状态：Done。
+
+目标：
+
+- 生成每天给用户看的 Agent Review Dashboard。
+- 展示 human attention required、approved、needs revision、hold、agent disagreement 和 next actions。
+
+验收：
+
+- `make agent-review-dashboard` 可生成 frontstage Markdown 和 JSON。
+
+### P3-008：Phase 3 Daily Review Pipeline v1
+
+状态：Done。
+
+目标：
+
+- 新增 `make phase3-daily`。
+- 串联 Phase 2 daily、review queue、proponent、critic、judge、revision、human exception queue 和 dashboard。
+
+验收：
+
+- `make phase3-daily` 可运行，成功或合理 DEGRADED，但不能崩溃。
+
+### P3-009：Phase 3 Closeout
+
+状态：Done。
+
+目标：
+
+- 新增 Phase 3 closeout 报告。
+- 更新项目状态与任务清单。
+- 明确 Phase 4 入口。
+
+验收：
+
+- `docs/PROJECT_STATE.md` 和 `docs/DEVELOPMENT_TASKS.md` 反映 Phase 3 完成态。
+
+## Phase 3 验收标准
+
+- 新增 Phase 3 scripts 和 modules 全部通过 `py_compile`。
+- `make phase2-daily` 可运行。
+- `make review-queue` 可运行。
+- `make proponent-reviews` 可运行。
+- `make critic-reviews` 可运行。
+- `make judge-gate` 可运行。
+- `make revision-instructions` 可运行。
+- `make human-exception-queue` 可运行。
+- `make agent-review-dashboard` 可运行。
+- `make phase3-daily` 可运行。
+- `make doctor`、`make path-audit`、`make sources-validate`、`make source-health`、`make source-runtime-health`、`make manifest-validate` 继续可运行。
+- Phase 3 generated artifacts 不进入 Git。
+
+## Phase 4：发布准备、反馈学习与策略迭代
+
+### P4-001：Publishing Candidate Queue v1
+
+目标：
+
+- 将 Judge Gate 通过的内容进入发布候选队列。
+- 不自动发布。
+- 为每个 package 记录 publish readiness、platform、人工确认状态。
+
+### P4-002：Human Feedback Capture v1
+
+目标：
+
+- 记录用户对候选内容的反馈。
+- 包括 approve、revise、hold、reject、notes、score。
+
+### P4-003：Review Outcome Memory v1
+
+目标：
+
+- 把 agent review、human feedback、final outcome 汇总成历史记录。
+- 为后续学习闭环提供数据。
+
+### P4-004：Rule Update Suggestion v1
+
+目标：
+
+- 基于人工反馈，生成 value scoring、brief、outline、review rules 的调整建议。
+- 不自动修改规则，只给建议。
+
+### P4-005：Learning Loop Dashboard v1
+
+目标：
+
+- 展示哪些选题被通过、哪些被拒、常见问题是什么、规则应如何调整。

@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 2：内容生产质量链路 v1。
+Phase 3：Agent Review Workflow 与人工抽检闭环 v1。
 
 ## 最新 checkpoint
 
-P2-008：Phase 2 v1 Closeout。
+P3-009：Phase 3 v1 Closeout。
 
 ## 已完成
 
@@ -62,6 +62,18 @@ P2-008：Phase 2 v1 Closeout。
 - P2-007 Content Workbench Board v1。
 - P2-008 Phase 2 Closeout。
 
+### Phase 3
+
+- P3-001 Agent Review Queue v1。
+- P3-002 Proponent Agent Review v1。
+- P3-003 Critic Agent Review v1。
+- P3-004 Judge Agent Gate v1。
+- P3-005 Revision Instruction Builder v1。
+- P3-006 Human Exception Queue v1。
+- P3-007 Agent Review Dashboard v1。
+- P3-008 Phase 3 Daily Review Pipeline v1。
+- P3-009 Phase 3 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -92,45 +104,54 @@ P2-008：Phase 2 v1 Closeout。
 - content workbench。
 - phase2 daily pipeline。
 
+### Phase 3 能力
+
+- agent review queue。
+- proponent review。
+- critic review。
+- judge gate。
+- revision instructions。
+- human exception queue。
+- agent review dashboard。
+- phase3 daily pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase2-daily
+make phase3-daily
 ```
 
-该命令串联 Phase 1 数据结构化链路和 Phase 2 内容生产质量链路，输出 brief、outline、draft、quality review、platform package 和 content workbench。
+该命令串联 Phase 0 official lane、Phase 1 信息结构化、Phase 2 内容生产质量链路和 Phase 3 规则型 Agent 审核工作流，输出人审例外队列与 Agent Review Dashboard。
 
 ## 最近实测基线
 
 - `make phase2-daily`：SUCCESS。
-- content briefs：5。
-- content outlines：5。
-- content drafts：5。
-- quality reviews：5。
-- platform packages：5。
-- content workbench：ready_for_human_review 1，needs_edit 4，hold 0。
+- `make phase3-daily`：SUCCESS。
+- review queue items：5。
+- judge decisions：5。
+- human exceptions：0。
+- agent review dashboard：approved_for_queue 1，needs_revision 4，hold 0，escalated_to_human 0。
 - `make doctor`：通过，仅 network_check 默认跳过。
 - `make path-audit`：通过，HIGH 约 59。
 
 ## 当前边界
 
-- Brief、outline、draft 都是规则型生成。
-- 尚未接入 LLM。
+- Agent review 仍是规则型模拟，不是真实 LLM Agent。
 - 尚未自动发布。
 - 尚未接公众号/小红书 API。
-- 尚未新增数据库。
-- 尚未做人工反馈学习。
-- 尚未做多 Agent 编排。
-- 所有 platform package 都要求 human review，不允许自动发布。
+- 尚未做真实人工反馈学习。
+- 尚未做长期记忆数据库。
+- 尚未做自动策略更新。
+- 所有进入发布前的内容仍需要人工最终确认。
 
 ## 下一阶段
 
-Phase 3：Agent Workflow 与人工审核闭环。
+Phase 4：发布准备、反馈学习与策略迭代。
 
 优先任务：
 
-- P3-001：Content Review Queue v1。
-- P3-002：Human Feedback Capture v1。
-- P3-003：Agent Workflow Orchestrator v1。
-- P3-004：Publishing Queue v1。
-- P3-005：Learning Loop v1。
+- P4-001：Publishing Candidate Queue v1。
+- P4-002：Human Feedback Capture v1。
+- P4-003：Review Outcome Memory v1。
+- P4-004：Rule Update Suggestion v1。
+- P4-005：Learning Loop Dashboard v1。
