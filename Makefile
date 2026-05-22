@@ -1,4 +1,4 @@
-.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard status
+.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run status
 
 PYTHON ?= python3
 
@@ -47,6 +47,12 @@ official-daily-dashboard:
 	$(PYTHON) scripts/build_official_daily_dashboard.py
 
 daily-official-dashboard: official-daily-dashboard
+
+official-daily-full-run:
+	$(PYTHON) scripts/run_official_daily_full_run.py
+
+daily-official-full-run:
+	$(PYTHON) scripts/run_official_daily_full_run.py
 
 status:
 	bash 内容工厂控制台/status.sh

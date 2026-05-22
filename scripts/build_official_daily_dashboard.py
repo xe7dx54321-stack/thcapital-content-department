@@ -88,7 +88,11 @@ def collect_warnings(
     if manifest_status and manifest_status != "SUCCESS":
         warnings.append(f"Official runtime manifest status is {manifest_status}.")
 
-    gate_level = nested_get(quality_gate, "gate", "level") or nested_get(quality_gate, "level")
+    gate_level = (
+        nested_get(quality_gate, "gate", "level")
+        or nested_get(quality_gate, "gate_status")
+        or nested_get(quality_gate, "level")
+    )
     if gate_level and gate_level != "GREEN":
         warnings.append(f"Official lane quality gate is {gate_level}.")
 
@@ -170,6 +174,7 @@ def build_dashboard_payload(
 
     gate_level = (
         nested_get(quality_gate, "gate", "level")
+        or nested_get(quality_gate, "gate_status")
         or nested_get(quality_gate, "level")
         or nested_get(quality_gate, "status")
         or "UNKNOWN"

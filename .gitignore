@@ -148,6 +148,15 @@ logs/
 同行资本市场内容系统/11_frontstage/*official_daily_dashboard*.json
 同行资本市场内容系统/11_frontstage/latest_official_daily_dashboard.md
 
+# Generated official daily full run reports
+同行资本市场内容系统/10_logs/*official-daily-full-run*.json
+同行资本市场内容系统/10_logs/*official-daily-full-run*.md
+同行资本市场内容系统/10_logs/latest_official_daily_full_run.json
+同行资本市场内容系统/10_logs/latest_official_daily_full_run.md
+同行资本市场内容系统/11_frontstage/*official-daily-full-run*.json
+同行资本市场内容系统/11_frontstage/*official-daily-full-run*.md
+同行资本市场内容系统/11_frontstage/latest_official_daily_full_run_board.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3
