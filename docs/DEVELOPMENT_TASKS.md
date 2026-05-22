@@ -107,11 +107,9 @@ Phase 0：工程化底座与采集稳定性地基。
 - `make daily-source-summary` 可运行。
 - daily source run summary generated artifacts 不进入 Git。
 
-## 下一步
-
 ### P0-014：Daily Official Lane Quality Gate v1
 
-状态：Planned。
+状态：Done。
 
 目标：
 
@@ -121,8 +119,47 @@ Phase 0：工程化底座与采集稳定性地基。
 - 输出 quality gate JSON/Markdown。
 - 只报告，不阻断、不 retry、不新增数据库。
 
+验收：
+
+- `python3 -m py_compile scripts/check_official_lane_quality_gate.py` 通过。
+- `make official-lane-quality-gate` 可运行。
+- `make daily-official-quality-gate` 可运行。
+- quality gate generated artifacts 不进入 Git。
+
+### P0-014b：补齐 Daily Official Lane Quality Gate 状态文档
+
+状态：Done。
+
+目标：
+
+- 补齐 P0-014 漏掉的 `docs/PROJECT_STATE.md` 和 `docs/DEVELOPMENT_TASKS.md` 状态记录。
+- 保持 P0-014 功能代码不变。
+- 明确下一步进入 P0-015。
+
+验收：
+
+- `docs/PROJECT_STATE.md` 记录 P0-014 / P0-014b。
+- `docs/DEVELOPMENT_TASKS.md` 记录 P0-014 / P0-014b。
+- 不改动运行代码，不提交 generated artifacts。
+
+## 下一步
+
+### P0-015：Official Daily Dashboard v1
+
+状态：Planned。
+
+目标：
+
+- 汇总 official lane health check、daily source summary、quality gate 的核心结果。
+- 输出一个每日可读 Markdown dashboard。
+- Dashboard 面向人工快速查看，不阻断、不 retry、不新增数据库。
+- 继续沿用 wrapper/sidecar 方式，不改抓取主链路。
+
 验收建议：
 
-- `make official-lane-daily` 跑完后可以运行 quality gate。
-- quality gate 能读取 latest daily source run summary。
+- `make official-lane-daily` 可运行。
+- `make source-runtime-health` 可运行。
+- `make daily-source-summary` 可运行。
+- `make official-lane-quality-gate` 可运行。
+- 新增 dashboard 命令可生成 latest dashboard Markdown。
 - generated artifacts 继续被 `.gitignore` 覆盖。
