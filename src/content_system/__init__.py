@@ -6,4 +6,5 @@ __all__ = [
     "source_health",
     "source_runtime_health",
     "runtime_manifest",
+    "runtime_manifest_writer",
 ]

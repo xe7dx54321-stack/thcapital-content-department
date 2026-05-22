@@ -2,17 +2,31 @@
 
 ## 项目定位
 
-本仓库是同行资本 AI/Agent 领域内容生产 Agent 系统的工程仓库。目标是持续自动化获取 AI 与 Agent 领域的一手高价值信息，完成结构化整理、价值判断、选题筛选、内容生成，并通过头部内容学习和人工反馈形成自我迭代能力。
+`thcapital-content-department` 是同行资本 AI/Agent 领域内容生产 Agent 系统的工程仓库。
+
+系统目标是：每天自动化获取 AI 和 Agent 领域的一手高价值信息，对信息进行结构化、价值判断、选题筛选，并生成微信公众号文章、小红书推文等内容；同时持续学习头部自媒体文章的选题、结构、标题和呈现方式，形成自我迭代能力。
 
 ## 当前阶段
 
-Phase 0：工程化底座与采集稳定性基础设施。
+Phase 0：工程化底座与采集稳定性基础。
 
-当前主线：先让项目可检查、可审计、可迁移，再建立采集稳定性基础，包括 Source Registry、Source Health、Runtime Health、Runtime Manifest Contract，之后再进入结构化信息层、价值评分和内容生产质量提升。
+当前阶段目标不是重写业务链路，而是先建立后续开发需要的工程基础、路径配置、状态文档、检查工具、审计工具、Source Registry、Source Health、Runtime Health 与 Runtime Manifest 基础设施。
 
-## 当前最新 checkpoint
+## 当前活跃主线
 
-P0-008：Runtime Manifest Contract v1。
+1. 先工程化底座。
+2. 再路径配置化。
+3. 再采集稳定性。
+4. 再结构化信息层和价值评分。
+5. 最后推进内容生成质量和自我学习闭环。
+
+## 当前目录判断
+
+- `同行资本市场内容系统/`：当前活跃主线系统。
+- `内容生产系统/`：旧版生产系统和历史生产资产，后续仅按需迁移。
+- `内容工厂控制台/`：本地展示台和控制台入口。
+- `内容素材库/`：素材沉淀与人工整理内容。
+- `_archive/`：历史归档，不作为当前改造主线。
 
 ## 已完成 checkpoint
 
@@ -27,49 +41,99 @@ P0-008：Runtime Manifest Contract v1。
 - P0-007：Source Health Runtime Adapter v1。
 - P0-007b：补齐 Source Runtime Health 状态文档。
 - P0-008：Runtime Manifest Contract v1。
+- P0-009：Runtime Manifest Writer v1。
 
-## 当前能力
-
-### 工程底座
-
-- `make doctor`：项目健康检查。
-- `make path-audit`：路径硬编码审计。
-- `src/content_system/paths.py`：统一路径配置。
-- `env.example` / `config/ENV_EXAMPLE.txt`：本地环境变量示例。
-
-### 采集稳定性基础
-
-- `config/sources.yaml`：Source Registry v1。
-- `make sources-validate`：校验 source registry。
-- `make source-health`：基于 registry 生成静态 source health/coverage 报告。
-- `make source-runtime-health`：基于现有运行产物和 registry 生成 runtime health 对齐报告。
-- `make manifest-validate`：校验 runtime manifest contract 示例或指定 manifest。
-
-### Runtime Manifest Contract v1
-
-P0-008 新增 runtime manifest 合约和校验工具，用于后续统一现有抓取脚本的运行结果输出。当前只是定义 contract 和 validator，还没有强制切换现有 fetcher。
-
-核心文件：
-
-- `src/content_system/runtime_manifest.py`
-- `scripts/validate_runtime_manifest.py`
-- `config/runtime_manifest_example.json`
-- `docs/P0_008_RUNTIME_MANIFEST_CONTRACT_REPORT.md`
-
-## 当前边界
-
-仍然不要在 Phase 0 里做以下事情：
-
-- 不重写 `market_topic_capture_round.py` 的抓取主逻辑。
-- 不新增数据库。
-- 不接入新信源。
-- 不做 retry/fallback 调度。
-- 不改变现有业务输出格式。
-- 不提交 `.env`。
-- 不提交 generated logs、source health、source runtime health、path audit 产物。
-
-## 下一步建议
+## 最新 checkpoint
 
 P0-009：Runtime Manifest Writer v1。
 
-目标：为现有活跃抓取脚本提供轻量 manifest writer，让脚本能在不改变业务输出格式的前提下，额外输出符合 P0-008 合约的 runtime manifest JSON。优先处理一个脚本作为样板，不全量切换。
+## 当前能力状态
+
+### 工程检查
+
+```bash
+make doctor
+```
+
+用于检查项目路径、关键目录、关键脚本和写入能力。
+
+### 路径硬编码审计
+
+```bash
+make path-audit
+```
+
+用于扫描仓库内本机绝对路径、file URL 等硬编码风险。生成报告属于运行产物，默认不进入 Git。
+
+### Source Registry
+
+```bash
+make sources-validate
+python3 scripts/validate_sources.py --list
+python3 scripts/validate_sources.py --tier A
+python3 scripts/validate_sources.py --category official
+```
+
+P0-005 已建立 `config/sources.yaml`、`src/content_system/sources.py` 和 `scripts/validate_sources.py`。当前 registry v1 包含 17 个 source，覆盖 A/B/C/D/E 五类信源。
+
+### Source Health
+
+```bash
+make source-health
+```
+
+P0-006 已基于 Source Registry 建立静态 source health / coverage 报告能力。该能力暂不进行网络抓取、不执行 retry、不改变现有 fetcher，只把 registry 转换为每日 health snapshot。
+
+### Source Runtime Health
+
+```bash
+make source-runtime-health
+```
+
+P0-007 已建立 registry 与现有运行产物/source packet/manifest 的对齐层，用于观察哪些 source 有运行证据、哪些 enabled source 缺少运行证据，以及哪些 artifact 暂未匹配 registry。
+
+### Runtime Manifest Contract
+
+```bash
+make manifest-validate
+python3 scripts/validate_runtime_manifest.py --json
+```
+
+P0-008 已建立 runtime manifest JSON 合约、示例文件和校验工具。该合约用于后续让抓取脚本稳定输出：运行了哪些 source、成功/失败/跳过、抓到多少条、写入多少条、错误原因和产物路径。
+
+### Runtime Manifest Writer
+
+```bash
+make manifest-write-from-packets
+python3 scripts/write_runtime_manifest_from_packets.py --json
+```
+
+P0-009 已建立从现有 source packet JSON 产物生成 runtime manifest 的 writer。该能力不执行 fetcher、不改变旧输出格式，只是把已有 packet 转换成 P0-008 合约格式。
+
+默认生成：
+
+```text
+同行资本市场内容系统/10_logs/YYYYMMDD__runtime-manifest.json
+同行资本市场内容系统/10_logs/latest_runtime_manifest.json
+```
+
+这些 runtime manifest 属于运行生成产物，默认由 `.gitignore` 忽略。
+
+## 开发原则
+
+1. 每次只做一个小 checkpoint，避免一次性大改。
+2. 每个 checkpoint 必须说明目标、变更文件、验收方式和下一步建议。
+3. 每轮开发必须维护本文件和 `docs/DEVELOPMENT_TASKS.md`。
+4. 不直接重写现有业务主链路，尤其不要破坏 `同行资本市场内容系统/09_runbooks/scripts/` 下已经能跑的生产脚本。
+5. 当前优先级是工程化、可维护性、可迁移性和采集稳定性基础，而不是马上新增大量信源或文章生成功能。
+6. 生成型日志、审计报告、source health、runtime health、runtime manifest 运行产物默认不进入 Git。
+
+## 下一步建议
+
+下一步进入：
+
+```text
+P0-010：Runtime Manifest Pilot Integration v1
+```
+
+目标是：选择一个风险最低的活跃脚本，在不改变原有 packet/top20/manifest 输出格式的前提下，额外调用 P0-009 writer 或 manifest helper，生成 P0-008 合约的 runtime manifest。优先选择 `market_official_update_lane.py` 或另一个产物结构相对简单的脚本。

@@ -46,7 +46,7 @@ logs/
 内容工厂控制台/runtime/server.pid
 内容工厂控制台/logs/
 
-# Generated content-system runtime artifacts
+# Generated runtime artifacts
 内容生产系统/02_topic_radar/asset_chains/
 内容生产系统/02_topic_radar/deep_articles/
 内容生产系统/02_topic_radar/itjuzi_live_snapshot/
@@ -60,8 +60,6 @@ logs/
 内容生产系统/07_wechat_bridge_outbox/requests/
 内容生产系统/10_logs/
 内容生产系统/11_frontstage/_console_state/
-
-# Generated market-system logs and reports
 同行资本市场内容系统/10_logs/*.log
 同行资本市场内容系统/10_logs/latest_doctor_report.json
 
@@ -84,6 +82,12 @@ logs/
 同行资本市场内容系统/11_frontstage/*source-runtime-health*.md
 同行资本市场内容系统/11_frontstage/*source-runtime-health*.json
 同行资本市场内容系统/11_frontstage/latest_source_runtime_health_board.md
+
+# Generated runtime manifest reports
+同行资本市场内容系统/10_logs/*runtime-manifest*.json
+同行资本市场内容系统/10_logs/latest_runtime_manifest.json
+同行资本市场内容系统/11_frontstage/*runtime-manifest*.md
+同行资本市场内容系统/11_frontstage/*runtime-manifest*.json
 
 # Local databases / private state
 *.sqlite
