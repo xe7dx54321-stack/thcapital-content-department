@@ -8,8 +8,19 @@ Official Update Lane for market-scout
 
 import argparse, os, json, re, sys, subprocess
 from datetime import datetime
+from pathlib import Path
 
-ROOT      = "/Users/apple/Documents/同行资本市场内容系统"
+_REPO_ROOT = None
+for _parent in Path(__file__).resolve().parents:
+    if (_parent / "src" / "content_system" / "paths.py").exists():
+        _REPO_ROOT = _parent
+        sys.path.insert(0, str(_parent / "src"))
+        break
+if _REPO_ROOT is None:
+    raise RuntimeError("Cannot locate repository root")
+from content_system.paths import get_project_paths
+
+ROOT      = str(get_project_paths(_REPO_ROOT).market_content_root)
 DATE_ID   = datetime.now().strftime('%Y%m%d')
 DATE_STR  = datetime.now().strftime('%Y-%m-%d')
 

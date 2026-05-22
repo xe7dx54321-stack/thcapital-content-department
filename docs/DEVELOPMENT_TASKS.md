@@ -108,28 +108,47 @@ make path-audit
 - `make doctor` 通过。
 - `make path-audit` 通过。
 
-## 下一步建议
-
 ### P0-004：HIGH 风险路径配置化第二刀
+
+状态：Done。
 
 目标：
 
-- 基于 path audit 结果，处理 `同行资本市场内容系统/09_runbooks/scripts/` 中仍参与运行的主路径常量。
+- 基于 path audit HIGH 项，处理仍参与运行的市场/内容生产脚本中的硬编码路径。
+- 复用 `src/content_system/paths.py` 的统一路径配置。
 - 不处理历史 planning 文档、归档素材、旧日志。
-- 为后续采集稳定性工程打基础。
+- 不改变抓取业务逻辑和输出格式。
+
+验收：
+
+- `python3 -m py_compile` 对被修改的 Python 文件全部通过。
+- `make doctor` 通过。
+- `make path-audit` 通过。
+- HIGH 风险项较 P0-003 后继续下降，或剩余 HIGH 已明确属于非当前运行入口。
+- path audit generated reports 不进入 Git。
+
+## 下一步建议
+
+### P0-005：采集稳定性工程第一步 —— Source Registry v1
+
+目标：
+
+- 建立统一 `config/sources.yaml`。
+- 为后续 source health、retry、fallback 做准备。
+- 不重写现有 fetcher，只先建立 registry 和读取能力。
 
 范围建议：
 
-- `同行资本市场内容系统/09_runbooks/scripts/` 中仍参与运行的主路径常量。
-- 当前仍被生产或控制台间接调用的脚本。
-- 必要时补充统一配置读取策略，但不要重写抓取主链路。
+- 从活跃市场系统当前已有信源常量中提取最小可用 registry。
+- 保留现有 fetcher 的输入输出格式。
+- 先做读取和校验能力，不做调度系统重写。
 
 验收标准：
 
-- 核心运行路径优先从环境变量或统一配置读取。
-- 未设置环境变量时，使用仓库内相对路径作为 fallback。
+- `config/sources.yaml` 存在并可被标准库或轻量读取器解析。
+- 有最小读取脚本或模块测试。
 - `make doctor` 通过。
-- `make path-audit` 的 HIGH 项数量继续下降。
+- `make path-audit` 通过且不引入新的 HIGH 路径。
 
 ## 暂不开始
 

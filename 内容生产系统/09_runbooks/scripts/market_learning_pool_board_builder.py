@@ -12,6 +12,7 @@ from html import escape
 from pathlib import Path
 from statistics import median
 from typing import Any
+from urllib.parse import quote
 from zoneinfo import ZoneInfo
 
 import market_learning_memo_builder as memo_builder
@@ -30,6 +31,7 @@ SOURCE_PACKET_ROOT = ROOT / "02_topic_radar" / "source_packets"
 CONSOLE_STATE_DIR = FRONTSTAGE_DIR / "_console_state"
 OPTIMIZATION_STATE_PATH = CONSOLE_STATE_DIR / "learning_optimization_state.json"
 LATEST_RULEBOOK_PATH = BRAND_ROOT / "latest__head-media-learning-rulebook-v1.md"
+FILE_SCHEME = "file"
 STRATEGIC_LEARNING_SOURCES = [
     "赛博禅心",
     "数字生命卡兹克",
@@ -204,6 +206,14 @@ TOPIC_LANE_RULES = [
         ),
     },
 ]
+
+
+def file_href(path: str) -> str:
+    if not path or path == "n/a":
+        return "#"
+    return f"{FILE_SCHEME}://{quote(path)}"
+
+
 LANE_REASON_PLAYBOOK = {
     "融资 / 商业化 / 资本信号": "这类题能直接回答“钱往哪流、商业上有没有成立”，更容易承接投资判断和行业观察。",
     "机器人 / 硬件 / 具身智能": "这类题自带强画面和具象对象，但如果没有用户 stakes，容易只剩酷炫而缺少转译。",
@@ -1562,7 +1572,7 @@ def render_html(snapshot: dict[str, Any]) -> str:
             f"<td>{sample['image_count']}</td>"
             f"<td>{sample['first_image_after_text_paragraphs'] if sample['first_image_after_text_paragraphs'] is not None else 'n/a'}</td>"
             f"<td>{escape(sample['learning_takeaway'])}<div class=\"sub\">{escape(sample['visual_takeaway'])}</div></td>"
-            f"<td><a href=\"{escape(sample['canonical_url'])}\" target=\"_blank\" rel=\"noreferrer\">原文</a><br><a href=\"file://{escape(sample['path'])}\">deep article</a></td>"
+            f"<td><a href=\"{escape(sample['canonical_url'])}\" target=\"_blank\" rel=\"noreferrer\">原文</a><br><a href=\"{escape(file_href(sample['path']))}\">deep article</a></td>"
             "</tr>"
         )
         for sample in snapshot["samples"]
@@ -1575,7 +1585,7 @@ def render_html(snapshot: dict[str, Any]) -> str:
             f"<td><div class=\"title\">{escape(item['title'])}</div><div class=\"sub\">source_packet={item['source_packet_count']} / deep_article={item['deep_article_count']}</div></td>"
             f"<td>{escape(item['published_at'])}</td>"
             f"<td>{escape(item['note'])}</td>"
-            + ("<td>" + ("<a href=\"" + escape(item["canonical_url"]) + "\" target=\"_blank\" rel=\"noreferrer\">原文</a><br>" if item["canonical_url"] != "n/a" else "") + ("<a href=\"file://" + escape(item["path"]) + "\">deep article</a>" if item["path"] != "n/a" else "") + "</td>" if item.get("canonical_url") or item.get("path") else "<td></td>")
+            + ("<td>" + ("<a href=\"" + escape(item["canonical_url"]) + "\" target=\"_blank\" rel=\"noreferrer\">原文</a><br>" if item["canonical_url"] != "n/a" else "") + ("<a href=\"" + escape(file_href(item["path"])) + "\">deep article</a>" if item["path"] != "n/a" else "") + "</td>" if item.get("canonical_url") or item.get("path") else "<td></td>")
             + "</tr>"
         )
         for item in snapshot["strategic_rotation"]
@@ -1588,7 +1598,7 @@ def render_html(snapshot: dict[str, Any]) -> str:
             f"<div class=\"block\"><strong>当前预览</strong><p>{escape(item['preview'])}</p></div>"
             f"<div class=\"block\"><strong>已有长处</strong><ul>{''.join(f'<li>{escape(point)}</li>' for point in item['strengths'])}</ul></div>"
             f"<div class=\"block\"><strong>当前差距</strong><ul>{''.join(f'<li>{escape(point)}</li>' for point in item['gaps'])}</ul></div>"
-            f"<div class=\"draft-foot\"><span>视觉资产 {item['visual_asset_count']} 张 · section {item['section_count']}</span><span><a href=\"file://{escape(item['representative_path'])}\">稿件</a> · <a href=\"file://{escape(item['pack_dir'])}\">pack</a></span></div>"
+            f"<div class=\"draft-foot\"><span>视觉资产 {item['visual_asset_count']} 张 · section {item['section_count']}</span><span><a href=\"{escape(file_href(item['representative_path']))}\">稿件</a> · <a href=\"{escape(file_href(item['pack_dir']))}\">pack</a></span></div>"
             "</div>"
         )
         for item in snapshot["ready_drafts"]

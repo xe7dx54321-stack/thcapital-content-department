@@ -3,15 +3,26 @@ from __future__ import annotations
 
 import argparse
 import re
+import sys
 from dataclasses import dataclass
 from datetime import date, datetime, time, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+_REPO_ROOT = None
+for _parent in Path(__file__).resolve().parents:
+    if (_parent / "src" / "content_system" / "paths.py").exists():
+        _REPO_ROOT = _parent
+        sys.path.insert(0, str(_parent / "src"))
+        break
+if _REPO_ROOT is None:
+    raise RuntimeError("Cannot locate repository root")
+from content_system.paths import get_project_paths
+
 from market_content_pack_truth import latest_content_pack_verdict
 from market_top5_board_utils import top5_board_is_ready
 
-ROOT = Path("/Users/apple/Documents/同行资本内容部门/内容生产系统")
+ROOT = get_project_paths(_REPO_ROOT).legacy_content_root
 SOURCE_PACKET_DIR = ROOT / "02_topic_radar" / "source_packets"
 ASSET_CHAIN_DIR = ROOT / "02_topic_radar" / "asset_chains"
 TOPIC_CLUSTER_DIR = ROOT / "02_topic_radar" / "topic_clusters"

@@ -2,13 +2,24 @@
 from __future__ import annotations
 
 import re
+import sys
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 
-ROOT = Path("/Users/apple/Documents/同行资本内容部门/内容生产系统")
+_REPO_ROOT = None
+for _parent in Path(__file__).resolve().parents:
+    if (_parent / "src" / "content_system" / "paths.py").exists():
+        _REPO_ROOT = _parent
+        sys.path.insert(0, str(_parent / "src"))
+        break
+if _REPO_ROOT is None:
+    raise RuntimeError("Cannot locate repository root")
+from content_system.paths import get_project_paths
+
+ROOT = get_project_paths(_REPO_ROOT).legacy_content_root
 LOG_DIR = ROOT / "10_logs"
 CN_TZ = ZoneInfo("Asia/Shanghai")
 KV_RE = re.compile(r"^- `([^`]+)`: ?`?(.*?)`?$")

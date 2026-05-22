@@ -5,7 +5,20 @@
 """
 import sys
 import os
+from pathlib import Path
 from datetime import datetime
+
+_REPO_ROOT = None
+for _parent in Path(__file__).resolve().parents:
+    if (_parent / "src" / "content_system" / "paths.py").exists():
+        _REPO_ROOT = _parent
+        sys.path.insert(0, str(_parent / "src"))
+        break
+if _REPO_ROOT is None:
+    raise RuntimeError("Cannot locate repository root")
+from content_system.paths import get_project_paths
+
+ROOT = str(get_project_paths(_REPO_ROOT).market_content_root)
 
 def main():
     date_str = None
@@ -23,7 +36,7 @@ def main():
         sys.exit(1)
 
     token = date_str.replace("-", "")
-    base = "/Users/apple/Documents/同行资本市场内容系统"
+    base = ROOT
     pack_path = f"{base}/03_topic_candidates/{token}__top20-screening-pack.md"
 
     existing = ""

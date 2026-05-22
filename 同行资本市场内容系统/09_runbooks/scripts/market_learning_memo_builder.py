@@ -5,10 +5,21 @@ market_learning_memo_builder.py
 生成学习备忘（Memo），写入 11_frontstage/YYYYMMDD__head-media-learning-memo.md
 可选 --write-log 写 log。
 """
-import argparse, os, glob, re
+import argparse, os, glob, re, sys
 from datetime import datetime
+from pathlib import Path
 
-ROOT = "/Users/apple/Documents/同行资本市场内容系统"
+_REPO_ROOT = None
+for _parent in Path(__file__).resolve().parents:
+    if (_parent / "src" / "content_system" / "paths.py").exists():
+        _REPO_ROOT = _parent
+        sys.path.insert(0, str(_parent / "src"))
+        break
+if _REPO_ROOT is None:
+    raise RuntimeError("Cannot locate repository root")
+from content_system.paths import get_project_paths
+
+ROOT = str(get_project_paths(_REPO_ROOT).market_content_root)
 FRONSTAGE = os.path.join(ROOT, "11_frontstage")
 DEEP_ARTICLES = os.path.join(ROOT, "02_topic_radar", "deep_articles")
 LOG_DIR = os.path.join(ROOT, "10_logs")

@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from dataclasses import dataclass
 from datetime import date, datetime, time, timedelta
 from html import escape
@@ -11,19 +12,30 @@ from pathlib import Path
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
 
+_REPO_ROOT = None
+for _parent in Path(__file__).resolve().parents:
+    if (_parent / "src" / "content_system" / "paths.py").exists():
+        _REPO_ROOT = _parent
+        sys.path.insert(0, str(_parent / "src"))
+        break
+if _REPO_ROOT is None:
+    raise RuntimeError("Cannot locate repository root")
+from content_system.paths import get_project_paths
+
 from market_content_pack_truth import latest_content_pack_verdict
 from market_stage_artifact_status import best_artifact_in_family, inspect_artifact, state_satisfies
 from market_top5_board_utils import top5_board_is_ready
 from market_topic_key_registry import extract_top20_topic_keys, legacy_top20_topic_key
 
 
-ROOT = Path("/Users/apple/Documents/同行资本内容部门/内容生产系统")
+ROOT = get_project_paths(_REPO_ROOT).legacy_content_root
 SOURCE_PACKET_DIR = ROOT / "02_topic_radar" / "source_packets"
 TOPIC_CANDIDATE_DIR = ROOT / "03_topic_candidates"
 APPROVED_TOPIC_DIR = ROOT / "04_approved_topics"
 DRAFT_PACK_ROOT = ROOT / "05_draft_packs"
 LOG_DIR = ROOT / "10_logs"
 FRONTSTAGE_DIR = ROOT / "11_frontstage"
+FILE_SCHEME = "file"
 
 CN_TZ = ZoneInfo("Asia/Shanghai")
 KV_RE = re.compile(r"^- `([^`]+)`: ?`?(.*?)`?$")
@@ -195,7 +207,7 @@ def parse_hm(raw: str) -> time:
 def file_href(path: str) -> str:
     if not path or path == "n/a":
         return "#"
-    return f"file://{quote(path)}"
+    return f"{FILE_SCHEME}://{quote(path)}"
 
 
 def within_business_window(ts: datetime | None, start_dt: datetime, end_dt: datetime) -> bool:
