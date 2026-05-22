@@ -1,0 +1,54 @@
+{
+  "schema_version": "v1",
+  "weights": {
+    "source_authority": 0.18,
+    "freshness": 0.12,
+    "novelty": 0.1,
+    "strategic_relevance": 0.18,
+    "market_impact": 0.14,
+    "technical_substance": 0.12,
+    "narrative_potential": 0.1,
+    "evidence_strength": 0.06
+  },
+  "score_bands": {
+    "A": {
+      "min": 80,
+      "recommended_action": "candidate_for_deep_article"
+    },
+    "B": {
+      "min": 65,
+      "recommended_action": "candidate_for_short_post"
+    },
+    "C": {
+      "min": 50,
+      "recommended_action": "monitor"
+    },
+    "D": {
+      "min": 0,
+      "recommended_action": "archive"
+    }
+  },
+  "strategic_keywords": [
+    "agent",
+    "agents",
+    "workflow",
+    "enterprise",
+    "api",
+    "sdk",
+    "codex",
+    "model",
+    "inference",
+    "multimodal",
+    "voice"
+  ],
+  "market_keywords": [
+    "launch",
+    "release",
+    "partner",
+    "customer",
+    "enterprise",
+    "developer",
+    "deploy",
+    "adoption"
+  ]
+}

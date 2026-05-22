@@ -46,6 +46,23 @@ ERROR_PATTERNS = (
     re.compile(r"失败|错误|异常|超时|不可达"),
 )
 
+GENERATED_REPORT_NAME_MARKERS = (
+    "source-coverage-alignment",
+    "source_coverage_alignment",
+    "runtime-baseline",
+    "runtime_baseline",
+    "phase1-daily-pipeline",
+    "phase1_daily_pipeline",
+    "evidence-packets",
+    "evidence_packets",
+    "topic-clusters",
+    "topic_clusters",
+    "topic-cluster-scores",
+    "topic_cluster_scores",
+    "high-value-candidates",
+    "high_value_candidates",
+)
+
 
 @dataclass(frozen=True)
 class RuntimeEvidence:
@@ -127,6 +144,11 @@ def _artifact_kind(path: Path) -> str:
     return "artifact"
 
 
+def _is_generated_phase1_report(path: Path) -> bool:
+    name = path.name.lower()
+    return any(marker in name for marker in GENERATED_REPORT_NAME_MARKERS)
+
+
 def _safe_read_text(path: Path, max_bytes: int = MAX_TEXT_BYTES) -> str:
     try:
         raw = path.read_bytes()
@@ -172,6 +194,8 @@ def _iter_runtime_artifacts(paths: ProjectPaths, run_date: str | None = None) ->
     for pattern in RUNTIME_ARTIFACT_GLOBS:
         for path in paths.market_content_root.glob(pattern):
             if not path.is_file():
+                continue
+            if _is_generated_phase1_report(path):
                 continue
             kind = _artifact_kind(path)
             if kind in {"generated_health", "runtime_manifest"}:

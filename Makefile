@@ -1,4 +1,4 @@
-.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run status
+.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily status
 
 PYTHON ?= python3
 
@@ -53,6 +53,27 @@ official-daily-full-run:
 
 daily-official-full-run:
 	$(PYTHON) scripts/run_official_daily_full_run.py
+
+runtime-baseline:
+	$(PYTHON) scripts/update_official_runtime_baseline.py
+
+source-coverage:
+	$(PYTHON) scripts/build_source_coverage_alignment.py
+
+evidence-packets:
+	$(PYTHON) scripts/build_evidence_packets.py
+
+topic-clusters:
+	$(PYTHON) scripts/build_topic_clusters.py
+
+value-scores:
+	$(PYTHON) scripts/score_topic_clusters.py
+
+high-value-candidates:
+	$(PYTHON) scripts/build_high_value_candidate_pool.py
+
+phase1-daily:
+	$(PYTHON) scripts/run_phase1_daily_pipeline.py
 
 status:
 	bash 内容工厂控制台/status.sh
