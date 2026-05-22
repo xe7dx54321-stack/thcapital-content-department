@@ -1,4 +1,4 @@
-\.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary status
+.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate status
 
 PYTHON ?= python3
 
@@ -38,6 +38,13 @@ daily-official-lane: official-lane-health-check
 # Build a compact daily source run summary from runtime manifest + source runtime health.
 daily-source-summary:
 	$(PYTHON) scripts/build_daily_source_run_summary.py
+
+# Report-only quality gate for the official daily lane. Does not retry or block by default.
+official-lane-quality-gate:
+	$(PYTHON) scripts/check_official_lane_quality_gate.py
+
+# Alias for daily operation.
+daily-official-quality-gate: official-lane-quality-gate
 
 status:
 	bash 内容工厂控制台/status.sh
