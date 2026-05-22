@@ -109,6 +109,19 @@ logs/
 同行资本市场内容系统/10_logs/*official-runtime-manifest*.json
 同行资本市场内容系统/10_logs/*official_runtime_manifest*.json
 
+# Generated daily source run summaries
+同行资本市场内容系统/10_logs/*daily-source-run-summary*.md
+同行资本市场内容系统/10_logs/*daily-source-run-summary*.json
+同行资本市场内容系统/10_logs/*daily_source_run_summary*.md
+同行资本市场内容系统/10_logs/*daily_source_run_summary*.json
+同行资本市场内容系统/10_logs/latest_daily_source_run_summary.md
+同行资本市场内容系统/10_logs/latest_daily_source_run_summary.json
+同行资本市场内容系统/11_frontstage/*daily-source-run-summary*.md
+同行资本市场内容系统/11_frontstage/*daily-source-run-summary*.json
+同行资本市场内容系统/11_frontstage/*daily_source_run_summary*.md
+同行资本市场内容系统/11_frontstage/*daily_source_run_summary*.json
+同行资本市场内容系统/11_frontstage/latest_daily_source_run_summary_board.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

@@ -1,4 +1,4 @@
-.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane status
+\.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary status
 
 PYTHON ?= python3
 
@@ -34,6 +34,10 @@ official-lane-daily: official-lane-health-check
 
 # Alias for users who search for daily commands first.
 daily-official-lane: official-lane-health-check
+
+# Build a compact daily source run summary from runtime manifest + source runtime health.
+daily-source-summary:
+	$(PYTHON) scripts/build_daily_source_run_summary.py
 
 status:
 	bash 内容工厂控制台/status.sh
