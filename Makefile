@@ -1,4 +1,4 @@
-.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check status
+.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane status
 
 PYTHON ?= python3
 
@@ -28,6 +28,12 @@ official-lane-with-manifest:
 
 official-lane-health-check:
 	$(PYTHON) scripts/run_official_lane_health_check.py
+
+# Recommended daily entry for the official update lane.
+official-lane-daily: official-lane-health-check
+
+# Alias for users who search for daily commands first.
+daily-official-lane: official-lane-health-check
 
 status:
 	bash 内容工厂控制台/status.sh

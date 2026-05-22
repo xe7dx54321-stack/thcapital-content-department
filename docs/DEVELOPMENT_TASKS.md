@@ -66,24 +66,16 @@ Phase 0：工程化底座与采集稳定性地基。
 
 - 用 wrapper 方式运行 `market_official_update_lane.py`。
 - 在不修改原抓取脚本、不改变原输出格式的前提下，额外生成 P0-008 runtime manifest。
-- 复用 P0-009 的 runtime manifest 思路，但本轮绑定官方更新 lane 做真实 pilot。
+- 复用 P0-009 的 runtime manifest 思路，但绑定官方更新 lane 做真实 pilot。
 
-验收：
-
-- `python3 -m py_compile src/content_system/runtime_manifest_official_lane.py` 通过。
-- `python3 -m py_compile scripts/run_official_lane_with_manifest.py` 通过。
-- `make official-lane-with-manifest` 可运行。
-- `make manifest-validate` 仍通过。
-- `make source-runtime-health` 仍通过。
-- generated runtime manifest 不进入 Git。
-
-### P0-010b：忽略 official lane / runtime health 运行产物
+### P0-010b：补齐 official lane / runtime health 生成产物 ignore 规则
 
 状态：Done。
 
 目标：
 
-- 补齐 `.gitignore`，避免 official lane raw/source packets/top20/source manifest/runtime manifest/source runtime health 产物进入 Git。
+- 忽略 official lane raw/source packet/top20/source manifest/runtime manifest 运行产物。
+- 避免 generated artifacts 进入 Git。
 
 ### P0-011A：Source Runtime Health Manifest Reader
 
@@ -91,17 +83,8 @@ Phase 0：工程化底座与采集稳定性地基。
 
 目标：
 
-- 让 `make source-runtime-health` 优先读取 P0-008 runtime manifest。
-- 保留 legacy text scan 作为旧产物 fallback。
-- 不修改 official lane 主脚本。
-- 不做 retry/fallback。
-- 不新增数据库。
-
-验收：
-
-- `python3 -m py_compile src/content_system/source_runtime_health.py` 通过。
-- `make source-runtime-health` 可运行。
-- 如果存在 `latest_official_runtime_manifest.json`，报告中的 `manifest_count` 大于 0。
+- 让 `make source-runtime-health` 优先读取结构化 runtime manifest。
+- 保留旧文本扫描作为 fallback。
 - Evidence 中可出现 `runtime_manifest` 类型。
 - generated reports 不进入 Git。
 
@@ -126,24 +109,42 @@ Phase 0：工程化底座与采集稳定性地基。
 - source runtime health 可读取 official runtime manifest evidence。
 - generated reports 不进入 Git。
 
-## 下一步
-
 ### P0-012：Official Lane Daily Entry v1
 
-状态：Planned。
+状态：Done。
 
 目标：
 
 - 将 `make official-lane-health-check` 明确为官方更新 lane 推荐日常入口。
-- 补齐 README/runbook 说明，降低日常运行门槛。
+- 新增 `make official-lane-daily` 和 `make daily-official-lane` 两个别名。
+- 补齐官方 lane 日常运行 runbook。
 - 保留原 `make official-lane-with-manifest` 作为底层命令。
 - 不直接修改 official lane 主脚本。
 - 不做 retry/fallback。
 - 不新增数据库。
 
-验收建议：
+验收：
 
 - README 或 runbook 中有明确日常运行命令。
-- `make official-lane-health-check` 是推荐入口。
+- `make official-lane-daily` 可运行并委托到 health check wrapper。
 - 运行后 manifest validation 和 source runtime health 都能衔接。
 - generated artifacts 不进入 Git。
+
+## 下一步
+
+### P0-013：Daily Source Run Summary v1
+
+状态：Planned。
+
+目标：
+
+- 基于 official runtime manifest 和 source runtime health 生成每日运行摘要。
+- 摘要包含运行状态、source_count、total_items_found、missing_expected、error hints 和关键产物路径。
+- 产出 Markdown/JSON 小报告。
+- 不发布内容，不做 retry/fallback，不新增数据库。
+
+验收建议：
+
+- `make official-lane-daily` 跑完后可以生成或刷新 daily source run summary。
+- summary 不进入 Git，除非是小型开发报告。
+- generated artifacts 继续被 `.gitignore` 覆盖。

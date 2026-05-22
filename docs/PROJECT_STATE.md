@@ -10,7 +10,7 @@
 
 Phase 0：工程化底座与采集稳定性地基。
 
-最新 checkpoint：**P0-011B Official Lane Health Check Wrapper v1**。
+最新 checkpoint：**P0-012 Official Lane Daily Entry v1**。
 
 ## 已完成 checkpoint
 
@@ -27,9 +27,10 @@ Phase 0：工程化底座与采集稳定性地基。
 - P0-008：Runtime Manifest Contract v1。
 - P0-009：Runtime Manifest Writer v1。
 - P0-010：Runtime Manifest Pilot Integration v1。
-- P0-010b：忽略 official lane / runtime health 运行产物。
+- P0-010b：补齐 official lane / runtime health 生成产物 ignore 规则。
 - P0-011A：Source Runtime Health Manifest Reader。
 - P0-011B：Official Lane Health Check Wrapper v1。
+- P0-012：Official Lane Daily Entry v1。
 
 ## 当前能力
 
@@ -37,21 +38,19 @@ Phase 0：工程化底座与采集稳定性地基。
 - `make path-audit`：路径硬编码审计。
 - `make sources-validate`：Source Registry 校验。
 - `make source-health`：静态 source health/coverage 报告。
-- `make source-runtime-health`：基于 runtime manifest 与既有运行产物的 runtime source health 报告。
+- `make source-runtime-health`：基于既有运行产物和 runtime manifest 的 runtime source health 报告。
 - `make manifest-validate`：Runtime Manifest 合约校验。
 - `make manifest-write-from-packets`：从既有 source packets 生成 runtime manifest。
-- `make official-lane-with-manifest`：运行官方更新 lane 并额外写出 runtime manifest。
-- `make official-lane-health-check`：运行 official lane wrapper、校验 official runtime manifest，并刷新 source runtime health。
+- `make official-lane-with-manifest`：运行官方更新 lane wrapper 并额外写出 runtime manifest。
+- `make official-lane-health-check`：串联 official lane wrapper、runtime manifest validation 和 source runtime health。
+- `make official-lane-daily`：官方更新 lane 推荐日常入口。
+- `make daily-official-lane`：`official-lane-daily` 的别名。
 
-## P0-011B 状态
+## P0-012 状态
 
-P0-011B 继续采用低风险 wrapper 路线，不直接修改 `market_official_update_lane.py`。
+P0-012 将 `make official-lane-health-check` 提升为官方更新 lane 的推荐日常入口，并新增 `make official-lane-daily` / `make daily-official-lane` 两个别名。
 
-本轮新增 `scripts/run_official_lane_health_check.py`，把以下三步串成一个健康检查入口：
-
-1. 运行 `scripts/run_official_lane_with_manifest.py`。
-2. 校验 `latest_official_runtime_manifest.json`。
-3. 运行 `scripts/build_source_runtime_health.py`，让 P0-011A 读取 runtime manifest evidence。
+本轮不直接修改 `market_official_update_lane.py`，继续采用 wrapper 路线，保持低风险、可观察、可回退。
 
 ## 当前工程原则
 
@@ -60,9 +59,10 @@ P0-011B 继续采用低风险 wrapper 路线，不直接修改 `market_official_
 - 每一步必须维护 `docs/PROJECT_STATE.md` 和 `docs/DEVELOPMENT_TASKS.md`。
 - 运行链路改造优先使用 wrapper / adapter / sidecar，稳定后再考虑嵌入主脚本。
 - 不重写抓取主链路，不在 Phase 0 引入数据库。
+- GitHub raw 单行/多行不再作为主要卡点；优先相信本地 `wc -l`、`py_compile`、`bash -n`、`make` 验证。
 
 ## 下一步建议
 
-P0-012：Official Lane Daily Entry v1。
+P0-013：Daily Source Run Summary v1。
 
-目标：在确认 wrapper 路线稳定后，将 `official-lane-health-check` 明确为官方更新 lane 的推荐日常入口，并补齐 README/runbook 说明；仍不强行改 official lane 主脚本。
+目标：基于 official runtime manifest 和 source runtime health，生成一份更适合每日查看的简洁运行摘要，包括运行状态、source_count、total_items_found、missing_expected、error hints 和关键产物路径。
