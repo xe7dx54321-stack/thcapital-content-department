@@ -86,6 +86,28 @@ make path-audit
 - `make path-audit` 可运行。
 - HIGH 风险项数量较 P0-002 有下降，或至少运行入口相关 HIGH 项减少。
 
+### P0-003b：修复 P0-003 文件物理换行与验收链路
+
+状态：Done。
+
+目标：
+
+- 修复 P0-003 中 Python、shell、Markdown 文件的物理换行问题。
+- 保留 P0-003 的路径配置化能力。
+- 补充 `bash -n` 和 `wc -l` 验收，避免再次出现 raw 文件物理单行问题。
+
+验收：
+
+- `python3 -m py_compile src/content_system/paths.py` 通过。
+- `python3 -m py_compile scripts/doctor.py` 通过。
+- `bash -n 内容工厂控制台/start.sh` 通过。
+- `bash -n 内容工厂控制台/open.sh` 通过。
+- `bash -n 内容工厂控制台/status.sh` 通过。
+- `bash -n 内容工厂控制台/restart.sh` 通过。
+- 状态文档为正常多行 Markdown。
+- `make doctor` 通过。
+- `make path-audit` 通过。
+
 ## 下一步建议
 
 ### P0-004：HIGH 风险路径配置化第二刀
