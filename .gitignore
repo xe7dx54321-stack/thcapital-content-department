@@ -135,6 +135,19 @@ logs/
 同行资本市场内容系统/11_frontstage/*official_lane_quality_gate*.json
 同行资本市场内容系统/11_frontstage/latest_official_lane_quality_gate_board.md
 
+# Generated official daily dashboard reports
+同行资本市场内容系统/10_logs/*official-daily-dashboard*.md
+同行资本市场内容系统/10_logs/*official-daily-dashboard*.json
+同行资本市场内容系统/10_logs/*official_daily_dashboard*.md
+同行资本市场内容系统/10_logs/*official_daily_dashboard*.json
+同行资本市场内容系统/10_logs/latest_official_daily_dashboard.md
+同行资本市场内容系统/10_logs/latest_official_daily_dashboard.json
+同行资本市场内容系统/11_frontstage/*official-daily-dashboard*.md
+同行资本市场内容系统/11_frontstage/*official-daily-dashboard*.json
+同行资本市场内容系统/11_frontstage/*official_daily_dashboard*.md
+同行资本市场内容系统/11_frontstage/*official_daily_dashboard*.json
+同行资本市场内容系统/11_frontstage/latest_official_daily_dashboard.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3
