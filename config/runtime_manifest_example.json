@@ -1,0 +1,38 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-05-22T00:00:00+08:00",
+  "run_id": "example-20260522-market-topic-capture",
+  "run_date": "2026-05-22",
+  "pipeline_name": "market_topic_capture",
+  "script_name": "market_topic_capture_round.py",
+  "status": "PARTIAL",
+  "notes": "Example manifest for P0-008 validation only. Existing fetchers are not switched to this contract yet.",
+  "sources": [
+    {
+      "source_id": "openai_blog",
+      "status": "SUCCESS",
+      "items_found": 3,
+      "items_written": 3,
+      "started_at": "2026-05-22T08:00:00+08:00",
+      "finished_at": "2026-05-22T08:00:10+08:00",
+      "error_type": null,
+      "error_message": null,
+      "artifact_paths": [
+        "同行资本市场内容系统/02_topic_radar/source_packets/20260522__source_packets/openai_blog.json"
+      ],
+      "notes": "Example successful source run."
+    },
+    {
+      "source_id": "anthropic_news",
+      "status": "FAILED",
+      "items_found": 0,
+      "items_written": 0,
+      "started_at": "2026-05-22T08:00:11+08:00",
+      "finished_at": "2026-05-22T08:00:14+08:00",
+      "error_type": "timeout",
+      "error_message": "Example timeout for contract validation.",
+      "artifact_paths": [],
+      "notes": "Example failed source run."
+    }
+  ]
+}
