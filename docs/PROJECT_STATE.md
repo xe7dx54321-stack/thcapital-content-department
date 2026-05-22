@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 3：Agent Review Workflow 与人工抽检闭环 v1。
+Phase 5：头部内容学习反哺系统 v1。
 
 ## 最新 checkpoint
 
-P3-009：Phase 3 v1 Closeout。
+P5-008：Phase 5 v1 Closeout。
 
 ## 已完成
 
@@ -74,6 +74,27 @@ P3-009：Phase 3 v1 Closeout。
 - P3-008 Phase 3 Daily Review Pipeline v1。
 - P3-009 Phase 3 Closeout。
 
+### Phase 4
+
+- P4-001 Publishing Candidate Queue v1。
+- P4-002 Human Feedback Capture v1。
+- P4-003 Review Outcome Memory v1。
+- P4-004 Rule Update Suggestion v1。
+- P4-005 Learning Loop Dashboard v1。
+- P4-006 Phase 4 Daily Pipeline v1。
+- P4-007 Phase 4 Closeout。
+
+### Phase 5
+
+- P5-001 Head Media Pattern Library v1。
+- P5-002 Title Pattern Extractor v1。
+- P5-003 Opening Pattern Extractor v1。
+- P5-004 Article Structure Pattern Extractor v1。
+- P5-005 Content Recipe Suggestion v1。
+- P5-006 Pattern-to-Brief / Pattern-to-Outline Adapter v1。
+- P5-007 Phase 5 Daily Learning Pipeline v1。
+- P5-008 Phase 5 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -115,43 +136,73 @@ P3-009：Phase 3 v1 Closeout。
 - agent review dashboard。
 - phase3 daily pipeline。
 
+### Phase 4 能力
+
+- publishing candidate queue。
+- human feedback template / validation。
+- review outcome memory。
+- rule update suggestions。
+- learning loop dashboard。
+- phase4 daily pipeline。
+
+### Phase 5 能力
+
+- head media pattern library。
+- title pattern extraction。
+- opening pattern extraction。
+- structure pattern extraction。
+- content recipe suggestions。
+- pattern adapters。
+- phase5 daily learning pipeline。
+- learning daily pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase3-daily
+make learning-daily
 ```
 
-该命令串联 Phase 0 official lane、Phase 1 信息结构化、Phase 2 内容生产质量链路和 Phase 3 规则型 Agent 审核工作流，输出人审例外队列与 Agent Review Dashboard。
+该命令串联 Phase 3 Agent Review、Phase 4 发布准备与反馈学习、Phase 5 头部内容模式学习反哺。
 
 ## 最近实测基线
 
-- `make phase2-daily`：SUCCESS。
-- `make phase3-daily`：SUCCESS。
-- review queue items：5。
-- judge decisions：5。
-- human exceptions：0。
-- agent review dashboard：approved_for_queue 1，needs_revision 4，hold 0，escalated_to_human 0。
+- `make phase4-daily`：SUCCESS。
+- publishing candidates：2。
+- human feedback template items：2。
+- review outcome memory records：3。
+- rule update suggestions：1。
+- `make phase5-daily`：SUCCESS。
+- pattern library patterns：8。
+- title patterns：35。
+- opening patterns：10。
+- structure patterns：4。
+- content recipe suggestions：4。
+- pattern adapters：5。
+- `make learning-daily`：SUCCESS。
 - `make doctor`：通过，仅 network_check 默认跳过。
 - `make path-audit`：通过，HIGH 约 59。
 
 ## 当前边界
 
-- Agent review 仍是规则型模拟，不是真实 LLM Agent。
-- 尚未自动发布。
-- 尚未接公众号/小红书 API。
-- 尚未做真实人工反馈学习。
-- 尚未做长期记忆数据库。
-- 尚未做自动策略更新。
-- 所有进入发布前的内容仍需要人工最终确认。
+- 还没有接真实 LLM Agent。
+- 还没有自动发布。
+- 还没有接公众号/小红书 API。
+- 还没有数据库型长期记忆。
+- 规则建议不会自动应用。
+- pattern adapter 只生成建议，不直接重写 brief/outline。
+- human feedback 仍是文件型模板，不是 UI。
 
 ## 下一阶段
 
-Phase 4：发布准备、反馈学习与策略迭代。
+Phase 6：真实 LLM Agent 接入与多 Agent 调优。
 
 优先任务：
 
-- P4-001：Publishing Candidate Queue v1。
-- P4-002：Human Feedback Capture v1。
-- P4-003：Review Outcome Memory v1。
-- P4-004：Rule Update Suggestion v1。
-- P4-005：Learning Loop Dashboard v1。
+- P6-001：LLM Provider Config v1。
+- P6-002：Prompt Registry v1。
+- P6-003：LLM Proponent Agent v1。
+- P6-004：LLM Critic Agent v1。
+- P6-005：LLM Judge Agent v1。
+- P6-006：LLM Rewrite Agent v1。
+- P6-007：Agent Run Log / Cost / Error Tracking v1。
+- P6-008：Human-in-the-loop Agent Evaluation v1。

@@ -1,4 +1,4 @@
-.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily content-briefs content-outlines content-drafts content-quality-review platform-packages content-workbench phase2-daily review-queue proponent-reviews critic-reviews judge-gate revision-instructions human-exception-queue agent-review-dashboard phase3-daily status
+.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily content-briefs content-outlines content-drafts content-quality-review platform-packages content-workbench phase2-daily review-queue proponent-reviews critic-reviews judge-gate revision-instructions human-exception-queue agent-review-dashboard phase3-daily publishing-candidates human-feedback-template human-feedback-validate review-outcome-memory rule-update-suggestions learning-loop-dashboard phase4-daily head-media-patterns title-patterns opening-patterns structure-patterns content-recipe-suggestions pattern-adapters phase5-daily learning-daily status
 
 PYTHON ?= python3
 
@@ -119,6 +119,51 @@ agent-review-dashboard:
 
 phase3-daily:
 	$(PYTHON) scripts/run_phase3_daily_pipeline.py
+
+publishing-candidates:
+	$(PYTHON) scripts/build_publishing_candidate_queue.py
+
+human-feedback-template:
+	$(PYTHON) scripts/build_human_feedback_template.py
+
+human-feedback-validate:
+	$(PYTHON) scripts/validate_human_feedback.py
+
+review-outcome-memory:
+	$(PYTHON) scripts/update_review_outcome_memory.py
+
+rule-update-suggestions:
+	$(PYTHON) scripts/build_rule_update_suggestions.py
+
+learning-loop-dashboard:
+	$(PYTHON) scripts/build_learning_loop_dashboard.py
+
+phase4-daily:
+	$(PYTHON) scripts/run_phase4_daily_pipeline.py
+
+head-media-patterns:
+	$(PYTHON) scripts/build_head_media_pattern_library.py
+
+title-patterns:
+	$(PYTHON) scripts/extract_title_patterns.py
+
+opening-patterns:
+	$(PYTHON) scripts/extract_opening_patterns.py
+
+structure-patterns:
+	$(PYTHON) scripts/extract_structure_patterns.py
+
+content-recipe-suggestions:
+	$(PYTHON) scripts/build_content_recipe_suggestions.py
+
+pattern-adapters:
+	$(PYTHON) scripts/build_pattern_adapters.py
+
+phase5-daily:
+	$(PYTHON) scripts/run_phase5_daily_learning_pipeline.py
+
+learning-daily:
+	$(PYTHON) scripts/run_learning_daily_pipeline.py
 
 status:
 	bash 内容工厂控制台/status.sh
