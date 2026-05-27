@@ -2,15 +2,15 @@
 
 ## 项目目标
 
-本仓库是“同行资本 AI/Agent 领域内容生产 Agent 系统”的工程仓库。系统目标是每天自动化获取 AI 和 Agent 领域一手高价值信息，对信息进行结构化、价值判断、选题筛选，并进一步支撑微信公众号文章、小红书推文等内容生产；同时通过学习头部自媒体文章的选题、结构、标题和呈现方式实现系统自我迭代。
+本仓库是“同行资本 AI/Agent 领域内容生产 Agent 系统”的工程仓库。系统目标是每天自动化获取 AI 和 Agent 领域一手高价值信息，对信息进行结构化、价值判断、选题筛选，并进一步支撑微信公众号文章、小红书推文等内容生产；同时通过头部内容学习、人工反馈和多 Agent 审核持续提升内容质量。
 
 ## 当前阶段
 
-Phase 7：真实 LLM Live Mode 灰度与自动调度。
+Phase 7：真实 LLM Live Mode 灰度与自动调度 v1。
 
 ## 最新 checkpoint
 
-P7-002：Claude Critic Live Adapter Pilot v1。
+P7-011：Phase 7 Closeout。
 
 ## 已完成
 
@@ -113,47 +113,42 @@ P7-002：Claude Critic Live Adapter Pilot v1。
 
 - P7-001 MiniMax Proponent Live Adapter Pilot v1。
 - P7-002 Claude Critic Live Adapter Pilot v1。
+- P7-003 Claude Judge Live Adapter Pilot v1。
+- P7-004 Claude Rewrite Live Pilot v1。
+- P7-005 LLM Agent A/B Comparison v1。
+- P7-006 Daily Scheduler v1。
+- P7-007 Failure Notification v1。
+- P7-008 Retry / Fallback Runner v1。
+- P7-009 Weekly Content Retro v1。
+- P7-010 Phase 7 Daily Pipeline v1。
+- P7-011 Phase 7 Closeout。
 
 ## 当前已具备能力
 
 ### Phase 0 能力
 
-- official daily full run。
-- health check。
-- path audit。
-- source registry。
-- runtime manifest。
-- quality gate。
-- dashboard。
+- official daily full run、health check、path audit。
+- source registry、source health、runtime manifest。
+- official lane quality gate 与 dashboard。
 
 ### Phase 1 能力
 
-- evidence packet。
-- topic cluster。
-- value scoring。
+- evidence packet、topic cluster、value scoring。
 - high-value candidate pool。
 - phase1 daily pipeline。
 
 ### Phase 2 能力
 
-- content brief。
-- outline。
-- draft。
-- quality review。
-- platform package。
-- content workbench。
+- content brief、outline、draft。
+- quality review、platform package、content workbench。
 - phase2 daily pipeline。
 
 ### Phase 3 能力
 
 - agent review queue。
-- proponent review。
-- critic review。
-- judge gate。
-- revision instructions。
-- human exception queue。
-- agent review dashboard。
-- phase3 daily pipeline。
+- proponent / critic / judge。
+- revision instructions、human exception queue。
+- agent review dashboard、phase3 daily pipeline。
 
 ### Phase 4 能力
 
@@ -161,79 +156,72 @@ P7-002：Claude Critic Live Adapter Pilot v1。
 - human feedback template / validation。
 - review outcome memory。
 - rule update suggestions。
-- learning loop dashboard。
-- phase4 daily pipeline。
+- learning loop dashboard、phase4 daily pipeline。
 
 ### Phase 5 能力
 
 - head media pattern library。
-- title pattern extraction。
-- opening pattern extraction。
-- structure pattern extraction。
-- content recipe suggestions。
-- pattern adapters。
-- phase5 daily learning pipeline。
-- learning daily pipeline。
+- title / opening / structure pattern extraction。
+- content recipe suggestions、pattern adapters。
+- phase5 daily learning pipeline、learning daily pipeline。
 
 ### Phase 6 能力
 
-- LLM provider config。
-- prompt registry。
+- LLM provider config、prompt registry。
 - mock/dry-run LLM agent client。
 - agent model routing：轻量任务使用 `manimax-2.7`，高判断任务使用 `claude-sonnet-4.6`。
-- LLM proponent agent。
-- LLM critic agent。
-- LLM judge agent。
-- LLM rewrite suggestion agent。
-- agent run log。
-- cost/error tracking。
-- human agent evaluation template。
+- LLM proponent / critic / judge / rewrite suggestion agents。
+- agent run log、cost/error tracking、human agent evaluation template。
 - phase6 daily agent pipeline。
 
 ### Phase 7 能力
 
 - MiniMax proponent live pilot。
 - Claude critic live pilot。
-- live allowlist：当前只允许 `llm_proponent_agent` 和 `llm_critic_agent` 灰度 live。
-- live readiness check：检查 `MINIMAX_API_KEY` / `ANTHROPIC_API_KEY`、`THCAP_LLM_ENABLE_LIVE`、`THCAP_LLM_MODE` 和 allowlist。
-- MiniMax / Claude live failure fallback / dry-run fallback。
-- LLM live mode runbook。
-- agent run log 记录 live attempted / succeeded / fallback reason。
+- Claude judge live pilot as sidecar。
+- Claude rewrite live suggestion pilot。
+- LLM A/B comparison。
+- local daily scheduler。
+- failure notification report。
+- retry/fallback plan。
+- weekly content retro。
+- phase7 daily pipeline。
 
 ## 当前推荐日常命令
 
 ```bash
-make phase6-daily
-make minimax-proponent-live-pilot
-make claude-critic-live-pilot
+make phase7-daily
 ```
 
-`make phase6-daily` 默认使用 mock/dry-run LLM agent，不需要 API key。MiniMax / Claude live pilot 只通过独立灰度命令验证；没有 key 或未开启 live 时会输出 readiness failure，而不会崩溃。
+单个灰度入口：
+
+```bash
+make minimax-proponent-live-pilot
+make claude-critic-live-pilot
+make claude-judge-live-pilot
+make claude-rewrite-live-pilot
+```
 
 ## 当前边界
 
-- 默认仍是 mock/dry-run。
-- 不提交 API key。
-- 只有 `llm_proponent_agent` 和 `llm_critic_agent` 具备 live pilot 能力。
-- judge / rewrite 仍未启用 live。
-- live 必须显式设置 `THCAP_LLM_ENABLE_LIVE=1`、`THCAP_LLM_MODE=live`、对应 agent allowlist 和对应 provider API key。
-- MiniMax provider 只配置环境变量名、base URL、非流式 OpenAI-compatible chat completions 约定，不保存真实 key。
-- Anthropic provider 只配置环境变量名、base URL、非流式 Anthropic Messages API 约定，不保存真实 key。
-- LLM judge 不直接覆盖 rule judge。
-- rewrite suggestion 不自动覆盖原文。
+- 默认仍是 dry-run。
+- live 必须显式设置 env + allowlist。
+- API key 只从环境变量读取，不进入 Git。
+- judge live 不覆盖 rule judge。
+- rewrite live 不覆盖原稿。
 - 不自动发布。
+- 不自动修改规则。
 - 没有数据库型长期记忆。
-- 没有真实调度系统。
+- scheduler 不自动安装系统任务。
+- retry/fallback runner 不重写 fetcher。
 
 ## 下一阶段
 
-Phase 7：真实 LLM Live Mode 灰度与自动调度。
+Phase 8：生产化运行、数据库化长期记忆与发布集成。
 
-优先任务：
-
-- P7-003：Claude Judge Live Adapter Pilot v1。
-- P7-004：LLM Rewrite Live Pilot v1。
-- P7-005：LLM Agent A/B Comparison v1。
-- P7-006：Daily Scheduler v1。
-- P7-007：Failure Notification v1。
-- P7-008：Retry / Fallback Runner v1。
+- P8-001：SQLite Runtime Store v1。
+- P8-002：Content / Agent Result Repository v1。
+- P8-003：Publishing API Dry-run Adapter v1。
+- P8-004：Human Review UI / Console v1。
+- P8-005：Cost Budget Guard v1。
+- P8-006：Production Runbook v1。

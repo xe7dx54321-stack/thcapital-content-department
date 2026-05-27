@@ -274,8 +274,10 @@ def validate_llm_provider_config(config: LLMProviderConfig, provider_filter: str
                 issues.append(ValidationIssue("ERROR", provider.provider_id, "adapter_type", "Claude critic pilot requires anthropic_messages"))
             if provider.stream:
                 issues.append(ValidationIssue("ERROR", provider.provider_id, "stream", "Claude critic pilot must use non-streaming calls"))
-            if "llm_critic_agent" not in provider.live_agent_allowlist:
-                issues.append(ValidationIssue("ERROR", provider.provider_id, "live_agent_allowlist", "Claude critic pilot requires llm_critic_agent in provider allowlist"))
+            required_live_agents = {"llm_critic_agent", "llm_judge_agent", "llm_rewrite_agent"}
+            missing_agents = sorted(required_live_agents.difference(provider.live_agent_allowlist))
+            if missing_agents:
+                issues.append(ValidationIssue("ERROR", provider.provider_id, "live_agent_allowlist", f"Claude live pilots require: {', '.join(missing_agents)}"))
             if not provider.anthropic_version:
                 issues.append(ValidationIssue("ERROR", provider.provider_id, "anthropic_version", "Anthropic Messages API requires anthropic_version"))
 

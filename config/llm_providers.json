@@ -69,11 +69,13 @@
       "anthropic_version": "2023-06-01",
       "stream": false,
       "live_agent_allowlist": [
-        "llm_critic_agent"
+        "llm_critic_agent",
+        "llm_judge_agent",
+        "llm_rewrite_agent"
       ],
       "estimated_cost_per_1k_input_tokens_usd": 0.0,
       "estimated_cost_per_1k_output_tokens_usd": 0.0,
-      "notes": "P7-002 only allows llm_critic_agent live. Judge and rewrite remain dry-run."
+      "notes": "Phase 7 live pilots allow critic, judge sidecar, and rewrite suggestion agents only when explicit env and allowlist are set."
     },
     {
       "provider_id": "openai",

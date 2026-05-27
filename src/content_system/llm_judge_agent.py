@@ -38,6 +38,12 @@ class LLMJudgeDecision:
     release_readiness: str
     next_action: str
     fallback_used: bool
+    live_call_attempted: bool
+    live_call_succeeded: bool
+    fallback_reason: str
+    raw_output_preview: str
+    json_parse_status: str
+    must_not_override_rule_judge: bool
     llm_request_id: str
     validation_issues: tuple[str, ...]
 
@@ -122,7 +128,7 @@ def build_fallback(rule: dict[str, Any]) -> dict[str, Any]:
         "decision_score": rule.get("decision_score", 0),
         "confidence": 0.55,
         "reasoning": "Fallback LLM judge mirrors rule judge.",
-        "comparison_to_rule_judge": {"rule_decision": rule_decision, "matches_rule_decision": True, "difference_reason": ""},
+        "comparison_to_rule_judge": {"rule_decision": rule_decision, "matches_rule_decision": True, "difference_reason": "", "requires_human_spot_check": False},
         "release_readiness": rule.get("release_readiness") or "NOT_READY",
         "next_action": rule.get("next_action") or "manual_decision",
     }
@@ -134,6 +140,7 @@ def build_llm_judge_gate_report(
     provider_id: str | None = None,
     mode: str | None = None,
     model: str | None = None,
+    limit: int | None = None,
 ) -> LLMJudgeGateReport:
     config = load_llm_provider_config(repo_root=repo_root)
     provider, resolved_model = resolve_agent_provider_and_model(config, AGENT_NAME, provider_id, model)
@@ -153,6 +160,8 @@ def build_llm_judge_gate_report(
     output_artifact = repo_relative(latest_output, repo_root)
     warnings: list[str] = []
     decisions: list[LLMJudgeDecision] = []
+    if limit is not None and limit > 0:
+        items = items[:limit]
     if not items:
         warnings.append("No agent review queue items available.")
 
@@ -173,16 +182,25 @@ def build_llm_judge_gate_report(
         response = call_llm_agent(request, provider)
         output = dict(response.output_json)
         validation_issues = validate_output(output)
-        fallback_used = bool(validation_issues)
+        fallback_used = bool(validation_issues or response.fallback_used)
+        fallback_reason = response.fallback_reason
         if fallback_used:
+            if validation_issues and not fallback_reason:
+                fallback_reason = "validation_failed"
             output = build_fallback(rule)
+        json_parse_status = response.json_parse_status
+        if validation_issues and json_parse_status == "OK":
+            json_parse_status = "FALLBACK"
         comparison = output.get("comparison_to_rule_judge") if isinstance(output.get("comparison_to_rule_judge"), dict) else {}
         rule_decision = str(rule.get("decision") or comparison.get("rule_decision") or "")
         decision = str(output.get("decision") or "NEEDS_REVISION")
+        matches_rule = decision == rule_decision
         comparison = {
             "rule_decision": rule_decision,
-            "matches_rule_decision": decision == rule_decision,
-            "difference_reason": str(comparison.get("difference_reason") or ("" if decision == rule_decision else "LLM sidecar differs from rule judge; human spot check recommended.")),
+            "llm_decision": decision,
+            "matches_rule_decision": matches_rule,
+            "difference_reason": str(comparison.get("difference_reason") or ("" if matches_rule else "LLM sidecar differs from rule judge; human spot check recommended.")),
+            "requires_human_spot_check": bool(comparison.get("requires_human_spot_check") or not matches_rule),
         }
         decisions.append(
             LLMJudgeDecision(
@@ -203,6 +221,12 @@ def build_llm_judge_gate_report(
                 release_readiness=str(output.get("release_readiness") or rule.get("release_readiness") or "NOT_READY"),
                 next_action=str(output.get("next_action") or rule.get("next_action") or "manual_decision"),
                 fallback_used=fallback_used,
+                live_call_attempted=response.live_call_attempted,
+                live_call_succeeded=response.live_call_succeeded,
+                fallback_reason=fallback_reason,
+                raw_output_preview=response.raw_output_preview[:500],
+                json_parse_status=json_parse_status,
+                must_not_override_rule_judge=True,
                 llm_request_id=request_id,
                 validation_issues=validation_issues,
             )
@@ -222,7 +246,7 @@ def escape_cell(value: object) -> str:
 
 def render_markdown(report: LLMJudgeGateReport) -> str:
     rows = [
-        f"| {idx} | {item.decision} | {item.decision_score:.2f} | {item.confidence:.2f} | {item.comparison_to_rule_judge.get('matches_rule_decision')} | {escape_cell(item.package_id)} |"
+        f"| {idx} | {item.decision} | {item.decision_score:.2f} | {item.confidence:.2f} | {item.live_call_attempted} | {item.live_call_succeeded} | {item.fallback_used} | {item.comparison_to_rule_judge.get('matches_rule_decision')} | {item.comparison_to_rule_judge.get('requires_human_spot_check')} | {escape_cell(item.package_id)} |"
         for idx, item in enumerate(report.decisions, start=1)
     ]
     warnings = "\n".join(f"- {item}" for item in report.warnings) if report.warnings else "- None"
@@ -242,9 +266,9 @@ def render_markdown(report: LLMJudgeGateReport) -> str:
 
 ## Decisions
 
-| # | Decision | Score | Confidence | Matches Rule | Package |
-|---:|---|---:|---:|---|---|
-{chr(10).join(rows) if rows else '| 0 | - | 0 | 0 | true | None |'}
+| # | Decision | Score | Confidence | Live Attempted | Live Succeeded | Fallback | Matches Rule | Human Spot Check | Package |
+|---:|---|---:|---:|---|---|---|---|---|---|
+{chr(10).join(rows) if rows else '| 0 | - | 0 | 0 | false | false | false | true | false | None |'}
 
 ## Warnings
 

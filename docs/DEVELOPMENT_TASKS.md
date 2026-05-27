@@ -5,9 +5,9 @@
 - 每个 checkpoint 都要有目标、变更文件、验收方式和下一步建议。
 - 先保证可运行、可检查、可交接，再扩大自动化范围。
 - 不破坏 official lane、topic capture lane 和现有生成产物格式。
-- generated artifacts 默认不进入 Git；需要共享时提取小型摘要。
+- generated artifacts 默认不进入 Git。
 - 不提交 `.env`、本机绝对路径、cookie、token、数据库或本地运行态文件。
-- 自动发布、真实 LLM live mode、真实平台 API、人工反馈学习都必须有独立 checkpoint。
+- live mode、真实平台 API、自动发布、长期记忆数据库必须分 checkpoint 灰度。
 
 ## Phase 0：已完成
 
@@ -33,118 +33,11 @@
 
 - P5-001 到 P5-008 已完成，覆盖 head media pattern library、title/opening/structure pattern extraction、content recipe suggestions、pattern adapters、phase5 daily learning pipeline 与 learning daily pipeline。
 
-## Phase 6：真实 LLM Agent 接入与多 Agent 调优 v1
+## Phase 6：已完成
 
-### P6-001：LLM Provider Config v1
+- P6-001 到 P6-011 已完成，覆盖 LLM provider config、prompt registry、mock/dry-run client、LLM agent 输出、run log、成本/错误追踪、人工评估模板与 phase6 daily pipeline。
 
-状态：Done。
-
-目标：
-
-- 建立 `config/llm_providers.json`。
-- 默认 provider 为 mock，默认 mode 为 dry_run。
-- 建立 agent model map：轻量任务走 `manimax-2.7`，高判断任务走 `claude-sonnet-4.6`。
-- API key 只从环境变量读取，不提交 `.env` 或真实 key。
-
-### P6-002：Prompt Registry v1
-
-状态：Done。
-
-目标：
-
-- 建立 `config/agent_prompts.json`。
-- 管理 proponent / critic / judge / rewrite agent 的 prompt、输入 schema、输出 schema 和版本号。
-- 在 prompt registry 中记录 LLM Agent 的 preferred provider / model。
-- prompt 明确要求只使用输入 evidence、不编造事实、返回 JSON、不发布。
-
-### P6-003：LLM Agent Client v1
-
-状态：Done。
-
-目标：
-
-- 新增 mock-first LLM agent client。
-- 支持结构化 request / response。
-- 非 mock live provider 在 v1 中保持占位，不默认发起真实网络调用。
-
-### P6-004：LLM Proponent Agent v1
-
-状态：Done。
-
-目标：
-
-- 基于 review queue、platform package 和 content brief 生成 LLM proponent review。
-- 默认 mock/dry-run。
-- 保留规则型 fallback。
-
-### P6-005：LLM Critic Agent v1
-
-状态：Done。
-
-目标：
-
-- 基于 review queue、platform package 和 quality review 生成 LLM critic review。
-- 输出结构化 concerns、suggestions 和 must-fix。
-- 保留规则型 fallback。
-
-### P6-006：LLM Judge Agent v1
-
-状态：Done。
-
-目标：
-
-- 基于 LLM proponent / critic 与 rule judge 生成 LLM judge sidecar。
-- 不直接覆盖 rule judge。
-- 冲突时记录 comparison 并建议 human spot check。
-
-### P6-007：LLM Rewrite Agent v1
-
-状态：Done。
-
-目标：
-
-- 基于 revision instructions、draft、platform package 和 LLM reviews 生成 rewrite suggestions。
-- 不自动覆盖原稿。
-
-### P6-008：Agent Run Log / Cost / Error Tracking v1
-
-状态：Done。
-
-目标：
-
-- 记录每次 LLM agent 调用，包括 mock/dry-run。
-- 记录 provider、model、mode、状态、token 估算、成本估算、错误和 fallback。
-- 生成 agent run summary。
-
-### P6-009：Human-in-the-loop Agent Evaluation v1
-
-状态：Done。
-
-目标：
-
-- 生成 LLM agent 输出的人工评估模板。
-- 校验评分、action、agent_name 和 artifact_id。
-
-### P6-010：Phase 6 Daily Agent Pipeline v1
-
-状态：Done。
-
-目标：
-
-- 新增 `make phase6-daily`。
-- 串联 learning daily、provider config validate、prompt validate、LLM agent reviews、run summary 和 evaluation template。
-
-### P6-011：Phase 6 Closeout
-
-状态：Done。
-
-目标：
-
-- 新增 Phase 6 closeout 报告。
-- 维护项目状态和任务清单。
-- 明确 Phase 7 入口。
-
-## Phase 7：真实 LLM Live Mode 灰度与自动调度
+## Phase 7：真实 LLM Live Mode 灰度与自动调度 v1
 
 ### P7-001：MiniMax Proponent Live Adapter Pilot v1
 
@@ -174,37 +67,134 @@
 
 ### P7-003：Claude Judge Live Adapter Pilot v1
 
+状态：Done。
+
 目标：
 
+- 为 `llm_judge_agent` 增加 Claude live adapter。
 - 只做旁路 judge，不覆盖 rule judge。
-- 冲突进入 human exception。
+- 记录 rule / LLM comparison。
+- 冲突进入 human spot-check 建议。
 
-### P7-004：LLM Rewrite Live Pilot v1
+### P7-004：Claude Rewrite Live Pilot v1
+
+状态：Done。
 
 目标：
 
-- 生成改稿建议，不覆盖原稿。
+- 为 `llm_rewrite_agent` 增加 Claude live adapter。
+- 只生成改稿建议，不覆盖原稿。
+- 输出 suggestion-only 字段与 do-not-auto-apply 标记。
 
 ### P7-005：LLM Agent A/B Comparison v1
+
+状态：Done。
 
 目标：
 
 - 比较 rule / mock / live 输出质量。
+- 统计 judge conflict、critic severity difference、fallback、cost 和 human spot-check items。
 
 ### P7-006：Daily Scheduler v1
+
+状态：Done。
 
 目标：
 
 - 建立本地调度文档和入口。
+- 不自动安装 cron / launchd。
+- 不自动启用 live。
 
 ### P7-007：Failure Notification v1
 
+状态：Done。
+
 目标：
 
-- 失败通知报告，不接真实推送。
+- 生成失败通知报告。
+- 汇总 pipeline、agent、live、fallback 和成本提示。
+- 不接真实微信/邮件推送。
 
 ### P7-008：Retry / Fallback Runner v1
 
+状态：Done。
+
 目标：
 
-- 采集失败源重试与 fallback。
+- 基于 source runtime health 和 failure report 生成 retry/fallback plan。
+- 不重写 fetcher。
+- 不自动大规模补抓。
+
+### P7-009：Weekly Content Retro v1
+
+状态：Done。
+
+目标：
+
+- 每周复盘 high-value candidates、publishing queue、人工反馈、Agent 输出质量和规则建议。
+
+### P7-010：Phase 7 Daily Pipeline v1
+
+状态：Done。
+
+目标：
+
+- 新增 `make phase7-daily`。
+- 串联 phase6 dry-run safe pipeline、live pilot readiness、A/B comparison、scheduler dry-run、failure report、retry plan 和 weekly retro。
+
+### P7-011：Phase 7 Closeout
+
+状态：Done。
+
+目标：
+
+- 新增 Phase 7 closeout 报告。
+- 更新项目状态和任务清单。
+- 明确 Phase 8 入口。
+
+## Phase 8：生产化运行、数据库化长期记忆与发布集成
+
+### P8-001：SQLite Runtime Store v1
+
+目标：
+
+- 建立本地 SQLite runtime store。
+- 记录 pipeline run、agent run、source health、content artifact index。
+- 不替换现有 JSON/Markdown 产物，先做同步索引。
+
+### P8-002：Content / Agent Result Repository v1
+
+目标：
+
+- 为 evidence、brief、draft、review、publish candidate、agent output 建立统一 repository API。
+- 保持文件产物可读、可导出。
+
+### P8-003：Publishing API Dry-run Adapter v1
+
+目标：
+
+- 建立微信公众号 / 小红书发布 API 的 dry-run adapter。
+- 不真实发布。
+- 只验证字段、素材、平台包结构。
+
+### P8-004：Human Review UI / Console v1
+
+目标：
+
+- 给人工审核、反馈、发布候选确认提供轻量本地 UI 或控制台入口。
+- 不绕过 human confirmation。
+
+### P8-005：Cost Budget Guard v1
+
+目标：
+
+- 统一读取 agent run log 与 provider config。
+- 在 live 调用前检查每日成本预算和调用次数上限。
+- 超限时自动降级为 dry-run / fallback。
+
+### P8-006：Production Runbook v1
+
+目标：
+
+- 整理生产化运行手册。
+- 包括调度、密钥、本地备份、失败恢复、人工审核、发布 dry-run 和成本控制。

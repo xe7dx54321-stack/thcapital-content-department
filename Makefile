@@ -1,4 +1,4 @@
-.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily content-briefs content-outlines content-drafts content-quality-review platform-packages content-workbench phase2-daily review-queue proponent-reviews critic-reviews judge-gate revision-instructions human-exception-queue agent-review-dashboard phase3-daily publishing-candidates human-feedback-template human-feedback-validate review-outcome-memory rule-update-suggestions learning-loop-dashboard phase4-daily head-media-patterns title-patterns opening-patterns structure-patterns content-recipe-suggestions pattern-adapters phase5-daily learning-daily llm-config-validate agent-prompts-validate llm-agent-smoke llm-proponent-reviews llm-critic-reviews llm-judge-gate llm-rewrite-suggestions agent-run-summary agent-evaluation-template agent-evaluation-validate phase6-daily minimax-proponent-live-pilot claude-critic-live-pilot status
+.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily content-briefs content-outlines content-drafts content-quality-review platform-packages content-workbench phase2-daily review-queue proponent-reviews critic-reviews judge-gate revision-instructions human-exception-queue agent-review-dashboard phase3-daily publishing-candidates human-feedback-template human-feedback-validate review-outcome-memory rule-update-suggestions learning-loop-dashboard phase4-daily head-media-patterns title-patterns opening-patterns structure-patterns content-recipe-suggestions pattern-adapters phase5-daily learning-daily llm-config-validate agent-prompts-validate llm-agent-smoke llm-proponent-reviews llm-critic-reviews llm-judge-gate llm-rewrite-suggestions agent-run-summary agent-evaluation-template agent-evaluation-validate phase6-daily minimax-proponent-live-pilot claude-critic-live-pilot claude-judge-live-pilot claude-rewrite-live-pilot llm-ab-comparison daily-scheduler failure-notification retry-fallback-runner weekly-content-retro phase7-daily status
 
 PYTHON ?= python3
 
@@ -203,6 +203,30 @@ minimax-proponent-live-pilot:
 
 claude-critic-live-pilot:
 	$(PYTHON) scripts/run_claude_critic_live_pilot.py
+
+claude-judge-live-pilot:
+	$(PYTHON) scripts/run_claude_judge_live_pilot.py
+
+claude-rewrite-live-pilot:
+	$(PYTHON) scripts/run_claude_rewrite_live_pilot.py
+
+llm-ab-comparison:
+	$(PYTHON) scripts/build_llm_ab_comparison.py
+
+daily-scheduler:
+	$(PYTHON) scripts/run_daily_scheduler.py
+
+failure-notification:
+	$(PYTHON) scripts/build_failure_notification_report.py
+
+retry-fallback-runner:
+	$(PYTHON) scripts/run_retry_fallback_runner.py
+
+weekly-content-retro:
+	$(PYTHON) scripts/build_weekly_content_retro.py
+
+phase7-daily:
+	$(PYTHON) scripts/run_phase7_daily_pipeline.py
 
 status:
 	bash 内容工厂控制台/status.sh

@@ -21,10 +21,14 @@ def main() -> int:
     parser.add_argument("--provider", default=None)
     parser.add_argument("--mode", default=None, choices=("dry_run", "live"))
     parser.add_argument("--model", default=None)
+    parser.add_argument("--limit", type=int, default=None, help="Limit processed items; live mode defaults to 1 if omitted.")
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
     paths = get_project_paths(REPO_ROOT)
-    report = build_llm_judge_gate_report(paths, REPO_ROOT, args.provider, args.mode, args.model)
+    limit = args.limit
+    if args.mode == "live" and limit is None:
+        limit = 1
+    report = build_llm_judge_gate_report(paths, REPO_ROOT, args.provider, args.mode, args.model, limit)
     outputs = write_llm_judge_gate_report(report, paths)
     if args.json:
         print(json.dumps(report_to_dict(report), ensure_ascii=False, indent=2))

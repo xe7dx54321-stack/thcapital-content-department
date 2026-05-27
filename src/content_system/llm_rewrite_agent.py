@@ -38,6 +38,13 @@ class LLMRewriteSuggestion:
     risk_disclosure_improvements: tuple[str, ...]
     platform_specific_changes: dict[str, tuple[str, ...]]
     do_not_auto_apply: bool
+    live_call_attempted: bool
+    live_call_succeeded: bool
+    fallback_reason: str
+    raw_output_preview: str
+    json_parse_status: str
+    must_not_overwrite_original: bool
+    rewrite_scope: str
     fallback_used: bool
     llm_request_id: str
     validation_issues: tuple[str, ...]
@@ -130,6 +137,7 @@ def build_llm_rewrite_suggestion_report(
     provider_id: str | None = None,
     mode: str | None = None,
     model: str | None = None,
+    limit: int | None = None,
 ) -> LLMRewriteSuggestionReport:
     config = load_llm_provider_config(repo_root=repo_root)
     provider, resolved_model = resolve_agent_provider_and_model(config, AGENT_NAME, provider_id, model)
@@ -149,6 +157,8 @@ def build_llm_rewrite_suggestion_report(
     output_artifact = repo_relative(latest_output, repo_root)
     warnings: list[str] = []
     suggestions: list[LLMRewriteSuggestion] = []
+    if limit is not None and limit > 0:
+        instructions = instructions[:limit]
     if not instructions:
         warnings.append("No revision instructions available.")
 
@@ -169,9 +179,15 @@ def build_llm_rewrite_suggestion_report(
         response = call_llm_agent(request, provider)
         output = dict(response.output_json)
         validation_issues = validate_output(output)
-        fallback_used = bool(validation_issues)
+        fallback_used = bool(validation_issues or response.fallback_used)
+        fallback_reason = response.fallback_reason
         if fallback_used:
+            if validation_issues and not fallback_reason:
+                fallback_reason = "validation_failed"
             output = build_fallback(instruction)
+        json_parse_status = response.json_parse_status
+        if validation_issues and json_parse_status == "OK":
+            json_parse_status = "FALLBACK"
         platform_changes_raw = output.get("platform_specific_changes")
         platform_changes = {}
         if isinstance(platform_changes_raw, dict):
@@ -195,6 +211,13 @@ def build_llm_rewrite_suggestion_report(
             risk_disclosure_improvements=tuple_strings(output.get("risk_disclosure_improvements", [])),
             platform_specific_changes=platform_changes,
             do_not_auto_apply=True,
+            live_call_attempted=response.live_call_attempted,
+            live_call_succeeded=response.live_call_succeeded,
+            fallback_reason=fallback_reason,
+            raw_output_preview=response.raw_output_preview[:500],
+            json_parse_status=json_parse_status,
+            must_not_overwrite_original=True,
+            rewrite_scope="suggestion_only",
             fallback_used=fallback_used,
             llm_request_id=request_id,
             validation_issues=validation_issues,
@@ -214,7 +237,7 @@ def escape_cell(value: object) -> str:
 
 def render_markdown(report: LLMRewriteSuggestionReport) -> str:
     rows = [
-        f"| {idx} | {item.provider_id} | {item.mode} | {item.fallback_used} | {escape_cell(item.package_id)} | {len(item.revised_title_options)} |"
+        f"| {idx} | {item.provider_id} | {item.mode} | {item.live_call_attempted} | {item.live_call_succeeded} | {item.fallback_used} | {escape_cell(item.fallback_reason)} | {escape_cell(item.package_id)} | {len(item.revised_title_options)} |"
         for idx, item in enumerate(report.suggestions, start=1)
     ]
     warnings = "\n".join(f"- {item}" for item in report.warnings) if report.warnings else "- None"
@@ -233,9 +256,9 @@ def render_markdown(report: LLMRewriteSuggestionReport) -> str:
 
 ## Suggestions
 
-| # | Provider | Mode | Fallback | Package | Title Options |
-|---:|---|---|---|---|---:|
-{chr(10).join(rows) if rows else '| 0 | - | - | false | None | 0 |'}
+| # | Provider | Mode | Live Attempted | Live Succeeded | Fallback | Fallback Reason | Package | Title Options |
+|---:|---|---|---|---|---|---|---|---:|
+{chr(10).join(rows) if rows else '| 0 | - | - | false | false | false | - | None | 0 |'}
 
 ## Warnings
 
