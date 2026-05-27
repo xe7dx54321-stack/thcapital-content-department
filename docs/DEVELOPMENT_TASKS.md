@@ -161,12 +161,16 @@
 
 ### P7-002：Claude Critic Live Adapter Pilot v1
 
+状态：Done。
+
 目标：
 
-- 只灰度 critic agent。
-- 使用 `claude-sonnet-4.6`。
-- 保留 rule fallback。
-- 对比 rule critic / llm critic 差异。
+- 为 `llm_critic_agent` 增加 Claude live adapter。
+- 默认仍 dry-run。
+- live 必须显式启用。
+- API key 只从环境变量读取。
+- live 失败 fallback。
+- 所有调用写 agent run log。
 
 ### P7-003：Claude Judge Live Adapter Pilot v1
 

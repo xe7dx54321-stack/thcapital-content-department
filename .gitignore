@@ -406,6 +406,10 @@ logs/
 同行资本市场内容系统/10_logs/*minimax-proponent-live-pilot*.md
 同行资本市场内容系统/10_logs/latest_minimax_proponent_live_pilot.json
 同行资本市场内容系统/10_logs/latest_minimax_proponent_live_pilot.md
+同行资本市场内容系统/10_logs/*claude-critic-live-pilot*.json
+同行资本市场内容系统/10_logs/*claude-critic-live-pilot*.md
+同行资本市场内容系统/10_logs/latest_claude_critic_live_pilot.json
+同行资本市场内容系统/10_logs/latest_claude_critic_live_pilot.md
 
 # Local databases / private state
 *.sqlite

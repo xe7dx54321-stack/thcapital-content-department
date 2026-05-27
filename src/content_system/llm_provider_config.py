@@ -51,6 +51,7 @@ class LLMProvider:
     auth_header: str
     anthropic_version: str
     stream: bool
+    live_agent_allowlist: tuple[str, ...]
     estimated_cost_per_1k_input_tokens_usd: float
     estimated_cost_per_1k_output_tokens_usd: float
     notes: str
@@ -136,6 +137,8 @@ def provider_from_mapping(mapping: dict[str, Any]) -> LLMProvider:
     missing = [field for field in required if field not in mapping]
     if missing:
         raise LLMProviderConfigError(f"provider missing fields: {', '.join(missing)}")
+    live_agent_allowlist_raw = mapping.get("live_agent_allowlist", [])
+    live_agent_allowlist = tuple(str(item) for item in live_agent_allowlist_raw if item) if isinstance(live_agent_allowlist_raw, list) else ()
     return LLMProvider(
         provider_id=str(mapping["provider_id"]),
         label=str(mapping["label"]),
@@ -155,6 +158,7 @@ def provider_from_mapping(mapping: dict[str, Any]) -> LLMProvider:
         auth_header=str(mapping.get("auth_header", "")),
         anthropic_version=str(mapping.get("anthropic_version", "")),
         stream=bool(mapping.get("stream", False)),
+        live_agent_allowlist=live_agent_allowlist,
         estimated_cost_per_1k_input_tokens_usd=float(mapping.get("estimated_cost_per_1k_input_tokens_usd", 0.0)),
         estimated_cost_per_1k_output_tokens_usd=float(mapping.get("estimated_cost_per_1k_output_tokens_usd", 0.0)),
         notes=str(mapping["notes"]),
@@ -265,6 +269,15 @@ def validate_llm_provider_config(config: LLMProviderConfig, provider_filter: str
                 issues.append(ValidationIssue("ERROR", provider.provider_id, "adapter_type", "MiniMax pilot requires openai_compatible_chat_completions"))
             if provider.stream:
                 issues.append(ValidationIssue("ERROR", provider.provider_id, "stream", "MiniMax pilot must use non-streaming calls"))
+        if provider.provider_id == "anthropic":
+            if provider.adapter_type != "anthropic_messages":
+                issues.append(ValidationIssue("ERROR", provider.provider_id, "adapter_type", "Claude critic pilot requires anthropic_messages"))
+            if provider.stream:
+                issues.append(ValidationIssue("ERROR", provider.provider_id, "stream", "Claude critic pilot must use non-streaming calls"))
+            if "llm_critic_agent" not in provider.live_agent_allowlist:
+                issues.append(ValidationIssue("ERROR", provider.provider_id, "live_agent_allowlist", "Claude critic pilot requires llm_critic_agent in provider allowlist"))
+            if not provider.anthropic_version:
+                issues.append(ValidationIssue("ERROR", provider.provider_id, "anthropic_version", "Anthropic Messages API requires anthropic_version"))
 
     agent_ids = [preference.agent_id for preference in config.agent_model_map]
     for agent_id in sorted({item for item in agent_ids if agent_ids.count(item) > 1}):

@@ -10,7 +10,7 @@ Phase 7：真实 LLM Live Mode 灰度与自动调度。
 
 ## 最新 checkpoint
 
-P7-001：MiniMax Proponent Live Adapter Pilot v1。
+P7-002：Claude Critic Live Adapter Pilot v1。
 
 ## 已完成
 
@@ -112,6 +112,7 @@ P7-001：MiniMax Proponent Live Adapter Pilot v1。
 ### Phase 7
 
 - P7-001 MiniMax Proponent Live Adapter Pilot v1。
+- P7-002 Claude Critic Live Adapter Pilot v1。
 
 ## 当前已具备能力
 
@@ -192,9 +193,10 @@ P7-001：MiniMax Proponent Live Adapter Pilot v1。
 ### Phase 7 能力
 
 - MiniMax proponent live pilot。
-- live allowlist：当前只允许 `llm_proponent_agent`。
-- live readiness check：检查 `MINIMAX_API_KEY`、`THCAP_LLM_ENABLE_LIVE`、`THCAP_LLM_MODE` 和 allowlist。
-- MiniMax live failure fallback / dry-run fallback。
+- Claude critic live pilot。
+- live allowlist：当前只允许 `llm_proponent_agent` 和 `llm_critic_agent` 灰度 live。
+- live readiness check：检查 `MINIMAX_API_KEY` / `ANTHROPIC_API_KEY`、`THCAP_LLM_ENABLE_LIVE`、`THCAP_LLM_MODE` 和 allowlist。
+- MiniMax / Claude live failure fallback / dry-run fallback。
 - LLM live mode runbook。
 - agent run log 记录 live attempted / succeeded / fallback reason。
 
@@ -203,18 +205,20 @@ P7-001：MiniMax Proponent Live Adapter Pilot v1。
 ```bash
 make phase6-daily
 make minimax-proponent-live-pilot
+make claude-critic-live-pilot
 ```
 
-`make phase6-daily` 默认使用 mock/dry-run LLM agent，不需要 API key。MiniMax live pilot 只通过 `make minimax-proponent-live-pilot` 灰度验证；没有 key 或未开启 live 时会输出 readiness failure，而不会崩溃。
+`make phase6-daily` 默认使用 mock/dry-run LLM agent，不需要 API key。MiniMax / Claude live pilot 只通过独立灰度命令验证；没有 key 或未开启 live 时会输出 readiness failure，而不会崩溃。
 
 ## 当前边界
 
 - 默认仍是 mock/dry-run。
 - 不提交 API key。
-- 只有 `llm_proponent_agent` 支持 MiniMax live pilot。
-- critic / judge / rewrite 仍未启用 live。
-- live 必须显式设置 `THCAP_LLM_ENABLE_LIVE=1`、`THCAP_LLM_MODE=live`、`THCAP_LLM_LIVE_AGENT_ALLOWLIST=llm_proponent_agent`。
+- 只有 `llm_proponent_agent` 和 `llm_critic_agent` 具备 live pilot 能力。
+- judge / rewrite 仍未启用 live。
+- live 必须显式设置 `THCAP_LLM_ENABLE_LIVE=1`、`THCAP_LLM_MODE=live`、对应 agent allowlist 和对应 provider API key。
 - MiniMax provider 只配置环境变量名、base URL、非流式 OpenAI-compatible chat completions 约定，不保存真实 key。
+- Anthropic provider 只配置环境变量名、base URL、非流式 Anthropic Messages API 约定，不保存真实 key。
 - LLM judge 不直接覆盖 rule judge。
 - rewrite suggestion 不自动覆盖原文。
 - 不自动发布。
@@ -227,7 +231,6 @@ Phase 7：真实 LLM Live Mode 灰度与自动调度。
 
 优先任务：
 
-- P7-002：Claude Critic Live Adapter Pilot v1。
 - P7-003：Claude Judge Live Adapter Pilot v1。
 - P7-004：LLM Rewrite Live Pilot v1。
 - P7-005：LLM Agent A/B Comparison v1。

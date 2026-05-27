@@ -209,10 +209,6 @@ def live_allowlist() -> set[str]:
 def is_live_call_allowed(request: LLMRequest, provider: LLMProvider) -> tuple[bool, str]:
     if request.mode != "live":
         return False, "mode_not_live"
-    if provider.provider_id != "manimax":
-        return False, "provider_not_allowed_for_p7_001"
-    if request.agent_name != "llm_proponent_agent":
-        return False, "agent_not_allowed_for_p7_001"
     if not provider.supports_live:
         return False, "provider_does_not_support_live"
     if os.environ.get("THCAP_LLM_ENABLE_LIVE", "").strip() != "1":
@@ -221,9 +217,34 @@ def is_live_call_allowed(request: LLMRequest, provider: LLMProvider) -> tuple[bo
         return False, "agent_not_allowlisted"
     if not provider.api_key_env or not os.environ.get(provider.api_key_env):
         return False, "missing_api_key"
-    if provider.adapter_type != "openai_compatible_chat_completions":
-        return False, "adapter_type_not_supported"
-    return True, ""
+
+    if provider.live_agent_allowlist and request.agent_name not in provider.live_agent_allowlist:
+        return False, "provider_agent_not_allowlisted"
+    if provider.provider_id == "manimax":
+        if request.agent_name != "llm_proponent_agent":
+            return False, "agent_not_allowed_for_p7_001"
+        if provider.adapter_type != "openai_compatible_chat_completions":
+            return False, "adapter_type_not_supported"
+        return True, ""
+    if provider.provider_id == "anthropic":
+        if request.agent_name != "llm_critic_agent":
+            return False, "agent_not_allowed_for_p7_002"
+        if provider.adapter_type != "anthropic_messages":
+            return False, "adapter_type_not_supported"
+        return True, ""
+    return False, "provider_not_allowed_for_live_pilot"
+
+
+def is_supported_live_adapter(provider: LLMProvider) -> bool:
+    return provider.adapter_type in {"openai_compatible_chat_completions", "anthropic_messages"}
+
+
+def call_live_adapter(request: LLMRequest, provider: LLMProvider) -> tuple[dict[str, Any], str, dict[str, Any], float, str]:
+    if provider.adapter_type == "openai_compatible_chat_completions":
+        return call_openai_compatible_chat_completions(request, provider)
+    if provider.adapter_type == "anthropic_messages":
+        return call_anthropic_messages(request, provider)
+    return {}, "", {}, 0.0, "adapter_type_not_supported"
 
 
 def api_base_url(provider: LLMProvider) -> str:
@@ -248,6 +269,20 @@ def build_openai_compatible_payload(request: LLMRequest, provider: LLMProvider) 
         "temperature": temperature,
         "max_tokens": max_tokens,
         "stream": False,
+    }
+
+
+def build_anthropic_messages_payload(request: LLMRequest, provider: LLMProvider) -> dict[str, Any]:
+    max_tokens = int(os.environ.get("THCAP_LLM_MAX_TOKENS", "1600") or "1600")
+    temperature = float(os.environ.get("THCAP_LLM_TEMPERATURE", "0.2") or "0.2")
+    return {
+        "model": api_model(provider, request),
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+        "system": request.system_prompt,
+        "messages": [
+            {"role": "user", "content": request.user_prompt},
+        ],
     }
 
 
@@ -312,6 +347,23 @@ def parse_openai_compatible_response(response_json: dict[str, Any]) -> tuple[str
     return text, output_json, parse_status
 
 
+def parse_anthropic_messages_response(response_json: dict[str, Any]) -> tuple[str, dict[str, Any], str]:
+    content = response_json.get("content")
+    parts: list[str] = []
+    if isinstance(content, list):
+        for item in content:
+            if isinstance(item, dict):
+                if item.get("type") in {None, "text"}:
+                    parts.append(str(item.get("text") or ""))
+            else:
+                parts.append(str(item))
+    elif isinstance(content, str):
+        parts.append(content)
+    text = "\n".join(part for part in parts if part).strip()
+    output_json, parse_status = extract_json_object(text)
+    return text, output_json, parse_status
+
+
 def cost_estimate(provider: LLMProvider, prompt_tokens: int, completion_tokens: int) -> tuple[float, str]:
     if provider.estimated_cost_per_1k_input_tokens_usd <= 0 and provider.estimated_cost_per_1k_output_tokens_usd <= 0:
         return 0.0, "pricing_not_configured"
@@ -367,6 +419,52 @@ def call_openai_compatible_chat_completions(request: LLMRequest, provider: LLMPr
     return output_json, raw_output, usage, cost, ""
 
 
+def call_anthropic_messages(request: LLMRequest, provider: LLMProvider) -> tuple[dict[str, Any], str, dict[str, Any], float, str]:
+    base_url = api_base_url(provider).rstrip("/")
+    request_path = provider.request_path or "/v1/messages"
+    url = f"{base_url}{request_path if request_path.startswith('/') else '/' + request_path}"
+    api_key = os.environ.get(provider.api_key_env, "")
+    payload = build_anthropic_messages_payload(request, provider)
+    body = json.dumps(payload).encode("utf-8")
+    headers = {
+        "Content-Type": "application/json",
+        "x-api-key": api_key,
+        "anthropic-version": provider.anthropic_version or "2023-06-01",
+    }
+    timeout = int(os.environ.get("THCAP_LLM_TIMEOUT_SECONDS", "60") or "60")
+    http_request = urllib.request.Request(url, data=body, headers=headers, method="POST")
+    try:
+        with urllib.request.urlopen(http_request, timeout=timeout) as response:
+            raw_text = response.read().decode("utf-8", errors="replace")
+            response_json = json.loads(raw_text)
+    except urllib.error.HTTPError as exc:
+        error_body = exc.read().decode("utf-8", errors="replace")[:500]
+        return {}, "", {}, 0.0, f"http_{exc.code}: {error_body}"
+    except (urllib.error.URLError, TimeoutError, OSError, json.JSONDecodeError) as exc:
+        return {}, "", {}, 0.0, str(exc)
+    if not isinstance(response_json, dict):
+        return {}, "", {}, 0.0, "provider returned non-object JSON"
+    raw_output, output_json, parse_status = parse_anthropic_messages_response(response_json)
+    usage_raw = response_json.get("usage") if isinstance(response_json.get("usage"), dict) else {}
+    input_tokens = int(usage_raw.get("input_tokens") or estimate_tokens(request.system_prompt + request.user_prompt))
+    output_tokens = int(usage_raw.get("output_tokens") or estimate_tokens(raw_output))
+    total_tokens = input_tokens + output_tokens
+    cost, cost_note = cost_estimate(provider, input_tokens, output_tokens)
+    usage = {
+        "estimated_input_tokens": input_tokens,
+        "estimated_output_tokens": output_tokens,
+        "estimated_total_tokens": total_tokens,
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
+        "total_tokens": total_tokens,
+        "cost_estimation_note": cost_note,
+        "api_model": payload.get("model"),
+    }
+    if parse_status != "OK":
+        return {}, raw_output, usage, cost, "invalid_json_response"
+    return output_json, raw_output, usage, cost, ""
+
+
 def call_llm_agent(request: LLMRequest, provider: LLMProvider) -> LLMResponse:
     started = time.monotonic()
     input_tokens = estimate_tokens(request.system_prompt) + estimate_tokens(request.user_prompt)
@@ -387,7 +485,7 @@ def call_llm_agent(request: LLMRequest, provider: LLMProvider) -> LLMResponse:
         allowed, reason = is_live_call_allowed(request, provider)
         if allowed:
             live_call_attempted = True
-            output_json, output_text, usage, estimated_cost_usd, error = call_openai_compatible_chat_completions(request, provider)
+            output_json, output_text, usage, estimated_cost_usd, error = call_live_adapter(request, provider)
             live_usage = usage
             live_estimated_cost_usd = estimated_cost_usd
             raw_output_preview = output_text[:500]

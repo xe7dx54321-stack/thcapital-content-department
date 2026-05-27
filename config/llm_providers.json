@@ -51,22 +51,29 @@
     },
     {
       "provider_id": "anthropic",
-      "label": "Anthropic-compatible Sonnet",
+      "label": "Anthropic Claude",
       "enabled": true,
       "mode": "dry_run",
       "api_key_env": "ANTHROPIC_API_KEY",
       "default_model": "claude-sonnet-4.6",
       "supports_live": true,
-      "base_url": "https://api.ailinkmax.com",
+      "base_url": "https://api.anthropic.com",
       "base_url_env": "ANTHROPIC_BASE_URL",
-      "api_model": "claude-sonnet-4-6",
+      "default_base_url": "https://api.anthropic.com",
+      "api_model": "claude-sonnet-4.6",
       "model_env": "ANTHROPIC_MODEL",
       "api_style": "anthropic_messages",
+      "adapter_type": "anthropic_messages",
       "request_path": "/v1/messages",
       "auth_header": "x-api-key",
       "anthropic_version": "2023-06-01",
       "stream": false,
-      "notes": "High-judgment model lane. Live mode remains explicit and disabled by default."
+      "live_agent_allowlist": [
+        "llm_critic_agent"
+      ],
+      "estimated_cost_per_1k_input_tokens_usd": 0.0,
+      "estimated_cost_per_1k_output_tokens_usd": 0.0,
+      "notes": "P7-002 only allows llm_critic_agent live. Judge and rewrite remain dry-run."
     },
     {
       "provider_id": "openai",

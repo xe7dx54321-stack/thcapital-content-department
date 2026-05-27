@@ -29,6 +29,37 @@ export MINIMAX_MODEL="manimax-2.7"
 
 ```bash
 unset MINIMAX_API_KEY
+unset ANTHROPIC_API_KEY
+export THCAP_LLM_ENABLE_LIVE=0
+export THCAP_LLM_MODE=dry_run
+export THCAP_LLM_LIVE_AGENT_ALLOWLIST=
+```
+
+## Claude Critic Live Pilot
+
+默认不启用。P7-002 只允许 `llm_critic_agent` 使用 Claude live pilot。
+
+启用方式：
+
+```bash
+export ANTHROPIC_API_KEY="..."
+export THCAP_LLM_ENABLE_LIVE=1
+export THCAP_LLM_MODE=live
+export THCAP_LLM_LIVE_AGENT_ALLOWLIST=llm_critic_agent
+make claude-critic-live-pilot
+```
+
+可选覆盖：
+
+```bash
+export ANTHROPIC_BASE_URL="https://api.anthropic.com"
+export ANTHROPIC_MODEL="claude-sonnet-4.6"
+```
+
+关闭方式：
+
+```bash
+unset ANTHROPIC_API_KEY
 export THCAP_LLM_ENABLE_LIVE=0
 export THCAP_LLM_MODE=dry_run
 export THCAP_LLM_LIVE_AGENT_ALLOWLIST=
@@ -40,9 +71,9 @@ export THCAP_LLM_LIVE_AGENT_ALLOWLIST=
 - 不提交 `.env`。
 - 不默认 live。
 - 只允许 allowlist agent live。
-- 当前只允许 `llm_proponent_agent` live pilot。
+- 当前只允许 `llm_proponent_agent` 和 `llm_critic_agent` live pilot。
 - live 失败必须 fallback。
-- judge / critic / rewrite 不允许本阶段 live。
+- judge / rewrite 不允许本阶段 live。
 - rewrite suggestion 不自动覆盖原文。
 - 不自动发布任何内容。
 
@@ -52,6 +83,7 @@ export THCAP_LLM_LIVE_AGENT_ALLOWLIST=
 - `live not enabled`：确认 `THCAP_LLM_ENABLE_LIVE=1`。
 - `mode not live`：确认 `THCAP_LLM_MODE=live`。
 - `agent not allowlisted`：确认 `THCAP_LLM_LIVE_AGENT_ALLOWLIST=llm_proponent_agent`。
+- `critic agent not allowlisted`：确认 `THCAP_LLM_LIVE_AGENT_ALLOWLIST=llm_critic_agent`。
 - `invalid JSON response`：系统会记录 validation issue 并 fallback。
 - `HTTP timeout`：系统会记录 error 和 fallback reason。
 - `provider returned non-200`：系统会记录 HTTP 状态和响应摘要。
