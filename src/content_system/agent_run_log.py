@@ -29,6 +29,10 @@ class AgentRunRecord:
     estimated_cost_usd: float
     error: str
     fallback_used: bool
+    fallback_reason: str
+    live_call_attempted: bool
+    live_call_succeeded: bool
+    cost_estimation_note: str
     source_artifact: str
     output_artifact: str
 
@@ -81,6 +85,10 @@ def record_from_mapping(mapping: dict[str, Any]) -> AgentRunRecord:
         estimated_cost_usd=float(mapping.get("estimated_cost_usd") or 0.0),
         error=str(mapping.get("error") or ""),
         fallback_used=bool(mapping.get("fallback_used")),
+        fallback_reason=str(mapping.get("fallback_reason") or ""),
+        live_call_attempted=bool(mapping.get("live_call_attempted")),
+        live_call_succeeded=bool(mapping.get("live_call_succeeded")),
+        cost_estimation_note=str(mapping.get("cost_estimation_note") or ""),
         source_artifact=str(mapping.get("source_artifact") or ""),
         output_artifact=str(mapping.get("output_artifact") or ""),
     )
@@ -93,6 +101,8 @@ def summary_for(records: tuple[AgentRunRecord, ...]) -> dict[str, Any]:
         "dry_run_count": sum(1 for record in records if record.status == "DRY_RUN"),
         "success_count": sum(1 for record in records if record.status == "SUCCESS"),
         "fallback_count": sum(1 for record in records if record.fallback_used),
+        "live_call_attempted_count": sum(1 for record in records if record.live_call_attempted),
+        "live_call_succeeded_count": sum(1 for record in records if record.live_call_succeeded),
         "estimated_cost_usd": round(sum(record.estimated_cost_usd for record in records), 6),
     }
 
@@ -116,8 +126,9 @@ def render_log_markdown(log: AgentRunLog) -> str:
     rows = []
     for idx, record in enumerate(log.records[-100:], start=1):
         error = record.error.replace("|", "\\|").replace("\n", " ")
+        fallback_reason = record.fallback_reason.replace("|", "\\|").replace("\n", " ")
         rows.append(
-            f"| {idx} | {record.run_date} | {record.agent_name} | {record.provider_id} | {record.mode} | {record.status} | {record.estimated_cost_usd:.4f} | {error} |"
+            f"| {idx} | {record.run_date} | {record.agent_name} | {record.provider_id} | {record.mode} | {record.status} | {record.live_call_attempted} | {record.live_call_succeeded} | {record.fallback_used} | {record.estimated_cost_usd:.4f} | {fallback_reason or error} |"
         )
     return f"""# Agent Run Log
 
@@ -127,13 +138,16 @@ def render_log_markdown(log: AgentRunLog) -> str:
 - Records: `{log.summary.get('record_count')}`
 - Dry-run: `{log.summary.get('dry_run_count')}`
 - Failed: `{log.summary.get('failed_count')}`
+- Live attempted: `{log.summary.get('live_call_attempted_count')}`
+- Live succeeded: `{log.summary.get('live_call_succeeded_count')}`
+- Fallback: `{log.summary.get('fallback_count')}`
 - Estimated cost USD: `{log.summary.get('estimated_cost_usd')}`
 
 ## Recent Records
 
-| # | Run Date | Agent | Provider | Mode | Status | Cost USD | Error |
-|---:|---|---|---|---|---|---:|---|
-{chr(10).join(rows) if rows else '| 0 | - | - | - | - | - | 0 | None |'}
+| # | Run Date | Agent | Provider | Mode | Status | Live Attempted | Live Succeeded | Fallback | Cost USD | Note |
+|---:|---|---|---|---|---|---|---|---|---:|---|
+{chr(10).join(rows) if rows else '| 0 | - | - | - | - | - | false | false | false | 0 | None |'}
 """
 
 
@@ -182,7 +196,11 @@ def response_to_record(
         estimated_output_tokens=int(usage.get("estimated_output_tokens", 0)),
         estimated_cost_usd=float(getattr(response, "estimated_cost_usd", 0.0)),
         error=str(getattr(response, "error", "")),
-        fallback_used=fallback_used,
+        fallback_used=bool(fallback_used or getattr(response, "fallback_used", False)),
+        fallback_reason=str(getattr(response, "fallback_reason", "")),
+        live_call_attempted=bool(getattr(response, "live_call_attempted", False)),
+        live_call_succeeded=bool(getattr(response, "live_call_succeeded", False)),
+        cost_estimation_note=str(usage.get("cost_estimation_note", "")),
         source_artifact=source_artifact,
         output_artifact=output_artifact,
     )

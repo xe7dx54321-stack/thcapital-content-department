@@ -21,10 +21,12 @@ def main() -> int:
     parser.add_argument("--provider", default=None)
     parser.add_argument("--mode", default=None, choices=("dry_run", "live"))
     parser.add_argument("--model", default=None)
+    parser.add_argument("--limit", type=int, default=None, help="Limit review item count. Live mode defaults to 1 if omitted.")
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
     paths = get_project_paths(REPO_ROOT)
-    report = build_llm_proponent_review_report(paths, REPO_ROOT, args.provider, args.mode, args.model)
+    limit = 1 if args.mode == "live" and args.limit is None else args.limit
+    report = build_llm_proponent_review_report(paths, REPO_ROOT, args.provider, args.mode, args.model, limit=limit)
     outputs = write_llm_proponent_review_report(report, paths)
     if args.json:
         print(json.dumps(report_to_dict(report), ensure_ascii=False, indent=2))

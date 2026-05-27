@@ -42,13 +42,17 @@ class LLMProvider:
     supports_live: bool
     base_url: str
     base_url_env: str
+    default_base_url: str
     api_model: str
     model_env: str
     api_style: str
+    adapter_type: str
     request_path: str
     auth_header: str
     anthropic_version: str
     stream: bool
+    estimated_cost_per_1k_input_tokens_usd: float
+    estimated_cost_per_1k_output_tokens_usd: float
     notes: str
 
 
@@ -142,13 +146,17 @@ def provider_from_mapping(mapping: dict[str, Any]) -> LLMProvider:
         supports_live=bool(mapping["supports_live"]),
         base_url=str(mapping["base_url"]),
         base_url_env=str(mapping.get("base_url_env", "")),
+        default_base_url=str(mapping.get("default_base_url", mapping.get("base_url", ""))),
         api_model=str(mapping.get("api_model", mapping["default_model"])),
         model_env=str(mapping.get("model_env", "")),
         api_style=str(mapping.get("api_style", "")),
+        adapter_type=str(mapping.get("adapter_type", mapping.get("api_style", ""))),
         request_path=str(mapping.get("request_path", "")),
         auth_header=str(mapping.get("auth_header", "")),
         anthropic_version=str(mapping.get("anthropic_version", "")),
         stream=bool(mapping.get("stream", False)),
+        estimated_cost_per_1k_input_tokens_usd=float(mapping.get("estimated_cost_per_1k_input_tokens_usd", 0.0)),
+        estimated_cost_per_1k_output_tokens_usd=float(mapping.get("estimated_cost_per_1k_output_tokens_usd", 0.0)),
         notes=str(mapping["notes"]),
     )
 
@@ -236,6 +244,7 @@ def validate_llm_provider_config(config: LLMProviderConfig, provider_filter: str
             ("default_model", provider.default_model),
             ("base_url", provider.base_url),
             ("base_url_env", provider.base_url_env),
+            ("default_base_url", provider.default_base_url),
             ("api_model", provider.api_model),
             ("model_env", provider.model_env),
             ("notes", provider.notes),
@@ -251,6 +260,11 @@ def validate_llm_provider_config(config: LLMProviderConfig, provider_filter: str
             issues.append(ValidationIssue("ERROR", provider.provider_id, "api_key_env", f"missing environment variable {provider.api_key_env} for live mode"))
         if provider.enabled and provider.supports_live and provider.mode == "dry_run" and provider.api_key_env and not os.environ.get(provider.api_key_env):
             issues.append(ValidationIssue("WARN", provider.provider_id, "api_key_env", f"{provider.api_key_env} is not set; live mode remains unavailable"))
+        if provider.provider_id == "manimax":
+            if provider.adapter_type != "openai_compatible_chat_completions":
+                issues.append(ValidationIssue("ERROR", provider.provider_id, "adapter_type", "MiniMax pilot requires openai_compatible_chat_completions"))
+            if provider.stream:
+                issues.append(ValidationIssue("ERROR", provider.provider_id, "stream", "MiniMax pilot must use non-streaming calls"))
 
     agent_ids = [preference.agent_id for preference in config.agent_model_map]
     for agent_id in sorted({item for item in agent_ids if agent_ids.count(item) > 1}):

@@ -401,6 +401,12 @@ logs/
 同行资本市场内容系统/11_frontstage/*phase6-daily-agent-pipeline*.md
 同行资本市场内容系统/11_frontstage/latest_phase6_daily_agent_pipeline_board.md
 
+# Phase 7 generated artifacts
+同行资本市场内容系统/10_logs/*minimax-proponent-live-pilot*.json
+同行资本市场内容系统/10_logs/*minimax-proponent-live-pilot*.md
+同行资本市场内容系统/10_logs/latest_minimax_proponent_live_pilot.json
+同行资本市场内容系统/10_logs/latest_minimax_proponent_live_pilot.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

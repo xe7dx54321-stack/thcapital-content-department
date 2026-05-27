@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 6：真实 LLM Agent 接入与多 Agent 调优 v1。
+Phase 7：真实 LLM Live Mode 灰度与自动调度。
 
 ## 最新 checkpoint
 
-P6-011：Phase 6 v1 Closeout。
+P7-001：MiniMax Proponent Live Adapter Pilot v1。
 
 ## 已完成
 
@@ -109,6 +109,10 @@ P6-011：Phase 6 v1 Closeout。
 - P6-010 Phase 6 Daily Agent Pipeline v1。
 - P6-011 Phase 6 Closeout。
 
+### Phase 7
+
+- P7-001 MiniMax Proponent Live Adapter Pilot v1。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -185,20 +189,32 @@ P6-011：Phase 6 v1 Closeout。
 - human agent evaluation template。
 - phase6 daily agent pipeline。
 
+### Phase 7 能力
+
+- MiniMax proponent live pilot。
+- live allowlist：当前只允许 `llm_proponent_agent`。
+- live readiness check：检查 `MINIMAX_API_KEY`、`THCAP_LLM_ENABLE_LIVE`、`THCAP_LLM_MODE` 和 allowlist。
+- MiniMax live failure fallback / dry-run fallback。
+- LLM live mode runbook。
+- agent run log 记录 live attempted / succeeded / fallback reason。
+
 ## 当前推荐日常命令
 
 ```bash
 make phase6-daily
+make minimax-proponent-live-pilot
 ```
 
-该命令默认使用 mock/dry-run LLM agent，不需要 API key。它会先运行既有 learning daily 链路，再执行 LLM provider / prompt 校验、LLM proponent / critic / judge / rewrite、agent run summary 和人工评估模板生成。
+`make phase6-daily` 默认使用 mock/dry-run LLM agent，不需要 API key。MiniMax live pilot 只通过 `make minimax-proponent-live-pilot` 灰度验证；没有 key 或未开启 live 时会输出 readiness failure，而不会崩溃。
 
 ## 当前边界
 
 - 默认仍是 mock/dry-run。
 - 不提交 API key。
-- live provider 仍未正式启用。
-- MiniMax / Anthropic-compatible provider 只配置环境变量名、base URL、非流式 Anthropic Messages API 约定，不保存真实 key。
+- 只有 `llm_proponent_agent` 支持 MiniMax live pilot。
+- critic / judge / rewrite 仍未启用 live。
+- live 必须显式设置 `THCAP_LLM_ENABLE_LIVE=1`、`THCAP_LLM_MODE=live`、`THCAP_LLM_LIVE_AGENT_ALLOWLIST=llm_proponent_agent`。
+- MiniMax provider 只配置环境变量名、base URL、非流式 OpenAI-compatible chat completions 约定，不保存真实 key。
 - LLM judge 不直接覆盖 rule judge。
 - rewrite suggestion 不自动覆盖原文。
 - 不自动发布。
@@ -211,10 +227,10 @@ Phase 7：真实 LLM Live Mode 灰度与自动调度。
 
 优先任务：
 
-- P7-001：OpenAI Live Adapter Pilot。
-- P7-002：LLM Agent A/B Comparison。
-- P7-003：Agent Rewrite Loop v1。
-- P7-004：Daily Scheduler v1。
-- P7-005：Failure Notification v1。
-- P7-006：Retry / Fallback Runner v1。
-- P7-007：Weekly Content Retro v1。
+- P7-002：Claude Critic Live Adapter Pilot v1。
+- P7-003：Claude Judge Live Adapter Pilot v1。
+- P7-004：LLM Rewrite Live Pilot v1。
+- P7-005：LLM Agent A/B Comparison v1。
+- P7-006：Daily Scheduler v1。
+- P7-007：Failure Notification v1。
+- P7-008：Retry / Fallback Runner v1。

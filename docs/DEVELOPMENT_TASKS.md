@@ -146,48 +146,61 @@
 
 ## Phase 7：真实 LLM Live Mode 灰度与自动调度
 
-### P7-001：OpenAI Live Adapter Pilot
+### P7-001：MiniMax Proponent Live Adapter Pilot v1
+
+状态：Done。
 
 目标：
 
-- 在不破坏 mock/dry-run 的前提下，选择一个 agent 做 live adapter pilot。
+- 为 `llm_proponent_agent` 增加 MiniMax live adapter。
+- 默认仍 dry-run。
+- live 必须显式启用。
 - API key 只从环境变量读取。
-- 输出和 mock agent 使用同一 schema。
+- live 失败 fallback。
+- 所有调用写 agent run log。
 
-### P7-002：LLM Agent A/B Comparison
-
-目标：
-
-- 比较 rule agent、mock agent、live LLM agent 的输出差异。
-
-### P7-003：Agent Rewrite Loop v1
+### P7-002：Claude Critic Live Adapter Pilot v1
 
 目标：
 
-- 使用 rewrite suggestions 生成候选改稿，但不自动覆盖原稿。
+- 只灰度 critic agent。
+- 使用 `claude-sonnet-4.6`。
+- 保留 rule fallback。
+- 对比 rule critic / llm critic 差异。
 
-### P7-004：Daily Scheduler v1
-
-目标：
-
-- 建立本地每日调度入口。
-- 不依赖云服务，先支持本机 cron/launchd 文档。
-
-### P7-005：Failure Notification v1
+### P7-003：Claude Judge Live Adapter Pilot v1
 
 目标：
 
-- 生成失败通知报告。
-- 暂不接微信/邮件真实推送。
+- 只做旁路 judge，不覆盖 rule judge。
+- 冲突进入 human exception。
 
-### P7-006：Retry / Fallback Runner v1
-
-目标：
-
-- 对采集失败源建立重试与 fallback 入口。
-
-### P7-007：Weekly Content Retro v1
+### P7-004：LLM Rewrite Live Pilot v1
 
 目标：
 
-- 每周汇总内容表现、人工反馈、Agent 输出质量和规则调整建议。
+- 生成改稿建议，不覆盖原稿。
+
+### P7-005：LLM Agent A/B Comparison v1
+
+目标：
+
+- 比较 rule / mock / live 输出质量。
+
+### P7-006：Daily Scheduler v1
+
+目标：
+
+- 建立本地调度文档和入口。
+
+### P7-007：Failure Notification v1
+
+目标：
+
+- 失败通知报告，不接真实推送。
+
+### P7-008：Retry / Fallback Runner v1
+
+目标：
+
+- 采集失败源重试与 fallback。
