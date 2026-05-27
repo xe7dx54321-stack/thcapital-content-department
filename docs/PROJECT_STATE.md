@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 5：头部内容学习反哺系统 v1。
+Phase 6：真实 LLM Agent 接入与多 Agent 调优 v1。
 
 ## 最新 checkpoint
 
-P5-008：Phase 5 v1 Closeout。
+P6-011：Phase 6 v1 Closeout。
 
 ## 已完成
 
@@ -95,6 +95,20 @@ P5-008：Phase 5 v1 Closeout。
 - P5-007 Phase 5 Daily Learning Pipeline v1。
 - P5-008 Phase 5 Closeout。
 
+### Phase 6
+
+- P6-001 LLM Provider Config v1。
+- P6-002 Prompt Registry v1。
+- P6-003 LLM Agent Client v1。
+- P6-004 LLM Proponent Agent v1。
+- P6-005 LLM Critic Agent v1。
+- P6-006 LLM Judge Agent v1。
+- P6-007 LLM Rewrite Agent v1。
+- P6-008 Agent Run Log / Cost / Error Tracking v1。
+- P6-009 Human-in-the-loop Agent Evaluation v1。
+- P6-010 Phase 6 Daily Agent Pipeline v1。
+- P6-011 Phase 6 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -156,53 +170,49 @@ P5-008：Phase 5 v1 Closeout。
 - phase5 daily learning pipeline。
 - learning daily pipeline。
 
+### Phase 6 能力
+
+- LLM provider config。
+- prompt registry。
+- mock/dry-run LLM agent client。
+- LLM proponent agent。
+- LLM critic agent。
+- LLM judge agent。
+- LLM rewrite suggestion agent。
+- agent run log。
+- cost/error tracking。
+- human agent evaluation template。
+- phase6 daily agent pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make learning-daily
+make phase6-daily
 ```
 
-该命令串联 Phase 3 Agent Review、Phase 4 发布准备与反馈学习、Phase 5 头部内容模式学习反哺。
-
-## 最近实测基线
-
-- `make phase4-daily`：SUCCESS。
-- publishing candidates：2。
-- human feedback template items：2。
-- review outcome memory records：3。
-- rule update suggestions：1。
-- `make phase5-daily`：SUCCESS。
-- pattern library patterns：8。
-- title patterns：35。
-- opening patterns：10。
-- structure patterns：4。
-- content recipe suggestions：4。
-- pattern adapters：5。
-- `make learning-daily`：SUCCESS。
-- `make doctor`：通过，仅 network_check 默认跳过。
-- `make path-audit`：通过，HIGH 约 59。
+该命令默认使用 mock/dry-run LLM agent，不需要 API key。它会先运行既有 learning daily 链路，再执行 LLM provider / prompt 校验、LLM proponent / critic / judge / rewrite、agent run summary 和人工评估模板生成。
 
 ## 当前边界
 
-- 还没有接真实 LLM Agent。
-- 还没有自动发布。
-- 还没有接公众号/小红书 API。
-- 还没有数据库型长期记忆。
-- 规则建议不会自动应用。
-- pattern adapter 只生成建议，不直接重写 brief/outline。
-- human feedback 仍是文件型模板，不是 UI。
+- 默认仍是 mock/dry-run。
+- 不提交 API key。
+- live provider 仍未正式启用。
+- LLM judge 不直接覆盖 rule judge。
+- rewrite suggestion 不自动覆盖原文。
+- 不自动发布。
+- 没有数据库型长期记忆。
+- 没有真实调度系统。
 
 ## 下一阶段
 
-Phase 6：真实 LLM Agent 接入与多 Agent 调优。
+Phase 7：真实 LLM Live Mode 灰度与自动调度。
 
 优先任务：
 
-- P6-001：LLM Provider Config v1。
-- P6-002：Prompt Registry v1。
-- P6-003：LLM Proponent Agent v1。
-- P6-004：LLM Critic Agent v1。
-- P6-005：LLM Judge Agent v1。
-- P6-006：LLM Rewrite Agent v1。
-- P6-007：Agent Run Log / Cost / Error Tracking v1。
-- P6-008：Human-in-the-loop Agent Evaluation v1。
+- P7-001：OpenAI Live Adapter Pilot。
+- P7-002：LLM Agent A/B Comparison。
+- P7-003：Agent Rewrite Loop v1。
+- P7-004：Daily Scheduler v1。
+- P7-005：Failure Notification v1。
+- P7-006：Retry / Fallback Runner v1。
+- P7-007：Weekly Content Retro v1。

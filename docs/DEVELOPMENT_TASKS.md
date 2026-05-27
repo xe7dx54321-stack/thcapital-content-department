@@ -7,7 +7,7 @@
 - 不破坏 official lane、topic capture lane 和现有生成产物格式。
 - generated artifacts 默认不进入 Git；需要共享时提取小型摘要。
 - 不提交 `.env`、本机绝对路径、cookie、token、数据库或本地运行态文件。
-- 自动发布、LLM 生成、真实平台 API、人工反馈学习都必须有独立 checkpoint。
+- 自动发布、真实 LLM live mode、真实平台 API、人工反馈学习都必须有独立 checkpoint。
 
 ## Phase 0：已完成
 
@@ -25,212 +25,167 @@
 
 - P3-001 到 P3-009 已完成，覆盖 agent review queue、proponent / critic / judge、revision instructions、human exception queue、agent review dashboard 与 phase3 daily pipeline。
 
-## Phase 4：发布准备、反馈学习与策略迭代 v1
+## Phase 4：已完成
 
-### P4-001：Publishing Candidate Queue v1
+- P4-001 到 P4-007 已完成，覆盖 publishing candidate queue、human feedback template、review outcome memory、rule update suggestions、learning loop dashboard 与 phase4 daily pipeline。
 
-状态：Done。
+## Phase 5：已完成
 
-目标：
+- P5-001 到 P5-008 已完成，覆盖 head media pattern library、title/opening/structure pattern extraction、content recipe suggestions、pattern adapters、phase5 daily learning pipeline 与 learning daily pipeline。
 
-- 将 Judge Gate 通过的内容进入发布候选队列。
-- 不自动发布。
-- 为每个 package 记录 publish readiness、platform、人工确认状态。
-
-### P4-002：Human Feedback Capture v1
-
-状态：Done。
-
-目标：
-
-- 生成人工反馈模板。
-- 校验 human_action、human_score、publishing_candidate_id 和 title。
-- 保持文件型反馈，不引入 UI 或数据库。
-
-### P4-003：Review Outcome Memory v1
-
-状态：Done。
-
-目标：
-
-- 汇总 publishing candidate、human feedback、judge/proponent/critic 结果。
-- 以 JSON/Markdown 形式维护轻量历史记忆。
-
-### P4-004：Rule Update Suggestion v1
-
-状态：Done。
-
-目标：
-
-- 基于 outcome memory 生成规则调整建议。
-- 不自动修改 value scoring、brief、outline、review rules。
-
-### P4-005：Learning Loop Dashboard v1
-
-状态：Done。
-
-目标：
-
-- 展示 publishing candidates、pending feedback、recent outcomes、feedback tags 和 rule suggestions。
-
-### P4-006：Phase 4 Daily Pipeline v1
-
-状态：Done。
-
-目标：
-
-- 新增 `make phase4-daily`。
-- 串联 Phase 3 daily、publishing candidates、feedback template、feedback validation、outcome memory、rule suggestions 和 dashboard。
-
-### P4-007：Phase 4 Closeout
-
-状态：Done。
-
-目标：
-
-- 新增 Phase 4 closeout 报告。
-- 维护项目状态和任务清单。
-
-## Phase 5：头部内容学习反哺系统 v1
-
-### P5-001：Head Media Pattern Library v1
-
-状态：Done。
-
-目标：
-
-- 建立统一 pattern library 文件结构。
-- 将当前内容资产中的可复用标题、开头、结构、角度和平台模式记录为模式库。
-
-### P5-002：Title Pattern Extractor v1
-
-状态：Done。
-
-目标：
-
-- 从 outlines、drafts、platform packages 中抽取标题模式。
-- 识别 question、numbered_list、contrast、why_now、big_company、new_opportunity、risk_warning、how_to、trend_signal、case_study 等类型。
-
-### P5-003：Opening Pattern Extractor v1
-
-状态：Done。
-
-目标：
-
-- 抽取文章开头模式。
-- 识别 news_first、contrarian、problem_solution、data_hook、scenario_hook、question_hook、executive_summary、trend_observation。
-
-### P5-004：Article Structure Pattern Extractor v1
-
-状态：Done。
-
-目标：
-
-- 抽取文章结构模式。
-- 识别 news_analysis、trend_analysis、company_breakdown、technical_explainer、investment_logic、tool_guide、listicle、case_study。
-
-### P5-005：Content Recipe Suggestion v1
-
-状态：Done。
-
-目标：
-
-- 将 title/opening/structure patterns 转成 content recipe 建议。
-- 不自动应用到规则文件。
-
-### P5-006：Pattern-to-Brief / Pattern-to-Outline Adapter v1
-
-状态：Done。
-
-目标：
-
-- 将模式库以建议形式反哺 content brief 和 outline。
-- 只生成 adapter recommendations，不改写 latest briefs/outlines。
-
-### P5-007：Phase 5 Daily Learning Pipeline v1
-
-状态：Done。
-
-目标：
-
-- 新增 `make phase5-daily`。
-- 串联 pattern library、title/opening/structure extractors、recipe suggestions 和 pattern adapters。
-
-### P5-008：Phase 5 Closeout
-
-状态：Done。
-
-目标：
-
-- 新增 Phase 5 closeout 报告。
-- 明确 Phase 6 入口。
-
-## 总入口
-
-### learning-daily
-
-状态：Done。
-
-目标：
-
-- 新增 `make learning-daily`。
-- 串联 Phase 3、Phase 4、Phase 5 日常链路。
-
-## Phase 6：真实 LLM Agent 接入与多 Agent 调优
+## Phase 6：真实 LLM Agent 接入与多 Agent 调优 v1
 
 ### P6-001：LLM Provider Config v1
 
+状态：Done。
+
 目标：
 
-- 建立 LLM provider 配置。
-- 支持 OpenAI / Anthropic / Gemini 等 provider 占位。
-- 不把 API key 提交进 Git。
-- 先支持 dry-run / mock mode。
+- 建立 `config/llm_providers.json`。
+- 默认 provider 为 mock，默认 mode 为 dry_run。
+- API key 只从环境变量读取，不提交 `.env` 或真实 key。
 
 ### P6-002：Prompt Registry v1
 
-目标：
-
-- 管理 proponent / critic / judge / rewrite agent 的 prompt。
-- 支持版本号、输入 schema、输出 schema。
-
-### P6-003：LLM Proponent Agent v1
+状态：Done。
 
 目标：
 
-- 用真实 LLM 替换或增强规则型 proponent review。
+- 建立 `config/agent_prompts.json`。
+- 管理 proponent / critic / judge / rewrite agent 的 prompt、输入 schema、输出 schema 和版本号。
+- prompt 明确要求只使用输入 evidence、不编造事实、返回 JSON、不发布。
+
+### P6-003：LLM Agent Client v1
+
+状态：Done。
+
+目标：
+
+- 新增 mock-first LLM agent client。
+- 支持结构化 request / response。
+- 非 mock live provider 在 v1 中保持占位，不默认发起真实网络调用。
+
+### P6-004：LLM Proponent Agent v1
+
+状态：Done。
+
+目标：
+
+- 基于 review queue、platform package 和 content brief 生成 LLM proponent review。
+- 默认 mock/dry-run。
 - 保留规则型 fallback。
 
-### P6-004：LLM Critic Agent v1
+### P6-005：LLM Critic Agent v1
+
+状态：Done。
 
 目标：
 
-- 用真实 LLM 做建设性批评。
-- 输出结构化 critic review。
+- 基于 review queue、platform package 和 quality review 生成 LLM critic review。
+- 输出结构化 concerns、suggestions 和 must-fix。
+- 保留规则型 fallback。
 
-### P6-005：LLM Judge Agent v1
+### P6-006：LLM Judge Agent v1
 
-目标：
-
-- 用真实 LLM 做裁判决策。
-- 保留人工抽检阈值。
-
-### P6-006：LLM Rewrite Agent v1
+状态：Done。
 
 目标：
 
-- 根据 revision instructions 自动生成改稿建议。
-- 不自动发布。
+- 基于 LLM proponent / critic 与 rule judge 生成 LLM judge sidecar。
+- 不直接覆盖 rule judge。
+- 冲突时记录 comparison 并建议 human spot check。
 
-### P6-007：Agent Run Log / Cost / Error Tracking v1
+### P6-007：LLM Rewrite Agent v1
 
-目标：
-
-- 记录每次 Agent 调用、耗时、状态、成本、错误。
-
-### P6-008：Human-in-the-loop Agent Evaluation v1
+状态：Done。
 
 目标：
 
-- 比较规则型 Agent 与 LLM Agent 的差异。
-- 记录人工对 Agent 输出的评分。
+- 基于 revision instructions、draft、platform package 和 LLM reviews 生成 rewrite suggestions。
+- 不自动覆盖原稿。
+
+### P6-008：Agent Run Log / Cost / Error Tracking v1
+
+状态：Done。
+
+目标：
+
+- 记录每次 LLM agent 调用，包括 mock/dry-run。
+- 记录 provider、model、mode、状态、token 估算、成本估算、错误和 fallback。
+- 生成 agent run summary。
+
+### P6-009：Human-in-the-loop Agent Evaluation v1
+
+状态：Done。
+
+目标：
+
+- 生成 LLM agent 输出的人工评估模板。
+- 校验评分、action、agent_name 和 artifact_id。
+
+### P6-010：Phase 6 Daily Agent Pipeline v1
+
+状态：Done。
+
+目标：
+
+- 新增 `make phase6-daily`。
+- 串联 learning daily、provider config validate、prompt validate、LLM agent reviews、run summary 和 evaluation template。
+
+### P6-011：Phase 6 Closeout
+
+状态：Done。
+
+目标：
+
+- 新增 Phase 6 closeout 报告。
+- 维护项目状态和任务清单。
+- 明确 Phase 7 入口。
+
+## Phase 7：真实 LLM Live Mode 灰度与自动调度
+
+### P7-001：OpenAI Live Adapter Pilot
+
+目标：
+
+- 在不破坏 mock/dry-run 的前提下，选择一个 agent 做 live adapter pilot。
+- API key 只从环境变量读取。
+- 输出和 mock agent 使用同一 schema。
+
+### P7-002：LLM Agent A/B Comparison
+
+目标：
+
+- 比较 rule agent、mock agent、live LLM agent 的输出差异。
+
+### P7-003：Agent Rewrite Loop v1
+
+目标：
+
+- 使用 rewrite suggestions 生成候选改稿，但不自动覆盖原稿。
+
+### P7-004：Daily Scheduler v1
+
+目标：
+
+- 建立本地每日调度入口。
+- 不依赖云服务，先支持本机 cron/launchd 文档。
+
+### P7-005：Failure Notification v1
+
+目标：
+
+- 生成失败通知报告。
+- 暂不接微信/邮件真实推送。
+
+### P7-006：Retry / Fallback Runner v1
+
+目标：
+
+- 对采集失败源建立重试与 fallback 入口。
+
+### P7-007：Weekly Content Retro v1
+
+目标：
+
+- 每周汇总内容表现、人工反馈、Agent 输出质量和规则调整建议。

@@ -1,4 +1,4 @@
-.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily content-briefs content-outlines content-drafts content-quality-review platform-packages content-workbench phase2-daily review-queue proponent-reviews critic-reviews judge-gate revision-instructions human-exception-queue agent-review-dashboard phase3-daily publishing-candidates human-feedback-template human-feedback-validate review-outcome-memory rule-update-suggestions learning-loop-dashboard phase4-daily head-media-patterns title-patterns opening-patterns structure-patterns content-recipe-suggestions pattern-adapters phase5-daily learning-daily status
+.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily content-briefs content-outlines content-drafts content-quality-review platform-packages content-workbench phase2-daily review-queue proponent-reviews critic-reviews judge-gate revision-instructions human-exception-queue agent-review-dashboard phase3-daily publishing-candidates human-feedback-template human-feedback-validate review-outcome-memory rule-update-suggestions learning-loop-dashboard phase4-daily head-media-patterns title-patterns opening-patterns structure-patterns content-recipe-suggestions pattern-adapters phase5-daily learning-daily llm-config-validate agent-prompts-validate llm-agent-smoke llm-proponent-reviews llm-critic-reviews llm-judge-gate llm-rewrite-suggestions agent-run-summary agent-evaluation-template agent-evaluation-validate phase6-daily status
 
 PYTHON ?= python3
 
@@ -164,6 +164,39 @@ phase5-daily:
 
 learning-daily:
 	$(PYTHON) scripts/run_learning_daily_pipeline.py
+
+llm-config-validate:
+	$(PYTHON) scripts/validate_llm_provider_config.py
+
+agent-prompts-validate:
+	$(PYTHON) scripts/validate_agent_prompts.py
+
+llm-agent-smoke:
+	$(PYTHON) scripts/run_llm_agent_client_smoke.py
+
+llm-proponent-reviews:
+	$(PYTHON) scripts/run_llm_proponent_reviews.py
+
+llm-critic-reviews:
+	$(PYTHON) scripts/run_llm_critic_reviews.py
+
+llm-judge-gate:
+	$(PYTHON) scripts/run_llm_judge_gate.py
+
+llm-rewrite-suggestions:
+	$(PYTHON) scripts/run_llm_rewrite_suggestions.py
+
+agent-run-summary:
+	$(PYTHON) scripts/build_agent_run_summary.py
+
+agent-evaluation-template:
+	$(PYTHON) scripts/build_agent_evaluation_template.py
+
+agent-evaluation-validate:
+	$(PYTHON) scripts/validate_agent_evaluation.py
+
+phase6-daily:
+	$(PYTHON) scripts/run_phase6_daily_agent_pipeline.py
 
 status:
 	bash 内容工厂控制台/status.sh
