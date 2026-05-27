@@ -457,6 +457,48 @@ logs/
 同行资本市场内容系统/11_frontstage/*phase7-daily-pipeline-board.md
 同行资本市场内容系统/11_frontstage/latest_phase7_daily_pipeline_board.md
 
+# Phase 8 runtime store
+同行资本市场内容系统/12_runtime_store/*.db
+同行资本市场内容系统/12_runtime_store/*.sqlite
+同行资本市场内容系统/12_runtime_store/*.sqlite3
+同行资本市场内容系统/12_runtime_store/*.db-shm
+同行资本市场内容系统/12_runtime_store/*.db-wal
+
+# Phase 8 generated artifacts
+同行资本市场内容系统/10_logs/*runtime-store-summary*.json
+同行资本市场内容系统/10_logs/*runtime-store-summary*.md
+同行资本市场内容系统/10_logs/latest_runtime_store_summary.json
+同行资本市场内容系统/10_logs/latest_runtime_store_summary.md
+同行资本市场内容系统/11_frontstage/*runtime-store-summary-board.md
+同行资本市场内容系统/11_frontstage/latest_runtime_store_summary_board.md
+
+同行资本市场内容系统/10_logs/*artifact-repository-summary*.json
+同行资本市场内容系统/10_logs/*artifact-repository-summary*.md
+同行资本市场内容系统/10_logs/latest_artifact_repository_summary.json
+同行资本市场内容系统/10_logs/latest_artifact_repository_summary.md
+
+同行资本市场内容系统/07_publishing/*publishing-dry-run*.json
+同行资本市场内容系统/07_publishing/*publishing-dry-run*.md
+同行资本市场内容系统/07_publishing/latest_publishing_dry_run.json
+同行资本市场内容系统/07_publishing/latest_publishing_dry_run.md
+
+同行资本市场内容系统/10_logs/*human-review-console*.json
+同行资本市场内容系统/10_logs/latest_human_review_console.json
+同行资本市场内容系统/11_frontstage/*human-review-console*.md
+同行资本市场内容系统/11_frontstage/latest_human_review_console.md
+
+同行资本市场内容系统/10_logs/*cost-budget-guard*.json
+同行资本市场内容系统/10_logs/*cost-budget-guard*.md
+同行资本市场内容系统/10_logs/latest_cost_budget_guard.json
+同行资本市场内容系统/10_logs/latest_cost_budget_guard.md
+
+同行资本市场内容系统/10_logs/*phase8-daily-production-pipeline*.json
+同行资本市场内容系统/10_logs/*phase8-daily-production-pipeline*.md
+同行资本市场内容系统/10_logs/latest_phase8_daily_production_pipeline.json
+同行资本市场内容系统/10_logs/latest_phase8_daily_production_pipeline.md
+同行资本市场内容系统/11_frontstage/*phase8-daily-production-pipeline-board.md
+同行资本市场内容系统/11_frontstage/latest_phase8_daily_production_pipeline_board.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

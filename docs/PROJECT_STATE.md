@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 7：真实 LLM Live Mode 灰度与自动调度 v1。
+Phase 8：生产化运行、数据库化长期记忆与发布集成 v1。
 
 ## 最新 checkpoint
 
-P7-011：Phase 7 Closeout。
+P8-008：Phase 8 Closeout。
 
 ## 已完成
 
@@ -123,6 +123,17 @@ P7-011：Phase 7 Closeout。
 - P7-010 Phase 7 Daily Pipeline v1。
 - P7-011 Phase 7 Closeout。
 
+### Phase 8
+
+- P8-001 SQLite Runtime Store v1。
+- P8-002 Content / Agent Result Repository v1。
+- P8-003 Publishing API Dry-run Adapter v1。
+- P8-004 Human Review UI / Console v1。
+- P8-005 Cost Budget Guard v1。
+- P8-006 Production Runbook v1。
+- P8-007 Phase 8 Daily Production Pipeline v1。
+- P8-008 Phase 8 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -169,7 +180,7 @@ P7-011：Phase 7 Closeout。
 
 - LLM provider config、prompt registry。
 - mock/dry-run LLM agent client。
-- agent model routing：轻量任务使用 `manimax-2.7`，高判断任务使用 `claude-sonnet-4.6`。
+- agent model routing。
 - LLM proponent / critic / judge / rewrite suggestion agents。
 - agent run log、cost/error tracking、human agent evaluation template。
 - phase6 daily agent pipeline。
@@ -187,41 +198,40 @@ P7-011：Phase 7 Closeout。
 - weekly content retro。
 - phase7 daily pipeline。
 
+### Phase 8 能力
+
+- SQLite runtime store。
+- artifact repository API。
+- publishing dry-run adapter。
+- human review console。
+- cost budget guard。
+- production runbook。
+- phase8 daily production pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase7-daily
-```
-
-单个灰度入口：
-
-```bash
-make minimax-proponent-live-pilot
-make claude-critic-live-pilot
-make claude-judge-live-pilot
-make claude-rewrite-live-pilot
+make phase8-daily
 ```
 
 ## 当前边界
 
-- 默认仍是 dry-run。
-- live 必须显式设置 env + allowlist。
-- API key 只从环境变量读取，不进入 Git。
-- judge live 不覆盖 rule judge。
-- rewrite live 不覆盖原稿。
+- SQLite 只做本地索引，不替换 JSON/Markdown。
+- 数据库文件不进入 Git。
+- 发布 API 仍是 dry-run，不真实发布。
+- human review console 不绕过人工确认。
+- cost guard 只做保护与建议，不自动改 config。
+- live 仍必须显式 env + allowlist。
 - 不自动发布。
-- 不自动修改规则。
-- 没有数据库型长期记忆。
-- scheduler 不自动安装系统任务。
-- retry/fallback runner 不重写 fetcher。
+- 不自动改规则。
 
 ## 下一阶段
 
-Phase 8：生产化运行、数据库化长期记忆与发布集成。
+Phase 9：真实发布集成与人机协作 UI。
 
-- P8-001：SQLite Runtime Store v1。
-- P8-002：Content / Agent Result Repository v1。
-- P8-003：Publishing API Dry-run Adapter v1。
-- P8-004：Human Review UI / Console v1。
-- P8-005：Cost Budget Guard v1。
-- P8-006：Production Runbook v1。
+- P9-001：Publishing Platform Credential Config v1。
+- P9-002：Wechat Draft API Dry-run to Sandbox v1。
+- P9-003：Xiaohongshu Manual Package Export v1。
+- P9-004：Review Console UI v2。
+- P9-005：Production Backup / Restore v1。
+- P9-006：Multi-day Analytics Dashboard v1。

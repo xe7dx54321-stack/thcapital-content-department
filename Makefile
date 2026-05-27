@@ -1,4 +1,4 @@
-.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily content-briefs content-outlines content-drafts content-quality-review platform-packages content-workbench phase2-daily review-queue proponent-reviews critic-reviews judge-gate revision-instructions human-exception-queue agent-review-dashboard phase3-daily publishing-candidates human-feedback-template human-feedback-validate review-outcome-memory rule-update-suggestions learning-loop-dashboard phase4-daily head-media-patterns title-patterns opening-patterns structure-patterns content-recipe-suggestions pattern-adapters phase5-daily learning-daily llm-config-validate agent-prompts-validate llm-agent-smoke llm-proponent-reviews llm-critic-reviews llm-judge-gate llm-rewrite-suggestions agent-run-summary agent-evaluation-template agent-evaluation-validate phase6-daily minimax-proponent-live-pilot claude-critic-live-pilot claude-judge-live-pilot claude-rewrite-live-pilot llm-ab-comparison daily-scheduler failure-notification retry-fallback-runner weekly-content-retro phase7-daily status
+.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily content-briefs content-outlines content-drafts content-quality-review platform-packages content-workbench phase2-daily review-queue proponent-reviews critic-reviews judge-gate revision-instructions human-exception-queue agent-review-dashboard phase3-daily publishing-candidates human-feedback-template human-feedback-validate review-outcome-memory rule-update-suggestions learning-loop-dashboard phase4-daily head-media-patterns title-patterns opening-patterns structure-patterns content-recipe-suggestions pattern-adapters phase5-daily learning-daily llm-config-validate agent-prompts-validate llm-agent-smoke llm-proponent-reviews llm-critic-reviews llm-judge-gate llm-rewrite-suggestions agent-run-summary agent-evaluation-template agent-evaluation-validate phase6-daily minimax-proponent-live-pilot claude-critic-live-pilot claude-judge-live-pilot claude-rewrite-live-pilot llm-ab-comparison daily-scheduler failure-notification retry-fallback-runner weekly-content-retro phase7-daily runtime-store-init runtime-store-sync runtime-store-summary artifact-repository-sync publishing-dry-run human-review-console cost-budget-guard phase8-daily status
 
 PYTHON ?= python3
 
@@ -227,6 +227,30 @@ weekly-content-retro:
 
 phase7-daily:
 	$(PYTHON) scripts/run_phase7_daily_pipeline.py
+
+runtime-store-init:
+	$(PYTHON) scripts/init_runtime_store.py
+
+runtime-store-sync:
+	$(PYTHON) scripts/sync_runtime_store.py
+
+runtime-store-summary:
+	$(PYTHON) scripts/build_runtime_store_summary.py
+
+artifact-repository-sync:
+	$(PYTHON) scripts/sync_artifact_repository.py
+
+publishing-dry-run:
+	$(PYTHON) scripts/run_publishing_dry_run.py
+
+human-review-console:
+	$(PYTHON) scripts/run_human_review_console.py --summary
+
+cost-budget-guard:
+	$(PYTHON) scripts/check_cost_budget_guard.py
+
+phase8-daily:
+	$(PYTHON) scripts/run_phase8_daily_production_pipeline.py
 
 status:
 	bash 内容工厂控制台/status.sh
