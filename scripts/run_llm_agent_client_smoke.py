@@ -14,7 +14,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from content_system.llm_agent_client import LLMRequest, call_llm_agent, make_request_id, response_to_dict  # noqa: E402
-from content_system.llm_provider_config import load_llm_provider_config, resolve_mode_from_env, resolve_model_from_env, resolve_provider_from_env  # noqa: E402
+from content_system.llm_provider_config import load_llm_provider_config, resolve_agent_provider_and_model, resolve_mode_from_env  # noqa: E402
 from content_system.prompt_registry import load_prompt_registry, render_prompt  # noqa: E402
 
 
@@ -27,9 +27,8 @@ def main() -> int:
     parser.add_argument("--json", action="store_true", help="Print JSON response.")
     args = parser.parse_args()
     config = load_llm_provider_config(repo_root=REPO_ROOT)
-    provider = resolve_provider_from_env(config, args.provider)
+    provider, model = resolve_agent_provider_and_model(config, args.agent, args.provider, args.model)
     mode = resolve_mode_from_env(config, args.mode)
-    model = resolve_model_from_env(provider, args.model)
     registry = load_prompt_registry(repo_root=REPO_ROOT)
     sample_inputs = {
         "review_item": {"review_item_id": "sample", "title": "Sample AI update", "quality_score": 82, "evidence_ids": ["ev_1", "ev_2"], "source_ids": ["openai_blog"], "target_platforms": ["wechat"]},

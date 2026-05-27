@@ -10,7 +10,7 @@ from typing import Any
 
 from content_system.agent_run_log import response_to_record, upsert_agent_run_record
 from content_system.llm_agent_client import LLMRequest, call_llm_agent, make_request_id
-from content_system.llm_provider_config import load_llm_provider_config, resolve_mode_from_env, resolve_model_from_env, resolve_provider_from_env
+from content_system.llm_provider_config import load_llm_provider_config, resolve_agent_provider_and_model, resolve_mode_from_env
 from content_system.paths import ProjectPaths
 from content_system.prompt_registry import load_prompt_registry, render_prompt
 
@@ -136,9 +136,8 @@ def build_llm_critic_review_report(
     model: str | None = None,
 ) -> LLMCriticReviewReport:
     config = load_llm_provider_config(repo_root=repo_root)
-    provider = resolve_provider_from_env(config, provider_id)
+    provider, resolved_model = resolve_agent_provider_and_model(config, AGENT_NAME, provider_id, model)
     resolved_mode = resolve_mode_from_env(config, mode)
-    resolved_model = resolve_model_from_env(provider, model)
     registry = load_prompt_registry(repo_root=repo_root)
     review_root = paths.market_content_root / "06_review_queue"
     draft_root = paths.market_content_root / "05_draft_packs"

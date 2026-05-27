@@ -29,8 +29,14 @@ def main() -> int:
         "schema_version": config.schema_version,
         "default_provider": config.default_provider,
         "default_mode": config.default_mode,
+        "default_light_provider": config.default_light_provider,
+        "default_light_model": config.default_light_model,
+        "default_reasoning_provider": config.default_reasoning_provider,
+        "default_reasoning_model": config.default_reasoning_model,
         "provider_count": len(config.providers),
         "providers": [provider.provider_id for provider in config.providers if not args.provider or provider.provider_id == args.provider],
+        "agent_model_count": len(config.agent_model_map),
+        "agent_model_map": [asdict(preference) for preference in config.agent_model_map],
         "issues": [asdict(issue) for issue in issues],
         "error_count": counts.get("ERROR", 0),
         "warn_count": counts.get("WARN", 0),
@@ -43,7 +49,10 @@ def main() -> int:
         print(f"schema_version: {payload['schema_version']}")
         print(f"default_provider: {payload['default_provider']}")
         print(f"default_mode: {payload['default_mode']}")
+        print(f"default_light_model: {payload['default_light_provider']}/{payload['default_light_model']}")
+        print(f"default_reasoning_model: {payload['default_reasoning_provider']}/{payload['default_reasoning_model']}")
         print(f"providers: {payload['provider_count']}")
+        print(f"agent_model_map: {payload['agent_model_count']}")
         print("\nIssues:")
         print(f"  ERROR: {payload['error_count']}")
         print(f"  WARN: {payload['warn_count']}")

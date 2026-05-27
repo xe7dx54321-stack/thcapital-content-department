@@ -4,6 +4,7 @@
 
 - 建立 LLM agent prompt registry。
 - 管理 proponent / critic / judge / rewrite agent 的 prompt、输入 schema、输出 schema 和版本。
+- 为每个 LLM prompt 标注 preferred provider / model。
 - 为后续真实 LLM live mode 做 prompt 版本化准备。
 
 ## 新增文件

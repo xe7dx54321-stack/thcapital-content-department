@@ -38,6 +38,8 @@ class AgentPrompt:
     prompt_id: str
     version: str
     agent_role: str
+    preferred_provider: str
+    preferred_model: str
     description: str
     system_prompt: str
     user_prompt_template: str
@@ -85,6 +87,8 @@ def prompt_from_mapping(mapping: dict[str, Any]) -> AgentPrompt:
         prompt_id=str(mapping["prompt_id"]),
         version=str(mapping["version"]),
         agent_role=str(mapping["agent_role"]),
+        preferred_provider=str(mapping.get("preferred_provider", "")),
+        preferred_model=str(mapping.get("preferred_model", "")),
         description=str(mapping["description"]),
         system_prompt=str(mapping["system_prompt"]),
         user_prompt_template=str(mapping["user_prompt_template"]),
@@ -127,6 +131,10 @@ def validate_prompt_registry(registry: PromptRegistry, prompt_filter: str | None
             continue
         if not prompt.version:
             issues.append(ValidationIssue("ERROR", prompt.prompt_id, "version", "version is required"))
+        if not prompt.preferred_provider:
+            issues.append(ValidationIssue("WARN", prompt.prompt_id, "preferred_provider", "preferred_provider is not set"))
+        if not prompt.preferred_model:
+            issues.append(ValidationIssue("WARN", prompt.prompt_id, "preferred_model", "preferred_model is not set"))
         input_required = prompt.input_schema.get("required_fields")
         output_required = prompt.output_schema.get("required_fields")
         if not isinstance(input_required, list) or not input_required:

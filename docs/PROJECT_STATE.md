@@ -175,6 +175,7 @@ P6-011：Phase 6 v1 Closeout。
 - LLM provider config。
 - prompt registry。
 - mock/dry-run LLM agent client。
+- agent model routing：轻量任务使用 `manimax-2.7`，高判断任务使用 `claude-sonnet-4.6`。
 - LLM proponent agent。
 - LLM critic agent。
 - LLM judge agent。
@@ -197,6 +198,7 @@ make phase6-daily
 - 默认仍是 mock/dry-run。
 - 不提交 API key。
 - live provider 仍未正式启用。
+- MiniMax / Anthropic-compatible provider 只配置环境变量名、base URL、非流式 Anthropic Messages API 约定，不保存真实 key。
 - LLM judge 不直接覆盖 rule judge。
 - rewrite suggestion 不自动覆盖原文。
 - 不自动发布。

@@ -43,6 +43,7 @@
 
 - 建立 `config/llm_providers.json`。
 - 默认 provider 为 mock，默认 mode 为 dry_run。
+- 建立 agent model map：轻量任务走 `manimax-2.7`，高判断任务走 `claude-sonnet-4.6`。
 - API key 只从环境变量读取，不提交 `.env` 或真实 key。
 
 ### P6-002：Prompt Registry v1
@@ -53,6 +54,7 @@
 
 - 建立 `config/agent_prompts.json`。
 - 管理 proponent / critic / judge / rewrite agent 的 prompt、输入 schema、输出 schema 和版本号。
+- 在 prompt registry 中记录 LLM Agent 的 preferred provider / model。
 - prompt 明确要求只使用输入 evidence、不编造事实、返回 JSON、不发布。
 
 ### P6-003：LLM Agent Client v1

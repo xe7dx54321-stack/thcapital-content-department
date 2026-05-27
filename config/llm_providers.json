@@ -2,6 +2,10 @@
   "schema_version": "v1",
   "default_provider": "mock",
   "default_mode": "dry_run",
+  "default_light_provider": "manimax",
+  "default_light_model": "manimax-2.7",
+  "default_reasoning_provider": "anthropic",
+  "default_reasoning_model": "claude-sonnet-4.6",
   "providers": [
     {
       "provider_id": "mock",
@@ -12,7 +16,53 @@
       "default_model": "mock-agent-v1",
       "supports_live": false,
       "base_url": "",
+      "base_url_env": "",
+      "api_model": "mock-agent-v1",
+      "model_env": "",
+      "api_style": "mock",
+      "request_path": "",
+      "auth_header": "",
+      "anthropic_version": "",
+      "stream": false,
       "notes": "Default provider for local validation. No network calls."
+    },
+    {
+      "provider_id": "manimax",
+      "label": "MiniMax Anthropic-compatible",
+      "enabled": true,
+      "mode": "dry_run",
+      "api_key_env": "MINIMAX_API_KEY",
+      "default_model": "manimax-2.7",
+      "supports_live": true,
+      "base_url": "https://api.minimaxi.com/anthropic",
+      "base_url_env": "MINIMAX_BASE_URL",
+      "api_model": "MiniMax-M2.7",
+      "model_env": "MINIMAX_MODEL",
+      "api_style": "anthropic_messages",
+      "request_path": "/v1/messages",
+      "auth_header": "x-api-key",
+      "anthropic_version": "2023-06-01",
+      "stream": false,
+      "notes": "Lightweight model lane. Use non-streaming Anthropic Messages API shape when live mode is implemented."
+    },
+    {
+      "provider_id": "anthropic",
+      "label": "Anthropic-compatible Sonnet",
+      "enabled": true,
+      "mode": "dry_run",
+      "api_key_env": "ANTHROPIC_API_KEY",
+      "default_model": "claude-sonnet-4.6",
+      "supports_live": true,
+      "base_url": "https://api.ailinkmax.com",
+      "base_url_env": "ANTHROPIC_BASE_URL",
+      "api_model": "claude-sonnet-4-6",
+      "model_env": "ANTHROPIC_MODEL",
+      "api_style": "anthropic_messages",
+      "request_path": "/v1/messages",
+      "auth_header": "x-api-key",
+      "anthropic_version": "2023-06-01",
+      "stream": false,
+      "notes": "High-judgment model lane. Live mode remains explicit and disabled by default."
     },
     {
       "provider_id": "openai",
@@ -23,18 +73,15 @@
       "default_model": "gpt-4.1-mini",
       "supports_live": true,
       "base_url": "https://api.openai.com",
-      "notes": "Live adapter placeholder. Do not enable live mode without API key."
-    },
-    {
-      "provider_id": "anthropic",
-      "label": "Anthropic",
-      "enabled": false,
-      "mode": "dry_run",
-      "api_key_env": "ANTHROPIC_API_KEY",
-      "default_model": "claude-3-5-sonnet-latest",
-      "supports_live": true,
-      "base_url": "https://api.anthropic.com",
-      "notes": "Provider adapter placeholder."
+      "base_url_env": "",
+      "api_model": "gpt-4.1-mini",
+      "model_env": "",
+      "api_style": "placeholder",
+      "request_path": "",
+      "auth_header": "",
+      "anthropic_version": "",
+      "stream": false,
+      "notes": "Reserved placeholder. Not part of the current Phase 6 model routing."
     },
     {
       "provider_id": "gemini",
@@ -45,7 +92,101 @@
       "default_model": "gemini-1.5-pro",
       "supports_live": true,
       "base_url": "https://generativelanguage.googleapis.com",
-      "notes": "Provider adapter placeholder."
+      "base_url_env": "",
+      "api_model": "gemini-1.5-pro",
+      "model_env": "",
+      "api_style": "placeholder",
+      "request_path": "",
+      "auth_header": "",
+      "anthropic_version": "",
+      "stream": false,
+      "notes": "Reserved placeholder. Not part of the current Phase 6 model routing."
+    }
+  ],
+  "agent_model_map": [
+    {
+      "agent_id": "llm_proponent_agent",
+      "preferred_provider": "manimax",
+      "preferred_model": "manimax-2.7",
+      "task_class": "light",
+      "reason": "正方提案、价值总结、平台建议，属于中轻量任务。"
+    },
+    {
+      "agent_id": "llm_critic_agent",
+      "preferred_provider": "anthropic",
+      "preferred_model": "claude-sonnet-4.6",
+      "task_class": "reasoning",
+      "reason": "需要识别逻辑漏洞、证据不足、事实风险、内容质量问题，属于高智力任务。"
+    },
+    {
+      "agent_id": "llm_judge_agent",
+      "preferred_provider": "anthropic",
+      "preferred_model": "claude-sonnet-4.6",
+      "task_class": "reasoning",
+      "reason": "需要综合正方、反方、质量分、风险，判断是否放行，属于高智力决策任务。"
+    },
+    {
+      "agent_id": "llm_rewrite_agent",
+      "preferred_provider": "anthropic",
+      "preferred_model": "claude-sonnet-4.6",
+      "task_class": "reasoning",
+      "reason": "改稿、结构优化、表达质量提升，对内容质量影响大，属于高智力任务。"
+    },
+    {
+      "agent_id": "title_pattern_extractor",
+      "preferred_provider": "manimax",
+      "preferred_model": "manimax-2.7",
+      "task_class": "light",
+      "reason": "标题模式抽取，轻量分类任务。"
+    },
+    {
+      "agent_id": "opening_pattern_extractor",
+      "preferred_provider": "manimax",
+      "preferred_model": "manimax-2.7",
+      "task_class": "light",
+      "reason": "开头模式识别，轻量结构识别任务。"
+    },
+    {
+      "agent_id": "structure_pattern_extractor",
+      "preferred_provider": "manimax",
+      "preferred_model": "manimax-2.7",
+      "task_class": "light",
+      "reason": "文章结构模式识别，规则/分类为主。"
+    },
+    {
+      "agent_id": "content_recipe_suggestion",
+      "preferred_provider": "anthropic",
+      "preferred_model": "claude-sonnet-4.6",
+      "task_class": "reasoning",
+      "reason": "需要把模式转成内容策略建议，需要更强判断。"
+    },
+    {
+      "agent_id": "pattern_adapter",
+      "preferred_provider": "anthropic",
+      "preferred_model": "claude-sonnet-4.6",
+      "task_class": "reasoning",
+      "reason": "需要判断哪些头部内容模式适合反哺 brief / outline，属于策略型任务。"
+    },
+    {
+      "agent_id": "rule_update_suggestion",
+      "preferred_provider": "anthropic",
+      "preferred_model": "claude-sonnet-4.6",
+      "task_class": "reasoning",
+      "reason": "需要基于反馈判断规则如何调整，属于高智力任务。"
+    },
+    {
+      "agent_id": "learning_loop_dashboard_summary",
+      "preferred_provider": "manimax",
+      "preferred_model": "manimax-2.7",
+      "task_class": "light",
+      "reason": "汇总 dashboard 和生成摘要，轻量任务。"
+    },
+    {
+      "agent_id": "agent_run_summary",
+      "preferred_provider": "manimax",
+      "preferred_model": "manimax-2.7",
+      "task_class": "light",
+      "reason": "日志汇总、成本统计、错误摘要，轻量任务。"
     }
   ],
   "limits": {
