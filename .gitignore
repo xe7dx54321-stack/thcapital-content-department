@@ -499,6 +499,44 @@ logs/
 同行资本市场内容系统/11_frontstage/*phase8-daily-production-pipeline-board.md
 同行资本市场内容系统/11_frontstage/latest_phase8_daily_production_pipeline_board.md
 
+# Phase 9 generated artifacts
+同行资本市场内容系统/11_frontstage/*wechat-workbench*.html
+同行资本市场内容系统/11_frontstage/latest_wechat_workbench.html
+同行资本市场内容系统/11_frontstage/*wechat-workbench-data*.json
+同行资本市场内容系统/11_frontstage/latest_wechat_workbench_data.json
+
+同行资本市场内容系统/11_frontstage/*wechat-article-preview*.html
+同行资本市场内容系统/11_frontstage/latest_wechat_article_preview.html
+
+同行资本市场内容系统/10_logs/*wechat-workbench-data-summary*.json
+同行资本市场内容系统/10_logs/latest_wechat_workbench_data_summary.json
+
+同行资本市场内容系统/10_logs/*workbench-context*.json
+同行资本市场内容系统/10_logs/*workbench-context*.md
+同行资本市场内容系统/10_logs/latest_workbench_context.json
+同行资本市场内容系统/10_logs/latest_workbench_context.md
+
+同行资本市场内容系统/09_workbench_actions/*chief-editor-response*.json
+同行资本市场内容系统/09_workbench_actions/*chief-editor-response*.md
+同行资本市场内容系统/09_workbench_actions/latest_chief_editor_response.json
+同行资本市场内容系统/09_workbench_actions/latest_chief_editor_response.md
+
+同行资本市场内容系统/09_workbench_actions/*pending-actions*.json
+同行资本市场内容系统/09_workbench_actions/*pending-actions*.md
+同行资本市场内容系统/09_workbench_actions/latest_pending_actions.json
+同行资本市场内容系统/09_workbench_actions/latest_pending_actions.md
+
+同行资本市场内容系统/09_workbench_actions/workbench_feedback_memory.json
+同行资本市场内容系统/09_workbench_actions/workbench_feedback_memory.md
+同行资本市场内容系统/11_frontstage/workbench_feedback_memory_board.md
+
+同行资本市场内容系统/10_logs/*phase9-daily-workbench-pipeline*.json
+同行资本市场内容系统/10_logs/*phase9-daily-workbench-pipeline*.md
+同行资本市场内容系统/10_logs/latest_phase9_daily_workbench_pipeline.json
+同行资本市场内容系统/10_logs/latest_phase9_daily_workbench_pipeline.md
+同行资本市场内容系统/11_frontstage/*phase9-daily-workbench-pipeline-board.md
+同行资本市场内容系统/11_frontstage/latest_phase9_daily_workbench_pipeline_board.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

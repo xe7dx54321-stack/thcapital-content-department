@@ -41,127 +41,134 @@
 
 - P7-001 到 P7-011 已完成，覆盖 MiniMax/Claude live pilot、A/B comparison、daily scheduler、failure report、retry/fallback plan、weekly retro 与 phase7 daily pipeline。
 
-## Phase 8：生产化运行、数据库化长期记忆与发布集成 v1
+## Phase 8：已完成
 
-### P8-001：SQLite Runtime Store v1
+- P8-001 到 P8-008 已完成，覆盖 SQLite runtime store、artifact repository、publishing dry-run、human review console、cost budget guard、production runbook 与 phase8 daily pipeline。
 
-状态：Done。
+## Phase 9：微信公众号内容工作台与 Chief Editor Agent v1
 
-目标：
-
-- 建立本地 SQLite runtime store。
-- 记录 pipeline run、agent run、source health、content artifact index。
-- 不替换现有 JSON/Markdown 产物，先做同步索引。
-
-### P8-002：Content / Agent Result Repository v1
+### P9-001：WeChat Workbench Data Builder v1
 
 状态：Done。
 
 目标：
 
-- 为 evidence、brief、draft、review、publish candidate、agent output 建立统一 repository API。
-- 保持文件产物可读、可导出。
+- 构建前台可用数据结构。
+- 汇总推荐选题、公众号文章、Agent 审核、发布候选和系统状态。
 
-### P8-003：Publishing API Dry-run Adapter v1
-
-状态：Done。
-
-目标：
-
-- 建立微信公众号 / 小红书发布 API 的 dry-run adapter。
-- 不真实发布。
-- 只验证字段、素材、平台包结构。
-
-### P8-004：Human Review UI / Console v1
+### P9-002：WeChat Article Preview Renderer v1
 
 状态：Done。
 
 目标：
 
-- 给人工审核、反馈、发布候选确认提供轻量本地 console。
-- 不绕过 human confirmation。
+- 渲染公众号文章 HTML 预览。
+- 模拟真实公众号阅读状态。
 
-### P8-005：Cost Budget Guard v1
-
-状态：Done。
-
-目标：
-
-- 统一读取 agent run log 与 provider config。
-- 检查每日成本预算和调用次数上限。
-- 超限时建议 dry-run / fallback，不自动修改配置。
-
-### P8-006：Production Runbook v1
+### P9-003：WeChat Workbench Frontend v1
 
 状态：Done。
 
 目标：
 
-- 整理生产化运行手册。
-- 包括调度、密钥、本地备份、失败恢复、人工审核、发布 dry-run 和成本控制。
+- 生成极简本地前台。
+- 展示今日选题、公众号文章预览和底部 AI 对话框。
 
-### P8-007：Phase 8 Daily Production Pipeline v1
-
-状态：Done。
-
-目标：
-
-- 新增 `make phase8-daily`。
-- 串联 Phase 7、runtime store、artifact repository、publishing dry-run、human review console 和 cost guard。
-
-### P8-008：Phase 8 Closeout
+### P9-004：Workbench Context Builder v1
 
 状态：Done。
 
 目标：
 
-- 新增 Phase 8 closeout 报告。
+- 为 Chief Editor Agent 构建上下文。
+- 包含当前文章、证据、Agent 审核、source guidance 和 routing guidance。
+
+### P9-005：Chief Editor Agent v1
+
+状态：Done。
+
+目标：
+
+- 识别用户编辑诉求。
+- 输出结构化 intent 和 action plan。
+- 默认 PLAN_ONLY，不自动执行。
+
+### P9-006：Workbench Action Router v1
+
+状态：Done。
+
+目标：
+
+- 将 Chief Editor Agent response 写入 pending action queue。
+- 所有 action `do_not_auto_execute=true`。
+
+### P9-007：Workbench Feedback Memory v1
+
+状态：Done。
+
+目标：
+
+- 沉淀用户偏好。
+- 为后续规则建议和自动修订提供输入。
+
+### P9-008：Phase 9 Daily Workbench Pipeline v1
+
+状态：Done。
+
+目标：
+
+- 新增 `make phase9-daily`。
+- 串联 Phase 8、工作台数据、文章预览、上下文、前台和反馈记忆。
+
+### P9-009：Phase 9 Closeout
+
+状态：Done。
+
+目标：
+
+- 新增 Phase 9 closeout 报告。
 - 更新项目状态和任务清单。
-- 明确 Phase 9 入口。
+- 明确 Phase 10 入口。
 
-## Phase 9：真实发布集成与人机协作 UI
+## Phase 10：Workbench Action Execution 与稿件自动修订 v1
 
-### P9-001：Publishing Platform Credential Config v1
-
-目标：
-
-- 建立发布平台凭证配置结构。
-- 凭证只从环境变量读取。
-- 不提交 token、cookie、session 或 `.env`。
-
-### P9-002：Wechat Draft API Dry-run to Sandbox v1
+### P10-001：Manual Action Approval v1
 
 目标：
 
-- 先对接微信草稿 API 的 sandbox / dry-run 入口。
-- 不直接发布。
+- 为 pending actions 增加人工批准/拒绝/修改状态。
+- 仍不自动发布。
+
+### P10-002：Rewrite Action Executor v1
+
+目标：
+
+- 根据已批准的 rewrite action 生成候选修订稿。
+- 不覆盖原稿。
+
+### P10-003：Evidence Expansion Executor v1
+
+目标：
+
+- 根据 evidence expansion action 生成补证据任务。
+- 不重写 fetcher。
+
+### P10-004：Topic Replacement Executor v1
+
+目标：
+
+- 根据 topic replacement action 生成替换选题建议。
 - 保留人工确认。
 
-### P9-003：Xiaohongshu Manual Package Export v1
+### P10-005：Versioned Article Preview v1
 
 目标：
 
-- 生成小红书人工发布包。
-- 包括标题、正文、标签、图片 brief、证据和风险提示。
-- 不调用真实发布 API。
+- 为原稿和候选修订稿生成版本化预览。
 
-### P9-004：Review Console UI v2
+### P10-006：Workbench Interaction Server v1
 
 目标：
 
-- 将 human review console 升级为更易用的人机协作界面。
-- 支持候选筛选、确认、反馈记录和导出。
-
-### P9-005：Production Backup / Restore v1
-
-目标：
-
-- 为 runtime store 和关键 generated artifacts 建立本地备份/恢复流程。
-- 不上传外部服务。
-
-### P9-006：Multi-day Analytics Dashboard v1
-
-目标：
-
-- 汇总多日 pipeline、content、agent、feedback、cost 数据。
-- 支持观察质量变化和系统稳定性。
+- 建立只监听 `127.0.0.1` 的本地交互 server。
+- 支持从页面提交 Chief Editor message。

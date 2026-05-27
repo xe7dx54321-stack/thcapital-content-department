@@ -1,4 +1,4 @@
-.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily content-briefs content-outlines content-drafts content-quality-review platform-packages content-workbench phase2-daily review-queue proponent-reviews critic-reviews judge-gate revision-instructions human-exception-queue agent-review-dashboard phase3-daily publishing-candidates human-feedback-template human-feedback-validate review-outcome-memory rule-update-suggestions learning-loop-dashboard phase4-daily head-media-patterns title-patterns opening-patterns structure-patterns content-recipe-suggestions pattern-adapters phase5-daily learning-daily llm-config-validate agent-prompts-validate llm-agent-smoke llm-proponent-reviews llm-critic-reviews llm-judge-gate llm-rewrite-suggestions agent-run-summary agent-evaluation-template agent-evaluation-validate phase6-daily minimax-proponent-live-pilot claude-critic-live-pilot claude-judge-live-pilot claude-rewrite-live-pilot llm-ab-comparison daily-scheduler failure-notification retry-fallback-runner weekly-content-retro phase7-daily runtime-store-init runtime-store-sync runtime-store-summary artifact-repository-sync publishing-dry-run human-review-console cost-budget-guard phase8-daily status
+.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily content-briefs content-outlines content-drafts content-quality-review platform-packages content-workbench phase2-daily review-queue proponent-reviews critic-reviews judge-gate revision-instructions human-exception-queue agent-review-dashboard phase3-daily publishing-candidates human-feedback-template human-feedback-validate review-outcome-memory rule-update-suggestions learning-loop-dashboard phase4-daily head-media-patterns title-patterns opening-patterns structure-patterns content-recipe-suggestions pattern-adapters phase5-daily learning-daily llm-config-validate agent-prompts-validate llm-agent-smoke llm-proponent-reviews llm-critic-reviews llm-judge-gate llm-rewrite-suggestions agent-run-summary agent-evaluation-template agent-evaluation-validate phase6-daily minimax-proponent-live-pilot claude-critic-live-pilot claude-judge-live-pilot claude-rewrite-live-pilot llm-ab-comparison daily-scheduler failure-notification retry-fallback-runner weekly-content-retro phase7-daily runtime-store-init runtime-store-sync runtime-store-summary artifact-repository-sync publishing-dry-run human-review-console cost-budget-guard phase8-daily wechat-workbench-data wechat-article-preview wechat-workbench serve-wechat-workbench workbench-context chief-editor-agent workbench-action-router workbench-feedback-memory phase9-daily status
 
 PYTHON ?= python3
 
@@ -251,6 +251,33 @@ cost-budget-guard:
 
 phase8-daily:
 	$(PYTHON) scripts/run_phase8_daily_production_pipeline.py
+
+wechat-workbench-data:
+	$(PYTHON) scripts/build_wechat_workbench_data.py
+
+wechat-article-preview:
+	$(PYTHON) scripts/render_wechat_article_preview.py
+
+wechat-workbench:
+	$(PYTHON) scripts/build_wechat_workbench_frontend.py
+
+serve-wechat-workbench:
+	$(PYTHON) scripts/serve_wechat_workbench.py
+
+workbench-context:
+	$(PYTHON) scripts/build_workbench_context.py
+
+chief-editor-agent:
+	$(PYTHON) scripts/run_chief_editor_agent.py
+
+workbench-action-router:
+	$(PYTHON) scripts/route_workbench_actions.py
+
+workbench-feedback-memory:
+	$(PYTHON) scripts/update_workbench_feedback_memory.py
+
+phase9-daily:
+	$(PYTHON) scripts/run_phase9_daily_workbench_pipeline.py
 
 status:
 	bash 内容工厂控制台/status.sh

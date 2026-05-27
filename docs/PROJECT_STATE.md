@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 8：生产化运行、数据库化长期记忆与发布集成 v1。
+Phase 9：微信公众号内容工作台与 Chief Editor Agent v1。
 
 ## 最新 checkpoint
 
-P8-008：Phase 8 Closeout。
+P9-009：Phase 9 Closeout。
 
 ## 已完成
 
@@ -134,6 +134,18 @@ P8-008：Phase 8 Closeout。
 - P8-007 Phase 8 Daily Production Pipeline v1。
 - P8-008 Phase 8 Closeout。
 
+### Phase 9
+
+- P9-001 WeChat Workbench Data Builder v1。
+- P9-002 WeChat Article Preview Renderer v1。
+- P9-003 WeChat Workbench Frontend v1。
+- P9-004 Workbench Context Builder v1。
+- P9-005 Chief Editor Agent v1。
+- P9-006 Workbench Action Router v1。
+- P9-007 Workbench Feedback Memory v1。
+- P9-008 Phase 9 Daily Workbench Pipeline v1。
+- P9-009 Phase 9 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -208,30 +220,41 @@ P8-008：Phase 8 Closeout。
 - production runbook。
 - phase8 daily production pipeline。
 
+### Phase 9 能力
+
+- WeChat-only local content workbench。
+- WeChat article preview renderer。
+- Chief Editor Agent。
+- workbench context builder。
+- pending action queue。
+- workbench feedback memory。
+- phase9 daily workbench pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase8-daily
+make phase9-daily
 ```
 
 ## 当前边界
 
-- SQLite 只做本地索引，不替换 JSON/Markdown。
-- 数据库文件不进入 Git。
-- 发布 API 仍是 dry-run，不真实发布。
-- human review console 不绕过人工确认。
-- cost guard 只做保护与建议，不自动改 config。
-- live 仍必须显式 env + allowlist。
+- 只做公众号，不做小红书。
+- 不接公众号 API。
+- 不进公众号草稿箱。
 - 不自动发布。
-- 不自动改规则。
+- Chief Editor Agent 默认 plan-only。
+- Action router 只生成 pending actions，不自动执行。
+- 不会覆盖原始稿件。
+- SQLite 只做本地索引，不替换 JSON/Markdown。
+- live 仍必须显式 env + allowlist。
 
 ## 下一阶段
 
-Phase 9：真实发布集成与人机协作 UI。
+Phase 10：Workbench Action Execution 与稿件自动修订 v1。
 
-- P9-001：Publishing Platform Credential Config v1。
-- P9-002：Wechat Draft API Dry-run to Sandbox v1。
-- P9-003：Xiaohongshu Manual Package Export v1。
-- P9-004：Review Console UI v2。
-- P9-005：Production Backup / Restore v1。
-- P9-006：Multi-day Analytics Dashboard v1。
+- P10-001：Manual Action Approval v1。
+- P10-002：Rewrite Action Executor v1。
+- P10-003：Evidence Expansion Executor v1。
+- P10-004：Topic Replacement Executor v1。
+- P10-005：Versioned Article Preview v1。
+- P10-006：Workbench Interaction Server v1。

@@ -1,0 +1,222 @@
+"""Build data for the local WeChat content workbench."""
+
+from __future__ import annotations
+
+import os
+import json
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from typing import Any
+
+from content_system.paths import ProjectPaths
+from content_system.phase7_report_utils import list_payload, read_json, repo_relative, safe_float, safe_int, today_token, utc_now, write_json_and_markdown
+
+
+SCHEMA_VERSION = "v1"
+
+
+@dataclass(frozen=True)
+class WechatWorkbenchDataReport:
+    schema_version: str
+    generated_at: str
+    run_date: str
+    summary: dict[str, Any]
+    topics: tuple[dict[str, Any], ...]
+    articles: tuple[dict[str, Any], ...]
+    selected_article_id: str
+    system_status: dict[str, Any]
+    warnings: tuple[str, ...]
+
+
+def output_paths(paths: ProjectPaths, run_date: str) -> dict[str, Path]:
+    return {
+        "dated_json": paths.frontstage_root / f"{run_date}__wechat-workbench-data.json",
+        "latest_json": paths.frontstage_root / "latest_wechat_workbench_data.json",
+        "summary_dated_json": paths.logs_root / f"{run_date}__wechat-workbench-data-summary.json",
+        "summary_latest_json": paths.logs_root / "latest_wechat_workbench_data_summary.json",
+    }
+
+
+def by_key(items: list[dict[str, Any]], key: str) -> dict[str, dict[str, Any]]:
+    return {str(item.get(key)): item for item in items if item.get(key)}
+
+
+def status_from(judge: dict[str, Any], candidate: dict[str, Any], package: dict[str, Any]) -> str:
+    if candidate:
+        return "ready"
+    decision = str(judge.get("decision") or "")
+    quality = str(package.get("quality_status") or "")
+    publish_status = str(package.get("publish_status") or "")
+    if decision == "APPROVED_FOR_QUEUE" or publish_status == "READY_FOR_HUMAN_REVIEW":
+        if decision == "NEEDS_REVISION":
+            return "needs_revision"
+        return "ready"
+    if decision == "HOLD" or publish_status == "HOLD":
+        return "hold"
+    if decision == "NEEDS_REVISION" or quality.startswith("NEEDS"):
+        return "needs_revision"
+    return "recommended"
+
+
+def build_topics(candidates: list[dict[str, Any]], candidates_by_package: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
+    topics: list[dict[str, Any]] = []
+    for item in candidates:
+        topic_id = str(item.get("cluster_id") or item.get("candidate_id") or f"topic_{len(topics) + 1}")
+        topics.append(
+            {
+                "topic_id": topic_id,
+                "title": item.get("theme") or item.get("title") or "",
+                "score": safe_float(item.get("total_score") or item.get("score")),
+                "score_band": item.get("score_band") or "",
+                "recommended_action": item.get("recommended_action") or "",
+                "why_it_matters": item.get("why_it_matters") or "",
+                "source_ids": item.get("source_ids") or [],
+                "evidence_ids": [ev.get("evidence_id") for ev in item.get("key_evidence", []) if isinstance(ev, dict) and ev.get("evidence_id")],
+                "status": "ready" if candidates_by_package and topics == [] else "recommended",
+            }
+        )
+    return topics
+
+
+def critic_summary(critic: dict[str, Any]) -> str:
+    concerns = critic.get("main_concerns")
+    if isinstance(concerns, list) and concerns:
+        return "; ".join(str(item) for item in concerns[:2])
+    return str(critic.get("severity") or "")
+
+
+def revision_summary(revision: dict[str, Any]) -> str:
+    fixes = []
+    for key in ("title_fixes", "opening_fixes", "logic_fixes", "evidence_fixes"):
+        raw = revision.get(key)
+        if isinstance(raw, list):
+            fixes.extend(str(item) for item in raw[:1])
+    return "; ".join(fixes[:3])
+
+
+def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataReport:
+    market = paths.market_content_root
+    topic_root = market / "03_topic_candidates"
+    draft_root = market / "05_draft_packs"
+    review_root = market / "06_review_queue"
+    publishing_root = market / "07_publishing"
+    candidates_payload = read_json(topic_root / "latest_high_value_candidates.json")
+    packages_payload = read_json(draft_root / "latest_platform_packages.json")
+    quality_payload = read_json(draft_root / "latest_content_quality_review.json")
+    reviews_payload = read_json(review_root / "latest_agent_review_queue.json")
+    proponent_payload = read_json(review_root / "latest_proponent_reviews.json")
+    critic_payload = read_json(review_root / "latest_critic_reviews.json")
+    judge_payload = read_json(review_root / "latest_judge_gate.json")
+    revision_payload = read_json(review_root / "latest_revision_instructions.json")
+    publishing_payload = read_json(publishing_root / "latest_publishing_candidate_queue.json")
+    runtime_summary = read_json(paths.logs_root / "latest_runtime_store_summary.json")
+    phase8 = read_json(paths.logs_root / "latest_phase8_daily_production_pipeline.json")
+    cost = read_json(paths.logs_root / "latest_cost_budget_guard.json")
+    ab = read_json(paths.logs_root / "latest_llm_ab_comparison.json")
+    run_date = str(packages_payload.get("run_date") or candidates_payload.get("run_date") or today_token()).replace("-", "")[:8]
+    warnings: list[str] = []
+
+    candidates = list_payload(candidates_payload, "candidates")
+    packages = list_payload(packages_payload, "packages")
+    review_items_by_package = by_key(list_payload(reviews_payload, "items"), "package_id")
+    quality_by_package = by_key(list_payload(quality_payload, "reviews"), "package_id")
+    proponent_by_review = by_key(list_payload(proponent_payload, "reviews"), "review_item_id")
+    critic_by_review = by_key(list_payload(critic_payload, "reviews"), "review_item_id")
+    judge_by_package = by_key(list_payload(judge_payload, "decisions"), "package_id")
+    revision_by_package = by_key(list_payload(revision_payload, "instructions"), "package_id")
+    publishing_by_package = by_key(list_payload(publishing_payload, "candidates"), "package_id")
+    topics = build_topics(candidates, publishing_by_package)
+    articles: list[dict[str, Any]] = []
+    for package in packages:
+        package_id = str(package.get("package_id") or "")
+        review = review_items_by_package.get(package_id, {})
+        judge = judge_by_package.get(package_id, {})
+        revision = revision_by_package.get(package_id, {})
+        publishing_candidate = publishing_by_package.get(package_id, {})
+        critic = critic_by_review.get(str(review.get("review_item_id") or ""), {})
+        proponent = proponent_by_review.get(str(review.get("review_item_id") or ""), {})
+        quality = quality_by_package.get(package_id, {})
+        wechat = package.get("wechat") if isinstance(package.get("wechat"), dict) else {}
+        article_id = f"article_{package_id}" if package_id else f"article_{len(articles) + 1}"
+        articles.append(
+            {
+                "article_id": article_id,
+                "brief_id": package.get("brief_id") or "",
+                "draft_id": package.get("draft_id") or "",
+                "package_id": package_id,
+                "title": wechat.get("title") or package.get("title") or review.get("title") or "",
+                "wechat_title": wechat.get("title") or "",
+                "wechat_body_markdown": wechat.get("body_markdown") or "",
+                "status": status_from(judge, publishing_candidate, package),
+                "quality_score": safe_float(quality.get("quality_score") or review.get("quality_score")),
+                "judge_decision": judge.get("decision") or "",
+                "critic_summary": critic_summary(critic),
+                "proponent_summary": proponent.get("publish_argument") or "",
+                "revision_summary": revision_summary(revision),
+                "publishing_candidate_id": publishing_candidate.get("publishing_candidate_id") or "",
+                "source_ids": review.get("source_ids") or publishing_candidate.get("source_ids") or [],
+                "evidence_ids": review.get("evidence_ids") or publishing_candidate.get("evidence_ids") or [],
+            }
+        )
+    if not articles:
+        warnings.append("No platform packages found for WeChat article preview.")
+    selected = next((item for item in articles if item.get("publishing_candidate_id")), None)
+    if selected is None:
+        selected = next((item for item in articles if item.get("status") == "ready"), None)
+    if selected is None and articles:
+        selected = sorted(articles, key=lambda item: safe_float(item.get("quality_score")), reverse=True)[0]
+    selected_article_id = str(selected.get("article_id")) if selected else ""
+    ready_count = sum(1 for item in articles if item.get("status") == "ready")
+    needs_revision_count = sum(1 for item in articles if item.get("status") == "needs_revision")
+    summary = {
+        "topic_count": len(topics),
+        "article_count": len(articles),
+        "publishing_candidate_count": len(publishing_by_package),
+        "needs_revision_count": needs_revision_count,
+        "ready_count": ready_count,
+        "llm_judge_conflict_count": safe_int((ab.get("summary") or {}).get("judge_decision_conflict_count")) if isinstance(ab.get("summary"), dict) else 0,
+    }
+    runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
+    system_status = {
+        "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
+        "phase8_status": phase8.get("status") or "UNKNOWN",
+        "cost_guard": cost.get("status") or "UNKNOWN",
+        "live_mode": os.environ.get("THCAP_LLM_MODE", "dry_run"),
+    }
+    return WechatWorkbenchDataReport(
+        SCHEMA_VERSION,
+        utc_now(),
+        run_date,
+        summary,
+        tuple(topics),
+        tuple(articles),
+        selected_article_id,
+        system_status,
+        tuple(warnings),
+    )
+
+
+def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: ProjectPaths, repo_root: Path) -> dict[str, Path]:
+    outputs = output_paths(paths, report.run_date)
+    payload = asdict(report)
+    payload["outputs"] = {key: repo_relative(path, repo_root) for key, path in outputs.items()}
+    summary_payload = {
+        "schema_version": SCHEMA_VERSION,
+        "generated_at": report.generated_at,
+        "run_date": report.run_date,
+        "summary": report.summary,
+        "selected_article_id": report.selected_article_id,
+        "system_status": report.system_status,
+        "warnings": report.warnings,
+    }
+    for key, path in outputs.items():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        if key.startswith("summary"):
+            path.write_text(json.dumps(summary_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        else:
+            path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return outputs
+
+
+def report_to_dict(report: WechatWorkbenchDataReport) -> dict[str, Any]:
+    return asdict(report)
