@@ -27,6 +27,7 @@ class WechatWorkbenchDataReport:
     selected_article_id: str
     system_status: dict[str, Any]
     version_review: dict[str, Any]
+    final_review: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -155,6 +156,43 @@ def build_version_review(paths: ProjectPaths, selected_article_id: str) -> dict[
     }
 
 
+def build_final_review(paths: ProjectPaths, selected_article_id: str) -> dict[str, Any]:
+    publishing_root = paths.market_content_root / "07_publishing"
+    final_payload = read_json(publishing_root / "latest_final_article_candidates.json")
+    checklist_payload = read_json(publishing_root / "latest_final_publish_checklist.json")
+    memory_payload = read_json(publishing_root / "final_candidate_memory.json")
+    analytics_payload = read_json(paths.logs_root / "latest_multiday_version_analytics.json")
+    candidates = list_payload(final_payload, "candidates")
+    checklists = list_payload(checklist_payload, "items")
+    checklist_by_candidate = {str(item.get("final_candidate_id")): item for item in checklists if item.get("final_candidate_id")}
+    selected = {}
+    for candidate in candidates:
+        if candidate.get("source_article_id") == selected_article_id:
+            selected = candidate
+            break
+    if not selected and candidates:
+        selected = candidates[0]
+    checklist = checklist_by_candidate.get(str(selected.get("final_candidate_id") or ""), {}) if selected else {}
+    final_summary = final_payload.get("summary") if isinstance(final_payload.get("summary"), dict) else {}
+    checklist_summary = checklist_payload.get("summary") if isinstance(checklist_payload.get("summary"), dict) else {}
+    return {
+        "candidate_count": safe_int(final_summary.get("candidate_count")),
+        "ready_for_final_review": safe_int(final_summary.get("ready_for_final_review")),
+        "needs_final_check": safe_int(final_summary.get("needs_final_check")),
+        "hold": safe_int(final_summary.get("hold")),
+        "selected_candidate": selected,
+        "selected_checklist": checklist,
+        "memory_summary": memory_payload.get("summary") if isinstance(memory_payload.get("summary"), dict) else {},
+        "checklist_summary": checklist_summary,
+        "multiday_summary": analytics_payload.get("summary") if isinstance(analytics_payload.get("summary"), dict) else {},
+        "policy": {
+            "would_publish": False,
+            "do_not_publish": True,
+            "manual_final_confirmation_required": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -278,8 +316,11 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         "llm_judge_conflict_count": safe_int((ab.get("summary") or {}).get("judge_decision_conflict_count")) if isinstance(ab.get("summary"), dict) else 0,
     }
     version_review = build_version_review(paths, selected_article_id)
+    final_review = build_final_review(paths, selected_article_id)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
+    summary["final_candidate_count"] = final_review.get("candidate_count", 0)
+    summary["final_ready_count"] = final_review.get("ready_for_final_review", 0)
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -297,6 +338,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         selected_article_id,
         system_status,
         version_review,
+        final_review,
         tuple(warnings),
     )
 
@@ -313,6 +355,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "selected_article_id": report.selected_article_id,
         "system_status": report.system_status,
         "version_review": report.version_review,
+        "final_review": report.final_review,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

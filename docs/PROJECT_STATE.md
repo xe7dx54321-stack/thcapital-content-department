@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 11：Workbench Closed-loop Automation 与质量回归 v1。
+Phase 12：Selected Version Promotion 与工作台闭环执行 v1。
 
 ## 最新 checkpoint
 
-P11-008：Phase 11 Closeout。
+P12-008：Phase 12 Closeout。
 
 ## 已完成
 
@@ -169,6 +169,17 @@ P11-008：Phase 11 Closeout。
 - P11-007 Phase 11 Daily Quality Loop Pipeline v1。
 - P11-008 Phase 11 Closeout。
 
+### Phase 12
+
+- P12-001 Accepted Version Promotion v1。
+- P12-002 Final Article Candidate Builder v1。
+- P12-003 Human Final Publish Checklist v1。
+- P12-004 Final Candidate Memory v1。
+- P12-005 Multi-day Version Analytics v1。
+- P12-006 Workbench Final Review Panel v1。
+- P12-007 Phase 12 Daily Finalization Pipeline v1。
+- P12-008 Phase 12 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -277,10 +288,20 @@ P11-008：Phase 11 Closeout。
 - workbench version review panel。
 - phase11 daily quality loop。
 
+### Phase 12 能力
+
+- accepted version promotion。
+- final article candidate。
+- final human publish checklist。
+- final candidate memory。
+- multi-day version analytics。
+- workbench final review panel。
+- phase12 daily finalization pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase11-daily
+make phase12-daily
 ```
 
 ## 当前边界
@@ -293,6 +314,11 @@ make phase11-daily
 - 不自动接受新版本。
 - 不自动改 prompt/rules。
 - 质量评分只作为辅助判断。
+- 不接公众号 API。
+- 不进公众号草稿箱。
+- final candidate 仍需人工确认。
+- checklist 只辅助人工发布。
+- 不会覆盖历史版本。
 - Chief Editor Agent 默认 plan-only。
 - Action router 只生成 pending actions，不自动执行。
 - 不自动批准 action。
@@ -304,11 +330,11 @@ make phase11-daily
 
 ## 下一阶段
 
-Phase 12：Selected Version Promotion 与工作台闭环执行 v1。
+Phase 13：Workbench UI Server v2 与最终人工发布协作 v1。
 
-- P12-001：Accepted Version Promotion v1。
-- P12-002：Final Article Candidate Builder v1。
-- P12-003：Human Final Publish Checklist v1。
-- P12-004：Workbench UI Server v2。
-- P12-005：Multi-day Version Analytics v1。
-- P12-006：Content Quality Regression Test Set v1。
+- P13-001：Workbench UI Server v2。
+- P13-002：Interactive Final Review Actions v1。
+- P13-003：Manual Publish Session Tracker v1。
+- P13-004：Post-publish Manual Metrics Input v1。
+- P13-005：Content Performance Memory v1。
+- P13-006：Performance-to-Learning Feedback Loop v1。

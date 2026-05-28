@@ -610,6 +610,40 @@ logs/
 同行资本市场内容系统/11_frontstage/*phase11-daily-quality-loop-pipeline-board.md
 同行资本市场内容系统/11_frontstage/latest_phase11_daily_quality_loop_pipeline_board.md
 
+# Phase 12 generated artifacts
+同行资本市场内容系统/09_workbench_actions/versions/*promoted-versions*.json
+同行资本市场内容系统/09_workbench_actions/versions/*promoted-versions*.md
+同行资本市场内容系统/09_workbench_actions/versions/latest_promoted_versions.json
+同行资本市场内容系统/09_workbench_actions/versions/latest_promoted_versions.md
+
+同行资本市场内容系统/07_publishing/*final-article-candidates*.json
+同行资本市场内容系统/07_publishing/*final-article-candidates*.md
+同行资本市场内容系统/07_publishing/latest_final_article_candidates.json
+同行资本市场内容系统/07_publishing/latest_final_article_candidates.md
+
+同行资本市场内容系统/07_publishing/*final-publish-checklist*.json
+同行资本市场内容系统/07_publishing/*final-publish-checklist*.md
+同行资本市场内容系统/07_publishing/latest_final_publish_checklist.json
+同行资本市场内容系统/07_publishing/latest_final_publish_checklist.md
+
+同行资本市场内容系统/07_publishing/final_candidate_memory.json
+同行资本市场内容系统/07_publishing/final_candidate_memory.md
+同行资本市场内容系统/11_frontstage/final_candidate_memory_board.md
+
+同行资本市场内容系统/10_logs/*multiday-version-analytics*.json
+同行资本市场内容系统/10_logs/*multiday-version-analytics*.md
+同行资本市场内容系统/10_logs/latest_multiday_version_analytics.json
+同行资本市场内容系统/10_logs/latest_multiday_version_analytics.md
+同行资本市场内容系统/11_frontstage/*multiday-version-analytics-board.md
+同行资本市场内容系统/11_frontstage/latest_multiday_version_analytics_board.md
+
+同行资本市场内容系统/10_logs/*phase12-daily-finalization-pipeline*.json
+同行资本市场内容系统/10_logs/*phase12-daily-finalization-pipeline*.md
+同行资本市场内容系统/10_logs/latest_phase12_daily_finalization_pipeline.json
+同行资本市场内容系统/10_logs/latest_phase12_daily_finalization_pipeline.md
+同行资本市场内容系统/11_frontstage/*phase12-daily-finalization-pipeline-board.md
+同行资本市场内容系统/11_frontstage/latest_phase12_daily_finalization_pipeline_board.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

@@ -398,6 +398,10 @@ button { cursor: pointer; }
   border-color: rgba(31, 122, 92, .28);
   background: linear-gradient(180deg, #fff, #f5fbf8);
 }
+.final-panel {
+  border-color: rgba(169, 120, 36, .32);
+  background: linear-gradient(180deg, #fff, #fff8ed);
+}
 .delta-number {
   display: inline-flex;
   align-items: center;
@@ -427,6 +431,19 @@ button { cursor: pointer; }
   border-color: rgba(31, 122, 92, .35);
   color: var(--accent-ink);
   background: var(--accent-soft);
+}
+.copy-final-content {
+  min-height: 30px;
+  padding: 6px 9px;
+  border: 1px solid #ead7b8;
+  border-radius: 7px;
+  background: #fff;
+  color: var(--gold);
+  font-size: 12px;
+  text-align: left;
+}
+.copy-final-content:hover {
+  background: var(--gold-soft);
 }
 .insight-panel {
   display: flex;
@@ -790,6 +807,7 @@ function renderReader() {
         <div class="review-card wide"><p class="review-label">Critic 摘要</p><p class="review-value">${escapeHtml(shortText(article.critic_summary))}</p></div>
         <div class="review-card wide"><p class="review-label">Revision 建议</p><p class="review-value">${escapeHtml(shortText(article.revision_summary))}</p></div>
         ${renderVersionReviewCard("review-card wide")}
+        ${renderFinalReviewCard("review-card wide")}
         <div class="review-card wide"><p class="review-label">Evidence</p>${renderMiniList(article.evidence_ids, "暂无 evidence")}</div>
         <div class="review-card wide"><p class="review-label">Source</p>${renderMiniList(article.source_ids, "暂无 source")}</div>
       </div>
@@ -824,6 +842,20 @@ function getLatestComparison() {
 function getLatestDecision() {
   const review = getVersionReview();
   return review.latest_decision || {};
+}
+
+function getFinalReview() {
+  return workbenchData.final_review || {};
+}
+
+function getFinalCandidate() {
+  const review = getFinalReview();
+  return review.selected_candidate || {};
+}
+
+function getFinalChecklist() {
+  const review = getFinalReview();
+  return review.selected_checklist || {};
 }
 
 function versionReviewCommand(kind) {
@@ -863,10 +895,38 @@ function renderVersionReviewCard(cardClass = "review-card wide") {
   </div>`;
 }
 
+function renderFinalReviewCard(cardClass = "review-card wide") {
+  const candidate = getFinalCandidate();
+  const checklist = getFinalChecklist();
+  const checks = Array.isArray(checklist.checks) ? checklist.checks : [];
+  if (!candidate.final_candidate_id) {
+    return `<div class="${cardClass} final-panel">
+      <p class="review-label">最终候选稿</p>
+      <p class="review-value">暂无 final article candidate。人工 ACCEPT 版本后运行 <code>make phase12-daily</code>，这里会显示最终人工发布前候选稿。</p>
+    </div>`;
+  }
+  const risks = Array.isArray(candidate.remaining_risks) ? candidate.remaining_risks : [];
+  const warningChecks = checks.filter((item) => item.status !== "PASS").slice(0, 6).map((item) => `${item.label}: ${item.status}${item.note ? " - " + item.note : ""}`);
+  return `<div class="${cardClass} final-panel">
+    <p class="review-label">最终候选稿</p>
+    <p class="review-value"><strong>${escapeHtml(candidate.final_candidate_id)}</strong> · ${escapeHtml(candidate.quality_status || "NEEDS_FINAL_CHECK")} · Checklist ${escapeHtml(checklist.status || "UNREVIEWED")}</p>
+    <p class="review-value">Version ${escapeHtml(candidate.version_id || "-")} · Human score ${escapeHtml(candidate.human_score ?? "-")} · Delta ${escapeHtml(candidate.version_score_delta ?? 0)}</p>
+    <p class="review-label">Remaining risks</p>${renderMiniList(risks, "暂无剩余风险")}
+    <p class="review-label">Checklist warnings</p>${renderMiniList(warningChecks, "Checklist 暂无 WARN/FAIL")}
+    <div class="version-actions">
+      <button class="copy-final-content" type="button" data-copy-kind="title">复制最终标题</button>
+      <button class="copy-final-content" type="button" data-copy-kind="body">复制最终正文</button>
+      <button class="copy-final-content" type="button" data-copy-kind="steps">复制人工发布步骤</button>
+    </div>
+  </div>`;
+}
+
 function renderInsightPanel() {
   const article = getSelectedArticle();
   const comparison = getLatestComparison();
   const decision = getLatestDecision();
+  const finalCandidate = getFinalCandidate();
+  const finalChecklist = getFinalChecklist();
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -902,6 +962,10 @@ function renderInsightPanel() {
     <section class="insight-card version-panel">
       <p class="insight-label">版本质量回归</p>
       <p class="insight-value">${comparison.version_id ? `Delta <span class="delta-number">${escapeHtml(scores.delta ?? 0)}</span> · ${escapeHtml(comparison.recommendation || "HUMAN_REVIEW")} · ${escapeHtml(decision.decision || "UNREVIEWED")}` : "暂无新版本评分"}</p>
+    </section>
+    <section class="insight-card final-panel">
+      <p class="insight-label">最终候选稿</p>
+      <p class="insight-value">${finalCandidate.final_candidate_id ? `${escapeHtml(finalCandidate.quality_status || "NEEDS_FINAL_CHECK")} · ${escapeHtml(finalChecklist.status || "UNREVIEWED")} · would_publish=false` : "暂无 final candidate"}</p>
     </section>`;
 }
 
@@ -974,6 +1038,26 @@ function bindReviewCommandButtons() {
   });
 }
 
+function bindFinalCopyButtons() {
+  document.querySelectorAll(".copy-final-content").forEach((button) => {
+    button.addEventListener("click", () => {
+      const candidate = getFinalCandidate();
+      const checklist = getFinalChecklist();
+      const kind = button.dataset.copyKind || "title";
+      const value = kind === "body"
+        ? (candidate.wechat_body_markdown || candidate.body_markdown || "")
+        : kind === "steps"
+          ? (Array.isArray(checklist.manual_steps) ? checklist.manual_steps.join("\\n") : "打开工作台，人工检查 checklist，然后手动复制到公众号后台。")
+          : (candidate.wechat_title || candidate.title || "");
+      copyText(value).then(() => {
+        button.textContent = "已复制";
+      }).catch(() => {
+        button.textContent = "复制失败";
+      });
+    });
+  });
+}
+
 function renderAll() {
   renderTopbar();
   renderTopicRail();
@@ -981,6 +1065,7 @@ function renderAll() {
   renderInsightPanel();
   renderChiefBar();
   bindReviewCommandButtons();
+  bindFinalCopyButtons();
 }
 
 document.querySelectorAll(".mode-tab").forEach((tab) => {

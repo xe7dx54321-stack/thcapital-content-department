@@ -290,12 +290,16 @@
 
 ### P12-001：Accepted Version Promotion v1
 
+状态：Done。
+
 目标：
 
 - 将人工接受的新版本提升为候选最终稿。
 - 不自动发布，不覆盖历史原稿。
 
 ### P12-002：Final Article Candidate Builder v1
+
+状态：Done。
 
 目标：
 
@@ -304,27 +308,95 @@
 
 ### P12-003：Human Final Publish Checklist v1
 
+状态：Done。
+
 目标：
 
 - 生成发布前人工 checklist。
 - 包含事实、证据、标题承诺、风险披露和平台格式检查。
 
-### P12-004：Workbench UI Server v2
+### P12-004：Final Candidate Memory v1
+
+状态：Done。
 
 目标：
 
-- 将版本接受、候选最终稿、最终 checklist 更顺滑地接入本地工作台。
-- 继续只监听本地。
+- 记录 final candidate 历史、checklist 状态和 lessons。
+- 不把 final candidate 视为已发布。
 
 ### P12-005：Multi-day Version Analytics v1
 
-目标：
-
-- 汇总多天版本改稿、接受率、score delta 和失败模式。
-
-### P12-006：Content Quality Regression Test Set v1
+状态：Done。
 
 目标：
 
-- 建立一组内容质量回归样例。
-- 用于测试 prompt/rule 变更是否造成退化。
+- 汇总多日版本改稿、接受率、promotion、final candidate 数量和质量趋势。
+
+### P12-006：Workbench Final Review Panel v1
+
+状态：Done。
+
+目标：
+
+- 将 final candidate 与 checklist 接入微信公众号工作台。
+- 支持复制最终标题、正文和人工发布步骤。
+
+### P12-007：Phase 12 Daily Finalization Pipeline v1
+
+状态：Done。
+
+目标：
+
+- 串联 Phase 11、promotion、final candidate、checklist、memory、analytics 和工作台刷新。
+- 不自动 accept，不自动 publish，不调用公众号 API。
+
+### P12-008：Phase 12 Closeout
+
+状态：Done。
+
+目标：
+
+- 新增 Phase 12 closeout 报告。
+- 明确 Phase 13 入口。
+
+## Phase 13：Workbench UI Server v2 与最终人工发布协作 v1
+
+### P13-001：Workbench UI Server v2
+
+目标：
+
+- 将当前静态工作台升级为更顺滑的本地交互服务。
+- 继续只监听本机，不部署云端。
+
+### P13-002：Interactive Final Review Actions v1
+
+目标：
+
+- 支持在本地工作台中完成 final candidate 的人工确认动作。
+- 所有动作仍写入文件型记录。
+
+### P13-003：Manual Publish Session Tracker v1
+
+目标：
+
+- 记录人工复制、排版、预览、发布前确认过程。
+- 不接公众号 API，不自动发布。
+
+### P13-004：Post-publish Manual Metrics Input v1
+
+目标：
+
+- 支持人工录入阅读、点赞、在看、转发等发布后表现数据。
+- 不自动抓取平台数据。
+
+### P13-005：Content Performance Memory v1
+
+目标：
+
+- 将发布后表现和内容版本、选题、标题、证据质量关联起来。
+
+### P13-006：Performance-to-Learning Feedback Loop v1
+
+目标：
+
+- 把内容表现反馈到选题、标题、开头、结构、规则建议和 Chief Editor 偏好中。
