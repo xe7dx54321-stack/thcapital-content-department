@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 10：Workbench Action Execution 与稿件自动修订 v1。
+Phase 11：Workbench Closed-loop Automation 与质量回归 v1。
 
 ## 最新 checkpoint
 
-P10-008：Phase 10 Closeout。
+P11-008：Phase 11 Closeout。
 
 ## 已完成
 
@@ -158,6 +158,17 @@ P10-008：Phase 10 Closeout。
 - P10-007 Phase 10 Daily Action Pipeline v1。
 - P10-008 Phase 10 Closeout。
 
+### Phase 11
+
+- P11-001 Version Comparison Scoring v1。
+- P11-002 Human Accept / Reject Version v1。
+- P11-003 Article Version Memory v1。
+- P11-004 Action Effectiveness Analytics v1。
+- P11-005 Prompt / Rule Regression Dashboard v1。
+- P11-006 Workbench UI Version Review Panel v1。
+- P11-007 Phase 11 Daily Quality Loop Pipeline v1。
+- P11-008 Phase 11 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -256,10 +267,20 @@ P10-008：Phase 10 Closeout。
 - local workbench interaction server。
 - phase10 daily action pipeline。
 
+### Phase 11 能力
+
+- version comparison scoring。
+- human version accept/reject。
+- article version memory。
+- action effectiveness analytics。
+- prompt/rule regression dashboard。
+- workbench version review panel。
+- phase11 daily quality loop。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase10-daily
+make phase11-daily
 ```
 
 ## 当前边界
@@ -268,6 +289,10 @@ make phase10-daily
 - 不接公众号 API。
 - 不进公众号草稿箱。
 - 不自动发布。
+- 不覆盖原稿。
+- 不自动接受新版本。
+- 不自动改 prompt/rules。
+- 质量评分只作为辅助判断。
 - Chief Editor Agent 默认 plan-only。
 - Action router 只生成 pending actions，不自动执行。
 - 不自动批准 action。
@@ -279,11 +304,11 @@ make phase10-daily
 
 ## 下一阶段
 
-Phase 10：Workbench Action Execution 与稿件自动修订 v1。
+Phase 12：Selected Version Promotion 与工作台闭环执行 v1。
 
-- P10-001：Manual Action Approval v1。
-- P10-002：Rewrite Action Executor v1。
-- P10-003：Evidence Expansion Executor v1。
-- P10-004：Topic Replacement Executor v1。
-- P10-005：Versioned Article Preview v1。
-- P10-006：Workbench Interaction Server v1。
+- P12-001：Accepted Version Promotion v1。
+- P12-002：Final Article Candidate Builder v1。
+- P12-003：Human Final Publish Checklist v1。
+- P12-004：Workbench UI Server v2。
+- P12-005：Multi-day Version Analytics v1。
+- P12-006：Content Quality Regression Test Set v1。

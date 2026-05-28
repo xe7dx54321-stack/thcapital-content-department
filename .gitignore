@@ -573,6 +573,43 @@ logs/
 同行资本市场内容系统/11_frontstage/*phase10-daily-action-pipeline-board.md
 同行资本市场内容系统/11_frontstage/latest_phase10_daily_action_pipeline_board.md
 
+# Phase 11 generated artifacts
+同行资本市场内容系统/09_workbench_actions/versions/*version-comparison-scores*.json
+同行资本市场内容系统/09_workbench_actions/versions/*version-comparison-scores*.md
+同行资本市场内容系统/09_workbench_actions/versions/latest_version_comparison_scores.json
+同行资本市场内容系统/09_workbench_actions/versions/latest_version_comparison_scores.md
+
+同行资本市场内容系统/09_workbench_actions/versions/*version-review-decisions*.json
+同行资本市场内容系统/09_workbench_actions/versions/*version-review-decisions*.md
+同行资本市场内容系统/09_workbench_actions/versions/latest_version_review_decisions.json
+同行资本市场内容系统/09_workbench_actions/versions/latest_version_review_decisions.md
+
+同行资本市场内容系统/11_frontstage/*version-review-board*.md
+同行资本市场内容系统/11_frontstage/latest_version_review_board.md
+
+同行资本市场内容系统/09_workbench_actions/versions/article_version_memory.json
+同行资本市场内容系统/09_workbench_actions/versions/article_version_memory.md
+同行资本市场内容系统/11_frontstage/article_version_memory_board.md
+
+同行资本市场内容系统/10_logs/*action-effectiveness-analytics*.json
+同行资本市场内容系统/10_logs/*action-effectiveness-analytics*.md
+同行资本市场内容系统/10_logs/latest_action_effectiveness_analytics.json
+同行资本市场内容系统/10_logs/latest_action_effectiveness_analytics.md
+同行资本市场内容系统/11_frontstage/*action-effectiveness-analytics-board.md
+同行资本市场内容系统/11_frontstage/latest_action_effectiveness_analytics_board.md
+
+同行资本市场内容系统/11_frontstage/*prompt-rule-regression-dashboard*.md
+同行资本市场内容系统/11_frontstage/latest_prompt_rule_regression_dashboard.md
+同行资本市场内容系统/10_logs/*prompt-rule-regression-dashboard*.json
+同行资本市场内容系统/10_logs/latest_prompt_rule_regression_dashboard.json
+
+同行资本市场内容系统/10_logs/*phase11-daily-quality-loop-pipeline*.json
+同行资本市场内容系统/10_logs/*phase11-daily-quality-loop-pipeline*.md
+同行资本市场内容系统/10_logs/latest_phase11_daily_quality_loop_pipeline.json
+同行资本市场内容系统/10_logs/latest_phase11_daily_quality_loop_pipeline.md
+同行资本市场内容系统/11_frontstage/*phase11-daily-quality-loop-pipeline-board.md
+同行资本市场内容系统/11_frontstage/latest_phase11_daily_quality_loop_pipeline_board.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

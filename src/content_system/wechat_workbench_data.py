@@ -26,6 +26,7 @@ class WechatWorkbenchDataReport:
     articles: tuple[dict[str, Any], ...]
     selected_article_id: str
     system_status: dict[str, Any]
+    version_review: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -107,6 +108,51 @@ def next_step_for_status(status: str, judge_decision: str) -> str:
     if judge_decision:
         return f"根据 Judge 决策 {judge_decision} 做人工复核。"
     return "作为备选选题观察，必要时换角度或补证据。"
+
+
+def latest_for_article(items: list[dict[str, Any]], article_id: str, article_ids: set[str]) -> dict[str, Any]:
+    for item in reversed(items):
+        if str(item.get("source_article_id") or "") in article_ids or str(item.get("source_article_id") or "") == article_id:
+            return item
+    return items[-1] if items else {}
+
+
+def build_version_review(paths: ProjectPaths, selected_article_id: str) -> dict[str, Any]:
+    versions_root = paths.market_content_root / "09_workbench_actions" / "versions"
+    comparison_payload = read_json(versions_root / "latest_version_comparison_scores.json")
+    decision_payload = read_json(versions_root / "latest_version_review_decisions.json")
+    memory_payload = read_json(versions_root / "article_version_memory.json")
+    analytics_payload = read_json(paths.logs_root / "latest_action_effectiveness_analytics.json")
+    comparisons = list_payload(comparison_payload, "comparisons")
+    decisions = list_payload(decision_payload, "decisions")
+    memory_versions = list_payload(memory_payload, "versions")
+    selected_ids = {selected_article_id}
+    latest_comparison = latest_for_article(comparisons, selected_article_id, selected_ids)
+    version_id = str(latest_comparison.get("version_id") or "")
+    decision_by_version = {str(item.get("version_id")): item for item in decisions if item.get("version_id")}
+    memory_by_version = {str(item.get("version_id")): item for item in memory_versions if item.get("version_id")}
+    decision = decision_by_version.get(version_id, {})
+    memory = memory_by_version.get(version_id, {})
+    comp_summary = comparison_payload.get("summary") if isinstance(comparison_payload.get("summary"), dict) else {}
+    analytics_summary = analytics_payload.get("summary") if isinstance(analytics_payload.get("summary"), dict) else {}
+    return {
+        "comparison_count": safe_int(comp_summary.get("comparison_count")),
+        "accept_recommended": safe_int(comp_summary.get("accept_recommended")),
+        "reject_recommended": safe_int(comp_summary.get("reject_recommended")),
+        "revise_more_recommended": safe_int(comp_summary.get("revise_more_recommended")),
+        "human_review_recommended": safe_int(comp_summary.get("human_review_recommended")),
+        "latest_comparison": latest_comparison,
+        "latest_decision": decision,
+        "latest_memory": memory,
+        "memory_summary": memory_payload.get("summary") if isinstance(memory_payload.get("summary"), dict) else {},
+        "effectiveness_summary": analytics_summary,
+        "versioned_preview_path": "同行资本市场内容系统/11_frontstage/latest_versioned_article_preview.html",
+        "policy": {
+            "do_not_publish": True,
+            "do_not_overwrite_original": True,
+            "quality_score_is_advisory": True,
+        },
+    }
 
 
 def critic_summary(critic: dict[str, Any]) -> str:
@@ -231,6 +277,9 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         "ready_count": ready_count,
         "llm_judge_conflict_count": safe_int((ab.get("summary") or {}).get("judge_decision_conflict_count")) if isinstance(ab.get("summary"), dict) else 0,
     }
+    version_review = build_version_review(paths, selected_article_id)
+    summary["version_comparison_count"] = version_review.get("comparison_count", 0)
+    summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -247,6 +296,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         tuple(articles),
         selected_article_id,
         system_status,
+        version_review,
         tuple(warnings),
     )
 
@@ -262,6 +312,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "summary": report.summary,
         "selected_article_id": report.selected_article_id,
         "system_status": report.system_status,
+        "version_review": report.version_review,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

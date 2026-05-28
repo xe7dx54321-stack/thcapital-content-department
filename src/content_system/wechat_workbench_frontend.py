@@ -394,6 +394,40 @@ button { cursor: pointer; }
   line-height: 1.65;
   word-break: break-word;
 }
+.version-panel {
+  border-color: rgba(31, 122, 92, .28);
+  background: linear-gradient(180deg, #fff, #f5fbf8);
+}
+.delta-number {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-weight: 780;
+}
+.version-actions {
+  display: grid;
+  gap: 7px;
+  margin-top: 10px;
+}
+.copy-review-command {
+  min-height: 30px;
+  padding: 6px 9px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--text-soft);
+  font-size: 12px;
+  text-align: left;
+}
+.copy-review-command:hover {
+  border-color: rgba(31, 122, 92, .35);
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+}
 .insight-panel {
   display: flex;
   flex-direction: column;
@@ -755,6 +789,7 @@ function renderReader() {
         <div class="review-card"><p class="review-label">发布候选</p><p class="review-value">${escapeHtml(shortText(article.publishing_candidate_id, "尚未进入发布候选"))}</p></div>
         <div class="review-card wide"><p class="review-label">Critic 摘要</p><p class="review-value">${escapeHtml(shortText(article.critic_summary))}</p></div>
         <div class="review-card wide"><p class="review-label">Revision 建议</p><p class="review-value">${escapeHtml(shortText(article.revision_summary))}</p></div>
+        ${renderVersionReviewCard("review-card wide")}
         <div class="review-card wide"><p class="review-label">Evidence</p>${renderMiniList(article.evidence_ids, "暂无 evidence")}</div>
         <div class="review-card wide"><p class="review-label">Source</p>${renderMiniList(article.source_ids, "暂无 source")}</div>
       </div>
@@ -777,8 +812,62 @@ function renderMiniList(items, emptyText) {
   return `<ul class="mini-list">${list.slice(0, 8).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
 }
 
+function getVersionReview() {
+  return workbenchData.version_review || {};
+}
+
+function getLatestComparison() {
+  const review = getVersionReview();
+  return review.latest_comparison || {};
+}
+
+function getLatestDecision() {
+  const review = getVersionReview();
+  return review.latest_decision || {};
+}
+
+function versionReviewCommand(kind) {
+  const comparison = getLatestComparison();
+  const versionId = comparison.version_id || "";
+  if (!versionId) return "python3 scripts/review_article_version.py --list";
+  if (kind === "accept") return `python3 scripts/review_article_version.py --accept ${versionId} --score 8 --note ${shellQuote("人工确认新版更好")}`;
+  if (kind === "reject") return `python3 scripts/review_article_version.py --reject ${versionId} --note ${shellQuote("人工确认新版不适合")}`;
+  if (kind === "revise") return `python3 scripts/review_article_version.py --revise-more ${versionId} --note ${shellQuote("继续修改后再看")}`;
+  return "python3 scripts/review_article_version.py --list";
+}
+
+function renderVersionReviewCard(cardClass = "review-card wide") {
+  const comparison = getLatestComparison();
+  const decision = getLatestDecision();
+  const scores = comparison.scores || {};
+  const versionId = comparison.version_id || "";
+  if (!versionId) {
+    return `<div class="${cardClass} version-panel">
+      <p class="review-label">版本 Review</p>
+      <p class="review-value">暂无新版本评分。批准并执行 action 后，运行 <code>make phase11-daily</code> 会在这里显示新旧版本质量对比。</p>
+    </div>`;
+  }
+  const improvements = Array.isArray(comparison.improvements) ? comparison.improvements : [];
+  const regressions = Array.isArray(comparison.regressions) ? comparison.regressions : [];
+  return `<div class="${cardClass} version-panel">
+    <p class="review-label">版本 Review</p>
+    <p class="review-value"><strong>${escapeHtml(versionId)}</strong> · 推荐：<span class="badge ready">${escapeHtml(comparison.recommendation || "HUMAN_REVIEW")}</span> · 人工决策：<span class="badge">${escapeHtml(decision.decision || "UNREVIEWED")}</span></p>
+    <p class="review-value">Score delta <span class="delta-number">${escapeHtml(scores.delta ?? 0)}</span> · 原稿 ${escapeHtml(scores.original_overall ?? 0)} → 新版 ${escapeHtml(scores.new_overall ?? 0)}</p>
+    <p class="review-label">Improvements</p>${renderMiniList(improvements, "暂无明显提升")}
+    <p class="review-label">Regressions</p>${renderMiniList(regressions, "暂无明显退化")}
+    <div class="version-actions">
+      <button class="copy-review-command" type="button" data-command="${escapeHtml(versionReviewCommand("accept"))}">复制 Accept 命令</button>
+      <button class="copy-review-command" type="button" data-command="${escapeHtml(versionReviewCommand("reject"))}">复制 Reject 命令</button>
+      <button class="copy-review-command" type="button" data-command="${escapeHtml(versionReviewCommand("revise"))}">复制 Revise-more 命令</button>
+    </div>
+  </div>`;
+}
+
 function renderInsightPanel() {
   const article = getSelectedArticle();
+  const comparison = getLatestComparison();
+  const decision = getLatestDecision();
+  const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
   panel.innerHTML = `
@@ -809,6 +898,10 @@ function renderInsightPanel() {
     <section class="insight-card">
       <p class="insight-label">证据与来源</p>
       <p class="insight-value">${escapeHtml(article.evidence_count ?? (article.evidence_ids || []).length ?? 0)} evidence · ${escapeHtml(article.source_count ?? (article.source_ids || []).length ?? 0)} source</p>
+    </section>
+    <section class="insight-card version-panel">
+      <p class="insight-label">版本质量回归</p>
+      <p class="insight-value">${comparison.version_id ? `Delta <span class="delta-number">${escapeHtml(scores.delta ?? 0)}</span> · ${escapeHtml(comparison.recommendation || "HUMAN_REVIEW")} · ${escapeHtml(decision.decision || "UNREVIEWED")}` : "暂无新版本评分"}</p>
     </section>`;
 }
 
@@ -868,12 +961,26 @@ function copyCommand() {
   });
 }
 
+function bindReviewCommandButtons() {
+  document.querySelectorAll(".copy-review-command").forEach((button) => {
+    button.addEventListener("click", () => {
+      const command = button.dataset.command || "python3 scripts/review_article_version.py --list";
+      copyText(command).then(() => {
+        button.textContent = "已复制";
+      }).catch(() => {
+        button.textContent = "复制失败";
+      });
+    });
+  });
+}
+
 function renderAll() {
   renderTopbar();
   renderTopicRail();
   renderReader();
   renderInsightPanel();
   renderChiefBar();
+  bindReviewCommandButtons();
 }
 
 document.querySelectorAll(".mode-tab").forEach((tab) => {
