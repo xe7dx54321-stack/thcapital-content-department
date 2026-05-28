@@ -537,6 +537,42 @@ logs/
 同行资本市场内容系统/11_frontstage/*phase9-daily-workbench-pipeline-board.md
 同行资本市场内容系统/11_frontstage/latest_phase9_daily_workbench_pipeline_board.md
 
+# Phase 10 generated artifacts
+同行资本市场内容系统/09_workbench_actions/*approved-actions*.json
+同行资本市场内容系统/09_workbench_actions/*approved-actions*.md
+同行资本市场内容系统/09_workbench_actions/latest_approved_actions.json
+同行资本市场内容系统/09_workbench_actions/latest_approved_actions.md
+
+同行资本市场内容系统/11_frontstage/*action-approval-board*.md
+同行资本市场内容系统/11_frontstage/latest_action_approval_board.md
+
+同行资本市场内容系统/09_workbench_actions/versions/*rewrite-versions*.json
+同行资本市场内容系统/09_workbench_actions/versions/*rewrite-versions*.md
+同行资本市场内容系统/09_workbench_actions/versions/latest_rewrite_versions.json
+同行资本市场内容系统/09_workbench_actions/versions/latest_rewrite_versions.md
+
+同行资本市场内容系统/09_workbench_actions/versions/*evidence-expansion*.json
+同行资本市场内容系统/09_workbench_actions/versions/*evidence-expansion*.md
+同行资本市场内容系统/09_workbench_actions/versions/latest_evidence_expansion.json
+同行资本市场内容系统/09_workbench_actions/versions/latest_evidence_expansion.md
+
+同行资本市场内容系统/09_workbench_actions/versions/*topic-replacements*.json
+同行资本市场内容系统/09_workbench_actions/versions/*topic-replacements*.md
+同行资本市场内容系统/09_workbench_actions/versions/latest_topic_replacements.json
+同行资本市场内容系统/09_workbench_actions/versions/latest_topic_replacements.md
+
+同行资本市场内容系统/11_frontstage/*versioned-article-preview*.html
+同行资本市场内容系统/11_frontstage/latest_versioned_article_preview.html
+同行资本市场内容系统/10_logs/*versioned-article-preview*.json
+同行资本市场内容系统/10_logs/latest_versioned_article_preview.json
+
+同行资本市场内容系统/10_logs/*phase10-daily-action-pipeline*.json
+同行资本市场内容系统/10_logs/*phase10-daily-action-pipeline*.md
+同行资本市场内容系统/10_logs/latest_phase10_daily_action_pipeline.json
+同行资本市场内容系统/10_logs/latest_phase10_daily_action_pipeline.md
+同行资本市场内容系统/11_frontstage/*phase10-daily-action-pipeline-board.md
+同行资本市场内容系统/11_frontstage/latest_phase10_daily_action_pipeline_board.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

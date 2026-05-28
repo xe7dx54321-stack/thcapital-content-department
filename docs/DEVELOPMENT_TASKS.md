@@ -146,12 +146,16 @@
 
 ### P10-001：Manual Action Approval v1
 
+状态：Done。
+
 目标：
 
 - 为 pending actions 增加人工批准/拒绝/修改状态。
 - 仍不自动发布。
 
 ### P10-002：Rewrite Action Executor v1
+
+状态：Done。
 
 目标：
 
@@ -160,12 +164,16 @@
 
 ### P10-003：Evidence Expansion Executor v1
 
+状态：Done。
+
 目标：
 
 - 根据 evidence expansion action 生成补证据任务。
 - 不重写 fetcher。
 
 ### P10-004：Topic Replacement Executor v1
+
+状态：Done。
 
 目标：
 
@@ -174,13 +182,77 @@
 
 ### P10-005：Versioned Article Preview v1
 
+状态：Done。
+
 目标：
 
 - 为原稿和候选修订稿生成版本化预览。
 
 ### P10-006：Workbench Interaction Server v1
 
+状态：Done。
+
 目标：
 
 - 建立只监听 `127.0.0.1` 的本地交互 server。
 - 支持从页面提交 Chief Editor message。
+
+### P10-007：Phase 10 Daily Action Pipeline v1
+
+状态：Done。
+
+目标：
+
+- 串联 Phase 9、approval board、action executors、versioned preview 和 feedback memory。
+- 不自动批准 action。
+
+### P10-008：Phase 10 Closeout
+
+状态：Done。
+
+目标：
+
+- 新增 Phase 10 closeout 报告。
+- 明确 Phase 11 入口。
+
+## Phase 11：Workbench Closed-loop Automation 与质量回归 v1
+
+### P11-001：Approved Action Auto-run with Guardrails
+
+目标：
+
+- 仅对已批准 action 建立带 guardrails 的可选自动执行入口。
+- 保留人工停止和回滚机制。
+
+### P11-002：Version Comparison Scoring
+
+目标：
+
+- 比较原稿和新版本质量。
+- 输出结构、证据、标题、开头、风险披露评分。
+
+### P11-003：Human Accept / Reject Version
+
+目标：
+
+- 人工决定是否接受候选版本。
+- 不直接发布。
+
+### P11-004：Article Version Memory
+
+目标：
+
+- 记录版本变更、来源 action、人工决策和最终结果。
+
+### P11-005：Prompt / Rule Regression Dashboard
+
+目标：
+
+- 汇总哪些 action 有用、哪些规则导致质量下降。
+
+### P11-006：Workbench UI Server v2
+
+目标：
+
+- 将 Phase 10 interaction server 接入工作台页面。
+- 保持本地、可控、非发布用途。

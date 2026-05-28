@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 9：微信公众号内容工作台与 Chief Editor Agent v1。
+Phase 10：Workbench Action Execution 与稿件自动修订 v1。
 
 ## 最新 checkpoint
 
-P9-010：WeChat Workbench UI Polish v1。
+P10-008：Phase 10 Closeout。
 
 ## 已完成
 
@@ -147,6 +147,17 @@ P9-010：WeChat Workbench UI Polish v1。
 - P9-009 Phase 9 Closeout。
 - P9-010 WeChat Workbench UI Polish v1。
 
+### Phase 10
+
+- P10-001 Manual Action Approval v1。
+- P10-002 Rewrite Action Executor v1。
+- P10-003 Evidence Expansion Executor v1。
+- P10-004 Topic Replacement Executor v1。
+- P10-005 Versioned Article Preview v1。
+- P10-006 Workbench Interaction Server v1。
+- P10-007 Phase 10 Daily Action Pipeline v1。
+- P10-008 Phase 10 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -234,10 +245,21 @@ P9-010：WeChat Workbench UI Polish v1。
 - workbench feedback memory。
 - phase9 daily workbench pipeline。
 
+### Phase 10 能力
+
+- manual action approval。
+- approved action queue。
+- rewrite action execution。
+- evidence expansion execution。
+- topic replacement execution。
+- versioned article preview。
+- local workbench interaction server。
+- phase10 daily action pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase9-daily
+make phase10-daily
 ```
 
 ## 当前边界
@@ -248,6 +270,9 @@ make phase9-daily
 - 不自动发布。
 - Chief Editor Agent 默认 plan-only。
 - Action router 只生成 pending actions，不自动执行。
+- 不自动批准 action。
+- 所有执行结果生成新版本，不覆盖原稿。
+- interaction server 只监听 `127.0.0.1`。
 - 不会覆盖原始稿件。
 - SQLite 只做本地索引，不替换 JSON/Markdown。
 - live 仍必须显式 env + allowlist。
