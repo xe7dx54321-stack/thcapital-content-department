@@ -1,0 +1,93 @@
+{
+  "schema_version": "v1",
+  "version": "2026-05-28",
+  "recipe_registry_id": "content_strategy_recipes_v1",
+  "description": "同行资本内容类型打法，用于连接 title/opening/structure patterns 与文章生产策略。",
+  "recipes": [
+    {
+      "recipe_id": "trend_judgment",
+      "label": "趋势判断型",
+      "best_for": ["连续信号", "行业方向变化", "模型或产品范式变化"],
+      "not_for": ["单一融资新闻", "缺少证据的猜测"],
+      "required_topic_signals": ["change_intensity", "timing_window", "original_judgment_potential"],
+      "standard_structure": ["hook", "core_judgment", "evidence_chain", "why_now", "industry_implication", "risks", "closing_framework"],
+      "evidence_requirements": {"min_total_evidence": 3, "min_primary_sources": 1, "requires_counterpoint": true},
+      "title_patterns": ["反常识判断", "趋势重估", "为什么现在"],
+      "opening_patterns": ["judgment_first", "question_first"],
+      "common_failures": ["只罗列趋势", "缺少反方", "判断过大"],
+      "quality_bar": {"methodology_total_score_min": 74, "article_score_min": 78}
+    },
+    {
+      "recipe_id": "industry_chain_repricing",
+      "label": "产业链预期型",
+      "best_for": ["算力、模型、工具链、应用层价值迁移", "预算流向变化"],
+      "not_for": ["只影响单一小产品"],
+      "required_topic_signals": ["industry_chain_impact", "expectation_gap", "reader_value"],
+      "standard_structure": ["hook", "core_judgment", "value_chain_map", "winners_losers", "evidence_chain", "risks", "closing_framework"],
+      "evidence_requirements": {"min_total_evidence": 3, "min_primary_sources": 1, "requires_counterpoint": true},
+      "title_patterns": ["谁受益谁承压", "价值链重估", "预算迁移"],
+      "opening_patterns": ["expectation_gap_first", "judgment_first"],
+      "common_failures": ["产业链关系讲不清", "投资含义太泛"],
+      "quality_bar": {"methodology_total_score_min": 72, "article_score_min": 78}
+    },
+    {
+      "recipe_id": "company_project_deep_dive",
+      "label": "公司/项目拆解型",
+      "best_for": ["头部公司新动作", "关键项目", "产品战略变化"],
+      "not_for": ["没有差异化信息的 PR"],
+      "required_topic_signals": ["evidence_strength", "reader_value", "original_judgment_potential"],
+      "standard_structure": ["hook", "what_changed", "product_or_business_logic", "evidence_chain", "market_position", "risks", "closing_framework"],
+      "evidence_requirements": {"min_total_evidence": 3, "min_primary_sources": 1, "requires_counterpoint": true},
+      "title_patterns": ["公司动作背后", "真正变化", "项目拆解"],
+      "opening_patterns": ["fact_then_judgment", "question_first"],
+      "common_failures": ["像公司介绍", "缺少判断", "缺少竞品参照"],
+      "quality_bar": {"methodology_total_score_min": 70, "article_score_min": 76}
+    },
+    {
+      "recipe_id": "technical_route_analysis",
+      "label": "技术路线型",
+      "best_for": ["模型架构", "Agent 框架", "开发者工具", "技术路线选择"],
+      "not_for": ["技术细节不足的营销稿"],
+      "required_topic_signals": ["evidence_strength", "change_intensity", "reader_value"],
+      "standard_structure": ["hook", "technical_question", "route_comparison", "evidence_chain", "product_implication", "risks", "closing_framework"],
+      "evidence_requirements": {"min_total_evidence": 3, "min_primary_sources": 1, "requires_counterpoint": true},
+      "title_patterns": ["路线之争", "技术选择", "为什么不是 X"],
+      "opening_patterns": ["question_first", "evidence_first"],
+      "common_failures": ["技术堆砌", "读者收益不清", "缺少产品含义"],
+      "quality_bar": {"methodology_total_score_min": 70, "article_score_min": 76}
+    },
+    {
+      "recipe_id": "product_strategy_analysis",
+      "label": "产品战略型",
+      "best_for": ["产品入口变化", "分发策略", "商业化策略", "用户工作流变化"],
+      "not_for": ["单点功能更新"],
+      "required_topic_signals": ["change_intensity", "expectation_gap", "reader_value"],
+      "standard_structure": ["hook", "core_judgment", "product_change", "user_workflow", "business_implication", "risks", "closing_framework"],
+      "evidence_requirements": {"min_total_evidence": 2, "min_primary_sources": 1, "requires_counterpoint": false},
+      "title_patterns": ["产品变化背后", "入口迁移", "工作流重构"],
+      "opening_patterns": ["judgment_first", "fact_then_judgment"],
+      "common_failures": ["只讲功能", "不讲用户行为变化"],
+      "quality_bar": {"methodology_total_score_min": 68, "article_score_min": 74}
+    },
+    {
+      "recipe_id": "investment_framework",
+      "label": "投资框架型",
+      "best_for": ["可形成框架的产业变化", "估值/预算/竞争格局重估"],
+      "not_for": ["证据弱的短新闻"],
+      "required_topic_signals": ["industry_chain_impact", "original_judgment_potential", "reader_value"],
+      "standard_structure": ["hook", "investment_question", "core_judgment", "framework", "evidence_chain", "risks", "watchlist"],
+      "evidence_requirements": {"min_total_evidence": 3, "min_primary_sources": 1, "requires_counterpoint": true},
+      "title_patterns": ["投资人该重估什么", "框架更新", "机会与误区"],
+      "opening_patterns": ["question_first", "judgment_first"],
+      "common_failures": ["投资结论空泛", "缺少风险边界", "没有可执行框架"],
+      "quality_bar": {"methodology_total_score_min": 74, "article_score_min": 80}
+    }
+  ],
+  "pattern_integration": {
+    "title_pattern_module": "src/content_system/title_pattern.py",
+    "opening_pattern_module": "src/content_system/opening_pattern.py",
+    "structure_pattern_module": "src/content_system/structure_pattern.py",
+    "recipe_suggestion_module": "src/content_system/content_recipe_suggestion.py",
+    "pattern_adapter_module": "src/content_system/pattern_adapter.py"
+  }
+}

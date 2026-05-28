@@ -682,6 +682,36 @@ logs/
 同行资本市场内容系统/11_frontstage/*phase13-daily-performance-pipeline-board.md
 同行资本市场内容系统/11_frontstage/latest_phase13_daily_performance_pipeline_board.md
 
+# Phase 14 generated artifacts
+同行资本市场内容系统/03_topic_candidates/*methodology-topic-scores*.json
+同行资本市场内容系统/03_topic_candidates/*methodology-topic-scores*.md
+同行资本市场内容系统/03_topic_candidates/latest_methodology_topic_scores.json
+同行资本市场内容系统/03_topic_candidates/latest_methodology_topic_scores.md
+
+同行资本市场内容系统/05_draft_packs/*methodology-article-review*.json
+同行资本市场内容系统/05_draft_packs/*methodology-article-review*.md
+同行资本市场内容系统/05_draft_packs/latest_methodology_article_review.json
+同行资本市场内容系统/05_draft_packs/latest_methodology_article_review.md
+
+同行资本市场内容系统/10_logs/*chief-editor-methodology-context*.json
+同行资本市场内容系统/10_logs/*chief-editor-methodology-context*.md
+同行资本市场内容系统/10_logs/latest_chief_editor_methodology_context.json
+同行资本市场内容系统/10_logs/latest_chief_editor_methodology_context.md
+
+同行资本市场内容系统/10_logs/*methodology-performance-alignment*.json
+同行资本市场内容系统/10_logs/*methodology-performance-alignment*.md
+同行资本市场内容系统/10_logs/latest_methodology_performance_alignment.json
+同行资本市场内容系统/10_logs/latest_methodology_performance_alignment.md
+同行资本市场内容系统/11_frontstage/*methodology-performance-alignment-board.md
+同行资本市场内容系统/11_frontstage/latest_methodology_performance_alignment_board.md
+
+同行资本市场内容系统/10_logs/*phase14-daily-methodology-pipeline*.json
+同行资本市场内容系统/10_logs/*phase14-daily-methodology-pipeline*.md
+同行资本市场内容系统/10_logs/latest_phase14_daily_methodology_pipeline.json
+同行资本市场内容系统/10_logs/latest_phase14_daily_methodology_pipeline.md
+同行资本市场内容系统/11_frontstage/*phase14-daily-methodology-pipeline-board.md
+同行资本市场内容系统/11_frontstage/latest_phase14_daily_methodology_pipeline_board.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

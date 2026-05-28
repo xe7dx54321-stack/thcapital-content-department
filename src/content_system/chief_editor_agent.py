@@ -116,6 +116,34 @@ def agent_to_call(intent: str) -> str:
     }.get(intent, "none")
 
 
+def methodology_notes(paths: ProjectPaths, intent: str) -> dict[str, Any]:
+    context = read_json(paths.logs_root / "latest_chief_editor_methodology_context.json")
+    article = context.get("selected_article_review") if isinstance(context.get("selected_article_review"), dict) else {}
+    topic = context.get("selected_topic_score") if isinstance(context.get("selected_topic_score"), dict) else {}
+    notes: list[str] = []
+    if intent == "rewrite_angle":
+        priorities = article.get("rewrite_priorities") if isinstance(article.get("rewrite_priorities"), list) else []
+        flags = article.get("generic_language_flags") if isinstance(article.get("generic_language_flags"), list) else []
+        if priorities:
+            notes.append("rewrite_priorities: " + "; ".join(str(item) for item in priorities[:3]))
+        if flags:
+            notes.append("generic_language_flags: " + ", ".join(str(item) for item in flags[:5]))
+    if intent == "change_topic" and topic:
+        notes.append(f"methodology_topic_score={topic.get('methodology_total_score')} recommendation={topic.get('recommendation')}")
+        missing = topic.get("missing_requirements") if isinstance(topic.get("missing_requirements"), list) else []
+        if missing:
+            notes.append("missing_requirements: " + "; ".join(str(item) for item in missing[:3]))
+    if intent in {"rewrite_title", "rewrite_opening"} and article:
+        notes.append(f"article_methodology_score={article.get('methodology_total_score')} recipe={article.get('recipe_id')}")
+    return {
+        "available": bool(context),
+        "notes": notes,
+        "selected_topic_score": topic,
+        "selected_article_review": article,
+        "policy": context.get("policy") if isinstance(context.get("policy"), dict) else {"plan_only": True, "auto_apply": False},
+    }
+
+
 def human_reply(intent: str, article: dict[str, Any], actions: list[dict[str, Any]]) -> str:
     title = article.get("wechat_title") or article.get("title") or "当前稿件"
     if intent == "approve":
@@ -134,6 +162,10 @@ def run_chief_editor_agent(paths: ProjectPaths, repo_root: Path, message: str | 
     article = selected_article(context)
     intent = detect_intent(user_message)
     actions = action_for_intent(intent, user_message, article)
+    methodology = methodology_notes(paths, intent)
+    for action in actions:
+        if methodology.get("notes"):
+            action["methodology_notes"] = methodology["notes"]
     msg_id = message_id(run_date, user_message)
     targets = extract_source_targets(user_message)
     payload = {
@@ -153,6 +185,7 @@ def run_chief_editor_agent(paths: ProjectPaths, repo_root: Path, message: str | 
         "execution_policy": "PLAN_ONLY",
         "status": "NEEDS_CONFIRMATION" if intent == "ask_clarification" else "READY_TO_EXECUTE",
         "human_readable_reply": human_reply(intent, article, actions),
+        "methodology_guidance": methodology,
         "provider_id": "anthropic",
         "model": "claude-sonnet-4.6",
         "mode": "dry_run",

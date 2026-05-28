@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 13：Workbench UI Server v2 与最终人工发布协作 v1。
+Phase 14：Content Strategy Methodology Core v1。
 
 ## 最新 checkpoint
 
-P13-009：Phase 13 Closeout。
+P14-010：Phase 14 Closeout。
 
 ## 已完成
 
@@ -192,6 +192,19 @@ P13-009：Phase 13 Closeout。
 - P13-008 Phase 13 Daily Performance Pipeline v1。
 - P13-009 Phase 13 Closeout。
 
+### Phase 14
+
+- P14-001 Topic Selection Methodology v1。
+- P14-002 Article Quality Methodology v1。
+- P14-003 Content Strategy Recipes v1。
+- P14-004 Methodology-based Topic Scoring v1。
+- P14-005 Methodology-based Article Review v1。
+- P14-006 Chief Editor Methodology Adapter v1。
+- P14-007 Workbench Methodology Panel v1。
+- P14-008 Methodology-to-Performance Feedback Alignment v1。
+- P14-009 Phase 14 Daily Methodology Pipeline v1。
+- P14-010 Phase 14 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -321,10 +334,22 @@ P13-009：Phase 13 Closeout。
 - workbench performance panel。
 - phase13 daily performance pipeline。
 
+### Phase 14 能力
+
+- topic selection methodology。
+- article quality methodology。
+- content strategy recipes。
+- methodology-based topic scoring。
+- methodology-based article review。
+- chief editor methodology context。
+- workbench methodology panel。
+- methodology-performance alignment。
+- phase14 daily methodology pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase13-daily
+make phase14-daily
 ```
 
 ## 当前边界
@@ -352,14 +377,16 @@ make phase13-daily
 - 不会覆盖原始稿件。
 - SQLite 只做本地索引，不替换 JSON/Markdown。
 - live 仍必须显式 env + allowlist。
+- 方法论评分不自动替代人工判断。
+- 方法论建议不自动改 config/prompt/rules。
 
 ## 下一阶段
 
-Phase 14：内容表现驱动的选题与写作策略优化 v1。
+Phase 15：Methodology-driven Content Generation v1。
 
-- P14-001：Performance-aware Topic Scoring v1。
-- P14-002：Performance-aware Title Pattern Update v1。
-- P14-003：Performance-aware Opening Strategy Update v1。
-- P14-004：Performance-aware Evidence Strategy v1。
-- P14-005：Chief Editor Preference Profile v1。
-- P14-006：Weekly Strategy Review Board v1。
+- P15-001：Methodology-aware Brief Builder。
+- P15-002：Methodology-aware Outline Builder。
+- P15-003：Methodology-aware Draft Writer。
+- P15-004：Methodology-aware Rewrite Executor。
+- P15-005：Methodology Regression Test Set。
+- P15-006：Human Methodology Calibration Board。

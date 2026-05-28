@@ -446,46 +446,130 @@
 - 新增 Phase 13 closeout 报告。
 - 明确 Phase 14 入口。
 
-## Phase 14：内容表现驱动的选题与写作策略优化 v1
+## Phase 14：Content Strategy Methodology Core v1
 
-### P14-001：Performance-aware Topic Scoring v1
+### P14-001：Topic Selection Methodology v1
 
-目标：
-
-- 将人工录入的真实发布表现作为选题评分的参考信号。
-- 只生成 scoring suggestion，不自动覆盖 value scoring rules。
-
-### P14-002：Performance-aware Title Pattern Update v1
+状态：Done。
 
 目标：
 
-- 基于高表现和低表现内容更新标题模式优先级建议。
-- 不自动改 title pattern registry。
+- 建立统一的选题方法论。
+- 定义 8 个核心维度、一票否决项和进入写作链路前的问题清单。
 
-### P14-003：Performance-aware Opening Strategy Update v1
+### P14-002：Article Quality Methodology v1
 
-目标：
-
-- 分析不同开头模式与阅读、在看、转发的关系。
-- 输出 opening strategy 建议。
-
-### P14-004：Performance-aware Evidence Strategy v1
+状态：Done。
 
 目标：
 
-- 评估证据强度与发布后表现之间的关系。
-- 区分“证据不足”和“标题/开头弱”导致的低表现。
+- 建立统一的公众号文章质量方法论。
+- 定义 10 个质量标准、结构组件和空泛表达识别。
 
-### P14-005：Chief Editor Preference Profile v1
+### P14-003：Content Strategy Recipes v1
 
-目标：
-
-- 将人工反馈、版本接受记录和发布表现合并为 Chief Editor 偏好画像。
-- 辅助后续主编 Agent 更贴近用户判断。
-
-### P14-006：Weekly Strategy Review Board v1
+状态：Done。
 
 目标：
 
-- 每周汇总选题、标题、开头、证据、结构和 Agent action 的表现。
-- 为人工策略复盘提供看板。
+- 建立趋势判断、产业链预期、公司拆解、技术路线、产品战略、投资框架 6 类打法。
+- 与既有 title/opening/structure pattern 模块衔接。
+
+### P14-004：Methodology-based Topic Scoring v1
+
+状态：Done。
+
+目标：
+
+- 在原 value scoring 之外新增方法论选题评分。
+- 输出 WRITE / WATCH / HOLD / REJECT 和推荐 recipe。
+
+### P14-005：Methodology-based Article Review v1
+
+状态：Done。
+
+目标：
+
+- 用文章方法论评审当前 draft、final candidate 和 rewrite version。
+- 输出弱点、空泛表达、缺失结构和重写优先级。
+
+### P14-006：Chief Editor Methodology Adapter v1
+
+状态：Done。
+
+目标：
+
+- 为 Chief Editor 构建方法论上下文。
+- 让 Chief Editor 的 action plan 引用选题/文章方法论。
+
+### P14-007：Workbench Methodology Panel v1
+
+状态：Done。
+
+目标：
+
+- 在微信公众号工作台展示选题方法论评分、文章方法论评分、推荐 recipe 和重写优先级。
+
+### P14-008：Methodology-to-Performance Feedback Alignment v1
+
+状态：Done。
+
+目标：
+
+- 将 performance feedback 与方法论维度对齐。
+- 只生成建议，不自动修改 config/prompt/rules。
+
+### P14-009：Phase 14 Daily Methodology Pipeline v1
+
+状态：Done。
+
+目标：
+
+- 串联 Phase 13、方法论验证、选题评分、文章评审、Chief Editor 方法论上下文、表现对齐和工作台刷新。
+
+### P14-010：Phase 14 Closeout
+
+状态：Done。
+
+目标：
+
+- 新增 Phase 14 closeout 报告。
+- 明确 Phase 15 入口。
+
+## Phase 15：Methodology-driven Content Generation v1
+
+### P15-001：Methodology-aware Brief Builder
+
+目标：
+
+- 让 content brief 直接引用选题方法论和推荐 recipe。
+
+### P15-002：Methodology-aware Outline Builder
+
+目标：
+
+- 让 outline 按 recipe 和文章结构组件组织。
+
+### P15-003：Methodology-aware Draft Writer
+
+目标：
+
+- 让 draft writer 按文章质量方法论生成更高判断密度的稿件。
+
+### P15-004：Methodology-aware Rewrite Executor
+
+目标：
+
+- 让 rewrite executor 按方法论评分的弱点和优先级执行改稿。
+
+### P15-005：Methodology Regression Test Set
+
+目标：
+
+- 建立方法论回归测试集，避免生成链路越改越偏。
+
+### P15-006：Human Methodology Calibration Board
+
+目标：
+
+- 提供人工校准方法论维度、权重和 recipe 的看板。

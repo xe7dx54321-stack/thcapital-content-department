@@ -406,6 +406,10 @@ button { cursor: pointer; }
   border-color: rgba(87, 107, 149, .3);
   background: linear-gradient(180deg, #fff, #f4f6fb);
 }
+.methodology-panel {
+  border-color: rgba(31, 122, 92, .26);
+  background: linear-gradient(180deg, #fff, #f6fbf8);
+}
 .delta-number {
   display: inline-flex;
   align-items: center;
@@ -461,6 +465,30 @@ button { cursor: pointer; }
 }
 .copy-performance-command:hover {
   background: #eef2fa;
+}
+.methodology-score-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 10px 0;
+}
+.methodology-score-item {
+  min-height: 46px;
+  padding: 8px;
+  border: 1px solid rgba(31, 122, 92, .16);
+  border-radius: 7px;
+  background: rgba(255,255,255,.72);
+}
+.methodology-score-item span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+.methodology-score-item strong {
+  display: block;
+  margin-top: 3px;
+  color: var(--accent-ink);
+  font-size: 15px;
 }
 .insight-panel {
   display: flex;
@@ -826,6 +854,7 @@ function renderReader() {
         ${renderVersionReviewCard("review-card wide")}
         ${renderFinalReviewCard("review-card wide")}
         ${renderPerformancePanel("review-card wide")}
+        ${renderMethodologyPanel("review-card wide")}
         <div class="review-card wide"><p class="review-label">Evidence</p>${renderMiniList(article.evidence_ids, "暂无 evidence")}</div>
         <div class="review-card wide"><p class="review-label">Source</p>${renderMiniList(article.source_ids, "暂无 source")}</div>
       </div>
@@ -878,6 +907,25 @@ function getFinalChecklist() {
 
 function getPerformancePanel() {
   return workbenchData.performance_panel || {};
+}
+
+function getMethodologyPanel() {
+  return workbenchData.methodology_panel || {};
+}
+
+function getSelectedMethodologyTopic() {
+  const panel = getMethodologyPanel();
+  const article = getSelectedArticle();
+  const topicId = article.topic_id || "";
+  const topics = Array.isArray(panel.topic_scores) ? panel.topic_scores : [];
+  return topics.find((item) => item.topic_id === topicId) || panel.selected_topic_score || {};
+}
+
+function getSelectedMethodologyArticle() {
+  const panel = getMethodologyPanel();
+  const article = getSelectedArticle();
+  const reviews = Array.isArray(panel.article_reviews) ? panel.article_reviews : [];
+  return reviews.find((item) => item.article_id === article.article_id) || panel.selected_article_review || {};
 }
 
 function getSelectedSession() {
@@ -993,6 +1041,49 @@ function renderPerformancePanel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function renderMethodologyScoreGrid(topic, articleReview) {
+  const topicScores = topic.methodology_scores || {};
+  const articleScores = articleReview.scores || {};
+  const items = [
+    ["选题总分", topic.methodology_total_score ?? "-"],
+    ["文章总分", articleReview.methodology_total_score ?? "-"],
+    ["预期差", topicScores.expectation_gap ?? "-"],
+    ["证据强度", topicScores.evidence_strength ?? "-"],
+    ["核心判断", articleScores.core_judgment ?? "-"],
+    ["判断密度", articleScores.judgment_density ?? "-"]
+  ];
+  return `<div class="methodology-score-grid">${items.map(([label, value]) => `<div class="methodology-score-item"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`).join("")}</div>`;
+}
+
+function renderMethodologyPanel(cardClass = "review-card wide") {
+  const panel = getMethodologyPanel();
+  const topic = getSelectedMethodologyTopic();
+  const articleReview = getSelectedMethodologyArticle();
+  const recommendations = Array.isArray(panel.recommendations) ? panel.recommendations : [];
+  const topicMissing = Array.isArray(topic.missing_requirements) ? topic.missing_requirements : [];
+  const weaknesses = Array.isArray(articleReview.weaknesses) ? articleReview.weaknesses : [];
+  const priorities = Array.isArray(articleReview.rewrite_priorities) ? articleReview.rewrite_priorities : [];
+  const flags = Array.isArray(articleReview.generic_language_flags) ? articleReview.generic_language_flags : [];
+  if (!topic.topic_id && !articleReview.article_id) {
+    return `<div class="${cardClass} methodology-panel">
+      <p class="review-label">内容方法论</p>
+      <p class="review-value">暂无方法论评分。运行 <code>make phase14-daily</code> 后，这里会展示选题方法论、文章方法论和打法 recipe。</p>
+    </div>`;
+  }
+  return `<div class="${cardClass} methodology-panel">
+    <p class="review-label">内容方法论</p>
+    <p class="review-value"><strong>${escapeHtml(topic.recommended_recipe_id || articleReview.recipe_id || "strategy_recipe")}</strong> · 选题 ${escapeHtml(topic.recommendation || "WATCH")} · 文章 ${escapeHtml(articleReview.recommendation || "REVISE")}</p>
+    ${renderMethodologyScoreGrid(topic, articleReview)}
+    <p class="review-label">核心判断</p><p class="review-value">${escapeHtml(shortText(topic.core_judgment || articleReview.review_summary, "尚未形成清晰核心判断"))}</p>
+    <p class="review-label">为什么现在写</p><p class="review-value">${escapeHtml(shortText(topic.why_now, "需要补充当前窗口期判断"))}</p>
+    <p class="review-label">读者收益</p><p class="review-value">${escapeHtml(shortText(topic.reader_value_summary, "需要明确读者读完获得什么"))}</p>
+    <p class="review-label">主要弱点</p>${renderMiniList(weaknesses.concat(topicMissing).slice(0, 8), "暂无主要弱点")}
+    <p class="review-label">重写优先级</p>${renderMiniList(priorities, "暂无重写优先级")}
+    <p class="review-label">空泛表达提示</p>${renderMiniList(flags, "未发现高频空泛表达")}
+    <p class="review-label">表现对齐建议</p>${renderMiniList(recommendations.map((item) => `${item.target_area || "methodology"}: ${item.recommendation || ""}`), "暂无方法论-表现对齐建议")}
+  </div>`;
+}
+
 function renderInsightPanel() {
   const article = getSelectedArticle();
   const comparison = getLatestComparison();
@@ -1001,6 +1092,8 @@ function renderInsightPanel() {
   const finalChecklist = getFinalChecklist();
   const session = getSelectedSession();
   const metrics = getSelectedMetrics();
+  const topicMethodology = getSelectedMethodologyTopic();
+  const articleMethodology = getSelectedMethodologyArticle();
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -1044,6 +1137,10 @@ function renderInsightPanel() {
     <section class="insight-card performance-panel">
       <p class="insight-label">发布表现</p>
       <p class="insight-value">${session.publish_session_id ? `${escapeHtml(session.publish_status || "PLANNED")} · ${escapeHtml(metrics.performance_rating || "UNKNOWN")} · views ${escapeHtml(metrics.views ?? "-")}` : "暂无人工发布 session"}</p>
+    </section>
+    <section class="insight-card methodology-panel">
+      <p class="insight-label">内容方法论</p>
+      <p class="insight-value">${topicMethodology.topic_id || articleMethodology.article_id ? `Topic ${escapeHtml(topicMethodology.methodology_total_score ?? "-")} · Article ${escapeHtml(articleMethodology.methodology_total_score ?? "-")} · ${escapeHtml(topicMethodology.recommended_recipe_id || articleMethodology.recipe_id || "recipe")}` : "暂无方法论评分"}</p>
     </section>`;
 }
 
@@ -1267,6 +1364,12 @@ def render_workbench_html(data: dict[str, Any], paths: ProjectPaths) -> str:
         <button class="quick-action" type="button" data-prompt="今天选题不好，换成 AI Agent 浏览器方向">换选题</button>
         <button class="quick-action" type="button" data-prompt="这篇可以进入发布候选，但仍需人工确认">批准</button>
         <button class="quick-action" type="button" data-prompt="这篇先搁置，等待更多证据">搁置</button>
+        <button class="quick-action" type="button" data-prompt="请按内容方法论重写：增强核心判断、预期差、证据链和判断密度">按方法论重写</button>
+        <button class="quick-action" type="button" data-prompt="核心判断不够清楚，请把文章收束成一句可复述的判断">增强核心判断</button>
+        <button class="quick-action" type="button" data-prompt="请强化这个选题的预期差，说明市场原来以为什么、现在发生了什么变化">强化预期差</button>
+        <button class="quick-action" type="button" data-prompt="请补充产业链影响，说明影响哪些公司、环节和商业模式">补产业链影响</button>
+        <button class="quick-action" type="button" data-prompt="请提升开头张力，用问题、冲突或反常识判断开场">提升开头张力</button>
+        <button class="quick-action" type="button" data-prompt="请提升判断密度，删掉空泛表达，把每段改成有因果、有证据、有判断">提升判断密度</button>
       </div>
       <textarea id="chief-message" placeholder="例如：这篇文章太泛了，改成投资人视角，并补充 OpenAI 和 Anthropic 最近的证据。"></textarea>
       <div class="command-row">

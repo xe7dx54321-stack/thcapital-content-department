@@ -1,0 +1,133 @@
+{
+  "schema_version": "v1",
+  "version": "2026-05-28",
+  "methodology_id": "article_quality_methodology",
+  "label": "公众号文章质量方法论",
+  "description": "定义同行资本 AI/Agent 领域公众号文章的质量标准，强调清晰问题、核心判断、证据链、逻辑推进、读者收益和风险平衡。",
+  "thresholds": {
+    "ready": 78,
+    "revise": 58
+  },
+  "standards": [
+    {
+      "standard_id": "clear_question",
+      "label": "清晰问题",
+      "description": "开头是否提出读者愿意继续读下去的问题。",
+      "scoring_guide": {"0": "没有问题意识", "5": "问题存在但泛", "8": "问题明确且有张力", "10": "问题抓住当前关键矛盾"},
+      "positive_examples": ["这不是一次普通产品更新，而是 Agent 入口竞争的重新定价。"],
+      "negative_examples": ["近期 AI 行业持续发展，值得关注。"],
+      "review_questions": ["文章开头在问什么？", "读者为什么现在需要知道？"],
+      "common_failures": ["以背景介绍代替问题", "开头像新闻综述"]
+    },
+    {
+      "standard_id": "core_judgment",
+      "label": "核心判断",
+      "description": "文章是否能用一句话说清楚自己的判断。",
+      "scoring_guide": {"0": "没有判断", "5": "有判断但不锋利", "8": "判断明确且可争辩", "10": "判断高度浓缩且能统领全文"},
+      "positive_examples": ["Agent 浏览器的价值不在浏览器，而在重写任务入口。"],
+      "negative_examples": ["这个方向未来可期。"],
+      "review_questions": ["一句话核心判断是什么？", "反方会如何挑战？"],
+      "common_failures": ["只有信息堆砌", "判断被多处修饰语稀释"]
+    },
+    {
+      "standard_id": "logic_progression",
+      "label": "逻辑推进",
+      "description": "文章是否逐层推进，而不是平铺事实。",
+      "scoring_guide": {"0": "段落无关系", "5": "有基本顺序", "8": "每节都推进判断", "10": "结构自然形成结论"},
+      "positive_examples": ["先解释变化，再解释预期差，最后解释影响。"],
+      "negative_examples": ["多个新闻点并列陈述。"],
+      "review_questions": ["每一节是否回答上一节留下的问题？", "是否存在可删但不影响结论的段落？"],
+      "common_failures": ["段落像资料卡", "结论突然出现"]
+    },
+    {
+      "standard_id": "evidence_fit",
+      "label": "证据匹配",
+      "description": "证据是否服务核心判断，而不是只是堆链接。",
+      "scoring_guide": {"0": "无证据", "5": "有证据但关联弱", "8": "证据支撑关键判断", "10": "证据链能抵抗反方质疑"},
+      "positive_examples": ["官方文档、产品变更、开发者反馈互相印证。"],
+      "negative_examples": ["引用二手媒体但无法说明为什么重要。"],
+      "review_questions": ["每条证据支撑哪个判断？", "是否至少有一手来源？"],
+      "common_failures": ["证据与判断错位", "只用营销口径"]
+    },
+    {
+      "standard_id": "narrative_tension",
+      "label": "叙事张力",
+      "description": "文章是否有冲突、转折或预期差。",
+      "scoring_guide": {"0": "没有张力", "5": "有轻微差异", "8": "有清晰冲突", "10": "冲突能推动全文阅读"},
+      "positive_examples": ["市场以为是功能更新，实质是分发入口争夺。"],
+      "negative_examples": ["行业加速落地。"],
+      "review_questions": ["读者原来以为什么？", "文章告诉读者哪里不同？"],
+      "common_failures": ["只有正向赞美", "没有反方或不确定性"]
+    },
+    {
+      "standard_id": "reader_relevance",
+      "label": "读者相关",
+      "description": "文章是否切中同行资本读者的产业、投资、产品判断需求。",
+      "scoring_guide": {"0": "与读者无关", "5": "有泛行业价值", "8": "能帮助判断机会/风险", "10": "直接改变读者对公司或赛道的判断"},
+      "positive_examples": ["说明对算力、模型、入口、应用公司的影响。"],
+      "negative_examples": ["只复述产品发布。"],
+      "review_questions": ["读者读完能做什么判断？", "是否能帮助投资/产业观察？"],
+      "common_failures": ["读者收益不明确", "只有信息没有含义"]
+    },
+    {
+      "standard_id": "judgment_density",
+      "label": "判断密度",
+      "description": "语言是否有判断、有因果、有取舍，而不是空泛表达。",
+      "scoring_guide": {"0": "全是套话", "5": "判断偏稀", "8": "多数段落有判断", "10": "每段都有观点推进"},
+      "positive_examples": ["这会压缩中间层工具的议价空间。"],
+      "negative_examples": ["持续赋能生态繁荣。"],
+      "review_questions": ["每段是否有一句判断？", "是否能删掉套话仍成立？"],
+      "common_failures": ["形容词多于因果", "用热词代替判断"]
+    },
+    {
+      "standard_id": "risk_balance",
+      "label": "风险平衡",
+      "description": "是否呈现反方、不确定性和事实风险。",
+      "scoring_guide": {"0": "没有风险", "5": "有泛风险", "8": "风险具体且平衡判断", "10": "风险能提升可信度"},
+      "positive_examples": ["若开发者迁移成本低于预期，这一判断会失效。"],
+      "negative_examples": ["风险在于行业变化快。"],
+      "review_questions": ["什么情况会证明本文判断错了？", "是否有事实核验点？"],
+      "common_failures": ["绝对化表达", "没有反方"]
+    },
+    {
+      "standard_id": "wechat_readability",
+      "label": "公众号可读性",
+      "description": "是否适合手机端阅读，段落、节奏和标题层级是否舒适。",
+      "scoring_guide": {"0": "难读", "5": "可读但重", "8": "节奏清楚", "10": "长文也易读"},
+      "positive_examples": ["短段落、清晰小标题、每节有结论。"],
+      "negative_examples": ["超长段落和密集术语。"],
+      "review_questions": ["手机上是否能轻松扫读？", "小标题是否帮助理解？"],
+      "common_failures": ["段落过长", "标题像内部报告"]
+    },
+    {
+      "standard_id": "memorability",
+      "label": "可复述性",
+      "description": "文章是否有读者能带走的一句话结论或框架。",
+      "scoring_guide": {"0": "读完无记忆点", "5": "有结论但普通", "8": "结论可复述", "10": "结论能成为后续判断框架"},
+      "positive_examples": ["Agent 入口的竞争，本质是任务分发权竞争。"],
+      "negative_examples": ["总体看仍需持续观察。"],
+      "review_questions": ["读者会转述哪一句？", "结尾是否形成框架？"],
+      "common_failures": ["结尾泛泛总结", "没有框架"]
+    }
+  ],
+  "discouraged_expressions": [
+    "未来可期",
+    "值得关注",
+    "有望受益",
+    "打开想象空间",
+    "持续赋能",
+    "深度赋能",
+    "加速落地",
+    "生态繁荣",
+    "重塑格局",
+    "显著提升"
+  ],
+  "structure_components": [
+    {"component_id": "hook", "label": "开头钩子", "purpose": "提出问题、冲突或反常识判断。"},
+    {"component_id": "judgment", "label": "核心判断", "purpose": "用一句话统领全文。"},
+    {"component_id": "evidence_chain", "label": "证据链", "purpose": "让事实服务判断。"},
+    {"component_id": "implication", "label": "含义", "purpose": "解释产业、投资、产品或竞争影响。"},
+    {"component_id": "risk", "label": "风险与反方", "purpose": "呈现不确定性和可证伪条件。"},
+    {"component_id": "closing_framework", "label": "结尾框架", "purpose": "留下可复述的一句话或判断框架。"}
+  ]
+}
