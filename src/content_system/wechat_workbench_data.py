@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import os
 import json
+import re
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
@@ -58,7 +59,12 @@ def status_from(judge: dict[str, Any], candidate: dict[str, Any], package: dict[
     return "recommended"
 
 
-def build_topics(candidates: list[dict[str, Any]], candidates_by_package: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
+def normalize_title(value: Any) -> str:
+    text = str(value or "").lower()
+    return re.sub(r"[^a-z0-9\u4e00-\u9fff]+", "", text)
+
+
+def build_topics(candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
     topics: list[dict[str, Any]] = []
     for item in candidates:
         topic_id = str(item.get("cluster_id") or item.get("candidate_id") or f"topic_{len(topics) + 1}")
@@ -72,10 +78,35 @@ def build_topics(candidates: list[dict[str, Any]], candidates_by_package: dict[s
                 "why_it_matters": item.get("why_it_matters") or "",
                 "source_ids": item.get("source_ids") or [],
                 "evidence_ids": [ev.get("evidence_id") for ev in item.get("key_evidence", []) if isinstance(ev, dict) and ev.get("evidence_id")],
-                "status": "ready" if candidates_by_package and topics == [] else "recommended",
+                "evidence_count": len([ev for ev in item.get("key_evidence", []) if isinstance(ev, dict)]),
+                "source_count": len(item.get("source_ids") or []),
+                "status": "recommended",
             }
         )
     return topics
+
+
+def find_topic_for_article(title: str, topics: list[dict[str, Any]], index: int) -> dict[str, Any]:
+    normalized_title = normalize_title(title)
+    for topic in topics:
+        topic_title = normalize_title(topic.get("title"))
+        if topic_title and (topic_title in normalized_title or normalized_title in topic_title):
+            return topic
+    if 0 <= index < len(topics):
+        return topics[index]
+    return {}
+
+
+def next_step_for_status(status: str, judge_decision: str) -> str:
+    if status == "ready":
+        return "进入人工确认和发布 dry-run 检查。"
+    if status == "needs_revision":
+        return "优先处理 critic / revision 建议，再进入主编复核。"
+    if status == "hold":
+        return "暂不推进，等待更多证据或更明确的编辑判断。"
+    if judge_decision:
+        return f"根据 Judge 决策 {judge_decision} 做人工复核。"
+    return "作为备选选题观察，必要时换角度或补证据。"
 
 
 def critic_summary(critic: dict[str, Any]) -> str:
@@ -125,9 +156,9 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     judge_by_package = by_key(list_payload(judge_payload, "decisions"), "package_id")
     revision_by_package = by_key(list_payload(revision_payload, "instructions"), "package_id")
     publishing_by_package = by_key(list_payload(publishing_payload, "candidates"), "package_id")
-    topics = build_topics(candidates, publishing_by_package)
+    topics = build_topics(candidates)
     articles: list[dict[str, Any]] = []
-    for package in packages:
+    for index, package in enumerate(packages):
         package_id = str(package.get("package_id") or "")
         review = review_items_by_package.get(package_id, {})
         judge = judge_by_package.get(package_id, {})
@@ -137,27 +168,51 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         proponent = proponent_by_review.get(str(review.get("review_item_id") or ""), {})
         quality = quality_by_package.get(package_id, {})
         wechat = package.get("wechat") if isinstance(package.get("wechat"), dict) else {}
+        article_title = str(wechat.get("title") or package.get("title") or review.get("title") or "")
+        topic = find_topic_for_article(article_title, topics, index)
+        source_ids = review.get("source_ids") or publishing_candidate.get("source_ids") or topic.get("source_ids") or []
+        evidence_ids = review.get("evidence_ids") or publishing_candidate.get("evidence_ids") or topic.get("evidence_ids") or []
+        status = status_from(judge, publishing_candidate, package)
         article_id = f"article_{package_id}" if package_id else f"article_{len(articles) + 1}"
         articles.append(
             {
                 "article_id": article_id,
+                "topic_id": topic.get("topic_id") or "",
                 "brief_id": package.get("brief_id") or "",
                 "draft_id": package.get("draft_id") or "",
                 "package_id": package_id,
-                "title": wechat.get("title") or package.get("title") or review.get("title") or "",
+                "title": article_title,
                 "wechat_title": wechat.get("title") or "",
                 "wechat_body_markdown": wechat.get("body_markdown") or "",
-                "status": status_from(judge, publishing_candidate, package),
+                "status": status,
                 "quality_score": safe_float(quality.get("quality_score") or review.get("quality_score")),
+                "topic_score": safe_float(topic.get("score")),
+                "score_band": topic.get("score_band") or "",
+                "recommended_action": topic.get("recommended_action") or "",
+                "why_it_matters": topic.get("why_it_matters") or "",
                 "judge_decision": judge.get("decision") or "",
                 "critic_summary": critic_summary(critic),
                 "proponent_summary": proponent.get("publish_argument") or "",
                 "revision_summary": revision_summary(revision),
                 "publishing_candidate_id": publishing_candidate.get("publishing_candidate_id") or "",
-                "source_ids": review.get("source_ids") or publishing_candidate.get("source_ids") or [],
-                "evidence_ids": review.get("evidence_ids") or publishing_candidate.get("evidence_ids") or [],
+                "source_ids": source_ids,
+                "evidence_ids": evidence_ids,
+                "source_count": len(source_ids) if isinstance(source_ids, list) else 0,
+                "evidence_count": len(evidence_ids) if isinstance(evidence_ids, list) else 0,
+                "next_step": next_step_for_status(status, str(judge.get("decision") or "")),
             }
         )
+    topic_status_rank = {"ready": 4, "needs_revision": 3, "recommended": 2, "hold": 1}
+    topic_status: dict[str, str] = {}
+    for article in articles:
+        topic_id = str(article.get("topic_id") or "")
+        status = str(article.get("status") or "recommended")
+        if topic_id and topic_status_rank.get(status, 0) > topic_status_rank.get(topic_status.get(topic_id, ""), 0):
+            topic_status[topic_id] = status
+    for topic in topics:
+        topic_id = str(topic.get("topic_id") or "")
+        if topic_id in topic_status:
+            topic["status"] = topic_status[topic_id]
     if not articles:
         warnings.append("No platform packages found for WeChat article preview.")
     selected = next((item for item in articles if item.get("publishing_candidate_id")), None)

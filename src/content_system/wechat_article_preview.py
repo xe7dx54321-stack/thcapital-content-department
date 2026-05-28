@@ -107,26 +107,34 @@ def render_article_preview_html(data: dict[str, Any]) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{html.escape(title)} - WeChat Preview</title>
   <style>
-    :root {{ color-scheme: light; --ink: #202124; --muted: #6b7280; --line: #e5e7eb; --accent: #07c160; }}
-    body {{ margin: 0; background: #f6f7f9; color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }}
-    .page {{ max-width: 760px; margin: 0 auto; background: #fff; min-height: 100vh; padding: 34px 24px 56px; box-sizing: border-box; }}
-    .meta {{ color: var(--muted); font-size: 14px; line-height: 1.8; margin: 10px 0 28px; }}
-    .brand {{ color: #576b95; }}
-    h1 {{ font-size: 26px; line-height: 1.35; font-weight: 700; margin: 0; letter-spacing: 0; }}
+    :root {{ color-scheme: light; --ink: #202124; --muted: #6b7280; --line: #e7e2d8; --accent: #1f7a5c; --wechat: #576b95; }}
+    body {{ margin: 0; background: #f6f3ee; color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif; letter-spacing: 0; }}
+    .page {{ max-width: 760px; margin: 24px auto 40px; background: #fff; min-height: calc(100vh - 64px); padding: 42px 42px 60px; box-sizing: border-box; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 20px 60px rgba(79,70,58,.12); }}
+    .meta {{ color: #8a8f98; font-size: 14px; line-height: 1.8; margin: 12px 0 30px; }}
+    .brand {{ color: var(--wechat); }}
+    h1 {{ font-size: 28px; line-height: 1.38; font-weight: 760; margin: 0; letter-spacing: 0; }}
     article h1 {{ display: none; }}
-    article h2 {{ font-size: 20px; line-height: 1.45; margin: 34px 0 14px; padding-left: 10px; border-left: 4px solid var(--accent); }}
-    article h3 {{ font-size: 17px; margin-top: 24px; }}
-    article p, article li {{ font-size: 17px; line-height: 1.9; }}
-    article p {{ margin: 16px 0; }}
+    article h2 {{ font-size: 20px; line-height: 1.55; margin: 38px 0 15px; color: #22272e; }}
+    article h2::before {{ content: ""; display: inline-block; width: 4px; height: 18px; margin: 0 10px -3px 0; border-radius: 999px; background: var(--accent); }}
+    article h3 {{ font-size: 17px; margin: 28px 0 10px; color: #3f4b59; }}
+    article p, article li {{ font-size: 16.5px; line-height: 1.95; color: #2f3742; }}
+    article p {{ margin: 15px 0; }}
     article ul {{ padding-left: 22px; margin: 12px 0 18px; }}
-    article code {{ background: #f1f5f9; padding: 2px 5px; border-radius: 4px; font-size: 14px; }}
-    article a {{ color: #576b95; text-decoration: none; }}
-    .evidence-line {{ background: #f8fafc; border-left: 3px solid #cbd5e1; margin: 8px 0; padding: 8px 10px; }}
-    .risk-note {{ background: #fff7ed; border: 1px solid #fed7aa; padding: 10px 12px; border-radius: 6px; }}
+    article li {{ margin: 7px 0; }}
+    article code {{ background: #f2f4f7; padding: 2px 5px; border-radius: 5px; font-size: 13px; color: #4b5563; }}
+    article a {{ color: var(--wechat); text-decoration: none; border-bottom: 1px solid rgba(87,107,149,.24); }}
+    article blockquote, .evidence-line {{ background: #f4f8f6; border-left: 3px solid rgba(31,122,92,.42); margin: 14px 0; padding: 12px 14px; border-radius: 6px; color: #374151; }}
+    .risk-note {{ background: #fff9ee; border: 1px solid #ead7b8; padding: 14px 15px; border-radius: 7px; }}
     .evidence-box {{ margin-top: 34px; border-top: 1px solid var(--line); padding-top: 22px; color: #374151; }}
-    .evidence-box h2 {{ border: 0; padding: 0; font-size: 18px; }}
+    .evidence-box h2 {{ border: 0; padding: 0; font-size: 18px; color: #1f2933; }}
+    .evidence-box h2::before {{ display: none; }}
+    .evidence-box h3 {{ color: #6b7280; font-size: 14px; }}
     .toolbar {{ position: sticky; bottom: 14px; display: flex; justify-content: flex-end; pointer-events: none; }}
-    button {{ pointer-events: auto; border: 0; background: var(--accent); color: white; padding: 10px 14px; border-radius: 6px; font-size: 14px; cursor: pointer; }}
+    button {{ pointer-events: auto; border: 0; background: var(--accent); color: white; padding: 10px 14px; border-radius: 7px; font-size: 14px; cursor: pointer; }}
+    @media (max-width: 820px) {{
+      .page {{ margin: 0; min-height: 100vh; border: 0; border-radius: 0; padding: 34px 22px 56px; }}
+      h1 {{ font-size: 24px; }}
+    }}
   </style>
 </head>
 <body>
@@ -135,7 +143,7 @@ def render_article_preview_html(data: dict[str, Any]) -> str:
     <div class="meta"><span class="brand">同行资本</span><br>{run_date} · 预览生成于 {generated_at}</div>
     <article id="article-body">{body_html}</article>
     <section class="evidence-box">
-      <h2>Source / Evidence</h2>
+      <h2>发布前证据简表</h2>
       <h3>Sources</h3>
       <ul>{source_rows}</ul>
       <h3>Evidence</h3>

@@ -130,6 +130,18 @@
 - 更新项目状态和任务清单。
 - 明确 Phase 10 入口。
 
+### P9-010：WeChat Workbench UI Polish v1
+
+状态：Done。
+
+目标：
+
+- 打磨本地微信公众号工作台 UI/UX。
+- 支持点击左侧选题切换文章。
+- 增加阅读模式 / 审稿模式切换。
+- 优化公众号文章预览和 Chief Editor 协作入口。
+- 为 Phase 10 action execution 做体验准备。
+
 ## Phase 10：Workbench Action Execution 与稿件自动修订 v1
 
 ### P10-001：Manual Action Approval v1

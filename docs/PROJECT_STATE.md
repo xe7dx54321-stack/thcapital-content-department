@@ -10,7 +10,7 @@ Phase 9：微信公众号内容工作台与 Chief Editor Agent v1。
 
 ## 最新 checkpoint
 
-P9-009：Phase 9 Closeout。
+P9-010：WeChat Workbench UI Polish v1。
 
 ## 已完成
 
@@ -145,6 +145,7 @@ P9-009：Phase 9 Closeout。
 - P9-007 Workbench Feedback Memory v1。
 - P9-008 Phase 9 Daily Workbench Pipeline v1。
 - P9-009 Phase 9 Closeout。
+- P9-010 WeChat Workbench UI Polish v1。
 
 ## 当前已具备能力
 
@@ -224,6 +225,9 @@ P9-009：Phase 9 Closeout。
 
 - WeChat-only local content workbench。
 - WeChat article preview renderer。
+- polished workbench UI / UX。
+- clickable topic rail。
+- reading / review mode tabs。
 - Chief Editor Agent。
 - workbench context builder。
 - pending action queue。
