@@ -536,40 +536,144 @@
 - 新增 Phase 14 closeout 报告。
 - 明确 Phase 15 入口。
 
-## Phase 15：Methodology-driven Content Generation v1
+## Phase 15：Methodology-driven Content Generation & Visual Strategy v1
 
-### P15-001：Methodology-aware Brief Builder
+### P15-001：Methodology-aware Brief Builder v1
+
+状态：Done。
 
 目标：
 
-- 让 content brief 直接引用选题方法论和推荐 recipe。
+- 让 content brief 直接引用选题方法论、文章方法论和推荐 recipe。
+- 输出 core question、core judgment、why now、expectation gap、证据计划和 visual opportunities。
 
-### P15-002：Methodology-aware Outline Builder
+### P15-002：Methodology-aware Outline Builder v1
+
+状态：Done。
 
 目标：
 
 - 让 outline 按 recipe 和文章结构组件组织。
+- 每节明确 section question、section claim、证据对齐和 visual slot。
 
-### P15-003：Methodology-aware Draft Writer
+### P15-003：Methodology-aware Draft Writer v1
+
+状态：Done。
 
 目标：
 
 - 让 draft writer 按文章质量方法论生成更高判断密度的稿件。
+- 输出 title options、opening、body、closing、visual slots 和 methodology self check。
 
-### P15-004：Methodology-aware Rewrite Executor
+### P15-004：Methodology-aware Rewrite Executor v1
+
+状态：Done。
 
 目标：
 
 - 让 rewrite executor 按方法论评分的弱点和优先级执行改稿。
+- 只生成 methodology rewrite version，不覆盖原稿。
 
-### P15-005：Methodology Regression Test Set
+### P15-005：Article Visual Strategy Methodology v1
 
-目标：
-
-- 建立方法论回归测试集，避免生成链路越改越偏。
-
-### P15-006：Human Methodology Calibration Board
+状态：Done。
 
 目标：
 
-- 提供人工校准方法论维度、权重和 recipe 的看板。
+- 建立公众号文章图片策略方法论。
+- 定义 cover visual、concept diagram、value chain map、timeline chart、comparison visual、framework diagram、process flow、evidence snapshot 等图片类型。
+
+### P15-006：Visual Plan Builder v1
+
+状态：Done。
+
+目标：
+
+- 为每篇公众号文章生成 visual plan。
+- 明确每张图的 placement、information job、source strategy 和 quality checks。
+
+### P15-007：Image Prompt & Asset Request Builder v1
+
+状态：Done。
+
+目标：
+
+- 根据 visual plan 生成 image prompt、design brief 和 asset request。
+- 不自动生成图片，不自动调用图片模型。
+
+### P15-008：Methodology Regression Test Set v1
+
+状态：Done。
+
+目标：
+
+- 建立固定方法论回归测试样例。
+- 覆盖好/坏选题、强/弱标题、强/弱开头、逻辑、证据和视觉计划。
+
+### P15-009：Human Methodology Calibration Board v1
+
+状态：Done。
+
+目标：
+
+- 提供人工校准方法论判断、文章弱点、content recipe、视觉计划和图片需求的看板。
+
+### P15-010：Workbench Generation & Visual Panel v1
+
+状态：Done。
+
+目标：
+
+- 在微信公众号工作台展示 methodology brief、outline、draft status、visual plan 和 image asset requests。
+- 阅读模式保持干净，图片策略只在审稿/右侧面板展示。
+
+### P15-011：Phase 15 Daily Generation Pipeline v1
+
+状态：Done。
+
+目标：
+
+- 串联 Phase 14、methodology generation、visual methodology、visual plan、image asset requests、regression tests、calibration board 和工作台刷新。
+- 不自动生成图片，不自动发布，不自动修改 config/prompt/rules。
+
+### P15-012：Phase 15 Closeout
+
+状态：Done。
+
+目标：
+
+- 新增 Phase 15 closeout 报告。
+- 明确 Phase 16 入口。
+
+## Phase 16：Methodology-driven Live Agent Generation Pilot v1
+
+### P16-001：Live Methodology Brief Agent Pilot
+
+目标：
+
+- 在显式 live env + allowlist 下，为 methodology-aware brief generation 增加旁路 live pilot。
+
+### P16-002：Live Methodology Draft Agent Pilot
+
+目标：
+
+- 在显式 live env + allowlist 下，为 methodology-aware draft generation 增加旁路 live pilot。
+
+### P16-003：Live Visual Prompt Agent Pilot
+
+目标：
+
+- 在显式 live env + allowlist 下，为 visual prompt / design brief 增加旁路 live pilot。
+
+### P16-004：Human Calibration Feedback Apply v1
+
+目标：
+
+- 将人工方法论校准反馈转成可审阅建议，不自动修改配置。
+
+### P16-005：Image Generation Manual Approval Flow v1
+
+目标：
+
+- 建立图片生成的人工批准流。
+- 只有用户明确批准和配置接口后才允许生成图片。

@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 14：Content Strategy Methodology Core v1。
+Phase 15：Methodology-driven Content Generation & Visual Strategy v1。
 
 ## 最新 checkpoint
 
-P14-010：Phase 14 Closeout。
+P15-012：Phase 15 Closeout。
 
 ## 已完成
 
@@ -205,6 +205,21 @@ P14-010：Phase 14 Closeout。
 - P14-009 Phase 14 Daily Methodology Pipeline v1。
 - P14-010 Phase 14 Closeout。
 
+### Phase 15
+
+- P15-001 Methodology-aware Brief Builder v1。
+- P15-002 Methodology-aware Outline Builder v1。
+- P15-003 Methodology-aware Draft Writer v1。
+- P15-004 Methodology-aware Rewrite Executor v1。
+- P15-005 Article Visual Strategy Methodology v1。
+- P15-006 Visual Plan Builder v1。
+- P15-007 Image Prompt & Asset Request Builder v1。
+- P15-008 Methodology Regression Test Set v1。
+- P15-009 Human Methodology Calibration Board v1。
+- P15-010 Workbench Generation & Visual Panel v1。
+- P15-011 Phase 15 Daily Generation Pipeline v1。
+- P15-012 Phase 15 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -346,10 +361,24 @@ P14-010：Phase 14 Closeout。
 - methodology-performance alignment。
 - phase14 daily methodology pipeline。
 
+### Phase 15 能力
+
+- methodology-aware brief generation。
+- methodology-aware outline generation。
+- methodology-aware draft generation。
+- methodology-aware rewrite execution。
+- article visual strategy methodology。
+- visual plan builder。
+- image prompt and asset request builder。
+- methodology regression tests。
+- human methodology calibration board。
+- workbench generation and visual panel。
+- phase15 daily generation pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase14-daily
+make phase15-daily
 ```
 
 ## 当前边界
@@ -379,14 +408,17 @@ make phase14-daily
 - live 仍必须显式 env + allowlist。
 - 方法论评分不自动替代人工判断。
 - 方法论建议不自动改 config/prompt/rules。
+- 不自动生成图片。
+- 不自动调用图片模型。
+- 图片策略只生成 visual plan / prompt / asset request。
+- 图片生成和图片使用需要人工确认。
 
 ## 下一阶段
 
-Phase 15：Methodology-driven Content Generation v1。
+Phase 16：Methodology-driven Live Agent Generation Pilot v1。
 
-- P15-001：Methodology-aware Brief Builder。
-- P15-002：Methodology-aware Outline Builder。
-- P15-003：Methodology-aware Draft Writer。
-- P15-004：Methodology-aware Rewrite Executor。
-- P15-005：Methodology Regression Test Set。
-- P15-006：Human Methodology Calibration Board。
+- P16-001：Live Methodology Brief Agent Pilot。
+- P16-002：Live Methodology Draft Agent Pilot。
+- P16-003：Live Visual Prompt Agent Pilot。
+- P16-004：Human Calibration Feedback Apply v1。
+- P16-005：Image Generation Manual Approval Flow v1。

@@ -30,6 +30,7 @@ class WechatWorkbenchDataReport:
     final_review: dict[str, Any]
     performance_panel: dict[str, Any]
     methodology_panel: dict[str, Any]
+    generation_visual_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -279,6 +280,49 @@ def build_methodology_panel(paths: ProjectPaths, selected_article_id: str, artic
     }
 
 
+def build_generation_visual_panel(paths: ProjectPaths, selected_article_id: str, articles: list[dict[str, Any]]) -> dict[str, Any]:
+    draft_root = paths.market_content_root / "05_draft_packs"
+    versions_root = paths.market_content_root / "09_workbench_actions" / "versions"
+    briefs_payload = read_json(draft_root / "latest_methodology_content_briefs.json")
+    outlines_payload = read_json(draft_root / "latest_methodology_content_outlines.json")
+    drafts_payload = read_json(draft_root / "latest_methodology_content_drafts.json")
+    rewrite_payload = read_json(versions_root / "latest_methodology_rewrite_versions.json")
+    visual_payload = read_json(draft_root / "latest_article_visual_plans.json")
+    request_payload = read_json(draft_root / "latest_image_asset_requests.json")
+    selected_article = next((item for item in articles if item.get("article_id") == selected_article_id), articles[0] if articles else {})
+    topic_id = str(selected_article.get("topic_id") or "")
+    selected_brief = next((item for item in list_payload(briefs_payload, "briefs") if item.get("topic_id") == topic_id), list_payload(briefs_payload, "briefs")[0] if list_payload(briefs_payload, "briefs") else {})
+    brief_id = str(selected_brief.get("brief_id") or selected_article.get("brief_id") or "")
+    selected_outline = next((item for item in list_payload(outlines_payload, "outlines") if item.get("brief_id") == brief_id), list_payload(outlines_payload, "outlines")[0] if list_payload(outlines_payload, "outlines") else {})
+    outline_id = str(selected_outline.get("outline_id") or "")
+    selected_draft = next((item for item in list_payload(drafts_payload, "drafts") if item.get("outline_id") == outline_id), list_payload(drafts_payload, "drafts")[0] if list_payload(drafts_payload, "drafts") else {})
+    draft_id = str(selected_draft.get("draft_id") or "")
+    selected_plan = next((item for item in list_payload(visual_payload, "visual_plans") if item.get("article_id") == draft_id), list_payload(visual_payload, "visual_plans")[0] if list_payload(visual_payload, "visual_plans") else {})
+    visual_ids = {str(item.get("visual_id")) for item in selected_plan.get("visuals", []) if isinstance(item, dict) and item.get("visual_id")}
+    selected_requests = [item for item in list_payload(request_payload, "requests") if str(item.get("visual_id") or "") in visual_ids]
+    selected_rewrite = next((item for item in list_payload(rewrite_payload, "versions") if item.get("source_article_id") == selected_article_id or item.get("source_article_id") == draft_id), list_payload(rewrite_payload, "versions")[0] if list_payload(rewrite_payload, "versions") else {})
+    return {
+        "brief_summary": briefs_payload.get("summary") if isinstance(briefs_payload.get("summary"), dict) else {},
+        "outline_summary": outlines_payload.get("summary") if isinstance(outlines_payload.get("summary"), dict) else {},
+        "draft_summary": drafts_payload.get("summary") if isinstance(drafts_payload.get("summary"), dict) else {},
+        "rewrite_summary": rewrite_payload.get("summary") if isinstance(rewrite_payload.get("summary"), dict) else {},
+        "visual_plan_summary": visual_payload.get("summary") if isinstance(visual_payload.get("summary"), dict) else {},
+        "image_request_summary": request_payload.get("summary") if isinstance(request_payload.get("summary"), dict) else {},
+        "selected_brief": selected_brief,
+        "selected_outline": selected_outline,
+        "selected_draft": selected_draft,
+        "selected_methodology_rewrite": selected_rewrite,
+        "selected_visual_plan": selected_plan,
+        "selected_image_requests": selected_requests,
+        "policy": {
+            "do_not_auto_generate_images": True,
+            "do_not_call_image_model": True,
+            "do_not_publish": True,
+            "human_review_required": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -405,6 +449,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     final_review = build_final_review(paths, selected_article_id)
     performance_panel = build_performance_panel(paths, final_review)
     methodology_panel = build_methodology_panel(paths, selected_article_id, articles)
+    generation_visual_panel = build_generation_visual_panel(paths, selected_article_id, articles)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -414,6 +459,9 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["performance_record_count"] = safe_int((performance_panel.get("performance_memory_summary") or {}).get("record_count"))
     summary["methodology_topic_count"] = safe_int((methodology_panel.get("topic_summary") or {}).get("topic_count"))
     summary["methodology_article_count"] = safe_int((methodology_panel.get("article_summary") or {}).get("article_count"))
+    summary["methodology_brief_count"] = safe_int((generation_visual_panel.get("brief_summary") or {}).get("brief_count"))
+    summary["article_visual_plan_count"] = safe_int((generation_visual_panel.get("visual_plan_summary") or {}).get("plan_count"))
+    summary["image_asset_request_count"] = safe_int((generation_visual_panel.get("image_request_summary") or {}).get("request_count"))
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -434,6 +482,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         final_review,
         performance_panel,
         methodology_panel,
+        generation_visual_panel,
         tuple(warnings),
     )
 
@@ -453,6 +502,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "final_review": report.final_review,
         "performance_panel": report.performance_panel,
         "methodology_panel": report.methodology_panel,
+        "generation_visual_panel": report.generation_visual_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

@@ -1,0 +1,129 @@
+{
+  "schema_version": "v1",
+  "version": "2026-05-28",
+  "methodology_id": "article_visual_methodology",
+  "label": "公众号文章图片策略方法论",
+  "description": "图片不是装饰，而是帮助读者理解核心判断、证据链、结构和关键变化的信息表达工具。",
+  "visual_types": [
+    {
+      "visual_type": "cover_visual",
+      "label": "封面图 / 首图",
+      "best_for": ["承载文章核心判断", "建立专业克制的第一印象"],
+      "not_for": ["无意义科技背景", "泛 AI 机器人视觉"],
+      "information_job": "让读者在进入文章前理解这篇文章讨论的变化和判断方向。",
+      "quality_standards": ["relevance_to_core_judgment", "clarity", "aesthetic_fit", "copyright_safety"],
+      "common_failures": ["只有蓝光芯片和抽象机器人", "标题和图像表达不一致"],
+      "generation_guidance": {"style": "calm editorial, structured, premium, no clutter", "avoid": ["sci-fi glow", "generic robot"]},
+      "source_guidance": {"preferred": ["generated_concept_visual", "manual_design_request"], "copyright_note": "不可直接使用版权不明图片。"},
+      "wechat_usage_guidance": {"placement": "cover", "mobile_priority": "high"}
+    },
+    {
+      "visual_type": "concept_diagram",
+      "label": "概念解释图",
+      "best_for": ["解释新概念", "区分相似概念"],
+      "not_for": ["概念已经很直观的段落"],
+      "information_job": "帮助读者快速理解抽象概念和关键关系。",
+      "quality_standards": ["clarity", "visual_hierarchy", "wechat_readability"],
+      "common_failures": ["箭头太多", "术语堆叠"],
+      "generation_guidance": {"format": "simple labeled diagram"},
+      "source_guidance": {"preferred": ["internal_chart", "manual_design_request"]},
+      "wechat_usage_guidance": {"placement": "after_opening", "mobile_priority": "high"}
+    },
+    {
+      "visual_type": "value_chain_map",
+      "label": "产业链 / 价值链图",
+      "best_for": ["产业链影响", "商业模式变化", "上下游重新分配"],
+      "not_for": ["单一产品功能更新"],
+      "information_job": "把文章判断映射到产业链环节和受影响主体。",
+      "quality_standards": ["information_density", "clarity", "narrative_fit"],
+      "common_failures": ["公司名堆砌", "没有价值流向"],
+      "generation_guidance": {"format": "left-to-right value chain map"},
+      "source_guidance": {"preferred": ["internal_chart", "manual_design_request"]},
+      "wechat_usage_guidance": {"placement": "section_impact", "mobile_priority": "medium"}
+    },
+    {
+      "visual_type": "timeline_chart",
+      "label": "时间线图",
+      "best_for": ["事件演进", "产品节奏", "政策或竞争节点"],
+      "not_for": ["没有时间顺序的观点文"],
+      "information_job": "帮助读者理解为什么现在是窗口期。",
+      "quality_standards": ["clarity", "evidence_integrity", "narrative_fit"],
+      "common_failures": ["时间点不准确", "事件没有来源"],
+      "generation_guidance": {"format": "clean timeline with 3-6 milestones"},
+      "source_guidance": {"preferred": ["internal_chart", "evidence_snapshot"]},
+      "wechat_usage_guidance": {"placement": "why_now", "mobile_priority": "medium"}
+    },
+    {
+      "visual_type": "comparison_table_visual",
+      "label": "对比图 / 对照图",
+      "best_for": ["新旧方案对比", "公司策略对比", "预期差解释"],
+      "not_for": ["没有明确对照项的段落"],
+      "information_job": "让读者一眼看到差异，而不是读长段文字。",
+      "quality_standards": ["clarity", "information_density", "wechat_readability"],
+      "common_failures": ["表格过密", "对比维度不平行"],
+      "generation_guidance": {"format": "2-4 columns max, strong row labels"},
+      "source_guidance": {"preferred": ["internal_chart", "manual_design_request"]},
+      "wechat_usage_guidance": {"placement": "section_comparison", "mobile_priority": "high"}
+    },
+    {
+      "visual_type": "framework_diagram",
+      "label": "分析框架图",
+      "best_for": ["文章核心框架", "投资判断框架", "结尾复述"],
+      "not_for": ["事实尚未组织成框架"],
+      "information_job": "帮助读者理解文章的核心判断框架。",
+      "quality_standards": ["relevance_to_core_judgment", "visual_hierarchy", "memorability"],
+      "common_failures": ["框架过度抽象", "只有口号没有结构"],
+      "generation_guidance": {"format": "3-part framework, clear hierarchy"},
+      "source_guidance": {"preferred": ["internal_chart", "generated_concept_visual", "manual_design_request"]},
+      "wechat_usage_guidance": {"placement": "before_conclusion", "mobile_priority": "high"}
+    },
+    {
+      "visual_type": "process_flow",
+      "label": "流程图",
+      "best_for": ["工作流变化", "技术路线", "Agent 执行链路"],
+      "not_for": ["纯观点段落"],
+      "information_job": "说明任务、信息或价值如何流动。",
+      "quality_standards": ["clarity", "visual_hierarchy", "wechat_readability"],
+      "common_failures": ["流程循环不清", "节点过多"],
+      "generation_guidance": {"format": "5 nodes or fewer, left-to-right"},
+      "source_guidance": {"preferred": ["internal_chart", "manual_design_request"]},
+      "wechat_usage_guidance": {"placement": "section_process", "mobile_priority": "medium"}
+    },
+    {
+      "visual_type": "evidence_snapshot",
+      "label": "证据截图 / 来源截图说明",
+      "best_for": ["官方文档", "产品截图", "关键数据来源"],
+      "not_for": ["版权不明媒体配图", "无法确认来源的截图"],
+      "information_job": "增强事实可信度，并说明证据来源。",
+      "quality_standards": ["evidence_integrity", "copyright_safety", "clarity"],
+      "common_failures": ["截图无来源", "截图文字过小", "版权风险不明"],
+      "generation_guidance": {"format": "annotated source snapshot request"},
+      "source_guidance": {"preferred": ["evidence_snapshot"], "requires_human_copyright_check": true},
+      "wechat_usage_guidance": {"placement": "evidence_section", "mobile_priority": "medium"}
+    }
+  ],
+  "quality_standards": [
+    {"standard_id": "relevance_to_core_judgment", "label": "服务核心判断", "description": "图片是否直接服务文章核心判断。"},
+    {"standard_id": "information_density", "label": "信息量", "description": "图片是否承载真实信息，而非装饰。"},
+    {"standard_id": "clarity", "label": "清晰度", "description": "手机端是否一眼看懂。"},
+    {"standard_id": "narrative_fit", "label": "叙事贴合", "description": "图片是否出现在正确段落位置。"},
+    {"standard_id": "visual_hierarchy", "label": "视觉层级", "description": "标题、节点、关系是否清楚。"},
+    {"standard_id": "evidence_integrity", "label": "证据完整性", "description": "来源、截图、数据是否说明清楚。"},
+    {"standard_id": "originality", "label": "原创性", "description": "是否避免模板化无意义配图。"},
+    {"standard_id": "wechat_readability", "label": "公众号可读性", "description": "手机端字号和构图是否合适。"},
+    {"standard_id": "copyright_safety", "label": "版权安全", "description": "是否避免版权不明图片。"},
+    {"standard_id": "aesthetic_fit", "label": "审美匹配", "description": "是否符合专业、克制、高级的内容气质。"}
+  ],
+  "source_strategies": [
+    {"strategy_id": "evidence_snapshot", "label": "来源截图 / 官方图", "rule": "需人工确认版权和出处。"},
+    {"strategy_id": "internal_chart", "label": "内部图表", "rule": "根据结构化数据生成简单图表或表格图。"},
+    {"strategy_id": "generated_concept_visual", "label": "生成式概念图", "rule": "只生成 prompt，不默认调用图片模型。"},
+    {"strategy_id": "manual_design_request", "label": "人工设计需求", "rule": "生成设计 brief，由人工或设计工具处理。"}
+  ],
+  "policy": {
+    "do_not_auto_download_unknown_copyright_images": true,
+    "do_not_auto_generate_images": true,
+    "do_not_commit_image_files": true,
+    "human_review_required": true
+  }
+}

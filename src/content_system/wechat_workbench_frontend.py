@@ -410,6 +410,10 @@ button { cursor: pointer; }
   border-color: rgba(31, 122, 92, .26);
   background: linear-gradient(180deg, #fff, #f6fbf8);
 }
+.generation-panel {
+  border-color: rgba(169, 120, 36, .28);
+  background: linear-gradient(180deg, #fff, #fffaf1);
+}
 .delta-number {
   display: inline-flex;
   align-items: center;
@@ -466,6 +470,17 @@ button { cursor: pointer; }
 .copy-performance-command:hover {
   background: #eef2fa;
 }
+.copy-image-request {
+  min-height: 30px;
+  padding: 6px 9px;
+  border: 1px solid #ead7b8;
+  border-radius: 7px;
+  background: #fff;
+  color: var(--gold);
+  font-size: 12px;
+  text-align: left;
+}
+.copy-image-request:hover { background: var(--gold-soft); }
 .methodology-score-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -855,6 +870,7 @@ function renderReader() {
         ${renderFinalReviewCard("review-card wide")}
         ${renderPerformancePanel("review-card wide")}
         ${renderMethodologyPanel("review-card wide")}
+        ${renderGenerationVisualPanel("review-card wide")}
         <div class="review-card wide"><p class="review-label">Evidence</p>${renderMiniList(article.evidence_ids, "暂无 evidence")}</div>
         <div class="review-card wide"><p class="review-label">Source</p>${renderMiniList(article.source_ids, "暂无 source")}</div>
       </div>
@@ -911,6 +927,10 @@ function getPerformancePanel() {
 
 function getMethodologyPanel() {
   return workbenchData.methodology_panel || {};
+}
+
+function getGenerationVisualPanel() {
+  return workbenchData.generation_visual_panel || {};
 }
 
 function getSelectedMethodologyTopic() {
@@ -1084,6 +1104,37 @@ function renderMethodologyPanel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function renderGenerationVisualPanel(cardClass = "review-card wide") {
+  const panel = getGenerationVisualPanel();
+  const brief = panel.selected_brief || {};
+  const outline = panel.selected_outline || {};
+  const draft = panel.selected_draft || {};
+  const visualPlan = panel.selected_visual_plan || {};
+  const requests = Array.isArray(panel.selected_image_requests) ? panel.selected_image_requests : [];
+  const visuals = Array.isArray(visualPlan.visuals) ? visualPlan.visuals : [];
+  if (!brief.brief_id && !visualPlan.visual_plan_id) {
+    return `<div class="${cardClass} generation-panel">
+      <p class="review-label">生成与图片策略</p>
+      <p class="review-value">暂无 methodology generation / visual plan。运行 <code>make phase15-daily</code> 后会显示方法论 brief、outline、draft 和图片需求。</p>
+    </div>`;
+  }
+  const visualRows = visuals.slice(0, 5).map((item) => `${item.placement}: ${item.visual_type} / ${item.source_strategy} / ${item.information_job}`);
+  const requestRows = requests.slice(0, 5).map((item) => `${item.visual_type}: ${item.asset_status} / ${item.recommended_tool}`);
+  return `<div class="${cardClass} generation-panel">
+    <p class="review-label">生成与图片策略</p>
+    <p class="review-value">Brief <strong>${escapeHtml(brief.status || "n/a")}</strong> · Outline ${escapeHtml(outline.status || "n/a")} · Draft ${escapeHtml(draft.status || "n/a")}</p>
+    <p class="review-value">Visual plan ${escapeHtml(visualPlan.visual_plan_id || "暂无")} · recommended visuals ${escapeHtml(visualPlan.recommended_visual_count ?? 0)} · do_not_auto_generate_images=true</p>
+    <p class="review-label">Methodology brief</p>
+    <p class="review-value">${escapeHtml(shortText(brief.core_judgment || brief.core_question, "暂无方法论 brief"))}</p>
+    <p class="review-label">Visual placements</p>${renderMiniList(visualRows, "暂无 visual plan")}
+    <p class="review-label">Image asset requests</p>${renderMiniList(requestRows, "暂无 image request")}
+    <div class="version-actions">
+      <button class="copy-image-request" type="button" data-copy-image="prompt">复制首个 image prompt</button>
+      <button class="copy-image-request" type="button" data-copy-image="brief">复制首个 design brief</button>
+    </div>
+  </div>`;
+}
+
 function renderInsightPanel() {
   const article = getSelectedArticle();
   const comparison = getLatestComparison();
@@ -1094,6 +1145,9 @@ function renderInsightPanel() {
   const metrics = getSelectedMetrics();
   const topicMethodology = getSelectedMethodologyTopic();
   const articleMethodology = getSelectedMethodologyArticle();
+  const generation = getGenerationVisualPanel();
+  const visualSummary = generation.visual_plan_summary || {};
+  const requestSummary = generation.image_request_summary || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -1141,6 +1195,10 @@ function renderInsightPanel() {
     <section class="insight-card methodology-panel">
       <p class="insight-label">内容方法论</p>
       <p class="insight-value">${topicMethodology.topic_id || articleMethodology.article_id ? `Topic ${escapeHtml(topicMethodology.methodology_total_score ?? "-")} · Article ${escapeHtml(articleMethodology.methodology_total_score ?? "-")} · ${escapeHtml(topicMethodology.recommended_recipe_id || articleMethodology.recipe_id || "recipe")}` : "暂无方法论评分"}</p>
+    </section>
+    <section class="insight-card generation-panel">
+      <p class="insight-label">生成与图片策略</p>
+      <p class="insight-value">Briefs ${escapeHtml((generation.brief_summary || {}).brief_count ?? 0)} · Visual plans ${escapeHtml(visualSummary.plan_count ?? 0)} · Image requests ${escapeHtml(requestSummary.request_count ?? 0)}</p>
     </section>`;
 }
 
@@ -1246,6 +1304,23 @@ function bindPerformanceCommandButtons() {
   });
 }
 
+function bindImageRequestButtons() {
+  document.querySelectorAll(".copy-image-request").forEach((button) => {
+    button.addEventListener("click", () => {
+      const panel = getGenerationVisualPanel();
+      const requests = Array.isArray(panel.selected_image_requests) ? panel.selected_image_requests : [];
+      const first = requests[0] || {};
+      const kind = button.dataset.copyImage || "prompt";
+      const value = kind === "brief" ? (first.design_brief || "") : (first.image_prompt || first.design_brief || "");
+      copyText(value || "暂无 image asset request。请先运行 make image-asset-requests。").then(() => {
+        button.textContent = "已复制";
+      }).catch(() => {
+        button.textContent = "复制失败";
+      });
+    });
+  });
+}
+
 function renderAll() {
   renderTopbar();
   renderTopicRail();
@@ -1255,12 +1330,17 @@ function renderAll() {
   bindReviewCommandButtons();
   bindFinalCopyButtons();
   bindPerformanceCommandButtons();
+  bindImageRequestButtons();
 }
 
 document.querySelectorAll(".mode-tab").forEach((tab) => {
   tab.addEventListener("click", () => {
     readerMode = tab.dataset.mode || "read";
     renderReader();
+    bindReviewCommandButtons();
+    bindFinalCopyButtons();
+    bindPerformanceCommandButtons();
+    bindImageRequestButtons();
   });
 });
 document.querySelectorAll(".quick-action").forEach((button) => {

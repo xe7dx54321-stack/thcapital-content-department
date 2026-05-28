@@ -1,0 +1,19 @@
+{
+  "schema_version": "v1",
+  "version": "2026-05-28",
+  "test_suite_id": "methodology_regression_tests",
+  "cases": [
+    {"case_id": "topic_good_001", "case_type": "good_topic", "title": "Agent 浏览器从工具变成任务入口", "text": "OpenAI 和 Anthropic 同时加码浏览器工作流，开发者和企业入口可能被重新定价。", "expected": "PASS"},
+    {"case_id": "topic_bad_001", "case_type": "bad_topic", "title": "某公司宣布 AI 生态持续赋能", "text": "只有 PR 口径，没有产品、技术、商业变化，也没有一手证据。", "expected": "PASS"},
+    {"case_id": "title_strong_001", "case_type": "strong_title", "title": "Agent 浏览器不是浏览器，是任务分发权的争夺", "expected": "PASS"},
+    {"case_id": "title_weak_001", "case_type": "weak_title", "title": "AI 行业未来可期，值得关注", "expected": "PASS"},
+    {"case_id": "opening_strong_001", "case_type": "strong_opening", "text": "市场以为这只是一次浏览器功能更新，但真正变化是 Agent 开始抢占任务入口。", "expected": "PASS"},
+    {"case_id": "opening_weak_001", "case_type": "weak_opening", "text": "近年来人工智能快速发展，各类产品不断涌现。", "expected": "PASS"},
+    {"case_id": "logic_strong_001", "case_type": "strong_logic_fragment", "text": "先看变化：入口位置前移。再看证据：官方产品和开发者反馈同时出现。最后看影响：中间层工具议价空间被压缩。", "expected": "PASS"},
+    {"case_id": "logic_weak_001", "case_type": "weak_logic_fragment", "text": "OpenAI 发布了新功能。Anthropic 也有动态。开发者很关注。行业值得期待。", "expected": "PASS"},
+    {"case_id": "evidence_no_judgment_001", "case_type": "evidence_without_judgment", "text": "本文列出五条官方来源，但没有说明这些证据共同证明什么变化。", "expected": "PASS"},
+    {"case_id": "judgment_weak_evidence_001", "case_type": "judgment_without_evidence", "text": "这是入口权重估，但目前没有任何一手来源或产品证据。", "expected": "PASS"},
+    {"case_id": "visual_good_001", "case_type": "good_visual_plan", "text": "封面服务核心判断，正文用价值链图解释影响，用框架图总结结论。", "expected": "PASS"},
+    {"case_id": "visual_bad_001", "case_type": "bad_visual_plan", "text": "使用蓝色科幻机器人背景，没有信息层级、来源说明和文章判断关系。", "expected": "PASS"}
+  ]
+}
