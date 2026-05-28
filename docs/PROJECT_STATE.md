@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 12：Selected Version Promotion 与工作台闭环执行 v1。
+Phase 13：Workbench UI Server v2 与最终人工发布协作 v1。
 
 ## 最新 checkpoint
 
-P12-008：Phase 12 Closeout。
+P13-009：Phase 13 Closeout。
 
 ## 已完成
 
@@ -180,6 +180,18 @@ P12-008：Phase 12 Closeout。
 - P12-007 Phase 12 Daily Finalization Pipeline v1。
 - P12-008 Phase 12 Closeout。
 
+### Phase 13
+
+- P13-001 Workbench UI Server v2。
+- P13-002 Interactive Final Review Actions v1。
+- P13-003 Manual Publish Session Tracker v1。
+- P13-004 Post-publish Manual Metrics Input v1。
+- P13-005 Content Performance Memory v1。
+- P13-006 Performance-to-Learning Feedback Loop v1。
+- P13-007 Workbench Performance Panel v1。
+- P13-008 Phase 13 Daily Performance Pipeline v1。
+- P13-009 Phase 13 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -298,10 +310,21 @@ P12-008：Phase 12 Closeout。
 - workbench final review panel。
 - phase12 daily finalization pipeline。
 
+### Phase 13 能力
+
+- local interactive workbench server。
+- interactive final review actions。
+- manual publish session tracking。
+- manual post-publish metrics input。
+- content performance memory。
+- performance-to-learning feedback。
+- workbench performance panel。
+- phase13 daily performance pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase12-daily
+make phase13-daily
 ```
 
 ## 当前边界
@@ -310,6 +333,8 @@ make phase12-daily
 - 不接公众号 API。
 - 不进公众号草稿箱。
 - 不自动发布。
+- 不自动抓取表现数据。
+- 所有发布动作和表现数据都由人工确认和录入。
 - 不覆盖原稿。
 - 不自动接受新版本。
 - 不自动改 prompt/rules。
@@ -330,11 +355,11 @@ make phase12-daily
 
 ## 下一阶段
 
-Phase 13：Workbench UI Server v2 与最终人工发布协作 v1。
+Phase 14：内容表现驱动的选题与写作策略优化 v1。
 
-- P13-001：Workbench UI Server v2。
-- P13-002：Interactive Final Review Actions v1。
-- P13-003：Manual Publish Session Tracker v1。
-- P13-004：Post-publish Manual Metrics Input v1。
-- P13-005：Content Performance Memory v1。
-- P13-006：Performance-to-Learning Feedback Loop v1。
+- P14-001：Performance-aware Topic Scoring v1。
+- P14-002：Performance-aware Title Pattern Update v1。
+- P14-003：Performance-aware Opening Strategy Update v1。
+- P14-004：Performance-aware Evidence Strategy v1。
+- P14-005：Chief Editor Preference Profile v1。
+- P14-006：Weekly Strategy Review Board v1。

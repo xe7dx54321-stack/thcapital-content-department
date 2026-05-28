@@ -402,6 +402,10 @@ button { cursor: pointer; }
   border-color: rgba(169, 120, 36, .32);
   background: linear-gradient(180deg, #fff, #fff8ed);
 }
+.performance-panel {
+  border-color: rgba(87, 107, 149, .3);
+  background: linear-gradient(180deg, #fff, #f4f6fb);
+}
 .delta-number {
   display: inline-flex;
   align-items: center;
@@ -444,6 +448,19 @@ button { cursor: pointer; }
 }
 .copy-final-content:hover {
   background: var(--gold-soft);
+}
+.copy-performance-command {
+  min-height: 30px;
+  padding: 6px 9px;
+  border: 1px solid rgba(87, 107, 149, .24);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--wechat);
+  font-size: 12px;
+  text-align: left;
+}
+.copy-performance-command:hover {
+  background: #eef2fa;
 }
 .insight-panel {
   display: flex;
@@ -808,6 +825,7 @@ function renderReader() {
         <div class="review-card wide"><p class="review-label">Revision 建议</p><p class="review-value">${escapeHtml(shortText(article.revision_summary))}</p></div>
         ${renderVersionReviewCard("review-card wide")}
         ${renderFinalReviewCard("review-card wide")}
+        ${renderPerformancePanel("review-card wide")}
         <div class="review-card wide"><p class="review-label">Evidence</p>${renderMiniList(article.evidence_ids, "暂无 evidence")}</div>
         <div class="review-card wide"><p class="review-label">Source</p>${renderMiniList(article.source_ids, "暂无 source")}</div>
       </div>
@@ -856,6 +874,20 @@ function getFinalCandidate() {
 function getFinalChecklist() {
   const review = getFinalReview();
   return review.selected_checklist || {};
+}
+
+function getPerformancePanel() {
+  return workbenchData.performance_panel || {};
+}
+
+function getSelectedSession() {
+  const panel = getPerformancePanel();
+  return panel.selected_session || {};
+}
+
+function getSelectedMetrics() {
+  const panel = getPerformancePanel();
+  return panel.selected_metrics || {};
 }
 
 function versionReviewCommand(kind) {
@@ -921,12 +953,54 @@ function renderFinalReviewCard(cardClass = "review-card wide") {
   </div>`;
 }
 
+function performanceCommand(kind) {
+  const candidate = getFinalCandidate();
+  const session = getSelectedSession();
+  if (kind === "create") {
+    const finalId = candidate.final_candidate_id || "<final_candidate_id>";
+    return `python3 scripts/create_manual_publish_session.py --create ${finalId} --note ${shellQuote("准备手动发布")}`;
+  }
+  if (kind === "published") {
+    const sessionId = session.publish_session_id || "<publish_session_id>";
+    return `python3 scripts/create_manual_publish_session.py --mark-published ${sessionId} --url ${shellQuote("https://example.com/manual-placeholder")} --note ${shellQuote("已手动发布")}`;
+  }
+  if (kind === "metrics") {
+    const sessionId = session.publish_session_id || "<publish_session_id>";
+    return `python3 scripts/record_post_publish_metrics.py --session ${sessionId} --views 1000 --likes 20 --wows 5 --shares 3 --comments 2 --note ${shellQuote("人工录入表现数据")}`;
+  }
+  return "python3 scripts/create_manual_publish_session.py --list";
+}
+
+function renderPerformancePanel(cardClass = "review-card wide") {
+  const panel = getPerformancePanel();
+  const session = getSelectedSession();
+  const metrics = getSelectedMetrics();
+  const memory = panel.selected_performance_record || {};
+  const recommendations = Array.isArray(panel.recommendations) ? panel.recommendations : [];
+  const sessionSummary = panel.session_summary || {};
+  const metricsSummary = panel.metrics_summary || {};
+  return `<div class="${cardClass} performance-panel">
+    <p class="review-label">发布表现闭环</p>
+    <p class="review-value">Sessions ${escapeHtml(sessionSummary.session_count ?? 0)} · Metrics ${escapeHtml(metricsSummary.metrics_count ?? 0)} · Rating ${escapeHtml(metrics.performance_rating || memory.performance_rating || "UNKNOWN")}</p>
+    <p class="review-value">当前 session：${escapeHtml(session.publish_session_id || "暂无")} · ${escapeHtml(session.publish_status || "未创建")} · ${escapeHtml(session.published_url || "")}</p>
+    <p class="review-value">Views ${escapeHtml(metrics.views ?? "-")} · Likes ${escapeHtml(metrics.likes ?? "-")} · Wows ${escapeHtml(metrics.wows ?? "-")} · Shares ${escapeHtml(metrics.shares ?? "-")} · Comments ${escapeHtml(metrics.comments ?? "-")}</p>
+    <p class="review-label">Learning feedback</p>${renderMiniList(recommendations.map((item) => `${item.target_area}: ${item.recommendation}`), "暂无表现反馈建议")}
+    <div class="version-actions">
+      <button class="copy-performance-command" type="button" data-command="${escapeHtml(performanceCommand("create"))}">复制创建发布 session 命令</button>
+      <button class="copy-performance-command" type="button" data-command="${escapeHtml(performanceCommand("published"))}">复制标记已发布命令</button>
+      <button class="copy-performance-command" type="button" data-command="${escapeHtml(performanceCommand("metrics"))}">复制录入表现数据命令</button>
+    </div>
+  </div>`;
+}
+
 function renderInsightPanel() {
   const article = getSelectedArticle();
   const comparison = getLatestComparison();
   const decision = getLatestDecision();
   const finalCandidate = getFinalCandidate();
   const finalChecklist = getFinalChecklist();
+  const session = getSelectedSession();
+  const metrics = getSelectedMetrics();
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -966,6 +1040,10 @@ function renderInsightPanel() {
     <section class="insight-card final-panel">
       <p class="insight-label">最终候选稿</p>
       <p class="insight-value">${finalCandidate.final_candidate_id ? `${escapeHtml(finalCandidate.quality_status || "NEEDS_FINAL_CHECK")} · ${escapeHtml(finalChecklist.status || "UNREVIEWED")} · would_publish=false` : "暂无 final candidate"}</p>
+    </section>
+    <section class="insight-card performance-panel">
+      <p class="insight-label">发布表现</p>
+      <p class="insight-value">${session.publish_session_id ? `${escapeHtml(session.publish_status || "PLANNED")} · ${escapeHtml(metrics.performance_rating || "UNKNOWN")} · views ${escapeHtml(metrics.views ?? "-")}` : "暂无人工发布 session"}</p>
     </section>`;
 }
 
@@ -1058,6 +1136,19 @@ function bindFinalCopyButtons() {
   });
 }
 
+function bindPerformanceCommandButtons() {
+  document.querySelectorAll(".copy-performance-command").forEach((button) => {
+    button.addEventListener("click", () => {
+      const command = button.dataset.command || "python3 scripts/create_manual_publish_session.py --list";
+      copyText(command).then(() => {
+        button.textContent = "已复制";
+      }).catch(() => {
+        button.textContent = "复制失败";
+      });
+    });
+  });
+}
+
 function renderAll() {
   renderTopbar();
   renderTopicRail();
@@ -1066,6 +1157,7 @@ function renderAll() {
   renderChiefBar();
   bindReviewCommandButtons();
   bindFinalCopyButtons();
+  bindPerformanceCommandButtons();
 }
 
 document.querySelectorAll(".mode-tab").forEach((tab) => {

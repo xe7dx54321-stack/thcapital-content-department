@@ -28,6 +28,7 @@ class WechatWorkbenchDataReport:
     system_status: dict[str, Any]
     version_review: dict[str, Any]
     final_review: dict[str, Any]
+    performance_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -193,6 +194,55 @@ def build_final_review(paths: ProjectPaths, selected_article_id: str) -> dict[st
     }
 
 
+def build_performance_panel(paths: ProjectPaths, final_review: dict[str, Any]) -> dict[str, Any]:
+    publishing_root = paths.market_content_root / "07_publishing"
+    sessions_payload = read_json(publishing_root / "latest_manual_publish_sessions.json")
+    metrics_payload = read_json(publishing_root / "latest_post_publish_metrics.json")
+    memory_payload = read_json(publishing_root / "content_performance_memory.json")
+    feedback_payload = read_json(paths.logs_root / "latest_performance_learning_feedback.json")
+    selected_candidate = final_review.get("selected_candidate") if isinstance(final_review.get("selected_candidate"), dict) else {}
+    final_candidate_id = str(selected_candidate.get("final_candidate_id") or "")
+    sessions = list_payload(sessions_payload, "sessions")
+    metrics = list_payload(metrics_payload, "metrics")
+    records = list_payload(memory_payload, "records")
+    selected_session = {}
+    for session in reversed(sessions):
+        if session.get("final_candidate_id") == final_candidate_id:
+            selected_session = session
+            break
+    selected_metrics = {}
+    session_id = str(selected_session.get("publish_session_id") or "")
+    for metric in reversed(metrics):
+        if metric.get("publish_session_id") == session_id or metric.get("final_candidate_id") == final_candidate_id:
+            selected_metrics = metric
+            break
+    selected_record = {}
+    for record in reversed(records):
+        if record.get("final_candidate_id") == final_candidate_id:
+            selected_record = record
+            break
+    session_summary = sessions_payload.get("summary") if isinstance(sessions_payload.get("summary"), dict) else {}
+    metrics_summary = metrics_payload.get("summary") if isinstance(metrics_payload.get("summary"), dict) else {}
+    memory_summary = memory_payload.get("summary") if isinstance(memory_payload.get("summary"), dict) else {}
+    feedback_summary = feedback_payload.get("summary") if isinstance(feedback_payload.get("summary"), dict) else {}
+    return {
+        "session_summary": session_summary,
+        "metrics_summary": metrics_summary,
+        "performance_memory_summary": memory_summary,
+        "learning_feedback_summary": feedback_summary,
+        "selected_session": selected_session,
+        "selected_metrics": selected_metrics,
+        "selected_performance_record": selected_record,
+        "recommendations": list_payload(feedback_payload, "recommendations")[:5],
+        "policy": {
+            "manual_publish_only": True,
+            "manual_metrics_only": True,
+            "no_wechat_api": True,
+            "no_backend_scraping": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -317,10 +367,14 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     }
     version_review = build_version_review(paths, selected_article_id)
     final_review = build_final_review(paths, selected_article_id)
+    performance_panel = build_performance_panel(paths, final_review)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
     summary["final_ready_count"] = final_review.get("ready_for_final_review", 0)
+    summary["manual_publish_session_count"] = safe_int((performance_panel.get("session_summary") or {}).get("session_count"))
+    summary["post_publish_metrics_count"] = safe_int((performance_panel.get("metrics_summary") or {}).get("metrics_count"))
+    summary["performance_record_count"] = safe_int((performance_panel.get("performance_memory_summary") or {}).get("record_count"))
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -339,6 +393,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         system_status,
         version_review,
         final_review,
+        performance_panel,
         tuple(warnings),
     )
 
@@ -356,6 +411,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "system_status": report.system_status,
         "version_review": report.version_review,
         "final_review": report.final_review,
+        "performance_panel": report.performance_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

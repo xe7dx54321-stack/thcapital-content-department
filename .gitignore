@@ -644,6 +644,44 @@ logs/
 同行资本市场内容系统/11_frontstage/*phase12-daily-finalization-pipeline-board.md
 同行资本市场内容系统/11_frontstage/latest_phase12_daily_finalization_pipeline_board.md
 
+# Phase 13 generated artifacts
+同行资本市场内容系统/07_publishing/*final-review-actions*.json
+同行资本市场内容系统/07_publishing/*final-review-actions*.md
+同行资本市场内容系统/07_publishing/latest_final_review_actions.json
+同行资本市场内容系统/07_publishing/latest_final_review_actions.md
+
+同行资本市场内容系统/07_publishing/*manual-publish-sessions*.json
+同行资本市场内容系统/07_publishing/*manual-publish-sessions*.md
+同行资本市场内容系统/07_publishing/latest_manual_publish_sessions.json
+同行资本市场内容系统/07_publishing/latest_manual_publish_sessions.md
+同行资本市场内容系统/11_frontstage/*manual-publish-session-board.md
+同行资本市场内容系统/11_frontstage/latest_manual_publish_session_board.md
+
+同行资本市场内容系统/07_publishing/*post-publish-metrics*.json
+同行资本市场内容系统/07_publishing/*post-publish-metrics*.md
+同行资本市场内容系统/07_publishing/latest_post_publish_metrics.json
+同行资本市场内容系统/07_publishing/latest_post_publish_metrics.md
+同行资本市场内容系统/11_frontstage/*post-publish-metrics-board.md
+同行资本市场内容系统/11_frontstage/latest_post_publish_metrics_board.md
+
+同行资本市场内容系统/07_publishing/content_performance_memory.json
+同行资本市场内容系统/07_publishing/content_performance_memory.md
+同行资本市场内容系统/11_frontstage/content_performance_memory_board.md
+
+同行资本市场内容系统/10_logs/*performance-learning-feedback*.json
+同行资本市场内容系统/10_logs/*performance-learning-feedback*.md
+同行资本市场内容系统/10_logs/latest_performance_learning_feedback.json
+同行资本市场内容系统/10_logs/latest_performance_learning_feedback.md
+同行资本市场内容系统/11_frontstage/*performance-learning-feedback-board.md
+同行资本市场内容系统/11_frontstage/latest_performance_learning_feedback_board.md
+
+同行资本市场内容系统/10_logs/*phase13-daily-performance-pipeline*.json
+同行资本市场内容系统/10_logs/*phase13-daily-performance-pipeline*.md
+同行资本市场内容系统/10_logs/latest_phase13_daily_performance_pipeline.json
+同行资本市场内容系统/10_logs/latest_phase13_daily_performance_pipeline.md
+同行资本市场内容系统/11_frontstage/*phase13-daily-performance-pipeline-board.md
+同行资本市场内容系统/11_frontstage/latest_phase13_daily_performance_pipeline_board.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

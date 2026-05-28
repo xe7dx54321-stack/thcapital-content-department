@@ -363,40 +363,129 @@
 
 ### P13-001：Workbench UI Server v2
 
+状态：Done。
+
 目标：
 
 - 将当前静态工作台升级为更顺滑的本地交互服务。
 - 继续只监听本机，不部署云端。
+- 提供工作台数据、Chief Editor、final review、publish session 和 metrics 的本地白名单接口。
 
 ### P13-002：Interactive Final Review Actions v1
+
+状态：Done。
 
 目标：
 
 - 支持在本地工作台中完成 final candidate 的人工确认动作。
 - 所有动作仍写入文件型记录。
+- 不发布、不调用平台 API。
 
 ### P13-003：Manual Publish Session Tracker v1
+
+状态：Done。
 
 目标：
 
 - 记录人工复制、排版、预览、发布前确认过程。
 - 不接公众号 API，不自动发布。
+- 支持 create、mark-published、cancel、defer。
 
 ### P13-004：Post-publish Manual Metrics Input v1
+
+状态：Done。
 
 目标：
 
 - 支持人工录入阅读、点赞、在看、转发等发布后表现数据。
 - 不自动抓取平台数据。
+- 生成表现数据看板和辅助 performance rating。
 
 ### P13-005：Content Performance Memory v1
+
+状态：Done。
 
 目标：
 
 - 将发布后表现和内容版本、选题、标题、证据质量关联起来。
+- 沉淀 title/opening pattern 和内容表现 lessons。
 
 ### P13-006：Performance-to-Learning Feedback Loop v1
+
+状态：Done。
 
 目标：
 
 - 把内容表现反馈到选题、标题、开头、结构、规则建议和 Chief Editor 偏好中。
+- 所有建议 `auto_apply=false`，不自动改配置。
+
+### P13-007：Workbench Performance Panel v1
+
+状态：Done。
+
+目标：
+
+- 在工作台展示人工发布 session、表现指标、performance memory 和学习反馈。
+- 保留静态 HTML 的 CLI 命令复制 fallback。
+
+### P13-008：Phase 13 Daily Performance Pipeline v1
+
+状态：Done。
+
+目标：
+
+- 串联 Phase 12、发布 session board、metrics board、performance memory、learning feedback 和工作台刷新。
+- 不自动创建 session，不自动录入 metrics，不自动发布。
+
+### P13-009：Phase 13 Closeout
+
+状态：Done。
+
+目标：
+
+- 新增 Phase 13 closeout 报告。
+- 明确 Phase 14 入口。
+
+## Phase 14：内容表现驱动的选题与写作策略优化 v1
+
+### P14-001：Performance-aware Topic Scoring v1
+
+目标：
+
+- 将人工录入的真实发布表现作为选题评分的参考信号。
+- 只生成 scoring suggestion，不自动覆盖 value scoring rules。
+
+### P14-002：Performance-aware Title Pattern Update v1
+
+目标：
+
+- 基于高表现和低表现内容更新标题模式优先级建议。
+- 不自动改 title pattern registry。
+
+### P14-003：Performance-aware Opening Strategy Update v1
+
+目标：
+
+- 分析不同开头模式与阅读、在看、转发的关系。
+- 输出 opening strategy 建议。
+
+### P14-004：Performance-aware Evidence Strategy v1
+
+目标：
+
+- 评估证据强度与发布后表现之间的关系。
+- 区分“证据不足”和“标题/开头弱”导致的低表现。
+
+### P14-005：Chief Editor Preference Profile v1
+
+目标：
+
+- 将人工反馈、版本接受记录和发布表现合并为 Chief Editor 偏好画像。
+- 辅助后续主编 Agent 更贴近用户判断。
+
+### P14-006：Weekly Strategy Review Board v1
+
+目标：
+
+- 每周汇总选题、标题、开头、证据、结构和 Agent action 的表现。
+- 为人工策略复盘提供看板。
