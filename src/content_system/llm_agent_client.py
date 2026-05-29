@@ -227,7 +227,15 @@ def is_live_call_allowed(request: LLMRequest, provider: LLMProvider) -> tuple[bo
             return False, "adapter_type_not_supported"
         return True, ""
     if provider.provider_id == "anthropic":
-        if request.agent_name not in {"llm_critic_agent", "llm_judge_agent", "llm_rewrite_agent"}:
+        if request.agent_name not in {
+            "llm_critic_agent",
+            "llm_judge_agent",
+            "llm_rewrite_agent",
+            "live_methodology_brief_agent",
+            "live_methodology_draft_agent",
+            "live_methodology_rewrite_agent",
+            "live_visual_prompt_agent",
+        }:
             return False, "agent_not_allowed_for_phase7_anthropic_pilot"
         if provider.adapter_type != "anthropic_messages":
             return False, "adapter_type_not_supported"

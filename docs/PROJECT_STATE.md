@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 15：Methodology-driven Content Generation & Visual Strategy v1。
+Phase 16：Methodology-driven Live Agent Generation Pilot v1。
 
 ## 最新 checkpoint
 
-P15-012：Phase 15 Closeout。
+P16-010：Phase 16 Closeout。
 
 ## 已完成
 
@@ -220,6 +220,19 @@ P15-012：Phase 15 Closeout。
 - P15-011 Phase 15 Daily Generation Pipeline v1。
 - P15-012 Phase 15 Closeout。
 
+### Phase 16
+
+- P16-001 Live Methodology Brief Agent Pilot v1。
+- P16-002 Live Methodology Draft Agent Pilot v1。
+- P16-003 Live Methodology Rewrite Agent Pilot v1。
+- P16-004 Live Visual Prompt Agent Pilot v1。
+- P16-005 Live Output Quality Comparison v1。
+- P16-006 Human Calibration Feedback Apply v1。
+- P16-007 Image Generation Manual Approval Queue v1。
+- P16-008 Workbench Live Pilot Panel v1。
+- P16-009 Phase 16 Daily Live Pilot Pipeline v1。
+- P16-010 Phase 16 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -375,10 +388,22 @@ P15-012：Phase 15 Closeout。
 - workbench generation and visual panel。
 - phase15 daily generation pipeline。
 
+### Phase 16 能力
+
+- live methodology brief pilot。
+- live methodology draft pilot。
+- live methodology rewrite pilot。
+- live visual prompt pilot。
+- live-vs-rule output comparison。
+- live calibration board。
+- image generation manual approval queue。
+- workbench live pilot panel。
+- phase16 daily live pilot pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase15-daily
+make phase16-daily
 ```
 
 ## 当前边界
@@ -412,13 +437,18 @@ make phase15-daily
 - 不自动调用图片模型。
 - 图片策略只生成 visual plan / prompt / asset request。
 - 图片生成和图片使用需要人工确认。
+- 默认 dry-run。
+- live 必须显式 env + allowlist + key + cost guard。
+- 不自动替换主线产物。
+- 所有 live 输出只作为 sidecar candidate。
 
 ## 下一阶段
 
-Phase 16：Methodology-driven Live Agent Generation Pilot v1。
+Phase 17：Approved Live Output Promotion & Manual Image Generation v1。
 
-- P16-001：Live Methodology Brief Agent Pilot。
-- P16-002：Live Methodology Draft Agent Pilot。
-- P16-003：Live Visual Prompt Agent Pilot。
-- P16-004：Human Calibration Feedback Apply v1。
-- P16-005：Image Generation Manual Approval Flow v1。
+- P17-001：Approved Live Brief/Draft Promotion v1。
+- P17-002：Live Rewrite Version Promotion v1。
+- P17-003：Manual Image Generation Executor v1。
+- P17-004：Image Asset Library v1。
+- P17-005：Article-with-Images Preview v1。
+- P17-006：Human Final Visual Review v1。

@@ -31,6 +31,7 @@ class WechatWorkbenchDataReport:
     performance_panel: dict[str, Any]
     methodology_panel: dict[str, Any]
     generation_visual_panel: dict[str, Any]
+    live_pilot_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -323,6 +324,42 @@ def build_generation_visual_panel(paths: ProjectPaths, selected_article_id: str,
     }
 
 
+def build_live_pilot_panel(paths: ProjectPaths) -> dict[str, Any]:
+    draft_root = paths.market_content_root / "05_draft_packs"
+    versions_root = paths.market_content_root / "09_workbench_actions" / "versions"
+    brief_payload = read_json(draft_root / "latest_live_methodology_brief_pilot.json")
+    draft_payload = read_json(draft_root / "latest_live_methodology_draft_pilot.json")
+    rewrite_payload = read_json(versions_root / "latest_live_methodology_rewrite_pilot.json")
+    visual_payload = read_json(draft_root / "latest_live_visual_prompt_pilot.json")
+    comparison_payload = read_json(paths.logs_root / "latest_live_output_quality_comparison.json")
+    calibration_payload = read_json(paths.logs_root / "latest_live_calibration_feedback.json")
+    approval_payload = read_json(draft_root / "latest_image_generation_approval_queue.json")
+    phase16_payload = read_json(paths.logs_root / "latest_phase16_daily_live_pilot_pipeline.json")
+    return {
+        "brief_summary": brief_payload.get("summary") if isinstance(brief_payload.get("summary"), dict) else {},
+        "draft_summary": draft_payload.get("summary") if isinstance(draft_payload.get("summary"), dict) else {},
+        "rewrite_summary": rewrite_payload.get("summary") if isinstance(rewrite_payload.get("summary"), dict) else {},
+        "visual_prompt_summary": visual_payload.get("summary") if isinstance(visual_payload.get("summary"), dict) else {},
+        "comparison_summary": comparison_payload.get("summary") if isinstance(comparison_payload.get("summary"), dict) else {},
+        "calibration_summary": calibration_payload.get("summary") if isinstance(calibration_payload.get("summary"), dict) else {},
+        "image_approval_summary": approval_payload.get("summary") if isinstance(approval_payload.get("summary"), dict) else {},
+        "phase16_summary": phase16_payload.get("summary") if isinstance(phase16_payload.get("summary"), dict) else {},
+        "latest_brief": (list_payload(brief_payload, "briefs") or [{}])[0],
+        "latest_draft": (list_payload(draft_payload, "drafts") or [{}])[0],
+        "latest_rewrite": (list_payload(rewrite_payload, "rewrites") or [{}])[0],
+        "latest_visual_prompt": (list_payload(visual_payload, "visual_prompts") or [{}])[0],
+        "comparisons": list_payload(comparison_payload, "comparisons")[:6],
+        "approval_requests": list_payload(approval_payload, "requests")[:6],
+        "policy": {
+            "dry_run_default": True,
+            "live_requires_env_allowlist_key_cost_guard": True,
+            "sidecar_only": True,
+            "do_not_auto_generate_images": True,
+            "do_not_auto_publish": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -450,6 +487,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     performance_panel = build_performance_panel(paths, final_review)
     methodology_panel = build_methodology_panel(paths, selected_article_id, articles)
     generation_visual_panel = build_generation_visual_panel(paths, selected_article_id, articles)
+    live_pilot_panel = build_live_pilot_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -462,6 +500,9 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["methodology_brief_count"] = safe_int((generation_visual_panel.get("brief_summary") or {}).get("brief_count"))
     summary["article_visual_plan_count"] = safe_int((generation_visual_panel.get("visual_plan_summary") or {}).get("plan_count"))
     summary["image_asset_request_count"] = safe_int((generation_visual_panel.get("image_request_summary") or {}).get("request_count"))
+    summary["live_output_comparison_count"] = safe_int((live_pilot_panel.get("comparison_summary") or {}).get("comparison_count"))
+    summary["image_generation_approval_count"] = safe_int((live_pilot_panel.get("image_approval_summary") or {}).get("request_count"))
+    summary["live_pilot_attempted_count"] = safe_int((live_pilot_panel.get("phase16_summary") or {}).get("live_attempted_count"))
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -483,6 +524,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         performance_panel,
         methodology_panel,
         generation_visual_panel,
+        live_pilot_panel,
         tuple(warnings),
     )
 
@@ -503,6 +545,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "performance_panel": report.performance_panel,
         "methodology_panel": report.methodology_panel,
         "generation_visual_panel": report.generation_visual_panel,
+        "live_pilot_panel": report.live_pilot_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

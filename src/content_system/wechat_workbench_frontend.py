@@ -414,6 +414,10 @@ button { cursor: pointer; }
   border-color: rgba(169, 120, 36, .28);
   background: linear-gradient(180deg, #fff, #fffaf1);
 }
+.live-panel {
+  border-color: rgba(78, 100, 160, .25);
+  background: linear-gradient(180deg, #fff, #f7f8ff);
+}
 .delta-number {
   display: inline-flex;
   align-items: center;
@@ -871,6 +875,7 @@ function renderReader() {
         ${renderPerformancePanel("review-card wide")}
         ${renderMethodologyPanel("review-card wide")}
         ${renderGenerationVisualPanel("review-card wide")}
+        ${renderLivePilotPanel("review-card wide")}
         <div class="review-card wide"><p class="review-label">Evidence</p>${renderMiniList(article.evidence_ids, "暂无 evidence")}</div>
         <div class="review-card wide"><p class="review-label">Source</p>${renderMiniList(article.source_ids, "暂无 source")}</div>
       </div>
@@ -931,6 +936,10 @@ function getMethodologyPanel() {
 
 function getGenerationVisualPanel() {
   return workbenchData.generation_visual_panel || {};
+}
+
+function getLivePilotPanel() {
+  return workbenchData.live_pilot_panel || {};
 }
 
 function getSelectedMethodologyTopic() {
@@ -1135,6 +1144,44 @@ function renderGenerationVisualPanel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function liveStatusText(summary) {
+  if (!summary || !Object.keys(summary).length) return "暂无";
+  const ready = summary.ready_check_status || "NOT_REQUIRED";
+  const reason = summary.ready_check_reason ? ` / ${summary.ready_check_reason}` : "";
+  return `${summary.live_attempted ? "attempted" : "not attempted"} · ${summary.live_succeeded ? "succeeded" : "not succeeded"} · ${ready}${reason}`;
+}
+
+function renderLivePilotPanel(cardClass = "review-card wide") {
+  const panel = getLivePilotPanel();
+  const comparison = panel.comparison_summary || {};
+  const approval = panel.image_approval_summary || {};
+  const phase16 = panel.phase16_summary || {};
+  const comparisons = Array.isArray(panel.comparisons) ? panel.comparisons : [];
+  const approvals = Array.isArray(panel.approval_requests) ? panel.approval_requests : [];
+  const hasLivePayload = Object.keys(panel.brief_summary || {}).length || Object.keys(panel.draft_summary || {}).length || Object.keys(panel.visual_prompt_summary || {}).length;
+  if (!hasLivePayload) {
+    return `<div class="${cardClass} live-panel">
+      <p class="review-label">Live Pilot</p>
+      <p class="review-value">暂无 live pilot sidecar。运行 <code>make phase16-daily</code> 后，这里会展示 dry-run / readiness 状态、live-vs-rule 对比和图片生成审批队列。</p>
+    </div>`;
+  }
+  return `<div class="${cardClass} live-panel">
+    <p class="review-label">Live Pilot Sidecars</p>
+    <p class="review-value">Brief ${escapeHtml(liveStatusText(panel.brief_summary))}</p>
+    <p class="review-value">Draft ${escapeHtml(liveStatusText(panel.draft_summary))}</p>
+    <p class="review-value">Rewrite ${escapeHtml(liveStatusText(panel.rewrite_summary))}</p>
+    <p class="review-value">Visual prompt ${escapeHtml(liveStatusText(panel.visual_prompt_summary))}</p>
+    <p class="review-label">Live vs Rule</p>
+    <p class="review-value">Comparisons ${escapeHtml(comparison.comparison_count ?? 0)} · use_live ${escapeHtml(comparison.use_live ?? 0)} · merge ${escapeHtml(comparison.merge ?? 0)} · human_review ${escapeHtml(comparison.human_review ?? 0)}</p>
+    ${renderMiniList(comparisons.map((item) => `${item.comparison_type}: ${item.recommendation} / delta ${item.scores ? item.scores.delta : 0}`), "暂无 live comparison")}
+    <p class="review-label">Image generation approval</p>
+    <p class="review-value">Requests ${escapeHtml(approval.request_count ?? 0)} · pending ${escapeHtml(approval.pending ?? 0)} · approved ${escapeHtml(approval.approved ?? 0)} · do_not_auto_generate_images=true</p>
+    ${renderMiniList(approvals.map((item) => `${item.visual_type}: ${item.approval_status} / generation_allowed ${item.generation_allowed}`), "暂无图片生成审批请求")}
+    <p class="review-label">Pipeline policy</p>
+    <p class="review-value">live attempted ${escapeHtml(phase16.live_attempted_count ?? 0)} · live succeeded ${escapeHtml(phase16.live_succeeded_count ?? 0)} · sidecar_only=true · do_not_auto_publish=true</p>
+  </div>`;
+}
+
 function renderInsightPanel() {
   const article = getSelectedArticle();
   const comparison = getLatestComparison();
@@ -1146,8 +1193,11 @@ function renderInsightPanel() {
   const topicMethodology = getSelectedMethodologyTopic();
   const articleMethodology = getSelectedMethodologyArticle();
   const generation = getGenerationVisualPanel();
+  const livePilot = getLivePilotPanel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
+  const liveComparisonSummary = livePilot.comparison_summary || {};
+  const imageApprovalSummary = livePilot.image_approval_summary || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -1199,6 +1249,10 @@ function renderInsightPanel() {
     <section class="insight-card generation-panel">
       <p class="insight-label">生成与图片策略</p>
       <p class="insight-value">Briefs ${escapeHtml((generation.brief_summary || {}).brief_count ?? 0)} · Visual plans ${escapeHtml(visualSummary.plan_count ?? 0)} · Image requests ${escapeHtml(requestSummary.request_count ?? 0)}</p>
+    </section>
+    <section class="insight-card live-panel">
+      <p class="insight-label">Live Pilot</p>
+      <p class="insight-value">Comparisons ${escapeHtml(liveComparisonSummary.comparison_count ?? 0)} · Image approvals ${escapeHtml(imageApprovalSummary.request_count ?? 0)} · sidecar only</p>
     </section>`;
 }
 

@@ -71,7 +71,11 @@
       "live_agent_allowlist": [
         "llm_critic_agent",
         "llm_judge_agent",
-        "llm_rewrite_agent"
+        "llm_rewrite_agent",
+        "live_methodology_brief_agent",
+        "live_methodology_draft_agent",
+        "live_methodology_rewrite_agent",
+        "live_visual_prompt_agent"
       ],
       "estimated_cost_per_1k_input_tokens_usd": 0.0,
       "estimated_cost_per_1k_output_tokens_usd": 0.0,
@@ -186,6 +190,34 @@
       "preferred_model": "claude-sonnet-4.6",
       "task_class": "reasoning",
       "reason": "需要基于反馈判断规则如何调整，属于高智力任务。"
+    },
+    {
+      "agent_id": "live_methodology_brief_agent",
+      "preferred_provider": "anthropic",
+      "preferred_model": "claude-sonnet-4.6",
+      "task_class": "reasoning",
+      "reason": "需要按内容方法论生成更强 brief，属于高智力内容策略任务。"
+    },
+    {
+      "agent_id": "live_methodology_draft_agent",
+      "preferred_provider": "anthropic",
+      "preferred_model": "claude-sonnet-4.6",
+      "task_class": "reasoning",
+      "reason": "需要把方法论、outline、视觉策略合成为公众号成品稿，属于高智力写作任务。"
+    },
+    {
+      "agent_id": "live_methodology_rewrite_agent",
+      "preferred_provider": "anthropic",
+      "preferred_model": "claude-sonnet-4.6",
+      "task_class": "reasoning",
+      "reason": "需要针对方法论低分项做改稿，属于高智力编辑任务。"
+    },
+    {
+      "agent_id": "live_visual_prompt_agent",
+      "preferred_provider": "anthropic",
+      "preferred_model": "claude-sonnet-4.6",
+      "task_class": "reasoning",
+      "reason": "需要将视觉策略转成专业图片 prompt 和设计 brief，属于高智力视觉编辑任务。"
     },
     {
       "agent_id": "learning_loop_dashboard_summary",

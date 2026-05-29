@@ -647,33 +647,129 @@
 
 ## Phase 16：Methodology-driven Live Agent Generation Pilot v1
 
-### P16-001：Live Methodology Brief Agent Pilot
+### P16-001：Live Methodology Brief Agent Pilot v1
+
+状态：Done。
 
 目标：
 
 - 在显式 live env + allowlist 下，为 methodology-aware brief generation 增加旁路 live pilot。
+- 输出 sidecar brief，不替换规则型 brief。
 
-### P16-002：Live Methodology Draft Agent Pilot
+### P16-002：Live Methodology Draft Agent Pilot v1
+
+状态：Done。
 
 目标：
 
 - 在显式 live env + allowlist 下，为 methodology-aware draft generation 增加旁路 live pilot。
+- 输出 sidecar draft，不覆盖原稿。
 
-### P16-003：Live Visual Prompt Agent Pilot
+### P16-003：Live Methodology Rewrite Agent Pilot v1
+
+状态：Done。
+
+目标：
+
+- 根据 methodology article review 的低分项生成 live rewrite sidecar。
+- 不替换 existing methodology rewrite versions。
+
+### P16-004：Live Visual Prompt Agent Pilot v1
+
+状态：Done。
 
 目标：
 
 - 在显式 live env + allowlist 下，为 visual prompt / design brief 增加旁路 live pilot。
+- 不自动调用图片模型，不生成图片。
 
-### P16-004：Human Calibration Feedback Apply v1
+### P16-005：Live Output Quality Comparison v1
+
+状态：Done。
+
+目标：
+
+- 对比 rule-based / methodology-generated / live-generated 输出质量。
+- 只生成建议，不自动 use live。
+
+### P16-006：Human Calibration Feedback Apply v1
+
+状态：Done。
 
 目标：
 
 - 将人工方法论校准反馈转成可审阅建议，不自动修改配置。
 
-### P16-005：Image Generation Manual Approval Flow v1
+### P16-007：Image Generation Manual Approval Queue v1
+
+状态：Done。
 
 目标：
 
 - 建立图片生成的人工批准流。
 - 只有用户明确批准和配置接口后才允许生成图片。
+- 即使 APPROVED，本轮也不生成图片。
+
+### P16-008：Workbench Live Pilot Panel v1
+
+状态：Done。
+
+目标：
+
+- 在微信公众号工作台展示 live pilot 输出、quality comparison、calibration 和 image approval queue。
+
+### P16-009：Phase 16 Daily Live Pilot Pipeline v1
+
+状态：Done。
+
+目标：
+
+- 串联 Phase15、四个 live pilot、输出对比、校准板、图片生成审批队列和工作台刷新。
+- 默认 dry-run，不自动发布，不自动生成图片，不自动替换主线产物。
+
+### P16-010：Phase 16 Closeout
+
+状态：Done。
+
+目标：
+
+- 新增 Phase 16 closeout 报告。
+- 明确 Phase 17 入口。
+
+## Phase 17：Approved Live Output Promotion & Manual Image Generation v1
+
+### P17-001：Approved Live Brief/Draft Promotion v1
+
+目标：
+
+- 将人工接受的 live brief / draft sidecar 提升为候选版本，不自动替换主线产物。
+
+### P17-002：Live Rewrite Version Promotion v1
+
+目标：
+
+- 将人工接受的 live rewrite sidecar 纳入 versioned rewrite workflow。
+
+### P17-003：Manual Image Generation Executor v1
+
+目标：
+
+- 只在人工批准后执行图片生成或人工设计请求。
+
+### P17-004：Image Asset Library v1
+
+目标：
+
+- 建立本地图片资产索引、来源说明和版权审查记录。
+
+### P17-005：Article-with-Images Preview v1
+
+目标：
+
+- 生成带图片占位/已批准图片的公众号预览。
+
+### P17-006：Human Final Visual Review v1
+
+目标：
+
+- 为最终图片使用建立人工视觉审核流程。
