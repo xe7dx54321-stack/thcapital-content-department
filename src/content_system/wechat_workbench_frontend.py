@@ -426,6 +426,10 @@ button { cursor: pointer; }
   border-color: rgba(169, 120, 36, .34);
   background: linear-gradient(180deg, #fff, #fff7e9);
 }
+.content-ops-panel {
+  border-color: rgba(87, 107, 149, .32);
+  background: linear-gradient(180deg, #fff, #f5f7fb);
+}
 .delta-number {
   display: inline-flex;
   align-items: center;
@@ -908,6 +912,7 @@ function renderReader() {
         ${renderLivePilotPanel("review-card wide")}
         ${renderImageAssetPanel("review-card wide")}
         ${renderPublishingPackPanel("review-card wide")}
+        ${renderContentOpsPanel("review-card wide")}
         <div class="review-card wide"><p class="review-label">Evidence</p>${renderMiniList(article.evidence_ids, "暂无 evidence")}</div>
         <div class="review-card wide"><p class="review-label">Source</p>${renderMiniList(article.source_ids, "暂无 source")}</div>
       </div>
@@ -980,6 +985,10 @@ function getImageAssetPanel() {
 
 function getPublishingPackPanel() {
   return workbenchData.publishing_pack_panel || {};
+}
+
+function getContentOpsPanel() {
+  return workbenchData.content_ops_panel || {};
 }
 
 function getSelectedMethodologyTopic() {
@@ -1336,6 +1345,44 @@ function renderPublishingPackPanel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function renderContentOpsPanel(cardClass = "review-card wide") {
+  const panel = getContentOpsPanel();
+  const calendarSummary = panel.calendar_summary || {};
+  const queueSummary = panel.queue_summary || {};
+  const rhythmSummary = panel.rhythm_summary || {};
+  const archiveSummary = panel.archive_summary || {};
+  const metricsSummary = panel.metrics_review_summary || {};
+  const closeoutSummary = panel.closeout_summary || {};
+  const todayItems = Array.isArray(panel.today_recommendations) ? panel.today_recommendations : [];
+  const thisWeek = Array.isArray(panel.this_week_recommendations) ? panel.this_week_recommendations : [];
+  const blockers = Array.isArray(panel.blockers) ? panel.blockers : [];
+  const rhythm = Array.isArray(panel.weekly_rhythm) ? panel.weekly_rhythm : [];
+  const actions = Array.isArray(panel.operator_actions) ? panel.operator_actions : [];
+  const insights = Array.isArray(panel.metrics_insights) ? panel.metrics_insights : [];
+  const hasPanel = Object.keys(calendarSummary).length || Object.keys(queueSummary).length || Object.keys(closeoutSummary).length;
+  if (!hasPanel) {
+    return `<div class="${cardClass} content-ops-panel">
+      <p class="review-label">内容运营</p>
+      <p class="review-value">暂无 Phase19 内容运营数据。运行 <code>make phase19-daily</code> 后会显示发布日历、队列优先级、周节奏、已发布归档和运营 closeout。</p>
+    </div>`;
+  }
+  const todayRows = todayItems.map((item) => `${item.priority}: ${item.title || item.queue_item_id} / ${item.readiness_status}`);
+  const weekRows = thisWeek.slice(0, 6).map((item) => `${item.priority}: ${item.title || item.queue_item_id} / ${item.recommended_next_action}`);
+  const blockerRows = blockers.slice(0, 6).map((item) => `${item.title || item.queue_item_id}: ${item.readiness_status} / ${(item.blockers || []).join("; ")}`);
+  const rhythmRows = rhythm.slice(0, 7).map((item) => `${item.weekday}: ${item.recommended_content_type} / ${item.status}`);
+  return `<div class="${cardClass} content-ops-panel">
+    <p class="review-label">内容运营</p>
+    <p class="review-value">Calendar ${escapeHtml(calendarSummary.planned_slots ?? 0)} slots · Queue ${escapeHtml(queueSummary.item_count ?? 0)} · Today ${escapeHtml(queueSummary.today ?? 0)} · This week ${escapeHtml(queueSummary.this_week ?? 0)}</p>
+    <p class="review-value">Rhythm ready days ${escapeHtml(rhythmSummary.ready_days ?? 0)} · Published ${escapeHtml(archiveSummary.published_count ?? 0)} · Metrics articles ${escapeHtml(metricsSummary.with_metrics_count ?? 0)} · Closeout blocked ${escapeHtml(closeoutSummary.blocked_count ?? 0)}</p>
+    <p class="review-label">今日建议发布</p>${renderMiniList(todayRows, "暂无 TODAY 内容")}
+    <p class="review-label">本周优先</p>${renderMiniList(weekRows, "暂无 THIS_WEEK 内容")}
+    <p class="review-label">待处理 blocker</p>${renderMiniList(blockerRows, "暂无 blocker")}
+    <p class="review-label">本周节奏</p>${renderMiniList(rhythmRows, "暂无 weekly rhythm")}
+    <p class="review-label">发布后复盘</p>${renderMiniList(insights, "暂无指标复盘 insight")}
+    <p class="review-label">运营动作</p>${renderMiniList(actions, "暂无 operator action")}
+  </div>`;
+}
+
 function renderInsightPanel() {
   const article = getSelectedArticle();
   const comparison = getLatestComparison();
@@ -1350,6 +1397,7 @@ function renderInsightPanel() {
   const livePilot = getLivePilotPanel();
   const imageAsset = getImageAssetPanel();
   const publishingPack = getPublishingPackPanel();
+  const contentOps = getContentOpsPanel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
@@ -1359,6 +1407,9 @@ function renderInsightPanel() {
   const visualReviewSummary = imageAsset.final_visual_review_summary || {};
   const packSummary = publishingPack.copy_pack_summary || {};
   const packChecklistSummary = publishingPack.visual_checklist_summary || {};
+  const opsQueueSummary = contentOps.queue_summary || {};
+  const opsCalendarSummary = contentOps.calendar_summary || {};
+  const opsCloseoutSummary = contentOps.closeout_summary || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -1422,6 +1473,10 @@ function renderInsightPanel() {
     <section class="insight-card publishing-pack-panel">
       <p class="insight-label">图文发布包</p>
       <p class="insight-value">Packs ${escapeHtml(packSummary.pack_count ?? 0)} · ready ${escapeHtml(packSummary.ready_for_manual_copy ?? 0)} · checklist ready ${escapeHtml(packChecklistSummary.ready ?? 0)} · manual copy only</p>
+    </section>
+    <section class="insight-card content-ops-panel">
+      <p class="insight-label">内容运营</p>
+      <p class="insight-value">Slots ${escapeHtml(opsCalendarSummary.planned_slots ?? 0)} · Queue ${escapeHtml(opsQueueSummary.item_count ?? 0)} · Today ${escapeHtml(opsQueueSummary.today ?? 0)} · Blocked ${escapeHtml(opsCloseoutSummary.blocked_count ?? 0)}</p>
     </section>`;
 }
 

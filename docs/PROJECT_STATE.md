@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 18：Article-with-Images Final Candidate & Manual Publishing Pack v1。
+Phase 19：Real Publishing Operations & Content Calendar v1。
 
 ## 最新 checkpoint
 
-P18-008：Phase 18 Closeout。
+P19-009：Phase 19 Closeout。
 
 ## 已完成
 
@@ -256,6 +256,18 @@ P18-008：Phase 18 Closeout。
 - P18-007 Phase 18 Daily Publishing Pack Pipeline v1。
 - P18-008 Phase 18 Closeout。
 
+### Phase 19
+
+- P19-001 Manual Publishing Session Calendar v1。
+- P19-002 Content Queue Priority Board v1。
+- P19-003 Weekly Publishing Rhythm Planner v1。
+- P19-004 Published Article Archive v1。
+- P19-005 Post-publish Metrics Review Board v1。
+- P19-006 Content Ops Closeout v1。
+- P19-007 Workbench Content Ops Panel v1。
+- P19-008 Phase 19 Daily Ops Pipeline v1。
+- P19-009 Phase 19 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -444,10 +456,21 @@ P18-008：Phase 18 Closeout。
 - workbench publishing pack panel。
 - phase18 daily publishing pack pipeline。
 
+### Phase 19 能力
+
+- manual publishing session calendar。
+- content queue priority board。
+- weekly publishing rhythm planner。
+- published article archive。
+- post-publish metrics review board。
+- content ops closeout。
+- workbench content ops panel。
+- phase19 daily ops pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase18-daily
+make phase19-daily
 ```
 
 ## 当前边界
@@ -491,14 +514,17 @@ make phase18-daily
 - 图片资产需要人工最终视觉审查。
 - 发布包只是人工复制辅助。
 - 最终发布仍需人工确认。
+- 不自动创建 publish session。
+- 不自动录入 metrics。
+- 内容日历和队列只辅助人工运营。
 
 ## 下一阶段
 
-Phase 19：Real Publishing Operations & Content Calendar v1。
+Phase 20：Content Ops Quality Hardening & Real-world Trial v1。
 
-- P19-001：Manual Publishing Session Calendar v1。
-- P19-002：Content Queue Priority Board v1。
-- P19-003：Weekly Publishing Rhythm Planner v1。
-- P19-004：Published Article Archive v1。
-- P19-005：Post-publish Metrics Review Board v1。
-- P19-006：Content Ops Closeout v1。
+- P20-001：One-week Trial Run Protocol v1。
+- P20-002：Content Ops Failure Handling v1。
+- P20-003：Publishing Checklist Regression v1。
+- P20-004：Workbench UX Cleanup v1。
+- P20-005：Operator Runbook v1。
+- P20-006：Phase 0-19 System Closeout v1。

@@ -34,6 +34,7 @@ class WechatWorkbenchDataReport:
     live_pilot_panel: dict[str, Any]
     image_asset_panel: dict[str, Any]
     publishing_pack_panel: dict[str, Any]
+    content_ops_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -439,6 +440,43 @@ def build_publishing_pack_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_content_ops_panel(paths: ProjectPaths) -> dict[str, Any]:
+    publishing_root = paths.market_content_root / "07_publishing"
+    calendar_payload = read_json(publishing_root / "latest_publishing_session_calendar.json")
+    queue_payload = read_json(publishing_root / "latest_content_queue_priority.json")
+    rhythm_payload = read_json(publishing_root / "latest_weekly_publishing_rhythm.json")
+    archive_payload = read_json(publishing_root / "published_article_archive.json")
+    metrics_review_payload = read_json(paths.logs_root / "latest_post_publish_metrics_review.json")
+    closeout_payload = read_json(paths.logs_root / "latest_content_ops_closeout.json")
+    queue_items = list_payload(queue_payload, "items")
+    today_items = [item for item in queue_items if item.get("priority") == "TODAY"]
+    this_week_items = [item for item in queue_items if item.get("priority") == "THIS_WEEK"]
+    blockers = [item for item in queue_items if item.get("readiness_status") in {"NEEDS_VISUAL_ASSET", "NEEDS_EVIDENCE", "BLOCKED"}]
+    return {
+        "calendar_summary": calendar_payload.get("summary") if isinstance(calendar_payload.get("summary"), dict) else {},
+        "queue_summary": queue_payload.get("summary") if isinstance(queue_payload.get("summary"), dict) else {},
+        "rhythm_summary": rhythm_payload.get("summary") if isinstance(rhythm_payload.get("summary"), dict) else {},
+        "archive_summary": archive_payload.get("summary") if isinstance(archive_payload.get("summary"), dict) else {},
+        "metrics_review_summary": metrics_review_payload.get("summary") if isinstance(metrics_review_payload.get("summary"), dict) else {},
+        "closeout_summary": closeout_payload.get("summary") if isinstance(closeout_payload.get("summary"), dict) else {},
+        "calendar": list_payload(calendar_payload, "calendar")[:7],
+        "today_recommendations": today_items[:5],
+        "this_week_recommendations": this_week_items[:8],
+        "blockers": blockers[:8],
+        "weekly_rhythm": list_payload(rhythm_payload, "rhythm_plan"),
+        "published_articles": list_payload(archive_payload, "articles")[:8],
+        "metrics_insights": metrics_review_payload.get("insights") if isinstance(metrics_review_payload.get("insights"), list) else [],
+        "operator_actions": closeout_payload.get("operator_actions") if isinstance(closeout_payload.get("operator_actions"), list) else [],
+        "policy": {
+            "manual_ops_only": True,
+            "no_auto_publish": True,
+            "no_wechat_api": True,
+            "no_auto_session_creation": True,
+            "no_auto_metrics_input": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -569,6 +607,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     live_pilot_panel = build_live_pilot_panel(paths)
     image_asset_panel = build_image_asset_panel(paths)
     publishing_pack_panel = build_publishing_pack_panel(paths)
+    content_ops_panel = build_content_ops_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -591,6 +630,9 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["visual_final_candidate_count"] = safe_int((publishing_pack_panel.get("visual_candidate_summary") or {}).get("candidate_count"))
     summary["wechat_copy_pack_count"] = safe_int((publishing_pack_panel.get("copy_pack_summary") or {}).get("pack_count"))
     summary["visual_publishing_checklist_count"] = safe_int((publishing_pack_panel.get("visual_checklist_summary") or {}).get("checklist_count"))
+    summary["content_ops_queue_count"] = safe_int((content_ops_panel.get("queue_summary") or {}).get("item_count"))
+    summary["publishing_calendar_slots"] = safe_int((content_ops_panel.get("calendar_summary") or {}).get("planned_slots"))
+    summary["published_article_archive_count"] = safe_int((content_ops_panel.get("archive_summary") or {}).get("article_count"))
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -615,6 +657,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         live_pilot_panel,
         image_asset_panel,
         publishing_pack_panel,
+        content_ops_panel,
         tuple(warnings),
     )
 
@@ -638,6 +681,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "live_pilot_panel": report.live_pilot_panel,
         "image_asset_panel": report.image_asset_panel,
         "publishing_pack_panel": report.publishing_pack_panel,
+        "content_ops_panel": report.content_ops_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():
