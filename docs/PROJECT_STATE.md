@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 21：One-week Real Trial Execution v1。
+Phase 22：Trial Fix Implementation & Stable Ops v1。
 
 ## 最新 checkpoint
 
-P21-010：Workbench Trial Panel / Phase 21 Trial Pipeline。
+P22-008：Phase 22 Closeout。
 
 ## 已完成
 
@@ -292,6 +292,17 @@ P21-010：Workbench Trial Panel / Phase 21 Trial Pipeline。
 - P21-009 Phase 21 Trial Pipeline。
 - P21-010 Workbench Trial Panel。
 
+### Phase 22
+
+- P22-001 Daily Content Operations Runner。
+- P22-002 Recurring Issue Tracker & Prioritizer。
+- P22-003 One-week Publishing Calendar。
+- P22-004 Content Ops Fix & Suggestion Pack。
+- P22-005 Post-publish Feedback。
+- P22-006 Workbench Phase22 Panel。
+- P22-007 Phase22 Daily Ops Pipeline。
+- P22-008 Phase22 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -509,10 +520,20 @@ P21-010：Workbench Trial Panel / Phase 21 Trial Pipeline。
 - phase21 trial pipeline。
 - workbench trial panel。
 
+### Phase 22 能力
+
+- daily content operations runner。
+- recurring issue tracker and prioritizer。
+- weekly publishing calendar。
+- content ops fix and suggestion pack。
+- post-publish feedback for content ops。
+- workbench Phase22 operations panel。
+- phase22 daily ops pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase21-trial
+make phase22-daily
 ```
 
 ## 当前边界
@@ -563,13 +584,17 @@ make phase21-trial
 - Phase 21 不代表自动真实发布。
 - phase21-trial 是试运行记录与复盘框架。
 - 真实跨 5 天试运行仍需要 operator 每天按 runbook 执行。
+- Phase 22 只把 trial issue 转为可执行人工运营动作。
+- Phase 22 所有 action list、fix pack、calendar、feedback 均为 sidecar-only。
+- recurring issue tracker 只排序和建议，不自动修复。
+- post-publish feedback 不自动抓取后台数据，不自动改策略配置。
 
 ## 下一阶段
 
-Phase 22：Trial Fix Implementation & Stable Ops v1。
+Phase 23：Stable Ops Trial Execution & Calibration v1。
 
-- P22-001：High-severity Trial Fixes。
-- P22-002：Workbench Friction Fixes。
-- P22-003：Queue / Calendar Calibration。
-- P22-004：Publishing Pack Readiness Repair。
-- P22-005：Trial Closeout to Stable Ops。
+- P23-001：Day-by-day Stable Ops Run。
+- P23-002：Recurring Issue Closure Tracking。
+- P23-003：Calendar Calibration Review。
+- P23-004：Operator Feedback Intake。
+- P23-005：Stable Ops Closeout。

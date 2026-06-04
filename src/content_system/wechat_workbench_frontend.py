@@ -945,6 +945,7 @@ function renderReader() {
         ${renderPerformancePanel("review-card wide")}
       `, false);
     const systemSection = renderReviewSection("系统运维", "失败处理、trial retrospective、fix pack、operator runbook 和 Phase0-19 closeout。", `
+        ${renderPhase22Panel("review-card wide")}
         ${renderTrialPanel("review-card wide")}
         ${renderContentHardeningPanel("review-card wide", "system")}
         ${renderLivePilotPanel("review-card wide")}
@@ -1037,6 +1038,10 @@ function getContentHardeningPanel() {
 
 function getTrialPanel() {
   return workbenchData.trial_panel || {};
+}
+
+function getPhase22Panel() {
+  return workbenchData.phase22_panel || {};
 }
 
 function renderReviewSection(title, note, body, open = true) {
@@ -1507,6 +1512,45 @@ function renderTrialPanel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function renderPhase22Panel(cardClass = "review-card wide") {
+  const panel = getPhase22Panel();
+  const runner = panel.daily_runner_summary || {};
+  const issues = panel.recurring_issue_summary || {};
+  const calendar = panel.weekly_calendar_summary || {};
+  const fixSummary = panel.fix_pack_summary || {};
+  const feedback = panel.post_publish_feedback_summary || {};
+  const actions = Array.isArray(panel.daily_actions) ? panel.daily_actions : [];
+  const recurring = Array.isArray(panel.recurring_issues) ? panel.recurring_issues : [];
+  const calendarItems = Array.isArray(panel.weekly_calendar) ? panel.weekly_calendar : [];
+  const fixes = Array.isArray(panel.fixes) ? panel.fixes : [];
+  const recommendations = Array.isArray(panel.post_publish_recommendations) ? panel.post_publish_recommendations : [];
+  const policy = panel.policy || {};
+  const hasPanel = Object.keys(runner).length || Object.keys(issues).length || Object.keys(calendar).length || Object.keys(fixSummary).length;
+  if (!hasPanel) {
+    return `<div class="${cardClass} phase22-panel">
+      <p class="review-label">Phase22 内容运营闭环</p>
+      <p class="review-value">暂无 Phase22 数据。运行 <code>make phase22-daily</code> 后会显示每日 action list、recurring issues、weekly calendar、fix pack 和 post-publish feedback。</p>
+    </div>`;
+  }
+  const actionRows = actions.slice(0, 6).map((item) => `${item.urgency}: ${item.area} / ${item.instruction}`);
+  const issueRows = recurring.slice(0, 6).map((item) => `${item.recommended_order}. ${item.urgency} ${item.area}: ${item.description}`);
+  const calendarRows = calendarItems.slice(0, 7).map((item) => `${item.date}: ${item.status} / ${item.title}`);
+  const fixRows = fixes.slice(0, 6).map((item) => `${item.recommended_order}. ${item.urgency || item.priority} ${item.area}: ${item.action || item.recommended_change}`);
+  const recommendationRows = recommendations.slice(0, 5).map((item) => `${item.priority || "LOW"} ${item.target_area}: ${item.recommendation}`);
+  return `<div class="${cardClass} phase22-panel">
+    <p class="review-label">Phase22 内容运营闭环</p>
+    <p class="review-value">Runner ${escapeHtml(panel.daily_runner_status || "UNKNOWN")} · actions ${escapeHtml(runner.action_count ?? 0)} · ready ${escapeHtml(runner.ready_actions ?? 0)} · recurring issues ${escapeHtml(issues.issue_count ?? 0)}</p>
+    <p class="review-value">Calendar ${escapeHtml(calendar.calendar_days ?? 0)} days · ready ${escapeHtml(calendar.ready_days ?? 0)} · blocked ${escapeHtml(calendar.blocked_days ?? 0)} · feedback ${escapeHtml(feedback.recommendation_count ?? 0)}</p>
+    <p class="review-label">今日 action list</p>${renderMiniList(actionRows, "暂无 daily action")}
+    <p class="review-label">Recurring Issues Panel</p>${renderMiniList(issueRows, "暂无 recurring issue")}
+    <p class="review-label">7 天发布计划</p>${renderMiniList(calendarRows, "暂无 weekly calendar")}
+    <p class="review-label">Content Fix Pack</p>${renderMiniList(fixRows, "暂无 fix pack")}
+    <p class="review-label">Post-publish feedback</p>${renderMiniList(recommendationRows, "暂无 performance feedback")}
+    <p class="review-label">Allowed / Forbidden</p>
+    <p class="review-value">Allowed: dry-run, manual-confirm, copy command hints, record human metrics. Boundary: no_auto_publish=${escapeHtml(policy.no_auto_publish ?? true)} · no_wechat_api=${escapeHtml(policy.no_wechat_api ?? true)} · no_auto_image_generation=${escapeHtml(policy.no_auto_image_generation ?? true)} · no_mainline_overwrite=${escapeHtml(policy.no_mainline_overwrite ?? true)}</p>
+  </div>`;
+}
+
 function renderInsightPanel() {
   const article = getSelectedArticle();
   const comparison = getLatestComparison();
@@ -1524,6 +1568,7 @@ function renderInsightPanel() {
   const contentOps = getContentOpsPanel();
   const hardening = getContentHardeningPanel();
   const trial = getTrialPanel();
+  const phase22 = getPhase22Panel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
@@ -1548,6 +1593,10 @@ function renderInsightPanel() {
   const trialDayText = trialDays.slice(0, 5).map((item) => `D${item.trial_day}: ${item.day_status || "UNKNOWN"} / issues ${item.issue_count ?? 0}`).join(" · ") || "暂无 Trial Day 1-5";
   const trialRecurringText = trialRecurring.slice(0, 2).map((item) => `${item.area || "system"}: ${item.description || item.issue_id || ""}`).join(" · ") || "暂无 Recurring issues";
   const trialFixText = trialFixes.slice(0, 2).map((item) => `${item.fix_type || "fix"}: ${item.description || item.fix_id || ""}`).join(" · ") || "暂无 Trial Fix Pack";
+  const phase22Runner = phase22.daily_runner_summary || {};
+  const phase22Issues = phase22.recurring_issue_summary || {};
+  const phase22Calendar = phase22.weekly_calendar_summary || {};
+  const phase22Feedback = phase22.post_publish_feedback_summary || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -1619,6 +1668,11 @@ function renderInsightPanel() {
     <section class="insight-card hardening-panel">
       <p class="insight-label">试运行加固</p>
       <p class="insight-value">Issues ${escapeHtml(hardeningFailureSummary.issue_count ?? 0)} · Regression ${escapeHtml(hardeningRegressionSummary.regression_status || "UNKNOWN")} · Readiness ${escapeHtml(hardeningReadiness.status || "UNKNOWN")}</p>
+    </section>
+    <section class="insight-card phase22-panel">
+      <p class="insight-label">Phase22 运营闭环</p>
+      <p class="insight-value">Status ${escapeHtml(phase22.phase22_status || "UNKNOWN")} · Actions ${escapeHtml(phase22Runner.action_count ?? 0)} · Recurring ${escapeHtml(phase22Issues.issue_count ?? 0)} · Calendar ${escapeHtml(phase22Calendar.calendar_days ?? 0)}d · Feedback ${escapeHtml(phase22Feedback.recommendation_count ?? 0)}</p>
+      <p class="insight-value">sidecar only · no auto publish · no WeChat API · no image generation</p>
     </section>
     <section class="insight-card trial-panel">
       <p class="insight-label">Phase21 试运行</p>

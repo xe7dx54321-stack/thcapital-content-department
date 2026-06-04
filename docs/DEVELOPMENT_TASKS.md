@@ -964,20 +964,54 @@
 
 ### P22-001：High-severity Trial Fixes
 
-状态：Planned。
+状态：Done。
 
 ### P22-002：Workbench Friction Fixes
 
-状态：Planned。
+状态：Done。
 
 ### P22-003：Queue / Calendar Calibration
 
-状态：Planned。
+状态：Done。
 
 ### P22-004：Publishing Pack Readiness Repair
 
-状态：Planned。
+状态：Done。
 
 ### P22-005：Trial Closeout to Stable Ops
+
+状态：Done。
+
+### P22-006：Post-publish Feedback Integration
+
+状态：Done。
+
+### P22-007：Phase22 Daily Ops Pipeline
+
+状态：Done。
+
+### P22-008：Phase22 Closeout
+
+状态：Done。
+
+## Phase 23：Stable Ops Trial Execution & Calibration v1
+
+### P23-001：Day-by-day Stable Ops Run
+
+状态：Planned。
+
+### P23-002：Recurring Issue Closure Tracking
+
+状态：Planned。
+
+### P23-003：Calendar Calibration Review
+
+状态：Planned。
+
+### P23-004：Operator Feedback Intake
+
+状态：Planned。
+
+### P23-005：Stable Ops Closeout
 
 状态：Planned。

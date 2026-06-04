@@ -37,6 +37,7 @@ class WechatWorkbenchDataReport:
     content_ops_panel: dict[str, Any]
     content_hardening_panel: dict[str, Any]
     trial_panel: dict[str, Any]
+    phase22_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -572,6 +573,44 @@ def build_trial_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_phase22_panel(paths: ProjectPaths) -> dict[str, Any]:
+    publishing_root = paths.market_content_root / "07_publishing"
+    runner = read_json(paths.logs_root / "latest_daily_content_ops_runner.json")
+    tracker = read_json(paths.logs_root / "latest_recurring_issue_tracker.json")
+    calendar = read_json(publishing_root / "latest_weekly_publishing_calendar.json")
+    fix_pack = read_json(paths.logs_root / "latest_content_ops_fix_pack.json")
+    feedback = read_json(paths.logs_root / "latest_post_publish_feedback.json")
+    pipeline = read_json(paths.logs_root / "latest_phase22_daily_ops_pipeline.json")
+    actions = list_payload(runner, "actions")[:10]
+    issues = list_payload(tracker, "issues")[:10]
+    fixes = list_payload(fix_pack, "fixes")[:10]
+    calendar_items = list_payload(calendar, "calendar")[:7]
+    recommendations = list_payload(feedback, "recommendations")[:8]
+    return {
+        "daily_runner_summary": runner.get("summary") if isinstance(runner.get("summary"), dict) else {},
+        "daily_runner_status": runner.get("status", "UNKNOWN"),
+        "daily_actions": actions,
+        "recurring_issue_summary": tracker.get("summary") if isinstance(tracker.get("summary"), dict) else {},
+        "recurring_issues": issues,
+        "weekly_calendar_summary": calendar.get("summary") if isinstance(calendar.get("summary"), dict) else {},
+        "weekly_calendar": calendar_items,
+        "fix_pack_summary": fix_pack.get("summary") if isinstance(fix_pack.get("summary"), dict) else {},
+        "fixes": fixes,
+        "post_publish_feedback_summary": feedback.get("summary") if isinstance(feedback.get("summary"), dict) else {},
+        "post_publish_recommendations": recommendations,
+        "phase22_summary": pipeline.get("summary") if isinstance(pipeline.get("summary"), dict) else {},
+        "phase22_status": pipeline.get("status", "UNKNOWN"),
+        "policy": {
+            "sidecar_only": True,
+            "manual_ops_only": True,
+            "no_auto_publish": True,
+            "no_wechat_api": True,
+            "no_auto_image_generation": True,
+            "no_mainline_overwrite": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -705,6 +744,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     content_ops_panel = build_content_ops_panel(paths)
     content_hardening_panel = build_content_hardening_panel(paths)
     trial_panel = build_trial_panel(paths)
+    phase22_panel = build_phase22_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -736,6 +776,9 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["trial_days_recorded"] = safe_int((trial_panel.get("retrospective_summary") or {}).get("days_recorded"))
     summary["trial_fix_count"] = safe_int((trial_panel.get("fix_pack_summary") or {}).get("fix_count"))
     summary["phase21_trial_status"] = (trial_panel.get("phase21_summary") or {}).get("status", "UNKNOWN")
+    summary["phase22_status"] = phase22_panel.get("phase22_status", "UNKNOWN")
+    summary["phase22_action_count"] = safe_int((phase22_panel.get("daily_runner_summary") or {}).get("action_count"))
+    summary["phase22_recurring_issue_count"] = safe_int((phase22_panel.get("recurring_issue_summary") or {}).get("issue_count"))
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -763,6 +806,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         content_ops_panel,
         content_hardening_panel,
         trial_panel,
+        phase22_panel,
         tuple(warnings),
     )
 
@@ -789,6 +833,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "content_ops_panel": report.content_ops_panel,
         "content_hardening_panel": report.content_hardening_panel,
         "trial_panel": report.trial_panel,
+        "phase22_panel": report.phase22_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():
