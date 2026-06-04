@@ -930,6 +930,47 @@ logs/
 同行资本市场内容系统/11_frontstage/*phase19-daily-ops-pipeline-board.md
 同行资本市场内容系统/11_frontstage/latest_phase19_daily_ops_pipeline_board.md
 
+# Phase 20 generated artifacts
+同行资本市场内容系统/10_logs/*one-week-trial-run-protocol*.json
+同行资本市场内容系统/10_logs/*one-week-trial-run-protocol*.md
+同行资本市场内容系统/10_logs/latest_one_week_trial_run_protocol.json
+同行资本市场内容系统/10_logs/latest_one_week_trial_run_protocol.md
+同行资本市场内容系统/11_frontstage/*one-week-trial-run-protocol-board.md
+同行资本市场内容系统/11_frontstage/latest_one_week_trial_run_protocol_board.md
+
+同行资本市场内容系统/10_logs/*content-ops-failure-handling*.json
+同行资本市场内容系统/10_logs/*content-ops-failure-handling*.md
+同行资本市场内容系统/10_logs/latest_content_ops_failure_handling.json
+同行资本市场内容系统/10_logs/latest_content_ops_failure_handling.md
+同行资本市场内容系统/11_frontstage/*content-ops-failure-handling-board.md
+同行资本市场内容系统/11_frontstage/latest_content_ops_failure_handling_board.md
+
+同行资本市场内容系统/10_logs/*publishing-checklist-regression*.json
+同行资本市场内容系统/10_logs/*publishing-checklist-regression*.md
+同行资本市场内容系统/10_logs/latest_publishing_checklist_regression.json
+同行资本市场内容系统/10_logs/latest_publishing_checklist_regression.md
+
+同行资本市场内容系统/10_logs/*operator-runbook*.json
+同行资本市场内容系统/10_logs/*operator-runbook*.md
+同行资本市场内容系统/10_logs/latest_operator_runbook.json
+同行资本市场内容系统/10_logs/latest_operator_runbook.md
+同行资本市场内容系统/11_frontstage/*operator-runbook-board.md
+同行资本市场内容系统/11_frontstage/latest_operator_runbook_board.md
+
+同行资本市场内容系统/10_logs/*phase0-19-system-closeout*.json
+同行资本市场内容系统/10_logs/*phase0-19-system-closeout*.md
+同行资本市场内容系统/10_logs/latest_phase0_19_system_closeout.json
+同行资本市场内容系统/10_logs/latest_phase0_19_system_closeout.md
+同行资本市场内容系统/11_frontstage/*phase0-19-system-closeout-board.md
+同行资本市场内容系统/11_frontstage/latest_phase0_19_system_closeout_board.md
+
+同行资本市场内容系统/10_logs/*phase20-daily-hardening-pipeline*.json
+同行资本市场内容系统/10_logs/*phase20-daily-hardening-pipeline*.md
+同行资本市场内容系统/10_logs/latest_phase20_daily_hardening_pipeline.json
+同行资本市场内容系统/10_logs/latest_phase20_daily_hardening_pipeline.md
+同行资本市场内容系统/11_frontstage/*phase20-daily-hardening-pipeline-board.md
+同行资本市场内容系统/11_frontstage/latest_phase20_daily_hardening_pipeline_board.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

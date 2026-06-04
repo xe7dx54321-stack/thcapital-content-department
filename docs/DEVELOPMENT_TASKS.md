@@ -888,24 +888,62 @@
 
 ### P20-001：One-week Trial Run Protocol v1
 
-状态：Planned。
+状态：Done。
 
 ### P20-002：Content Ops Failure Handling v1
 
-状态：Planned。
+状态：Done。
 
 ### P20-003：Publishing Checklist Regression v1
 
-状态：Planned。
+状态：Done。
 
 ### P20-004：Workbench UX Cleanup v1
 
-状态：Planned。
+状态：Done。
 
 ### P20-005：Operator Runbook v1
 
-状态：Planned。
+状态：Done。
 
 ### P20-006：Phase 0-19 System Closeout v1
+
+状态：Done。
+
+### P20-007：Phase 20 Daily Hardening Pipeline v1
+
+状态：Done。
+
+### P20-008：Phase 20 Closeout
+
+状态：Done。
+
+## Phase 21：One-week Real Trial Execution v1
+
+### P21-001：Day 1 Trial Run
+
+状态：Planned。
+
+### P21-002：Day 2 Trial Run
+
+状态：Planned。
+
+### P21-003：Day 3 Trial Run
+
+状态：Planned。
+
+### P21-004：Day 4 Trial Run
+
+状态：Planned。
+
+### P21-005：Day 5 Trial Run
+
+状态：Planned。
+
+### P21-006：Weekly Trial Retrospective
+
+状态：Planned。
+
+### P21-007：Trial Fix Pack
 
 状态：Planned。

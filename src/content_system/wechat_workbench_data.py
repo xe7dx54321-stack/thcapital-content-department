@@ -35,6 +35,7 @@ class WechatWorkbenchDataReport:
     image_asset_panel: dict[str, Any]
     publishing_pack_panel: dict[str, Any]
     content_ops_panel: dict[str, Any]
+    content_hardening_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -477,6 +478,47 @@ def build_content_ops_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_content_hardening_panel(paths: ProjectPaths) -> dict[str, Any]:
+    trial_payload = read_json(paths.logs_root / "latest_one_week_trial_run_protocol.json")
+    failure_payload = read_json(paths.logs_root / "latest_content_ops_failure_handling.json")
+    regression_payload = read_json(paths.logs_root / "latest_publishing_checklist_regression.json")
+    runbook_payload = read_json(paths.logs_root / "latest_operator_runbook.json")
+    closeout_payload = read_json(paths.logs_root / "latest_phase0_19_system_closeout.json")
+    phase20_payload = read_json(paths.logs_root / "latest_phase20_daily_hardening_pipeline.json")
+    failure_issues = list_payload(failure_payload, "issues")
+    regression_checks = list_payload(regression_payload, "checks")
+    runbook_sections = list_payload(runbook_payload, "sections")
+    trial_routine = trial_payload.get("daily_routine") if isinstance(trial_payload.get("daily_routine"), list) else []
+    trial_checklist = trial_payload.get("daily_checklist") if isinstance(trial_payload.get("daily_checklist"), list) else []
+    closeout_readiness = closeout_payload.get("trial_readiness") if isinstance(closeout_payload.get("trial_readiness"), dict) else {}
+    return {
+        "trial_summary": {
+            "days": ((trial_payload.get("trial_period") or {}).get("days") if isinstance(trial_payload.get("trial_period"), dict) else 0),
+            "daily_checklist_count": len(trial_checklist),
+            "success_criteria_count": len(trial_payload.get("success_criteria", [])) if isinstance(trial_payload.get("success_criteria"), list) else 0,
+        },
+        "failure_summary": failure_payload.get("summary") if isinstance(failure_payload.get("summary"), dict) else {},
+        "regression_summary": regression_payload.get("summary") if isinstance(regression_payload.get("summary"), dict) else {},
+        "runbook_status": runbook_payload.get("current_status") if isinstance(runbook_payload.get("current_status"), dict) else {},
+        "system_closeout_readiness": closeout_readiness,
+        "phase20_summary": phase20_payload.get("summary") if isinstance(phase20_payload.get("summary"), dict) else {},
+        "daily_routine": [item for item in trial_routine if isinstance(item, dict)][:7],
+        "daily_checklist": [str(item) for item in trial_checklist[:10]],
+        "failure_issues": failure_issues[:8],
+        "regression_checks": regression_checks[:10],
+        "runbook_sections": runbook_sections[:8],
+        "known_gaps": closeout_payload.get("known_gaps") if isinstance(closeout_payload.get("known_gaps"), list) else [],
+        "policy": {
+            "hardening_only": True,
+            "no_auto_publish": True,
+            "no_wechat_api": True,
+            "no_auto_metrics_input": True,
+            "no_auto_image_generation": True,
+            "no_config_prompt_rule_changes": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -608,6 +650,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     image_asset_panel = build_image_asset_panel(paths)
     publishing_pack_panel = build_publishing_pack_panel(paths)
     content_ops_panel = build_content_ops_panel(paths)
+    content_hardening_panel = build_content_hardening_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -633,6 +676,9 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["content_ops_queue_count"] = safe_int((content_ops_panel.get("queue_summary") or {}).get("item_count"))
     summary["publishing_calendar_slots"] = safe_int((content_ops_panel.get("calendar_summary") or {}).get("planned_slots"))
     summary["published_article_archive_count"] = safe_int((content_ops_panel.get("archive_summary") or {}).get("article_count"))
+    summary["content_ops_failure_issue_count"] = safe_int((content_hardening_panel.get("failure_summary") or {}).get("issue_count"))
+    summary["publishing_checklist_regression_status"] = (content_hardening_panel.get("regression_summary") or {}).get("regression_status", "UNKNOWN")
+    summary["phase20_trial_readiness"] = (content_hardening_panel.get("system_closeout_readiness") or {}).get("status", "UNKNOWN")
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -658,6 +704,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         image_asset_panel,
         publishing_pack_panel,
         content_ops_panel,
+        content_hardening_panel,
         tuple(warnings),
     )
 
@@ -682,6 +729,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "image_asset_panel": report.image_asset_panel,
         "publishing_pack_panel": report.publishing_pack_panel,
         "content_ops_panel": report.content_ops_panel,
+        "content_hardening_panel": report.content_hardening_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

@@ -365,6 +365,29 @@ button { cursor: pointer; }
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
+.review-section {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255,255,255,.64);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.review-section summary {
+  cursor: pointer;
+  padding: 14px 16px;
+  color: var(--text-main);
+  font-weight: 700;
+}
+.review-section .review-grid {
+  padding: 0 14px 14px;
+}
+.review-section-note {
+  display: block;
+  margin-top: 3px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 400;
+}
 .review-card,
 .insight-card {
   border: 1px solid var(--border);
@@ -896,26 +919,42 @@ function renderReader() {
     return;
   }
   if (readerMode === "review") {
-    shell.innerHTML = `<section class="review-mode">
-      <div class="review-grid">
+    const opsSection = renderReviewSection("今日运营", "先看今天能不能发、卡在哪里、下一步人工动作是什么。", `
+        ${renderContentOpsPanel("review-card wide")}
+        ${renderContentHardeningPanel("review-card wide", "ops")}
+      `, true);
+    const articleSection = renderReviewSection("文章审稿", "文章质量、方法论、版本、rewrite 与最终候选稿。", `
         <div class="review-card"><p class="review-label">质量分</p><p class="review-value">${escapeHtml(article.quality_score || 0)}</p></div>
         <div class="review-card"><p class="review-label">状态</p><p class="review-value"><span class="badge ${statusClass(article.status)}">${escapeHtml(statusLabel(article.status))}</span></p></div>
         <div class="review-card"><p class="review-label">Judge 决策</p><p class="review-value">${escapeHtml(shortText(article.judge_decision))}</p></div>
         <div class="review-card"><p class="review-label">发布候选</p><p class="review-value">${escapeHtml(shortText(article.publishing_candidate_id, "尚未进入发布候选"))}</p></div>
         <div class="review-card wide"><p class="review-label">Critic 摘要</p><p class="review-value">${escapeHtml(shortText(article.critic_summary))}</p></div>
         <div class="review-card wide"><p class="review-label">Revision 建议</p><p class="review-value">${escapeHtml(shortText(article.revision_summary))}</p></div>
+        ${renderMethodologyPanel("review-card wide")}
         ${renderVersionReviewCard("review-card wide")}
         ${renderFinalReviewCard("review-card wide")}
-        ${renderPerformancePanel("review-card wide")}
-        ${renderMethodologyPanel("review-card wide")}
-        ${renderGenerationVisualPanel("review-card wide")}
-        ${renderLivePilotPanel("review-card wide")}
-        ${renderImageAssetPanel("review-card wide")}
-        ${renderPublishingPackPanel("review-card wide")}
-        ${renderContentOpsPanel("review-card wide")}
         <div class="review-card wide"><p class="review-label">Evidence</p>${renderMiniList(article.evidence_ids, "暂无 evidence")}</div>
         <div class="review-card wide"><p class="review-label">Source</p>${renderMiniList(article.source_ids, "暂无 source")}</div>
-      </div>
+      `, true);
+    const visualSection = renderReviewSection("图文发布准备", "copy pack、图片槽位、图片资产和视觉 checklist。", `
+        ${renderGenerationVisualPanel("review-card wide")}
+        ${renderImageAssetPanel("review-card wide")}
+        ${renderPublishingPackPanel("review-card wide")}
+      `, false);
+    const performanceSection = renderReviewSection("发布后复盘", "人工发布 session、metrics、视觉表现和学习反馈。", `
+        ${renderPerformancePanel("review-card wide")}
+      `, false);
+    const systemSection = renderReviewSection("系统运维", "失败处理、checklist regression、operator runbook 和 Phase0-19 closeout。", `
+        ${renderContentHardeningPanel("review-card wide", "system")}
+        ${renderLivePilotPanel("review-card wide")}
+      `, false);
+    shell.innerHTML = `<section class="review-mode">
+      <h1 class="wechat-title">${escapeHtml(title)}</h1>
+      ${opsSection}
+      ${articleSection}
+      ${visualSection}
+      ${performanceSection}
+      ${systemSection}
     </section>`;
     return;
   }
@@ -989,6 +1028,17 @@ function getPublishingPackPanel() {
 
 function getContentOpsPanel() {
   return workbenchData.content_ops_panel || {};
+}
+
+function getContentHardeningPanel() {
+  return workbenchData.content_hardening_panel || {};
+}
+
+function renderReviewSection(title, note, body, open = true) {
+  return `<details class="review-section" ${open ? "open" : ""}>
+    <summary>${escapeHtml(title)}<span class="review-section-note">${escapeHtml(note || "")}</span></summary>
+    <div class="review-grid">${body}</div>
+  </details>`;
 }
 
 function getSelectedMethodologyTopic() {
@@ -1383,6 +1433,41 @@ function renderContentOpsPanel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function renderContentHardeningPanel(cardClass = "review-card wide", mode = "system") {
+  const panel = getContentHardeningPanel();
+  const trial = panel.trial_summary || {};
+  const failure = panel.failure_summary || {};
+  const regression = panel.regression_summary || {};
+  const readiness = panel.system_closeout_readiness || {};
+  const phase20 = panel.phase20_summary || {};
+  const issues = Array.isArray(panel.failure_issues) ? panel.failure_issues : [];
+  const checks = Array.isArray(panel.regression_checks) ? panel.regression_checks : [];
+  const checklist = Array.isArray(panel.daily_checklist) ? panel.daily_checklist : [];
+  const gaps = Array.isArray(panel.known_gaps) ? panel.known_gaps : [];
+  const sections = Array.isArray(panel.runbook_sections) ? panel.runbook_sections : [];
+  const hasPanel = Object.keys(trial).length || Object.keys(failure).length || Object.keys(regression).length || Object.keys(readiness).length;
+  if (!hasPanel) {
+    return `<div class="${cardClass} hardening-panel">
+      <p class="review-label">Phase20 试运行加固</p>
+      <p class="review-value">暂无 Phase20 hardening 数据。运行 <code>make phase20-daily</code> 后会显示 trial protocol、failure handling、checklist regression、runbook 和 system closeout。</p>
+    </div>`;
+  }
+  const issueRows = issues.slice(0, 6).map((item) => `${item.severity}: ${item.area} / ${item.description}`);
+  const checkRows = checks.slice(0, 6).map((item) => `${item.status}: ${item.check_id} / ${item.message}`);
+  const runbookRows = sections.slice(0, 6).map((item) => item.title || "");
+  const title = mode === "ops" ? "今日建议动作与试运行状态" : "系统运维与回归检查";
+  return `<div class="${cardClass} hardening-panel">
+    <p class="review-label">${escapeHtml(title)}</p>
+    <p class="review-value">Trial ${escapeHtml(trial.days ?? 0)} days · checklist ${escapeHtml(trial.daily_checklist_count ?? 0)} · Phase20 ${escapeHtml(phase20.trial_readiness_status || readiness.status || "UNKNOWN")}</p>
+    <p class="review-value">Failure issues ${escapeHtml(failure.issue_count ?? 0)} · blockers ${escapeHtml(failure.blocker_count ?? 0)} · can_continue ${escapeHtml(failure.can_continue ?? true)} · regression ${escapeHtml(regression.regression_status || "UNKNOWN")}</p>
+    <p class="review-label">Daily checklist</p>${renderMiniList(checklist.slice(0, 6), "暂无 trial checklist")}
+    <p class="review-label">Failure handling</p>${renderMiniList(issueRows, "暂无 failure issue")}
+    <p class="review-label">Regression checks</p>${renderMiniList(checkRows, "暂无 checklist regression")}
+    <p class="review-label">Runbook sections</p>${renderMiniList(runbookRows, "暂无 operator runbook")}
+    <p class="review-label">Known gaps</p>${renderMiniList(gaps.slice(0, 6), "暂无 closeout gap")}
+  </div>`;
+}
+
 function renderInsightPanel() {
   const article = getSelectedArticle();
   const comparison = getLatestComparison();
@@ -1398,6 +1483,7 @@ function renderInsightPanel() {
   const imageAsset = getImageAssetPanel();
   const publishingPack = getPublishingPackPanel();
   const contentOps = getContentOpsPanel();
+  const hardening = getContentHardeningPanel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
@@ -1410,6 +1496,9 @@ function renderInsightPanel() {
   const opsQueueSummary = contentOps.queue_summary || {};
   const opsCalendarSummary = contentOps.calendar_summary || {};
   const opsCloseoutSummary = contentOps.closeout_summary || {};
+  const hardeningFailureSummary = hardening.failure_summary || {};
+  const hardeningRegressionSummary = hardening.regression_summary || {};
+  const hardeningReadiness = hardening.system_closeout_readiness || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -1477,6 +1566,10 @@ function renderInsightPanel() {
     <section class="insight-card content-ops-panel">
       <p class="insight-label">内容运营</p>
       <p class="insight-value">Slots ${escapeHtml(opsCalendarSummary.planned_slots ?? 0)} · Queue ${escapeHtml(opsQueueSummary.item_count ?? 0)} · Today ${escapeHtml(opsQueueSummary.today ?? 0)} · Blocked ${escapeHtml(opsCloseoutSummary.blocked_count ?? 0)}</p>
+    </section>
+    <section class="insight-card hardening-panel">
+      <p class="insight-label">试运行加固</p>
+      <p class="insight-value">Issues ${escapeHtml(hardeningFailureSummary.issue_count ?? 0)} · Regression ${escapeHtml(hardeningRegressionSummary.regression_status || "UNKNOWN")} · Readiness ${escapeHtml(hardeningReadiness.status || "UNKNOWN")}</p>
     </section>`;
 }
 

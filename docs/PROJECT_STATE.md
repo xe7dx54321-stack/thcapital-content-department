@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 19：Real Publishing Operations & Content Calendar v1。
+Phase 20：Content Ops Quality Hardening & Real-world Trial v1。
 
 ## 最新 checkpoint
 
-P19-009：Phase 19 Closeout。
+P20-008：Phase 20 Closeout。
 
 ## 已完成
 
@@ -268,6 +268,17 @@ P19-009：Phase 19 Closeout。
 - P19-008 Phase 19 Daily Ops Pipeline v1。
 - P19-009 Phase 19 Closeout。
 
+### Phase 20
+
+- P20-001 One-week Trial Run Protocol v1。
+- P20-002 Content Ops Failure Handling v1。
+- P20-003 Publishing Checklist Regression v1。
+- P20-004 Workbench UX Cleanup v1。
+- P20-005 Operator Runbook v1。
+- P20-006 Phase 0-19 System Closeout v1。
+- P20-007 Phase 20 Daily Hardening Pipeline v1。
+- P20-008 Phase 20 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -467,10 +478,20 @@ P19-009：Phase 19 Closeout。
 - workbench content ops panel。
 - phase19 daily ops pipeline。
 
+### Phase 20 能力
+
+- one-week trial run protocol。
+- content ops failure handling。
+- publishing checklist regression。
+- workbench UX cleanup。
+- operator runbook。
+- phase0-19 system closeout。
+- phase20 daily hardening pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase19-daily
+make phase20-daily
 ```
 
 ## 当前边界
@@ -517,14 +538,16 @@ make phase19-daily
 - 不自动创建 publish session。
 - 不自动录入 metrics。
 - 内容日历和队列只辅助人工运营。
+- Phase 20 只做试运行加固、操作手册和系统收口。
 
 ## 下一阶段
 
-Phase 20：Content Ops Quality Hardening & Real-world Trial v1。
+Phase 21：One-week Real Trial Execution v1。
 
-- P20-001：One-week Trial Run Protocol v1。
-- P20-002：Content Ops Failure Handling v1。
-- P20-003：Publishing Checklist Regression v1。
-- P20-004：Workbench UX Cleanup v1。
-- P20-005：Operator Runbook v1。
-- P20-006：Phase 0-19 System Closeout v1。
+- P21-001：Day 1 Trial Run。
+- P21-002：Day 2 Trial Run。
+- P21-003：Day 3 Trial Run。
+- P21-004：Day 4 Trial Run。
+- P21-005：Day 5 Trial Run。
+- P21-006：Weekly Trial Retrospective。
+- P21-007：Trial Fix Pack。
