@@ -944,7 +944,8 @@ function renderReader() {
     const performanceSection = renderReviewSection("发布后复盘", "人工发布 session、metrics、视觉表现和学习反馈。", `
         ${renderPerformancePanel("review-card wide")}
       `, false);
-    const systemSection = renderReviewSection("系统运维", "失败处理、checklist regression、operator runbook 和 Phase0-19 closeout。", `
+    const systemSection = renderReviewSection("系统运维", "失败处理、trial retrospective、fix pack、operator runbook 和 Phase0-19 closeout。", `
+        ${renderTrialPanel("review-card wide")}
         ${renderContentHardeningPanel("review-card wide", "system")}
         ${renderLivePilotPanel("review-card wide")}
       `, false);
@@ -1032,6 +1033,10 @@ function getContentOpsPanel() {
 
 function getContentHardeningPanel() {
   return workbenchData.content_hardening_panel || {};
+}
+
+function getTrialPanel() {
+  return workbenchData.trial_panel || {};
 }
 
 function renderReviewSection(title, note, body, open = true) {
@@ -1468,6 +1473,40 @@ function renderContentHardeningPanel(cardClass = "review-card wide", mode = "sys
   </div>`;
 }
 
+function renderTrialPanel(cardClass = "review-card wide") {
+  const panel = getTrialPanel();
+  const days = Array.isArray(panel.day_summaries) ? panel.day_summaries : [];
+  const retrospective = panel.retrospective_summary || {};
+  const fixSummary = panel.fix_pack_summary || {};
+  const phase21 = panel.phase21_summary || {};
+  const recurring = Array.isArray(panel.recurring_issues) ? panel.recurring_issues : [];
+  const friction = Array.isArray(panel.operator_friction) ? panel.operator_friction : [];
+  const recommendations = Array.isArray(panel.recommendations) ? panel.recommendations : [];
+  const fixes = Array.isArray(panel.fixes) ? panel.fixes : [];
+  const safety = panel.safety_boundary_check || {};
+  const hasPanel = days.length || Object.keys(retrospective).length || Object.keys(fixSummary).length;
+  if (!hasPanel) {
+    return `<div class="${cardClass} trial-panel">
+      <p class="review-label">试运行</p>
+      <p class="review-value">暂无 Phase21 trial 数据。运行 <code>make phase21-trial</code> 后会显示 Day 1-5、weekly retrospective 和 trial fix pack。</p>
+    </div>`;
+  }
+  const dayRows = days.map((item) => `Day ${item.trial_day}: ${item.day_status} / issues ${item.issue_count} / actions ${item.action_count} / continue ${item.can_continue_trial}`);
+  const recurringRows = recurring.map((item) => `${item.area}: ${item.description} / count ${item.count}`);
+  const fixRows = fixes.slice(0, 6).map((item) => `${item.severity}: ${item.fix_type} / ${item.area} / ${item.description}`);
+  return `<div class="${cardClass} trial-panel">
+    <p class="review-label">Phase21 试运行</p>
+    <p class="review-value">Days ${escapeHtml(retrospective.days_recorded ?? days.length)} · pass ${escapeHtml(retrospective.pass_days ?? 0)} · warn ${escapeHtml(retrospective.warn_days ?? 0)} · blocked ${escapeHtml(retrospective.blocked_days ?? 0)} · phase21 ${escapeHtml(phase21.status || "UNKNOWN")}</p>
+    <p class="review-value">Fixes ${escapeHtml(fixSummary.fix_count ?? 0)} · quick ${escapeHtml(fixSummary.quick_fix ?? 0)} · next phase ${escapeHtml(fixSummary.next_phase ?? 0)} · high ${escapeHtml(fixSummary.high_severity ?? 0)} · scaffold_only=true</p>
+    <p class="review-label">Trial Day 1-5</p>${renderMiniList(dayRows, "暂无 trial day record")}
+    <p class="review-label">Recurring issues</p>${renderMiniList(recurringRows, "暂无 recurring issue")}
+    <p class="review-label">Operator friction</p>${renderMiniList(friction, "暂无 operator friction")}
+    <p class="review-label">Trial fix pack</p>${renderMiniList(fixRows, "暂无 trial fix")}
+    <p class="review-label">Safety boundary</p><p class="review-value">auto_publish=${escapeHtml(safety.auto_publish ?? false)} · wechat_api=${escapeHtml(safety.wechat_api ?? false)} · auto_image_generation=${escapeHtml(safety.auto_image_generation ?? false)} · violations ${escapeHtml((safety.violations || []).length || 0)}</p>
+    <p class="review-label">Next phase</p>${renderMiniList([panel.next_phase_recommendation || "Phase 22：Trial Fix Implementation & Stable Ops v1"].concat(recommendations.slice(0, 3)), "暂无 next phase recommendation")}
+  </div>`;
+}
+
 function renderInsightPanel() {
   const article = getSelectedArticle();
   const comparison = getLatestComparison();
@@ -1484,6 +1523,7 @@ function renderInsightPanel() {
   const publishingPack = getPublishingPackPanel();
   const contentOps = getContentOpsPanel();
   const hardening = getContentHardeningPanel();
+  const trial = getTrialPanel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
@@ -1499,6 +1539,15 @@ function renderInsightPanel() {
   const hardeningFailureSummary = hardening.failure_summary || {};
   const hardeningRegressionSummary = hardening.regression_summary || {};
   const hardeningReadiness = hardening.system_closeout_readiness || {};
+  const trialSummary = trial.retrospective_summary || {};
+  const trialFixSummary = trial.fix_pack_summary || {};
+  const trialDays = Array.isArray(trial.day_summaries) ? trial.day_summaries : [];
+  const trialRecurring = Array.isArray(trial.recurring_issues) ? trial.recurring_issues : [];
+  const trialFixes = Array.isArray(trial.fixes) ? trial.fixes : [];
+  const trialSafety = trial.safety_boundary_check || {};
+  const trialDayText = trialDays.slice(0, 5).map((item) => `D${item.trial_day}: ${item.day_status || "UNKNOWN"} / issues ${item.issue_count ?? 0}`).join(" · ") || "暂无 Trial Day 1-5";
+  const trialRecurringText = trialRecurring.slice(0, 2).map((item) => `${item.area || "system"}: ${item.description || item.issue_id || ""}`).join(" · ") || "暂无 Recurring issues";
+  const trialFixText = trialFixes.slice(0, 2).map((item) => `${item.fix_type || "fix"}: ${item.description || item.fix_id || ""}`).join(" · ") || "暂无 Trial Fix Pack";
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -1570,6 +1619,14 @@ function renderInsightPanel() {
     <section class="insight-card hardening-panel">
       <p class="insight-label">试运行加固</p>
       <p class="insight-value">Issues ${escapeHtml(hardeningFailureSummary.issue_count ?? 0)} · Regression ${escapeHtml(hardeningRegressionSummary.regression_status || "UNKNOWN")} · Readiness ${escapeHtml(hardeningReadiness.status || "UNKNOWN")}</p>
+    </section>
+    <section class="insight-card trial-panel">
+      <p class="insight-label">Phase21 试运行</p>
+      <p class="insight-value">Days ${escapeHtml(trialSummary.days_recorded ?? 0)} · Warn ${escapeHtml(trialSummary.warn_days ?? 0)} · Fixes ${escapeHtml(trialFixSummary.fix_count ?? 0)} · scaffold only</p>
+      <p class="insight-value"><strong>Trial Day 1-5</strong> · ${escapeHtml(shortText(trialDayText, "", 180))}</p>
+      <p class="insight-value"><strong>Recurring issues</strong> · ${escapeHtml(shortText(trialRecurringText, "", 180))}</p>
+      <p class="insight-value"><strong>Trial Fix Pack</strong> · ${escapeHtml(shortText(trialFixText, "", 180))}</p>
+      <p class="insight-value"><strong>Safety Boundary</strong> · auto_publish=${escapeHtml(trialSafety.auto_publish ?? false)} · wechat_api=${escapeHtml(trialSafety.wechat_api ?? false)} · auto_image_generation=${escapeHtml(trialSafety.auto_image_generation ?? false)}</p>
     </section>`;
 }
 

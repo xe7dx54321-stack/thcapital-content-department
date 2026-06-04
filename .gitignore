@@ -971,6 +971,35 @@ logs/
 同行资本市场内容系统/11_frontstage/*phase20-daily-hardening-pipeline-board.md
 同行资本市场内容系统/11_frontstage/latest_phase20_daily_hardening_pipeline_board.md
 
+# Phase 21 generated artifacts
+同行资本市场内容系统/10_logs/*trial-day-*-execution*.json
+同行资本市场内容系统/10_logs/*trial-day-*-execution*.md
+同行资本市场内容系统/10_logs/latest_trial_day_*_execution.json
+同行资本市场内容系统/10_logs/latest_trial_day_*_execution.md
+同行资本市场内容系统/11_frontstage/*trial-day-*-board.md
+同行资本市场内容系统/11_frontstage/latest_trial_day_*_board.md
+
+同行资本市场内容系统/10_logs/*weekly-trial-retrospective*.json
+同行资本市场内容系统/10_logs/*weekly-trial-retrospective*.md
+同行资本市场内容系统/10_logs/latest_weekly_trial_retrospective.json
+同行资本市场内容系统/10_logs/latest_weekly_trial_retrospective.md
+同行资本市场内容系统/11_frontstage/*weekly-trial-retrospective-board.md
+同行资本市场内容系统/11_frontstage/latest_weekly_trial_retrospective_board.md
+
+同行资本市场内容系统/10_logs/*trial-fix-pack*.json
+同行资本市场内容系统/10_logs/*trial-fix-pack*.md
+同行资本市场内容系统/10_logs/latest_trial_fix_pack.json
+同行资本市场内容系统/10_logs/latest_trial_fix_pack.md
+同行资本市场内容系统/11_frontstage/*trial-fix-pack-board.md
+同行资本市场内容系统/11_frontstage/latest_trial_fix_pack_board.md
+
+同行资本市场内容系统/10_logs/*phase21-trial-pipeline*.json
+同行资本市场内容系统/10_logs/*phase21-trial-pipeline*.md
+同行资本市场内容系统/10_logs/latest_phase21_trial_pipeline.json
+同行资本市场内容系统/10_logs/latest_phase21_trial_pipeline.md
+同行资本市场内容系统/11_frontstage/*phase21-trial-pipeline-board.md
+同行资本市场内容系统/11_frontstage/latest_phase21_trial_pipeline_board.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

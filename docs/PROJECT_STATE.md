@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 20：Content Ops Quality Hardening & Real-world Trial v1。
+Phase 21：One-week Real Trial Execution v1。
 
 ## 最新 checkpoint
 
-P20-008：Phase 20 Closeout。
+P21-010：Workbench Trial Panel / Phase 21 Trial Pipeline。
 
 ## 已完成
 
@@ -279,6 +279,19 @@ P20-008：Phase 20 Closeout。
 - P20-007 Phase 20 Daily Hardening Pipeline v1。
 - P20-008 Phase 20 Closeout。
 
+### Phase 21
+
+- P21-001 Trial Day 1 Execution v1。
+- P21-002 Trial Day 2 Execution v1。
+- P21-003 Trial Day 3 Execution v1。
+- P21-004 Trial Day 4 Execution v1。
+- P21-005 Trial Day 5 Execution v1。
+- P21-006 Weekly Trial Retrospective v1。
+- P21-007 Trial Fix Pack v1。
+- P21-008 Phase 21 Closeout Report。
+- P21-009 Phase 21 Trial Pipeline。
+- P21-010 Workbench Trial Panel。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -488,10 +501,18 @@ P20-008：Phase 20 Closeout。
 - phase0-19 system closeout。
 - phase20 daily hardening pipeline。
 
+### Phase 21 能力
+
+- trial day execution records。
+- weekly trial retrospective。
+- trial fix pack。
+- phase21 trial pipeline。
+- workbench trial panel。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase20-daily
+make phase21-trial
 ```
 
 ## 当前边界
@@ -539,15 +560,16 @@ make phase20-daily
 - 不自动录入 metrics。
 - 内容日历和队列只辅助人工运营。
 - Phase 20 只做试运行加固、操作手册和系统收口。
+- Phase 21 不代表自动真实发布。
+- phase21-trial 是试运行记录与复盘框架。
+- 真实跨 5 天试运行仍需要 operator 每天按 runbook 执行。
 
 ## 下一阶段
 
-Phase 21：One-week Real Trial Execution v1。
+Phase 22：Trial Fix Implementation & Stable Ops v1。
 
-- P21-001：Day 1 Trial Run。
-- P21-002：Day 2 Trial Run。
-- P21-003：Day 3 Trial Run。
-- P21-004：Day 4 Trial Run。
-- P21-005：Day 5 Trial Run。
-- P21-006：Weekly Trial Retrospective。
-- P21-007：Trial Fix Pack。
+- P22-001：High-severity Trial Fixes。
+- P22-002：Workbench Friction Fixes。
+- P22-003：Queue / Calendar Calibration。
+- P22-004：Publishing Pack Readiness Repair。
+- P22-005：Trial Closeout to Stable Ops。

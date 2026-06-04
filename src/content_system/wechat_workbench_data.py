@@ -36,6 +36,7 @@ class WechatWorkbenchDataReport:
     publishing_pack_panel: dict[str, Any]
     content_ops_panel: dict[str, Any]
     content_hardening_panel: dict[str, Any]
+    trial_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -519,6 +520,58 @@ def build_content_hardening_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_trial_panel(paths: ProjectPaths) -> dict[str, Any]:
+    days = []
+    for day in range(1, 6):
+        payload = read_json(paths.logs_root / f"latest_trial_day_{day}_execution.json")
+        if payload:
+            days.append(payload)
+    retrospective = read_json(paths.logs_root / "latest_weekly_trial_retrospective.json")
+    fix_pack = read_json(paths.logs_root / "latest_trial_fix_pack.json")
+    phase21 = read_json(paths.logs_root / "latest_phase21_trial_pipeline.json")
+    day_summaries = []
+    for payload in days:
+        result = payload.get("daily_result") if isinstance(payload.get("daily_result"), dict) else {}
+        readiness = payload.get("publishing_readiness") if isinstance(payload.get("publishing_readiness"), dict) else {}
+        snapshot = payload.get("content_ops_snapshot") if isinstance(payload.get("content_ops_snapshot"), dict) else {}
+        day_summaries.append(
+            {
+                "trial_day": payload.get("trial_day"),
+                "day_status": result.get("day_status") or "UNKNOWN",
+                "can_continue_trial": result.get("can_continue_trial", True),
+                "issue_count": len(list_payload(payload, "issues")),
+                "action_count": len(list_payload(payload, "operator_actions")),
+                "manual_publish_recommended": readiness.get("manual_publish_recommended", False),
+                "readiness_reason": readiness.get("reason", ""),
+                "today_count": snapshot.get("today_count", 0),
+                "this_week_count": snapshot.get("this_week_count", 0),
+                "blocked_count": snapshot.get("blocked_count", 0),
+            }
+        )
+    safety = retrospective.get("safety_boundary_check") if isinstance(retrospective.get("safety_boundary_check"), dict) else {}
+    return {
+        "day_summaries": day_summaries,
+        "retrospective_summary": retrospective.get("trial_summary") if isinstance(retrospective.get("trial_summary"), dict) else {},
+        "recurring_issues": list_payload(retrospective, "recurring_issues")[:8],
+        "operator_friction": retrospective.get("operator_friction") if isinstance(retrospective.get("operator_friction"), list) else [],
+        "workbench_ux_observations": retrospective.get("workbench_ux_observations") if isinstance(retrospective.get("workbench_ux_observations"), list) else [],
+        "safety_boundary_check": safety,
+        "recommendations": retrospective.get("recommendations") if isinstance(retrospective.get("recommendations"), list) else [],
+        "fix_pack_summary": fix_pack.get("summary") if isinstance(fix_pack.get("summary"), dict) else {},
+        "fixes": list_payload(fix_pack, "fixes")[:10],
+        "phase21_summary": phase21.get("summary") if isinstance(phase21.get("summary"), dict) else {},
+        "next_phase_recommendation": "Phase 22：Trial Fix Implementation & Stable Ops v1",
+        "policy": {
+            "trial_records_only": True,
+            "phase21_trial_is_scaffold": True,
+            "no_auto_publish": True,
+            "no_wechat_api": True,
+            "no_auto_image_generation": True,
+            "no_config_prompt_rule_changes": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -651,6 +704,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     publishing_pack_panel = build_publishing_pack_panel(paths)
     content_ops_panel = build_content_ops_panel(paths)
     content_hardening_panel = build_content_hardening_panel(paths)
+    trial_panel = build_trial_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -679,6 +733,9 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["content_ops_failure_issue_count"] = safe_int((content_hardening_panel.get("failure_summary") or {}).get("issue_count"))
     summary["publishing_checklist_regression_status"] = (content_hardening_panel.get("regression_summary") or {}).get("regression_status", "UNKNOWN")
     summary["phase20_trial_readiness"] = (content_hardening_panel.get("system_closeout_readiness") or {}).get("status", "UNKNOWN")
+    summary["trial_days_recorded"] = safe_int((trial_panel.get("retrospective_summary") or {}).get("days_recorded"))
+    summary["trial_fix_count"] = safe_int((trial_panel.get("fix_pack_summary") or {}).get("fix_count"))
+    summary["phase21_trial_status"] = (trial_panel.get("phase21_summary") or {}).get("status", "UNKNOWN")
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -705,6 +762,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         publishing_pack_panel,
         content_ops_panel,
         content_hardening_panel,
+        trial_panel,
         tuple(warnings),
     )
 
@@ -730,6 +788,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "publishing_pack_panel": report.publishing_pack_panel,
         "content_ops_panel": report.content_ops_panel,
         "content_hardening_panel": report.content_hardening_panel,
+        "trial_panel": report.trial_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

@@ -922,28 +922,62 @@
 
 ### P21-001：Day 1 Trial Run
 
-状态：Planned。
+状态：Done。
 
 ### P21-002：Day 2 Trial Run
 
-状态：Planned。
+状态：Done。
 
 ### P21-003：Day 3 Trial Run
 
-状态：Planned。
+状态：Done。
 
 ### P21-004：Day 4 Trial Run
 
-状态：Planned。
+状态：Done。
 
 ### P21-005：Day 5 Trial Run
 
-状态：Planned。
+状态：Done。
 
 ### P21-006：Weekly Trial Retrospective
 
-状态：Planned。
+状态：Done。
 
 ### P21-007：Trial Fix Pack
+
+状态：Done。
+
+### P21-008：Phase 21 Closeout Report
+
+状态：Done。
+
+### P21-009：Phase 21 Trial Pipeline
+
+状态：Done。
+
+### P21-010：Workbench Trial Panel
+
+状态：Done。
+
+## Phase 22：Trial Fix Implementation & Stable Ops v1
+
+### P22-001：High-severity Trial Fixes
+
+状态：Planned。
+
+### P22-002：Workbench Friction Fixes
+
+状态：Planned。
+
+### P22-003：Queue / Calendar Calibration
+
+状态：Planned。
+
+### P22-004：Publishing Pack Readiness Repair
+
+状态：Planned。
+
+### P22-005：Trial Closeout to Stable Ops
 
 状态：Planned。
