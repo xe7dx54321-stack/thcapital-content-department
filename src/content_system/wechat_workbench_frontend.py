@@ -945,6 +945,7 @@ function renderReader() {
         ${renderPerformancePanel("review-card wide")}
       `, false);
     const systemSection = renderReviewSection("系统运维", "失败处理、trial retrospective、fix pack、operator runbook 和 Phase0-19 closeout。", `
+        ${renderStableOpsPanel("review-card wide")}
         ${renderPhase22Panel("review-card wide")}
         ${renderTrialPanel("review-card wide")}
         ${renderContentHardeningPanel("review-card wide", "system")}
@@ -1042,6 +1043,10 @@ function getTrialPanel() {
 
 function getPhase22Panel() {
   return workbenchData.phase22_panel || {};
+}
+
+function getPhase23Panel() {
+  return workbenchData.phase23_panel || {};
 }
 
 function renderReviewSection(title, note, body, open = true) {
@@ -1551,6 +1556,59 @@ function renderPhase22Panel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function renderStableOpsPanel(cardClass = "review-card wide") {
+  const panel = getPhase23Panel();
+  const issueSummary = panel.issue_resolution_summary || {};
+  const quickSummary = panel.quick_fix_summary || {};
+  const queueSummary = panel.queue_repair_summary || {};
+  const calendarSummary = panel.calendar_calibration_summary || {};
+  const stabilizerSummary = panel.stabilizer_summary || {};
+  const verificationSummary = panel.verification_summary || {};
+  const gateSummary = panel.gate_summary || {};
+  const issues = Array.isArray(panel.issues) ? panel.issues : [];
+  const fixes = Array.isArray(panel.fix_results) ? panel.fix_results : [];
+  const queueItems = Array.isArray(panel.queue_items) ? panel.queue_items : [];
+  const calendarDays = Array.isArray(panel.calendar_days) ? panel.calendar_days : [];
+  const verifications = Array.isArray(panel.verifications) ? panel.verifications : [];
+  const criteria = Array.isArray(panel.gate_criteria) ? panel.gate_criteria : [];
+  const nextActions = Array.isArray(panel.next_actions) ? panel.next_actions : [];
+  const manualItems = Array.isArray(panel.manual_items) ? panel.manual_items : [];
+  const unresolvedItems = Array.isArray(panel.unresolved_items) ? panel.unresolved_items : [];
+  const policy = panel.policy || {};
+  const hasPanel = Object.keys(issueSummary).length || Object.keys(gateSummary).length || panel.gate_status;
+  if (!hasPanel || panel.gate_status === "UNKNOWN") {
+    return `<div class="${cardClass} stable-ops-panel">
+      <p class="review-label">Phase23 Stable Ops</p>
+      <p class="review-value">暂无 Phase23 数据。运行 <code>make phase23-daily</code> 后会显示 high-priority issue resolution、quick fixes、queue/calendar repair、verification 和 stable readiness gate。</p>
+    </div>`;
+  }
+  const issueRows = issues.slice(0, 6).map((item) => `${item.severity}: ${item.resolution_type} / ${item.area} / ${item.title}`);
+  const fixRows = fixes.slice(0, 6).map((item) => `${item.status}: ${item.fix_type} / ${item.change_summary}`);
+  const queueRows = queueItems.slice(0, 6).map((item) => `${item.repaired_readiness_status}: ${item.title} / next: ${item.next_operator_action}`);
+  const calendarRows = calendarDays.slice(0, 7).map((item) => `${item.date}: ${item.calibrated_status} / ${item.required_operator_action || item.readiness_reason}`);
+  const verificationRows = verifications.slice(0, 6).map((item) => `${item.verification_status}: ${item.source_issue_id} / remaining ${(item.remaining_work || []).join("; ")}`);
+  const criterionRows = criteria.slice(0, 8).map((item) => `${item.status}: ${item.criterion_id} / ${item.message}`);
+  const manualRows = manualItems.slice(0, 4).map((item) => `${item.status || item.verification_status}: ${item.source_issue_id || item.resolution_id || item.fix_result_id}`);
+  const unresolvedRows = unresolvedItems.slice(0, 4).map((item) => `${item.verification_status}: ${item.source_issue_id || item.resolution_id}`);
+  return `<div class="${cardClass} stable-ops-panel">
+    <p class="review-label">Phase23 Stable Ops Panel</p>
+    <p class="review-value">Gate ${escapeHtml(panel.gate_status || "UNKNOWN")} · criteria pass ${escapeHtml(gateSummary.pass ?? 0)} / warn ${escapeHtml(gateSummary.warn ?? 0)} / fail ${escapeHtml(gateSummary.fail ?? 0)} · blocking ${escapeHtml(gateSummary.blocking_failures ?? 0)}</p>
+    <p class="review-value">High issues ${escapeHtml(issueSummary.high_priority ?? 0)} · quick fixes ${escapeHtml(quickSummary.applied_sidecar ?? 0)} applied · queue improved ${escapeHtml(queueSummary.improved ?? 0)} · calendar actionable ${escapeHtml(calendarSummary.actionable_days ?? 0)}</p>
+    <p class="review-label">Trial Day Status Stabilizer</p>
+    <p class="review-value">Trial ${escapeHtml(panel.stabilizer_status_before || "UNKNOWN")} → ${escapeHtml(panel.stabilizer_status_after || "UNKNOWN")} · blockers ${escapeHtml(stabilizerSummary.blocker_count ?? 0)} · actionable warnings ${escapeHtml(stabilizerSummary.actionable_warning_count ?? 0)} · continue ${escapeHtml(stabilizerSummary.can_continue ?? true)}</p>
+    <p class="review-label">High-priority Issue Resolution</p>${renderMiniList(issueRows, "暂无 high-priority issue")}
+    <p class="review-label">Quick Fix Execution</p>${renderMiniList(fixRows, "暂无 quick fix result")}
+    <p class="review-label">Queue Readiness Repair</p>${renderMiniList(queueRows, "暂无 queue repair")}
+    <p class="review-label">Calendar Readiness Calibration</p>${renderMiniList(calendarRows, "暂无 calendar calibration")}
+    <p class="review-label">Issue Resolution Verification</p>${renderMiniList(verificationRows, "暂无 verification")}
+    <p class="review-label">Stable Trial Readiness Gate</p>${renderMiniList(criterionRows, "暂无 gate criteria")}
+    <p class="review-label">Needs manual / unresolved</p>${renderMiniList(manualRows.concat(unresolvedRows).slice(0, 8), "暂无 manual 或 unresolved item")}
+    <p class="review-label">Next operator actions</p>${renderMiniList(nextActions, "暂无 next action")}
+    <p class="review-label">Boundary</p>
+    <p class="review-value">sidecar_only=${escapeHtml(policy.sidecar_only ?? true)} · no_auto_publish=${escapeHtml(policy.no_auto_publish ?? true)} · no_wechat_api=${escapeHtml(policy.no_wechat_api ?? true)} · no_auto_image_generation=${escapeHtml(policy.no_auto_image_generation ?? true)} · no_config_prompt_rule_changes=${escapeHtml(policy.no_config_prompt_rule_changes ?? true)}</p>
+  </div>`;
+}
+
 function renderInsightPanel() {
   const article = getSelectedArticle();
   const comparison = getLatestComparison();
@@ -1569,6 +1627,7 @@ function renderInsightPanel() {
   const hardening = getContentHardeningPanel();
   const trial = getTrialPanel();
   const phase22 = getPhase22Panel();
+  const phase23 = getPhase23Panel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
@@ -1597,6 +1656,10 @@ function renderInsightPanel() {
   const phase22Issues = phase22.recurring_issue_summary || {};
   const phase22Calendar = phase22.weekly_calendar_summary || {};
   const phase22Feedback = phase22.post_publish_feedback_summary || {};
+  const phase23Gate = phase23.gate_summary || {};
+  const phase23Quick = phase23.quick_fix_summary || {};
+  const phase23Verification = phase23.verification_summary || {};
+  const phase23Calendar = phase23.calendar_calibration_summary || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -1673,6 +1736,11 @@ function renderInsightPanel() {
       <p class="insight-label">Phase22 运营闭环</p>
       <p class="insight-value">Status ${escapeHtml(phase22.phase22_status || "UNKNOWN")} · Actions ${escapeHtml(phase22Runner.action_count ?? 0)} · Recurring ${escapeHtml(phase22Issues.issue_count ?? 0)} · Calendar ${escapeHtml(phase22Calendar.calendar_days ?? 0)}d · Feedback ${escapeHtml(phase22Feedback.recommendation_count ?? 0)}</p>
       <p class="insight-value">sidecar only · no auto publish · no WeChat API · no image generation</p>
+    </section>
+    <section class="insight-card stable-ops-panel">
+      <p class="insight-label">Phase23 Stable Ops</p>
+      <p class="insight-value">Gate ${escapeHtml(phase23.gate_status || "UNKNOWN")} · pass ${escapeHtml(phase23Gate.pass ?? 0)} · warn ${escapeHtml(phase23Gate.warn ?? 0)} · fail ${escapeHtml(phase23Gate.fail ?? 0)} · blocking ${escapeHtml(phase23Gate.blocking_failures ?? 0)}</p>
+      <p class="insight-value">Quick fixes ${escapeHtml(phase23Quick.applied_sidecar ?? 0)} · verified ${escapeHtml(phase23Verification.verified ?? 0)} · unresolved ${escapeHtml(phase23Verification.unresolved ?? 0)} · actionable days ${escapeHtml(phase23Calendar.actionable_days ?? 0)}</p>
     </section>
     <section class="insight-card trial-panel">
       <p class="insight-label">Phase21 试运行</p>

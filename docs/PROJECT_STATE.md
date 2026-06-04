@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 22：Trial Fix Implementation & Stable Ops v1。
+Phase 23：High-priority Ops Issue Resolution & Stable Trial Readiness v1。
 
 ## 最新 checkpoint
 
-P22-008：Phase 22 Closeout。
+P23-010：Phase 23 Closeout。
 
 ## 已完成
 
@@ -303,6 +303,19 @@ P22-008：Phase 22 Closeout。
 - P22-007 Phase22 Daily Ops Pipeline。
 - P22-008 Phase22 Closeout。
 
+### Phase 23
+
+- P23-001 High-priority Recurring Issue Resolution Plan v1。
+- P23-002 Quick Fix Candidate Executor v1。
+- P23-003 Content Queue Readiness Repair v1。
+- P23-004 Publishing Calendar Readiness Calibration v1。
+- P23-005 Trial Day Status Stabilizer v1。
+- P23-006 Issue Resolution Verification Board v1。
+- P23-007 Stable Trial Readiness Gate v1。
+- P23-008 Workbench Stable Ops Panel v1。
+- P23-009 Phase 23 Daily Stability Pipeline v1。
+- P23-010 Phase 23 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -530,10 +543,22 @@ P22-008：Phase 22 Closeout。
 - workbench Phase22 operations panel。
 - phase22 daily ops pipeline。
 
+### Phase 23 能力
+
+- high-priority recurring issue resolution plan。
+- quick fix candidate executor。
+- content queue readiness repair。
+- publishing calendar readiness calibration。
+- trial day status stabilizer。
+- issue resolution verification board。
+- stable trial readiness gate。
+- workbench stable ops panel。
+- phase23 daily stability pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase22-daily
+make phase23-daily
 ```
 
 ## 当前边界
@@ -588,13 +613,17 @@ make phase22-daily
 - Phase 22 所有 action list、fix pack、calendar、feedback 均为 sidecar-only。
 - recurring issue tracker 只排序和建议，不自动修复。
 - post-publish feedback 不自动抓取后台数据，不自动改策略配置。
+- Phase 23 只做 high-priority issue resolution workflow、sidecar quick fixes、readiness repair 和 stable gate。
+- quick fixes 只生成 sidecar 修复结果和人工动作建议，不覆盖主线内容。
+- quick fixes 不自动改 prompt/config/rules。
 
 ## 下一阶段
 
-Phase 23：Stable Ops Trial Execution & Calibration v1。
+Phase 24：Stable Ops Trial & Content Quality Calibration v1。
 
-- P23-001：Day-by-day Stable Ops Run。
-- P23-002：Recurring Issue Closure Tracking。
-- P23-003：Calendar Calibration Review。
-- P23-004：Operator Feedback Intake。
-- P23-005：Stable Ops Closeout。
+- P24-001：Stable Trial Day 1。
+- P24-002：Stable Trial Day 2。
+- P24-003：Stable Trial Day 3。
+- P24-004：Content Quality Calibration from Trial。
+- P24-005：Ops-to-Methodology Feedback。
+- P24-006：Stable Ops Closeout。

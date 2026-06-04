@@ -38,6 +38,7 @@ class WechatWorkbenchDataReport:
     content_hardening_panel: dict[str, Any]
     trial_panel: dict[str, Any]
     phase22_panel: dict[str, Any]
+    phase23_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -611,6 +612,57 @@ def build_phase22_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_phase23_panel(paths: ProjectPaths) -> dict[str, Any]:
+    publishing_root = paths.market_content_root / "07_publishing"
+    plan = read_json(paths.logs_root / "latest_high_priority_issue_resolution_plan.json")
+    quick = read_json(paths.logs_root / "latest_quick_fix_execution_results.json")
+    queue_repair = read_json(publishing_root / "latest_content_queue_readiness_repair.json")
+    calendar = read_json(publishing_root / "latest_publishing_calendar_readiness_calibration.json")
+    stabilizer = read_json(paths.logs_root / "latest_trial_day_status_stabilizer.json")
+    verification = read_json(paths.logs_root / "latest_issue_resolution_verification.json")
+    gate = read_json(paths.logs_root / "latest_stable_trial_readiness_gate.json")
+    pipeline = read_json(paths.logs_root / "latest_phase23_daily_stability_pipeline.json")
+    fix_results = list_payload(quick, "fix_results")
+    verifications = list_payload(verification, "verifications")
+    manual_items = [item for item in fix_results if item.get("status") == "NEEDS_MANUAL"] + [
+        item for item in verifications if item.get("verification_status") == "NEEDS_MANUAL"
+    ]
+    unresolved = [item for item in verifications if item.get("verification_status") in {"UNRESOLVED", "PARTIAL", "NEEDS_MANUAL"}]
+    next_actions = gate.get("next_actions") if isinstance(gate.get("next_actions"), list) else []
+    return {
+        "issue_resolution_summary": plan.get("summary") if isinstance(plan.get("summary"), dict) else {},
+        "issues": list_payload(plan, "issues")[:10],
+        "quick_fix_summary": quick.get("summary") if isinstance(quick.get("summary"), dict) else {},
+        "fix_results": fix_results[:10],
+        "queue_repair_summary": queue_repair.get("summary") if isinstance(queue_repair.get("summary"), dict) else {},
+        "queue_items": list_payload(queue_repair, "items")[:10],
+        "calendar_calibration_summary": calendar.get("summary") if isinstance(calendar.get("summary"), dict) else {},
+        "calendar_days": list_payload(calendar, "days")[:7],
+        "stabilizer_summary": stabilizer.get("stabilization_summary") if isinstance(stabilizer.get("stabilization_summary"), dict) else {},
+        "stabilizer_status_before": stabilizer.get("status_before", "UNKNOWN"),
+        "stabilizer_status_after": stabilizer.get("status_after", "UNKNOWN"),
+        "verification_summary": verification.get("summary") if isinstance(verification.get("summary"), dict) else {},
+        "verifications": verifications[:12],
+        "gate_status": gate.get("gate_status", "UNKNOWN"),
+        "gate_summary": gate.get("summary") if isinstance(gate.get("summary"), dict) else {},
+        "gate_criteria": list_payload(gate, "criteria"),
+        "next_actions": [str(item) for item in next_actions[:8]],
+        "manual_items": manual_items[:8],
+        "unresolved_items": unresolved[:8],
+        "phase23_summary": pipeline.get("summary") if isinstance(pipeline.get("summary"), dict) else {},
+        "phase23_status": pipeline.get("status", "UNKNOWN"),
+        "policy": {
+            "sidecar_only": True,
+            "manual_ops_only": True,
+            "quick_fixes_do_not_overwrite_mainline": True,
+            "no_auto_publish": True,
+            "no_wechat_api": True,
+            "no_auto_image_generation": True,
+            "no_config_prompt_rule_changes": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -745,6 +797,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     content_hardening_panel = build_content_hardening_panel(paths)
     trial_panel = build_trial_panel(paths)
     phase22_panel = build_phase22_panel(paths)
+    phase23_panel = build_phase23_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -779,6 +832,10 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["phase22_status"] = phase22_panel.get("phase22_status", "UNKNOWN")
     summary["phase22_action_count"] = safe_int((phase22_panel.get("daily_runner_summary") or {}).get("action_count"))
     summary["phase22_recurring_issue_count"] = safe_int((phase22_panel.get("recurring_issue_summary") or {}).get("issue_count"))
+    summary["phase23_gate_status"] = phase23_panel.get("gate_status", "UNKNOWN")
+    summary["phase23_verified_issues"] = safe_int((phase23_panel.get("verification_summary") or {}).get("verified"))
+    summary["phase23_unresolved_issues"] = safe_int((phase23_panel.get("verification_summary") or {}).get("unresolved"))
+    summary["phase23_actionable_days"] = safe_int((phase23_panel.get("calendar_calibration_summary") or {}).get("actionable_days"))
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -807,6 +864,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         content_hardening_panel,
         trial_panel,
         phase22_panel,
+        phase23_panel,
         tuple(warnings),
     )
 
@@ -834,6 +892,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "content_hardening_panel": report.content_hardening_panel,
         "trial_panel": report.trial_panel,
         "phase22_panel": report.phase22_panel,
+        "phase23_panel": report.phase23_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():
