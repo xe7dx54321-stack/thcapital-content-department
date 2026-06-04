@@ -740,11 +740,15 @@
 
 ### P17-001：Approved Live Brief/Draft Promotion v1
 
+状态：Done。
+
 目标：
 
 - 将人工接受的 live brief / draft sidecar 提升为候选版本，不自动替换主线产物。
 
 ### P17-002：Live Rewrite Version Promotion v1
+
+状态：Done。
 
 目标：
 
@@ -752,11 +756,15 @@
 
 ### P17-003：Manual Image Generation Executor v1
 
+状态：Done。
+
 目标：
 
 - 只在人工批准后执行图片生成或人工设计请求。
 
 ### P17-004：Image Asset Library v1
+
+状态：Done。
 
 目标：
 
@@ -764,12 +772,64 @@
 
 ### P17-005：Article-with-Images Preview v1
 
+状态：Done。
+
 目标：
 
 - 生成带图片占位/已批准图片的公众号预览。
 
 ### P17-006：Human Final Visual Review v1
 
+状态：Done。
+
 目标：
 
 - 为最终图片使用建立人工视觉审核流程。
+
+### P17-007：Workbench Image Asset Panel v1
+
+状态：Done。
+
+目标：
+
+- 在微信公众号工作台展示 approved live promotion、manual image tasks、image asset library、article-with-images preview 和 final visual review。
+
+### P17-008：Phase 17 Daily Visual Production Pipeline v1
+
+状态：Done。
+
+目标：
+
+- 串联 Phase16、live promotion、manual image tasks、asset library、图文预览、视觉审查和工作台刷新。
+- 不自动生成图片，不自动发布，不替换主线产物。
+
+### P17-009：Phase 17 Closeout
+
+状态：Done。
+
+目标：
+
+- 新增 Phase 17 closeout 报告。
+- 明确 Phase 18 入口。
+
+## Phase 18：Article-with-Images Final Candidate & Manual Publishing Pack v1
+
+### P18-001：Visual-approved Final Article Candidate v1
+
+状态：Planned。
+
+### P18-002：WeChat Copy Pack with Image Slots v1
+
+状态：Planned。
+
+### P18-003：Manual Publishing Checklist with Visual Assets v1
+
+状态：Planned。
+
+### P18-004：Post-publish Visual Performance Input v1
+
+状态：Planned。
+
+### P18-005：Visual Strategy Learning Feedback v1
+
+状态：Planned。

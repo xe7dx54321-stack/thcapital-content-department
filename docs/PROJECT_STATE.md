@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 16：Methodology-driven Live Agent Generation Pilot v1。
+Phase 17：Approved Live Output Promotion & Manual Image Generation v1。
 
 ## 最新 checkpoint
 
-P16-010：Phase 16 Closeout。
+P17-009：Phase 17 Closeout。
 
 ## 已完成
 
@@ -233,6 +233,18 @@ P16-010：Phase 16 Closeout。
 - P16-009 Phase 16 Daily Live Pilot Pipeline v1。
 - P16-010 Phase 16 Closeout。
 
+### Phase 17
+
+- P17-001 Approved Live Brief/Draft Promotion v1。
+- P17-002 Live Rewrite Version Promotion v1。
+- P17-003 Manual Image Generation Executor v1。
+- P17-004 Image Asset Library v1。
+- P17-005 Article-with-Images Preview v1。
+- P17-006 Human Final Visual Review v1。
+- P17-007 Workbench Image Asset Panel v1。
+- P17-008 Phase 17 Daily Visual Production Pipeline v1。
+- P17-009 Phase 17 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -400,10 +412,21 @@ P16-010：Phase 16 Closeout。
 - workbench live pilot panel。
 - phase16 daily live pilot pipeline。
 
+### Phase 17 能力
+
+- approved live output promotion。
+- live rewrite promotion。
+- manual image generation tasks。
+- image asset library。
+- article-with-images preview。
+- final visual review。
+- workbench image asset panel。
+- phase17 daily visual production pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase16-daily
+make phase17-daily
 ```
 
 ## 当前边界
@@ -441,14 +464,17 @@ make phase16-daily
 - live 必须显式 env + allowlist + key + cost guard。
 - 不自动替换主线产物。
 - 所有 live 输出只作为 sidecar candidate。
+- live 输出 promotion 需要人工校准认可。
+- 图片生成需要人工批准。
+- 不自动生成图片、不自动调用图片模型、不提交图片文件。
+- 图片资产需要人工最终视觉审查。
 
 ## 下一阶段
 
-Phase 17：Approved Live Output Promotion & Manual Image Generation v1。
+Phase 18：Article-with-Images Final Candidate & Manual Publishing Pack v1。
 
-- P17-001：Approved Live Brief/Draft Promotion v1。
-- P17-002：Live Rewrite Version Promotion v1。
-- P17-003：Manual Image Generation Executor v1。
-- P17-004：Image Asset Library v1。
-- P17-005：Article-with-Images Preview v1。
-- P17-006：Human Final Visual Review v1。
+- P18-001：Visual-approved Final Article Candidate v1。
+- P18-002：WeChat Copy Pack with Image Slots v1。
+- P18-003：Manual Publishing Checklist with Visual Assets v1。
+- P18-004：Post-publish Visual Performance Input v1。
+- P18-005：Visual Strategy Learning Feedback v1。

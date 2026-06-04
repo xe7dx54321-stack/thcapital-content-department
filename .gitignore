@@ -805,6 +805,47 @@ logs/
 同行资本市场内容系统/11_frontstage/*phase16-daily-live-pilot-pipeline-board.md
 同行资本市场内容系统/11_frontstage/latest_phase16_daily_live_pilot_pipeline_board.md
 
+# Phase 17 generated artifacts
+同行资本市场内容系统/05_draft_packs/*promoted-live-content-candidates*.json
+同行资本市场内容系统/05_draft_packs/*promoted-live-content-candidates*.md
+同行资本市场内容系统/05_draft_packs/latest_promoted_live_content_candidates.json
+同行资本市场内容系统/05_draft_packs/latest_promoted_live_content_candidates.md
+
+同行资本市场内容系统/09_workbench_actions/versions/*promoted-live-rewrite-versions*.json
+同行资本市场内容系统/09_workbench_actions/versions/*promoted-live-rewrite-versions*.md
+同行资本市场内容系统/09_workbench_actions/versions/latest_promoted_live_rewrite_versions.json
+同行资本市场内容系统/09_workbench_actions/versions/latest_promoted_live_rewrite_versions.md
+
+同行资本市场内容系统/08_assets/*manual-image-generation-tasks*.json
+同行资本市场内容系统/08_assets/*manual-image-generation-tasks*.md
+同行资本市场内容系统/08_assets/latest_manual_image_generation_tasks.json
+同行资本市场内容系统/08_assets/latest_manual_image_generation_tasks.md
+
+同行资本市场内容系统/08_assets/image_asset_library.json
+同行资本市场内容系统/08_assets/image_asset_library.md
+同行资本市场内容系统/11_frontstage/image_asset_library_board.md
+
+同行资本市场内容系统/11_frontstage/*article-with-images-preview*.html
+同行资本市场内容系统/11_frontstage/latest_article_with_images_preview.html
+同行资本市场内容系统/10_logs/*article-with-images-preview*.json
+同行资本市场内容系统/10_logs/latest_article_with_images_preview.json
+
+同行资本市场内容系统/08_assets/*final-visual-review*.json
+同行资本市场内容系统/08_assets/*final-visual-review*.md
+同行资本市场内容系统/08_assets/latest_final_visual_review.json
+同行资本市场内容系统/08_assets/latest_final_visual_review.md
+
+同行资本市场内容系统/10_logs/*phase17-daily-visual-production-pipeline*.json
+同行资本市场内容系统/10_logs/*phase17-daily-visual-production-pipeline*.md
+同行资本市场内容系统/10_logs/latest_phase17_daily_visual_production_pipeline.json
+同行资本市场内容系统/10_logs/latest_phase17_daily_visual_production_pipeline.md
+同行资本市场内容系统/11_frontstage/*phase17-daily-visual-production-pipeline-board.md
+同行资本市场内容系统/11_frontstage/latest_phase17_daily_visual_production_pipeline_board.md
+
+# Image binary assets - do not track generated or manually downloaded images
+同行资本市场内容系统/08_assets/images/*
+!同行资本市场内容系统/08_assets/images/.gitkeep
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

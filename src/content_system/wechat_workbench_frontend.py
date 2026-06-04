@@ -418,6 +418,10 @@ button { cursor: pointer; }
   border-color: rgba(78, 100, 160, .25);
   background: linear-gradient(180deg, #fff, #f7f8ff);
 }
+.image-asset-panel {
+  border-color: rgba(31, 122, 92, .28);
+  background: linear-gradient(180deg, #fff, #f5fbf8);
+}
 .delta-number {
   display: inline-flex;
   align-items: center;
@@ -485,6 +489,17 @@ button { cursor: pointer; }
   text-align: left;
 }
 .copy-image-request:hover { background: var(--gold-soft); }
+.copy-image-asset {
+  min-height: 30px;
+  padding: 6px 9px;
+  border: 1px solid rgba(31, 122, 92, .24);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--accent-ink);
+  font-size: 12px;
+  text-align: left;
+}
+.copy-image-asset:hover { background: var(--accent-soft); }
 .methodology-score-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -876,6 +891,7 @@ function renderReader() {
         ${renderMethodologyPanel("review-card wide")}
         ${renderGenerationVisualPanel("review-card wide")}
         ${renderLivePilotPanel("review-card wide")}
+        ${renderImageAssetPanel("review-card wide")}
         <div class="review-card wide"><p class="review-label">Evidence</p>${renderMiniList(article.evidence_ids, "暂无 evidence")}</div>
         <div class="review-card wide"><p class="review-label">Source</p>${renderMiniList(article.source_ids, "暂无 source")}</div>
       </div>
@@ -940,6 +956,10 @@ function getGenerationVisualPanel() {
 
 function getLivePilotPanel() {
   return workbenchData.live_pilot_panel || {};
+}
+
+function getImageAssetPanel() {
+  return workbenchData.image_asset_panel || {};
 }
 
 function getSelectedMethodologyTopic() {
@@ -1182,6 +1202,63 @@ function renderLivePilotPanel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function imageAssetCommand(kind) {
+  const panel = getImageAssetPanel();
+  const tasks = Array.isArray(panel.manual_image_tasks) ? panel.manual_image_tasks : [];
+  const assets = Array.isArray(panel.image_assets) ? panel.image_assets : [];
+  const task = tasks[0] || {};
+  const asset = assets[0] || {};
+  if (kind === "mark_available") {
+    const assetId = asset.asset_id || "<imgasset_id>";
+    const path = task.expected_asset_path || asset.asset_path || "同行资本市场内容系统/08_assets/images/example.png";
+    return `python3 scripts/update_image_asset_library.py --mark-available ${assetId} --path ${shellQuote(path)} --note ${shellQuote("人工生成后放入本地")}`;
+  }
+  if (kind === "approve_visual") {
+    const assetId = asset.asset_id || "<imgasset_id>";
+    return `python3 scripts/review_visual_asset.py --approve ${assetId} --note ${shellQuote("图能解释文章核心框架")}`;
+  }
+  return "python3 scripts/update_image_asset_library.py";
+}
+
+function renderImageAssetPanel(cardClass = "review-card wide") {
+  const panel = getImageAssetPanel();
+  const contentPromotion = panel.live_content_promotion_summary || {};
+  const rewritePromotion = panel.live_rewrite_promotion_summary || {};
+  const taskSummary = panel.manual_image_task_summary || {};
+  const librarySummary = panel.image_asset_library_summary || {};
+  const previewSummary = panel.article_with_images_summary || {};
+  const reviewSummary = panel.final_visual_review_summary || {};
+  const tasks = Array.isArray(panel.manual_image_tasks) ? panel.manual_image_tasks : [];
+  const assets = Array.isArray(panel.image_assets) ? panel.image_assets : [];
+  const reviews = Array.isArray(panel.visual_reviews) ? panel.visual_reviews : [];
+  const hasPanel = Object.keys(taskSummary).length || Object.keys(librarySummary).length || Object.keys(reviewSummary).length;
+  if (!hasPanel) {
+    return `<div class="${cardClass} image-asset-panel">
+      <p class="review-label">图片资产链路</p>
+      <p class="review-value">暂无 Phase17 图片资产数据。运行 <code>make phase17-daily</code> 后会显示 live promotion、manual image tasks、asset library 和 final visual review。</p>
+    </div>`;
+  }
+  const taskRows = tasks.slice(0, 5).map((item) => `${item.visual_type}: ${item.generation_status} / ${item.expected_asset_path}`);
+  const assetRows = assets.slice(0, 5).map((item) => `${item.visual_type}: ${item.asset_status} / wechat_ready ${item.wechat_ready} / ${item.asset_path}`);
+  const reviewRows = reviews.slice(0, 5).map((item) => `${item.visual_type}: ${item.review_status} / wechat_ready ${item.wechat_ready}`);
+  return `<div class="${cardClass} image-asset-panel">
+    <p class="review-label">Approved Live Promotion & Image Assets</p>
+    <p class="review-value">Live candidates ${escapeHtml(contentPromotion.candidate_count ?? 0)} · Live rewrites ${escapeHtml(rewritePromotion.promoted ?? 0)} · sidecar only</p>
+    <p class="review-value">Image tasks ${escapeHtml(taskSummary.task_count ?? 0)} · assets ${escapeHtml(librarySummary.asset_count ?? 0)} · available ${escapeHtml(librarySummary.available ?? 0)} · wechat_ready ${escapeHtml(reviewSummary.wechat_ready ?? 0)}</p>
+    <p class="review-value">Article-with-images preview: ${escapeHtml(previewSummary.visual_slot_count ?? 0)} slots · <code>${escapeHtml(panel.article_with_images_preview_path || "latest_article_with_images_preview.html")}</code></p>
+    <p class="review-label">Manual image tasks</p>${renderMiniList(taskRows, "暂无已批准图片生成任务")}
+    <p class="review-label">Image asset library</p>${renderMiniList(assetRows, "暂无图片资产 metadata")}
+    <p class="review-label">Final visual review</p>${renderMiniList(reviewRows, "暂无最终视觉审查")}
+    <div class="version-actions">
+      <button class="copy-image-asset" type="button" data-copy-asset="prompt">复制首个 image prompt</button>
+      <button class="copy-image-asset" type="button" data-copy-asset="brief">复制首个 design brief</button>
+      <button class="copy-image-asset" type="button" data-copy-asset="path">复制 expected asset path</button>
+      <button class="copy-image-asset" type="button" data-command="${escapeHtml(imageAssetCommand("mark_available"))}">复制标记 available 命令</button>
+      <button class="copy-image-asset" type="button" data-command="${escapeHtml(imageAssetCommand("approve_visual"))}">复制视觉 approve 命令</button>
+    </div>
+  </div>`;
+}
+
 function renderInsightPanel() {
   const article = getSelectedArticle();
   const comparison = getLatestComparison();
@@ -1194,10 +1271,14 @@ function renderInsightPanel() {
   const articleMethodology = getSelectedMethodologyArticle();
   const generation = getGenerationVisualPanel();
   const livePilot = getLivePilotPanel();
+  const imageAsset = getImageAssetPanel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
   const imageApprovalSummary = livePilot.image_approval_summary || {};
+  const imageTaskSummary = imageAsset.manual_image_task_summary || {};
+  const imageLibrarySummary = imageAsset.image_asset_library_summary || {};
+  const visualReviewSummary = imageAsset.final_visual_review_summary || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -1253,6 +1334,10 @@ function renderInsightPanel() {
     <section class="insight-card live-panel">
       <p class="insight-label">Live Pilot</p>
       <p class="insight-value">Comparisons ${escapeHtml(liveComparisonSummary.comparison_count ?? 0)} · Image approvals ${escapeHtml(imageApprovalSummary.request_count ?? 0)} · sidecar only</p>
+    </section>
+    <section class="insight-card image-asset-panel">
+      <p class="insight-label">图片资产链路</p>
+      <p class="insight-value">Tasks ${escapeHtml(imageTaskSummary.task_count ?? 0)} · Assets ${escapeHtml(imageLibrarySummary.asset_count ?? 0)} · WeChat ready ${escapeHtml(visualReviewSummary.wechat_ready ?? 0)}</p>
     </section>`;
 }
 
@@ -1375,6 +1460,28 @@ function bindImageRequestButtons() {
   });
 }
 
+function bindImageAssetButtons() {
+  document.querySelectorAll(".copy-image-asset").forEach((button) => {
+    button.addEventListener("click", () => {
+      const panel = getImageAssetPanel();
+      const tasks = Array.isArray(panel.manual_image_tasks) ? panel.manual_image_tasks : [];
+      const task = tasks[0] || {};
+      const kind = button.dataset.copyAsset || "";
+      const command = button.dataset.command || "";
+      const value = command || (kind === "brief"
+        ? (task.design_brief || "")
+        : kind === "path"
+          ? (task.expected_asset_path || "")
+          : (task.image_prompt || task.design_brief || ""));
+      copyText(value || "暂无 Phase17 图片资产数据。请先运行 make phase17-daily。").then(() => {
+        button.textContent = "已复制";
+      }).catch(() => {
+        button.textContent = "复制失败";
+      });
+    });
+  });
+}
+
 function renderAll() {
   renderTopbar();
   renderTopicRail();
@@ -1385,6 +1492,7 @@ function renderAll() {
   bindFinalCopyButtons();
   bindPerformanceCommandButtons();
   bindImageRequestButtons();
+  bindImageAssetButtons();
 }
 
 document.querySelectorAll(".mode-tab").forEach((tab) => {
@@ -1395,6 +1503,7 @@ document.querySelectorAll(".mode-tab").forEach((tab) => {
     bindFinalCopyButtons();
     bindPerformanceCommandButtons();
     bindImageRequestButtons();
+    bindImageAssetButtons();
   });
 });
 document.querySelectorAll(".quick-action").forEach((button) => {

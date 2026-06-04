@@ -1,4 +1,4 @@
-.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily content-briefs content-outlines content-drafts content-quality-review platform-packages content-workbench phase2-daily review-queue proponent-reviews critic-reviews judge-gate revision-instructions human-exception-queue agent-review-dashboard phase3-daily publishing-candidates human-feedback-template human-feedback-validate review-outcome-memory rule-update-suggestions learning-loop-dashboard phase4-daily head-media-patterns title-patterns opening-patterns structure-patterns content-recipe-suggestions pattern-adapters phase5-daily learning-daily llm-config-validate agent-prompts-validate llm-agent-smoke llm-proponent-reviews llm-critic-reviews llm-judge-gate llm-rewrite-suggestions agent-run-summary agent-evaluation-template agent-evaluation-validate phase6-daily minimax-proponent-live-pilot claude-critic-live-pilot claude-judge-live-pilot claude-rewrite-live-pilot llm-ab-comparison daily-scheduler failure-notification retry-fallback-runner weekly-content-retro phase7-daily runtime-store-init runtime-store-sync runtime-store-summary artifact-repository-sync publishing-dry-run human-review-console cost-budget-guard phase8-daily wechat-workbench-data wechat-article-preview wechat-workbench serve-wechat-workbench workbench-context chief-editor-agent workbench-action-router workbench-feedback-memory phase9-daily action-approval-board execute-rewrite-actions execute-evidence-actions execute-topic-actions versioned-article-preview serve-workbench-interactions phase10-daily version-comparison-score version-review-board article-version-memory action-effectiveness prompt-rule-regression phase11-daily promote-accepted-versions final-article-candidates final-publish-checklist final-candidate-memory multiday-version-analytics phase12-daily serve-workbench-ui final-review-actions publish-session-board post-publish-metrics-board content-performance-memory performance-learning-feedback phase13-daily topic-methodology-validate article-methodology-validate content-recipes-validate methodology-topic-score methodology-article-review chief-editor-methodology-context methodology-performance-alignment phase14-daily methodology-briefs methodology-outlines methodology-drafts execute-methodology-rewrite-actions visual-methodology-validate article-visual-plans image-asset-requests methodology-regression-tests human-methodology-calibration phase15-daily live-methodology-brief-pilot live-methodology-draft-pilot live-methodology-rewrite-pilot live-visual-prompt-pilot live-output-comparison live-calibration-board image-generation-approval-queue phase16-daily status
+.PHONY: doctor path-audit sources-validate source-health source-runtime-health manifest-validate manifest-write-from-packets official-lane-with-manifest official-lane-health-check official-lane-daily daily-official-lane daily-source-summary official-lane-quality-gate daily-official-quality-gate official-daily-dashboard daily-official-dashboard official-daily-full-run daily-official-full-run runtime-baseline source-coverage evidence-packets topic-clusters value-scores high-value-candidates phase1-daily content-briefs content-outlines content-drafts content-quality-review platform-packages content-workbench phase2-daily review-queue proponent-reviews critic-reviews judge-gate revision-instructions human-exception-queue agent-review-dashboard phase3-daily publishing-candidates human-feedback-template human-feedback-validate review-outcome-memory rule-update-suggestions learning-loop-dashboard phase4-daily head-media-patterns title-patterns opening-patterns structure-patterns content-recipe-suggestions pattern-adapters phase5-daily learning-daily llm-config-validate agent-prompts-validate llm-agent-smoke llm-proponent-reviews llm-critic-reviews llm-judge-gate llm-rewrite-suggestions agent-run-summary agent-evaluation-template agent-evaluation-validate phase6-daily minimax-proponent-live-pilot claude-critic-live-pilot claude-judge-live-pilot claude-rewrite-live-pilot llm-ab-comparison daily-scheduler failure-notification retry-fallback-runner weekly-content-retro phase7-daily runtime-store-init runtime-store-sync runtime-store-summary artifact-repository-sync publishing-dry-run human-review-console cost-budget-guard phase8-daily wechat-workbench-data wechat-article-preview wechat-workbench serve-wechat-workbench workbench-context chief-editor-agent workbench-action-router workbench-feedback-memory phase9-daily action-approval-board execute-rewrite-actions execute-evidence-actions execute-topic-actions versioned-article-preview serve-workbench-interactions phase10-daily version-comparison-score version-review-board article-version-memory action-effectiveness prompt-rule-regression phase11-daily promote-accepted-versions final-article-candidates final-publish-checklist final-candidate-memory multiday-version-analytics phase12-daily serve-workbench-ui final-review-actions publish-session-board post-publish-metrics-board content-performance-memory performance-learning-feedback phase13-daily topic-methodology-validate article-methodology-validate content-recipes-validate methodology-topic-score methodology-article-review chief-editor-methodology-context methodology-performance-alignment phase14-daily methodology-briefs methodology-outlines methodology-drafts execute-methodology-rewrite-actions visual-methodology-validate article-visual-plans image-asset-requests methodology-regression-tests human-methodology-calibration phase15-daily live-methodology-brief-pilot live-methodology-draft-pilot live-methodology-rewrite-pilot live-visual-prompt-pilot live-output-comparison live-calibration-board image-generation-approval-queue phase16-daily promote-approved-live-outputs promote-live-rewrite-versions manual-image-generation-tasks image-asset-library image-asset-library-board article-with-images-preview final-visual-review phase17-daily status
 
 PYTHON ?= python3
 
@@ -259,6 +259,7 @@ wechat-article-preview:
 	$(PYTHON) scripts/render_wechat_article_preview.py
 
 wechat-workbench:
+	$(PYTHON) scripts/build_wechat_workbench_data.py
 	$(PYTHON) scripts/build_wechat_workbench_frontend.py
 
 serve-wechat-workbench:
@@ -434,6 +435,30 @@ image-generation-approval-queue:
 
 phase16-daily:
 	$(PYTHON) scripts/run_phase16_daily_live_pilot_pipeline.py
+
+promote-approved-live-outputs:
+	$(PYTHON) scripts/promote_approved_live_outputs.py
+
+promote-live-rewrite-versions:
+	$(PYTHON) scripts/promote_live_rewrite_versions.py
+
+manual-image-generation-tasks:
+	$(PYTHON) scripts/build_manual_image_generation_tasks.py
+
+image-asset-library:
+	$(PYTHON) scripts/update_image_asset_library.py
+
+image-asset-library-board:
+	$(PYTHON) scripts/build_image_asset_library_board.py
+
+article-with-images-preview:
+	$(PYTHON) scripts/build_article_with_images_preview.py
+
+final-visual-review:
+	$(PYTHON) scripts/build_final_visual_review.py
+
+phase17-daily:
+	$(PYTHON) scripts/run_phase17_daily_visual_production_pipeline.py
 
 status:
 	bash 内容工厂控制台/status.sh
