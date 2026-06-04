@@ -33,6 +33,7 @@ class WechatWorkbenchDataReport:
     generation_visual_panel: dict[str, Any]
     live_pilot_panel: dict[str, Any]
     image_asset_panel: dict[str, Any]
+    publishing_pack_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -398,6 +399,46 @@ def build_image_asset_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_publishing_pack_panel(paths: ProjectPaths) -> dict[str, Any]:
+    publishing_root = paths.market_content_root / "07_publishing"
+    visual_candidate_payload = read_json(publishing_root / "latest_visual_approved_final_candidates.json")
+    copy_pack_payload = read_json(publishing_root / "latest_wechat_copy_pack_with_images.json")
+    checklist_payload = read_json(publishing_root / "latest_visual_publishing_checklist.json")
+    visual_performance_payload = read_json(publishing_root / "latest_post_publish_visual_performance.json")
+    visual_feedback_payload = read_json(paths.logs_root / "latest_visual_strategy_learning_feedback.json")
+    candidates = list_payload(visual_candidate_payload, "candidates")
+    packs = list_payload(copy_pack_payload, "packs")
+    checklists = list_payload(checklist_payload, "checklists")
+    selected_pack = packs[0] if packs else {}
+    selected_candidate = next(
+        (item for item in candidates if item.get("visual_final_candidate_id") == selected_pack.get("visual_final_candidate_id")),
+        candidates[0] if candidates else {},
+    )
+    selected_checklist = next(
+        (item for item in checklists if item.get("copy_pack_id") == selected_pack.get("copy_pack_id")),
+        checklists[0] if checklists else {},
+    )
+    return {
+        "visual_candidate_summary": visual_candidate_payload.get("summary") if isinstance(visual_candidate_payload.get("summary"), dict) else {},
+        "copy_pack_summary": copy_pack_payload.get("summary") if isinstance(copy_pack_payload.get("summary"), dict) else {},
+        "visual_checklist_summary": checklist_payload.get("summary") if isinstance(checklist_payload.get("summary"), dict) else {},
+        "visual_performance_summary": visual_performance_payload.get("summary") if isinstance(visual_performance_payload.get("summary"), dict) else {},
+        "visual_strategy_feedback_summary": visual_feedback_payload.get("summary") if isinstance(visual_feedback_payload.get("summary"), dict) else {},
+        "selected_visual_candidate": selected_candidate,
+        "selected_copy_pack": selected_pack,
+        "selected_visual_checklist": selected_checklist,
+        "visual_performance_records": list_payload(visual_performance_payload, "records")[:6],
+        "visual_strategy_recommendations": list_payload(visual_feedback_payload, "recommendations")[:6],
+        "policy": {
+            "manual_copy_only": True,
+            "do_not_publish": True,
+            "would_publish": False,
+            "no_wechat_api": True,
+            "no_auto_image_generation": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -527,6 +568,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     generation_visual_panel = build_generation_visual_panel(paths, selected_article_id, articles)
     live_pilot_panel = build_live_pilot_panel(paths)
     image_asset_panel = build_image_asset_panel(paths)
+    publishing_pack_panel = build_publishing_pack_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -546,6 +588,9 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["manual_image_task_count"] = safe_int((image_asset_panel.get("manual_image_task_summary") or {}).get("task_count"))
     summary["image_asset_count"] = safe_int((image_asset_panel.get("image_asset_library_summary") or {}).get("asset_count"))
     summary["visual_review_count"] = safe_int((image_asset_panel.get("final_visual_review_summary") or {}).get("review_count"))
+    summary["visual_final_candidate_count"] = safe_int((publishing_pack_panel.get("visual_candidate_summary") or {}).get("candidate_count"))
+    summary["wechat_copy_pack_count"] = safe_int((publishing_pack_panel.get("copy_pack_summary") or {}).get("pack_count"))
+    summary["visual_publishing_checklist_count"] = safe_int((publishing_pack_panel.get("visual_checklist_summary") or {}).get("checklist_count"))
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -569,6 +614,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         generation_visual_panel,
         live_pilot_panel,
         image_asset_panel,
+        publishing_pack_panel,
         tuple(warnings),
     )
 
@@ -591,6 +637,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "generation_visual_panel": report.generation_visual_panel,
         "live_pilot_panel": report.live_pilot_panel,
         "image_asset_panel": report.image_asset_panel,
+        "publishing_pack_panel": report.publishing_pack_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

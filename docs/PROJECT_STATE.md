@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 17：Approved Live Output Promotion & Manual Image Generation v1。
+Phase 18：Article-with-Images Final Candidate & Manual Publishing Pack v1。
 
 ## 最新 checkpoint
 
-P17-009：Phase 17 Closeout。
+P18-008：Phase 18 Closeout。
 
 ## 已完成
 
@@ -245,6 +245,17 @@ P17-009：Phase 17 Closeout。
 - P17-008 Phase 17 Daily Visual Production Pipeline v1。
 - P17-009 Phase 17 Closeout。
 
+### Phase 18
+
+- P18-001 Visual-approved Final Article Candidate v1。
+- P18-002 WeChat Copy Pack with Image Slots v1。
+- P18-003 Manual Publishing Checklist with Visual Assets v1。
+- P18-004 Post-publish Visual Performance Input v1。
+- P18-005 Visual Strategy Learning Feedback v1。
+- P18-006 Workbench Publishing Pack Panel v1。
+- P18-007 Phase 18 Daily Publishing Pack Pipeline v1。
+- P18-008 Phase 18 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -423,10 +434,20 @@ P17-009：Phase 17 Closeout。
 - workbench image asset panel。
 - phase17 daily visual production pipeline。
 
+### Phase 18 能力
+
+- visual-approved final candidates。
+- wechat copy pack with image slots。
+- visual publishing checklist。
+- post-publish visual performance input。
+- visual strategy learning feedback。
+- workbench publishing pack panel。
+- phase18 daily publishing pack pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase17-daily
+make phase18-daily
 ```
 
 ## 当前边界
@@ -468,13 +489,16 @@ make phase17-daily
 - 图片生成需要人工批准。
 - 不自动生成图片、不自动调用图片模型、不提交图片文件。
 - 图片资产需要人工最终视觉审查。
+- 发布包只是人工复制辅助。
+- 最终发布仍需人工确认。
 
 ## 下一阶段
 
-Phase 18：Article-with-Images Final Candidate & Manual Publishing Pack v1。
+Phase 19：Real Publishing Operations & Content Calendar v1。
 
-- P18-001：Visual-approved Final Article Candidate v1。
-- P18-002：WeChat Copy Pack with Image Slots v1。
-- P18-003：Manual Publishing Checklist with Visual Assets v1。
-- P18-004：Post-publish Visual Performance Input v1。
-- P18-005：Visual Strategy Learning Feedback v1。
+- P19-001：Manual Publishing Session Calendar v1。
+- P19-002：Content Queue Priority Board v1。
+- P19-003：Weekly Publishing Rhythm Planner v1。
+- P19-004：Published Article Archive v1。
+- P19-005：Post-publish Metrics Review Board v1。
+- P19-006：Content Ops Closeout v1。

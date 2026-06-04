@@ -846,6 +846,43 @@ logs/
 同行资本市场内容系统/08_assets/images/*
 !同行资本市场内容系统/08_assets/images/.gitkeep
 
+# Phase 18 generated artifacts
+同行资本市场内容系统/07_publishing/*visual-approved-final-candidates*.json
+同行资本市场内容系统/07_publishing/*visual-approved-final-candidates*.md
+同行资本市场内容系统/07_publishing/latest_visual_approved_final_candidates.json
+同行资本市场内容系统/07_publishing/latest_visual_approved_final_candidates.md
+
+同行资本市场内容系统/07_publishing/*wechat-copy-pack-with-images*.json
+同行资本市场内容系统/07_publishing/*wechat-copy-pack-with-images*.md
+同行资本市场内容系统/07_publishing/latest_wechat_copy_pack_with_images.json
+同行资本市场内容系统/07_publishing/latest_wechat_copy_pack_with_images.md
+
+同行资本市场内容系统/07_publishing/*visual-publishing-checklist*.json
+同行资本市场内容系统/07_publishing/*visual-publishing-checklist*.md
+同行资本市场内容系统/07_publishing/latest_visual_publishing_checklist.json
+同行资本市场内容系统/07_publishing/latest_visual_publishing_checklist.md
+
+同行资本市场内容系统/07_publishing/*post-publish-visual-performance*.json
+同行资本市场内容系统/07_publishing/*post-publish-visual-performance*.md
+同行资本市场内容系统/07_publishing/latest_post_publish_visual_performance.json
+同行资本市场内容系统/07_publishing/latest_post_publish_visual_performance.md
+同行资本市场内容系统/11_frontstage/*post-publish-visual-performance-board.md
+同行资本市场内容系统/11_frontstage/latest_post_publish_visual_performance_board.md
+
+同行资本市场内容系统/10_logs/*visual-strategy-learning-feedback*.json
+同行资本市场内容系统/10_logs/*visual-strategy-learning-feedback*.md
+同行资本市场内容系统/10_logs/latest_visual_strategy_learning_feedback.json
+同行资本市场内容系统/10_logs/latest_visual_strategy_learning_feedback.md
+同行资本市场内容系统/11_frontstage/*visual-strategy-learning-feedback-board.md
+同行资本市场内容系统/11_frontstage/latest_visual_strategy_learning_feedback_board.md
+
+同行资本市场内容系统/10_logs/*phase18-daily-publishing-pack-pipeline*.json
+同行资本市场内容系统/10_logs/*phase18-daily-publishing-pack-pipeline*.md
+同行资本市场内容系统/10_logs/latest_phase18_daily_publishing_pack_pipeline.json
+同行资本市场内容系统/10_logs/latest_phase18_daily_publishing_pack_pipeline.md
+同行资本市场内容系统/11_frontstage/*phase18-daily-publishing-pack-pipeline-board.md
+同行资本市场内容系统/11_frontstage/latest_phase18_daily_publishing_pack_pipeline_board.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

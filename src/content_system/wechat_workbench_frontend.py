@@ -422,6 +422,10 @@ button { cursor: pointer; }
   border-color: rgba(31, 122, 92, .28);
   background: linear-gradient(180deg, #fff, #f5fbf8);
 }
+.publishing-pack-panel {
+  border-color: rgba(169, 120, 36, .34);
+  background: linear-gradient(180deg, #fff, #fff7e9);
+}
 .delta-number {
   display: inline-flex;
   align-items: center;
@@ -500,6 +504,17 @@ button { cursor: pointer; }
   text-align: left;
 }
 .copy-image-asset:hover { background: var(--accent-soft); }
+.copy-publishing-pack {
+  min-height: 30px;
+  padding: 6px 9px;
+  border: 1px solid #ead7b8;
+  border-radius: 7px;
+  background: #fff;
+  color: var(--gold);
+  font-size: 12px;
+  text-align: left;
+}
+.copy-publishing-pack:hover { background: var(--gold-soft); }
 .methodology-score-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -892,6 +907,7 @@ function renderReader() {
         ${renderGenerationVisualPanel("review-card wide")}
         ${renderLivePilotPanel("review-card wide")}
         ${renderImageAssetPanel("review-card wide")}
+        ${renderPublishingPackPanel("review-card wide")}
         <div class="review-card wide"><p class="review-label">Evidence</p>${renderMiniList(article.evidence_ids, "暂无 evidence")}</div>
         <div class="review-card wide"><p class="review-label">Source</p>${renderMiniList(article.source_ids, "暂无 source")}</div>
       </div>
@@ -960,6 +976,10 @@ function getLivePilotPanel() {
 
 function getImageAssetPanel() {
   return workbenchData.image_asset_panel || {};
+}
+
+function getPublishingPackPanel() {
+  return workbenchData.publishing_pack_panel || {};
 }
 
 function getSelectedMethodologyTopic() {
@@ -1259,6 +1279,63 @@ function renderImageAssetPanel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function publishingPackText(kind) {
+  const panel = getPublishingPackPanel();
+  const pack = panel.selected_copy_pack || {};
+  const slots = Array.isArray(pack.image_slots) ? pack.image_slots : [];
+  if (kind === "title") return pack.title_to_copy || "";
+  if (kind === "body") return pack.body_with_image_markers || pack.body_markdown_to_copy || "";
+  if (kind === "slots") {
+    return slots.map((slot) => `${slot.slot_marker || ""} ${slot.copy_instruction || ""}\nasset: ${slot.asset_path || ""}\ncaption: ${slot.caption_suggestion || ""}`).join("\n\n");
+  }
+  if (kind === "steps") {
+    const steps = Array.isArray(pack.manual_copy_steps) ? pack.manual_copy_steps : [];
+    const visualSteps = Array.isArray(pack.visual_copy_steps) ? pack.visual_copy_steps : [];
+    return [...steps, ...visualSteps].join("\n");
+  }
+  return "";
+}
+
+function renderPublishingPackPanel(cardClass = "review-card wide") {
+  const panel = getPublishingPackPanel();
+  const candidateSummary = panel.visual_candidate_summary || {};
+  const packSummary = panel.copy_pack_summary || {};
+  const checklistSummary = panel.visual_checklist_summary || {};
+  const performanceSummary = panel.visual_performance_summary || {};
+  const feedbackSummary = panel.visual_strategy_feedback_summary || {};
+  const candidate = panel.selected_visual_candidate || {};
+  const pack = panel.selected_copy_pack || {};
+  const checklist = panel.selected_visual_checklist || {};
+  const slots = Array.isArray(pack.image_slots) ? pack.image_slots : [];
+  const checks = Array.isArray(checklist.checks) ? checklist.checks : [];
+  const recommendations = Array.isArray(panel.visual_strategy_recommendations) ? panel.visual_strategy_recommendations : [];
+  const hasPanel = Object.keys(candidateSummary).length || Object.keys(packSummary).length || Object.keys(checklistSummary).length;
+  if (!hasPanel) {
+    return `<div class="${cardClass} publishing-pack-panel">
+      <p class="review-label">图文发布包</p>
+      <p class="review-value">暂无 Phase18 图文发布包。运行 <code>make phase18-daily</code> 后会显示 visual-approved candidate、copy pack、visual checklist 和视觉反馈。</p>
+    </div>`;
+  }
+  const slotRows = slots.slice(0, 6).map((slot) => `${slot.slot_marker}: ${slot.visual_type} / ${slot.asset_status} / ${slot.placement}`);
+  const checklistRows = checks.filter((item) => item.status !== "PASS").slice(0, 6).map((item) => `${item.label}: ${item.status}${item.note ? " - " + item.note : ""}`);
+  const recommendationRows = recommendations.map((item) => `${item.target_area || "visual"}: ${item.recommendation || ""}`);
+  return `<div class="${cardClass} publishing-pack-panel">
+    <p class="review-label">图文发布包</p>
+    <p class="review-value">Visual candidates ${escapeHtml(candidateSummary.candidate_count ?? 0)} · Packs ${escapeHtml(packSummary.pack_count ?? 0)} · Checklists ${escapeHtml(checklistSummary.checklist_count ?? 0)} · do_not_publish=true</p>
+    <p class="review-value">当前包：<strong>${escapeHtml(pack.copy_pack_id || "暂无")}</strong> · ${escapeHtml(pack.pack_status || "NEEDS_REVIEW")} · Checklist ${escapeHtml(checklist.status || "UNREVIEWED")}</p>
+    <p class="review-value">Visual status ${escapeHtml(candidate.visual_status || "UNKNOWN")} · visual ready ${escapeHtml(candidateSummary.visual_ready ?? 0)} · performance records ${escapeHtml(performanceSummary.record_count ?? 0)} · feedback ${escapeHtml(feedbackSummary.recommendation_count ?? 0)}</p>
+    <p class="review-label">Image slots</p>${renderMiniList(slotRows, "暂无图片槽位")}
+    <p class="review-label">Checklist warnings</p>${renderMiniList(checklistRows, "视觉 checklist 暂无 WARN/FAIL")}
+    <p class="review-label">Visual strategy feedback</p>${renderMiniList(recommendationRows, "暂无视觉策略反馈")}
+    <div class="version-actions">
+      <button class="copy-publishing-pack" type="button" data-copy-pack="title">复制标题</button>
+      <button class="copy-publishing-pack" type="button" data-copy-pack="body">复制正文含图片槽位</button>
+      <button class="copy-publishing-pack" type="button" data-copy-pack="slots">复制图片槽位说明</button>
+      <button class="copy-publishing-pack" type="button" data-copy-pack="steps">复制人工发布步骤</button>
+    </div>
+  </div>`;
+}
+
 function renderInsightPanel() {
   const article = getSelectedArticle();
   const comparison = getLatestComparison();
@@ -1272,6 +1349,7 @@ function renderInsightPanel() {
   const generation = getGenerationVisualPanel();
   const livePilot = getLivePilotPanel();
   const imageAsset = getImageAssetPanel();
+  const publishingPack = getPublishingPackPanel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
@@ -1279,6 +1357,8 @@ function renderInsightPanel() {
   const imageTaskSummary = imageAsset.manual_image_task_summary || {};
   const imageLibrarySummary = imageAsset.image_asset_library_summary || {};
   const visualReviewSummary = imageAsset.final_visual_review_summary || {};
+  const packSummary = publishingPack.copy_pack_summary || {};
+  const packChecklistSummary = publishingPack.visual_checklist_summary || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -1338,6 +1418,10 @@ function renderInsightPanel() {
     <section class="insight-card image-asset-panel">
       <p class="insight-label">图片资产链路</p>
       <p class="insight-value">Tasks ${escapeHtml(imageTaskSummary.task_count ?? 0)} · Assets ${escapeHtml(imageLibrarySummary.asset_count ?? 0)} · WeChat ready ${escapeHtml(visualReviewSummary.wechat_ready ?? 0)}</p>
+    </section>
+    <section class="insight-card publishing-pack-panel">
+      <p class="insight-label">图文发布包</p>
+      <p class="insight-value">Packs ${escapeHtml(packSummary.pack_count ?? 0)} · ready ${escapeHtml(packSummary.ready_for_manual_copy ?? 0)} · checklist ready ${escapeHtml(packChecklistSummary.ready ?? 0)} · manual copy only</p>
     </section>`;
 }
 
@@ -1482,6 +1566,20 @@ function bindImageAssetButtons() {
   });
 }
 
+function bindPublishingPackButtons() {
+  document.querySelectorAll(".copy-publishing-pack").forEach((button) => {
+    button.addEventListener("click", () => {
+      const kind = button.dataset.copyPack || "title";
+      const value = publishingPackText(kind);
+      copyText(value || "暂无 Phase18 图文发布包。请先运行 make phase18-daily。").then(() => {
+        button.textContent = "已复制";
+      }).catch(() => {
+        button.textContent = "复制失败";
+      });
+    });
+  });
+}
+
 function renderAll() {
   renderTopbar();
   renderTopicRail();
@@ -1493,6 +1591,7 @@ function renderAll() {
   bindPerformanceCommandButtons();
   bindImageRequestButtons();
   bindImageAssetButtons();
+  bindPublishingPackButtons();
 }
 
 document.querySelectorAll(".mode-tab").forEach((tab) => {
@@ -1504,6 +1603,7 @@ document.querySelectorAll(".mode-tab").forEach((tab) => {
     bindPerformanceCommandButtons();
     bindImageRequestButtons();
     bindImageAssetButtons();
+    bindPublishingPackButtons();
   });
 });
 document.querySelectorAll(".quick-action").forEach((button) => {

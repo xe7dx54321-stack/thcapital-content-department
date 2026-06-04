@@ -816,20 +816,58 @@
 
 ### P18-001：Visual-approved Final Article Candidate v1
 
-状态：Planned。
+状态：Done。
 
 ### P18-002：WeChat Copy Pack with Image Slots v1
 
-状态：Planned。
+状态：Done。
 
 ### P18-003：Manual Publishing Checklist with Visual Assets v1
 
-状态：Planned。
+状态：Done。
 
 ### P18-004：Post-publish Visual Performance Input v1
 
-状态：Planned。
+状态：Done。
 
 ### P18-005：Visual Strategy Learning Feedback v1
+
+状态：Done。
+
+### P18-006：Workbench Publishing Pack Panel v1
+
+状态：Done。
+
+### P18-007：Phase 18 Daily Publishing Pack Pipeline v1
+
+状态：Done。
+
+### P18-008：Phase 18 Closeout
+
+状态：Done。
+
+## Phase 19：Real Publishing Operations & Content Calendar v1
+
+### P19-001：Manual Publishing Session Calendar v1
+
+状态：Planned。
+
+### P19-002：Content Queue Priority Board v1
+
+状态：Planned。
+
+### P19-003：Weekly Publishing Rhythm Planner v1
+
+状态：Planned。
+
+### P19-004：Published Article Archive v1
+
+状态：Planned。
+
+### P19-005：Post-publish Metrics Review Board v1
+
+状态：Planned。
+
+### P19-006：Content Ops Closeout v1
 
 状态：Planned。
