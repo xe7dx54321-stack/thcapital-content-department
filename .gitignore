@@ -1092,6 +1092,42 @@ logs/
 同行资本市场内容系统/11_frontstage/*phase23-daily-stability-pipeline-board.md
 同行资本市场内容系统/11_frontstage/latest_phase23_daily_stability_pipeline_board.md
 
+# Phase 24 generated artifacts
+同行资本市场内容系统/10_logs/*stable-trial-day-*.json
+同行资本市场内容系统/10_logs/*stable-trial-day-*.md
+同行资本市场内容系统/10_logs/latest_stable_trial_day_*.json
+同行资本市场内容系统/10_logs/latest_stable_trial_day_*.md
+同行资本市场内容系统/11_frontstage/*stable-trial-day-*-board.md
+同行资本市场内容系统/11_frontstage/latest_stable_trial_day_*_board.md
+
+同行资本市场内容系统/10_logs/*content-quality-calibration*.json
+同行资本市场内容系统/10_logs/*content-quality-calibration*.md
+同行资本市场内容系统/10_logs/latest_content_quality_calibration.json
+同行资本市场内容系统/10_logs/latest_content_quality_calibration.md
+同行资本市场内容系统/11_frontstage/*content-quality-calibration-board.md
+同行资本市场内容系统/11_frontstage/latest_content_quality_calibration_board.md
+
+同行资本市场内容系统/10_logs/*ops-to-methodology-feedback*.json
+同行资本市场内容系统/10_logs/*ops-to-methodology-feedback*.md
+同行资本市场内容系统/10_logs/latest_ops_to_methodology_feedback.json
+同行资本市场内容系统/10_logs/latest_ops_to_methodology_feedback.md
+同行资本市场内容系统/11_frontstage/*ops-to-methodology-feedback-board.md
+同行资本市场内容系统/11_frontstage/latest_ops_to_methodology_feedback_board.md
+
+同行资本市场内容系统/10_logs/*stable-ops-readiness-review*.json
+同行资本市场内容系统/10_logs/*stable-ops-readiness-review*.md
+同行资本市场内容系统/10_logs/latest_stable_ops_readiness_review.json
+同行资本市场内容系统/10_logs/latest_stable_ops_readiness_review.md
+同行资本市场内容系统/11_frontstage/*stable-ops-readiness-review-board.md
+同行资本市场内容系统/11_frontstage/latest_stable_ops_readiness_review_board.md
+
+同行资本市场内容系统/10_logs/*phase24-daily-stable-trial-pipeline*.json
+同行资本市场内容系统/10_logs/*phase24-daily-stable-trial-pipeline*.md
+同行资本市场内容系统/10_logs/latest_phase24_daily_stable_trial_pipeline.json
+同行资本市场内容系统/10_logs/latest_phase24_daily_stable_trial_pipeline.md
+同行资本市场内容系统/11_frontstage/*phase24-daily-stable-trial-pipeline-board.md
+同行资本市场内容系统/11_frontstage/latest_phase24_daily_stable_trial_pipeline_board.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

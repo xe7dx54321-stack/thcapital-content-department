@@ -39,6 +39,7 @@ class WechatWorkbenchDataReport:
     trial_panel: dict[str, Any]
     phase22_panel: dict[str, Any]
     phase23_panel: dict[str, Any]
+    phase24_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -663,6 +664,65 @@ def build_phase23_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_phase24_panel(paths: ProjectPaths) -> dict[str, Any]:
+    days = [read_json(paths.logs_root / f"latest_stable_trial_day_{day}.json") for day in range(1, 4)]
+    calibration = read_json(paths.logs_root / "latest_content_quality_calibration.json")
+    methodology = read_json(paths.logs_root / "latest_ops_to_methodology_feedback.json")
+    readiness = read_json(paths.logs_root / "latest_stable_ops_readiness_review.json")
+    pipeline = read_json(paths.logs_root / "latest_phase24_daily_stable_trial_pipeline.json")
+    day_summaries = []
+    for payload in days:
+        if not payload:
+            continue
+        result = payload.get("day_result") if isinstance(payload.get("day_result"), dict) else {}
+        ops = payload.get("ops_snapshot") if isinstance(payload.get("ops_snapshot"), dict) else {}
+        quality = payload.get("content_quality_snapshot") if isinstance(payload.get("content_quality_snapshot"), dict) else {}
+        day_summaries.append(
+            {
+                "stable_trial_day": payload.get("stable_trial_day"),
+                "day_status": result.get("day_status", "UNKNOWN"),
+                "can_continue": result.get("can_continue", True),
+                "ready_to_publish": ops.get("ready_to_publish", 0),
+                "ready_for_review": ops.get("ready_for_review", 0),
+                "actionable_warnings": ops.get("actionable_warning_count", 0),
+                "calendar_actionable_days": ops.get("calendar_actionable_days", 0),
+                "articles_reviewed": quality.get("articles_reviewed", 0),
+                "needs_revision": quality.get("needs_revision", 0),
+                "summary": result.get("summary", ""),
+            }
+        )
+    blocking_quality = [
+        item for item in list_payload(calibration, "quality_issues") if item.get("blocks_publish")
+    ]
+    feedback = list_payload(methodology, "feedback")
+    return {
+        "day_summaries": day_summaries,
+        "content_quality_summary": calibration.get("summary") if isinstance(calibration.get("summary"), dict) else {},
+        "quality_issues": list_payload(calibration, "quality_issues")[:12],
+        "blocking_quality_issues": blocking_quality[:8],
+        "calibration_recommendations": list_payload(calibration, "calibration_recommendations")[:8],
+        "methodology_feedback_summary": methodology.get("summary") if isinstance(methodology.get("summary"), dict) else {},
+        "methodology_feedback": feedback[:8],
+        "readiness_status": readiness.get("readiness_status", "UNKNOWN"),
+        "readiness_summary": readiness.get("summary") if isinstance(readiness.get("summary"), dict) else {},
+        "readiness_criteria": list_payload(readiness, "criteria"),
+        "remaining_risks": readiness.get("remaining_risks") if isinstance(readiness.get("remaining_risks"), list) else [],
+        "operator_commitments": readiness.get("operator_commitments") if isinstance(readiness.get("operator_commitments"), list) else [],
+        "next_phase_recommendation": readiness.get("next_phase_recommendation", ""),
+        "phase24_summary": pipeline.get("summary") if isinstance(pipeline.get("summary"), dict) else {},
+        "phase24_status": pipeline.get("status", "UNKNOWN"),
+        "policy": {
+            "stable_trial_only": True,
+            "auto_apply": False,
+            "no_auto_publish": True,
+            "no_wechat_api": True,
+            "no_auto_image_generation": True,
+            "no_config_prompt_rule_changes": True,
+            "no_mainline_overwrite": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -798,6 +858,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     trial_panel = build_trial_panel(paths)
     phase22_panel = build_phase22_panel(paths)
     phase23_panel = build_phase23_panel(paths)
+    phase24_panel = build_phase24_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -836,6 +897,10 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["phase23_verified_issues"] = safe_int((phase23_panel.get("verification_summary") or {}).get("verified"))
     summary["phase23_unresolved_issues"] = safe_int((phase23_panel.get("verification_summary") or {}).get("unresolved"))
     summary["phase23_actionable_days"] = safe_int((phase23_panel.get("calendar_calibration_summary") or {}).get("actionable_days"))
+    summary["phase24_readiness_status"] = phase24_panel.get("readiness_status", "UNKNOWN")
+    summary["phase24_stable_trial_days"] = safe_int((phase24_panel.get("readiness_summary") or {}).get("stable_trial_days"))
+    summary["phase24_quality_issue_count"] = safe_int((phase24_panel.get("content_quality_summary") or {}).get("quality_issue_count"))
+    summary["phase24_methodology_feedback_count"] = safe_int((phase24_panel.get("methodology_feedback_summary") or {}).get("feedback_count"))
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -865,6 +930,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         trial_panel,
         phase22_panel,
         phase23_panel,
+        phase24_panel,
         tuple(warnings),
     )
 
@@ -893,6 +959,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "trial_panel": report.trial_panel,
         "phase22_panel": report.phase22_panel,
         "phase23_panel": report.phase23_panel,
+        "phase24_panel": report.phase24_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

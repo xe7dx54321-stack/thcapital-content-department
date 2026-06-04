@@ -1040,24 +1040,58 @@
 
 ### P24-001：Stable Trial Day 1
 
-状态：Planned。
+状态：Done。
 
 ### P24-002：Stable Trial Day 2
 
-状态：Planned。
+状态：Done。
 
 ### P24-003：Stable Trial Day 3
 
-状态：Planned。
+状态：Done。
 
 ### P24-004：Content Quality Calibration from Trial
 
-状态：Planned。
+状态：Done。
 
 ### P24-005：Ops-to-Methodology Feedback
 
+状态：Done。
+
+### P24-006：Stable Ops Readiness Review
+
+状态：Done。
+
+### P24-007：Workbench Stable Trial Panel
+
+状态：Done。
+
+### P24-008：Phase 24 Daily Stable Trial Pipeline
+
+状态：Done。
+
+### P24-009：Phase 24 Closeout
+
+状态：Done。
+
+## Phase 25：Stable Daily Ops Baseline & Operator Acceptance v1
+
+### P25-001：Stable Daily Ops Baseline
+
 状态：Planned。
 
-### P24-006：Stable Ops Closeout
+### P25-002：Operator Acceptance Checklist
+
+状态：Planned。
+
+### P25-003：Daily Ops Command Simplification
+
+状态：Planned。
+
+### P25-004：Stable Workbench Baseline
+
+状态：Planned。
+
+### P25-005：Content Factory v1 Closeout
 
 状态：Planned。

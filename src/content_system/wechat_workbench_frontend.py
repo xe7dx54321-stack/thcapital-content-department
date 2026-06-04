@@ -945,6 +945,7 @@ function renderReader() {
         ${renderPerformancePanel("review-card wide")}
       `, false);
     const systemSection = renderReviewSection("系统运维", "失败处理、trial retrospective、fix pack、operator runbook 和 Phase0-19 closeout。", `
+        ${renderStableTrialPanel("review-card wide")}
         ${renderStableOpsPanel("review-card wide")}
         ${renderPhase22Panel("review-card wide")}
         ${renderTrialPanel("review-card wide")}
@@ -1047,6 +1048,10 @@ function getPhase22Panel() {
 
 function getPhase23Panel() {
   return workbenchData.phase23_panel || {};
+}
+
+function getPhase24Panel() {
+  return workbenchData.phase24_panel || {};
 }
 
 function renderReviewSection(title, note, body, open = true) {
@@ -1609,6 +1614,47 @@ function renderStableOpsPanel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function renderStableTrialPanel(cardClass = "review-card wide") {
+  const panel = getPhase24Panel();
+  const days = Array.isArray(panel.day_summaries) ? panel.day_summaries : [];
+  const qualitySummary = panel.content_quality_summary || {};
+  const feedbackSummary = panel.methodology_feedback_summary || {};
+  const readinessSummary = panel.readiness_summary || {};
+  const qualityIssues = Array.isArray(panel.quality_issues) ? panel.quality_issues : [];
+  const blockingQuality = Array.isArray(panel.blocking_quality_issues) ? panel.blocking_quality_issues : [];
+  const feedback = Array.isArray(panel.methodology_feedback) ? panel.methodology_feedback : [];
+  const criteria = Array.isArray(panel.readiness_criteria) ? panel.readiness_criteria : [];
+  const risks = Array.isArray(panel.remaining_risks) ? panel.remaining_risks : [];
+  const commitments = Array.isArray(panel.operator_commitments) ? panel.operator_commitments : [];
+  const policy = panel.policy || {};
+  const hasPanel = days.length || Object.keys(readinessSummary).length || panel.readiness_status;
+  if (!hasPanel || panel.readiness_status === "UNKNOWN") {
+    return `<div class="${cardClass} stable-trial-panel">
+      <p class="review-label">Phase24 Stable Trial</p>
+      <p class="review-value">暂无 Phase24 数据。运行 <code>make phase24-daily</code> 后会显示 Stable Trial Day 1-3、Content Quality Calibration、Ops-to-Methodology Feedback 和 Stable Ops Readiness Review。</p>
+    </div>`;
+  }
+  const dayRows = days.map((item) => `Day ${item.stable_trial_day}: ${item.day_status} / continue ${item.can_continue} / review ${item.ready_for_review} / publish ${item.ready_to_publish} / warnings ${item.actionable_warnings}`);
+  const qualityRows = qualityIssues.slice(0, 8).map((item) => `${item.severity} ${item.area}: ${item.description}`);
+  const blockerRows = blockingQuality.slice(0, 6).map((item) => `${item.area}: ${item.description}`);
+  const feedbackRows = feedback.slice(0, 6).map((item) => `${item.target_config} / ${item.feedback_type}: ${item.suggested_change}`);
+  const criteriaRows = criteria.slice(0, 8).map((item) => `${item.status}: ${item.criterion_id} / ${item.message}`);
+  return `<div class="${cardClass} stable-trial-panel">
+    <p class="review-label">Phase24 Stable Trial Panel</p>
+    <p class="review-value">Readiness ${escapeHtml(panel.readiness_status || "UNKNOWN")} · stable days ${escapeHtml(readinessSummary.stable_trial_days ?? days.length)} · ready ${escapeHtml(readinessSummary.ready_days ?? 0)} · actionable ${escapeHtml(readinessSummary.actionable_days ?? 0)} · blocked ${escapeHtml(readinessSummary.blocked_days ?? 0)}</p>
+    <p class="review-value">Quality issues ${escapeHtml(qualitySummary.quality_issue_count ?? 0)} · publish blockers ${escapeHtml(qualitySummary.publish_blocking_quality_issues ?? 0)} · methodology feedback ${escapeHtml(feedbackSummary.feedback_count ?? 0)} · phase24 ${escapeHtml(panel.phase24_status || "UNKNOWN")}</p>
+    <p class="review-label">Stable Trial Day 1-3</p>${renderMiniList(dayRows, "暂无 stable trial day")}
+    <p class="review-label">Content Quality Calibration</p>${renderMiniList(qualityRows, "暂无 quality issue")}
+    <p class="review-label">Content Quality Blockers</p>${renderMiniList(blockerRows, "暂无 publish-blocking quality issue")}
+    <p class="review-label">Ops-to-Methodology Feedback</p>${renderMiniList(feedbackRows, "暂无 methodology feedback")}
+    <p class="review-label">Stable Ops Readiness Review</p>${renderMiniList(criteriaRows, "暂无 readiness criteria")}
+    <p class="review-label">Remaining Risks</p>${renderMiniList(risks, "暂无 remaining risk")}
+    <p class="review-label">Next Operator Commitments</p>${renderMiniList(commitments, "暂无 operator commitment")}
+    <p class="review-label">Boundary</p>
+    <p class="review-value">auto_apply=${escapeHtml(policy.auto_apply ?? false)} · no_auto_publish=${escapeHtml(policy.no_auto_publish ?? true)} · no_wechat_api=${escapeHtml(policy.no_wechat_api ?? true)} · no_auto_image_generation=${escapeHtml(policy.no_auto_image_generation ?? true)} · no_config_prompt_rule_changes=${escapeHtml(policy.no_config_prompt_rule_changes ?? true)}</p>
+  </div>`;
+}
+
 function renderInsightPanel() {
   const article = getSelectedArticle();
   const comparison = getLatestComparison();
@@ -1628,6 +1674,7 @@ function renderInsightPanel() {
   const trial = getTrialPanel();
   const phase22 = getPhase22Panel();
   const phase23 = getPhase23Panel();
+  const phase24 = getPhase24Panel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
@@ -1660,6 +1707,9 @@ function renderInsightPanel() {
   const phase23Quick = phase23.quick_fix_summary || {};
   const phase23Verification = phase23.verification_summary || {};
   const phase23Calendar = phase23.calendar_calibration_summary || {};
+  const phase24Readiness = phase24.readiness_summary || {};
+  const phase24Quality = phase24.content_quality_summary || {};
+  const phase24Feedback = phase24.methodology_feedback_summary || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -1741,6 +1791,11 @@ function renderInsightPanel() {
       <p class="insight-label">Phase23 Stable Ops</p>
       <p class="insight-value">Gate ${escapeHtml(phase23.gate_status || "UNKNOWN")} · pass ${escapeHtml(phase23Gate.pass ?? 0)} · warn ${escapeHtml(phase23Gate.warn ?? 0)} · fail ${escapeHtml(phase23Gate.fail ?? 0)} · blocking ${escapeHtml(phase23Gate.blocking_failures ?? 0)}</p>
       <p class="insight-value">Quick fixes ${escapeHtml(phase23Quick.applied_sidecar ?? 0)} · verified ${escapeHtml(phase23Verification.verified ?? 0)} · unresolved ${escapeHtml(phase23Verification.unresolved ?? 0)} · actionable days ${escapeHtml(phase23Calendar.actionable_days ?? 0)}</p>
+    </section>
+    <section class="insight-card stable-trial-panel">
+      <p class="insight-label">Phase24 Stable Trial</p>
+      <p class="insight-value">Readiness ${escapeHtml(phase24.readiness_status || "UNKNOWN")} · days ${escapeHtml(phase24Readiness.stable_trial_days ?? 0)} · actionable ${escapeHtml(phase24Readiness.actionable_days ?? 0)} · blocked ${escapeHtml(phase24Readiness.blocked_days ?? 0)}</p>
+      <p class="insight-value">Quality issues ${escapeHtml(phase24Quality.quality_issue_count ?? 0)} · blockers ${escapeHtml(phase24Quality.publish_blocking_quality_issues ?? 0)} · methodology feedback ${escapeHtml(phase24Feedback.feedback_count ?? 0)}</p>
     </section>
     <section class="insight-card trial-panel">
       <p class="insight-label">Phase21 试运行</p>

@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 23：High-priority Ops Issue Resolution & Stable Trial Readiness v1。
+Phase 24：Stable Ops Trial & Content Quality Calibration v1。
 
 ## 最新 checkpoint
 
-P23-010：Phase 23 Closeout。
+P24-009：Phase 24 Closeout。
 
 ## 已完成
 
@@ -316,6 +316,18 @@ P23-010：Phase 23 Closeout。
 - P23-009 Phase 23 Daily Stability Pipeline v1。
 - P23-010 Phase 23 Closeout。
 
+### Phase 24
+
+- P24-001 Stable Trial Day 1 v1。
+- P24-002 Stable Trial Day 2 v1。
+- P24-003 Stable Trial Day 3 v1。
+- P24-004 Content Quality Calibration from Trial v1。
+- P24-005 Ops-to-Methodology Feedback v1。
+- P24-006 Stable Ops Readiness Review v1。
+- P24-007 Workbench Stable Trial Panel v1。
+- P24-008 Phase 24 Daily Stable Trial Pipeline v1。
+- P24-009 Phase 24 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -555,10 +567,19 @@ P23-010：Phase 23 Closeout。
 - workbench stable ops panel。
 - phase23 daily stability pipeline。
 
+### Phase 24 能力
+
+- stable trial day records。
+- content quality calibration from trial。
+- ops-to-methodology feedback。
+- stable ops readiness review。
+- workbench stable trial panel。
+- phase24 daily stable trial pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase23-daily
+make phase24-daily
 ```
 
 ## 当前边界
@@ -616,14 +637,18 @@ make phase23-daily
 - Phase 23 只做 high-priority issue resolution workflow、sidecar quick fixes、readiness repair 和 stable gate。
 - quick fixes 只生成 sidecar 修复结果和人工动作建议，不覆盖主线内容。
 - quick fixes 不自动改 prompt/config/rules。
+- Phase 24 只做稳定试运行、内容质量校准和方法论反馈建议。
+- Phase 24 不自动发布、不接公众号 API、不进入公众号草稿箱。
+- Phase 24 不自动抓取公众号后台数据。
+- Phase 24 不自动生成图片、不自动调用图片模型、不提交图片文件。
+- Phase 24 不自动改 prompt/config/rules。
 
 ## 下一阶段
 
-Phase 24：Stable Ops Trial & Content Quality Calibration v1。
+Phase 25：Stable Daily Ops Baseline & Operator Acceptance v1。
 
-- P24-001：Stable Trial Day 1。
-- P24-002：Stable Trial Day 2。
-- P24-003：Stable Trial Day 3。
-- P24-004：Content Quality Calibration from Trial。
-- P24-005：Ops-to-Methodology Feedback。
-- P24-006：Stable Ops Closeout。
+- P25-001：Stable Daily Ops Baseline。
+- P25-002：Operator Acceptance Checklist。
+- P25-003：Daily Ops Command Simplification。
+- P25-004：Stable Workbench Baseline。
+- P25-005：Content Factory v1 Closeout。
