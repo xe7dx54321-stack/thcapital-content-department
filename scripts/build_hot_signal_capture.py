@@ -20,7 +20,7 @@ def main() -> int:
     summary = payload.get("summary", {})
     print("Hot Signal Capture")
     print("==================")
-    for key in ("lane_count", "active_lanes", "hot_signal_count", "candidate_for_topic_pool"):
+    for key in ("lane_count", "active_lanes", "hot_signal_count", "candidate_for_topic_pool", "connector_item_count", "connector_signal_count"):
         print(f"{key}: {summary.get(key, 0)}")
     print(f"latest: {payload['outputs']['latest_json']}")
     return 0

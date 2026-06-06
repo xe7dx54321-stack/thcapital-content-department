@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Phase 26 daily hot material pool."""
+"""Run Phase 27 lightweight GitHub / HuggingFace / arXiv connectors."""
 
 from __future__ import annotations
 
@@ -10,17 +10,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from content_system.daily_hot_material_pool import build_daily_hot_material_pool
+from content_system.lightweight_research_connectors import build_lightweight_research_connector_run
 from content_system.paths import get_project_paths
 
 
 def main() -> int:
     paths = get_project_paths(ROOT)
-    payload, _outputs = build_daily_hot_material_pool(paths, ROOT)
+    payload, _outputs = build_lightweight_research_connector_run(paths, ROOT)
     summary = payload.get("summary", {})
-    print("Daily Hot Material Pool")
-    print("=======================")
-    for key in ("material_count", "write_now", "develop_topic", "watch", "backfill_first", "hold", "connector_item_count", "connector_promote_candidates"):
+    print("Lightweight Research Connector Run")
+    print("==================================")
+    for key in ("connector_count", "success_connectors", "failed_connectors", "item_count"):
         print(f"{key}: {summary.get(key, 0)}")
     print(f"latest: {payload['outputs']['latest_json']}")
     return 0

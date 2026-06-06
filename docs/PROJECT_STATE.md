@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 26：Upstream Intelligence Acquisition Reinforcement v1。
+Phase 27：Selected Source Connector Implementation v1。
 
 ## 最新 checkpoint
 
-P26-010：Phase 26 Closeout。
+P27-010：Phase 27 Closeout。
 
 ## 已完成
 
@@ -351,6 +351,19 @@ P26-010：Phase 26 Closeout。
 - P26-009 Phase 26 Daily Acquisition Pipeline v1。
 - P26-010 Phase 26 Closeout。
 
+### Phase 27
+
+- P27-001 P0 Source Connector Selection v1。
+- P27-002 RSS / Official Blog Connector Hardening v1。
+- P27-003 GitHub / HuggingFace / arXiv Lightweight Connector v1。
+- P27-004 Manual URL Backfill Ingestion v1。
+- P27-005 Connector Output Normalization v1。
+- P27-006 Connector Regression and Source Health Gate v1。
+- P27-007 Hot Material Pool Connector Integration v1。
+- P27-008 Workbench Connector Health Panel v1。
+- P27-009 Phase 27 Daily Connector Pipeline v1。
+- P27-010 Phase 27 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -620,16 +633,28 @@ P26-010：Phase 26 Closeout。
 - stable daily ops upstream supply integration。
 - phase26 daily acquisition pipeline。
 
+### Phase 27 能力
+
+- selected P0 source connectors。
+- RSS / official blog connector。
+- GitHub / HuggingFace / arXiv lightweight connector。
+- manual URL backfill ingestion。
+- connector output normalization。
+- connector source health gate。
+- connector-integrated hot material pool。
+- workbench connector health panel。
+- phase27 daily connector pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
 make stable-daily-ops
 ```
 
-新增上游检查命令：
+新增上游 connector 命令：
 
 ```bash
-make phase26-daily
+make phase27-daily
 ```
 
 ## 当前边界
@@ -701,13 +726,20 @@ make phase26-daily
 - Phase 26 不自动真实抓取需要登录/API 的外部源。
 - Phase 26 不自动改 `config/sources.yaml`。
 - Phase 26 不伪造外部热点信息。
+- Phase 27 只接入少数 P0 高价值源的轻量 metadata connector。
+- Phase 27 不自动发布、不接公众号 API、不进入公众号草稿箱。
+- Phase 27 不自动生成图片、不自动调用图片模型、不提交图片文件。
+- Phase 27 不自动抓取需要登录/API 的外部源。
+- Phase 27 不绕过付费墙、不抓全文。
+- Phase 27 connector 只抓标题、URL、摘要片段、日期、source metadata。
+- Phase 27 不自动改 `config/sources.yaml`。
 
 ## 下一阶段
 
-Phase 27：Selected Source Connector Implementation v1。
+Phase 28：Source Connector Expansion & Evidence Enrichment v1。
 
-- P27-001：P0 Source Connector Selection。
-- P27-002：RSS / Official Blog Connector Hardening。
-- P27-003：GitHub / HuggingFace / arXiv Lightweight Connector。
-- P27-004：Manual URL Backfill Ingestion。
-- P27-005：Connector Regression and Source Health Gate。
+- P28-001：P0 Connector Reliability Improvement。
+- P28-002：Evidence Packet Enrichment from Connector Items。
+- P28-003：Topic Candidate Promotion from Hot Materials。
+- P28-004：Connector Freshness and Dedup Regression。
+- P28-005：Acquisition-to-Content Closeout。

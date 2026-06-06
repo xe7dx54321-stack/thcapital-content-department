@@ -1150,20 +1150,62 @@
 
 ### P27-001：P0 Source Connector Selection
 
-状态：Planned。
+状态：Done。
 
 ### P27-002：RSS / Official Blog Connector Hardening
 
-状态：Planned。
+状态：Done。
 
 ### P27-003：GitHub / HuggingFace / arXiv Lightweight Connector
 
-状态：Planned。
+状态：Done。
 
 ### P27-004：Manual URL Backfill Ingestion
 
+状态：Done。
+
+### P27-005：Connector Output Normalization
+
+状态：Done。
+
+### P27-006：Connector Regression and Source Health Gate
+
+状态：Done。
+
+### P27-007：Hot Material Pool Connector Integration
+
+状态：Done。
+
+### P27-008：Workbench Connector Health Panel
+
+状态：Done。
+
+### P27-009：Phase 27 Daily Connector Pipeline
+
+状态：Done。
+
+### P27-010：Phase 27 Closeout
+
+状态：Done。
+
+## Phase 28：Source Connector Expansion & Evidence Enrichment v1
+
+### P28-001：P0 Connector Reliability Improvement
+
 状态：Planned。
 
-### P27-005：Connector Regression and Source Health Gate
+### P28-002：Evidence Packet Enrichment from Connector Items
+
+状态：Planned。
+
+### P28-003：Topic Candidate Promotion from Hot Materials
+
+状态：Planned。
+
+### P28-004：Connector Freshness and Dedup Regression
+
+状态：Planned。
+
+### P28-005：Acquisition-to-Content Closeout
 
 状态：Planned。

@@ -922,6 +922,7 @@ function renderReader() {
     const opsSection = renderReviewSection("今日运营", "先看今天能不能发、卡在哪里、下一步人工动作是什么。", `
         ${renderStableWorkbenchBaseline("review-card wide")}
         ${renderHotMaterialPanel("review-card wide")}
+        ${renderConnectorHealthPanel("review-card wide")}
         ${renderContentOpsPanel("review-card wide")}
         ${renderContentHardeningPanel("review-card wide", "ops")}
       `, true);
@@ -949,6 +950,7 @@ function renderReader() {
     const systemSection = renderReviewSection("系统运维", "失败处理、trial retrospective、fix pack、operator runbook 和 Phase0-19 closeout。", `
         ${renderStableWorkbenchBaseline("review-card wide")}
         ${renderHotMaterialPanel("review-card wide")}
+        ${renderConnectorHealthPanel("review-card wide")}
         ${renderStableTrialPanel("review-card wide")}
         ${renderStableOpsPanel("review-card wide")}
         ${renderPhase22Panel("review-card wide")}
@@ -1064,6 +1066,10 @@ function getPhase25Panel() {
 
 function getHotMaterialPanel() {
   return workbenchData.hot_material_panel || {};
+}
+
+function getConnectorHealthPanel() {
+  return workbenchData.connector_health_panel || {};
 }
 
 function renderReviewSection(title, note, body, open = true) {
@@ -1710,6 +1716,45 @@ function renderHotMaterialPanel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function renderConnectorHealthPanel(cardClass = "review-card wide") {
+  const panel = getConnectorHealthPanel();
+  const selection = panel.selection_summary || {};
+  const rss = panel.rss_summary || {};
+  const research = panel.research_summary || {};
+  const manual = panel.manual_summary || {};
+  const normalized = panel.normalized_summary || {};
+  const health = panel.health_summary || {};
+  const contribution = panel.connector_contribution || {};
+  const policy = panel.policy || {};
+  const connectors = Array.isArray(panel.connector_health) ? panel.connector_health : [];
+  const checks = Array.isArray(panel.health_checks) ? panel.health_checks : [];
+  const sources = Array.isArray(panel.selected_sources) ? panel.selected_sources : [];
+  const normalizedItems = Array.isArray(panel.normalized_items) ? panel.normalized_items : [];
+  const hasPanel = panel.gate_status && panel.gate_status !== "UNKNOWN";
+  if (!hasPanel) {
+    return `<div class="${cardClass} connector-health-panel">
+      <p class="review-label">Connector Health Panel</p>
+      <p class="review-value">暂无 Phase27 connector 数据。运行 <code>make phase27-daily</code> 后会显示 P0 source selection、connector run、normalized upstream items 和 source health gate。</p>
+    </div>`;
+  }
+  const connectorRows = connectors.slice(0, 8).map((item) => `${item.connector_type}: ${item.status} / items ${item.item_count ?? 0}${item.issue ? ` / ${item.issue}` : ""}`);
+  const checkRows = checks.slice(0, 8).map((item) => `${item.status}: ${item.check_id} / ${item.message || ""}`);
+  const sourceRows = sources.slice(0, 8).map((item) => `${item.implementation_status}: ${item.source_name} / ${item.connector_type}`);
+  const itemRows = normalizedItems.slice(0, 8).map((item) => `${item.source_type}: ${item.lane_id} / ${item.title}`);
+  return `<div class="${cardClass} connector-health-panel">
+    <p class="review-label">Connector Health Panel</p>
+    <p class="review-value">gate_status ${escapeHtml(panel.gate_status || "UNKNOWN")} · Phase27 ${escapeHtml(panel.phase27_status || "UNKNOWN")} · selected ${escapeHtml(selection.selected_count ?? 0)} · normalized ${escapeHtml(normalized.item_count ?? 0)} · candidates ${escapeHtml(normalized.candidate_for_hot_material_pool ?? 0)}</p>
+    <p class="review-value">RSS items ${escapeHtml(rss.item_count ?? 0)} · research items ${escapeHtml(research.item_count ?? 0)} · manual ready ${escapeHtml(manual.ready_for_review ?? 0)} · connector material ${escapeHtml(contribution.connector_item_count ?? 0)} · connector promote candidates ${escapeHtml(contribution.connector_promote_candidates ?? 0)}</p>
+    <p class="review-value">healthy ${escapeHtml(health.healthy_connectors ?? 0)} · weak ${escapeHtml(health.weak_connectors ?? 0)} · failed ${escapeHtml(health.failed_connectors ?? 0)} · metadata ${escapeHtml((panel.metadata_check || {}).status || "UNKNOWN")} · copyright ${escapeHtml((panel.copyright_check || {}).status || "UNKNOWN")}</p>
+    <p class="review-label">P0 source selection</p>${renderMiniList(sourceRows, "暂无 P0 selected source")}
+    <p class="review-label">Connector health</p>${renderMiniList(connectorRows, "暂无 connector health")}
+    <p class="review-label">Health gate checks</p>${renderMiniList(checkRows, "暂无 health check")}
+    <p class="review-label">Normalized upstream items</p>${renderMiniList(itemRows, "暂无 normalized upstream item")}
+    <p class="review-label">Boundary</p>
+    <p class="review-value">metadata_only=${escapeHtml(policy.metadata_only ?? true)} · copyright_safe=${escapeHtml(policy.copyright_safe ?? true)} · no_full_text=${escapeHtml(policy.no_full_text ?? true)} · no_login_or_paywall_bypass=${escapeHtml(policy.no_login_or_paywall_bypass ?? true)} · manual_url_not_auto_fetched=${escapeHtml(policy.manual_url_not_auto_fetched ?? true)}</p>
+  </div>`;
+}
+
 function renderStableTrialPanel(cardClass = "review-card wide") {
   const panel = getPhase24Panel();
   const days = Array.isArray(panel.day_summaries) ? panel.day_summaries : [];
@@ -1773,6 +1818,7 @@ function renderInsightPanel() {
   const phase24 = getPhase24Panel();
   const phase25 = getPhase25Panel();
   const hotMaterial = getHotMaterialPanel();
+  const connectorHealth = getConnectorHealthPanel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
@@ -1814,6 +1860,9 @@ function renderInsightPanel() {
   const hotMaterialSummary = hotMaterial.material_summary || {};
   const hotGateSummary = hotMaterial.quality_gate_summary || {};
   const hotSignalSummary = hotMaterial.hot_signal_summary || {};
+  const connectorSummary = connectorHealth.health_summary || {};
+  const normalizedSummary = connectorHealth.normalized_summary || {};
+  const connectorContribution = connectorHealth.connector_contribution || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -1910,6 +1959,11 @@ function renderInsightPanel() {
       <p class="insight-label">上游素材供给</p>
       <p class="insight-value">Gate ${escapeHtml(hotMaterial.gate_status || "UNKNOWN")} · materials ${escapeHtml(hotMaterialSummary.material_count ?? 0)} · promote ${escapeHtml(hotGateSummary.promote_to_topic_pipeline ?? 0)} · backfill ${escapeHtml(hotGateSummary.backfill_required ?? 0)}</p>
       <p class="insight-value">write_now ${escapeHtml(hotMaterialSummary.write_now ?? 0)} · develop_topic ${escapeHtml(hotMaterialSummary.develop_topic ?? 0)} · signals ${escapeHtml(hotSignalSummary.hot_signal_count ?? 0)} · active lanes ${escapeHtml(hotSignalSummary.active_lanes ?? 0)}</p>
+    </section>
+    <section class="insight-card connector-health-panel">
+      <p class="insight-label">Phase27 Connector Health</p>
+      <p class="insight-value">Gate ${escapeHtml(connectorHealth.gate_status || "UNKNOWN")} · normalized ${escapeHtml(normalizedSummary.item_count ?? 0)} · healthy ${escapeHtml(connectorSummary.healthy_connectors ?? 0)} · weak ${escapeHtml(connectorSummary.weak_connectors ?? 0)} · failed ${escapeHtml(connectorSummary.failed_connectors ?? 0)}</p>
+      <p class="insight-value">connector material ${escapeHtml(connectorContribution.connector_item_count ?? 0)} · promote candidates ${escapeHtml(connectorContribution.connector_promote_candidates ?? 0)} · metadata ${escapeHtml((connectorHealth.metadata_check || {}).status || "UNKNOWN")} · copyright ${escapeHtml((connectorHealth.copyright_check || {}).status || "UNKNOWN")}</p>
     </section>
     <section class="insight-card trial-panel">
       <p class="insight-label">Phase21 试运行</p>

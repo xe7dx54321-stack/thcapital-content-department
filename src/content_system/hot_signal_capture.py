@@ -68,6 +68,59 @@ def signal_from_candidate(item: dict[str, Any], current_date: str) -> dict[str, 
     }
 
 
+def connector_freshness(published_at: Any, current_date: str) -> str:
+    text = str(published_at or "")
+    if not text:
+        return "unknown"
+    if current_date and current_date[:4] in text:
+        return "this_week"
+    return "unknown"
+
+
+def signal_from_upstream_item(item: dict[str, Any], current_date: str) -> dict[str, Any] | None:
+    if not item.get("candidate_for_hot_material_pool"):
+        return None
+    if item.get("metadata_only") is False or item.get("copyright_safe") is False:
+        return None
+    title = compact_text(item.get("title"), 160)
+    url = str(item.get("url") or "")
+    if not title or not url:
+        return None
+    source_type = str(item.get("source_type") or "manual_url")
+    lane_id = str(item.get("lane_id") or detect_lane(title, item.get("source_name", "")))
+    source_name = str(item.get("source_name") or source_type)
+    base_score = {
+        "rss_official_blog": 70,
+        "arxiv": 68,
+        "huggingface": 66,
+        "github": 64,
+        "manual_url": 55,
+    }.get(source_type, 58)
+    freshness = connector_freshness(item.get("published_at"), current_date)
+    if freshness == "this_week":
+        base_score += 4
+    score = min(74, base_score)
+    event_type = str(item.get("event_type") or detect_event_type(title))
+    return {
+        "signal_id": stable_id("hsig", "connector", item.get("upstream_item_id") or url),
+        "lane_id": lane_id,
+        "title": title,
+        "source": source_name,
+        "source_type": source_type,
+        "source_tier": "A" if source_type == "rss_official_blog" else "B" if source_type in {"arxiv", "huggingface", "github"} else "C",
+        "event_type": event_type,
+        "domain_tags": [lane_id, event_type, source_type, "connector_metadata"],
+        "hotness_score": score,
+        "freshness": freshness,
+        "why_it_matters": compact_text(item.get("summary") or f"Connector metadata item from {source_name}; requires quality gate and human source check before topic promotion.", 240),
+        "evidence_refs": [url],
+        "candidate_for_topic_pool": score >= 64,
+        "connector_item_id": item.get("upstream_item_id", ""),
+        "metadata_only": True,
+        "copyright_safe": True,
+    }
+
+
 def build_hot_signal_capture(paths: ProjectPaths, repo_root: Path) -> tuple[dict[str, Any], dict[str, Path]]:
     run_date = today_token()
     manifest = read_json(paths.logs_root / "latest_official_runtime_manifest.json")
@@ -75,6 +128,7 @@ def build_hot_signal_capture(paths: ProjectPaths, repo_root: Path) -> tuple[dict
     runtime = read_json(paths.logs_root / "latest_source_runtime_health.json")
     expansion = read_json(paths.logs_root / "latest_high_value_source_expansion_plan.json")
     high_value = read_json(paths.market_content_root / "03_topic_candidates" / "latest_high_value_candidates.json")
+    normalized_upstream = read_json(paths.logs_root / "latest_normalized_upstream_items.json")
 
     signals: list[dict[str, Any]] = []
     for item in source_items_from_manifest(manifest):
@@ -83,6 +137,12 @@ def build_hot_signal_capture(paths: ProjectPaths, repo_root: Path) -> tuple[dict
             signals.append(signal)
     for item in list_payload(high_value, "candidates"):
         signals.append(signal_from_candidate(item, run_date))
+    connector_signals = [
+        signal
+        for signal in (signal_from_upstream_item(item, run_date) for item in list_payload(normalized_upstream, "items"))
+        if signal
+    ]
+    signals.extend(connector_signals)
 
     by_lane: dict[str, list[dict[str, Any]]] = {lane["lane_id"]: [] for lane in LANES}
     for signal in signals:
@@ -134,6 +194,9 @@ def build_hot_signal_capture(paths: ProjectPaths, repo_root: Path) -> tuple[dict
         "active_lanes": sum(1 for item in lanes if item.get("status") == "ACTIVE"),
         "hot_signal_count": len(signals),
         "candidate_for_topic_pool": sum(1 for item in signals if item.get("candidate_for_topic_pool")),
+        "connector_item_count": len(list_payload(normalized_upstream, "items")),
+        "connector_signal_count": len(connector_signals),
+        "connector_candidate_for_topic_pool": sum(1 for item in connector_signals if item.get("candidate_for_topic_pool")),
     }
     payload = {
         "schema_version": SCHEMA_VERSION,
@@ -147,11 +210,14 @@ def build_hot_signal_capture(paths: ProjectPaths, repo_root: Path) -> tuple[dict
             "daily_source_summary_status": source_summary.get("status", "UNKNOWN"),
             "source_runtime_health_available": bool(runtime),
             "expansion_plan_available": bool(expansion),
+            "normalized_upstream_items_available": bool(normalized_upstream),
         },
         "policy": {
             "local_artifact_only": True,
+            "connector_metadata_input_allowed": True,
             "no_external_fetch": True,
             "no_fabricated_hot_signals": True,
+            "metadata_only": True,
         },
     }
     outputs = output_paths(paths, run_date)
@@ -188,6 +254,8 @@ def render_markdown(payload: dict[str, Any]) -> str:
 - active_lanes: `{summary.get('active_lanes', 0)}`
 - hot_signal_count: `{summary.get('hot_signal_count', 0)}`
 - candidate_for_topic_pool: `{summary.get('candidate_for_topic_pool', 0)}`
+- connector_item_count: `{summary.get('connector_item_count', 0)}`
+- connector_signal_count: `{summary.get('connector_signal_count', 0)}`
 
 ## Lanes
 
@@ -199,5 +267,5 @@ def render_markdown(payload: dict[str, Any]) -> str:
 
 ## Boundary
 
-Signals are derived from existing local artifacts only. Missing lanes are marked empty or missing input rather than filled with invented external news.
+Signals are derived from existing local artifacts and normalized connector metadata only. Missing lanes are marked empty or missing input rather than filled with invented external news.
 """

@@ -42,6 +42,7 @@ class WechatWorkbenchDataReport:
     phase24_panel: dict[str, Any]
     phase25_panel: dict[str, Any]
     hot_material_panel: dict[str, Any]
+    connector_health_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -834,6 +835,62 @@ def build_hot_material_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_connector_health_panel(paths: ProjectPaths) -> dict[str, Any]:
+    topic_root = paths.market_content_root / "03_topic_candidates"
+    selection = read_json(paths.logs_root / "latest_p0_source_connector_selection.json")
+    rss = read_json(paths.logs_root / "latest_rss_official_blog_connector_run.json")
+    research = read_json(paths.logs_root / "latest_lightweight_research_connector_run.json")
+    manual = read_json(paths.logs_root / "latest_manual_url_backfill_ingestion.json")
+    normalized = read_json(paths.logs_root / "latest_normalized_upstream_items.json")
+    gate = read_json(paths.logs_root / "latest_connector_source_health_gate.json")
+    pool = read_json(topic_root / "latest_daily_hot_material_pool.json")
+    pipeline = read_json(paths.logs_root / "latest_phase27_daily_connector_pipeline.json")
+    selection_summary = selection.get("summary") if isinstance(selection.get("summary"), dict) else {}
+    rss_summary = rss.get("summary") if isinstance(rss.get("summary"), dict) else {}
+    research_summary = research.get("summary") if isinstance(research.get("summary"), dict) else {}
+    manual_summary = manual.get("summary") if isinstance(manual.get("summary"), dict) else {}
+    normalized_summary = normalized.get("summary") if isinstance(normalized.get("summary"), dict) else {}
+    gate_summary = gate.get("summary") if isinstance(gate.get("summary"), dict) else {}
+    pool_summary = pool.get("summary") if isinstance(pool.get("summary"), dict) else {}
+    pipeline_summary = pipeline.get("summary") if isinstance(pipeline.get("summary"), dict) else {}
+    checks = list_payload(gate, "checks")
+    metadata_check = next((item for item in checks if item.get("check_id") == "metadata_only"), {})
+    copyright_check = next((item for item in checks if item.get("check_id") == "copyright_safe"), {})
+    return {
+        "gate_status": gate.get("gate_status", "UNKNOWN"),
+        "selection_summary": selection_summary,
+        "selected_sources": list_payload(selection, "selected_sources")[:12],
+        "rss_summary": rss_summary,
+        "rss_sources": list_payload(rss, "sources")[:10],
+        "research_summary": research_summary,
+        "research_connectors": list_payload(research, "connectors")[:10],
+        "manual_summary": manual_summary,
+        "manual_items": list_payload(manual, "manual_items")[:10],
+        "normalized_summary": normalized_summary,
+        "normalized_items": list_payload(normalized, "items")[:12],
+        "health_summary": gate_summary,
+        "connector_health": list_payload(gate, "connector_health"),
+        "health_checks": checks,
+        "metadata_check": metadata_check,
+        "copyright_check": copyright_check,
+        "connector_contribution": {
+            "connector_item_count": safe_int(pool_summary.get("connector_item_count")),
+            "connector_promote_candidates": safe_int(pool_summary.get("connector_promote_candidates")),
+        },
+        "phase27_status": pipeline.get("status", "UNKNOWN"),
+        "phase27_summary": pipeline_summary,
+        "policy": {
+            "metadata_only": True,
+            "copyright_safe": True,
+            "no_full_text": True,
+            "no_login_or_paywall_bypass": True,
+            "no_api_key": True,
+            "manual_url_not_auto_fetched": True,
+            "no_sources_yaml_mutation": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -972,6 +1029,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     phase24_panel = build_phase24_panel(paths)
     phase25_panel = build_phase25_panel(paths)
     hot_material_panel = build_hot_material_panel(paths)
+    connector_health_panel = build_connector_health_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -1023,6 +1081,10 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["phase26_backfill_required"] = safe_int((hot_material_panel.get("quality_gate_summary") or {}).get("backfill_required"))
     summary["phase26_hot_material_gate_status"] = hot_material_panel.get("gate_status", "UNKNOWN")
     summary["phase26_source_gap_count"] = safe_int((hot_material_panel.get("gap_summary") or {}).get("gap_count"))
+    summary["phase27_connector_gate_status"] = connector_health_panel.get("gate_status", "UNKNOWN")
+    summary["phase27_normalized_item_count"] = safe_int((connector_health_panel.get("normalized_summary") or {}).get("item_count"))
+    summary["phase27_healthy_connectors"] = safe_int((connector_health_panel.get("health_summary") or {}).get("healthy_connectors"))
+    summary["phase27_failed_connectors"] = safe_int((connector_health_panel.get("health_summary") or {}).get("failed_connectors"))
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -1055,6 +1117,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         phase24_panel,
         phase25_panel,
         hot_material_panel,
+        connector_health_panel,
         tuple(warnings),
     )
 
@@ -1086,6 +1149,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "phase24_panel": report.phase24_panel,
         "phase25_panel": report.phase25_panel,
         "hot_material_panel": report.hot_material_panel,
+        "connector_health_panel": report.connector_health_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

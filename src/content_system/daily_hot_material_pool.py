@@ -53,10 +53,13 @@ def material_from_signal(signal: dict[str, Any]) -> dict[str, Any]:
     potential = min(100, hotness + (10 if signal.get("candidate_for_topic_pool") else 0))
     freshness = str(signal.get("freshness") or "unknown")
     use = recommended_use(hotness, potential, evidence_strength, freshness, "hot_signal")
+    origin_source_type = str(signal.get("source_type") or "")
     return {
         "material_id": stable_id("hotmat", "signal", signal.get("signal_id")),
         "title": signal.get("title", ""),
         "source_type": "hot_signal",
+        "origin_source_type": origin_source_type,
+        "connector_item_id": signal.get("connector_item_id", ""),
         "lane_id": signal.get("lane_id", ""),
         "event_type": signal.get("event_type", "unknown"),
         "domain_tags": signal.get("domain_tags") if isinstance(signal.get("domain_tags"), list) else [],
@@ -180,6 +183,13 @@ def build_daily_hot_material_pool(paths: ProjectPaths, repo_root: Path) -> tuple
         "watch": sum(1 for item in materials if item.get("recommended_use") == "watch"),
         "backfill_first": sum(1 for item in materials if item.get("recommended_use") == "backfill_first"),
         "hold": sum(1 for item in materials if item.get("recommended_use") == "hold"),
+        "connector_item_count": sum(1 for item in materials if item.get("origin_source_type") in {"rss_official_blog", "github", "huggingface", "arxiv", "manual_url"}),
+        "connector_promote_candidates": sum(
+            1
+            for item in materials
+            if item.get("origin_source_type") in {"rss_official_blog", "github", "huggingface", "arxiv", "manual_url"}
+            and item.get("recommended_use") in {"write_now", "develop_topic"}
+        ),
     }
     payload = {
         "schema_version": SCHEMA_VERSION,
@@ -226,6 +236,8 @@ def render_markdown(payload: dict[str, Any]) -> str:
 - watch: `{summary.get('watch', 0)}`
 - backfill_first: `{summary.get('backfill_first', 0)}`
 - hold: `{summary.get('hold', 0)}`
+- connector_item_count: `{summary.get('connector_item_count', 0)}`
+- connector_promote_candidates: `{summary.get('connector_promote_candidates', 0)}`
 
 ## Materials
 

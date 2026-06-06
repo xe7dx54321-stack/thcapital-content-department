@@ -643,5 +643,26 @@ hot-material-quality-gate:
 phase26-daily:
 	$(PYTHON) scripts/run_phase26_daily_acquisition_pipeline.py
 
+p0-source-connector-selection:
+	$(PYTHON) scripts/build_p0_source_connector_selection.py
+
+rss-official-blog-connectors:
+	$(PYTHON) scripts/run_rss_official_blog_connectors.py
+
+lightweight-research-connectors:
+	$(PYTHON) scripts/run_lightweight_research_connectors.py
+
+manual-url-backfill-ingestion:
+	$(PYTHON) scripts/run_manual_url_backfill_ingestion.py
+
+normalize-connector-outputs:
+	$(PYTHON) scripts/normalize_connector_outputs.py
+
+connector-source-health-gate:
+	$(PYTHON) scripts/run_connector_source_health_gate.py
+
+phase27-daily:
+	$(PYTHON) scripts/run_phase27_daily_connector_pipeline.py
+
 status:
 	bash 内容工厂控制台/status.sh

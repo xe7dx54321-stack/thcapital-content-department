@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Phase 26 daily hot material pool."""
+"""Normalize Phase 27 connector outputs into shared upstream items."""
 
 from __future__ import annotations
 
@@ -10,17 +10,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from content_system.daily_hot_material_pool import build_daily_hot_material_pool
+from content_system.connector_output_normalizer import build_normalized_upstream_items
 from content_system.paths import get_project_paths
 
 
 def main() -> int:
     paths = get_project_paths(ROOT)
-    payload, _outputs = build_daily_hot_material_pool(paths, ROOT)
+    payload, _outputs = build_normalized_upstream_items(paths, ROOT)
     summary = payload.get("summary", {})
-    print("Daily Hot Material Pool")
-    print("=======================")
-    for key in ("material_count", "write_now", "develop_topic", "watch", "backfill_first", "hold", "connector_item_count", "connector_promote_candidates"):
+    print("Normalized Upstream Items")
+    print("=========================")
+    for key in ("item_count", "deduped_count", "candidate_for_hot_material_pool"):
         print(f"{key}: {summary.get(key, 0)}")
     print(f"latest: {payload['outputs']['latest_json']}")
     return 0
