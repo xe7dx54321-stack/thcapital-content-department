@@ -1128,6 +1128,42 @@ logs/
 同行资本市场内容系统/11_frontstage/*phase24-daily-stable-trial-pipeline-board.md
 同行资本市场内容系统/11_frontstage/latest_phase24_daily_stable_trial_pipeline_board.md
 
+# Phase 25 generated artifacts
+同行资本市场内容系统/10_logs/*stable-daily-ops-baseline*.json
+同行资本市场内容系统/10_logs/*stable-daily-ops-baseline*.md
+同行资本市场内容系统/10_logs/latest_stable_daily_ops_baseline.json
+同行资本市场内容系统/10_logs/latest_stable_daily_ops_baseline.md
+同行资本市场内容系统/11_frontstage/*stable-daily-ops-baseline-board.md
+同行资本市场内容系统/11_frontstage/latest_stable_daily_ops_baseline_board.md
+
+同行资本市场内容系统/10_logs/*operator-acceptance-checklist*.json
+同行资本市场内容系统/10_logs/*operator-acceptance-checklist*.md
+同行资本市场内容系统/10_logs/latest_operator_acceptance_checklist.json
+同行资本市场内容系统/10_logs/latest_operator_acceptance_checklist.md
+同行资本市场内容系统/11_frontstage/*operator-acceptance-checklist-board.md
+同行资本市场内容系统/11_frontstage/latest_operator_acceptance_checklist_board.md
+
+同行资本市场内容系统/10_logs/*stable-daily-ops*.json
+同行资本市场内容系统/10_logs/*stable-daily-ops*.md
+同行资本市场内容系统/10_logs/latest_stable_daily_ops.json
+同行资本市场内容系统/10_logs/latest_stable_daily_ops.md
+同行资本市场内容系统/11_frontstage/*stable-daily-ops-board.md
+同行资本市场内容系统/11_frontstage/latest_stable_daily_ops_board.md
+
+同行资本市场内容系统/10_logs/*content-factory-v1-closeout*.json
+同行资本市场内容系统/10_logs/*content-factory-v1-closeout*.md
+同行资本市场内容系统/10_logs/latest_content_factory_v1_closeout.json
+同行资本市场内容系统/10_logs/latest_content_factory_v1_closeout.md
+同行资本市场内容系统/11_frontstage/*content-factory-v1-closeout-board.md
+同行资本市场内容系统/11_frontstage/latest_content_factory_v1_closeout_board.md
+
+同行资本市场内容系统/10_logs/*phase25-daily-baseline-pipeline*.json
+同行资本市场内容系统/10_logs/*phase25-daily-baseline-pipeline*.md
+同行资本市场内容系统/10_logs/latest_phase25_daily_baseline_pipeline.json
+同行资本市场内容系统/10_logs/latest_phase25_daily_baseline_pipeline.md
+同行资本市场内容系统/11_frontstage/*phase25-daily-baseline-pipeline-board.md
+同行资本市场内容系统/11_frontstage/latest_phase25_daily_baseline_pipeline_board.md
+
 # Local databases / private state
 *.sqlite
 *.sqlite3

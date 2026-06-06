@@ -40,6 +40,7 @@ class WechatWorkbenchDataReport:
     phase22_panel: dict[str, Any]
     phase23_panel: dict[str, Any]
     phase24_panel: dict[str, Any]
+    phase25_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -723,6 +724,61 @@ def build_phase24_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_phase25_panel(paths: ProjectPaths) -> dict[str, Any]:
+    baseline = read_json(paths.logs_root / "latest_stable_daily_ops_baseline.json")
+    acceptance = read_json(paths.logs_root / "latest_operator_acceptance_checklist.json")
+    stable_daily = read_json(paths.logs_root / "latest_stable_daily_ops.json")
+    closeout = read_json(paths.logs_root / "latest_content_factory_v1_closeout.json")
+    pipeline = read_json(paths.logs_root / "latest_phase25_daily_baseline_pipeline.json")
+    baseline_summary = baseline.get("summary") if isinstance(baseline.get("summary"), dict) else {}
+    acceptance_summary = acceptance.get("operator_acceptance_summary") if isinstance(acceptance.get("operator_acceptance_summary"), dict) else {}
+    daily_summary = stable_daily.get("daily_summary") if isinstance(stable_daily.get("daily_summary"), dict) else {}
+    daily_use = closeout.get("daily_use") if isinstance(closeout.get("daily_use"), dict) else {}
+    phase25_summary = pipeline.get("summary") if isinstance(pipeline.get("summary"), dict) else {}
+    manual_items = baseline.get("manual_required_items") if isinstance(baseline.get("manual_required_items"), list) else []
+    quality_status = baseline.get("content_quality_status") if isinstance(baseline.get("content_quality_status"), dict) else {}
+    checks = list_payload(acceptance, "checks")
+    fail_checks = [item for item in checks if item.get("status") == "FAIL"]
+    warn_checks = [item for item in checks if item.get("status") == "WARN"]
+    return {
+        "baseline_status": baseline.get("baseline_status", "UNKNOWN"),
+        "daily_command": baseline.get("daily_command") or daily_use.get("recommended_command") or "make stable-daily-ops",
+        "baseline_summary": baseline_summary,
+        "recommended_operator_flow": baseline.get("recommended_operator_flow") if isinstance(baseline.get("recommended_operator_flow"), list) else [],
+        "acceptable_warnings": baseline.get("acceptable_warnings") if isinstance(baseline.get("acceptable_warnings"), list) else [],
+        "true_blockers": baseline.get("true_blockers") if isinstance(baseline.get("true_blockers"), list) else [],
+        "manual_required_items": manual_items,
+        "content_quality_status": quality_status,
+        "operator_acceptance_status": acceptance.get("acceptance_status", "UNKNOWN"),
+        "operator_acceptance_summary": acceptance_summary,
+        "acceptance_checks": checks,
+        "acceptance_warn_checks": warn_checks[:8],
+        "acceptance_fail_checks": fail_checks[:8],
+        "operator_decision_guide": acceptance.get("operator_decision_guide") if isinstance(acceptance.get("operator_decision_guide"), list) else [],
+        "stable_daily_ops_status": stable_daily.get("status", "UNKNOWN"),
+        "stable_daily_ops_summary": daily_summary,
+        "stable_daily_steps": stable_daily.get("steps") if isinstance(stable_daily.get("steps"), list) else [],
+        "v1_status": closeout.get("v1_status", "UNKNOWN"),
+        "daily_use": daily_use,
+        "capability_map": closeout.get("capability_map") if isinstance(closeout.get("capability_map"), list) else [],
+        "boundaries": closeout.get("boundaries") if isinstance(closeout.get("boundaries"), list) else [],
+        "known_limitations": closeout.get("known_limitations") if isinstance(closeout.get("known_limitations"), list) else [],
+        "next_phase_recommendations": closeout.get("next_phase_recommendations") if isinstance(closeout.get("next_phase_recommendations"), list) else [],
+        "phase25_status": pipeline.get("status", "UNKNOWN"),
+        "phase25_summary": phase25_summary,
+        "workbench_entry": daily_use.get("workbench_entry") or "同行资本市场内容系统/11_frontstage/latest_wechat_workbench.html",
+        "policy": {
+            "manual_ops_only": True,
+            "stable_workbench_baseline": True,
+            "no_auto_publish": True,
+            "no_wechat_api": True,
+            "no_auto_image_generation": True,
+            "no_config_prompt_rule_changes": True,
+            "no_mainline_overwrite": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -859,6 +915,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     phase22_panel = build_phase22_panel(paths)
     phase23_panel = build_phase23_panel(paths)
     phase24_panel = build_phase24_panel(paths)
+    phase25_panel = build_phase25_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -901,6 +958,10 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["phase24_stable_trial_days"] = safe_int((phase24_panel.get("readiness_summary") or {}).get("stable_trial_days"))
     summary["phase24_quality_issue_count"] = safe_int((phase24_panel.get("content_quality_summary") or {}).get("quality_issue_count"))
     summary["phase24_methodology_feedback_count"] = safe_int((phase24_panel.get("methodology_feedback_summary") or {}).get("feedback_count"))
+    summary["phase25_baseline_status"] = phase25_panel.get("baseline_status", "UNKNOWN")
+    summary["phase25_operator_acceptance_status"] = phase25_panel.get("operator_acceptance_status", "UNKNOWN")
+    summary["phase25_stable_daily_ops_status"] = phase25_panel.get("stable_daily_ops_status", "UNKNOWN")
+    summary["phase25_v1_status"] = phase25_panel.get("v1_status", "UNKNOWN")
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -931,6 +992,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         phase22_panel,
         phase23_panel,
         phase24_panel,
+        phase25_panel,
         tuple(warnings),
     )
 
@@ -960,6 +1022,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "phase22_panel": report.phase22_panel,
         "phase23_panel": report.phase23_panel,
         "phase24_panel": report.phase24_panel,
+        "phase25_panel": report.phase25_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

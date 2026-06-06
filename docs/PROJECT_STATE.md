@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 24：Stable Ops Trial & Content Quality Calibration v1。
+Phase 25：Stable Daily Ops Baseline & Operator Acceptance v1。
 
 ## 最新 checkpoint
 
-P24-009：Phase 24 Closeout。
+P25-007：Phase 25 Closeout。
 
 ## 已完成
 
@@ -328,6 +328,16 @@ P24-009：Phase 24 Closeout。
 - P24-008 Phase 24 Daily Stable Trial Pipeline v1。
 - P24-009 Phase 24 Closeout。
 
+### Phase 25
+
+- P25-001 Stable Daily Ops Baseline v1。
+- P25-002 Operator Acceptance Checklist v1。
+- P25-003 Daily Ops Command Simplification v1。
+- P25-004 Stable Workbench Baseline v1。
+- P25-005 Content Factory v1 Closeout v1。
+- P25-006 Phase 25 Daily Baseline Pipeline v1。
+- P25-007 Phase 25 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -576,10 +586,19 @@ P24-009：Phase 24 Closeout。
 - workbench stable trial panel。
 - phase24 daily stable trial pipeline。
 
+### Phase 25 能力
+
+- stable daily ops baseline。
+- operator acceptance checklist。
+- stable daily ops command。
+- stable workbench baseline。
+- content factory v1 closeout。
+- phase25 daily baseline pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
-make phase24-daily
+make stable-daily-ops
 ```
 
 ## 当前边界
@@ -642,13 +661,18 @@ make phase24-daily
 - Phase 24 不自动抓取公众号后台数据。
 - Phase 24 不自动生成图片、不自动调用图片模型、不提交图片文件。
 - Phase 24 不自动改 prompt/config/rules。
+- stable-daily-ops 是日常运营辅助命令，不是自动发布命令。
+- Phase 25 不自动发布、不接公众号 API、不进入公众号草稿箱。
+- Phase 25 不自动抓取公众号后台数据。
+- Phase 25 不自动生成图片、不自动调用图片模型、不提交图片文件。
+- Phase 25 不自动改 prompt/config/rules。
 
 ## 下一阶段
 
-Phase 25：Stable Daily Ops Baseline & Operator Acceptance v1。
+Phase 26：Real Operator Acceptance Trial v1。
 
-- P25-001：Stable Daily Ops Baseline。
-- P25-002：Operator Acceptance Checklist。
-- P25-003：Daily Ops Command Simplification。
-- P25-004：Stable Workbench Baseline。
-- P25-005：Content Factory v1 Closeout。
+- P26-001：Operator Day 1 Acceptance Run。
+- P26-002：Operator Feedback Capture。
+- P26-003：Content Quality Blocking Issue Repair。
+- P26-004：Manual Publishing Dry Run with Copy Pack。
+- P26-005：Operator Acceptance Closeout。

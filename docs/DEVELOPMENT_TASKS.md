@@ -1078,20 +1078,50 @@
 
 ### P25-001：Stable Daily Ops Baseline
 
-状态：Planned。
+状态：Done。
 
 ### P25-002：Operator Acceptance Checklist
 
-状态：Planned。
+状态：Done。
 
 ### P25-003：Daily Ops Command Simplification
 
-状态：Planned。
+状态：Done。
 
 ### P25-004：Stable Workbench Baseline
 
-状态：Planned。
+状态：Done。
 
 ### P25-005：Content Factory v1 Closeout
+
+状态：Done。
+
+### P25-006：Phase 25 Daily Baseline Pipeline
+
+状态：Done。
+
+### P25-007：Phase 25 Closeout
+
+状态：Done。
+
+## Phase 26：Real Operator Acceptance Trial v1
+
+### P26-001：Operator Day 1 Acceptance Run
+
+状态：Planned。
+
+### P26-002：Operator Feedback Capture
+
+状态：Planned。
+
+### P26-003：Content Quality Blocking Issue Repair
+
+状态：Planned。
+
+### P26-004：Manual Publishing Dry Run with Copy Pack
+
+状态：Planned。
+
+### P26-005：Operator Acceptance Closeout
 
 状态：Planned。
