@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 27：Selected Source Connector Implementation v1。
+Phase 28：Source Connector Expansion & Evidence Enrichment v1。
 
 ## 最新 checkpoint
 
-P27-010：Phase 27 Closeout。
+P28-009：Phase 28 Closeout。
 
 ## 已完成
 
@@ -364,6 +364,18 @@ P27-010：Phase 27 Closeout。
 - P27-009 Phase 27 Daily Connector Pipeline v1。
 - P27-010 Phase 27 Closeout。
 
+### Phase 28
+
+- P28-001 P0 Connector Reliability Improvement v1。
+- P28-002 Evidence Packet Enrichment from Connector Items v1。
+- P28-003 Topic Candidate Promotion from Hot Materials v1。
+- P28-004 Connector Freshness and Dedup Regression v1。
+- P28-005 Acquisition-to-Content Bridge v1。
+- P28-006 Workbench Evidence & Topic Promotion Panel v1。
+- P28-007 Stable Daily Ops Acquisition Integration v1。
+- P28-008 Phase 28 Daily Enrichment Pipeline v1。
+- P28-009 Phase 28 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -645,16 +657,27 @@ P27-010：Phase 27 Closeout。
 - workbench connector health panel。
 - phase27 daily connector pipeline。
 
+### Phase 28 能力
+
+- P0 connector reliability improvement。
+- connector evidence packet enrichment。
+- hot material topic promotion。
+- connector freshness and dedup regression。
+- acquisition-to-content bridge。
+- workbench evidence and topic promotion panel。
+- stable daily ops acquisition integration。
+- phase28 daily enrichment pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
 make stable-daily-ops
 ```
 
-新增上游 connector 命令：
+新增上游 enrichment 命令：
 
 ```bash
-make phase27-daily
+make phase28-daily
 ```
 
 ## 当前边界
@@ -733,13 +756,21 @@ make phase27-daily
 - Phase 27 不绕过付费墙、不抓全文。
 - Phase 27 connector 只抓标题、URL、摘要片段、日期、source metadata。
 - Phase 27 不自动改 `config/sources.yaml`。
+- Phase 28 不自动发布、不接公众号 API、不进入公众号草稿箱。
+- Phase 28 不自动生成图片、不自动调用图片模型、不提交图片文件。
+- Phase 28 不抓全文、不绕过登录/付费墙。
+- Phase 28 不自动改 config/prompt/rules。
+- Phase 28 metadata 只能增强为 evidence packet，不能伪造成完整事实证据。
+- Phase 28 不迁移 OpenClaw 旧源、cron、gateway、全文深抓、自动发布或草稿箱能力。
 
 ## 下一阶段
 
-Phase 28：Source Connector Expansion & Evidence Enrichment v1。
+Phase 29：OpenClaw Source Migration & Signal Lane Integration v1。
 
-- P28-001：P0 Connector Reliability Improvement。
-- P28-002：Evidence Packet Enrichment from Connector Items。
-- P28-003：Topic Candidate Promotion from Hot Materials。
-- P28-004：Connector Freshness and Dedup Regression。
-- P28-005：Acquisition-to-Content Closeout。
+- P29-001：OpenClaw Source Inventory Import。
+- P29-002：OpenClaw Source Risk Classification。
+- P29-003：P0/P1 Migration Plan。
+- P29-004：Reddit / YC / TechCrunch / FinSMEs / Newsletter / Chinese Media Metadata Connector。
+- P29-005：Weak Signal Safety Gate。
+- P29-006：Workbench Source Migration Panel。
+- P29-007：Stable Daily Ops Source Supply Upgrade。

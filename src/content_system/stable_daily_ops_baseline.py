@@ -33,6 +33,9 @@ def input_paths(paths: ProjectPaths, repo_root: Path) -> dict[str, Path]:
         "calendar_calibration": paths.market_content_root / "07_publishing" / "latest_publishing_calendar_readiness_calibration.json",
         "hot_material_pool": paths.market_content_root / "03_topic_candidates" / "latest_daily_hot_material_pool.json",
         "hot_material_quality_gate": paths.logs_root / "latest_hot_material_quality_gate.json",
+        "connector_evidence_packets": paths.market_content_root / "03_topic_candidates" / "latest_connector_evidence_packets.json",
+        "connector_promoted_topic_candidates": paths.market_content_root / "03_topic_candidates" / "latest_connector_promoted_topic_candidates.json",
+        "acquisition_to_content_bridge": paths.logs_root / "latest_acquisition_to_content_bridge.json",
         "operator_runbook": repo_root / "docs" / "OPERATOR_RUNBOOK.md",
         "system_closeout": repo_root / "docs" / "PHASE0_19_SYSTEM_CLOSEOUT.md",
     }
@@ -96,6 +99,9 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
     calendar = read_json(inputs["calendar_calibration"])
     hot_pool = read_json(inputs["hot_material_pool"])
     hot_gate = read_json(inputs["hot_material_quality_gate"])
+    evidence = read_json(inputs["connector_evidence_packets"])
+    promoted_topics = read_json(inputs["connector_promoted_topic_candidates"])
+    acquisition_bridge = read_json(inputs["acquisition_to_content_bridge"])
 
     phase24_summary = phase24.get("summary") if isinstance(phase24.get("summary"), dict) else {}
     review_summary = review.get("summary") if isinstance(review.get("summary"), dict) else {}
@@ -107,6 +113,9 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
     calendar_summary = calendar.get("summary") if isinstance(calendar.get("summary"), dict) else {}
     hot_pool_summary = hot_pool.get("summary") if isinstance(hot_pool.get("summary"), dict) else {}
     hot_gate_summary = hot_gate.get("summary") if isinstance(hot_gate.get("summary"), dict) else {}
+    evidence_summary = evidence.get("summary") if isinstance(evidence.get("summary"), dict) else {}
+    promoted_summary = promoted_topics.get("summary") if isinstance(promoted_topics.get("summary"), dict) else {}
+    bridge_summary = acquisition_bridge.get("summary") if isinstance(acquisition_bridge.get("summary"), dict) else {}
 
     safety = {
         "auto_publish": False,
@@ -170,12 +179,35 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
         "backfill_first": safe_int(hot_pool_summary.get("backfill_first")),
         "promote_to_topic_pipeline": safe_int(hot_gate_summary.get("promote_to_topic_pipeline")),
         "backfill_required": safe_int(hot_gate_summary.get("backfill_required")),
+        "connector_item_count": safe_int(hot_pool_summary.get("connector_item_count")),
+        "connector_promote_candidates": safe_int(hot_pool_summary.get("connector_promote_candidates")),
+        "evidence_packet_count": safe_int(evidence_summary.get("packet_count")),
+        "promoted_topic_count": safe_int(promoted_summary.get("promoted")),
+        "ready_for_brief": safe_int(bridge_summary.get("ready_for_brief")),
+        "needs_evidence": safe_int(bridge_summary.get("needs_evidence")),
         "gate_status": hot_gate_status,
         "weak_supply_reasons": weak_supply_reasons,
         "interpretation": (
             "Upstream supply is weak; daily ops can continue, but operator should backfill verified sources before assuming the topic queue is exhausted."
             if hot_gate_status == "WEAK_SUPPLY"
             else "Upstream supply is available or actionable based on the latest hot material quality gate."
+        ),
+    }
+    acquisition_to_content = {
+        "connector_topic_candidates": safe_int(promoted_summary.get("candidate_count")),
+        "ready_for_brief": safe_int(bridge_summary.get("ready_for_brief")),
+        "needs_evidence": safe_int(bridge_summary.get("needs_evidence")),
+        "watch": safe_int(bridge_summary.get("watch")),
+        "rejected": safe_int(bridge_summary.get("rejected")),
+        "operator_action": (
+            "有新的上游选题可进入 brief 生产。"
+            if safe_int(bridge_summary.get("ready_for_brief"))
+            else "暂无 READY_FOR_BRIEF 的上游选题。"
+        ),
+        "evidence_action": (
+            "有上游选题需要补证据。"
+            if safe_int(bridge_summary.get("needs_evidence"))
+            else "暂无需要补证据的上游选题。"
         ),
     }
     manual_required_items = [
@@ -218,6 +250,7 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
         "manual_required_items": manual_required_items,
         "content_quality_status": content_quality_status,
         "upstream_supply": upstream_supply,
+        "acquisition_to_content": acquisition_to_content,
         "ops_status": {
             "phase24_status": phase24_status,
             "stable_ops_readiness_status": review_status,
@@ -234,6 +267,8 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
             "blocking_issue_count": len(true_blockers),
             "warnings": len(warnings),
             "upstream_gate_status": hot_gate_status,
+            "ready_for_brief": acquisition_to_content["ready_for_brief"],
+            "needs_evidence": acquisition_to_content["needs_evidence"],
         },
         "warnings": warnings,
         "notes": [
@@ -251,6 +286,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
     summary = payload.get("summary") if isinstance(payload.get("summary"), dict) else {}
     quality = payload.get("content_quality_status") if isinstance(payload.get("content_quality_status"), dict) else {}
     upstream = payload.get("upstream_supply") if isinstance(payload.get("upstream_supply"), dict) else {}
+    acquisition = payload.get("acquisition_to_content") if isinstance(payload.get("acquisition_to_content"), dict) else {}
     flow = "\n".join(
         f"{item.get('step')}. `{item.get('command')}` - {item.get('operator_decision')}"
         for item in payload.get("recommended_operator_flow", [])
@@ -282,11 +318,25 @@ def render_markdown(payload: dict[str, Any]) -> str:
 ## Upstream Supply
 
 - hot_material_count: `{upstream.get('hot_material_count', 0)}`
+- connector_item_count: `{upstream.get('connector_item_count', 0)}`
+- evidence_packet_count: `{upstream.get('evidence_packet_count', 0)}`
+- promoted_topic_count: `{upstream.get('promoted_topic_count', 0)}`
+- ready_for_brief: `{upstream.get('ready_for_brief', 0)}`
+- needs_evidence: `{upstream.get('needs_evidence', 0)}`
 - promote_to_topic_pipeline: `{upstream.get('promote_to_topic_pipeline', 0)}`
 - backfill_required: `{upstream.get('backfill_required', 0)}`
 - gate_status: `{upstream.get('gate_status', 'UNKNOWN')}`
 - weak_supply_reasons: `{len(upstream.get('weak_supply_reasons', [])) if isinstance(upstream.get('weak_supply_reasons'), list) else 0}`
 - interpretation: {upstream.get('interpretation', '')}
+
+## Acquisition to Content
+
+- connector_topic_candidates: `{acquisition.get('connector_topic_candidates', 0)}`
+- ready_for_brief: `{acquisition.get('ready_for_brief', 0)}`
+- needs_evidence: `{acquisition.get('needs_evidence', 0)}`
+- watch: `{acquisition.get('watch', 0)}`
+- operator_action: {acquisition.get('operator_action', '')}
+- evidence_action: {acquisition.get('evidence_action', '')}
 
 ## Recommended Operator Flow
 

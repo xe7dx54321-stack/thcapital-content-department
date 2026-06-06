@@ -31,6 +31,8 @@ def capability_map() -> list[dict[str, str]]:
         {"phase": "Phase 22-24", "capability": "daily ops runner, recurring issue workflow, stable gate, stable trial, quality calibration"},
         {"phase": "Phase 25", "capability": "stable daily ops baseline, operator acceptance, simplified daily command, v1 closeout"},
         {"phase": "Phase 26", "capability": "upstream source coverage audit, hot signal capture, backfill queue, daily hot material pool"},
+        {"phase": "Phase 27", "capability": "selected P0 metadata connectors, connector normalization, connector health gate"},
+        {"phase": "Phase 28", "capability": "connector evidence enrichment, topic promotion, acquisition-to-content bridge"},
     ]
 
 
@@ -42,10 +44,16 @@ def build_content_factory_v1_closeout(paths: ProjectPaths, repo_root: Path) -> t
     review = read_json(paths.logs_root / "latest_stable_ops_readiness_review.json")
     quality = read_json(paths.logs_root / "latest_content_quality_calibration.json")
     methodology = read_json(paths.logs_root / "latest_ops_to_methodology_feedback.json")
+    evidence = read_json(paths.market_content_root / "03_topic_candidates" / "latest_connector_evidence_packets.json")
+    promoted = read_json(paths.market_content_root / "03_topic_candidates" / "latest_connector_promoted_topic_candidates.json")
+    bridge = read_json(paths.logs_root / "latest_acquisition_to_content_bridge.json")
     baseline_summary = baseline.get("summary") if isinstance(baseline.get("summary"), dict) else {}
     acceptance_summary = acceptance.get("operator_acceptance_summary") if isinstance(acceptance.get("operator_acceptance_summary"), dict) else {}
     quality_summary = quality.get("summary") if isinstance(quality.get("summary"), dict) else {}
     methodology_summary = methodology.get("summary") if isinstance(methodology.get("summary"), dict) else {}
+    evidence_summary = evidence.get("summary") if isinstance(evidence.get("summary"), dict) else {}
+    promoted_summary = promoted.get("summary") if isinstance(promoted.get("summary"), dict) else {}
+    bridge_summary = bridge.get("summary") if isinstance(bridge.get("summary"), dict) else {}
 
     blocking = safe_int(baseline_summary.get("blocking_issue_count"))
     baseline_status = str(baseline.get("baseline_status") or "UNKNOWN")
@@ -75,14 +83,15 @@ def build_content_factory_v1_closeout(paths: ProjectPaths, repo_root: Path) -> t
         f"{quality_summary.get('publish_blocking_quality_issues', 0)} publish-blocking quality issue(s) are currently visible.",
         f"{methodology_summary.get('feedback_count', 0)} methodology feedback item(s) are advisory and not auto-applied.",
         "Manual publishing sessions and post-publish metrics remain operator-entered.",
+        "Connector evidence is metadata-derived and still needs human/source review before full article production.",
     ]
     next_phase = [
-        "Phase 27：Selected Source Connector Implementation v1",
-        "P27-001：P0 Source Connector Selection",
-        "P27-002：RSS / Official Blog Connector Hardening",
-        "P27-003：GitHub / HuggingFace / arXiv Lightweight Connector",
-        "P27-004：Manual URL Backfill Ingestion",
-        "P27-005：Connector Regression and Source Health Gate",
+        "Phase 29：OpenClaw Source Migration & Signal Lane Integration v1",
+        "P29-001：OpenClaw Source Inventory Import",
+        "P29-002：OpenClaw Source Risk Classification",
+        "P29-003：P0/P1 Migration Plan",
+        "P29-004：Reddit / YC / TechCrunch / FinSMEs / Newsletter / Chinese Media Metadata Connector",
+        "P29-005：Weak Signal Safety Gate",
     ]
     payload = {
         "schema_version": SCHEMA_VERSION,
@@ -108,6 +117,13 @@ def build_content_factory_v1_closeout(paths: ProjectPaths, repo_root: Path) -> t
         ],
         "content_quality_status": quality_summary,
         "methodology_feedback_status": methodology_summary,
+        "acquisition_to_content_status": {
+            "evidence_packet_count": evidence_summary.get("packet_count", 0),
+            "eligible_for_topic_promotion": evidence_summary.get("eligible_for_topic_promotion", 0),
+            "promoted_topic_count": promoted_summary.get("promoted", 0),
+            "ready_for_brief": bridge_summary.get("ready_for_brief", 0),
+            "needs_evidence": bridge_summary.get("needs_evidence", 0),
+        },
         "stable_ops_readiness": {
             "readiness_status": review.get("readiness_status", "UNKNOWN"),
             "summary": review.get("summary") if isinstance(review.get("summary"), dict) else {},
@@ -129,6 +145,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
     boundaries = "\n".join(f"- {item}" for item in payload.get("boundaries", []))
     limitations = "\n".join(f"- {item}" for item in payload.get("known_limitations", []))
     next_phase = "\n".join(f"- {item}" for item in payload.get("next_phase_recommendations", []))
+    acquisition = payload.get("acquisition_to_content_status") if isinstance(payload.get("acquisition_to_content_status"), dict) else {}
     return f"""# Content Factory v1 Closeout
 
 ## Status
@@ -146,6 +163,14 @@ def render_markdown(payload: dict[str, Any]) -> str:
 ## Main Workflow
 
 {workflow}
+
+## Acquisition to Content
+
+- evidence_packet_count: `{acquisition.get('evidence_packet_count', 0)}`
+- eligible_for_topic_promotion: `{acquisition.get('eligible_for_topic_promotion', 0)}`
+- promoted_topic_count: `{acquisition.get('promoted_topic_count', 0)}`
+- ready_for_brief: `{acquisition.get('ready_for_brief', 0)}`
+- needs_evidence: `{acquisition.get('needs_evidence', 0)}`
 
 ## Boundaries
 

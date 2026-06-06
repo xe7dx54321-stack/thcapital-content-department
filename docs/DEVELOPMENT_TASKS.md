@@ -1192,20 +1192,66 @@
 
 ### P28-001：P0 Connector Reliability Improvement
 
-状态：Planned。
+状态：Done。
 
 ### P28-002：Evidence Packet Enrichment from Connector Items
 
-状态：Planned。
+状态：Done。
 
 ### P28-003：Topic Candidate Promotion from Hot Materials
 
-状态：Planned。
+状态：Done。
 
 ### P28-004：Connector Freshness and Dedup Regression
 
+状态：Done。
+
+### P28-005：Acquisition-to-Content Bridge
+
+状态：Done。
+
+### P28-006：Workbench Evidence & Topic Promotion Panel
+
+状态：Done。
+
+### P28-007：Stable Daily Ops Acquisition Integration
+
+状态：Done。
+
+### P28-008：Phase 28 Daily Enrichment Pipeline
+
+状态：Done。
+
+### P28-009：Phase 28 Closeout
+
+状态：Done。
+
+## Phase 29：OpenClaw Source Migration & Signal Lane Integration v1
+
+### P29-001：OpenClaw Source Inventory Import
+
 状态：Planned。
 
-### P28-005：Acquisition-to-Content Closeout
+### P29-002：OpenClaw Source Risk Classification
+
+状态：Planned。
+
+### P29-003：P0/P1 Migration Plan
+
+状态：Planned。
+
+### P29-004：Reddit / YC / TechCrunch / FinSMEs / Newsletter / Chinese Media Metadata Connector
+
+状态：Planned。
+
+### P29-005：Weak Signal Safety Gate
+
+状态：Planned。
+
+### P29-006：Workbench Source Migration Panel
+
+状态：Planned。
+
+### P29-007：Stable Daily Ops Source Supply Upgrade
 
 状态：Planned。

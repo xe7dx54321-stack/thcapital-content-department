@@ -923,6 +923,7 @@ function renderReader() {
         ${renderStableWorkbenchBaseline("review-card wide")}
         ${renderHotMaterialPanel("review-card wide")}
         ${renderConnectorHealthPanel("review-card wide")}
+        ${renderEvidenceTopicPromotionPanel("review-card wide")}
         ${renderContentOpsPanel("review-card wide")}
         ${renderContentHardeningPanel("review-card wide", "ops")}
       `, true);
@@ -951,6 +952,7 @@ function renderReader() {
         ${renderStableWorkbenchBaseline("review-card wide")}
         ${renderHotMaterialPanel("review-card wide")}
         ${renderConnectorHealthPanel("review-card wide")}
+        ${renderEvidenceTopicPromotionPanel("review-card wide")}
         ${renderStableTrialPanel("review-card wide")}
         ${renderStableOpsPanel("review-card wide")}
         ${renderPhase22Panel("review-card wide")}
@@ -1070,6 +1072,10 @@ function getHotMaterialPanel() {
 
 function getConnectorHealthPanel() {
   return workbenchData.connector_health_panel || {};
+}
+
+function getEvidenceTopicPromotionPanel() {
+  return workbenchData.evidence_topic_promotion_panel || {};
 }
 
 function renderReviewSection(title, note, body, open = true) {
@@ -1755,6 +1761,45 @@ function renderConnectorHealthPanel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function renderEvidenceTopicPromotionPanel(cardClass = "review-card wide") {
+  const panel = getEvidenceTopicPromotionPanel();
+  const reliability = panel.reliability_summary || {};
+  const evidence = panel.evidence_summary || {};
+  const promoted = panel.promoted_topic_summary || {};
+  const freshness = panel.freshness_summary || {};
+  const dedup = panel.dedup_summary || {};
+  const bridge = panel.bridge_summary || {};
+  const policy = panel.policy || {};
+  const packets = Array.isArray(panel.evidence_packets) ? panel.evidence_packets : [];
+  const candidates = Array.isArray(panel.topic_candidates) ? panel.topic_candidates : [];
+  const bridgeItems = Array.isArray(panel.bridge_items) ? panel.bridge_items : [];
+  const checks = Array.isArray(panel.regression_checks) ? panel.regression_checks : [];
+  const hasPanel = Object.keys(evidence).length || Object.keys(promoted).length || Object.keys(bridge).length;
+  if (!hasPanel) {
+    return `<div class="${cardClass} evidence-topic-promotion-panel">
+      <p class="review-label">Evidence / Topic Promotion</p>
+      <p class="review-value">暂无 Phase28 enrichment 数据。运行 <code>make phase28-daily</code> 后会显示 connector evidence packets、promoted topic candidates、freshness/dedup regression 和 acquisition-to-content bridge。</p>
+    </div>`;
+  }
+  const evidenceRows = packets.slice(0, 8).map((item) => `${item.evidence_strength}: ${item.source_type} / ${item.source_origin || "phase27_connector"} / weak=${item.weak_signal_lane ?? false} / ${item.title}`);
+  const candidateRows = candidates.slice(0, 8).map((item) => `${item.promotion_status}: ${item.evidence_strength} / ${item.source_origin || "phase27_connector"} / weak=${item.weak_signal_lane ?? false} / ${item.title}`);
+  const bridgeRows = bridgeItems.slice(0, 8).map((item) => `${item.bridge_status}: ${item.recommended_pipeline_step} / ${item.operator_action}`);
+  const checkRows = checks.slice(0, 8).map((item) => `${item.status}: ${item.check_id} / ${item.message || ""}`);
+  return `<div class="${cardClass} evidence-topic-promotion-panel">
+    <p class="review-label">Evidence / Topic Promotion Panel</p>
+    <p class="review-value">Phase28 ${escapeHtml(panel.phase28_status || "UNKNOWN")} · reliability issues ${escapeHtml(reliability.issue_count ?? 0)} · regression ${escapeHtml(panel.regression_status || "UNKNOWN")}</p>
+    <p class="review-value">Evidence packets ${escapeHtml(evidence.packet_count ?? 0)} · eligible ${escapeHtml(evidence.eligible_for_topic_promotion ?? 0)} · high ${escapeHtml(evidence.high_strength ?? 0)} · medium ${escapeHtml(evidence.medium_strength ?? 0)} · low ${escapeHtml(evidence.low_strength ?? 0)}</p>
+    <p class="review-value">Promoted topics ${escapeHtml(promoted.promoted ?? 0)} · needs evidence ${escapeHtml(promoted.needs_evidence ?? 0)} · watch ${escapeHtml(promoted.watch ?? 0)} · ready for brief ${escapeHtml(bridge.ready_for_brief ?? 0)} · bridge needs evidence ${escapeHtml(bridge.needs_evidence ?? 0)}</p>
+    <p class="review-value">Freshness today ${escapeHtml(freshness.today ?? 0)} · this week ${escapeHtml(freshness.this_week ?? 0)} · stale ${escapeHtml(freshness.stale ?? 0)} · unknown ${escapeHtml(freshness.unknown ?? 0)} · duplicate ratio ${escapeHtml(dedup.duplicate_ratio ?? 0)}</p>
+    <p class="review-label">Connector Evidence Packets</p>${renderMiniList(evidenceRows, "暂无 evidence packet")}
+    <p class="review-label">Promoted Topic Candidates</p>${renderMiniList(candidateRows, "暂无 promoted topic candidate")}
+    <p class="review-label">Acquisition-to-Content Bridge</p>${renderMiniList(bridgeRows, "暂无 bridge item")}
+    <p class="review-label">Freshness / Dedup Checks</p>${renderMiniList(checkRows, "暂无 regression check")}
+    <p class="review-label">Boundary</p>
+    <p class="review-value">metadata_derived_evidence_only=${escapeHtml(policy.metadata_derived_evidence_only ?? true)} · no_full_text=${escapeHtml(policy.no_full_text ?? true)} · no_auto_publish=${escapeHtml(policy.no_auto_publish ?? true)} · no_openclaw_migration=${escapeHtml(policy.no_openclaw_migration ?? true)}</p>
+  </div>`;
+}
+
 function renderStableTrialPanel(cardClass = "review-card wide") {
   const panel = getPhase24Panel();
   const days = Array.isArray(panel.day_summaries) ? panel.day_summaries : [];
@@ -1819,6 +1864,7 @@ function renderInsightPanel() {
   const phase25 = getPhase25Panel();
   const hotMaterial = getHotMaterialPanel();
   const connectorHealth = getConnectorHealthPanel();
+  const evidenceTopic = getEvidenceTopicPromotionPanel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
@@ -1863,6 +1909,11 @@ function renderInsightPanel() {
   const connectorSummary = connectorHealth.health_summary || {};
   const normalizedSummary = connectorHealth.normalized_summary || {};
   const connectorContribution = connectorHealth.connector_contribution || {};
+  const evidenceSummary = evidenceTopic.evidence_summary || {};
+  const promotedSummary = evidenceTopic.promoted_topic_summary || {};
+  const bridgeSummary = evidenceTopic.bridge_summary || {};
+  const freshnessSummary = evidenceTopic.freshness_summary || {};
+  const dedupSummary = evidenceTopic.dedup_summary || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -1964,6 +2015,11 @@ function renderInsightPanel() {
       <p class="insight-label">Phase27 Connector Health</p>
       <p class="insight-value">Gate ${escapeHtml(connectorHealth.gate_status || "UNKNOWN")} · normalized ${escapeHtml(normalizedSummary.item_count ?? 0)} · healthy ${escapeHtml(connectorSummary.healthy_connectors ?? 0)} · weak ${escapeHtml(connectorSummary.weak_connectors ?? 0)} · failed ${escapeHtml(connectorSummary.failed_connectors ?? 0)}</p>
       <p class="insight-value">connector material ${escapeHtml(connectorContribution.connector_item_count ?? 0)} · promote candidates ${escapeHtml(connectorContribution.connector_promote_candidates ?? 0)} · metadata ${escapeHtml((connectorHealth.metadata_check || {}).status || "UNKNOWN")} · copyright ${escapeHtml((connectorHealth.copyright_check || {}).status || "UNKNOWN")}</p>
+    </section>
+    <section class="insight-card evidence-topic-promotion-panel">
+      <p class="insight-label">Phase28 Evidence / Topic</p>
+      <p class="insight-value">Evidence ${escapeHtml(evidenceSummary.packet_count ?? 0)} · eligible ${escapeHtml(evidenceSummary.eligible_for_topic_promotion ?? 0)} · promoted ${escapeHtml(promotedSummary.promoted ?? 0)} · needs evidence ${escapeHtml(promotedSummary.needs_evidence ?? 0)}</p>
+      <p class="insight-value">ready_for_brief ${escapeHtml(bridgeSummary.ready_for_brief ?? 0)} · bridge_needs_evidence ${escapeHtml(bridgeSummary.needs_evidence ?? 0)} · regression ${escapeHtml(evidenceTopic.regression_status || "UNKNOWN")} · freshness unknown ${escapeHtml(freshnessSummary.unknown ?? 0)} · duplicate ${escapeHtml(dedupSummary.duplicate_ratio ?? 0)}</p>
     </section>
     <section class="insight-card trial-panel">
       <p class="insight-label">Phase21 试运行</p>

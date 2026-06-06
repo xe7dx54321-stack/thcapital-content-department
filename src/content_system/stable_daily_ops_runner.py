@@ -50,8 +50,14 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
     baseline_upstream = baseline.get("upstream_supply") if isinstance(baseline.get("upstream_supply"), dict) else {}
     hot_gate = read_json(logs_root / "latest_hot_material_quality_gate.json")
     hot_pool = read_json(logs_root.parent / "03_topic_candidates" / "latest_daily_hot_material_pool.json")
+    evidence = read_json(logs_root.parent / "03_topic_candidates" / "latest_connector_evidence_packets.json")
+    promoted_topics = read_json(logs_root.parent / "03_topic_candidates" / "latest_connector_promoted_topic_candidates.json")
+    acquisition_bridge = read_json(logs_root / "latest_acquisition_to_content_bridge.json")
     hot_gate_summary = hot_gate.get("summary") if isinstance(hot_gate.get("summary"), dict) else {}
     hot_pool_summary = hot_pool.get("summary") if isinstance(hot_pool.get("summary"), dict) else {}
+    evidence_summary = evidence.get("summary") if isinstance(evidence.get("summary"), dict) else {}
+    promoted_summary = promoted_topics.get("summary") if isinstance(promoted_topics.get("summary"), dict) else {}
+    bridge_summary = acquisition_bridge.get("summary") if isinstance(acquisition_bridge.get("summary"), dict) else {}
     upstream_supply = {
         "hot_material_count": int(
             baseline_upstream.get("hot_material_count")
@@ -68,6 +74,31 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
             if baseline_upstream.get("backfill_required") is not None
             else hot_gate_summary.get("backfill_required") or 0
         ),
+        "connector_item_count": int(
+            baseline_upstream.get("connector_item_count")
+            if baseline_upstream.get("connector_item_count") is not None
+            else hot_pool_summary.get("connector_item_count") or 0
+        ),
+        "evidence_packet_count": int(
+            baseline_upstream.get("evidence_packet_count")
+            if baseline_upstream.get("evidence_packet_count") is not None
+            else evidence_summary.get("packet_count") or 0
+        ),
+        "promoted_topic_count": int(
+            baseline_upstream.get("promoted_topic_count")
+            if baseline_upstream.get("promoted_topic_count") is not None
+            else promoted_summary.get("promoted") or 0
+        ),
+        "ready_for_brief": int(
+            baseline_upstream.get("ready_for_brief")
+            if baseline_upstream.get("ready_for_brief") is not None
+            else bridge_summary.get("ready_for_brief") or 0
+        ),
+        "needs_evidence": int(
+            baseline_upstream.get("needs_evidence")
+            if baseline_upstream.get("needs_evidence") is not None
+            else bridge_summary.get("needs_evidence") or 0
+        ),
         "gate_status": baseline_upstream.get("gate_status") or hot_gate.get("gate_status", "UNKNOWN"),
         "weak_supply_reasons": baseline_upstream.get("weak_supply_reasons")
         if isinstance(baseline_upstream.get("weak_supply_reasons"), list)
@@ -81,6 +112,21 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
         upstream_supply["status_label"] = upstream_supply["gate_status"]
     baseline_status = baseline.get("baseline_status", "UNKNOWN")
     acceptance_status = acceptance.get("acceptance_status", "UNKNOWN")
+    baseline_acquisition = baseline.get("acquisition_to_content") if isinstance(baseline.get("acquisition_to_content"), dict) else {}
+    acquisition_to_content = {
+        "connector_topic_candidates": int(
+            baseline_acquisition.get("connector_topic_candidates")
+            if baseline_acquisition.get("connector_topic_candidates") is not None
+            else promoted_summary.get("candidate_count") or 0
+        ),
+        "ready_for_brief": upstream_supply["ready_for_brief"],
+        "needs_evidence": upstream_supply["needs_evidence"],
+        "watch": int(
+            baseline_acquisition.get("watch")
+            if baseline_acquisition.get("watch") is not None
+            else bridge_summary.get("watch") or 0
+        ),
+    }
     blocking_issue_count = int(baseline_summary.get("blocking_issue_count") or 0)
     workbench_ready = (frontstage_root / "latest_wechat_workbench.html").exists()
     if failed:
@@ -113,6 +159,7 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
             "acceptance_warn": acceptance_summary.get("warn", 0),
             "acceptance_fail": acceptance_summary.get("fail", 0),
             "upstream_supply": upstream_supply,
+            "acquisition_to_content": acquisition_to_content,
         },
         "safety": {
             "no_auto_publish": True,
@@ -126,6 +173,7 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
             "It does not publish, call WeChat API, generate images, mutate config, or overwrite mainline content.",
             "SUCCESS means the system baseline is usable; publishing still requires human review.",
             "Upstream WEAK_SUPPLY is actionable operator work, not an engineering failure.",
+            "Connector evidence remains metadata-derived and requires human/source review before writing.",
         ],
     }
     outputs = output_paths(logs_root, frontstage_root, run_date)
@@ -137,6 +185,7 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
 def render_markdown(payload: dict[str, Any]) -> str:
     summary = payload.get("daily_summary") if isinstance(payload.get("daily_summary"), dict) else {}
     upstream = summary.get("upstream_supply") if isinstance(summary.get("upstream_supply"), dict) else {}
+    acquisition = summary.get("acquisition_to_content") if isinstance(summary.get("acquisition_to_content"), dict) else {}
     rows = "\n".join(
         f"- {step.get('name')}: {step.get('status')} ({step.get('return_code')})"
         for step in payload.get("steps", [])
@@ -154,8 +203,20 @@ def render_markdown(payload: dict[str, Any]) -> str:
 - upstream_gate_status: `{upstream.get('gate_status', 'UNKNOWN')}`
 - upstream_status_label: `{upstream.get('status_label', 'UNKNOWN')}`
 - hot_material_count: `{upstream.get('hot_material_count', 0)}`
+- connector_item_count: `{upstream.get('connector_item_count', 0)}`
+- evidence_packet_count: `{upstream.get('evidence_packet_count', 0)}`
+- promoted_topic_count: `{upstream.get('promoted_topic_count', 0)}`
+- ready_for_brief: `{upstream.get('ready_for_brief', 0)}`
+- needs_evidence: `{upstream.get('needs_evidence', 0)}`
 - promote_to_topic_pipeline: `{upstream.get('promote_to_topic_pipeline', 0)}`
 - backfill_required: `{upstream.get('backfill_required', 0)}`
+
+## Acquisition to Content
+
+- connector_topic_candidates: `{acquisition.get('connector_topic_candidates', 0)}`
+- ready_for_brief: `{acquisition.get('ready_for_brief', 0)}`
+- needs_evidence: `{acquisition.get('needs_evidence', 0)}`
+- watch: `{acquisition.get('watch', 0)}`
 
 ## Steps
 

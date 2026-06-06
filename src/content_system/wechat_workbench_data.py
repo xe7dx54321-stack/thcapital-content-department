@@ -43,6 +43,7 @@ class WechatWorkbenchDataReport:
     phase25_panel: dict[str, Any]
     hot_material_panel: dict[str, Any]
     connector_health_panel: dict[str, Any]
+    evidence_topic_promotion_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -891,6 +892,49 @@ def build_connector_health_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_evidence_topic_promotion_panel(paths: ProjectPaths) -> dict[str, Any]:
+    topic_root = paths.market_content_root / "03_topic_candidates"
+    reliability = read_json(paths.logs_root / "latest_connector_reliability_improvement.json")
+    evidence = read_json(topic_root / "latest_connector_evidence_packets.json")
+    promoted = read_json(topic_root / "latest_connector_promoted_topic_candidates.json")
+    regression = read_json(paths.logs_root / "latest_connector_freshness_dedup_regression.json")
+    bridge = read_json(paths.logs_root / "latest_acquisition_to_content_bridge.json")
+    pipeline = read_json(paths.logs_root / "latest_phase28_daily_enrichment_pipeline.json")
+    reliability_summary = reliability.get("reliability_summary") if isinstance(reliability.get("reliability_summary"), dict) else {}
+    evidence_summary = evidence.get("summary") if isinstance(evidence.get("summary"), dict) else {}
+    promoted_summary = promoted.get("summary") if isinstance(promoted.get("summary"), dict) else {}
+    freshness_summary = regression.get("freshness_summary") if isinstance(regression.get("freshness_summary"), dict) else {}
+    dedup_summary = regression.get("dedup_summary") if isinstance(regression.get("dedup_summary"), dict) else {}
+    bridge_summary = bridge.get("summary") if isinstance(bridge.get("summary"), dict) else {}
+    pipeline_summary = pipeline.get("summary") if isinstance(pipeline.get("summary"), dict) else {}
+    return {
+        "phase28_status": pipeline.get("status", "UNKNOWN"),
+        "phase28_summary": pipeline_summary,
+        "reliability_summary": reliability_summary,
+        "connector_issues": list_payload(reliability, "connector_issues")[:10],
+        "evidence_summary": evidence_summary,
+        "evidence_packets": list_payload(evidence, "evidence_packets")[:12],
+        "promoted_topic_summary": promoted_summary,
+        "topic_candidates": list_payload(promoted, "topic_candidates")[:12],
+        "regression_status": regression.get("regression_status", "UNKNOWN"),
+        "freshness_summary": freshness_summary,
+        "dedup_summary": dedup_summary,
+        "regression_checks": list_payload(regression, "checks"),
+        "regression_recommendations": regression.get("recommendations") if isinstance(regression.get("recommendations"), list) else [],
+        "bridge_summary": bridge_summary,
+        "bridge_items": list_payload(bridge, "bridge_items")[:12],
+        "operator_actions": bridge.get("operator_actions") if isinstance(bridge.get("operator_actions"), list) else [],
+        "policy": {
+            "metadata_derived_evidence_only": True,
+            "no_full_text": True,
+            "no_auto_publish": True,
+            "no_wechat_api": True,
+            "no_auto_image_generation": True,
+            "no_openclaw_migration": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -1030,6 +1074,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     phase25_panel = build_phase25_panel(paths)
     hot_material_panel = build_hot_material_panel(paths)
     connector_health_panel = build_connector_health_panel(paths)
+    evidence_topic_promotion_panel = build_evidence_topic_promotion_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -1085,6 +1130,11 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["phase27_normalized_item_count"] = safe_int((connector_health_panel.get("normalized_summary") or {}).get("item_count"))
     summary["phase27_healthy_connectors"] = safe_int((connector_health_panel.get("health_summary") or {}).get("healthy_connectors"))
     summary["phase27_failed_connectors"] = safe_int((connector_health_panel.get("health_summary") or {}).get("failed_connectors"))
+    summary["phase28_evidence_packet_count"] = safe_int((evidence_topic_promotion_panel.get("evidence_summary") or {}).get("packet_count"))
+    summary["phase28_promoted_topic_count"] = safe_int((evidence_topic_promotion_panel.get("promoted_topic_summary") or {}).get("promoted"))
+    summary["phase28_ready_for_brief"] = safe_int((evidence_topic_promotion_panel.get("bridge_summary") or {}).get("ready_for_brief"))
+    summary["phase28_needs_evidence"] = safe_int((evidence_topic_promotion_panel.get("bridge_summary") or {}).get("needs_evidence"))
+    summary["phase28_regression_status"] = evidence_topic_promotion_panel.get("regression_status", "UNKNOWN")
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -1118,6 +1168,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         phase25_panel,
         hot_material_panel,
         connector_health_panel,
+        evidence_topic_promotion_panel,
         tuple(warnings),
     )
 
@@ -1150,6 +1201,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "phase25_panel": report.phase25_panel,
         "hot_material_panel": report.hot_material_panel,
         "connector_health_panel": report.connector_health_panel,
+        "evidence_topic_promotion_panel": report.evidence_topic_promotion_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():
