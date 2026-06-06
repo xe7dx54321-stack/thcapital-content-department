@@ -25,6 +25,14 @@ def main() -> int:
     print(f"operator_acceptance_status: {summary.get('operator_acceptance_status')}")
     print(f"blocking_issue_count: {summary.get('blocking_issue_count')}")
     print(f"workbench_ready: {summary.get('workbench_ready')}")
+    upstream = summary.get("upstream_supply") if isinstance(summary.get("upstream_supply"), dict) else {}
+    print("Upstream supply:")
+    print(f"  gate_status: {upstream.get('gate_status', 'UNKNOWN')}")
+    print(f"  status_label: {upstream.get('status_label', 'UNKNOWN')}")
+    print(f"  hot_material_count: {upstream.get('hot_material_count', 0)}")
+    print(f"  promote_to_topic_pipeline: {upstream.get('promote_to_topic_pipeline', 0)}")
+    print(f"  backfill_required: {upstream.get('backfill_required', 0)}")
+    print(f"  weak_supply_reasons: {upstream.get('weak_supply_reasons', [])}")
     print("Safety:")
     for key, value in payload.get("safety", {}).items():
         print(f"  {key}: {value}")

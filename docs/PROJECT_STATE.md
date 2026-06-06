@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 25：Stable Daily Ops Baseline & Operator Acceptance v1。
+Phase 26：Upstream Intelligence Acquisition Reinforcement v1。
 
 ## 最新 checkpoint
 
-P25-007：Phase 25 Closeout。
+P26-010：Phase 26 Closeout。
 
 ## 已完成
 
@@ -338,6 +338,19 @@ P25-007：Phase 25 Closeout。
 - P25-006 Phase 25 Daily Baseline Pipeline v1。
 - P25-007 Phase 25 Closeout。
 
+### Phase 26
+
+- P26-001 Source Coverage Gap Audit v1。
+- P26-002 High-value Source Expansion Plan v1。
+- P26-003 Multi-lane Hot Signal Capture v1。
+- P26-004 Fallback Search & Backfill Queue v1。
+- P26-005 Daily Hot Material Pool v1。
+- P26-006 Hot Material Quality Gate v1。
+- P26-007 Workbench Hot Material Panel v1。
+- P26-008 Stable Daily Ops Integration v1。
+- P26-009 Phase 26 Daily Acquisition Pipeline v1。
+- P26-010 Phase 26 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -595,10 +608,28 @@ P25-007：Phase 25 Closeout。
 - content factory v1 closeout。
 - phase25 daily baseline pipeline。
 
+### Phase 26 能力
+
+- source coverage gap audit。
+- high-value source expansion plan。
+- multi-lane hot signal capture。
+- fallback backfill queue。
+- daily hot material pool。
+- hot material quality gate。
+- workbench hot material panel。
+- stable daily ops upstream supply integration。
+- phase26 daily acquisition pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
 make stable-daily-ops
+```
+
+新增上游检查命令：
+
+```bash
+make phase26-daily
 ```
 
 ## 当前边界
@@ -666,13 +697,17 @@ make stable-daily-ops
 - Phase 25 不自动抓取公众号后台数据。
 - Phase 25 不自动生成图片、不自动调用图片模型、不提交图片文件。
 - Phase 25 不自动改 prompt/config/rules。
+- Phase 26 只强化上游信息获取诊断、素材池和补抓建议。
+- Phase 26 不自动真实抓取需要登录/API 的外部源。
+- Phase 26 不自动改 `config/sources.yaml`。
+- Phase 26 不伪造外部热点信息。
 
 ## 下一阶段
 
-Phase 26：Real Operator Acceptance Trial v1。
+Phase 27：Selected Source Connector Implementation v1。
 
-- P26-001：Operator Day 1 Acceptance Run。
-- P26-002：Operator Feedback Capture。
-- P26-003：Content Quality Blocking Issue Repair。
-- P26-004：Manual Publishing Dry Run with Copy Pack。
-- P26-005：Operator Acceptance Closeout。
+- P27-001：P0 Source Connector Selection。
+- P27-002：RSS / Official Blog Connector Hardening。
+- P27-003：GitHub / HuggingFace / arXiv Lightweight Connector。
+- P27-004：Manual URL Backfill Ingestion。
+- P27-005：Connector Regression and Source Health Gate。

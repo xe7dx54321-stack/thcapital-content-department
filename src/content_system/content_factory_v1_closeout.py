@@ -30,6 +30,7 @@ def capability_map() -> list[dict[str, str]]:
         {"phase": "Phase 19-21", "capability": "content ops calendar, queue priority, trial protocol, trial records, trial fix pack"},
         {"phase": "Phase 22-24", "capability": "daily ops runner, recurring issue workflow, stable gate, stable trial, quality calibration"},
         {"phase": "Phase 25", "capability": "stable daily ops baseline, operator acceptance, simplified daily command, v1 closeout"},
+        {"phase": "Phase 26", "capability": "upstream source coverage audit, hot signal capture, backfill queue, daily hot material pool"},
     ]
 
 
@@ -76,12 +77,12 @@ def build_content_factory_v1_closeout(paths: ProjectPaths, repo_root: Path) -> t
         "Manual publishing sessions and post-publish metrics remain operator-entered.",
     ]
     next_phase = [
-        "Phase 26：Real Operator Acceptance Trial v1",
-        "P26-001：Operator Day 1 Acceptance Run",
-        "P26-002：Operator Feedback Capture",
-        "P26-003：Content Quality Blocking Issue Repair",
-        "P26-004：Manual Publishing Dry Run with Copy Pack",
-        "P26-005：Operator Acceptance Closeout",
+        "Phase 27：Selected Source Connector Implementation v1",
+        "P27-001：P0 Source Connector Selection",
+        "P27-002：RSS / Official Blog Connector Hardening",
+        "P27-003：GitHub / HuggingFace / arXiv Lightweight Connector",
+        "P27-004：Manual URL Backfill Ingestion",
+        "P27-005：Connector Regression and Source Health Gate",
     ]
     payload = {
         "schema_version": SCHEMA_VERSION,

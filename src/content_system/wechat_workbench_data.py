@@ -41,6 +41,7 @@ class WechatWorkbenchDataReport:
     phase23_panel: dict[str, Any]
     phase24_panel: dict[str, Any]
     phase25_panel: dict[str, Any]
+    hot_material_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -779,6 +780,60 @@ def build_phase25_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_hot_material_panel(paths: ProjectPaths) -> dict[str, Any]:
+    topic_root = paths.market_content_root / "03_topic_candidates"
+    audit = read_json(paths.logs_root / "latest_source_coverage_gap_audit.json")
+    expansion = read_json(paths.logs_root / "latest_high_value_source_expansion_plan.json")
+    signals = read_json(paths.logs_root / "latest_hot_signal_capture.json")
+    backfill = read_json(paths.logs_root / "latest_fallback_backfill_queue.json")
+    pool = read_json(topic_root / "latest_daily_hot_material_pool.json")
+    gate = read_json(paths.logs_root / "latest_hot_material_quality_gate.json")
+    pipeline = read_json(paths.logs_root / "latest_phase26_daily_acquisition_pipeline.json")
+    audit_summary = audit.get("summary") if isinstance(audit.get("summary"), dict) else {}
+    coverage_summary = audit.get("coverage_summary") if isinstance(audit.get("coverage_summary"), dict) else {}
+    expansion_summary = expansion.get("summary") if isinstance(expansion.get("summary"), dict) else {}
+    signal_summary = signals.get("summary") if isinstance(signals.get("summary"), dict) else {}
+    backfill_summary = backfill.get("summary") if isinstance(backfill.get("summary"), dict) else {}
+    pool_summary = pool.get("summary") if isinstance(pool.get("summary"), dict) else {}
+    gate_summary = gate.get("summary") if isinstance(gate.get("summary"), dict) else {}
+    pipeline_summary = pipeline.get("summary") if isinstance(pipeline.get("summary"), dict) else {}
+    lanes = list_payload(signals, "lanes")
+    empty_lanes = [item for item in lanes if item.get("status") in {"EMPTY", "MISSING_INPUT", "WEAK"}]
+    materials = list_payload(pool, "materials")
+    gate_items = list_payload(gate, "items")
+    tasks = list_payload(backfill, "backfill_tasks")
+    return {
+        "gate_status": gate.get("gate_status", "UNKNOWN"),
+        "coverage_summary": coverage_summary,
+        "gap_summary": audit_summary,
+        "source_expansion_summary": expansion_summary,
+        "hot_signal_summary": signal_summary,
+        "backfill_summary": backfill_summary,
+        "material_summary": pool_summary,
+        "quality_gate_summary": gate_summary,
+        "phase26_status": pipeline.get("status", "UNKNOWN"),
+        "phase26_summary": pipeline_summary,
+        "coverage_gaps": list_payload(audit, "coverage_gaps")[:10],
+        "source_candidates": list_payload(expansion, "source_candidates")[:12],
+        "lanes": lanes,
+        "empty_lanes": empty_lanes[:10],
+        "hot_signals": list_payload(signals, "hot_signals")[:12],
+        "materials": materials[:12],
+        "gate_items": gate_items[:12],
+        "backfill_tasks": tasks[:12],
+        "top_backfill_tasks": [item for item in tasks if item.get("priority") == "HIGH"][:6] or tasks[:6],
+        "weak_supply_reasons": gate_summary.get("weak_supply_reasons") if isinstance(gate_summary.get("weak_supply_reasons"), list) else [],
+        "policy": {
+            "diagnosis_and_scheduling_only": True,
+            "no_auto_publish": True,
+            "no_wechat_api": True,
+            "no_auto_image_generation": True,
+            "no_external_login_or_paid_bypass": True,
+            "no_sources_yaml_mutation": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -916,6 +971,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     phase23_panel = build_phase23_panel(paths)
     phase24_panel = build_phase24_panel(paths)
     phase25_panel = build_phase25_panel(paths)
+    hot_material_panel = build_hot_material_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -962,6 +1018,11 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["phase25_operator_acceptance_status"] = phase25_panel.get("operator_acceptance_status", "UNKNOWN")
     summary["phase25_stable_daily_ops_status"] = phase25_panel.get("stable_daily_ops_status", "UNKNOWN")
     summary["phase25_v1_status"] = phase25_panel.get("v1_status", "UNKNOWN")
+    summary["phase26_hot_material_count"] = safe_int((hot_material_panel.get("material_summary") or {}).get("material_count"))
+    summary["phase26_promote_to_topic_pipeline"] = safe_int((hot_material_panel.get("quality_gate_summary") or {}).get("promote_to_topic_pipeline"))
+    summary["phase26_backfill_required"] = safe_int((hot_material_panel.get("quality_gate_summary") or {}).get("backfill_required"))
+    summary["phase26_hot_material_gate_status"] = hot_material_panel.get("gate_status", "UNKNOWN")
+    summary["phase26_source_gap_count"] = safe_int((hot_material_panel.get("gap_summary") or {}).get("gap_count"))
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -993,6 +1054,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         phase23_panel,
         phase24_panel,
         phase25_panel,
+        hot_material_panel,
         tuple(warnings),
     )
 
@@ -1023,6 +1085,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "phase23_panel": report.phase23_panel,
         "phase24_panel": report.phase24_panel,
         "phase25_panel": report.phase25_panel,
+        "hot_material_panel": report.hot_material_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

@@ -921,6 +921,7 @@ function renderReader() {
   if (readerMode === "review") {
     const opsSection = renderReviewSection("今日运营", "先看今天能不能发、卡在哪里、下一步人工动作是什么。", `
         ${renderStableWorkbenchBaseline("review-card wide")}
+        ${renderHotMaterialPanel("review-card wide")}
         ${renderContentOpsPanel("review-card wide")}
         ${renderContentHardeningPanel("review-card wide", "ops")}
       `, true);
@@ -947,6 +948,7 @@ function renderReader() {
       `, false);
     const systemSection = renderReviewSection("系统运维", "失败处理、trial retrospective、fix pack、operator runbook 和 Phase0-19 closeout。", `
         ${renderStableWorkbenchBaseline("review-card wide")}
+        ${renderHotMaterialPanel("review-card wide")}
         ${renderStableTrialPanel("review-card wide")}
         ${renderStableOpsPanel("review-card wide")}
         ${renderPhase22Panel("review-card wide")}
@@ -1058,6 +1060,10 @@ function getPhase24Panel() {
 
 function getPhase25Panel() {
   return workbenchData.phase25_panel || {};
+}
+
+function getHotMaterialPanel() {
+  return workbenchData.hot_material_panel || {};
 }
 
 function renderReviewSection(title, note, body, open = true) {
@@ -1665,6 +1671,45 @@ function renderStableWorkbenchBaseline(cardClass = "review-card wide") {
   </div>`;
 }
 
+function renderHotMaterialPanel(cardClass = "review-card wide") {
+  const panel = getHotMaterialPanel();
+  const materialSummary = panel.material_summary || {};
+  const gateSummary = panel.quality_gate_summary || {};
+  const signalSummary = panel.hot_signal_summary || {};
+  const backfillSummary = panel.backfill_summary || {};
+  const gapSummary = panel.gap_summary || {};
+  const policy = panel.policy || {};
+  const weakReasons = Array.isArray(panel.weak_supply_reasons) ? panel.weak_supply_reasons : [];
+  const emptyLanes = Array.isArray(panel.empty_lanes) ? panel.empty_lanes : [];
+  const materials = Array.isArray(panel.materials) ? panel.materials : [];
+  const gateItems = Array.isArray(panel.gate_items) ? panel.gate_items : [];
+  const tasks = Array.isArray(panel.top_backfill_tasks) ? panel.top_backfill_tasks : [];
+  const hasPanel = panel.gate_status && panel.gate_status !== "UNKNOWN";
+  if (!hasPanel) {
+    return `<div class="${cardClass} hot-material-panel">
+      <p class="review-label">Hot Material Panel</p>
+      <p class="review-value">暂无 Phase26 上游素材数据。运行 <code>make phase26-daily</code> 后会显示 Source Coverage Gap Audit、Hot Signal Capture、Fallback Backfill Queue、Daily Hot Material Pool 和 Hot Material Quality Gate。</p>
+    </div>`;
+  }
+  const materialRows = materials.slice(0, 8).map((item) => `${item.recommended_use}: ${item.lane_id} / ${item.evidence_strength} / ${item.title}`);
+  const gateRows = gateItems.slice(0, 8).map((item) => `${item.gate_decision}: ${item.lane_id} / score ${item.quality_score} / ${item.required_next_action}`);
+  const taskRows = tasks.slice(0, 8).map((item) => `${item.priority}: ${item.lane_id} / ${item.suggested_method} / ${item.suggested_query}`);
+  const laneRows = emptyLanes.slice(0, 8).map((item) => `${item.status}: ${item.lane_id} / ${item.recommended_backfill || ""}`);
+  return `<div class="${cardClass} hot-material-panel">
+    <p class="review-label">Hot Material Panel</p>
+    <p class="review-value">gate_status ${escapeHtml(panel.gate_status || "UNKNOWN")} · Phase26 ${escapeHtml(panel.phase26_status || "UNKNOWN")} · materials ${escapeHtml(materialSummary.material_count ?? 0)} · promote ${escapeHtml(gateSummary.promote_to_topic_pipeline ?? 0)} · backfill ${escapeHtml(gateSummary.backfill_required ?? 0)}</p>
+    <p class="review-value">write_now ${escapeHtml(materialSummary.write_now ?? 0)} · develop_topic ${escapeHtml(materialSummary.develop_topic ?? 0)} · watch ${escapeHtml(materialSummary.watch ?? 0)} · backfill_first ${escapeHtml(materialSummary.backfill_first ?? 0)} · hold ${escapeHtml(materialSummary.hold ?? 0)}</p>
+    <p class="review-value">signals ${escapeHtml(signalSummary.hot_signal_count ?? 0)} · active lanes ${escapeHtml(signalSummary.active_lanes ?? 0)} · backfill tasks ${escapeHtml(backfillSummary.task_count ?? 0)} · source gaps ${escapeHtml(gapSummary.gap_count ?? 0)} / high ${escapeHtml(gapSummary.high_severity ?? 0)}</p>
+    <p class="review-label">weak_supply_reasons</p>${renderMiniList(weakReasons, "暂无 weak supply reason")}
+    <p class="review-label">Daily Hot Material Pool</p>${renderMiniList(materialRows, "暂无 daily hot material")}
+    <p class="review-label">Hot Material Quality Gate</p>${renderMiniList(gateRows, "暂无 gate item")}
+    <p class="review-label">Fallback Backfill Queue</p>${renderMiniList(taskRows, "暂无 backfill task")}
+    <p class="review-label">Empty / weak lanes</p>${renderMiniList(laneRows, "暂无 empty lane")}
+    <p class="review-label">Boundary</p>
+    <p class="review-value">diagnosis_and_scheduling_only=${escapeHtml(policy.diagnosis_and_scheduling_only ?? true)} · no_auto_publish=${escapeHtml(policy.no_auto_publish ?? true)} · no_wechat_api=${escapeHtml(policy.no_wechat_api ?? true)} · no_auto_image_generation=${escapeHtml(policy.no_auto_image_generation ?? true)} · no_sources_yaml_mutation=${escapeHtml(policy.no_sources_yaml_mutation ?? true)}</p>
+  </div>`;
+}
+
 function renderStableTrialPanel(cardClass = "review-card wide") {
   const panel = getPhase24Panel();
   const days = Array.isArray(panel.day_summaries) ? panel.day_summaries : [];
@@ -1727,6 +1772,7 @@ function renderInsightPanel() {
   const phase23 = getPhase23Panel();
   const phase24 = getPhase24Panel();
   const phase25 = getPhase25Panel();
+  const hotMaterial = getHotMaterialPanel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
@@ -1765,6 +1811,9 @@ function renderInsightPanel() {
   const phase25Baseline = phase25.baseline_summary || {};
   const phase25Acceptance = phase25.operator_acceptance_summary || {};
   const phase25Quality = phase25.content_quality_status || {};
+  const hotMaterialSummary = hotMaterial.material_summary || {};
+  const hotGateSummary = hotMaterial.quality_gate_summary || {};
+  const hotSignalSummary = hotMaterial.hot_signal_summary || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -1856,6 +1905,11 @@ function renderInsightPanel() {
       <p class="insight-label">Stable Daily Ops</p>
       <p class="insight-value"><code>${escapeHtml(phase25.daily_command || "make stable-daily-ops")}</code> · Baseline ${escapeHtml(phase25.baseline_status || "UNKNOWN")} · Acceptance ${escapeHtml(phase25.operator_acceptance_status || "UNKNOWN")} · v1 ${escapeHtml(phase25.v1_status || "UNKNOWN")}</p>
       <p class="insight-value">Blocking ${escapeHtml(phase25Baseline.blocking_issue_count ?? 0)} · manual review ${escapeHtml(phase25Acceptance.manual_review_required ?? true)} · ready_to_publish ${escapeHtml(phase25Quality.ready_to_publish ?? 0)} · quality blockers ${escapeHtml(phase25Quality.publish_blocking_quality_issues ?? 0)}</p>
+    </section>
+    <section class="insight-card hot-material-panel">
+      <p class="insight-label">上游素材供给</p>
+      <p class="insight-value">Gate ${escapeHtml(hotMaterial.gate_status || "UNKNOWN")} · materials ${escapeHtml(hotMaterialSummary.material_count ?? 0)} · promote ${escapeHtml(hotGateSummary.promote_to_topic_pipeline ?? 0)} · backfill ${escapeHtml(hotGateSummary.backfill_required ?? 0)}</p>
+      <p class="insight-value">write_now ${escapeHtml(hotMaterialSummary.write_now ?? 0)} · develop_topic ${escapeHtml(hotMaterialSummary.develop_topic ?? 0)} · signals ${escapeHtml(hotSignalSummary.hot_signal_count ?? 0)} · active lanes ${escapeHtml(hotSignalSummary.active_lanes ?? 0)}</p>
     </section>
     <section class="insight-card trial-panel">
       <p class="insight-label">Phase21 试运行</p>

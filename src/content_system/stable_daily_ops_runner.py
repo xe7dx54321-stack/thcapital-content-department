@@ -47,6 +47,38 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
     acceptance = read_json(logs_root / "latest_operator_acceptance_checklist.json")
     baseline_summary = baseline.get("summary") if isinstance(baseline.get("summary"), dict) else {}
     acceptance_summary = acceptance.get("operator_acceptance_summary") if isinstance(acceptance.get("operator_acceptance_summary"), dict) else {}
+    baseline_upstream = baseline.get("upstream_supply") if isinstance(baseline.get("upstream_supply"), dict) else {}
+    hot_gate = read_json(logs_root / "latest_hot_material_quality_gate.json")
+    hot_pool = read_json(logs_root.parent / "03_topic_candidates" / "latest_daily_hot_material_pool.json")
+    hot_gate_summary = hot_gate.get("summary") if isinstance(hot_gate.get("summary"), dict) else {}
+    hot_pool_summary = hot_pool.get("summary") if isinstance(hot_pool.get("summary"), dict) else {}
+    upstream_supply = {
+        "hot_material_count": int(
+            baseline_upstream.get("hot_material_count")
+            if baseline_upstream.get("hot_material_count") is not None
+            else hot_pool_summary.get("material_count") or 0
+        ),
+        "promote_to_topic_pipeline": int(
+            baseline_upstream.get("promote_to_topic_pipeline")
+            if baseline_upstream.get("promote_to_topic_pipeline") is not None
+            else hot_gate_summary.get("promote_to_topic_pipeline") or 0
+        ),
+        "backfill_required": int(
+            baseline_upstream.get("backfill_required")
+            if baseline_upstream.get("backfill_required") is not None
+            else hot_gate_summary.get("backfill_required") or 0
+        ),
+        "gate_status": baseline_upstream.get("gate_status") or hot_gate.get("gate_status", "UNKNOWN"),
+        "weak_supply_reasons": baseline_upstream.get("weak_supply_reasons")
+        if isinstance(baseline_upstream.get("weak_supply_reasons"), list)
+        else hot_gate_summary.get("weak_supply_reasons", []),
+    }
+    if upstream_supply["gate_status"] == "WEAK_SUPPLY":
+        upstream_supply["status_label"] = "ACTIONABLE_WITH_UPSTREAM_WEAK_SUPPLY"
+    elif upstream_supply["gate_status"] == "BLOCKED":
+        upstream_supply["status_label"] = "UPSTREAM_BLOCKED"
+    else:
+        upstream_supply["status_label"] = upstream_supply["gate_status"]
     baseline_status = baseline.get("baseline_status", "UNKNOWN")
     acceptance_status = acceptance.get("acceptance_status", "UNKNOWN")
     blocking_issue_count = int(baseline_summary.get("blocking_issue_count") or 0)
@@ -55,6 +87,10 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
         status = "FAILED"
     elif blocking_issue_count:
         status = "DEGRADED"
+    elif upstream_supply["gate_status"] == "BLOCKED":
+        status = "DEGRADED"
+    elif upstream_supply["gate_status"] == "WEAK_SUPPLY":
+        status = "ACTIONABLE"
     elif baseline_status == "READY_FOR_DAILY_OPS" and acceptance_status in {"ACCEPTABLE_FOR_DAILY_USE", "ACCEPTABLE_WITH_MANUAL_REVIEW"}:
         status = "SUCCESS"
     elif baseline_status in {"READY_FOR_DAILY_OPS", "ACTIONABLE_WITH_WARNINGS"}:
@@ -76,6 +112,7 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
             "acceptance_pass": acceptance_summary.get("pass", 0),
             "acceptance_warn": acceptance_summary.get("warn", 0),
             "acceptance_fail": acceptance_summary.get("fail", 0),
+            "upstream_supply": upstream_supply,
         },
         "safety": {
             "no_auto_publish": True,
@@ -88,6 +125,7 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
             "stable-daily-ops is the simplified daily operator command.",
             "It does not publish, call WeChat API, generate images, mutate config, or overwrite mainline content.",
             "SUCCESS means the system baseline is usable; publishing still requires human review.",
+            "Upstream WEAK_SUPPLY is actionable operator work, not an engineering failure.",
         ],
     }
     outputs = output_paths(logs_root, frontstage_root, run_date)
@@ -98,6 +136,7 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
 
 def render_markdown(payload: dict[str, Any]) -> str:
     summary = payload.get("daily_summary") if isinstance(payload.get("daily_summary"), dict) else {}
+    upstream = summary.get("upstream_supply") if isinstance(summary.get("upstream_supply"), dict) else {}
     rows = "\n".join(
         f"- {step.get('name')}: {step.get('status')} ({step.get('return_code')})"
         for step in payload.get("steps", [])
@@ -112,6 +151,11 @@ def render_markdown(payload: dict[str, Any]) -> str:
 - blocking_issue_count: `{summary.get('blocking_issue_count')}`
 - manual_required: `{summary.get('manual_required')}`
 - workbench_ready: `{summary.get('workbench_ready')}`
+- upstream_gate_status: `{upstream.get('gate_status', 'UNKNOWN')}`
+- upstream_status_label: `{upstream.get('status_label', 'UNKNOWN')}`
+- hot_material_count: `{upstream.get('hot_material_count', 0)}`
+- promote_to_topic_pipeline: `{upstream.get('promote_to_topic_pipeline', 0)}`
+- backfill_required: `{upstream.get('backfill_required', 0)}`
 
 ## Steps
 

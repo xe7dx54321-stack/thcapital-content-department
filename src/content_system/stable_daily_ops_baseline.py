@@ -31,6 +31,8 @@ def input_paths(paths: ProjectPaths, repo_root: Path) -> dict[str, Path]:
         "phase23": paths.logs_root / "latest_phase23_daily_stability_pipeline.json",
         "queue_repair": paths.market_content_root / "07_publishing" / "latest_content_queue_readiness_repair.json",
         "calendar_calibration": paths.market_content_root / "07_publishing" / "latest_publishing_calendar_readiness_calibration.json",
+        "hot_material_pool": paths.market_content_root / "03_topic_candidates" / "latest_daily_hot_material_pool.json",
+        "hot_material_quality_gate": paths.logs_root / "latest_hot_material_quality_gate.json",
         "operator_runbook": repo_root / "docs" / "OPERATOR_RUNBOOK.md",
         "system_closeout": repo_root / "docs" / "PHASE0_19_SYSTEM_CLOSEOUT.md",
     }
@@ -92,6 +94,8 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
     phase23 = read_json(inputs["phase23"])
     queue = read_json(inputs["queue_repair"])
     calendar = read_json(inputs["calendar_calibration"])
+    hot_pool = read_json(inputs["hot_material_pool"])
+    hot_gate = read_json(inputs["hot_material_quality_gate"])
 
     phase24_summary = phase24.get("summary") if isinstance(phase24.get("summary"), dict) else {}
     review_summary = review.get("summary") if isinstance(review.get("summary"), dict) else {}
@@ -101,6 +105,8 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
     phase23_summary = phase23.get("summary") if isinstance(phase23.get("summary"), dict) else {}
     queue_summary = queue.get("summary") if isinstance(queue.get("summary"), dict) else {}
     calendar_summary = calendar.get("summary") if isinstance(calendar.get("summary"), dict) else {}
+    hot_pool_summary = hot_pool.get("summary") if isinstance(hot_pool.get("summary"), dict) else {}
+    hot_gate_summary = hot_gate.get("summary") if isinstance(hot_gate.get("summary"), dict) else {}
 
     safety = {
         "auto_publish": False,
@@ -151,6 +157,27 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
         "Methodology feedback remains advisory until a human applies methodology/config changes.",
         "Manual visual review and publishing checklist warnings are expected before any real publication.",
     ]
+    hot_gate_status = str(hot_gate.get("gate_status") or "UNKNOWN")
+    weak_supply_reasons = hot_gate_summary.get("weak_supply_reasons") if isinstance(hot_gate_summary.get("weak_supply_reasons"), list) else []
+    if hot_gate_status == "WEAK_SUPPLY":
+        acceptable_warnings.append(
+            "Upstream hot material supply can be WEAK_SUPPLY while daily ops remains usable; operator should run backfill tasks."
+        )
+    upstream_supply = {
+        "hot_material_count": safe_int(hot_pool_summary.get("material_count")),
+        "write_now": safe_int(hot_pool_summary.get("write_now")),
+        "develop_topic": safe_int(hot_pool_summary.get("develop_topic")),
+        "backfill_first": safe_int(hot_pool_summary.get("backfill_first")),
+        "promote_to_topic_pipeline": safe_int(hot_gate_summary.get("promote_to_topic_pipeline")),
+        "backfill_required": safe_int(hot_gate_summary.get("backfill_required")),
+        "gate_status": hot_gate_status,
+        "weak_supply_reasons": weak_supply_reasons,
+        "interpretation": (
+            "Upstream supply is weak; daily ops can continue, but operator should backfill verified sources before assuming the topic queue is exhausted."
+            if hot_gate_status == "WEAK_SUPPLY"
+            else "Upstream supply is available or actionable based on the latest hot material quality gate."
+        ),
+    }
     manual_required_items = [
         {
             "area": "content_quality",
@@ -190,6 +217,7 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
         "true_blockers": true_blockers,
         "manual_required_items": manual_required_items,
         "content_quality_status": content_quality_status,
+        "upstream_supply": upstream_supply,
         "ops_status": {
             "phase24_status": phase24_status,
             "stable_ops_readiness_status": review_status,
@@ -205,6 +233,7 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
             "requires_operator_review": True,
             "blocking_issue_count": len(true_blockers),
             "warnings": len(warnings),
+            "upstream_gate_status": hot_gate_status,
         },
         "warnings": warnings,
         "notes": [
@@ -221,6 +250,7 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
 def render_markdown(payload: dict[str, Any]) -> str:
     summary = payload.get("summary") if isinstance(payload.get("summary"), dict) else {}
     quality = payload.get("content_quality_status") if isinstance(payload.get("content_quality_status"), dict) else {}
+    upstream = payload.get("upstream_supply") if isinstance(payload.get("upstream_supply"), dict) else {}
     flow = "\n".join(
         f"{item.get('step')}. `{item.get('command')}` - {item.get('operator_decision')}"
         for item in payload.get("recommended_operator_flow", [])
@@ -248,6 +278,15 @@ def render_markdown(payload: dict[str, Any]) -> str:
 - quality_issues: `{quality.get('quality_issues', 0)}`
 - publish_blocking_quality_issues: `{quality.get('publish_blocking_quality_issues', 0)}`
 - interpretation: {quality.get('interpretation', '')}
+
+## Upstream Supply
+
+- hot_material_count: `{upstream.get('hot_material_count', 0)}`
+- promote_to_topic_pipeline: `{upstream.get('promote_to_topic_pipeline', 0)}`
+- backfill_required: `{upstream.get('backfill_required', 0)}`
+- gate_status: `{upstream.get('gate_status', 'UNKNOWN')}`
+- weak_supply_reasons: `{len(upstream.get('weak_supply_reasons', [])) if isinstance(upstream.get('weak_supply_reasons'), list) else 0}`
+- interpretation: {upstream.get('interpretation', '')}
 
 ## Recommended Operator Flow
 

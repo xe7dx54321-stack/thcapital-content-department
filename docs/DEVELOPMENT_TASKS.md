@@ -1104,24 +1104,66 @@
 
 状态：Done。
 
-## Phase 26：Real Operator Acceptance Trial v1
+## Phase 26：Upstream Intelligence Acquisition Reinforcement v1
 
-### P26-001：Operator Day 1 Acceptance Run
+### P26-001：Source Coverage Gap Audit
+
+状态：Done。
+
+### P26-002：High-value Source Expansion Plan
+
+状态：Done。
+
+### P26-003：Multi-lane Hot Signal Capture
+
+状态：Done。
+
+### P26-004：Fallback Search & Backfill Queue
+
+状态：Done。
+
+### P26-005：Daily Hot Material Pool
+
+状态：Done。
+
+### P26-006：Hot Material Quality Gate
+
+状态：Done。
+
+### P26-007：Workbench Hot Material Panel
+
+状态：Done。
+
+### P26-008：Stable Daily Ops Integration
+
+状态：Done。
+
+### P26-009：Phase 26 Daily Acquisition Pipeline
+
+状态：Done。
+
+### P26-010：Phase 26 Closeout
+
+状态：Done。
+
+## Phase 27：Selected Source Connector Implementation v1
+
+### P27-001：P0 Source Connector Selection
 
 状态：Planned。
 
-### P26-002：Operator Feedback Capture
+### P27-002：RSS / Official Blog Connector Hardening
 
 状态：Planned。
 
-### P26-003：Content Quality Blocking Issue Repair
+### P27-003：GitHub / HuggingFace / arXiv Lightweight Connector
 
 状态：Planned。
 
-### P26-004：Manual Publishing Dry Run with Copy Pack
+### P27-004：Manual URL Backfill Ingestion
 
 状态：Planned。
 
-### P26-005：Operator Acceptance Closeout
+### P27-005：Connector Regression and Source Health Gate
 
 状态：Planned。
