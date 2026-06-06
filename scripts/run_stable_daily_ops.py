@@ -44,6 +44,15 @@ def main() -> int:
     print(f"  ready_for_brief: {acquisition.get('ready_for_brief', 0)}")
     print(f"  needs_evidence: {acquisition.get('needs_evidence', 0)}")
     print(f"  watch: {acquisition.get('watch', 0)}")
+    openclaw = summary.get("openclaw_migration") if isinstance(summary.get("openclaw_migration"), dict) else {}
+    print("OpenClaw migration:")
+    print(f"  inventory_source_count: {openclaw.get('inventory_source_count', 0)}")
+    print(f"  migration_candidate_count: {openclaw.get('migration_candidate_count', 0)}")
+    print(f"  metadata_item_count: {openclaw.get('metadata_item_count', 0)}")
+    print(f"  weak_signal_item_count: {openclaw.get('weak_signal_item_count', 0)}")
+    print(f"  openclaw_hot_material_count: {openclaw.get('openclaw_hot_material_count', 0)}")
+    print(f"  blocked_source_count: {openclaw.get('blocked_source_count', 0)}")
+    print(f"  hard_evidence_allowed: {openclaw.get('hard_evidence_allowed', 0)}")
     print("Safety:")
     for key, value in payload.get("safety", {}).items():
         print(f"  {key}: {value}")

@@ -53,11 +53,21 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
     evidence = read_json(logs_root.parent / "03_topic_candidates" / "latest_connector_evidence_packets.json")
     promoted_topics = read_json(logs_root.parent / "03_topic_candidates" / "latest_connector_promoted_topic_candidates.json")
     acquisition_bridge = read_json(logs_root / "latest_acquisition_to_content_bridge.json")
+    openclaw_inventory = read_json(logs_root / "latest_openclaw_source_inventory.json")
+    openclaw_plan = read_json(logs_root / "latest_openclaw_migration_plan.json")
+    openclaw_connectors = read_json(logs_root / "latest_openclaw_metadata_connector_run.json")
+    weak_gate = read_json(logs_root / "latest_weak_signal_safety_gate.json")
+    openclaw_signals = read_json(logs_root / "latest_normalized_openclaw_signals.json")
     hot_gate_summary = hot_gate.get("summary") if isinstance(hot_gate.get("summary"), dict) else {}
     hot_pool_summary = hot_pool.get("summary") if isinstance(hot_pool.get("summary"), dict) else {}
     evidence_summary = evidence.get("summary") if isinstance(evidence.get("summary"), dict) else {}
     promoted_summary = promoted_topics.get("summary") if isinstance(promoted_topics.get("summary"), dict) else {}
     bridge_summary = acquisition_bridge.get("summary") if isinstance(acquisition_bridge.get("summary"), dict) else {}
+    inv_summary = openclaw_inventory.get("summary") if isinstance(openclaw_inventory.get("summary"), dict) else {}
+    plan_summary = openclaw_plan.get("summary") if isinstance(openclaw_plan.get("summary"), dict) else {}
+    conn_summary = openclaw_connectors.get("summary") if isinstance(openclaw_connectors.get("summary"), dict) else {}
+    weak_summary = weak_gate.get("summary") if isinstance(weak_gate.get("summary"), dict) else {}
+    signal_summary = openclaw_signals.get("summary") if isinstance(openclaw_signals.get("summary"), dict) else {}
     upstream_supply = {
         "hot_material_count": int(
             baseline_upstream.get("hot_material_count")
@@ -127,6 +137,44 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
             else bridge_summary.get("watch") or 0
         ),
     }
+    baseline_openclaw = baseline.get("openclaw_migration") if isinstance(baseline.get("openclaw_migration"), dict) else {}
+    openclaw_migration = {
+        "inventory_source_count": int(
+            baseline_openclaw.get("inventory_source_count")
+            if baseline_openclaw.get("inventory_source_count") is not None
+            else inv_summary.get("source_count") or 0
+        ),
+        "migration_candidate_count": int(
+            baseline_openclaw.get("migration_candidate_count")
+            if baseline_openclaw.get("migration_candidate_count") is not None
+            else plan_summary.get("candidate_count") or 0
+        ),
+        "metadata_item_count": int(
+            baseline_openclaw.get("metadata_item_count")
+            if baseline_openclaw.get("metadata_item_count") is not None
+            else conn_summary.get("item_count") or 0
+        ),
+        "weak_signal_item_count": int(
+            baseline_openclaw.get("weak_signal_item_count")
+            if baseline_openclaw.get("weak_signal_item_count") is not None
+            else conn_summary.get("weak_signal_items") or 0
+        ),
+        "openclaw_hot_material_count": int(
+            baseline_openclaw.get("openclaw_hot_material_count")
+            if baseline_openclaw.get("openclaw_hot_material_count") is not None
+            else hot_pool_summary.get("openclaw_hot_material_count") or 0
+        ),
+        "blocked_source_count": int(
+            baseline_openclaw.get("blocked_source_count")
+            if baseline_openclaw.get("blocked_source_count") is not None
+            else weak_summary.get("blocked") or 0
+        ),
+        "hard_evidence_allowed": int(
+            baseline_openclaw.get("hard_evidence_allowed")
+            if baseline_openclaw.get("hard_evidence_allowed") is not None
+            else signal_summary.get("hard_evidence_allowed") or 0
+        ),
+    }
     blocking_issue_count = int(baseline_summary.get("blocking_issue_count") or 0)
     workbench_ready = (frontstage_root / "latest_wechat_workbench.html").exists()
     if failed:
@@ -160,6 +208,7 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
             "acceptance_fail": acceptance_summary.get("fail", 0),
             "upstream_supply": upstream_supply,
             "acquisition_to_content": acquisition_to_content,
+            "openclaw_migration": openclaw_migration,
         },
         "safety": {
             "no_auto_publish": True,
@@ -174,6 +223,7 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
             "SUCCESS means the system baseline is usable; publishing still requires human review.",
             "Upstream WEAK_SUPPLY is actionable operator work, not an engineering failure.",
             "Connector evidence remains metadata-derived and requires human/source review before writing.",
+            "OpenClaw migrated signals are weak/supporting signals by default and cannot be used as hard evidence.",
         ],
     }
     outputs = output_paths(logs_root, frontstage_root, run_date)
@@ -186,6 +236,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
     summary = payload.get("daily_summary") if isinstance(payload.get("daily_summary"), dict) else {}
     upstream = summary.get("upstream_supply") if isinstance(summary.get("upstream_supply"), dict) else {}
     acquisition = summary.get("acquisition_to_content") if isinstance(summary.get("acquisition_to_content"), dict) else {}
+    openclaw = summary.get("openclaw_migration") if isinstance(summary.get("openclaw_migration"), dict) else {}
     rows = "\n".join(
         f"- {step.get('name')}: {step.get('status')} ({step.get('return_code')})"
         for step in payload.get("steps", [])
@@ -217,6 +268,16 @@ def render_markdown(payload: dict[str, Any]) -> str:
 - ready_for_brief: `{acquisition.get('ready_for_brief', 0)}`
 - needs_evidence: `{acquisition.get('needs_evidence', 0)}`
 - watch: `{acquisition.get('watch', 0)}`
+
+## OpenClaw Migration
+
+- inventory_source_count: `{openclaw.get('inventory_source_count', 0)}`
+- migration_candidate_count: `{openclaw.get('migration_candidate_count', 0)}`
+- metadata_item_count: `{openclaw.get('metadata_item_count', 0)}`
+- weak_signal_item_count: `{openclaw.get('weak_signal_item_count', 0)}`
+- openclaw_hot_material_count: `{openclaw.get('openclaw_hot_material_count', 0)}`
+- blocked_source_count: `{openclaw.get('blocked_source_count', 0)}`
+- hard_evidence_allowed: `{openclaw.get('hard_evidence_allowed', 0)}`
 
 ## Steps
 

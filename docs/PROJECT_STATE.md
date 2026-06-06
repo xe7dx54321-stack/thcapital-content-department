@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 28：Source Connector Expansion & Evidence Enrichment v1。
+Phase 29：OpenClaw Source Migration & Signal Lane Integration v1。
 
 ## 最新 checkpoint
 
-P28-009：Phase 28 Closeout。
+P29-010：Phase 29 Closeout。
 
 ## 已完成
 
@@ -376,6 +376,19 @@ P28-009：Phase 28 Closeout。
 - P28-008 Phase 28 Daily Enrichment Pipeline v1。
 - P28-009 Phase 28 Closeout。
 
+### Phase 29
+
+- P29-001 OpenClaw Source Inventory Import v1。
+- P29-002 OpenClaw Source Risk Classification v1。
+- P29-003 P0/P1 Migration Plan v1。
+- P29-004 Selected OpenClaw Metadata Connector v1。
+- P29-005 Weak Signal Safety Gate v1。
+- P29-006 OpenClaw Signal Normalization & Hot Material Integration v1。
+- P29-007 Workbench Source Migration Panel v1。
+- P29-008 Stable Daily Ops Source Supply Upgrade v1。
+- P29-009 Phase 29 Daily Migration Pipeline v1。
+- P29-010 Phase 29 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -668,16 +681,28 @@ P28-009：Phase 28 Closeout。
 - stable daily ops acquisition integration。
 - phase28 daily enrichment pipeline。
 
+### Phase 29 能力
+
+- openclaw source inventory import。
+- openclaw source risk classification。
+- openclaw P0/P1 migration planning。
+- selected openclaw metadata connector。
+- weak signal safety gate。
+- openclaw signal normalization。
+- workbench source migration panel。
+- stable daily ops source supply upgrade。
+- phase29 daily migration pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
 make stable-daily-ops
 ```
 
-新增上游 enrichment 命令：
+新增 OpenClaw 迁移检查命令：
 
 ```bash
-make phase28-daily
+make phase29-daily
 ```
 
 ## 当前边界
@@ -762,15 +787,19 @@ make phase28-daily
 - Phase 28 不自动改 config/prompt/rules。
 - Phase 28 metadata 只能增强为 evidence packet，不能伪造成完整事实证据。
 - Phase 28 不迁移 OpenClaw 旧源、cron、gateway、全文深抓、自动发布或草稿箱能力。
+- Phase 29 不自动发布、不接公众号 API、不进入公众号草稿箱。
+- Phase 29 不自动生成图片、不自动调用图片模型、不提交图片文件。
+- Phase 29 不抓全文、不绕过登录/付费墙。
+- Phase 29 不接 OpenClaw gateway、不迁移 OpenClaw cron。
+- Phase 29 不自动改 config/prompt/rules。
+- OpenClaw migrated signals 默认不能作为硬证据。
 
 ## 下一阶段
 
-Phase 29：OpenClaw Source Migration & Signal Lane Integration v1。
+Phase 30：OpenClaw Migrated Signal Evidence Backfill & Topic Activation v1。
 
-- P29-001：OpenClaw Source Inventory Import。
-- P29-002：OpenClaw Source Risk Classification。
-- P29-003：P0/P1 Migration Plan。
-- P29-004：Reddit / YC / TechCrunch / FinSMEs / Newsletter / Chinese Media Metadata Connector。
-- P29-005：Weak Signal Safety Gate。
-- P29-006：Workbench Source Migration Panel。
-- P29-007：Stable Daily Ops Source Supply Upgrade。
+- P30-001：OpenClaw Signal Evidence Backfill。
+- P30-002：Weak Signal Confirmation Workflow。
+- P30-003：Migrated Source Topic Candidate Promotion。
+- P30-004：OpenClaw-to-Content Regression Gate。
+- P30-005：Migration Closeout and Source Registry Proposal。

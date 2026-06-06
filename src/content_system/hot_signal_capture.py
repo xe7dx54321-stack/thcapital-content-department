@@ -129,6 +129,7 @@ def build_hot_signal_capture(paths: ProjectPaths, repo_root: Path) -> tuple[dict
     expansion = read_json(paths.logs_root / "latest_high_value_source_expansion_plan.json")
     high_value = read_json(paths.market_content_root / "03_topic_candidates" / "latest_high_value_candidates.json")
     normalized_upstream = read_json(paths.logs_root / "latest_normalized_upstream_items.json")
+    normalized_openclaw = read_json(paths.logs_root / "latest_normalized_openclaw_signals.json")
 
     signals: list[dict[str, Any]] = []
     for item in source_items_from_manifest(manifest):
@@ -197,6 +198,10 @@ def build_hot_signal_capture(paths: ProjectPaths, repo_root: Path) -> tuple[dict
         "connector_item_count": len(list_payload(normalized_upstream, "items")),
         "connector_signal_count": len(connector_signals),
         "connector_candidate_for_topic_pool": sum(1 for item in connector_signals if item.get("candidate_for_topic_pool")),
+        "openclaw_signal_count": len(list_payload(normalized_openclaw, "signals")),
+        "openclaw_candidate_for_hot_material_pool": sum(
+            1 for item in list_payload(normalized_openclaw, "signals") if item.get("candidate_for_hot_material_pool")
+        ),
     }
     payload = {
         "schema_version": SCHEMA_VERSION,
@@ -211,6 +216,7 @@ def build_hot_signal_capture(paths: ProjectPaths, repo_root: Path) -> tuple[dict
             "source_runtime_health_available": bool(runtime),
             "expansion_plan_available": bool(expansion),
             "normalized_upstream_items_available": bool(normalized_upstream),
+            "normalized_openclaw_signals_available": bool(normalized_openclaw),
         },
         "policy": {
             "local_artifact_only": True,
@@ -256,6 +262,8 @@ def render_markdown(payload: dict[str, Any]) -> str:
 - candidate_for_topic_pool: `{summary.get('candidate_for_topic_pool', 0)}`
 - connector_item_count: `{summary.get('connector_item_count', 0)}`
 - connector_signal_count: `{summary.get('connector_signal_count', 0)}`
+- openclaw_signal_count: `{summary.get('openclaw_signal_count', 0)}`
+- openclaw_candidate_for_hot_material_pool: `{summary.get('openclaw_candidate_for_hot_material_pool', 0)}`
 
 ## Lanes
 

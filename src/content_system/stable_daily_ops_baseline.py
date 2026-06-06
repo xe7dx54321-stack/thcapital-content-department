@@ -36,6 +36,11 @@ def input_paths(paths: ProjectPaths, repo_root: Path) -> dict[str, Path]:
         "connector_evidence_packets": paths.market_content_root / "03_topic_candidates" / "latest_connector_evidence_packets.json",
         "connector_promoted_topic_candidates": paths.market_content_root / "03_topic_candidates" / "latest_connector_promoted_topic_candidates.json",
         "acquisition_to_content_bridge": paths.logs_root / "latest_acquisition_to_content_bridge.json",
+        "openclaw_source_inventory": paths.logs_root / "latest_openclaw_source_inventory.json",
+        "openclaw_migration_plan": paths.logs_root / "latest_openclaw_migration_plan.json",
+        "openclaw_metadata_connector_run": paths.logs_root / "latest_openclaw_metadata_connector_run.json",
+        "weak_signal_safety_gate": paths.logs_root / "latest_weak_signal_safety_gate.json",
+        "normalized_openclaw_signals": paths.logs_root / "latest_normalized_openclaw_signals.json",
         "operator_runbook": repo_root / "docs" / "OPERATOR_RUNBOOK.md",
         "system_closeout": repo_root / "docs" / "PHASE0_19_SYSTEM_CLOSEOUT.md",
     }
@@ -102,6 +107,11 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
     evidence = read_json(inputs["connector_evidence_packets"])
     promoted_topics = read_json(inputs["connector_promoted_topic_candidates"])
     acquisition_bridge = read_json(inputs["acquisition_to_content_bridge"])
+    openclaw_inventory = read_json(inputs["openclaw_source_inventory"])
+    openclaw_plan = read_json(inputs["openclaw_migration_plan"])
+    openclaw_connectors = read_json(inputs["openclaw_metadata_connector_run"])
+    weak_gate = read_json(inputs["weak_signal_safety_gate"])
+    openclaw_signals = read_json(inputs["normalized_openclaw_signals"])
 
     phase24_summary = phase24.get("summary") if isinstance(phase24.get("summary"), dict) else {}
     review_summary = review.get("summary") if isinstance(review.get("summary"), dict) else {}
@@ -116,6 +126,11 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
     evidence_summary = evidence.get("summary") if isinstance(evidence.get("summary"), dict) else {}
     promoted_summary = promoted_topics.get("summary") if isinstance(promoted_topics.get("summary"), dict) else {}
     bridge_summary = acquisition_bridge.get("summary") if isinstance(acquisition_bridge.get("summary"), dict) else {}
+    openclaw_inventory_summary = openclaw_inventory.get("summary") if isinstance(openclaw_inventory.get("summary"), dict) else {}
+    openclaw_plan_summary = openclaw_plan.get("summary") if isinstance(openclaw_plan.get("summary"), dict) else {}
+    openclaw_connector_summary = openclaw_connectors.get("summary") if isinstance(openclaw_connectors.get("summary"), dict) else {}
+    weak_gate_summary = weak_gate.get("summary") if isinstance(weak_gate.get("summary"), dict) else {}
+    openclaw_signal_summary = openclaw_signals.get("summary") if isinstance(openclaw_signals.get("summary"), dict) else {}
 
     safety = {
         "auto_publish": False,
@@ -193,6 +208,25 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
             else "Upstream supply is available or actionable based on the latest hot material quality gate."
         ),
     }
+    openclaw_migration = {
+        "inventory_source_count": safe_int(openclaw_inventory_summary.get("source_count")),
+        "migration_candidate_count": safe_int(openclaw_plan_summary.get("candidate_count")),
+        "metadata_item_count": safe_int(openclaw_connector_summary.get("item_count")),
+        "weak_signal_item_count": safe_int(openclaw_connector_summary.get("weak_signal_items")),
+        "openclaw_hot_material_count": safe_int(hot_pool_summary.get("openclaw_hot_material_count")),
+        "blocked_source_count": safe_int(weak_gate_summary.get("blocked")),
+        "hard_evidence_allowed": safe_int(openclaw_signal_summary.get("hard_evidence_allowed")),
+        "operator_action": (
+            "有新增 OpenClaw 弱信号素材，需要二次确认，不可直接作为硬证据。"
+            if safe_int(openclaw_connector_summary.get("weak_signal_items"))
+            else "暂无新增 OpenClaw 弱信号素材。"
+        ),
+        "supply_note": (
+            "OpenClaw migrated sources are contributing upstream materials."
+            if safe_int(hot_pool_summary.get("openclaw_hot_material_count"))
+            else "OpenClaw migrated sources have not contributed hot materials yet."
+        ),
+    }
     acquisition_to_content = {
         "connector_topic_candidates": safe_int(promoted_summary.get("candidate_count")),
         "ready_for_brief": safe_int(bridge_summary.get("ready_for_brief")),
@@ -251,6 +285,7 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
         "content_quality_status": content_quality_status,
         "upstream_supply": upstream_supply,
         "acquisition_to_content": acquisition_to_content,
+        "openclaw_migration": openclaw_migration,
         "ops_status": {
             "phase24_status": phase24_status,
             "stable_ops_readiness_status": review_status,
@@ -269,6 +304,8 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
             "upstream_gate_status": hot_gate_status,
             "ready_for_brief": acquisition_to_content["ready_for_brief"],
             "needs_evidence": acquisition_to_content["needs_evidence"],
+            "openclaw_hot_material_count": openclaw_migration["openclaw_hot_material_count"],
+            "openclaw_weak_signal_item_count": openclaw_migration["weak_signal_item_count"],
         },
         "warnings": warnings,
         "notes": [
@@ -287,6 +324,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
     quality = payload.get("content_quality_status") if isinstance(payload.get("content_quality_status"), dict) else {}
     upstream = payload.get("upstream_supply") if isinstance(payload.get("upstream_supply"), dict) else {}
     acquisition = payload.get("acquisition_to_content") if isinstance(payload.get("acquisition_to_content"), dict) else {}
+    openclaw = payload.get("openclaw_migration") if isinstance(payload.get("openclaw_migration"), dict) else {}
     flow = "\n".join(
         f"{item.get('step')}. `{item.get('command')}` - {item.get('operator_decision')}"
         for item in payload.get("recommended_operator_flow", [])
@@ -337,6 +375,18 @@ def render_markdown(payload: dict[str, Any]) -> str:
 - watch: `{acquisition.get('watch', 0)}`
 - operator_action: {acquisition.get('operator_action', '')}
 - evidence_action: {acquisition.get('evidence_action', '')}
+
+## OpenClaw Migration
+
+- inventory_source_count: `{openclaw.get('inventory_source_count', 0)}`
+- migration_candidate_count: `{openclaw.get('migration_candidate_count', 0)}`
+- metadata_item_count: `{openclaw.get('metadata_item_count', 0)}`
+- weak_signal_item_count: `{openclaw.get('weak_signal_item_count', 0)}`
+- openclaw_hot_material_count: `{openclaw.get('openclaw_hot_material_count', 0)}`
+- blocked_source_count: `{openclaw.get('blocked_source_count', 0)}`
+- hard_evidence_allowed: `{openclaw.get('hard_evidence_allowed', 0)}`
+- operator_action: {openclaw.get('operator_action', '')}
+- supply_note: {openclaw.get('supply_note', '')}
 
 ## Recommended Operator Flow
 

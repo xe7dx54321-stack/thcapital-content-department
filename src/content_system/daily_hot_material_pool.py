@@ -129,6 +129,55 @@ def material_from_backfill(task: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def material_from_openclaw_signal(signal: dict[str, Any]) -> dict[str, Any]:
+    role = str(signal.get("evidence_role") or "weak_signal")
+    weak_signal = bool(signal.get("weak_signal", True))
+    candidate = bool(signal.get("candidate_for_hot_material_pool"))
+    has_url = bool(signal.get("url"))
+    if role == "supporting_evidence" and has_url and candidate and not weak_signal:
+        recommended = "develop_topic"
+        evidence = "MEDIUM"
+        hotness = 62
+        potential = 62
+    elif candidate and has_url and role in {"weak_signal", "heat_validation"}:
+        recommended = "watch"
+        evidence = "LOW"
+        hotness = 52
+        potential = 48
+    else:
+        recommended = "backfill_first"
+        evidence = "UNKNOWN"
+        hotness = 42
+        potential = 35
+    return {
+        "material_id": stable_id("hotmat", "openclaw", signal.get("signal_id")),
+        "title": compact_text(signal.get("title") or signal.get("source_name"), 180),
+        "source_type": "openclaw_signal",
+        "source_origin": "openclaw_migration",
+        "origin_source_type": "openclaw_migration",
+        "openclaw_signal_id": signal.get("signal_id", ""),
+        "lane_id": signal.get("lane", ""),
+        "event_type": "unknown",
+        "domain_tags": [str(signal.get("lane") or ""), "openclaw_migration", role],
+        "hotness_score": hotness,
+        "content_potential_score": potential,
+        "evidence_strength": evidence,
+        "freshness": "unknown",
+        "recommended_use": recommended,
+        "why_it_matters": compact_text(signal.get("required_confirmation") or "Migrated OpenClaw signal can broaden upstream coverage.", 240),
+        "missing_evidence": ["OpenClaw migrated signal requires confirmation before content claims."],
+        "next_action": (
+            "Confirm with official/source evidence before topic promotion."
+            if recommended == "watch"
+            else "Run manual evidence backfill before topic scoring."
+        ),
+        "evidence_role": role,
+        "weak_signal": weak_signal,
+        "can_use_as_hard_evidence": bool(signal.get("can_use_as_hard_evidence")),
+        "required_confirmation": signal.get("required_confirmation", ""),
+    }
+
+
 def build_daily_hot_material_pool(paths: ProjectPaths, repo_root: Path) -> tuple[dict[str, Any], dict[str, Path]]:
     run_date = today_token()
     hot = read_json(paths.logs_root / "latest_hot_signal_capture.json")
@@ -136,6 +185,7 @@ def build_daily_hot_material_pool(paths: ProjectPaths, repo_root: Path) -> tuple
     topic_scores = read_json(paths.market_content_root / "03_topic_candidates" / "latest_methodology_topic_scores.json")
     backfill = read_json(paths.logs_root / "latest_fallback_backfill_queue.json")
     runtime = read_json(paths.logs_root / "latest_source_runtime_health.json")
+    openclaw = read_json(paths.logs_root / "latest_normalized_openclaw_signals.json")
 
     by_id: dict[str, dict[str, Any]] = {}
     for signal in list_payload(hot, "hot_signals"):
@@ -147,6 +197,11 @@ def build_daily_hot_material_pool(paths: ProjectPaths, repo_root: Path) -> tuple
     for task in list_payload(backfill, "backfill_tasks"):
         material = material_from_backfill(task)
         by_id[material["material_id"]] = material
+    for signal in list_payload(openclaw, "signals"):
+        if not signal.get("candidate_for_hot_material_pool"):
+            continue
+        material = material_from_openclaw_signal(signal)
+        by_id.setdefault(material["material_id"], material)
 
     topic_summary = topic_scores.get("summary") if isinstance(topic_scores.get("summary"), dict) else {}
     runtime_missing = safe_int(runtime.get("missing_expected_count"))
@@ -190,6 +245,9 @@ def build_daily_hot_material_pool(paths: ProjectPaths, repo_root: Path) -> tuple
             if item.get("origin_source_type") in {"rss_official_blog", "github", "huggingface", "arxiv", "manual_url"}
             and item.get("recommended_use") in {"write_now", "develop_topic"}
         ),
+        "openclaw_signal_count": len(list_payload(openclaw, "signals")),
+        "openclaw_hot_material_count": sum(1 for item in materials if item.get("source_origin") == "openclaw_migration"),
+        "weak_signal_material_count": sum(1 for item in materials if item.get("weak_signal")),
     }
     payload = {
         "schema_version": SCHEMA_VERSION,
@@ -238,6 +296,9 @@ def render_markdown(payload: dict[str, Any]) -> str:
 - hold: `{summary.get('hold', 0)}`
 - connector_item_count: `{summary.get('connector_item_count', 0)}`
 - connector_promote_candidates: `{summary.get('connector_promote_candidates', 0)}`
+- openclaw_signal_count: `{summary.get('openclaw_signal_count', 0)}`
+- openclaw_hot_material_count: `{summary.get('openclaw_hot_material_count', 0)}`
+- weak_signal_material_count: `{summary.get('weak_signal_material_count', 0)}`
 
 ## Materials
 

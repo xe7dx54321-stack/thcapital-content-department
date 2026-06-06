@@ -44,6 +44,7 @@ class WechatWorkbenchDataReport:
     hot_material_panel: dict[str, Any]
     connector_health_panel: dict[str, Any]
     evidence_topic_promotion_panel: dict[str, Any]
+    openclaw_migration_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -935,6 +936,65 @@ def build_evidence_topic_promotion_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_openclaw_migration_panel(paths: ProjectPaths) -> dict[str, Any]:
+    topic_root = paths.market_content_root / "03_topic_candidates"
+    inventory = read_json(paths.logs_root / "latest_openclaw_source_inventory.json")
+    risk = read_json(paths.logs_root / "latest_openclaw_source_risk_classification.json")
+    plan = read_json(paths.logs_root / "latest_openclaw_migration_plan.json")
+    connectors = read_json(paths.logs_root / "latest_openclaw_metadata_connector_run.json")
+    weak_gate = read_json(paths.logs_root / "latest_weak_signal_safety_gate.json")
+    normalized = read_json(paths.logs_root / "latest_normalized_openclaw_signals.json")
+    pool = read_json(topic_root / "latest_daily_hot_material_pool.json")
+    gate = read_json(paths.logs_root / "latest_hot_material_quality_gate.json")
+    pipeline = read_json(paths.logs_root / "latest_phase29_daily_migration_pipeline.json")
+    inventory_summary = inventory.get("summary") if isinstance(inventory.get("summary"), dict) else {}
+    risk_summary = risk.get("summary") if isinstance(risk.get("summary"), dict) else {}
+    plan_summary = plan.get("summary") if isinstance(plan.get("summary"), dict) else {}
+    connector_summary = connectors.get("summary") if isinstance(connectors.get("summary"), dict) else {}
+    weak_summary = weak_gate.get("summary") if isinstance(weak_gate.get("summary"), dict) else {}
+    normalized_summary = normalized.get("summary") if isinstance(normalized.get("summary"), dict) else {}
+    pool_summary = pool.get("summary") if isinstance(pool.get("summary"), dict) else {}
+    gate_summary = gate.get("summary") if isinstance(gate.get("summary"), dict) else {}
+    pipeline_summary = pipeline.get("summary") if isinstance(pipeline.get("summary"), dict) else {}
+    return {
+        "phase29_status": pipeline.get("status", "UNKNOWN"),
+        "phase29_summary": pipeline_summary,
+        "inventory_summary": inventory_summary,
+        "openclaw_available": inventory.get("openclaw_available", False),
+        "gateway_detected": inventory.get("gateway_detected", False),
+        "jobs": list_payload(inventory, "jobs")[:10],
+        "sources": list_payload(inventory, "sources")[:16],
+        "risk_summary": risk_summary,
+        "classified_sources": list_payload(risk, "classified_sources")[:16],
+        "migration_plan_summary": plan_summary,
+        "migration_candidates": list_payload(plan, "migration_candidates")[:16],
+        "metadata_connector_summary": connector_summary,
+        "connectors": list_payload(connectors, "connectors"),
+        "weak_signal_gate_status": weak_gate.get("gate_status", "UNKNOWN"),
+        "weak_signal_summary": weak_summary,
+        "weak_signal_items": list_payload(weak_gate, "items")[:16],
+        "normalized_summary": normalized_summary,
+        "normalized_signals": list_payload(normalized, "signals")[:16],
+        "hot_material_summary": {
+            "openclaw_signal_count": safe_int(pool_summary.get("openclaw_signal_count")),
+            "openclaw_hot_material_count": safe_int(pool_summary.get("openclaw_hot_material_count")),
+            "weak_signal_material_count": safe_int(pool_summary.get("weak_signal_material_count")),
+            "weak_signal_item_count": safe_int(gate_summary.get("weak_signal_item_count")),
+            "weak_signal_watch": safe_int(gate_summary.get("weak_signal_watch")),
+            "weak_signal_backfill_required": safe_int(gate_summary.get("weak_signal_backfill_required")),
+        },
+        "policy": {
+            "source_inventory_only": True,
+            "metadata_only": True,
+            "weak_signals_not_hard_evidence": True,
+            "no_openclaw_gateway": True,
+            "no_openclaw_cron_migration": True,
+            "no_full_text": True,
+            "no_auto_publish": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -1075,6 +1135,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     hot_material_panel = build_hot_material_panel(paths)
     connector_health_panel = build_connector_health_panel(paths)
     evidence_topic_promotion_panel = build_evidence_topic_promotion_panel(paths)
+    openclaw_migration_panel = build_openclaw_migration_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -1135,6 +1196,12 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["phase28_ready_for_brief"] = safe_int((evidence_topic_promotion_panel.get("bridge_summary") or {}).get("ready_for_brief"))
     summary["phase28_needs_evidence"] = safe_int((evidence_topic_promotion_panel.get("bridge_summary") or {}).get("needs_evidence"))
     summary["phase28_regression_status"] = evidence_topic_promotion_panel.get("regression_status", "UNKNOWN")
+    summary["phase29_status"] = openclaw_migration_panel.get("phase29_status", "UNKNOWN")
+    summary["phase29_openclaw_source_count"] = safe_int((openclaw_migration_panel.get("inventory_summary") or {}).get("source_count"))
+    summary["phase29_migration_candidate_count"] = safe_int((openclaw_migration_panel.get("migration_plan_summary") or {}).get("candidate_count"))
+    summary["phase29_weak_signal_items"] = safe_int((openclaw_migration_panel.get("weak_signal_summary") or {}).get("item_count"))
+    summary["phase29_hard_evidence_allowed"] = safe_int((openclaw_migration_panel.get("weak_signal_summary") or {}).get("hard_evidence_allowed"))
+    summary["phase29_openclaw_hot_material_count"] = safe_int((openclaw_migration_panel.get("hot_material_summary") or {}).get("openclaw_hot_material_count"))
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -1169,6 +1236,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         hot_material_panel,
         connector_health_panel,
         evidence_topic_promotion_panel,
+        openclaw_migration_panel,
         tuple(warnings),
     )
 
@@ -1202,6 +1270,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "hot_material_panel": report.hot_material_panel,
         "connector_health_panel": report.connector_health_panel,
         "evidence_topic_promotion_panel": report.evidence_topic_promotion_panel,
+        "openclaw_migration_panel": report.openclaw_migration_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

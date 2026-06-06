@@ -33,6 +33,7 @@ def capability_map() -> list[dict[str, str]]:
         {"phase": "Phase 26", "capability": "upstream source coverage audit, hot signal capture, backfill queue, daily hot material pool"},
         {"phase": "Phase 27", "capability": "selected P0 metadata connectors, connector normalization, connector health gate"},
         {"phase": "Phase 28", "capability": "connector evidence enrichment, topic promotion, acquisition-to-content bridge"},
+        {"phase": "Phase 29", "capability": "OpenClaw source inventory, migration planning, metadata signals, weak signal safety gate"},
     ]
 
 
@@ -47,6 +48,10 @@ def build_content_factory_v1_closeout(paths: ProjectPaths, repo_root: Path) -> t
     evidence = read_json(paths.market_content_root / "03_topic_candidates" / "latest_connector_evidence_packets.json")
     promoted = read_json(paths.market_content_root / "03_topic_candidates" / "latest_connector_promoted_topic_candidates.json")
     bridge = read_json(paths.logs_root / "latest_acquisition_to_content_bridge.json")
+    openclaw_inventory = read_json(paths.logs_root / "latest_openclaw_source_inventory.json")
+    openclaw_plan = read_json(paths.logs_root / "latest_openclaw_migration_plan.json")
+    openclaw_connectors = read_json(paths.logs_root / "latest_openclaw_metadata_connector_run.json")
+    weak_gate = read_json(paths.logs_root / "latest_weak_signal_safety_gate.json")
     baseline_summary = baseline.get("summary") if isinstance(baseline.get("summary"), dict) else {}
     acceptance_summary = acceptance.get("operator_acceptance_summary") if isinstance(acceptance.get("operator_acceptance_summary"), dict) else {}
     quality_summary = quality.get("summary") if isinstance(quality.get("summary"), dict) else {}
@@ -54,6 +59,10 @@ def build_content_factory_v1_closeout(paths: ProjectPaths, repo_root: Path) -> t
     evidence_summary = evidence.get("summary") if isinstance(evidence.get("summary"), dict) else {}
     promoted_summary = promoted.get("summary") if isinstance(promoted.get("summary"), dict) else {}
     bridge_summary = bridge.get("summary") if isinstance(bridge.get("summary"), dict) else {}
+    openclaw_inventory_summary = openclaw_inventory.get("summary") if isinstance(openclaw_inventory.get("summary"), dict) else {}
+    openclaw_plan_summary = openclaw_plan.get("summary") if isinstance(openclaw_plan.get("summary"), dict) else {}
+    openclaw_connector_summary = openclaw_connectors.get("summary") if isinstance(openclaw_connectors.get("summary"), dict) else {}
+    weak_gate_summary = weak_gate.get("summary") if isinstance(weak_gate.get("summary"), dict) else {}
 
     blocking = safe_int(baseline_summary.get("blocking_issue_count"))
     baseline_status = str(baseline.get("baseline_status") or "UNKNOWN")
@@ -77,6 +86,8 @@ def build_content_factory_v1_closeout(paths: ProjectPaths, repo_root: Path) -> t
         "No automatic prompt/config/rule mutation.",
         "No mainline article overwrite.",
         "Live mode remains explicitly gated by env, allowlist, key, and cost guard.",
+        "No OpenClaw gateway dependency, cron migration, full-text deep capture, or draftbox/publishing flow migration.",
+        "OpenClaw migrated signals are metadata-only and cannot be used as hard evidence by default.",
     ]
     known_limitations = [
         f"ready_to_publish remains {((baseline.get('content_quality_status') or {}) if isinstance(baseline.get('content_quality_status'), dict) else {}).get('ready_to_publish', 0)}; content quality still needs human review.",
@@ -84,14 +95,15 @@ def build_content_factory_v1_closeout(paths: ProjectPaths, repo_root: Path) -> t
         f"{methodology_summary.get('feedback_count', 0)} methodology feedback item(s) are advisory and not auto-applied.",
         "Manual publishing sessions and post-publish metrics remain operator-entered.",
         "Connector evidence is metadata-derived and still needs human/source review before full article production.",
+        "OpenClaw migrated sources improve coverage but remain weak/supporting signal sidecars until Phase 30 evidence backfill.",
     ]
     next_phase = [
-        "Phase 29：OpenClaw Source Migration & Signal Lane Integration v1",
-        "P29-001：OpenClaw Source Inventory Import",
-        "P29-002：OpenClaw Source Risk Classification",
-        "P29-003：P0/P1 Migration Plan",
-        "P29-004：Reddit / YC / TechCrunch / FinSMEs / Newsletter / Chinese Media Metadata Connector",
-        "P29-005：Weak Signal Safety Gate",
+        "Phase 30：OpenClaw Migrated Signal Evidence Backfill & Topic Activation v1",
+        "P30-001：OpenClaw Signal Evidence Backfill",
+        "P30-002：Weak Signal Confirmation Workflow",
+        "P30-003：Migrated Source Topic Candidate Promotion",
+        "P30-004：OpenClaw-to-Content Regression Gate",
+        "P30-005：Migration Closeout and Source Registry Proposal",
     ]
     payload = {
         "schema_version": SCHEMA_VERSION,
@@ -124,6 +136,13 @@ def build_content_factory_v1_closeout(paths: ProjectPaths, repo_root: Path) -> t
             "ready_for_brief": bridge_summary.get("ready_for_brief", 0),
             "needs_evidence": bridge_summary.get("needs_evidence", 0),
         },
+        "openclaw_migration_status": {
+            "inventory_source_count": openclaw_inventory_summary.get("source_count", 0),
+            "migration_candidate_count": openclaw_plan_summary.get("candidate_count", 0),
+            "metadata_item_count": openclaw_connector_summary.get("item_count", 0),
+            "weak_signal_item_count": openclaw_connector_summary.get("weak_signal_items", 0),
+            "hard_evidence_allowed": weak_gate_summary.get("hard_evidence_allowed", 0),
+        },
         "stable_ops_readiness": {
             "readiness_status": review.get("readiness_status", "UNKNOWN"),
             "summary": review.get("summary") if isinstance(review.get("summary"), dict) else {},
@@ -146,6 +165,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
     limitations = "\n".join(f"- {item}" for item in payload.get("known_limitations", []))
     next_phase = "\n".join(f"- {item}" for item in payload.get("next_phase_recommendations", []))
     acquisition = payload.get("acquisition_to_content_status") if isinstance(payload.get("acquisition_to_content_status"), dict) else {}
+    openclaw = payload.get("openclaw_migration_status") if isinstance(payload.get("openclaw_migration_status"), dict) else {}
     return f"""# Content Factory v1 Closeout
 
 ## Status
@@ -171,6 +191,14 @@ def render_markdown(payload: dict[str, Any]) -> str:
 - promoted_topic_count: `{acquisition.get('promoted_topic_count', 0)}`
 - ready_for_brief: `{acquisition.get('ready_for_brief', 0)}`
 - needs_evidence: `{acquisition.get('needs_evidence', 0)}`
+
+## OpenClaw Migration
+
+- inventory_source_count: `{openclaw.get('inventory_source_count', 0)}`
+- migration_candidate_count: `{openclaw.get('migration_candidate_count', 0)}`
+- metadata_item_count: `{openclaw.get('metadata_item_count', 0)}`
+- weak_signal_item_count: `{openclaw.get('weak_signal_item_count', 0)}`
+- hard_evidence_allowed: `{openclaw.get('hard_evidence_allowed', 0)}`
 
 ## Boundaries
 

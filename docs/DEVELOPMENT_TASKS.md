@@ -1230,28 +1230,62 @@
 
 ### P29-001：OpenClaw Source Inventory Import
 
-状态：Planned。
+状态：Done。
 
 ### P29-002：OpenClaw Source Risk Classification
 
-状态：Planned。
+状态：Done。
 
 ### P29-003：P0/P1 Migration Plan
 
-状态：Planned。
+状态：Done。
 
 ### P29-004：Reddit / YC / TechCrunch / FinSMEs / Newsletter / Chinese Media Metadata Connector
 
-状态：Planned。
+状态：Done。
 
 ### P29-005：Weak Signal Safety Gate
 
+状态：Done。
+
+### P29-006：OpenClaw Signal Normalization & Hot Material Integration
+
+状态：Done。
+
+### P29-007：Workbench Source Migration Panel
+
+状态：Done。
+
+### P29-008：Stable Daily Ops Source Supply Upgrade
+
+状态：Done。
+
+### P29-009：Phase 29 Daily Migration Pipeline
+
+状态：Done。
+
+### P29-010：Phase 29 Closeout
+
+状态：Done。
+
+## Phase 30：OpenClaw Migrated Signal Evidence Backfill & Topic Activation v1
+
+### P30-001：OpenClaw Signal Evidence Backfill
+
 状态：Planned。
 
-### P29-006：Workbench Source Migration Panel
+### P30-002：Weak Signal Confirmation Workflow
 
 状态：Planned。
 
-### P29-007：Stable Daily Ops Source Supply Upgrade
+### P30-003：Migrated Source Topic Candidate Promotion
+
+状态：Planned。
+
+### P30-004：OpenClaw-to-Content Regression Gate
+
+状态：Planned。
+
+### P30-005：Migration Closeout and Source Registry Proposal
 
 状态：Planned。

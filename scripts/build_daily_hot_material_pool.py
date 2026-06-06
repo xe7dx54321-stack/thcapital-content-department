@@ -20,7 +20,19 @@ def main() -> int:
     summary = payload.get("summary", {})
     print("Daily Hot Material Pool")
     print("=======================")
-    for key in ("material_count", "write_now", "develop_topic", "watch", "backfill_first", "hold", "connector_item_count", "connector_promote_candidates"):
+    for key in (
+        "material_count",
+        "write_now",
+        "develop_topic",
+        "watch",
+        "backfill_first",
+        "hold",
+        "connector_item_count",
+        "connector_promote_candidates",
+        "openclaw_signal_count",
+        "openclaw_hot_material_count",
+        "weak_signal_material_count",
+    ):
         print(f"{key}: {summary.get(key, 0)}")
     print(f"latest: {payload['outputs']['latest_json']}")
     return 0

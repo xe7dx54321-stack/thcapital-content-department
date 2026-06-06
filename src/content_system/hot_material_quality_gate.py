@@ -35,7 +35,20 @@ def gate_item(material: dict[str, Any]) -> dict[str, Any]:
         risk_flags.append("freshness_uncertain")
     if material.get("source_type") == "backfill_task":
         risk_flags.append("backfill_not_completed")
-    if use == "write_now" and score >= 75 and evidence in {"HIGH", "MEDIUM"} and freshness in {"today", "this_week"}:
+    weak_signal = bool(material.get("weak_signal")) or (
+        material.get("source_origin") == "openclaw_migration" and not material.get("can_use_as_hard_evidence")
+    )
+    if weak_signal:
+        risk_flags.append("weak_signal_not_hard_evidence")
+    if weak_signal and material.get("evidence_role") in {"manual_only"}:
+        decision = "BACKFILL_REQUIRED"
+        reason = "OpenClaw migrated manual/weak signal needs confirmation before content use."
+        next_action = "Complete manual evidence backfill; do not use as hard evidence."
+    elif weak_signal:
+        decision = "WATCH"
+        reason = "OpenClaw migrated weak signal can indicate attention, but cannot be used as hard evidence."
+        next_action = "Confirm with official or authoritative source before topic promotion."
+    elif use == "write_now" and score >= 75 and evidence in {"HIGH", "MEDIUM"} and freshness in {"today", "this_week"}:
         decision = "PROMOTE_TO_TOPIC_PIPELINE"
         reason = "Fresh, relevant, and has enough evidence for topic pipeline promotion."
         next_action = "Promote to topic pipeline only after human source check."
@@ -60,6 +73,8 @@ def gate_item(material: dict[str, Any]) -> dict[str, Any]:
         "required_next_action": next_action,
         "title": material.get("title", ""),
         "lane_id": material.get("lane_id", ""),
+        "weak_signal": weak_signal,
+        "source_origin": material.get("source_origin", ""),
     }
 
 
@@ -97,6 +112,11 @@ def build_hot_material_quality_gate(paths: ProjectPaths, repo_root: Path) -> tup
         "watch": sum(1 for item in items if item.get("gate_decision") == "WATCH"),
         "backfill_required": backfill,
         "reject": sum(1 for item in items if item.get("gate_decision") == "REJECT"),
+        "weak_signal_item_count": sum(1 for item in items if item.get("weak_signal")),
+        "weak_signal_watch": sum(1 for item in items if item.get("weak_signal") and item.get("gate_decision") == "WATCH"),
+        "weak_signal_backfill_required": sum(
+            1 for item in items if item.get("weak_signal") and item.get("gate_decision") == "BACKFILL_REQUIRED"
+        ),
         "weak_supply_reasons": weak_supply_reasons,
     }
     payload = {
@@ -145,6 +165,9 @@ def render_markdown(payload: dict[str, Any]) -> str:
 - watch: `{summary.get('watch', 0)}`
 - backfill_required: `{summary.get('backfill_required', 0)}`
 - reject: `{summary.get('reject', 0)}`
+- weak_signal_item_count: `{summary.get('weak_signal_item_count', 0)}`
+- weak_signal_watch: `{summary.get('weak_signal_watch', 0)}`
+- weak_signal_backfill_required: `{summary.get('weak_signal_backfill_required', 0)}`
 
 ## Weak Supply Reasons
 

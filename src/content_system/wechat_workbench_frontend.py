@@ -924,6 +924,7 @@ function renderReader() {
         ${renderHotMaterialPanel("review-card wide")}
         ${renderConnectorHealthPanel("review-card wide")}
         ${renderEvidenceTopicPromotionPanel("review-card wide")}
+        ${renderOpenClawMigrationPanel("review-card wide")}
         ${renderContentOpsPanel("review-card wide")}
         ${renderContentHardeningPanel("review-card wide", "ops")}
       `, true);
@@ -953,6 +954,7 @@ function renderReader() {
         ${renderHotMaterialPanel("review-card wide")}
         ${renderConnectorHealthPanel("review-card wide")}
         ${renderEvidenceTopicPromotionPanel("review-card wide")}
+        ${renderOpenClawMigrationPanel("review-card wide")}
         ${renderStableTrialPanel("review-card wide")}
         ${renderStableOpsPanel("review-card wide")}
         ${renderPhase22Panel("review-card wide")}
@@ -1076,6 +1078,10 @@ function getConnectorHealthPanel() {
 
 function getEvidenceTopicPromotionPanel() {
   return workbenchData.evidence_topic_promotion_panel || {};
+}
+
+function getOpenClawMigrationPanel() {
+  return workbenchData.openclaw_migration_panel || {};
 }
 
 function renderReviewSection(title, note, body, open = true) {
@@ -1800,6 +1806,46 @@ function renderEvidenceTopicPromotionPanel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function renderOpenClawMigrationPanel(cardClass = "review-card wide") {
+  const panel = getOpenClawMigrationPanel();
+  const inventory = panel.inventory_summary || {};
+  const risk = panel.risk_summary || {};
+  const plan = panel.migration_plan_summary || {};
+  const connectors = panel.metadata_connector_summary || {};
+  const weak = panel.weak_signal_summary || {};
+  const normalized = panel.normalized_summary || {};
+  const hot = panel.hot_material_summary || {};
+  const policy = panel.policy || {};
+  const sources = Array.isArray(panel.sources) ? panel.sources : [];
+  const candidates = Array.isArray(panel.migration_candidates) ? panel.migration_candidates : [];
+  const weakItems = Array.isArray(panel.weak_signal_items) ? panel.weak_signal_items : [];
+  const signals = Array.isArray(panel.normalized_signals) ? panel.normalized_signals : [];
+  const hasPanel = Object.keys(inventory).length || Object.keys(plan).length || Object.keys(connectors).length;
+  if (!hasPanel) {
+    return `<div class="${cardClass} openclaw-migration-panel">
+      <p class="review-label">OpenClaw Source Migration</p>
+      <p class="review-value">暂无 Phase29 OpenClaw migration 数据。运行 <code>make phase29-daily</code> 后会显示 source inventory、risk classification、migration plan、weak signal gate 和 normalized signals。</p>
+    </div>`;
+  }
+  const sourceRows = sources.slice(0, 8).map((item) => `${item.source_type}: ${item.source_name} / lane ${item.lane_hint} / enabled jobs ${item.enabled_job_count ?? 0}`);
+  const candidateRows = candidates.slice(0, 8).map((item) => `${item.migration_priority}: ${item.connector_type} / ${item.evidence_role} / ${item.source_name}`);
+  const weakRows = weakItems.slice(0, 8).map((item) => `${item.safety_decision}: hard=${item.can_use_as_hard_evidence} / ${item.source_name}`);
+  const signalRows = signals.slice(0, 8).map((item) => `${item.evidence_role}: candidate=${item.candidate_for_hot_material_pool} / hard=${item.can_use_as_hard_evidence} / ${item.source_name || item.title}`);
+  return `<div class="${cardClass} openclaw-migration-panel">
+    <p class="review-label">OpenClaw Source Migration Panel</p>
+    <p class="review-value">Phase29 ${escapeHtml(panel.phase29_status || "UNKNOWN")} · OpenClaw available ${escapeHtml(panel.openclaw_available ?? false)} · gateway detected ${escapeHtml(panel.gateway_detected ?? false)} · sources ${escapeHtml(inventory.source_count ?? 0)} · jobs ${escapeHtml(inventory.job_count ?? 0)}</p>
+    <p class="review-value">P0 ${escapeHtml(plan.p0 ?? 0)} · P1 ${escapeHtml(plan.p1 ?? 0)} · candidates ${escapeHtml(plan.candidate_count ?? 0)} · metadata items ${escapeHtml(connectors.item_count ?? 0)} · weak items ${escapeHtml(connectors.weak_signal_items ?? 0)}</p>
+    <p class="review-value">blocked ${escapeHtml(risk.blocked ?? 0)} · manual backfill ${escapeHtml(risk.manual_backfill ?? 0)} · weak signal ${escapeHtml(risk.weak_signal ?? 0)} · hard evidence allowed ${escapeHtml(weak.hard_evidence_allowed ?? 0)}</p>
+    <p class="review-value">normalized signals ${escapeHtml(normalized.signal_count ?? 0)} · hot materials ${escapeHtml(hot.openclaw_hot_material_count ?? 0)} · weak material ${escapeHtml(hot.weak_signal_material_count ?? 0)} · needs confirmation ${escapeHtml(weak.require_confirmation ?? 0)}</p>
+    <p class="review-label">Source inventory</p>${renderMiniList(sourceRows, "暂无 OpenClaw source inventory")}
+    <p class="review-label">P0/P1 migration candidates</p>${renderMiniList(candidateRows, "暂无 migration candidate")}
+    <p class="review-label">Weak signal safety gate</p>${renderMiniList(weakRows, "暂无 weak signal item")}
+    <p class="review-label">Normalized OpenClaw signals</p>${renderMiniList(signalRows, "暂无 normalized OpenClaw signal")}
+    <p class="review-label">Boundary</p>
+    <p class="review-value">metadata_only=${escapeHtml(policy.metadata_only ?? true)} · weak_signals_not_hard_evidence=${escapeHtml(policy.weak_signals_not_hard_evidence ?? true)} · no_openclaw_gateway=${escapeHtml(policy.no_openclaw_gateway ?? true)} · no_openclaw_cron_migration=${escapeHtml(policy.no_openclaw_cron_migration ?? true)} · no_full_text=${escapeHtml(policy.no_full_text ?? true)}</p>
+  </div>`;
+}
+
 function renderStableTrialPanel(cardClass = "review-card wide") {
   const panel = getPhase24Panel();
   const days = Array.isArray(panel.day_summaries) ? panel.day_summaries : [];
@@ -1865,6 +1911,7 @@ function renderInsightPanel() {
   const hotMaterial = getHotMaterialPanel();
   const connectorHealth = getConnectorHealthPanel();
   const evidenceTopic = getEvidenceTopicPromotionPanel();
+  const openclawMigration = getOpenClawMigrationPanel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
@@ -1914,6 +1961,10 @@ function renderInsightPanel() {
   const bridgeSummary = evidenceTopic.bridge_summary || {};
   const freshnessSummary = evidenceTopic.freshness_summary || {};
   const dedupSummary = evidenceTopic.dedup_summary || {};
+  const openclawInventory = openclawMigration.inventory_summary || {};
+  const openclawPlan = openclawMigration.migration_plan_summary || {};
+  const openclawWeak = openclawMigration.weak_signal_summary || {};
+  const openclawHot = openclawMigration.hot_material_summary || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -2020,6 +2071,11 @@ function renderInsightPanel() {
       <p class="insight-label">Phase28 Evidence / Topic</p>
       <p class="insight-value">Evidence ${escapeHtml(evidenceSummary.packet_count ?? 0)} · eligible ${escapeHtml(evidenceSummary.eligible_for_topic_promotion ?? 0)} · promoted ${escapeHtml(promotedSummary.promoted ?? 0)} · needs evidence ${escapeHtml(promotedSummary.needs_evidence ?? 0)}</p>
       <p class="insight-value">ready_for_brief ${escapeHtml(bridgeSummary.ready_for_brief ?? 0)} · bridge_needs_evidence ${escapeHtml(bridgeSummary.needs_evidence ?? 0)} · regression ${escapeHtml(evidenceTopic.regression_status || "UNKNOWN")} · freshness unknown ${escapeHtml(freshnessSummary.unknown ?? 0)} · duplicate ${escapeHtml(dedupSummary.duplicate_ratio ?? 0)}</p>
+    </section>
+    <section class="insight-card openclaw-migration-panel">
+      <p class="insight-label">Phase29 OpenClaw Migration</p>
+      <p class="insight-value">Status ${escapeHtml(openclawMigration.phase29_status || "UNKNOWN")} · sources ${escapeHtml(openclawInventory.source_count ?? 0)} · P0 ${escapeHtml(openclawPlan.p0 ?? 0)} · P1 ${escapeHtml(openclawPlan.p1 ?? 0)} · metadata items ${escapeHtml((openclawMigration.metadata_connector_summary || {}).item_count ?? 0)}</p>
+      <p class="insight-value">weak signals ${escapeHtml(openclawWeak.item_count ?? 0)} · hard evidence allowed ${escapeHtml(openclawWeak.hard_evidence_allowed ?? 0)} · OpenClaw hot materials ${escapeHtml(openclawHot.openclaw_hot_material_count ?? 0)} · no gateway / no cron / no full text</p>
     </section>
     <section class="insight-card trial-panel">
       <p class="insight-label">Phase21 试运行</p>
