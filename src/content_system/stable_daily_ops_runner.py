@@ -58,6 +58,10 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
     openclaw_connectors = read_json(logs_root / "latest_openclaw_metadata_connector_run.json")
     weak_gate = read_json(logs_root / "latest_weak_signal_safety_gate.json")
     openclaw_signals = read_json(logs_root / "latest_normalized_openclaw_signals.json")
+    openclaw_backfill = read_json(logs_root.parent / "03_topic_candidates" / "latest_openclaw_signal_evidence_backfill.json")
+    weak_confirmation = read_json(logs_root / "latest_weak_signal_confirmation_workflow.json")
+    openclaw_activation_topics = read_json(logs_root.parent / "03_topic_candidates" / "latest_openclaw_activated_topic_candidates.json")
+    openclaw_regression = read_json(logs_root / "latest_openclaw_to_content_regression_gate.json")
     hot_gate_summary = hot_gate.get("summary") if isinstance(hot_gate.get("summary"), dict) else {}
     hot_pool_summary = hot_pool.get("summary") if isinstance(hot_pool.get("summary"), dict) else {}
     evidence_summary = evidence.get("summary") if isinstance(evidence.get("summary"), dict) else {}
@@ -68,6 +72,10 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
     conn_summary = openclaw_connectors.get("summary") if isinstance(openclaw_connectors.get("summary"), dict) else {}
     weak_summary = weak_gate.get("summary") if isinstance(weak_gate.get("summary"), dict) else {}
     signal_summary = openclaw_signals.get("summary") if isinstance(openclaw_signals.get("summary"), dict) else {}
+    backfill_summary = openclaw_backfill.get("summary") if isinstance(openclaw_backfill.get("summary"), dict) else {}
+    confirmation_summary = weak_confirmation.get("summary") if isinstance(weak_confirmation.get("summary"), dict) else {}
+    activation_summary = openclaw_activation_topics.get("summary") if isinstance(openclaw_activation_topics.get("summary"), dict) else {}
+    regression_summary = openclaw_regression.get("summary") if isinstance(openclaw_regression.get("summary"), dict) else {}
     upstream_supply = {
         "hot_material_count": int(
             baseline_upstream.get("hot_material_count")
@@ -175,6 +183,51 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
             else signal_summary.get("hard_evidence_allowed") or 0
         ),
     }
+    baseline_openclaw_activation = baseline.get("openclaw_activation") if isinstance(baseline.get("openclaw_activation"), dict) else {}
+    openclaw_activation = {
+        "backfill_count": int(
+            baseline_openclaw_activation.get("backfill_count")
+            if baseline_openclaw_activation.get("backfill_count") is not None
+            else backfill_summary.get("backfill_count") or 0
+        ),
+        "ready_for_confirmation": int(
+            baseline_openclaw_activation.get("ready_for_confirmation")
+            if baseline_openclaw_activation.get("ready_for_confirmation") is not None
+            else backfill_summary.get("ready_for_confirmation") or 0
+        ),
+        "needs_primary_source": int(
+            baseline_openclaw_activation.get("needs_primary_source")
+            if baseline_openclaw_activation.get("needs_primary_source") is not None
+            else confirmation_summary.get("needs_primary_source") or 0
+        ),
+        "needs_second_source": int(
+            baseline_openclaw_activation.get("needs_second_source")
+            if baseline_openclaw_activation.get("needs_second_source") is not None
+            else confirmation_summary.get("needs_second_source") or 0
+        ),
+        "manual_review": int(
+            baseline_openclaw_activation.get("manual_review")
+            if baseline_openclaw_activation.get("manual_review") is not None
+            else confirmation_summary.get("manual_review") or 0
+        ),
+        "activated_topic_count": int(
+            baseline_openclaw_activation.get("activated_topic_count")
+            if baseline_openclaw_activation.get("activated_topic_count") is not None
+            else activation_summary.get("activated") or 0
+        ),
+        "can_enter_brief_pipeline": int(
+            baseline_openclaw_activation.get("can_enter_brief_pipeline")
+            if baseline_openclaw_activation.get("can_enter_brief_pipeline") is not None
+            else activation_summary.get("can_enter_brief_pipeline") or 0
+        ),
+        "regression_gate_status": baseline_openclaw_activation.get("regression_gate_status")
+        or openclaw_regression.get("gate_status", "UNKNOWN"),
+        "blocking_failures": int(
+            baseline_openclaw_activation.get("blocking_failures")
+            if baseline_openclaw_activation.get("blocking_failures") is not None
+            else regression_summary.get("blocking_failures") or 0
+        ),
+    }
     blocking_issue_count = int(baseline_summary.get("blocking_issue_count") or 0)
     workbench_ready = (frontstage_root / "latest_wechat_workbench.html").exists()
     if failed:
@@ -209,6 +262,7 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
             "upstream_supply": upstream_supply,
             "acquisition_to_content": acquisition_to_content,
             "openclaw_migration": openclaw_migration,
+            "openclaw_activation": openclaw_activation,
         },
         "safety": {
             "no_auto_publish": True,
@@ -224,6 +278,7 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
             "Upstream WEAK_SUPPLY is actionable operator work, not an engineering failure.",
             "Connector evidence remains metadata-derived and requires human/source review before writing.",
             "OpenClaw migrated signals are weak/supporting signals by default and cannot be used as hard evidence.",
+            "OpenClaw activation summarizes confirmation/backfill work; it does not turn weak signals into hard evidence or briefs automatically.",
         ],
     }
     outputs = output_paths(logs_root, frontstage_root, run_date)
@@ -237,6 +292,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
     upstream = summary.get("upstream_supply") if isinstance(summary.get("upstream_supply"), dict) else {}
     acquisition = summary.get("acquisition_to_content") if isinstance(summary.get("acquisition_to_content"), dict) else {}
     openclaw = summary.get("openclaw_migration") if isinstance(summary.get("openclaw_migration"), dict) else {}
+    openclaw_activation = summary.get("openclaw_activation") if isinstance(summary.get("openclaw_activation"), dict) else {}
     rows = "\n".join(
         f"- {step.get('name')}: {step.get('status')} ({step.get('return_code')})"
         for step in payload.get("steps", [])
@@ -278,6 +334,18 @@ def render_markdown(payload: dict[str, Any]) -> str:
 - openclaw_hot_material_count: `{openclaw.get('openclaw_hot_material_count', 0)}`
 - blocked_source_count: `{openclaw.get('blocked_source_count', 0)}`
 - hard_evidence_allowed: `{openclaw.get('hard_evidence_allowed', 0)}`
+
+## OpenClaw Activation
+
+- backfill_count: `{openclaw_activation.get('backfill_count', 0)}`
+- ready_for_confirmation: `{openclaw_activation.get('ready_for_confirmation', 0)}`
+- needs_primary_source: `{openclaw_activation.get('needs_primary_source', 0)}`
+- needs_second_source: `{openclaw_activation.get('needs_second_source', 0)}`
+- manual_review: `{openclaw_activation.get('manual_review', 0)}`
+- activated_topic_count: `{openclaw_activation.get('activated_topic_count', 0)}`
+- can_enter_brief_pipeline: `{openclaw_activation.get('can_enter_brief_pipeline', 0)}`
+- regression_gate_status: `{openclaw_activation.get('regression_gate_status', 'UNKNOWN')}`
+- blocking_failures: `{openclaw_activation.get('blocking_failures', 0)}`
 
 ## Steps
 

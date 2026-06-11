@@ -1272,20 +1272,58 @@
 
 ### P30-001：OpenClaw Signal Evidence Backfill
 
-状态：Planned。
+状态：Done。
 
 ### P30-002：Weak Signal Confirmation Workflow
 
-状态：Planned。
+状态：Done。
 
 ### P30-003：Migrated Source Topic Candidate Promotion
 
-状态：Planned。
+状态：Done。
 
 ### P30-004：OpenClaw-to-Content Regression Gate
 
+状态：Done。
+
+### P30-005：OpenClaw Evidence / Topic Workbench Panel
+
+状态：Done。
+
+### P30-006：Stable Daily Ops OpenClaw Activation Integration
+
+状态：Done。
+
+### P30-007：Source Registry Proposal Sidecar
+
+状态：Done。
+
+### P30-008：Phase 30 Daily Activation Pipeline
+
+状态：Done。
+
+### P30-009：Phase 30 Closeout
+
+状态：Done。
+
+## Phase 31：OpenClaw-confirmed Topic Brief Generation v1
+
+### P31-001：Confirmed Topic Scoring
+
 状态：Planned。
 
-### P30-005：Migration Closeout and Source Registry Proposal
+### P31-002：OpenClaw-confirmed Topic Brief Builder
+
+状态：Planned。
+
+### P31-003：Evidence Backfill Task Routing
+
+状态：Planned。
+
+### P31-004：OpenClaw Topic Brief Review Gate
+
+状态：Planned。
+
+### P31-005：OpenClaw-to-Content Production Closeout
 
 状态：Planned。

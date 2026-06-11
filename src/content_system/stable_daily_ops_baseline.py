@@ -41,6 +41,10 @@ def input_paths(paths: ProjectPaths, repo_root: Path) -> dict[str, Path]:
         "openclaw_metadata_connector_run": paths.logs_root / "latest_openclaw_metadata_connector_run.json",
         "weak_signal_safety_gate": paths.logs_root / "latest_weak_signal_safety_gate.json",
         "normalized_openclaw_signals": paths.logs_root / "latest_normalized_openclaw_signals.json",
+        "openclaw_signal_evidence_backfill": paths.market_content_root / "03_topic_candidates" / "latest_openclaw_signal_evidence_backfill.json",
+        "weak_signal_confirmation_workflow": paths.logs_root / "latest_weak_signal_confirmation_workflow.json",
+        "openclaw_activated_topic_candidates": paths.market_content_root / "03_topic_candidates" / "latest_openclaw_activated_topic_candidates.json",
+        "openclaw_to_content_regression_gate": paths.logs_root / "latest_openclaw_to_content_regression_gate.json",
         "operator_runbook": repo_root / "docs" / "OPERATOR_RUNBOOK.md",
         "system_closeout": repo_root / "docs" / "PHASE0_19_SYSTEM_CLOSEOUT.md",
     }
@@ -112,6 +116,10 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
     openclaw_connectors = read_json(inputs["openclaw_metadata_connector_run"])
     weak_gate = read_json(inputs["weak_signal_safety_gate"])
     openclaw_signals = read_json(inputs["normalized_openclaw_signals"])
+    openclaw_backfill = read_json(inputs["openclaw_signal_evidence_backfill"])
+    weak_confirmation = read_json(inputs["weak_signal_confirmation_workflow"])
+    openclaw_activation_topics = read_json(inputs["openclaw_activated_topic_candidates"])
+    openclaw_regression = read_json(inputs["openclaw_to_content_regression_gate"])
 
     phase24_summary = phase24.get("summary") if isinstance(phase24.get("summary"), dict) else {}
     review_summary = review.get("summary") if isinstance(review.get("summary"), dict) else {}
@@ -131,6 +139,10 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
     openclaw_connector_summary = openclaw_connectors.get("summary") if isinstance(openclaw_connectors.get("summary"), dict) else {}
     weak_gate_summary = weak_gate.get("summary") if isinstance(weak_gate.get("summary"), dict) else {}
     openclaw_signal_summary = openclaw_signals.get("summary") if isinstance(openclaw_signals.get("summary"), dict) else {}
+    openclaw_backfill_summary = openclaw_backfill.get("summary") if isinstance(openclaw_backfill.get("summary"), dict) else {}
+    weak_confirmation_summary = weak_confirmation.get("summary") if isinstance(weak_confirmation.get("summary"), dict) else {}
+    openclaw_activation_summary = openclaw_activation_topics.get("summary") if isinstance(openclaw_activation_topics.get("summary"), dict) else {}
+    openclaw_regression_summary = openclaw_regression.get("summary") if isinstance(openclaw_regression.get("summary"), dict) else {}
 
     safety = {
         "auto_publish": False,
@@ -227,6 +239,31 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
             else "OpenClaw migrated sources have not contributed hot materials yet."
         ),
     }
+    openclaw_activation = {
+        "backfill_count": safe_int(openclaw_backfill_summary.get("backfill_count")),
+        "ready_for_confirmation": safe_int(openclaw_backfill_summary.get("ready_for_confirmation")),
+        "needs_primary_source": safe_int(weak_confirmation_summary.get("needs_primary_source")),
+        "needs_second_source": safe_int(weak_confirmation_summary.get("needs_second_source")),
+        "manual_review": safe_int(weak_confirmation_summary.get("manual_review")),
+        "activated_topic_count": safe_int(openclaw_activation_summary.get("activated")),
+        "can_enter_brief_pipeline": safe_int(openclaw_activation_summary.get("can_enter_brief_pipeline")),
+        "regression_gate_status": openclaw_regression.get("gate_status", "UNKNOWN"),
+        "blocking_failures": safe_int(openclaw_regression_summary.get("blocking_failures")),
+        "operator_actions": [
+            "有 OpenClaw 迁移信号需要补一手源。"
+            if safe_int(weak_confirmation_summary.get("needs_primary_source"))
+            else "暂无 OpenClaw 迁移信号需要补一手源。",
+            "有 weak signals 需要第二来源确认。"
+            if safe_int(weak_confirmation_summary.get("needs_second_source"))
+            else "暂无 weak signals 需要第二来源确认。",
+            "有 OpenClaw 迁移选题可进入 brief 生产。"
+            if safe_int(openclaw_activation_summary.get("can_enter_brief_pipeline"))
+            else "暂无 OpenClaw 迁移选题可进入 brief 生产。",
+            "OpenClaw-to-content gate 有阻断项，不能把迁移信号进入内容链路。"
+            if safe_int(openclaw_regression_summary.get("blocking_failures"))
+            else "OpenClaw-to-content gate 未发现阻断项。",
+        ],
+    }
     acquisition_to_content = {
         "connector_topic_candidates": safe_int(promoted_summary.get("candidate_count")),
         "ready_for_brief": safe_int(bridge_summary.get("ready_for_brief")),
@@ -286,6 +323,7 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
         "upstream_supply": upstream_supply,
         "acquisition_to_content": acquisition_to_content,
         "openclaw_migration": openclaw_migration,
+        "openclaw_activation": openclaw_activation,
         "ops_status": {
             "phase24_status": phase24_status,
             "stable_ops_readiness_status": review_status,
@@ -306,6 +344,9 @@ def build_stable_daily_ops_baseline(paths: ProjectPaths, repo_root: Path) -> tup
             "needs_evidence": acquisition_to_content["needs_evidence"],
             "openclaw_hot_material_count": openclaw_migration["openclaw_hot_material_count"],
             "openclaw_weak_signal_item_count": openclaw_migration["weak_signal_item_count"],
+            "openclaw_activation_can_enter_brief_pipeline": openclaw_activation["can_enter_brief_pipeline"],
+            "openclaw_activation_needs_primary_source": openclaw_activation["needs_primary_source"],
+            "openclaw_activation_needs_second_source": openclaw_activation["needs_second_source"],
         },
         "warnings": warnings,
         "notes": [
@@ -325,6 +366,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
     upstream = payload.get("upstream_supply") if isinstance(payload.get("upstream_supply"), dict) else {}
     acquisition = payload.get("acquisition_to_content") if isinstance(payload.get("acquisition_to_content"), dict) else {}
     openclaw = payload.get("openclaw_migration") if isinstance(payload.get("openclaw_migration"), dict) else {}
+    openclaw_activation = payload.get("openclaw_activation") if isinstance(payload.get("openclaw_activation"), dict) else {}
     flow = "\n".join(
         f"{item.get('step')}. `{item.get('command')}` - {item.get('operator_decision')}"
         for item in payload.get("recommended_operator_flow", [])
@@ -387,6 +429,18 @@ def render_markdown(payload: dict[str, Any]) -> str:
 - hard_evidence_allowed: `{openclaw.get('hard_evidence_allowed', 0)}`
 - operator_action: {openclaw.get('operator_action', '')}
 - supply_note: {openclaw.get('supply_note', '')}
+
+## OpenClaw Activation
+
+- backfill_count: `{openclaw_activation.get('backfill_count', 0)}`
+- ready_for_confirmation: `{openclaw_activation.get('ready_for_confirmation', 0)}`
+- needs_primary_source: `{openclaw_activation.get('needs_primary_source', 0)}`
+- needs_second_source: `{openclaw_activation.get('needs_second_source', 0)}`
+- manual_review: `{openclaw_activation.get('manual_review', 0)}`
+- activated_topic_count: `{openclaw_activation.get('activated_topic_count', 0)}`
+- can_enter_brief_pipeline: `{openclaw_activation.get('can_enter_brief_pipeline', 0)}`
+- regression_gate_status: `{openclaw_activation.get('regression_gate_status', 'UNKNOWN')}`
+- blocking_failures: `{openclaw_activation.get('blocking_failures', 0)}`
 
 ## Recommended Operator Flow
 

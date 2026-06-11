@@ -34,6 +34,7 @@ def capability_map() -> list[dict[str, str]]:
         {"phase": "Phase 27", "capability": "selected P0 metadata connectors, connector normalization, connector health gate"},
         {"phase": "Phase 28", "capability": "connector evidence enrichment, topic promotion, acquisition-to-content bridge"},
         {"phase": "Phase 29", "capability": "OpenClaw source inventory, migration planning, metadata signals, weak signal safety gate"},
+        {"phase": "Phase 30", "capability": "OpenClaw signal evidence backfill, confirmation workflow, topic activation, regression gate"},
     ]
 
 
@@ -52,6 +53,10 @@ def build_content_factory_v1_closeout(paths: ProjectPaths, repo_root: Path) -> t
     openclaw_plan = read_json(paths.logs_root / "latest_openclaw_migration_plan.json")
     openclaw_connectors = read_json(paths.logs_root / "latest_openclaw_metadata_connector_run.json")
     weak_gate = read_json(paths.logs_root / "latest_weak_signal_safety_gate.json")
+    openclaw_backfill = read_json(paths.market_content_root / "03_topic_candidates" / "latest_openclaw_signal_evidence_backfill.json")
+    weak_confirmation = read_json(paths.logs_root / "latest_weak_signal_confirmation_workflow.json")
+    openclaw_activation = read_json(paths.market_content_root / "03_topic_candidates" / "latest_openclaw_activated_topic_candidates.json")
+    openclaw_regression = read_json(paths.logs_root / "latest_openclaw_to_content_regression_gate.json")
     baseline_summary = baseline.get("summary") if isinstance(baseline.get("summary"), dict) else {}
     acceptance_summary = acceptance.get("operator_acceptance_summary") if isinstance(acceptance.get("operator_acceptance_summary"), dict) else {}
     quality_summary = quality.get("summary") if isinstance(quality.get("summary"), dict) else {}
@@ -63,6 +68,10 @@ def build_content_factory_v1_closeout(paths: ProjectPaths, repo_root: Path) -> t
     openclaw_plan_summary = openclaw_plan.get("summary") if isinstance(openclaw_plan.get("summary"), dict) else {}
     openclaw_connector_summary = openclaw_connectors.get("summary") if isinstance(openclaw_connectors.get("summary"), dict) else {}
     weak_gate_summary = weak_gate.get("summary") if isinstance(weak_gate.get("summary"), dict) else {}
+    openclaw_backfill_summary = openclaw_backfill.get("summary") if isinstance(openclaw_backfill.get("summary"), dict) else {}
+    weak_confirmation_summary = weak_confirmation.get("summary") if isinstance(weak_confirmation.get("summary"), dict) else {}
+    openclaw_activation_summary = openclaw_activation.get("summary") if isinstance(openclaw_activation.get("summary"), dict) else {}
+    openclaw_regression_summary = openclaw_regression.get("summary") if isinstance(openclaw_regression.get("summary"), dict) else {}
 
     blocking = safe_int(baseline_summary.get("blocking_issue_count"))
     baseline_status = str(baseline.get("baseline_status") or "UNKNOWN")
@@ -96,14 +105,15 @@ def build_content_factory_v1_closeout(paths: ProjectPaths, repo_root: Path) -> t
         "Manual publishing sessions and post-publish metrics remain operator-entered.",
         "Connector evidence is metadata-derived and still needs human/source review before full article production.",
         "OpenClaw migrated sources improve coverage but remain weak/supporting signal sidecars until Phase 30 evidence backfill.",
+        "OpenClaw activation remains confirmation/backfill workflow; weak signals are not hard evidence and do not auto-create briefs.",
     ]
     next_phase = [
-        "Phase 30：OpenClaw Migrated Signal Evidence Backfill & Topic Activation v1",
-        "P30-001：OpenClaw Signal Evidence Backfill",
-        "P30-002：Weak Signal Confirmation Workflow",
-        "P30-003：Migrated Source Topic Candidate Promotion",
-        "P30-004：OpenClaw-to-Content Regression Gate",
-        "P30-005：Migration Closeout and Source Registry Proposal",
+        "Phase 31：OpenClaw-confirmed Topic Brief Generation v1",
+        "P31-001：Confirmed Topic Scoring",
+        "P31-002：OpenClaw-confirmed Topic Brief Builder",
+        "P31-003：Evidence Backfill Task Routing",
+        "P31-004：OpenClaw Topic Brief Review Gate",
+        "P31-005：OpenClaw-to-Content Production Closeout",
     ]
     payload = {
         "schema_version": SCHEMA_VERSION,
@@ -143,6 +153,17 @@ def build_content_factory_v1_closeout(paths: ProjectPaths, repo_root: Path) -> t
             "weak_signal_item_count": openclaw_connector_summary.get("weak_signal_items", 0),
             "hard_evidence_allowed": weak_gate_summary.get("hard_evidence_allowed", 0),
         },
+        "openclaw_activation_status": {
+            "backfill_count": openclaw_backfill_summary.get("backfill_count", 0),
+            "ready_for_confirmation": openclaw_backfill_summary.get("ready_for_confirmation", 0),
+            "needs_primary_source": weak_confirmation_summary.get("needs_primary_source", 0),
+            "needs_second_source": weak_confirmation_summary.get("needs_second_source", 0),
+            "manual_review": weak_confirmation_summary.get("manual_review", 0),
+            "activated_topic_count": openclaw_activation_summary.get("activated", 0),
+            "can_enter_brief_pipeline": openclaw_activation_summary.get("can_enter_brief_pipeline", 0),
+            "regression_gate_status": openclaw_regression.get("gate_status", "UNKNOWN"),
+            "blocking_failures": openclaw_regression_summary.get("blocking_failures", 0),
+        },
         "stable_ops_readiness": {
             "readiness_status": review.get("readiness_status", "UNKNOWN"),
             "summary": review.get("summary") if isinstance(review.get("summary"), dict) else {},
@@ -166,6 +187,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
     next_phase = "\n".join(f"- {item}" for item in payload.get("next_phase_recommendations", []))
     acquisition = payload.get("acquisition_to_content_status") if isinstance(payload.get("acquisition_to_content_status"), dict) else {}
     openclaw = payload.get("openclaw_migration_status") if isinstance(payload.get("openclaw_migration_status"), dict) else {}
+    openclaw_activation = payload.get("openclaw_activation_status") if isinstance(payload.get("openclaw_activation_status"), dict) else {}
     return f"""# Content Factory v1 Closeout
 
 ## Status
@@ -199,6 +221,18 @@ def render_markdown(payload: dict[str, Any]) -> str:
 - metadata_item_count: `{openclaw.get('metadata_item_count', 0)}`
 - weak_signal_item_count: `{openclaw.get('weak_signal_item_count', 0)}`
 - hard_evidence_allowed: `{openclaw.get('hard_evidence_allowed', 0)}`
+
+## OpenClaw Activation
+
+- backfill_count: `{openclaw_activation.get('backfill_count', 0)}`
+- ready_for_confirmation: `{openclaw_activation.get('ready_for_confirmation', 0)}`
+- needs_primary_source: `{openclaw_activation.get('needs_primary_source', 0)}`
+- needs_second_source: `{openclaw_activation.get('needs_second_source', 0)}`
+- manual_review: `{openclaw_activation.get('manual_review', 0)}`
+- activated_topic_count: `{openclaw_activation.get('activated_topic_count', 0)}`
+- can_enter_brief_pipeline: `{openclaw_activation.get('can_enter_brief_pipeline', 0)}`
+- regression_gate_status: `{openclaw_activation.get('regression_gate_status', 'UNKNOWN')}`
+- blocking_failures: `{openclaw_activation.get('blocking_failures', 0)}`
 
 ## Boundaries
 

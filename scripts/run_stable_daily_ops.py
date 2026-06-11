@@ -53,6 +53,16 @@ def main() -> int:
     print(f"  openclaw_hot_material_count: {openclaw.get('openclaw_hot_material_count', 0)}")
     print(f"  blocked_source_count: {openclaw.get('blocked_source_count', 0)}")
     print(f"  hard_evidence_allowed: {openclaw.get('hard_evidence_allowed', 0)}")
+    openclaw_activation = summary.get("openclaw_activation") if isinstance(summary.get("openclaw_activation"), dict) else {}
+    print("OpenClaw activation:")
+    print(f"  backfill_count: {openclaw_activation.get('backfill_count', 0)}")
+    print(f"  ready_for_confirmation: {openclaw_activation.get('ready_for_confirmation', 0)}")
+    print(f"  needs_primary_source: {openclaw_activation.get('needs_primary_source', 0)}")
+    print(f"  needs_second_source: {openclaw_activation.get('needs_second_source', 0)}")
+    print(f"  manual_review: {openclaw_activation.get('manual_review', 0)}")
+    print(f"  activated_topic_count: {openclaw_activation.get('activated_topic_count', 0)}")
+    print(f"  can_enter_brief_pipeline: {openclaw_activation.get('can_enter_brief_pipeline', 0)}")
+    print(f"  regression_gate_status: {openclaw_activation.get('regression_gate_status', 'UNKNOWN')}")
     print("Safety:")
     for key, value in payload.get("safety", {}).items():
         print(f"  {key}: {value}")

@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 29：OpenClaw Source Migration & Signal Lane Integration v1。
+Phase 30：OpenClaw Migrated Signal Evidence Backfill & Topic Activation v1。
 
 ## 最新 checkpoint
 
-P29-010：Phase 29 Closeout。
+P30-009：Phase 30 Closeout。
 
 ## 已完成
 
@@ -389,6 +389,18 @@ P29-010：Phase 29 Closeout。
 - P29-009 Phase 29 Daily Migration Pipeline v1。
 - P29-010 Phase 29 Closeout。
 
+### Phase 30
+
+- P30-001 OpenClaw Signal Evidence Backfill v1。
+- P30-002 Weak Signal Confirmation Workflow v1。
+- P30-003 Migrated Source Topic Candidate Promotion v1。
+- P30-004 OpenClaw-to-Content Regression Gate v1。
+- P30-005 OpenClaw Evidence / Topic Workbench Panel v1。
+- P30-006 Stable Daily Ops OpenClaw Activation Integration v1。
+- P30-007 Source Registry Proposal Sidecar v1。
+- P30-008 Phase 30 Daily Activation Pipeline v1。
+- P30-009 Phase 30 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -693,16 +705,27 @@ P29-010：Phase 29 Closeout。
 - stable daily ops source supply upgrade。
 - phase29 daily migration pipeline。
 
+### Phase 30 能力
+
+- openclaw signal evidence backfill。
+- weak signal confirmation workflow。
+- openclaw migrated topic activation。
+- openclaw-to-content regression gate。
+- openclaw evidence/topic workbench panel。
+- stable daily ops openclaw activation integration。
+- openclaw source registry proposal sidecar。
+- phase30 daily activation pipeline。
+
 ## 当前推荐日常命令
 
 ```bash
 make stable-daily-ops
 ```
 
-新增 OpenClaw 迁移检查命令：
+新增 OpenClaw activation 命令：
 
 ```bash
-make phase29-daily
+make phase30-daily
 ```
 
 ## 当前边界
@@ -793,13 +816,20 @@ make phase29-daily
 - Phase 29 不接 OpenClaw gateway、不迁移 OpenClaw cron。
 - Phase 29 不自动改 config/prompt/rules。
 - OpenClaw migrated signals 默认不能作为硬证据。
+- Phase 30 不自动发布、不接公众号 API、不进入公众号草稿箱。
+- Phase 30 不自动生成图片、不自动调用图片模型、不提交图片文件。
+- Phase 30 不抓全文、不绕过登录/付费墙。
+- Phase 30 不接 OpenClaw gateway、不迁移 OpenClaw cron。
+- Phase 30 不自动改 `config/sources.yaml`。
+- OpenClaw weak signals 不能直接作为硬证据。
+- Source registry proposal 只作为 sidecar，不自动应用。
 
 ## 下一阶段
 
-Phase 30：OpenClaw Migrated Signal Evidence Backfill & Topic Activation v1。
+Phase 31：OpenClaw-confirmed Topic Brief Generation v1。
 
-- P30-001：OpenClaw Signal Evidence Backfill。
-- P30-002：Weak Signal Confirmation Workflow。
-- P30-003：Migrated Source Topic Candidate Promotion。
-- P30-004：OpenClaw-to-Content Regression Gate。
-- P30-005：Migration Closeout and Source Registry Proposal。
+- P31-001：Confirmed Topic Scoring。
+- P31-002：OpenClaw-confirmed Topic Brief Builder。
+- P31-003：Evidence Backfill Task Routing。
+- P31-004：OpenClaw Topic Brief Review Gate。
+- P31-005：OpenClaw-to-Content Production Closeout。

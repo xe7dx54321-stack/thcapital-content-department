@@ -45,6 +45,7 @@ class WechatWorkbenchDataReport:
     connector_health_panel: dict[str, Any]
     evidence_topic_promotion_panel: dict[str, Any]
     openclaw_migration_panel: dict[str, Any]
+    openclaw_activation_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -995,6 +996,46 @@ def build_openclaw_migration_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_openclaw_activation_panel(paths: ProjectPaths) -> dict[str, Any]:
+    topic_root = paths.market_content_root / "03_topic_candidates"
+    backfill = read_json(topic_root / "latest_openclaw_signal_evidence_backfill.json")
+    confirmation = read_json(paths.logs_root / "latest_weak_signal_confirmation_workflow.json")
+    activation = read_json(topic_root / "latest_openclaw_activated_topic_candidates.json")
+    regression = read_json(paths.logs_root / "latest_openclaw_to_content_regression_gate.json")
+    registry = read_json(paths.logs_root / "latest_openclaw_source_registry_proposal.json")
+    pipeline = read_json(paths.logs_root / "latest_phase30_daily_activation_pipeline.json")
+    backfill_summary = backfill.get("summary") if isinstance(backfill.get("summary"), dict) else {}
+    confirmation_summary = confirmation.get("summary") if isinstance(confirmation.get("summary"), dict) else {}
+    activation_summary = activation.get("summary") if isinstance(activation.get("summary"), dict) else {}
+    regression_summary = regression.get("summary") if isinstance(regression.get("summary"), dict) else {}
+    registry_summary = registry.get("summary") if isinstance(registry.get("summary"), dict) else {}
+    pipeline_summary = pipeline.get("summary") if isinstance(pipeline.get("summary"), dict) else {}
+    return {
+        "phase30_status": pipeline.get("status", "UNKNOWN"),
+        "phase30_summary": pipeline_summary,
+        "backfill_summary": backfill_summary,
+        "backfill_items": list_payload(backfill, "backfill_items")[:16],
+        "confirmation_summary": confirmation_summary,
+        "confirmation_items": list_payload(confirmation, "confirmation_items")[:16],
+        "activation_summary": activation_summary,
+        "topic_candidates": list_payload(activation, "topic_candidates")[:16],
+        "regression_gate_status": regression.get("gate_status", "UNKNOWN"),
+        "regression_summary": regression_summary,
+        "regression_checks": list_payload(regression, "checks"),
+        "regression_violations": list_payload(regression, "violations"),
+        "registry_summary": registry_summary,
+        "registry_proposal_items": list_payload(registry, "proposal_items")[:16],
+        "policy": {
+            "weak_signals_not_hard_evidence": True,
+            "no_full_text": True,
+            "no_openclaw_gateway": True,
+            "no_openclaw_cron_migration": True,
+            "source_registry_proposal_sidecar_only": True,
+            "no_sources_yaml_mutation": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -1136,6 +1177,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     connector_health_panel = build_connector_health_panel(paths)
     evidence_topic_promotion_panel = build_evidence_topic_promotion_panel(paths)
     openclaw_migration_panel = build_openclaw_migration_panel(paths)
+    openclaw_activation_panel = build_openclaw_activation_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -1202,6 +1244,15 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["phase29_weak_signal_items"] = safe_int((openclaw_migration_panel.get("weak_signal_summary") or {}).get("item_count"))
     summary["phase29_hard_evidence_allowed"] = safe_int((openclaw_migration_panel.get("weak_signal_summary") or {}).get("hard_evidence_allowed"))
     summary["phase29_openclaw_hot_material_count"] = safe_int((openclaw_migration_panel.get("hot_material_summary") or {}).get("openclaw_hot_material_count"))
+    summary["phase30_status"] = openclaw_activation_panel.get("phase30_status", "UNKNOWN")
+    summary["phase30_backfill_count"] = safe_int((openclaw_activation_panel.get("backfill_summary") or {}).get("backfill_count"))
+    summary["phase30_ready_for_confirmation"] = safe_int((openclaw_activation_panel.get("backfill_summary") or {}).get("ready_for_confirmation"))
+    summary["phase30_needs_primary_source"] = safe_int((openclaw_activation_panel.get("confirmation_summary") or {}).get("needs_primary_source"))
+    summary["phase30_needs_second_source"] = safe_int((openclaw_activation_panel.get("confirmation_summary") or {}).get("needs_second_source"))
+    summary["phase30_manual_review"] = safe_int((openclaw_activation_panel.get("confirmation_summary") or {}).get("manual_review"))
+    summary["phase30_activated_topics"] = safe_int((openclaw_activation_panel.get("activation_summary") or {}).get("activated"))
+    summary["phase30_can_enter_brief_pipeline"] = safe_int((openclaw_activation_panel.get("activation_summary") or {}).get("can_enter_brief_pipeline"))
+    summary["phase30_regression_gate_status"] = openclaw_activation_panel.get("regression_gate_status", "UNKNOWN")
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -1237,6 +1288,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         connector_health_panel,
         evidence_topic_promotion_panel,
         openclaw_migration_panel,
+        openclaw_activation_panel,
         tuple(warnings),
     )
 
@@ -1271,6 +1323,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "connector_health_panel": report.connector_health_panel,
         "evidence_topic_promotion_panel": report.evidence_topic_promotion_panel,
         "openclaw_migration_panel": report.openclaw_migration_panel,
+        "openclaw_activation_panel": report.openclaw_activation_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():
