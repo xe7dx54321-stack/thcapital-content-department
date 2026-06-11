@@ -46,6 +46,7 @@ class WechatWorkbenchDataReport:
     evidence_topic_promotion_panel: dict[str, Any]
     openclaw_migration_panel: dict[str, Any]
     openclaw_activation_panel: dict[str, Any]
+    runtime_control_center_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -1036,6 +1037,62 @@ def build_openclaw_activation_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_runtime_control_center_panel(paths: ProjectPaths) -> dict[str, Any]:
+    health = read_json(paths.logs_root / "latest_runtime_health_summary.json")
+    ledger = read_json(paths.logs_root / "latest_runtime_ledger_summary.json")
+    retry = read_json(paths.logs_root / "latest_runtime_retry_queue.json")
+    network = read_json(paths.logs_root / "latest_runtime_network_readiness.json")
+    route = read_json(paths.logs_root / "latest_acquisition_route_plan.json")
+    missed = read_json(paths.logs_root / "latest_missed_run_recovery_plan.json")
+    graph = read_json(paths.logs_root / "latest_daily_pipeline_graph.json")
+    e2e = read_json(paths.logs_root / "latest_daily_end_to_end_run.json")
+    dry_run = read_json(paths.logs_root / "latest_autonomous_runtime_dry_run.json")
+    coexistence = read_json(paths.logs_root / "latest_openclaw_schedule_coexistence_report.json")
+    heartbeat = health.get("heartbeat") if isinstance(health.get("heartbeat"), dict) else {}
+    ledger_summary = ledger.get("summary") if isinstance(ledger.get("summary"), dict) else {}
+    retry_summary = retry.get("summary") if isinstance(retry.get("summary"), dict) else {}
+    missed_summary = missed.get("summary") if isinstance(missed.get("summary"), dict) else {}
+    route_summary = route.get("summary") if isinstance(route.get("summary"), dict) else {}
+    graph_summary = graph.get("summary") if isinstance(graph.get("summary"), dict) else {}
+    e2e_summary = e2e.get("summary") if isinstance(e2e.get("summary"), dict) else {}
+    dry_summary = dry_run.get("summary") if isinstance(dry_run.get("summary"), dict) else {}
+    coexistence_summary = coexistence.get("summary") if isinstance(coexistence.get("summary"), dict) else {}
+    return {
+        "runtime_status": health.get("runtime_status", heartbeat.get("status", "UNKNOWN")),
+        "last_heartbeat": heartbeat.get("last_heartbeat_at", ""),
+        "current_job_id": heartbeat.get("current_job_id", ""),
+        "next_scheduled_run": heartbeat.get("next_scheduled_run", ""),
+        "latest_workbench_generation_time": utc_now(),
+        "ledger_summary": ledger_summary,
+        "recent_job_runs": list_payload(ledger, "recent_job_runs")[:12],
+        "retry_summary": retry_summary,
+        "retry_items": list_payload(retry, "retry_items")[:12],
+        "missed_run_summary": missed_summary,
+        "catchup_plan": list_payload(missed, "catchup_plan")[:8],
+        "network_readiness": {
+            "status": network.get("status", "UNKNOWN"),
+            "dns_ok": network.get("dns_ok", False),
+            "international_source_ok": network.get("international_source_ok", False),
+            "domestic_source_ok": network.get("domestic_source_ok", False),
+        },
+        "acquisition_route_summary": route_summary,
+        "routes": list_payload(route, "routes"),
+        "daily_pipeline_graph_summary": graph_summary,
+        "daily_end_to_end_status": e2e.get("status", "UNKNOWN"),
+        "daily_end_to_end_summary": e2e_summary,
+        "autonomous_dry_run_status": dry_run.get("status", "UNKNOWN"),
+        "autonomous_dry_run_summary": dry_summary,
+        "openclaw_coexistence_summary": coexistence_summary,
+        "policy": {
+            "local_control_only": True,
+            "no_auto_publish_button": True,
+            "respect_idempotency": True,
+            "respect_cost_and_safety_gate": True,
+            "launchd_runs_runtime_only": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -1178,6 +1235,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     evidence_topic_promotion_panel = build_evidence_topic_promotion_panel(paths)
     openclaw_migration_panel = build_openclaw_migration_panel(paths)
     openclaw_activation_panel = build_openclaw_activation_panel(paths)
+    runtime_control_center_panel = build_runtime_control_center_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -1253,6 +1311,10 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["phase30_activated_topics"] = safe_int((openclaw_activation_panel.get("activation_summary") or {}).get("activated"))
     summary["phase30_can_enter_brief_pipeline"] = safe_int((openclaw_activation_panel.get("activation_summary") or {}).get("can_enter_brief_pipeline"))
     summary["phase30_regression_gate_status"] = openclaw_activation_panel.get("regression_gate_status", "UNKNOWN")
+    summary["phase31_runtime_status"] = runtime_control_center_panel.get("runtime_status", "UNKNOWN")
+    summary["phase31_retry_count"] = safe_int((runtime_control_center_panel.get("retry_summary") or {}).get("retry_count"))
+    summary["phase31_missed_count"] = safe_int((runtime_control_center_panel.get("missed_run_summary") or {}).get("missed_count"))
+    summary["phase31_dry_run_status"] = runtime_control_center_panel.get("autonomous_dry_run_status", "UNKNOWN")
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -1289,6 +1351,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         evidence_topic_promotion_panel,
         openclaw_migration_panel,
         openclaw_activation_panel,
+        runtime_control_center_panel,
         tuple(warnings),
     )
 
@@ -1324,6 +1387,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "evidence_topic_promotion_panel": report.evidence_topic_promotion_panel,
         "openclaw_migration_panel": report.openclaw_migration_panel,
         "openclaw_activation_panel": report.openclaw_activation_panel,
+        "runtime_control_center_panel": report.runtime_control_center_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

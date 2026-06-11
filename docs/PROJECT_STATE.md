@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 30：OpenClaw Migrated Signal Evidence Backfill & Topic Activation v1。
+Phase 31：Autonomous Content Factory Runtime & End-to-End Daily Orchestration v1。
 
 ## 最新 checkpoint
 
-P30-009：Phase 30 Closeout。
+P31-014：Phase 31 Closeout。
 
 ## 已完成
 
@@ -401,6 +401,23 @@ P30-009：Phase 30 Closeout。
 - P30-008 Phase 30 Daily Activation Pipeline v1。
 - P30-009 Phase 30 Closeout。
 
+### Phase 31
+
+- P31-001 Autonomous Runtime Configuration v1。
+- P31-002 Persistent Scheduler State & Execution Ledger v1。
+- P31-003 Internal Scheduler & Job Registry v1。
+- P31-004 End-to-End Daily Pipeline Graph v1。
+- P31-005 Retry / Backoff / Checkpoint / Idempotency v1。
+- P31-006 Network & VPN-aware Acquisition Routing v1。
+- P31-007 Missed-run Recovery & Catch-up v1。
+- P31-008 Runtime Heartbeat & Failure Notification v1。
+- P31-009 Runtime Control API / CLI v1。
+- P31-010 Workbench Runtime Control Center v1。
+- P31-011 macOS launchd Bootstrap & Runbook v1。
+- P31-012 OpenClaw Scheduling Coexistence Guard v1。
+- P31-013 Autonomous End-to-End Dry Run v1。
+- P31-014 Phase 31 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -716,16 +733,42 @@ P30-009：Phase 30 Closeout。
 - openclaw source registry proposal sidecar。
 - phase30 daily activation pipeline。
 
+### Phase 31 能力
+
+- autonomous runtime configuration。
+- persistent scheduler state and execution ledger。
+- internal scheduler and job registry。
+- end-to-end daily pipeline graph。
+- retry / backoff / checkpoint / idempotency。
+- network and VPN-aware acquisition routing。
+- missed-run recovery and catch-up。
+- runtime heartbeat and failure notification。
+- runtime control CLI。
+- workbench runtime control center。
+- macOS launchd bootstrap template and runbook。
+- OpenClaw scheduling coexistence guard。
+- autonomous runtime dry-run。
+
 ## 当前推荐日常命令
 
 ```bash
 make stable-daily-ops
 ```
 
-新增 OpenClaw activation 命令：
+推荐日常使用方式：
+
+```text
+Mac mini launchd 自动拉起 Content Factory Runtime；
+用户通过 Workbench 查看当日选题与成品稿。
+```
+
+`make stable-daily-ops` 仍可用于人工补跑和调试，但正式目标运行方式不依赖用户每天手动执行命令。
+
+新增 Autonomous Runtime 命令：
 
 ```bash
-make phase30-daily
+make phase31-daily
+make autonomous-runtime-dry-run
 ```
 
 ## 当前边界
@@ -823,13 +866,22 @@ make phase30-daily
 - Phase 30 不自动改 `config/sources.yaml`。
 - OpenClaw weak signals 不能直接作为硬证据。
 - Source registry proposal 只作为 sidecar，不自动应用。
+- Phase 31 不自动发布、不接公众号 API、不进入公众号草稿箱。
+- Phase 31 不自动生成图片、不默认调用图片模型、不提交图片文件。
+- Phase 31 不抓全文、不绕过登录/付费墙。
+- Phase 31 不接 OpenClaw gateway、不迁移 OpenClaw cron。
+- Phase 31 不自动改 config/prompt/rules/sources.yaml。
+- launchd 只负责拉起 Runtime，不承载业务调度。
+- Runtime SQLite、PID、lock、heartbeat、日志等运行态文件不进入 Git。
 
 ## 下一阶段
 
-Phase 31：OpenClaw-confirmed Topic Brief Generation v1。
+Phase 32：Autonomous Topic-to-Article Production Activation v1。
 
-- P31-001：Confirmed Topic Scoring。
-- P31-002：OpenClaw-confirmed Topic Brief Builder。
-- P31-003：Evidence Backfill Task Routing。
-- P31-004：OpenClaw Topic Brief Review Gate。
-- P31-005：OpenClaw-to-Content Production Closeout。
+- P32-001 Confirmed Topic Scoring。
+- P32-002 Automated Topic Selection。
+- P32-003 Automated Brief Generation。
+- P32-004 Automated Outline / Draft Generation。
+- P32-005 Multi-Agent Review and Rewrite。
+- P32-006 Final Candidate Workbench Delivery。
+- P32-007 Autonomous Content Production Regression Gate。

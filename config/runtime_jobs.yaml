@@ -1,0 +1,106 @@
+schema_version: v1
+
+jobs:
+  acquisition_phase29:
+    command: ["python3", "scripts/run_phase29_daily_migration_pipeline.py"]
+    category: acquisition
+    timeout_seconds: 1800
+    retry_policy: network_job
+    idempotency_scope: daily_slot
+    required: false
+
+  activation_phase30:
+    command: ["python3", "scripts/run_phase30_daily_activation_pipeline.py"]
+    category: activation
+    timeout_seconds: 1800
+    retry_policy: standard_job
+    idempotency_scope: daily_slot
+    required: true
+
+  stable_daily_ops:
+    command: ["python3", "scripts/run_stable_daily_ops.py"]
+    category: ops
+    timeout_seconds: 1800
+    retry_policy: standard_job
+    idempotency_scope: daily
+    required: true
+
+  content_generation_daily:
+    command: ["python3", "scripts/run_learning_daily_pipeline.py"]
+    category: content
+    timeout_seconds: 3600
+    retry_policy: llm_job
+    idempotency_scope: daily
+    required: true
+
+  agent_review_daily:
+    command: ["python3", "scripts/run_phase3_daily_pipeline.py"]
+    category: review
+    timeout_seconds: 1800
+    retry_policy: standard_job
+    idempotency_scope: daily
+    required: true
+
+  article_quality_review:
+    command: ["python3", "scripts/review_content_quality.py"]
+    category: review
+    timeout_seconds: 1200
+    retry_policy: standard_job
+    idempotency_scope: daily
+    required: true
+
+  visual_plan:
+    command: ["python3", "scripts/build_visual_plans.py"]
+    category: visual
+    timeout_seconds: 900
+    retry_policy: local_job
+    idempotency_scope: daily
+    required: false
+
+  final_candidate:
+    command: ["python3", "scripts/build_final_article_candidates.py"]
+    category: finalization
+    timeout_seconds: 900
+    retry_policy: local_job
+    idempotency_scope: artifact_version
+    required: true
+
+  workbench_data:
+    command: ["python3", "scripts/build_wechat_workbench_data.py"]
+    category: frontend
+    timeout_seconds: 600
+    retry_policy: local_job
+    idempotency_scope: artifact_version
+    required: true
+
+  workbench_build:
+    command: ["python3", "scripts/build_wechat_workbench_frontend.py"]
+    category: frontend
+    timeout_seconds: 600
+    retry_policy: local_job
+    idempotency_scope: artifact_version
+    required: true
+
+  source_health:
+    command: ["python3", "scripts/build_source_health.py"]
+    category: acquisition
+    timeout_seconds: 600
+    retry_policy: network_job
+    idempotency_scope: daily_slot
+    required: false
+
+  source_runtime_health:
+    command: ["python3", "scripts/build_source_runtime_health.py"]
+    category: acquisition
+    timeout_seconds: 600
+    retry_policy: network_job
+    idempotency_scope: daily_slot
+    required: false
+
+  weekly_content_retro:
+    command: ["python3", "scripts/build_weekly_content_retro.py"]
+    category: retrospective
+    timeout_seconds: 1200
+    retry_policy: local_job
+    idempotency_scope: weekly
+    required: false

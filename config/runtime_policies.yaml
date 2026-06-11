@@ -1,0 +1,33 @@
+schema_version: v1
+
+retry_policies:
+  local_job:
+    max_attempts: 2
+    delays_seconds: [30]
+
+  network_job:
+    max_attempts: 4
+    delays_seconds: [120, 600, 1800]
+
+  llm_job:
+    max_attempts: 3
+    delays_seconds: [180, 900]
+
+  standard_job:
+    max_attempts: 3
+    delays_seconds: [60, 300]
+
+failure_policy:
+  continue_on_single_source_failure: true
+  continue_on_optional_job_failure: true
+  stop_on_safety_gate_failure: true
+  stop_on_secret_leak_detection: true
+
+cost_policy:
+  honor_existing_cost_guard: true
+  downgrade_to_dry_run_when_blocked: true
+
+locking:
+  single_runtime_instance: true
+  single_job_instance: true
+  stale_lock_minutes: 120

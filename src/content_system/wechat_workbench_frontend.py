@@ -926,6 +926,7 @@ function renderReader() {
         ${renderEvidenceTopicPromotionPanel("review-card wide")}
         ${renderOpenClawMigrationPanel("review-card wide")}
         ${renderOpenClawActivationPanel("review-card wide")}
+        ${renderRuntimeControlCenterPanel("review-card wide")}
         ${renderContentOpsPanel("review-card wide")}
         ${renderContentHardeningPanel("review-card wide", "ops")}
       `, true);
@@ -957,6 +958,7 @@ function renderReader() {
         ${renderEvidenceTopicPromotionPanel("review-card wide")}
         ${renderOpenClawMigrationPanel("review-card wide")}
         ${renderOpenClawActivationPanel("review-card wide")}
+        ${renderRuntimeControlCenterPanel("review-card wide")}
         ${renderStableTrialPanel("review-card wide")}
         ${renderStableOpsPanel("review-card wide")}
         ${renderPhase22Panel("review-card wide")}
@@ -1088,6 +1090,10 @@ function getOpenClawMigrationPanel() {
 
 function getOpenClawActivationPanel() {
   return workbenchData.openclaw_activation_panel || {};
+}
+
+function getRuntimeControlCenterPanel() {
+  return workbenchData.runtime_control_center_panel || {};
 }
 
 function renderReviewSection(title, note, body, open = true) {
@@ -1892,6 +1898,63 @@ function renderOpenClawActivationPanel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function runtimeCommand(kind) {
+  if (kind === "run") return "python3 scripts/runtime_control.py run daily-end-to-end";
+  if (kind === "retry") return "python3 scripts/runtime_control.py retry <job_run_id>";
+  if (kind === "pause") return "python3 scripts/runtime_control.py pause";
+  if (kind === "resume") return "python3 scripts/runtime_control.py resume";
+  return "python3 scripts/runtime_control.py status";
+}
+
+function renderRuntimeControlCenterPanel(cardClass = "review-card wide") {
+  const panel = getRuntimeControlCenterPanel();
+  const ledger = panel.ledger_summary || {};
+  const retry = panel.retry_summary || {};
+  const missed = panel.missed_run_summary || {};
+  const network = panel.network_readiness || {};
+  const route = panel.acquisition_route_summary || {};
+  const graph = panel.daily_pipeline_graph_summary || {};
+  const e2e = panel.daily_end_to_end_summary || {};
+  const dryRun = panel.autonomous_dry_run_summary || {};
+  const coexistence = panel.openclaw_coexistence_summary || {};
+  const policy = panel.policy || {};
+  const recentRuns = Array.isArray(panel.recent_job_runs) ? panel.recent_job_runs : [];
+  const retryItems = Array.isArray(panel.retry_items) ? panel.retry_items : [];
+  const catchup = Array.isArray(panel.catchup_plan) ? panel.catchup_plan : [];
+  const routes = Array.isArray(panel.routes) ? panel.routes : [];
+  const hasPanel = Object.keys(ledger).length || Object.keys(dryRun).length || panel.runtime_status;
+  if (!hasPanel || panel.runtime_status === "UNKNOWN") {
+    return `<div class="${cardClass} runtime-control-panel">
+      <p class="review-label">Autonomous Runtime Control Center</p>
+      <p class="review-value">暂无 Runtime 数据。运行 <code>make autonomous-runtime-dry-run</code> 或 <code>make scheduler-once</code> 后会显示心跳、任务账本、retry queue、missed-run 和网络路由。</p>
+    </div>`;
+  }
+  const runRows = recentRuns.slice(0, 8).map((item) => `${item.status}: ${item.job_id} / ${item.schedule_slot || "-"} / attempts ${item.attempt_count ?? 0}`);
+  const retryRows = retryItems.slice(0, 8).map((item) => `${item.error_class}: ${item.job_id} / next ${item.next_retry_at || "-"}`);
+  const catchupRows = catchup.slice(0, 8).map((item) => `${item.action}: ${item.source_slots || []} / ${item.reason}`);
+  const routeRows = routes.slice(0, 8).map((item) => `${item.lane}: ${item.action} / ${item.reason}`);
+  return `<div class="${cardClass} runtime-control-panel">
+    <p class="review-label">Autonomous Runtime Control Center</p>
+    <p class="review-value">Runtime ${escapeHtml(panel.runtime_status || "UNKNOWN")} · heartbeat ${escapeHtml(panel.last_heartbeat || "-")} · current job ${escapeHtml(panel.current_job_id || "-")} · next ${escapeHtml(panel.next_scheduled_run || "-")}</p>
+    <p class="review-value">Today jobs success ${escapeHtml(ledger.success ?? 0)} · failed ${escapeHtml(ledger.failed ?? 0)} · pending ${escapeHtml(ledger.pending ?? 0)} · retry ${escapeHtml(retry.retry_count ?? 0)} · missed ${escapeHtml(missed.missed_count ?? 0)}</p>
+    <p class="review-value">Network ${escapeHtml(network.status || "UNKNOWN")} · routes run now ${escapeHtml(route.run_now ?? 0)} · delayed ${escapeHtml(route.delay_retry ?? 0)} · pipeline nodes ${escapeHtml(graph.node_count ?? 0)} · E2E ${escapeHtml(panel.daily_end_to_end_status || "UNKNOWN")}</p>
+    <p class="review-value">Dry-run ${escapeHtml(panel.autonomous_dry_run_status || "UNKNOWN")} · steps ${escapeHtml(dryRun.step_count ?? 0)} · warnings ${escapeHtml(dryRun.warnings ?? 0)} · failures ${escapeHtml(dryRun.failures ?? 0)} · OpenClaw conflicts ${escapeHtml(coexistence.conflict_count ?? 0)}</p>
+    <div class="version-actions">
+      <button class="copy-review-command" type="button" data-command="${escapeHtml(runtimeCommand("run"))}">立即运行今日主链路</button>
+      <button class="copy-review-command" type="button" data-command="${escapeHtml(runtimeCommand("retry"))}">重试失败任务</button>
+      <button class="copy-review-command" type="button" data-command="${escapeHtml(runtimeCommand("pause"))}">暂停调度</button>
+      <button class="copy-review-command" type="button" data-command="${escapeHtml(runtimeCommand("resume"))}">恢复调度</button>
+      <button class="copy-review-command" type="button" data-command="${escapeHtml(runtimeCommand("status"))}">刷新状态</button>
+    </div>
+    <p class="review-label">Recent Job Runs</p>${renderMiniList(runRows, "暂无 job run")}
+    <p class="review-label">Retry Queue</p>${renderMiniList(retryRows, "暂无 retry item")}
+    <p class="review-label">Missed-run / Catch-up</p>${renderMiniList(catchupRows, "暂无 catch-up plan")}
+    <p class="review-label">Network Routes</p>${renderMiniList(routeRows, "暂无 route")}
+    <p class="review-label">Boundary</p>
+    <p class="review-value">local_control_only=${escapeHtml(policy.local_control_only ?? true)} · no_auto_publish_button=${escapeHtml(policy.no_auto_publish_button ?? true)} · respect_idempotency=${escapeHtml(policy.respect_idempotency ?? true)} · respect_cost_and_safety_gate=${escapeHtml(policy.respect_cost_and_safety_gate ?? true)}</p>
+  </div>`;
+}
+
 function renderStableTrialPanel(cardClass = "review-card wide") {
   const panel = getPhase24Panel();
   const days = Array.isArray(panel.day_summaries) ? panel.day_summaries : [];
@@ -1959,6 +2022,7 @@ function renderInsightPanel() {
   const evidenceTopic = getEvidenceTopicPromotionPanel();
   const openclawMigration = getOpenClawMigrationPanel();
   const openclawActivation = getOpenClawActivationPanel();
+  const runtimeControl = getRuntimeControlCenterPanel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
@@ -2016,6 +2080,10 @@ function renderInsightPanel() {
   const openclawConfirmation = openclawActivation.confirmation_summary || {};
   const openclawTopicActivation = openclawActivation.activation_summary || {};
   const openclawRegression = openclawActivation.regression_summary || {};
+  const runtimeLedger = runtimeControl.ledger_summary || {};
+  const runtimeRetry = runtimeControl.retry_summary || {};
+  const runtimeMissed = runtimeControl.missed_run_summary || {};
+  const runtimeNetwork = runtimeControl.network_readiness || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -2132,6 +2200,10 @@ function renderInsightPanel() {
       <p class="insight-label">Phase30 OpenClaw Activation</p>
       <p class="insight-value">Status ${escapeHtml(openclawActivation.phase30_status || "UNKNOWN")} · backfill ${escapeHtml(openclawBackfill.backfill_count ?? 0)} · ready confirmation ${escapeHtml(openclawBackfill.ready_for_confirmation ?? 0)} · needs primary ${escapeHtml(openclawConfirmation.needs_primary_source ?? 0)} · needs second ${escapeHtml(openclawConfirmation.needs_second_source ?? 0)}</p>
       <p class="insight-value">activated ${escapeHtml(openclawTopicActivation.activated ?? 0)} · can enter brief ${escapeHtml(openclawTopicActivation.can_enter_brief_pipeline ?? 0)} · gate ${escapeHtml(openclawActivation.regression_gate_status || "UNKNOWN")} · blocking ${escapeHtml(openclawRegression.blocking_failures ?? 0)} · weak signals not hard evidence</p>
+    </section>
+    <section class="insight-card runtime-control-panel">
+      <p class="insight-label">Autonomous Runtime</p>
+      <p class="insight-value">status ${escapeHtml(runtimeControl.runtime_status || "UNKNOWN")} · success ${escapeHtml(runtimeLedger.success ?? 0)} · failed ${escapeHtml(runtimeLedger.failed ?? 0)} · retry ${escapeHtml(runtimeRetry.retry_count ?? 0)} · missed ${escapeHtml(runtimeMissed.missed_count ?? 0)} · network ${escapeHtml(runtimeNetwork.status || "UNKNOWN")}</p>
     </section>
     <section class="insight-card trial-panel">
       <p class="insight-label">Phase21 试运行</p>

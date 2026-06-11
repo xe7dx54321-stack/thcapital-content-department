@@ -62,6 +62,11 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
     weak_confirmation = read_json(logs_root / "latest_weak_signal_confirmation_workflow.json")
     openclaw_activation_topics = read_json(logs_root.parent / "03_topic_candidates" / "latest_openclaw_activated_topic_candidates.json")
     openclaw_regression = read_json(logs_root / "latest_openclaw_to_content_regression_gate.json")
+    runtime_health = read_json(logs_root / "latest_runtime_health_summary.json")
+    runtime_ledger = read_json(logs_root / "latest_runtime_ledger_summary.json")
+    runtime_retry = read_json(logs_root / "latest_runtime_retry_queue.json")
+    runtime_missed = read_json(logs_root / "latest_missed_run_recovery_plan.json")
+    runtime_dry_run = read_json(logs_root / "latest_autonomous_runtime_dry_run.json")
     hot_gate_summary = hot_gate.get("summary") if isinstance(hot_gate.get("summary"), dict) else {}
     hot_pool_summary = hot_pool.get("summary") if isinstance(hot_pool.get("summary"), dict) else {}
     evidence_summary = evidence.get("summary") if isinstance(evidence.get("summary"), dict) else {}
@@ -76,6 +81,11 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
     confirmation_summary = weak_confirmation.get("summary") if isinstance(weak_confirmation.get("summary"), dict) else {}
     activation_summary = openclaw_activation_topics.get("summary") if isinstance(openclaw_activation_topics.get("summary"), dict) else {}
     regression_summary = openclaw_regression.get("summary") if isinstance(openclaw_regression.get("summary"), dict) else {}
+    runtime_heartbeat = runtime_health.get("heartbeat") if isinstance(runtime_health.get("heartbeat"), dict) else {}
+    runtime_ledger_summary = runtime_ledger.get("summary") if isinstance(runtime_ledger.get("summary"), dict) else {}
+    runtime_retry_summary = runtime_retry.get("summary") if isinstance(runtime_retry.get("summary"), dict) else {}
+    runtime_missed_summary = runtime_missed.get("summary") if isinstance(runtime_missed.get("summary"), dict) else {}
+    runtime_dry_run_summary = runtime_dry_run.get("summary") if isinstance(runtime_dry_run.get("summary"), dict) else {}
     upstream_supply = {
         "hot_material_count": int(
             baseline_upstream.get("hot_material_count")
@@ -228,6 +238,21 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
             else regression_summary.get("blocking_failures") or 0
         ),
     }
+    autonomous_runtime = {
+        "runtime_status": runtime_health.get("runtime_status", runtime_heartbeat.get("status", "UNKNOWN")),
+        "last_heartbeat": runtime_heartbeat.get("last_heartbeat_at", ""),
+        "current_job_id": runtime_heartbeat.get("current_job_id", ""),
+        "next_scheduled_run": runtime_heartbeat.get("next_scheduled_run", ""),
+        "job_run_count": int(runtime_ledger_summary.get("job_run_count") or 0),
+        "success": int(runtime_ledger_summary.get("success") or 0),
+        "failed": int(runtime_ledger_summary.get("failed") or 0),
+        "retry_count": int(runtime_retry_summary.get("retry_count") or 0),
+        "blocked_retry_count": int(runtime_retry_summary.get("blocked_count") or 0),
+        "missed_count": int(runtime_missed_summary.get("missed_count") or 0),
+        "catchup_count": int(runtime_missed_summary.get("catchup_count") or 0),
+        "dry_run_status": runtime_dry_run.get("status", "UNKNOWN"),
+        "dry_run_steps": int(runtime_dry_run_summary.get("step_count") or 0),
+    }
     blocking_issue_count = int(baseline_summary.get("blocking_issue_count") or 0)
     workbench_ready = (frontstage_root / "latest_wechat_workbench.html").exists()
     if failed:
@@ -263,6 +288,7 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
             "acquisition_to_content": acquisition_to_content,
             "openclaw_migration": openclaw_migration,
             "openclaw_activation": openclaw_activation,
+            "autonomous_runtime": autonomous_runtime,
         },
         "safety": {
             "no_auto_publish": True,
@@ -279,6 +305,7 @@ def build_stable_daily_ops(repo_root: Path, logs_root: Path, frontstage_root: Pa
             "Connector evidence remains metadata-derived and requires human/source review before writing.",
             "OpenClaw migrated signals are weak/supporting signals by default and cannot be used as hard evidence.",
             "OpenClaw activation summarizes confirmation/backfill work; it does not turn weak signals into hard evidence or briefs automatically.",
+            "Autonomous runtime status is visible for launchd/scheduler troubleshooting; make stable-daily-ops remains a manual fallback.",
         ],
     }
     outputs = output_paths(logs_root, frontstage_root, run_date)
@@ -293,6 +320,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
     acquisition = summary.get("acquisition_to_content") if isinstance(summary.get("acquisition_to_content"), dict) else {}
     openclaw = summary.get("openclaw_migration") if isinstance(summary.get("openclaw_migration"), dict) else {}
     openclaw_activation = summary.get("openclaw_activation") if isinstance(summary.get("openclaw_activation"), dict) else {}
+    runtime = summary.get("autonomous_runtime") if isinstance(summary.get("autonomous_runtime"), dict) else {}
     rows = "\n".join(
         f"- {step.get('name')}: {step.get('status')} ({step.get('return_code')})"
         for step in payload.get("steps", [])
@@ -346,6 +374,18 @@ def render_markdown(payload: dict[str, Any]) -> str:
 - can_enter_brief_pipeline: `{openclaw_activation.get('can_enter_brief_pipeline', 0)}`
 - regression_gate_status: `{openclaw_activation.get('regression_gate_status', 'UNKNOWN')}`
 - blocking_failures: `{openclaw_activation.get('blocking_failures', 0)}`
+
+## Autonomous Runtime
+
+- runtime_status: `{runtime.get('runtime_status', 'UNKNOWN')}`
+- last_heartbeat: `{runtime.get('last_heartbeat', '')}`
+- next_scheduled_run: `{runtime.get('next_scheduled_run', '')}`
+- job_run_count: `{runtime.get('job_run_count', 0)}`
+- success: `{runtime.get('success', 0)}`
+- failed: `{runtime.get('failed', 0)}`
+- retry_count: `{runtime.get('retry_count', 0)}`
+- missed_count: `{runtime.get('missed_count', 0)}`
+- dry_run_status: `{runtime.get('dry_run_status', 'UNKNOWN')}`
 
 ## Steps
 

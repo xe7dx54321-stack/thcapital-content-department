@@ -22,6 +22,7 @@ def main() -> int:
     server = make_server(get_project_paths(REPO_ROOT), REPO_ROOT, args.port)
     print(f"Serving workbench UI at http://{HOST}:{args.port}")
     print("Policy: local only, no publish, no WeChat API, no credentials.")
+    print("Runtime control stays local and must respect idempotency, cost, and safety gates.")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

@@ -721,5 +721,71 @@ openclaw-source-registry-proposal:
 phase30-daily:
 	$(PYTHON) scripts/run_phase30_daily_activation_pipeline.py
 
+runtime-config-validate:
+	$(PYTHON) scripts/validate_runtime_config.py
+
+autonomous-runtime-state-init:
+	$(PYTHON) scripts/init_autonomous_runtime_state.py
+
+runtime-ledger-summary:
+	$(PYTHON) scripts/build_runtime_ledger_summary.py
+
+autonomous-runtime:
+	$(PYTHON) scripts/run_autonomous_runtime.py
+
+scheduler-once:
+	$(PYTHON) scripts/run_scheduler_once.py
+
+daily-pipeline-graph:
+	$(PYTHON) scripts/build_daily_pipeline_graph.py
+
+daily-end-to-end:
+	$(PYTHON) scripts/run_daily_end_to_end_pipeline.py
+
+runtime-retry-queue:
+	$(PYTHON) scripts/build_runtime_retry_queue.py
+
+runtime-network-readiness:
+	$(PYTHON) scripts/check_runtime_network_readiness.py
+
+acquisition-route-plan:
+	$(PYTHON) scripts/build_acquisition_route_plan.py
+
+missed-run-recovery-plan:
+	$(PYTHON) scripts/build_missed_run_recovery_plan.py
+
+execute-missed-run-recovery:
+	$(PYTHON) scripts/execute_missed_run_recovery.py
+
+runtime-health-summary:
+	$(PYTHON) scripts/build_runtime_health_summary.py
+
+runtime-failure-notifications:
+	$(PYTHON) scripts/build_runtime_failure_notifications.py
+
+runtime-status:
+	$(PYTHON) scripts/runtime_control.py status
+
+runtime-pause:
+	$(PYTHON) scripts/runtime_control.py pause
+
+runtime-resume:
+	$(PYTHON) scripts/runtime_control.py resume
+
+macos-runtime-launchd-dry-run:
+	$(PYTHON) scripts/install_macos_runtime_launchd.py --dry-run
+
+macos-runtime-launchd-check:
+	$(PYTHON) scripts/check_macos_runtime_launchd.py
+
+openclaw-schedule-coexistence:
+	$(PYTHON) scripts/build_openclaw_schedule_coexistence_report.py
+
+autonomous-runtime-dry-run:
+	$(PYTHON) scripts/run_autonomous_runtime_dry_run.py
+
+phase31-daily:
+	$(PYTHON) scripts/run_daily_end_to_end_pipeline.py
+
 status:
 	bash 内容工厂控制台/status.sh

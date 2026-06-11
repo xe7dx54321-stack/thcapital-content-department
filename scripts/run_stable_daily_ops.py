@@ -63,6 +63,17 @@ def main() -> int:
     print(f"  activated_topic_count: {openclaw_activation.get('activated_topic_count', 0)}")
     print(f"  can_enter_brief_pipeline: {openclaw_activation.get('can_enter_brief_pipeline', 0)}")
     print(f"  regression_gate_status: {openclaw_activation.get('regression_gate_status', 'UNKNOWN')}")
+    runtime = summary.get("autonomous_runtime") if isinstance(summary.get("autonomous_runtime"), dict) else {}
+    print("Autonomous runtime:")
+    print(f"  runtime_status: {runtime.get('runtime_status', 'UNKNOWN')}")
+    print(f"  last_heartbeat: {runtime.get('last_heartbeat', '')}")
+    print(f"  next_scheduled_run: {runtime.get('next_scheduled_run', '')}")
+    print(f"  job_run_count: {runtime.get('job_run_count', 0)}")
+    print(f"  success: {runtime.get('success', 0)}")
+    print(f"  failed: {runtime.get('failed', 0)}")
+    print(f"  retry_count: {runtime.get('retry_count', 0)}")
+    print(f"  missed_count: {runtime.get('missed_count', 0)}")
+    print(f"  dry_run_status: {runtime.get('dry_run_status', 'UNKNOWN')}")
     print("Safety:")
     for key, value in payload.get("safety", {}).items():
         print(f"  {key}: {value}")

@@ -1306,24 +1306,90 @@
 
 状态：Done。
 
-## Phase 31：OpenClaw-confirmed Topic Brief Generation v1
+## Phase 31：Autonomous Content Factory Runtime & End-to-End Daily Orchestration v1
 
-### P31-001：Confirmed Topic Scoring
+### P31-001：Autonomous Runtime Configuration
+
+状态：Done。
+
+### P31-002：Persistent Scheduler State & Execution Ledger
+
+状态：Done。
+
+### P31-003：Internal Scheduler & Job Registry
+
+状态：Done。
+
+### P31-004：End-to-End Daily Pipeline Graph
+
+状态：Done。
+
+### P31-005：Retry / Backoff / Checkpoint / Idempotency
+
+状态：Done。
+
+### P31-006：Network & VPN-aware Acquisition Routing
+
+状态：Done。
+
+### P31-007：Missed-run Recovery & Catch-up
+
+状态：Done。
+
+### P31-008：Runtime Heartbeat & Failure Notification
+
+状态：Done。
+
+### P31-009：Runtime Control API / CLI
+
+状态：Done。
+
+### P31-010：Workbench Runtime Control Center
+
+状态：Done。
+
+### P31-011：macOS launchd Bootstrap & Runbook
+
+状态：Done。
+
+### P31-012：OpenClaw Scheduling Coexistence Guard
+
+状态：Done。
+
+### P31-013：Autonomous End-to-End Dry Run
+
+状态：Done。
+
+### P31-014：Phase 31 Closeout
+
+状态：Done。
+
+## Phase 32：Autonomous Topic-to-Article Production Activation v1
+
+### P32-001：Confirmed Topic Scoring
 
 状态：Planned。
 
-### P31-002：OpenClaw-confirmed Topic Brief Builder
+### P32-002：Automated Topic Selection
 
 状态：Planned。
 
-### P31-003：Evidence Backfill Task Routing
+### P32-003：Automated Brief Generation
 
 状态：Planned。
 
-### P31-004：OpenClaw Topic Brief Review Gate
+### P32-004：Automated Outline / Draft Generation
 
 状态：Planned。
 
-### P31-005：OpenClaw-to-Content Production Closeout
+### P32-005：Multi-Agent Review and Rewrite
+
+状态：Planned。
+
+### P32-006：Final Candidate Workbench Delivery
+
+状态：Planned。
+
+### P32-007：Autonomous Content Production Regression Gate
 
 状态：Planned。

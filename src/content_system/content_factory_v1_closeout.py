@@ -35,6 +35,7 @@ def capability_map() -> list[dict[str, str]]:
         {"phase": "Phase 28", "capability": "connector evidence enrichment, topic promotion, acquisition-to-content bridge"},
         {"phase": "Phase 29", "capability": "OpenClaw source inventory, migration planning, metadata signals, weak signal safety gate"},
         {"phase": "Phase 30", "capability": "OpenClaw signal evidence backfill, confirmation workflow, topic activation, regression gate"},
+        {"phase": "Phase 31", "capability": "autonomous runtime, internal scheduler, ledger, retry, missed-run recovery, launchd bootstrap, runtime workbench"},
     ]
 
 
@@ -108,12 +109,14 @@ def build_content_factory_v1_closeout(paths: ProjectPaths, repo_root: Path) -> t
         "OpenClaw activation remains confirmation/backfill workflow; weak signals are not hard evidence and do not auto-create briefs.",
     ]
     next_phase = [
-        "Phase 31：OpenClaw-confirmed Topic Brief Generation v1",
-        "P31-001：Confirmed Topic Scoring",
-        "P31-002：OpenClaw-confirmed Topic Brief Builder",
-        "P31-003：Evidence Backfill Task Routing",
-        "P31-004：OpenClaw Topic Brief Review Gate",
-        "P31-005：OpenClaw-to-Content Production Closeout",
+        "Phase 32：Autonomous Topic-to-Article Production Activation v1",
+        "P32-001：Confirmed Topic Scoring",
+        "P32-002：Automated Topic Selection",
+        "P32-003：Automated Brief Generation",
+        "P32-004：Automated Outline / Draft Generation",
+        "P32-005：Multi-Agent Review and Rewrite",
+        "P32-006：Final Candidate Workbench Delivery",
+        "P32-007：Autonomous Content Production Regression Gate",
     ]
     payload = {
         "schema_version": SCHEMA_VERSION,
@@ -123,6 +126,7 @@ def build_content_factory_v1_closeout(paths: ProjectPaths, repo_root: Path) -> t
         "capability_map": capability_map(),
         "daily_use": {
             "recommended_command": "make stable-daily-ops",
+            "recommended_runtime": "launchd -> scripts/run_autonomous_runtime.py",
             "workbench_entry": "同行资本市场内容系统/11_frontstage/latest_wechat_workbench.html",
             "operator_review_required": True,
             "stable_daily_ops_status": stable_status,

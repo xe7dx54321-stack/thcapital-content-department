@@ -12,6 +12,7 @@ from urllib.parse import parse_qs, urlparse
 from content_system.chief_editor_agent import run_chief_editor_agent
 from content_system.paths import ProjectPaths
 from content_system.phase7_report_utils import read_json
+from content_system.runtime_control import run_named, runtime_status, set_pause
 from content_system.workbench_action_approval import update_action_approval
 from content_system.workbench_action_router import route_workbench_actions
 
@@ -57,6 +58,9 @@ class WorkbenchInteractionHandler(BaseHTTPRequestHandler):
                 }
             )
             return
+        if parsed.path == "/runtime/status":
+            self._send_json(runtime_status(self.paths))
+            return
         self._send_json({"error": "not_found"}, HTTPStatus.NOT_FOUND)
 
     def do_POST(self) -> None:  # noqa: N802
@@ -85,6 +89,14 @@ class WorkbenchInteractionHandler(BaseHTTPRequestHandler):
             if parsed.path in mapping:
                 result, payload, changed = update_action_approval(self.paths, self.repo_root, action_id, mapping[parsed.path], note)
                 self._send_json({"status": "OK" if changed else "NOT_FOUND", "result": result.__dict__, "approval": payload})
+                return
+            runtime_mapping = {
+                "/runtime/pause": lambda: set_pause(self.paths, True),
+                "/runtime/resume": lambda: set_pause(self.paths, False),
+                "/runtime/run-daily": lambda: run_named(self.repo_root, "daily-end-to-end"),
+            }
+            if parsed.path in runtime_mapping:
+                self._send_json({"status": "OK", "runtime": runtime_mapping[parsed.path]()})
                 return
         except Exception as exc:  # noqa: BLE001
             self._send_json({"status": "FAILED", "error": str(exc)}, HTTPStatus.INTERNAL_SERVER_ERROR)
