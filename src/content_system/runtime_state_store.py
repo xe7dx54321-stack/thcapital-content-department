@@ -148,6 +148,22 @@ def initialize_runtime_state(paths: ProjectPaths | None = None, db_path: Path | 
               value TEXT,
               updated_at TEXT
             );
+
+            CREATE TABLE IF NOT EXISTS validation_slot (
+              validation_slot_id TEXT PRIMARY KEY,
+              job_id TEXT,
+              business_date TEXT,
+              schedule_slot TEXT,
+              scheduled_at TEXT,
+              status TEXT,
+              trigger_source TEXT,
+              job_run_id TEXT,
+              created_at TEXT,
+              started_at TEXT,
+              finished_at TEXT,
+              updated_at TEXT,
+              payload TEXT
+            );
             """
         )
         conn.commit()
@@ -407,3 +423,76 @@ def get_control_state(conn: sqlite3.Connection, key: str, default: Any = None) -
 def status_counts(conn: sqlite3.Connection) -> dict[str, int]:
     rows = conn.execute("SELECT status, COUNT(*) AS count FROM job_run GROUP BY status").fetchall()
     return {str(row["status"] or "UNKNOWN"): int(row["count"] or 0) for row in rows}
+
+
+def create_validation_slot(conn: sqlite3.Connection, slot: dict[str, Any]) -> None:
+    now = utc_now()
+    conn.execute(
+        """
+        INSERT INTO validation_slot(
+          validation_slot_id, job_id, business_date, schedule_slot, scheduled_at,
+          status, trigger_source, job_run_id, created_at, started_at, finished_at,
+          updated_at, payload
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ON CONFLICT(validation_slot_id) DO UPDATE SET
+          job_id=excluded.job_id,
+          business_date=excluded.business_date,
+          schedule_slot=excluded.schedule_slot,
+          scheduled_at=excluded.scheduled_at,
+          status=excluded.status,
+          trigger_source=excluded.trigger_source,
+          job_run_id=excluded.job_run_id,
+          started_at=excluded.started_at,
+          finished_at=excluded.finished_at,
+          updated_at=excluded.updated_at,
+          payload=excluded.payload
+        """,
+        (
+            slot["validation_slot_id"],
+            slot.get("job_id", ""),
+            slot.get("business_date", ""),
+            slot.get("schedule_slot", ""),
+            slot.get("scheduled_at", ""),
+            slot.get("status", "PENDING"),
+            slot.get("trigger_source", ""),
+            slot.get("job_run_id", ""),
+            now,
+            slot.get("started_at", ""),
+            slot.get("finished_at", ""),
+            now,
+            _json_dumps(slot.get("payload") if isinstance(slot.get("payload"), dict) else {}),
+        ),
+    )
+    conn.commit()
+
+
+def due_validation_slots(conn: sqlite3.Connection, now_iso: str) -> list[dict[str, Any]]:
+    rows = conn.execute(
+        """
+        SELECT * FROM validation_slot
+        WHERE status IN ('PENDING', 'RUNNING') AND scheduled_at <= ?
+        ORDER BY scheduled_at ASC
+        """,
+        (now_iso,),
+    ).fetchall()
+    return [_row_to_dict(row) for row in rows]
+
+
+def get_validation_slot(conn: sqlite3.Connection, validation_slot_id: str) -> dict[str, Any]:
+    row = conn.execute("SELECT * FROM validation_slot WHERE validation_slot_id=?", (validation_slot_id,)).fetchone()
+    return _row_to_dict(row)
+
+
+def update_validation_slot(conn: sqlite3.Connection, validation_slot_id: str, **updates: Any) -> None:
+    if not updates:
+        return
+    allowed = {"status", "trigger_source", "job_run_id", "started_at", "finished_at", "payload"}
+    pairs = [(key, value) for key, value in updates.items() if key in allowed]
+    if not pairs:
+        return
+    assignments = ", ".join(f"{key}=?" for key, _ in pairs)
+    values = [_json_dumps(value) if key == "payload" and isinstance(value, dict) else value for key, value in pairs]
+    values.extend([utc_now(), validation_slot_id])
+    conn.execute(f"UPDATE validation_slot SET {assignments}, updated_at=? WHERE validation_slot_id=?", values)
+    conn.commit()

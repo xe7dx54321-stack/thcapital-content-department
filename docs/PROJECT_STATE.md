@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 31：Autonomous Content Factory Runtime & End-to-End Daily Orchestration v1。
+Phase 31B：Mac mini Autonomous Runtime Go-Live & Observation v1。
 
 ## 最新 checkpoint
 
-P31-014：Phase 31 Closeout。
+P31B-011：Phase 31B Closeout。
 
 ## 已完成
 
@@ -418,6 +418,20 @@ P31-014：Phase 31 Closeout。
 - P31-013 Autonomous End-to-End Dry Run v1。
 - P31-014 Phase 31 Closeout。
 
+### Phase 31B
+
+- P31B-001 Go-Live Preflight Audit v1。
+- P31B-002 OpenClaw Conflict Resolution & Rollback Pack v1。
+- P31B-003 macOS LaunchAgent Production Installation v1。
+- P31B-004 Runtime Startup / Heartbeat / Restart Validation v1。
+- P31B-005 Real Scheduler Trigger Validation v1。
+- P31B-006 Missed-run & Catch-up Live Validation v1。
+- P31B-007 Duplicate-run / Idempotency Live Validation v1。
+- P31B-008 Workbench Autonomous Runtime Acceptance v1。
+- P31B-009 Go-Live Safety & Cost Observation v1。
+- P31B-010 Go-Live Acceptance Gate v1。
+- P31B-011 Phase 31B Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -749,6 +763,19 @@ P31-014：Phase 31 Closeout。
 - OpenClaw scheduling coexistence guard。
 - autonomous runtime dry-run。
 
+### Phase 31B 能力
+
+- go-live preflight audit。
+- OpenClaw conflict resolution plan and rollback pack。
+- user-level macOS LaunchAgent production installation。
+- runtime startup, heartbeat and graceful restart validation。
+- autonomous scheduler live trigger validation。
+- missed-run and catch-up live validation。
+- duplicate-run / idempotency live validation。
+- workbench autonomous runtime acceptance panel。
+- go-live safety and cost observation。
+- go-live acceptance gate。
+
 ## 当前推荐日常命令
 
 ```bash
@@ -769,6 +796,7 @@ Mac mini launchd 自动拉起 Content Factory Runtime；
 ```bash
 make phase31-daily
 make autonomous-runtime-dry-run
+make phase31b-go-live
 ```
 
 ## 当前边界
@@ -873,6 +901,10 @@ make autonomous-runtime-dry-run
 - Phase 31 不自动改 config/prompt/rules/sources.yaml。
 - launchd 只负责拉起 Runtime，不承载业务调度。
 - Runtime SQLite、PID、lock、heartbeat、日志等运行态文件不进入 Git。
+- Phase 31B 不接 OpenClaw gateway、不迁移 OpenClaw cron。
+- Phase 31B 只允许 safe-only conflict resolution，并且必须先备份、可回滚。
+- Phase 31B 不使用 sudo，不安装系统级 LaunchDaemon。
+- Phase 31B 不把 secret 写入 plist 或日志。
 
 ## 下一阶段
 

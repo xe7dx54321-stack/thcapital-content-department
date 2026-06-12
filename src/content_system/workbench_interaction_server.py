@@ -94,6 +94,8 @@ class WorkbenchInteractionHandler(BaseHTTPRequestHandler):
                 "/runtime/pause": lambda: set_pause(self.paths, True),
                 "/runtime/resume": lambda: set_pause(self.paths, False),
                 "/runtime/run-daily": lambda: run_named(self.repo_root, "daily-end-to-end"),
+                "/runtime/run-validation": lambda: run_named(self.repo_root, "safe-validation"),
+                "/runtime/retry-failed": lambda: run_named(self.repo_root, "retry-summary"),
             }
             if parsed.path in runtime_mapping:
                 self._send_json({"status": "OK", "runtime": runtime_mapping[parsed.path]()})

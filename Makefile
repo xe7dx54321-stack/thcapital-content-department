@@ -787,5 +787,46 @@ autonomous-runtime-dry-run:
 phase31-daily:
 	$(PYTHON) scripts/run_daily_end_to_end_pipeline.py
 
+.PHONY: runtime-go-live-preflight openclaw-conflict-resolution-plan openclaw-conflict-resolution-safe-apply openclaw-conflict-resolution-rollback macos-runtime-launchd-install macos-runtime-launchd-uninstall runtime-go-live-validate runtime-live-trigger-validate missed-run-live-validate runtime-idempotency-live-validate runtime-go-live-observation runtime-go-live-acceptance phase31b-go-live
+
+runtime-go-live-preflight:
+	$(PYTHON) scripts/run_runtime_go_live_preflight.py
+
+openclaw-conflict-resolution-plan:
+	$(PYTHON) scripts/build_openclaw_conflict_resolution_plan.py
+
+openclaw-conflict-resolution-safe-apply:
+	$(PYTHON) scripts/apply_openclaw_conflict_resolution.py --apply-safe-only
+
+openclaw-conflict-resolution-rollback:
+	$(PYTHON) scripts/rollback_openclaw_conflict_resolution.py --latest
+
+macos-runtime-launchd-install:
+	$(PYTHON) scripts/install_macos_runtime_launchd.py --install
+
+macos-runtime-launchd-uninstall:
+	$(PYTHON) scripts/uninstall_macos_runtime_launchd.py --uninstall
+
+runtime-go-live-validate:
+	$(PYTHON) scripts/validate_runtime_go_live.py
+
+runtime-live-trigger-validate:
+	$(PYTHON) scripts/run_runtime_live_trigger_validation.py
+
+missed-run-live-validate:
+	$(PYTHON) scripts/run_missed_run_live_validation.py
+
+runtime-idempotency-live-validate:
+	$(PYTHON) scripts/run_runtime_idempotency_live_validation.py
+
+runtime-go-live-observation:
+	$(PYTHON) scripts/build_runtime_go_live_observation.py
+
+runtime-go-live-acceptance:
+	$(PYTHON) scripts/run_runtime_go_live_acceptance_gate.py
+
+phase31b-go-live:
+	$(PYTHON) scripts/run_phase31b_go_live_pipeline.py
+
 status:
 	bash 内容工厂控制台/status.sh

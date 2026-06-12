@@ -6,6 +6,7 @@ import os
 import json
 import re
 from dataclasses import asdict, dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -1048,6 +1049,15 @@ def build_runtime_control_center_panel(paths: ProjectPaths) -> dict[str, Any]:
     e2e = read_json(paths.logs_root / "latest_daily_end_to_end_run.json")
     dry_run = read_json(paths.logs_root / "latest_autonomous_runtime_dry_run.json")
     coexistence = read_json(paths.logs_root / "latest_openclaw_schedule_coexistence_report.json")
+    preflight = read_json(paths.logs_root / "latest_runtime_go_live_preflight.json")
+    conflict_plan = read_json(paths.logs_root / "latest_openclaw_conflict_resolution_plan.json")
+    install = read_json(paths.logs_root / "latest_macos_runtime_launchagent_installation.json")
+    startup = read_json(paths.logs_root / "latest_runtime_startup_heartbeat_restart_validation.json")
+    trigger = read_json(paths.logs_root / "latest_runtime_live_trigger_validation.json")
+    missed_live = read_json(paths.logs_root / "latest_missed_run_live_validation.json")
+    idempotency_live = read_json(paths.logs_root / "latest_runtime_idempotency_live_validation.json")
+    observation = read_json(paths.logs_root / "latest_runtime_go_live_observation.json")
+    acceptance = read_json(paths.logs_root / "latest_runtime_go_live_acceptance_gate.json")
     heartbeat = health.get("heartbeat") if isinstance(health.get("heartbeat"), dict) else {}
     ledger_summary = ledger.get("summary") if isinstance(ledger.get("summary"), dict) else {}
     retry_summary = retry.get("summary") if isinstance(retry.get("summary"), dict) else {}
@@ -1057,11 +1067,36 @@ def build_runtime_control_center_panel(paths: ProjectPaths) -> dict[str, Any]:
     e2e_summary = e2e.get("summary") if isinstance(e2e.get("summary"), dict) else {}
     dry_summary = dry_run.get("summary") if isinstance(dry_run.get("summary"), dict) else {}
     coexistence_summary = coexistence.get("summary") if isinstance(coexistence.get("summary"), dict) else {}
+    install_summary = install.get("summary") if isinstance(install.get("summary"), dict) else {}
+    startup_runtime = startup.get("runtime") if isinstance(startup.get("runtime"), dict) else {}
+    trigger_summary = trigger.get("summary") if isinstance(trigger.get("summary"), dict) else {}
+    missed_live_summary = missed_live.get("summary") if isinstance(missed_live.get("summary"), dict) else {}
+    idempotency_summary = idempotency_live.get("summary") if isinstance(idempotency_live.get("summary"), dict) else {}
+    observation_summary = observation.get("summary") if isinstance(observation.get("summary"), dict) else {}
+    acceptance_summary = acceptance.get("summary") if isinstance(acceptance.get("summary"), dict) else {}
+    heartbeat_age = ""
+    if heartbeat.get("last_heartbeat_at"):
+        try:
+            dt = datetime.fromisoformat(str(heartbeat.get("last_heartbeat_at")))
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            heartbeat_age = str(int((datetime.now(timezone.utc) - dt).total_seconds()))
+        except ValueError:
+            heartbeat_age = ""
     return {
         "runtime_status": health.get("runtime_status", heartbeat.get("status", "UNKNOWN")),
+        "launchagent_installed": bool(install_summary.get("installed")),
+        "launchagent_loaded": bool(install_summary.get("loaded")),
+        "launchagent_enabled": bool(install_summary.get("enabled")),
+        "launchagent_plist_path": install.get("plist_path", ""),
+        "runtime_pid": startup_runtime.get("pid", heartbeat.get("pid", 0)),
+        "runtime_instance_id": startup_runtime.get("runtime_instance_id", heartbeat.get("runtime_instance_id", "")),
         "last_heartbeat": heartbeat.get("last_heartbeat_at", ""),
+        "heartbeat_age_seconds": heartbeat_age,
         "current_job_id": heartbeat.get("current_job_id", ""),
         "next_scheduled_run": heartbeat.get("next_scheduled_run", ""),
+        "last_automatic_trigger": trigger_summary,
+        "last_successful_daily_pipeline": heartbeat.get("last_successful_daily_run", ""),
         "latest_workbench_generation_time": utc_now(),
         "ledger_summary": ledger_summary,
         "recent_job_runs": list_payload(ledger, "recent_job_runs")[:12],
@@ -1083,6 +1118,19 @@ def build_runtime_control_center_panel(paths: ProjectPaths) -> dict[str, Any]:
         "autonomous_dry_run_status": dry_run.get("status", "UNKNOWN"),
         "autonomous_dry_run_summary": dry_summary,
         "openclaw_coexistence_summary": coexistence_summary,
+        "phase31b_preflight_status": preflight.get("status", "UNKNOWN"),
+        "phase31b_conflict_plan_summary": conflict_plan.get("summary") if isinstance(conflict_plan.get("summary"), dict) else {},
+        "phase31b_startup_validation_status": startup.get("status", "UNKNOWN"),
+        "phase31b_live_trigger_status": trigger.get("status", "UNKNOWN"),
+        "phase31b_missed_live_summary": missed_live_summary,
+        "phase31b_idempotency_summary": idempotency_summary,
+        "phase31b_observation_summary": observation_summary,
+        "phase31b_acceptance_gate_status": acceptance.get("gate_status", "UNKNOWN"),
+        "phase31b_acceptance_summary": acceptance_summary,
+        "cost_guard_state": {
+            "estimated_cost": observation_summary.get("estimated_cost", 0),
+            "cost_guard_block_count": observation_summary.get("cost_guard_block_count", 0),
+        },
         "policy": {
             "local_control_only": True,
             "no_auto_publish_button": True,

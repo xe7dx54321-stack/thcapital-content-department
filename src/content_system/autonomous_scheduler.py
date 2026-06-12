@@ -20,15 +20,35 @@ from content_system.runtime_retry_manager import classify_error, next_retry_time
 from content_system.runtime_state_store import (
     connect_runtime_db,
     default_runtime_db_path,
+    due_validation_slots,
     get_control_state,
     get_job_run_by_idempotency,
     increment_attempt_count,
     initialize_runtime_state,
     insert_job_attempt,
+    set_control_state,
     upsert_job_run,
     upsert_scheduled_run,
     update_job_run_status,
+    update_validation_slot,
 )
+
+
+def _shutdown_requested(paths: ProjectPaths) -> bool:
+    initialize_runtime_state(paths)
+    with connect_runtime_db(paths) as conn:
+        return bool(get_control_state(conn, "shutdown_requested", False))
+
+
+def _clear_shutdown_and_mark_stopping(paths: ProjectPaths) -> None:
+    initialize_runtime_state(paths)
+    with connect_runtime_db(paths) as conn:
+        set_control_state(conn, "shutdown_requested", False)
+        conn.execute(
+            "UPDATE heartbeat SET last_heartbeat_at=?, status=?, current_job_id='' WHERE runtime_instance_id=(SELECT runtime_instance_id FROM heartbeat ORDER BY last_heartbeat_at DESC LIMIT 1)",
+            (utc_now(), "STOPPING"),
+        )
+        conn.commit()
 
 
 def runtime_lock_path(paths: ProjectPaths) -> Path:
@@ -86,6 +106,53 @@ def execute_job(job: Any, repo_root: Path, timeout_seconds: int) -> tuple[int, s
     return completed.returncode, completed.stdout[-4000:], completed.stderr[-4000:]
 
 
+def _execute_registered_job(conn: Any, job: Any, repo_root: Path, run: dict[str, Any], execute: bool) -> dict[str, Any]:
+    existing = get_job_run_by_idempotency(conn, str(run.get("idempotency_key", "")))
+    if duplicate_run_prevented(existing):
+        return {
+            "job_run_id": existing.get("job_run_id", ""),
+            "job_id": job.job_id,
+            "status": "SKIPPED_DUPLICATE",
+            "reason": "idempotency_prevented_duplicate",
+            "existing_status": existing.get("status"),
+        }
+    run = dict(run)
+    run["job_run_id"] = existing.get("job_run_id") or run.get("job_run_id") or f"jobrun_{uuid.uuid4().hex[:12]}"
+    run["status"] = "RUNNING" if execute else "SKIPPED"
+    run["started_at"] = utc_now() if execute else ""
+    upsert_job_run(conn, run)
+    if not execute:
+        return {"job_run_id": run["job_run_id"], "job_id": job.job_id, "status": "SKIPPED_DRY_RUN"}
+    attempt_number = increment_attempt_count(conn, run["job_run_id"])
+    started_at = utc_now()
+    try:
+        exit_code, stdout_tail, stderr_tail = execute_job(job, repo_root, job.timeout_seconds)
+    except subprocess.TimeoutExpired as exc:
+        exit_code, stdout_tail, stderr_tail = 124, exc.stdout or "", exc.stderr or "timeout"
+    finished_at = utc_now()
+    status = "SUCCESS" if exit_code == 0 else "FAILED"
+    error_class = "" if exit_code == 0 else classify_error(stderr_tail or stdout_tail)
+    next_retry_at = "" if exit_code == 0 else next_retry_time({"attempt_count": attempt_number, "job_id": job.job_id}, repo_root)
+    insert_job_attempt(
+        conn,
+        {
+            "attempt_id": f"attempt_{uuid.uuid4().hex[:12]}",
+            "job_run_id": run["job_run_id"],
+            "attempt_number": attempt_number,
+            "started_at": started_at,
+            "finished_at": finished_at,
+            "status": status,
+            "exit_code": exit_code,
+            "error_class": error_class,
+            "error_message": stderr_tail or stdout_tail,
+            "stdout_tail": stdout_tail,
+            "stderr_tail": stderr_tail,
+        },
+    )
+    update_job_run_status(conn, run["job_run_id"], status, exit_code, checkpoint="FINISHED", error_class=error_class, error_message=stderr_tail or stdout_tail, next_retry_at=next_retry_at)
+    return {"job_run_id": run["job_run_id"], "job_id": job.job_id, "status": status, "exit_code": exit_code, "started_at": started_at, "finished_at": finished_at}
+
+
 def run_scheduler_once(repo_root: Path, execute: bool = False, force_slot: str = "") -> tuple[dict[str, Any], dict[str, Path]]:
     paths = get_project_paths(repo_root)
     run_date = today_token()
@@ -125,6 +192,44 @@ def run_scheduler_once(repo_root: Path, execute: bool = False, force_slot: str =
                 (runtime_instance_id, os.getpid(), utc_now(), utc_now(), "RUNNING", "", next_run, "", "{}"),
             )
             conn.commit()
+            now_iso = now.isoformat()
+            for validation_slot in due_validation_slots(conn, now_iso):
+                job = registry.get(str(validation_slot.get("job_id") or ""))
+                if not job:
+                    errors.append(f"Unknown validation job {validation_slot.get('job_id')}.")
+                    update_validation_slot(conn, str(validation_slot.get("validation_slot_id")), status="FAILED", finished_at=utc_now(), trigger_source="AUTONOMOUS_SCHEDULER")
+                    continue
+                schedule_slot = str(validation_slot.get("schedule_slot") or f"validation_{validation_slot.get('validation_slot_id')}")
+                idem_key = idempotency_key(job.job_id, str(validation_slot.get("business_date") or now.date().isoformat()), schedule_slot, job.idempotency_scope)
+                update_validation_slot(conn, str(validation_slot.get("validation_slot_id")), status="RUNNING", started_at=utc_now(), trigger_source="AUTONOMOUS_SCHEDULER")
+                result = _execute_registered_job(
+                    conn,
+                    job,
+                    repo_root,
+                    {
+                        "job_run_id": f"jobrun_{uuid.uuid4().hex[:12]}",
+                        "scheduled_run_id": str(validation_slot.get("validation_slot_id")),
+                        "job_id": job.job_id,
+                        "business_date": str(validation_slot.get("business_date") or now.date().isoformat()),
+                        "schedule_slot": schedule_slot,
+                        "scheduled_at": str(validation_slot.get("scheduled_at") or ""),
+                        "idempotency_key": idem_key,
+                        "checkpoint": "VALIDATION_SLOT",
+                    },
+                    execute=execute,
+                )
+                update_validation_slot(
+                    conn,
+                    str(validation_slot.get("validation_slot_id")),
+                    status="SUCCESS" if result.get("status") == "SUCCESS" else str(result.get("status") or "FAILED"),
+                    job_run_id=str(result.get("job_run_id") or ""),
+                    finished_at=result.get("finished_at") or utc_now(),
+                    trigger_source="AUTONOMOUS_SCHEDULER",
+                )
+                if result.get("status") == "SKIPPED_DUPLICATE":
+                    skipped.append(result)
+                else:
+                    executed.append(result)
             for due in due_daily_slots(bundle, now, force_slot=force_slot):
                 slot_id = str(due["slot_id"])
                 scheduled_run_id = f"srun_{run_date}_{slot_id}"
@@ -144,58 +249,27 @@ def run_scheduler_once(repo_root: Path, execute: bool = False, force_slot: str =
                         errors.append(f"Unknown job {job_id}.")
                         continue
                     idem_key = idempotency_key(job.job_id, now.date().isoformat(), slot_id, job.idempotency_scope)
-                    existing = get_job_run_by_idempotency(conn, idem_key)
-                    if duplicate_run_prevented(existing):
-                        skipped.append({"job_id": job.job_id, "schedule_slot": slot_id, "reason": "idempotency_prevented_duplicate", "existing_status": existing.get("status")})
-                        continue
-                    job_run_id = existing.get("job_run_id") or f"jobrun_{uuid.uuid4().hex[:12]}"
-                    run = upsert_job_run(
+                    result = _execute_registered_job(
                         conn,
+                        job,
+                        repo_root,
                         {
-                            "job_run_id": job_run_id,
+                            "job_run_id": f"jobrun_{uuid.uuid4().hex[:12]}",
                             "scheduled_run_id": scheduled_run_id,
                             "job_id": job.job_id,
                             "business_date": now.date().isoformat(),
                             "schedule_slot": slot_id,
                             "scheduled_at": due.get("scheduled_at", ""),
-                            "started_at": utc_now() if execute else "",
-                            "status": "RUNNING" if execute else "SKIPPED",
-                            "attempt_count": existing.get("attempt_count", 0),
                             "idempotency_key": idem_key,
                             "checkpoint": "SCHEDULED",
                         },
+                        execute=execute,
                     )
-                    if not execute:
-                        skipped.append({"job_run_id": run.get("job_run_id"), "job_id": job.job_id, "schedule_slot": slot_id, "reason": "scheduler_once_dry_run"})
-                        continue
-                    attempt_number = increment_attempt_count(conn, job_run_id)
-                    started_at = utc_now()
-                    try:
-                        exit_code, stdout_tail, stderr_tail = execute_job(job, repo_root, job.timeout_seconds)
-                    except subprocess.TimeoutExpired as exc:
-                        exit_code, stdout_tail, stderr_tail = 124, exc.stdout or "", exc.stderr or "timeout"
-                    finished_at = utc_now()
-                    status = "SUCCESS" if exit_code == 0 else "FAILED"
-                    error_class = "" if exit_code == 0 else classify_error(stderr_tail or stdout_tail)
-                    next_retry_at = "" if exit_code == 0 else next_retry_time({"attempt_count": attempt_number, "job_id": job.job_id}, repo_root)
-                    insert_job_attempt(
-                        conn,
-                        {
-                            "attempt_id": f"attempt_{uuid.uuid4().hex[:12]}",
-                            "job_run_id": job_run_id,
-                            "attempt_number": attempt_number,
-                            "started_at": started_at,
-                            "finished_at": finished_at,
-                            "status": status,
-                            "exit_code": exit_code,
-                            "error_class": error_class,
-                            "error_message": stderr_tail or stdout_tail,
-                            "stdout_tail": stdout_tail,
-                            "stderr_tail": stderr_tail,
-                        },
-                    )
-                    update_job_run_status(conn, job_run_id, status, exit_code, checkpoint="FINISHED", error_class=error_class, error_message=stderr_tail or stdout_tail, next_retry_at=next_retry_at)
-                    executed.append({"job_run_id": job_run_id, "job_id": job.job_id, "status": status, "exit_code": exit_code})
+                    if result.get("status") in {"SKIPPED_DRY_RUN", "SKIPPED_DUPLICATE"}:
+                        result["schedule_slot"] = slot_id
+                        skipped.append(result)
+                    else:
+                        executed.append(result)
             conn.execute(
                 "UPDATE heartbeat SET last_heartbeat_at=?, status=?, current_job_id='' WHERE runtime_instance_id=?",
                 (utc_now(), "IDLE", runtime_instance_id),
@@ -256,5 +330,15 @@ def run_autonomous_runtime_loop(repo_root: Path) -> None:
     bundle = load_runtime_config(repo_root)
     heartbeat_seconds = int(((bundle.schedule.get("runtime") or {}).get("heartbeat_seconds") or 60))
     while True:
+        if _shutdown_requested(paths):
+            _clear_shutdown_and_mark_stopping(paths)
+            return
         run_scheduler_once(repo_root, execute=True)
-        time.sleep(max(heartbeat_seconds, 10))
+        remaining = max(heartbeat_seconds, 10)
+        while remaining > 0:
+            if _shutdown_requested(paths):
+                _clear_shutdown_and_mark_stopping(paths)
+                return
+            sleep_for = min(5, remaining)
+            time.sleep(sleep_for)
+            remaining -= sleep_for

@@ -71,6 +71,8 @@ def run_named(repo_root: Path, name: str) -> dict[str, Any]:
     allowed = {
         "daily-end-to-end": [sys.executable, "scripts/run_daily_end_to_end_pipeline.py", "--dry-run"],
         "scheduler-once": [sys.executable, "scripts/run_scheduler_once.py"],
+        "safe-validation": [sys.executable, "scripts/run_runtime_live_trigger_validation.py", "--delay-seconds", "5", "--timeout-seconds", "60"],
+        "retry-summary": [sys.executable, "scripts/build_runtime_retry_queue.py"],
     }
     if name not in allowed:
         return {"status": "REJECTED", "reason": "unknown_or_unsafe_run_target", "name": name}

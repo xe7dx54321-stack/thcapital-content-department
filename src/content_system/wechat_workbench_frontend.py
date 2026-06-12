@@ -1899,11 +1899,12 @@ function renderOpenClawActivationPanel(cardClass = "review-card wide") {
 }
 
 function runtimeCommand(kind) {
-  if (kind === "run") return "python3 scripts/runtime_control.py run daily-end-to-end";
-  if (kind === "retry") return "python3 scripts/runtime_control.py retry <job_run_id>";
-  if (kind === "pause") return "python3 scripts/runtime_control.py pause";
-  if (kind === "resume") return "python3 scripts/runtime_control.py resume";
-  return "python3 scripts/runtime_control.py status";
+  if (kind === "run") return "curl -X POST http://127.0.0.1:8766/runtime/run-daily";
+  if (kind === "validation") return "curl -X POST http://127.0.0.1:8766/runtime/run-validation";
+  if (kind === "retry") return "curl -X POST http://127.0.0.1:8766/runtime/retry-failed";
+  if (kind === "pause") return "curl -X POST http://127.0.0.1:8766/runtime/pause";
+  if (kind === "resume") return "curl -X POST http://127.0.0.1:8766/runtime/resume";
+  return "curl http://127.0.0.1:8766/runtime/status";
 }
 
 function renderRuntimeControlCenterPanel(cardClass = "review-card wide") {
@@ -1917,6 +1918,13 @@ function renderRuntimeControlCenterPanel(cardClass = "review-card wide") {
   const e2e = panel.daily_end_to_end_summary || {};
   const dryRun = panel.autonomous_dry_run_summary || {};
   const coexistence = panel.openclaw_coexistence_summary || {};
+  const conflictPlan = panel.phase31b_conflict_plan_summary || {};
+  const trigger = panel.last_automatic_trigger || {};
+  const missedLive = panel.phase31b_missed_live_summary || {};
+  const idempotencyLive = panel.phase31b_idempotency_summary || {};
+  const observation = panel.phase31b_observation_summary || {};
+  const acceptance = panel.phase31b_acceptance_summary || {};
+  const costGuard = panel.cost_guard_state || {};
   const policy = panel.policy || {};
   const recentRuns = Array.isArray(panel.recent_job_runs) ? panel.recent_job_runs : [];
   const retryItems = Array.isArray(panel.retry_items) ? panel.retry_items : [];
@@ -1935,12 +1943,16 @@ function renderRuntimeControlCenterPanel(cardClass = "review-card wide") {
   const routeRows = routes.slice(0, 8).map((item) => `${item.lane}: ${item.action} / ${item.reason}`);
   return `<div class="${cardClass} runtime-control-panel">
     <p class="review-label">Autonomous Runtime Control Center</p>
-    <p class="review-value">Runtime ${escapeHtml(panel.runtime_status || "UNKNOWN")} · heartbeat ${escapeHtml(panel.last_heartbeat || "-")} · current job ${escapeHtml(panel.current_job_id || "-")} · next ${escapeHtml(panel.next_scheduled_run || "-")}</p>
+    <p class="review-value">LaunchAgent installed ${escapeHtml(panel.launchagent_installed ?? false)} · loaded ${escapeHtml(panel.launchagent_loaded ?? false)} · enabled ${escapeHtml(panel.launchagent_enabled ?? false)} · gate ${escapeHtml(panel.phase31b_acceptance_gate_status || "UNKNOWN")}</p>
+    <p class="review-value">Runtime ${escapeHtml(panel.runtime_status || "UNKNOWN")} · PID ${escapeHtml(panel.runtime_pid || 0)} · heartbeat age ${escapeHtml(panel.heartbeat_age_seconds || "-")}s · current job ${escapeHtml(panel.current_job_id || "-")} · next ${escapeHtml(panel.next_scheduled_run || "-")}</p>
     <p class="review-value">Today jobs success ${escapeHtml(ledger.success ?? 0)} · failed ${escapeHtml(ledger.failed ?? 0)} · pending ${escapeHtml(ledger.pending ?? 0)} · retry ${escapeHtml(retry.retry_count ?? 0)} · missed ${escapeHtml(missed.missed_count ?? 0)}</p>
     <p class="review-value">Network ${escapeHtml(network.status || "UNKNOWN")} · routes run now ${escapeHtml(route.run_now ?? 0)} · delayed ${escapeHtml(route.delay_retry ?? 0)} · pipeline nodes ${escapeHtml(graph.node_count ?? 0)} · E2E ${escapeHtml(panel.daily_end_to_end_status || "UNKNOWN")}</p>
-    <p class="review-value">Dry-run ${escapeHtml(panel.autonomous_dry_run_status || "UNKNOWN")} · steps ${escapeHtml(dryRun.step_count ?? 0)} · warnings ${escapeHtml(dryRun.warnings ?? 0)} · failures ${escapeHtml(dryRun.failures ?? 0)} · OpenClaw conflicts ${escapeHtml(coexistence.conflict_count ?? 0)}</p>
+    <p class="review-value">Trigger ${escapeHtml(panel.phase31b_live_trigger_status || "UNKNOWN")} · source ${escapeHtml(trigger.status || "-")} · missed live pass ${escapeHtml(missedLive.pass ?? 0)} · idempotency skipped ${escapeHtml(idempotencyLive.duplicate_skipped ?? 0)} · OpenClaw conflicts ${escapeHtml(coexistence.conflict_count ?? 0)} / manual ${escapeHtml(conflictPlan.manual_review ?? 0)}</p>
+    <p class="review-value">Observation cost ${escapeHtml(costGuard.estimated_cost ?? observation.estimated_cost ?? 0)} · retries ${escapeHtml(observation.retry_count ?? 0)} · auto publish ${escapeHtml(observation.auto_publish_attempts ?? 0)} · image gen ${escapeHtml(observation.image_generation_attempts ?? 0)} · secret exposure ${escapeHtml(observation.secret_exposure_count ?? 0)} · gate blocking ${escapeHtml(acceptance.blocking_failures ?? 0)}</p>
+    <p class="review-value">Dry-run ${escapeHtml(panel.autonomous_dry_run_status || "UNKNOWN")} · steps ${escapeHtml(dryRun.step_count ?? 0)} · warnings ${escapeHtml(dryRun.warnings ?? 0)} · failures ${escapeHtml(dryRun.failures ?? 0)} · Workbench updated ${escapeHtml(panel.latest_workbench_generation_time || "-")}</p>
     <div class="version-actions">
       <button class="copy-review-command" type="button" data-command="${escapeHtml(runtimeCommand("run"))}">立即运行今日主链路</button>
+      <button class="copy-review-command" type="button" data-command="${escapeHtml(runtimeCommand("validation"))}">运行安全验证任务</button>
       <button class="copy-review-command" type="button" data-command="${escapeHtml(runtimeCommand("retry"))}">重试失败任务</button>
       <button class="copy-review-command" type="button" data-command="${escapeHtml(runtimeCommand("pause"))}">暂停调度</button>
       <button class="copy-review-command" type="button" data-command="${escapeHtml(runtimeCommand("resume"))}">恢复调度</button>

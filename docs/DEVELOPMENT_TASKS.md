@@ -1364,7 +1364,55 @@
 
 状态：Done。
 
+## Phase 31B：Mac mini Autonomous Runtime Go-Live & Observation v1
+
+### P31B-001：Go-Live Preflight Audit
+
+状态：Done。
+
+### P31B-002：OpenClaw Conflict Resolution & Rollback Pack
+
+状态：Done。
+
+### P31B-003：macOS LaunchAgent Production Installation
+
+状态：Done。
+
+### P31B-004：Runtime Startup / Heartbeat / Restart Validation
+
+状态：Done。
+
+### P31B-005：Real Scheduler Trigger Validation
+
+状态：Done。
+
+### P31B-006：Missed-run & Catch-up Live Validation
+
+状态：Done。
+
+### P31B-007：Duplicate-run / Idempotency Live Validation
+
+状态：Done。
+
+### P31B-008：Workbench Autonomous Runtime Acceptance
+
+状态：Done。
+
+### P31B-009：Go-Live Safety & Cost Observation
+
+状态：Done。
+
+### P31B-010：Go-Live Acceptance Gate
+
+状态：Done。
+
+### P31B-011：Phase 31B Closeout
+
+状态：Done。
+
 ## Phase 32：Autonomous Topic-to-Article Production Activation v1
+
+进入条件：Phase31B go-live gate 为 `GO_LIVE_APPROVED` 或 `GO_LIVE_WITH_WARNINGS` 且 blocking_failures=0。
 
 ### P32-001：Confirmed Topic Scoring
 

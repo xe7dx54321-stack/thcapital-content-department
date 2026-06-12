@@ -104,3 +104,11 @@ jobs:
     retry_policy: local_job
     idempotency_scope: weekly
     required: false
+
+  runtime_validation_noop:
+    command: ["python3", "scripts/build_runtime_health_summary.py"]
+    category: validation
+    timeout_seconds: 120
+    retry_policy: local_job
+    idempotency_scope: artifact_version
+    required: false
