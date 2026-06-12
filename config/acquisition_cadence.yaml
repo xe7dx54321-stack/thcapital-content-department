@@ -1,0 +1,132 @@
+schema_version: v1
+
+policies:
+  timezone: system_local
+  max_lane_runs_per_day: 3
+  max_parallel_lane_batches: 2
+  grouped_window_minutes: 20
+  shared_source_dedup_enabled: true
+  connector_rate_limit_per_window: 1
+  cost_guard: honor_existing_cost_guard
+
+lanes:
+  official_ai_lab:
+    schedules: ["08:45", "13:45", "20:45"]
+    timezone: system_local
+    catchup_policy: latest_only
+    rationale: First-party AI lab updates often land around US morning/midday and Asia evening; three checks catch overnight, midday, and evening windows without copying OpenClaw jobs.
+    network_requirement: international
+  funding_startup:
+    schedules: ["08:15", "13:15", "19:15"]
+    timezone: system_local
+    catchup_policy: consolidated
+    rationale: Funding and launch media refreshes have morning and US-cycle bursts; consolidated catch-up avoids replaying every stale scan.
+    network_requirement: international
+  reddit_llm_discussion:
+    schedules: ["09:15", "14:15", "21:15"]
+    timezone: system_local
+    catchup_policy: latest_only
+    rationale: Community discussion is perishable; latest-only captures active topics without amplifying repeated weak signals.
+    network_requirement: international
+  builder_research:
+    schedules: ["10:30", "13:30", "22:30"]
+    timezone: system_local
+    catchup_policy: latest_only
+    rationale: Builder newsletters and essays update across Asia morning and US publication hours.
+    network_requirement: international
+  china_ai_media:
+    schedules: ["11:45", "17:45", "21:45"]
+    timezone: system_local
+    catchup_policy: consolidated
+    rationale: Chinese media publishing clusters around noon, evening commute, and night review windows.
+    network_requirement: domestic
+  wechat_metadata:
+    schedules: ["11:45", "17:45", "21:45"]
+    timezone: system_local
+    catchup_policy: consolidated
+    rationale: WeChat metadata is useful around the same Chinese media windows; no full-text fetch.
+    network_requirement: domestic
+  youtube_signal:
+    schedules: ["11:40", "17:40", "21:40"]
+    timezone: system_local
+    catchup_policy: latest_only
+    rationale: Video metadata is weak signal; latest-only avoids repeated stale video checks.
+    network_requirement: international
+  trend_heat_validation:
+    schedules: ["12:15", "18:15", "21:15"]
+    timezone: system_local
+    catchup_policy: latest_only
+    rationale: Heat validation is most useful after discussion cycles mature; stale heat is skipped.
+    network_requirement: mixed
+  paper_research:
+    schedules: ["09:30", "18:30"]
+    timezone: system_local
+    catchup_policy: consolidated
+    rationale: Research metadata changes slower than media; two windows are enough.
+    network_requirement: international
+  keyword_discovery:
+    schedules: ["15:00"]
+    timezone: system_local
+    catchup_policy: skip_if_stale
+    rationale: Keyword discovery should propose candidates once daily and never flood live connectors.
+    network_requirement: mixed
+  model_release:
+    schedules: ["08:45", "13:45", "20:45"]
+    timezone: system_local
+    catchup_policy: latest_only
+    rationale: Model release scans share official AI lab windows and connector fetches.
+    network_requirement: international
+  agent_framework:
+    schedules: ["10:30", "18:25"]
+    timezone: system_local
+    catchup_policy: consolidated
+    rationale: Framework updates should feed topic scoring and content generation windows.
+    network_requirement: international
+  open_source:
+    schedules: ["10:30", "18:25"]
+    timezone: system_local
+    catchup_policy: consolidated
+    rationale: GitHub/Hugging Face metadata can share framework connector batches.
+    network_requirement: international
+  product_launch:
+    schedules: ["08:15", "13:15", "19:15"]
+    timezone: system_local
+    catchup_policy: consolidated
+    rationale: Product launch sources share startup/funding windows.
+    network_requirement: international
+  global_ai_media:
+    schedules: ["08:15", "13:15", "19:15"]
+    timezone: system_local
+    catchup_policy: consolidated
+    rationale: Global AI media should reuse funding/media fetches and route to multiple lanes.
+    network_requirement: international
+  developer_community:
+    schedules: ["09:15", "14:15", "21:15"]
+    timezone: system_local
+    catchup_policy: latest_only
+    rationale: Developer community discussion is perishable and should be treated as weak signal.
+    network_requirement: international
+  x_signal:
+    schedules: ["12:15", "18:15"]
+    timezone: system_local
+    catchup_policy: latest_only
+    rationale: X is metadata/weak-signal only and must not drive high-frequency automation.
+    network_requirement: international
+  ai_infra:
+    schedules: ["08:45", "13:45", "20:45"]
+    timezone: system_local
+    catchup_policy: latest_only
+    rationale: AI infra overlaps official AI lab, technical blogs, and open source releases.
+    network_requirement: international
+  industry_deep_research:
+    schedules: ["15:30"]
+    timezone: system_local
+    catchup_policy: skip_if_stale
+    rationale: Trial vertical sources are slower and isolated from the daily AI hot pool.
+    network_requirement: mixed
+  manual_url_backfill:
+    schedules: ["10:30", "18:30"]
+    timezone: system_local
+    catchup_policy: consolidated
+    rationale: Manual queues should be reviewed near backfill and evening evidence windows.
+    network_requirement: local

@@ -1,0 +1,264 @@
+schema_version: v1
+
+strategies:
+  official_ai_lab:
+    language: [en]
+    region: [global]
+    keywords:
+      primary: [OpenAI, Anthropic, DeepMind, Google AI, Meta AI, Microsoft AI, NVIDIA AI]
+      secondary: [agent, model, research, safety, platform, API, inference]
+      event_terms: [launches, introduces, releases, updates, research, partnership]
+      exclude: [careers, event replay]
+    lookback_hours: 24
+    max_items_per_source: 40
+    sort: [published_at_desc]
+    expansion_trigger: {minimum_items: 3, action: broaden_to_secondary_keywords}
+    zero_result_fallback: manual_url_backfill
+  model_release:
+    language: [en]
+    region: [global]
+    keywords:
+      primary: [foundation model, reasoning model, multimodal, open model, inference]
+      secondary: [weights, eval, benchmark, context window, distillation]
+      event_terms: [release, launch, preview, general availability, checkpoint]
+      exclude: [rumor, meme]
+    lookback_hours: 24
+    max_items_per_source: 50
+    sort: [published_at_desc, source_authority_desc]
+    expansion_trigger: {minimum_items: 2, action: include_model_family_terms}
+    zero_result_fallback: watch
+  agent_framework:
+    language: [en]
+    region: [global]
+    keywords:
+      primary: [agent, multi-agent, tool use, computer use, MCP, workflow]
+      secondary: [orchestration, memory, eval, browser use, code agent]
+      event_terms: [release, changelog, integration, framework]
+      exclude: [marketing-only]
+    lookback_hours: 24
+    max_items_per_source: 50
+    sort: [published_at_desc]
+    expansion_trigger: {minimum_items: 2, action: include_open_source_terms}
+    zero_result_fallback: github_trending
+  open_source:
+    language: [en]
+    region: [global]
+    keywords:
+      primary: [LLM, agent, inference, RAG, eval, MCP]
+      secondary: [stars, release, changelog, benchmark]
+      event_terms: [release, trending, milestone]
+      exclude: [toy, archived]
+    lookback_hours: 24
+    max_items_per_source: 50
+    sort: [published_at_desc, engagement_desc]
+    expansion_trigger: {minimum_items: 3, action: broaden_keywords}
+    zero_result_fallback: watch
+  paper_research:
+    language: [en]
+    region: [global]
+    keywords:
+      primary: [LLM agents, tool use, reasoning, inference, AI infrastructure]
+      secondary: [benchmark, evaluation, multimodal, alignment, retrieval]
+      event_terms: [paper, arXiv, accepted, benchmark]
+      exclude: [survey-only]
+    lookback_hours: 48
+    max_items_per_source: 80
+    sort: [published_at_desc]
+    expansion_trigger: {minimum_items: 5, action: include_secondary_keywords}
+    zero_result_fallback: watch
+  funding_startup:
+    language: [en]
+    region: [global, us]
+    keywords:
+      primary: [artificial intelligence, AI agent, foundation model, inference, AI infrastructure]
+      secondary: [enterprise AI, developer tools, robotics, data infra]
+      event_terms: [raises, funding, seed, Series A, launches, partnership]
+      exclude: [crypto-only, unrelated biotech]
+    lookback_hours: 12
+    max_items_per_source: 30
+    sort: [published_at_desc]
+    expansion_trigger: {minimum_items: 3, action: broaden_keywords}
+    zero_result_fallback: manual_url_backfill
+  product_launch:
+    language: [en]
+    region: [global]
+    keywords:
+      primary: [AI agent, automation, coding agent, workflow, assistant]
+      secondary: [launch, beta, product hunt, waitlist]
+      event_terms: [launches, ships, opens, beta]
+      exclude: [giveaway, referral]
+    lookback_hours: 12
+    max_items_per_source: 30
+    sort: [published_at_desc, engagement_desc]
+    expansion_trigger: {minimum_items: 3, action: broaden_product_categories}
+    zero_result_fallback: watch
+  builder_research:
+    language: [en]
+    region: [global]
+    keywords:
+      primary: [AI agents, LLMs, inference, evals, software engineering]
+      secondary: [market structure, developer tools, open source, research notes]
+      event_terms: [analysis, essay, notes, deep dive]
+      exclude: [sponsored-only]
+    lookback_hours: 24
+    max_items_per_source: 30
+    sort: [published_at_desc]
+    expansion_trigger: {minimum_items: 2, action: include_builder_sources}
+    zero_result_fallback: watch
+  developer_community:
+    language: [en]
+    region: [global]
+    keywords:
+      primary: [LLM, agent, local model, coding agent, inference]
+      secondary: [Hacker News, GitHub, benchmark, deployment]
+      event_terms: [show, launch, discussion]
+      exclude: [meme, referral, giveaway]
+    lookback_hours: 12
+    max_items_per_source: 50
+    sort: [engagement_desc, published_at_desc]
+    expansion_trigger: {minimum_items: 5, action: include_related_discussions}
+    zero_result_fallback: watch
+  reddit_llm_discussion:
+    language: [en]
+    region: [global]
+    keywords:
+      primary: [local LLM, Claude, ChatGPT, agent, model release]
+      secondary: [benchmark, tool use, coding, inference]
+      event_terms: [released, tried, benchmark, comparison]
+      exclude: [meme, giveaway, referral, drama-only]
+    lookback_hours: 8
+    max_items_per_source: 30
+    rank: {engagement_weight: 0.4, freshness_weight: 0.6}
+    sort: [published_at_desc, engagement_desc]
+    expansion_trigger: {minimum_items: 5, action: broaden_to_related_subreddits}
+    zero_result_fallback: watch
+  global_ai_media:
+    language: [en]
+    region: [global]
+    keywords:
+      primary: [AI, artificial intelligence, agents, startup, model]
+      secondary: [enterprise, infrastructure, chips, funding, regulation]
+      event_terms: [launches, raises, announces, partners]
+      exclude: [opinion-only]
+    lookback_hours: 12
+    max_items_per_source: 30
+    sort: [published_at_desc]
+    expansion_trigger: {minimum_items: 3, action: broaden_media_sources}
+    zero_result_fallback: manual_url_backfill
+  china_ai_media:
+    language: [zh, en]
+    region: [cn]
+    keywords:
+      primary: [人工智能, AI, 大模型, 智能体, 算力]
+      secondary: [融资, 产品, 开源, 产业, 芯片]
+      event_terms: [发布, 融资, 上线, 合作, 开源]
+      exclude: [标题党, 转载合集]
+    lookback_hours: 12
+    max_items_per_source: 30
+    sort: [published_at_desc]
+    expansion_trigger: {minimum_items: 3, action: include_cn_media_keywords}
+    zero_result_fallback: manual_url_backfill
+  wechat_metadata:
+    language: [zh]
+    region: [cn]
+    keywords:
+      primary: [AI, 大模型, 智能体, 算力, 开源]
+      secondary: [融资, 产品, 芯片, 机器人]
+      event_terms: [发布, 实测, 对话, 融资]
+      exclude: [广告, 课程推广]
+    lookback_hours: 24
+    max_items_per_source: 30
+    sort: [published_at_desc]
+    expansion_trigger: {minimum_items: 3, action: manual_review_keywords}
+    zero_result_fallback: manual_review
+  youtube_signal:
+    language: [en, zh]
+    region: [global]
+    keywords:
+      primary: [AI agent, OpenAI, DeepMind, YC AI, LangChain]
+      secondary: [demo, talk, interview, tutorial]
+      event_terms: [demo, keynote, launch, interview]
+      exclude: [reaction-only]
+    lookback_hours: 12
+    max_items_per_source: 30
+    sort: [published_at_desc, engagement_desc]
+    expansion_trigger: {minimum_items: 2, action: include_channel_watchlist}
+    zero_result_fallback: watch
+  x_signal:
+    language: [en]
+    region: [global]
+    keywords:
+      primary: [OpenAI, Anthropic, AI agent, model release]
+      secondary: [developer, benchmark, demo]
+      event_terms: [announces, shipped, demo]
+      exclude: [meme, flamewar]
+    lookback_hours: 12
+    max_items_per_source: 20
+    sort: [published_at_desc]
+    expansion_trigger: {minimum_items: 2, action: manual_review_only}
+    zero_result_fallback: watch
+  trend_heat_validation:
+    language: [en, zh]
+    region: [global, cn]
+    keywords:
+      primary: [AI, AI agent, 大模型, 智能体]
+      secondary: [product launch, trending, 热榜]
+      event_terms: [trending, hot, 上榜, 爆发]
+      exclude: [entertainment-only]
+    lookback_hours: 8
+    max_items_per_source: 30
+    sort: [engagement_desc, published_at_desc]
+    expansion_trigger: {minimum_items: 5, action: include_heat_sources}
+    zero_result_fallback: watch
+  ai_infra:
+    language: [en]
+    region: [global]
+    keywords:
+      primary: [inference, GPU, deployment, serving, data infrastructure]
+      secondary: [NVIDIA, CUDA, vector database, orchestration]
+      event_terms: [launch, partnership, release, benchmark]
+      exclude: [hardware-rumor]
+    lookback_hours: 24
+    max_items_per_source: 50
+    sort: [published_at_desc]
+    expansion_trigger: {minimum_items: 3, action: include_infra_keywords}
+    zero_result_fallback: watch
+  industry_deep_research:
+    language: [en, zh]
+    region: [global, cn]
+    keywords:
+      primary: [semiconductor, photonics, quantum, policy, AI jobs]
+      secondary: [supply chain, regulation, hiring, capex]
+      event_terms: [policy, investment, hiring, report]
+      exclude: [daily-noise]
+    lookback_hours: 72
+    max_items_per_source: 30
+    sort: [published_at_desc]
+    expansion_trigger: {minimum_items: 2, action: manual_review_verticals}
+    zero_result_fallback: watch
+  manual_url_backfill:
+    language: [en, zh]
+    region: [global, cn]
+    keywords:
+      primary: [operator-provided]
+      secondary: [primary source, confirmation]
+      event_terms: [manual]
+      exclude: []
+    lookback_hours: 168
+    max_items_per_source: 50
+    sort: [operator_order]
+    expansion_trigger: {minimum_items: 0, action: no_auto_expansion}
+    zero_result_fallback: manual_review
+  keyword_discovery:
+    language: [en, zh]
+    region: [global, cn]
+    keywords:
+      primary: [candidate keywords]
+      secondary: [emerging terms, aliases, company names]
+      event_terms: [discovery]
+      exclude: [disabled-by-default]
+    lookback_hours: 24
+    max_items_per_source: 20
+    sort: [novelty_desc]
+    expansion_trigger: {minimum_items: 0, action: propose_only}
+    zero_result_fallback: watch

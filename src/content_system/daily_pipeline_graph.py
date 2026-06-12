@@ -13,7 +13,8 @@ def pipeline_nodes() -> list[dict[str, Any]]:
     return [
         {"node_id": "runtime_preflight", "type": "required", "command": python_command("scripts/validate_runtime_config.py"), "depends_on": []},
         {"node_id": "network_readiness", "type": "degradable", "command": python_command("scripts/check_runtime_network_readiness.py"), "depends_on": ["runtime_preflight"]},
-        {"node_id": "morning_acquisition", "type": "degradable", "command": python_command("scripts/run_phase29_daily_migration_pipeline.py"), "depends_on": ["network_readiness"]},
+        {"node_id": "acquisition_playbook_plan", "type": "degradable", "command": python_command("scripts/build_runtime_acquisition_plan.py"), "depends_on": ["network_readiness"]},
+        {"node_id": "morning_acquisition", "type": "degradable", "command": python_command("scripts/run_phase29_daily_migration_pipeline.py"), "depends_on": ["acquisition_playbook_plan"]},
         {"node_id": "hot_material_refresh", "type": "degradable", "command": python_command("scripts/build_daily_hot_material_pool.py"), "depends_on": ["morning_acquisition"]},
         {"node_id": "evidence_enrichment", "type": "degradable", "command": python_command("scripts/run_phase30_daily_activation_pipeline.py"), "depends_on": ["hot_material_refresh"]},
         {"node_id": "topic_activation", "type": "required", "command": python_command("scripts/activate_openclaw_migrated_topics.py"), "depends_on": ["evidence_enrichment"]},
@@ -67,7 +68,7 @@ def build_daily_pipeline_graph(paths: ProjectPaths, repo_root: Path) -> tuple[di
 def run_daily_end_to_end(paths: ProjectPaths, repo_root: Path, execute: bool = False) -> tuple[dict[str, Any], dict[str, Path]]:
     graph = build_daily_pipeline_graph_payload()
     steps: list[PipelineStep] = []
-    safe_execute_nodes = {"runtime_preflight", "network_readiness", "workbench_build", "daily_closeout"}
+    safe_execute_nodes = {"runtime_preflight", "network_readiness", "acquisition_playbook_plan", "workbench_build", "daily_closeout"}
     for node in graph["nodes"]:
         should_execute = execute and node["node_id"] in safe_execute_nodes
         steps.append(run_step(str(node["node_id"]), list(node["command"]), repo_root, dry_run=not should_execute))

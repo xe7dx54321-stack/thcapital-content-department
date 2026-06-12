@@ -10,6 +10,27 @@ from content_system.phase7_report_utils import read_json, repo_relative, today_t
 from content_system.runtime_network_readiness import check_runtime_network_readiness
 
 
+def route_lane_for_network(lane: str, network_requirement: str, readiness_status: str) -> dict[str, str]:
+    requirement = network_requirement or "mixed"
+    status = readiness_status or "UNKNOWN"
+    if status == "FULL":
+        action = "RUN_NOW"
+        reason = "full network readiness"
+    elif status == "DOMESTIC_ONLY":
+        action = "RUN_NOW" if requirement in {"domestic", "local"} else "DELAY_RETRY"
+        reason = "domestic-only route"
+    elif status == "INTERNATIONAL_ONLY":
+        action = "RUN_NOW" if requirement in {"international", "local"} else "DELAY_RETRY"
+        reason = "international-only route"
+    elif status == "OFFLINE":
+        action = "RUN_NOW" if requirement == "local" else "QUEUE_RETRY"
+        reason = "offline route"
+    else:
+        action = "RUN_NOW" if requirement == "local" else "DELAY_RETRY"
+        reason = "unknown readiness fallback"
+    return {"lane": lane, "action": action, "reason": reason, "network_requirement": requirement}
+
+
 def build_route_plan_from_readiness(readiness: dict[str, Any]) -> dict[str, Any]:
     status = str(readiness.get("status") or "UNKNOWN")
     if status == "FULL":

@@ -18,6 +18,9 @@ class RuntimeJob:
     retry_policy: str
     idempotency_scope: str
     required: bool
+    handler: str
+    lane: str
+    lanes: tuple[str, ...]
 
 
 def load_job_registry(repo_root: Path) -> dict[str, RuntimeJob]:
@@ -35,6 +38,9 @@ def load_job_registry(repo_root: Path) -> dict[str, RuntimeJob]:
             retry_policy=str(payload.get("retry_policy") or "standard_job"),
             idempotency_scope=str(payload.get("idempotency_scope") or "daily"),
             required=bool(payload.get("required", False)),
+            handler=str(payload.get("handler") or "command"),
+            lane=str(payload.get("lane") or ""),
+            lanes=tuple(str(item) for item in payload.get("lanes", []) if item) if isinstance(payload.get("lanes"), list) else (),
         )
     return registry
 
@@ -50,6 +56,9 @@ def validate_job_registry(repo_root: Path) -> dict[str, Any]:
             "retry_policy": job.retry_policy,
             "idempotency_scope": job.idempotency_scope,
             "required": job.required,
+            "handler": job.handler,
+            "lane": job.lane,
+            "lanes": list(job.lanes),
         }
         for job_id, job in jobs.items()
     }

@@ -1410,23 +1410,73 @@
 
 状态：Done。
 
-## Phase 32：Autonomous Topic-to-Article Production Activation v1
+## Phase 31C：OpenClaw Acquisition Playbook Migration v1
 
-进入条件：Phase31B go-live gate 为 `GO_LIVE_APPROVED` 或 `GO_LIVE_WITH_WARNINGS` 且 blocking_failures=0。
+### P31C-001：OpenClaw Cron Acquisition Semantics Audit
 
-### P32-001：Confirmed Topic Scoring
+状态：Done。
+
+### P31C-002：Acquisition Lane Taxonomy
+
+状态：Done。
+
+### P31C-003：Lane-specific Cadence Migration
+
+状态：Done。
+
+### P31C-004：Source Fetch Method Playbook
+
+状态：Done。
+
+### P31C-005：Query / Keyword / Lookback Strategy
+
+状态：Done。
+
+### P31C-006：Fallback / Backfill / Confirmation Strategy
+
+状态：Done。
+
+### P31C-007：Downstream Routing Playbook
+
+状态：Done。
+
+### P31C-008：Runtime Scheduler Playbook Integration
+
+状态：Done。
+
+### P31C-009：Acquisition Coverage & Duplicate Schedule Regression
+
+状态：Done。
+
+### P31C-010：Workbench Acquisition Playbook Panel
+
+状态：Done。
+
+### P31C-011：Autonomous Acquisition Dry Run
+
+状态：Done。
+
+### P31C-012：Phase 31C Closeout
+
+状态：Done。
+
+## Phase 32：Legacy Content Know-how Migration & Autonomous Topic-to-Article Production v1
+
+进入条件：Phase31C acquisition playbook regression blocking_failures=0，且 Runtime go-live gate 至少为 `GO_LIVE_WITH_WARNINGS`。
+
+### P32-001：Legacy Agent Skills Inventory
 
 状态：Planned。
 
-### P32-002：Automated Topic Selection
+### P32-002：Topic Selection Know-how Migration
 
 状态：Planned。
 
-### P32-003：Automated Brief Generation
+### P32-003：Writing / Opening / Structure Recipe Migration
 
 状态：Planned。
 
-### P32-004：Automated Outline / Draft Generation
+### P32-004：Automated Brief / Outline / Draft Activation
 
 状态：Planned。
 

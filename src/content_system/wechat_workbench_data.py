@@ -48,6 +48,7 @@ class WechatWorkbenchDataReport:
     openclaw_migration_panel: dict[str, Any]
     openclaw_activation_panel: dict[str, Any]
     runtime_control_center_panel: dict[str, Any]
+    acquisition_playbook_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -1141,6 +1142,95 @@ def build_runtime_control_center_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_acquisition_playbook_panel(paths: ProjectPaths) -> dict[str, Any]:
+    semantics = read_json(paths.logs_root / "latest_openclaw_acquisition_semantics_audit.json")
+    cadence = read_json(paths.logs_root / "latest_acquisition_cadence_plan.json")
+    lane_validation = read_json(paths.logs_root / "latest_acquisition_lane_taxonomy_validation.json")
+    source_playbooks = read_json(paths.logs_root / "latest_acquisition_source_playbooks.json")
+    query_strategies = read_json(paths.logs_root / "latest_acquisition_query_strategies.json")
+    fallback_strategies = read_json(paths.logs_root / "latest_acquisition_fallback_strategies.json")
+    downstream_routes = read_json(paths.logs_root / "latest_acquisition_downstream_routes.json")
+    runtime_plan = read_json(paths.logs_root / "latest_runtime_acquisition_plan.json")
+    regression = read_json(paths.logs_root / "latest_acquisition_playbook_regression.json")
+    dry_run = read_json(paths.logs_root / "latest_autonomous_acquisition_dry_run.json")
+    semantics_summary = semantics.get("summary") if isinstance(semantics.get("summary"), dict) else {}
+    cadence_summary = cadence.get("summary") if isinstance(cadence.get("summary"), dict) else {}
+    lane_summary = lane_validation.get("summary") if isinstance(lane_validation.get("summary"), dict) else {}
+    source_summary = source_playbooks.get("summary") if isinstance(source_playbooks.get("summary"), dict) else {}
+    query_summary = query_strategies.get("summary") if isinstance(query_strategies.get("summary"), dict) else {}
+    fallback_summary = fallback_strategies.get("summary") if isinstance(fallback_strategies.get("summary"), dict) else {}
+    downstream_summary = downstream_routes.get("summary") if isinstance(downstream_routes.get("summary"), dict) else {}
+    runtime_summary = runtime_plan.get("summary") if isinstance(runtime_plan.get("summary"), dict) else {}
+    regression_summary = regression.get("summary") if isinstance(regression.get("summary"), dict) else {}
+    regression_coverage = regression.get("coverage") if isinstance(regression.get("coverage"), dict) else {}
+    regression_duplicates = regression.get("duplicates") if isinstance(regression.get("duplicates"), dict) else {}
+    dry_summary = dry_run.get("summary") if isinstance(dry_run.get("summary"), dict) else {}
+    lane_runs = list_payload(runtime_plan, "lane_runs")
+    sources = source_playbooks.get("sources") if isinstance(source_playbooks.get("sources"), dict) else {}
+    lane_source_counts: dict[str, int] = {}
+    lane_primary_sources: dict[str, list[str]] = {}
+    for source_id, source in sources.items():
+        if not isinstance(source, dict):
+            continue
+        lane = str(source.get("lane") or "")
+        if not lane:
+            continue
+        lane_source_counts[lane] = lane_source_counts.get(lane, 0) + 1
+        lane_primary_sources.setdefault(lane, []).append(str(source.get("source_name") or source_id))
+    lane_cards = []
+    for run in lane_runs[:24]:
+        if not isinstance(run, dict):
+            continue
+        lane = str(run.get("lane") or "")
+        lane_cards.append(
+            {
+                "lane": lane,
+                "time": run.get("time", ""),
+                "next_action": run.get("route_action", ""),
+                "source_count": lane_source_counts.get(lane, run.get("source_count", 0)),
+                "primary_sources": lane_primary_sources.get(lane, [])[:4],
+                "lookback_hours": run.get("query_lookback_hours", 0),
+                "fallback_status": run.get("fallback_status", ""),
+                "downstream_outputs": run.get("downstream_outputs", []),
+                "network_requirement": run.get("network_requirement", ""),
+                "evidence_role": run.get("evidence_role", ""),
+            }
+        )
+    return {
+        "semantics_summary": semantics_summary,
+        "lane_summary": {
+            "lane_count": lane_validation.get("lane_count", lane_summary.get("lane_count", 0)),
+            "active_lane_count": lane_validation.get("active_lane_count", lane_summary.get("active_lane_count", 0)),
+            "weak_signal_lane_count": lane_validation.get("weak_signal_lane_count", lane_summary.get("weak_signal_lane_count", 0)),
+        },
+        "cadence_summary": cadence_summary,
+        "source_summary": source_summary,
+        "query_summary": query_summary,
+        "fallback_summary": fallback_summary,
+        "downstream_summary": downstream_summary,
+        "runtime_plan_summary": runtime_summary,
+        "regression_status": regression.get("status", "UNKNOWN"),
+        "regression_summary": regression_summary,
+        "regression_coverage": regression_coverage,
+        "regression_duplicates": regression_duplicates,
+        "dry_run_status": dry_run.get("status", "UNKNOWN"),
+        "dry_run_summary": dry_summary,
+        "lane_cards": lane_cards,
+        "grouped_runs": list_payload(runtime_plan, "grouped_runs")[:16],
+        "connector_runs": list_payload(runtime_plan, "connector_runs")[:16],
+        "checks": list_payload(regression, "checks")[:16],
+        "policy": {
+            "configured_playbook": True,
+            "no_openclaw_cron_copy": True,
+            "no_openclaw_mutation": True,
+            "metadata_only": True,
+            "weak_signal_not_hard_evidence": True,
+            "no_full_text": True,
+            "no_auto_publish": True,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -1284,6 +1374,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     openclaw_migration_panel = build_openclaw_migration_panel(paths)
     openclaw_activation_panel = build_openclaw_activation_panel(paths)
     runtime_control_center_panel = build_runtime_control_center_panel(paths)
+    acquisition_playbook_panel = build_acquisition_playbook_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -1363,6 +1454,11 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["phase31_retry_count"] = safe_int((runtime_control_center_panel.get("retry_summary") or {}).get("retry_count"))
     summary["phase31_missed_count"] = safe_int((runtime_control_center_panel.get("missed_run_summary") or {}).get("missed_count"))
     summary["phase31_dry_run_status"] = runtime_control_center_panel.get("autonomous_dry_run_status", "UNKNOWN")
+    summary["phase31c_lane_count"] = safe_int((acquisition_playbook_panel.get("lane_summary") or {}).get("lane_count"))
+    summary["phase31c_schedule_slot_count"] = safe_int((acquisition_playbook_panel.get("cadence_summary") or {}).get("schedule_slot_count"))
+    summary["phase31c_runtime_connector_runs"] = safe_int((acquisition_playbook_panel.get("runtime_plan_summary") or {}).get("connector_runs"))
+    summary["phase31c_regression_status"] = acquisition_playbook_panel.get("regression_status", "UNKNOWN")
+    summary["phase31c_dry_run_status"] = acquisition_playbook_panel.get("dry_run_status", "UNKNOWN")
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -1400,6 +1496,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         openclaw_migration_panel,
         openclaw_activation_panel,
         runtime_control_center_panel,
+        acquisition_playbook_panel,
         tuple(warnings),
     )
 
@@ -1436,6 +1533,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "openclaw_migration_panel": report.openclaw_migration_panel,
         "openclaw_activation_panel": report.openclaw_activation_panel,
         "runtime_control_center_panel": report.runtime_control_center_panel,
+        "acquisition_playbook_panel": report.acquisition_playbook_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

@@ -1,0 +1,125 @@
+schema_version: v1
+
+allowed_outputs:
+  - normalized_upstream_items
+  - hot_material_pool
+  - weak_signal_pool
+  - heat_validation
+  - evidence_packet
+  - evidence_backfill
+  - confirmation_queue
+  - topic_scoring
+  - brief_candidate
+  - angle_library
+  - industry_deep_research
+  - manual_review
+  - watch
+  - reject
+
+routes:
+  official_ai_lab:
+    outputs: [normalized_upstream_items, evidence_packet, hot_material_pool]
+    promotion:
+      strong_source: [topic_scoring]
+      weak_metadata: [evidence_backfill]
+  model_release:
+    outputs: [normalized_upstream_items, evidence_packet, evidence_backfill]
+    promotion:
+      confirmed: [topic_scoring]
+      unconfirmed: [confirmation_queue]
+  agent_framework:
+    outputs: [normalized_upstream_items, evidence_packet, angle_library]
+    promotion:
+      confirmed: [topic_scoring]
+      unconfirmed: [evidence_backfill]
+  open_source:
+    outputs: [normalized_upstream_items, hot_material_pool, evidence_backfill]
+    promotion:
+      confirmed: [topic_scoring]
+      unconfirmed: [confirmation_queue]
+  paper_research:
+    outputs: [normalized_upstream_items, evidence_packet, evidence_backfill]
+    promotion:
+      confirmed: [topic_scoring]
+      unconfirmed: [confirmation_queue]
+  funding_startup:
+    outputs: [hot_material_pool, evidence_backfill]
+    promotion:
+      confirmed: [topic_scoring]
+      unconfirmed: [confirmation_queue]
+  product_launch:
+    outputs: [hot_material_pool, confirmation_queue]
+    promotion:
+      confirmed: [topic_scoring]
+      unconfirmed: [watch]
+  builder_research:
+    outputs: [evidence_packet, evidence_backfill, angle_library]
+    promotion:
+      confirmed: [topic_scoring]
+      unconfirmed: [confirmation_queue]
+  developer_community:
+    outputs: [weak_signal_pool, heat_validation, confirmation_queue]
+    promotion:
+      confirmed_by_primary_source: [topic_scoring]
+      otherwise: [watch]
+  reddit_llm_discussion:
+    outputs: [weak_signal_pool, heat_validation]
+    promotion:
+      confirmed_by_primary_source: [topic_scoring]
+      otherwise: [watch]
+  global_ai_media:
+    outputs: [hot_material_pool, evidence_backfill, confirmation_queue]
+    promotion:
+      confirmed: [topic_scoring]
+      unconfirmed: [watch]
+  china_ai_media:
+    outputs: [hot_material_pool, evidence_backfill, manual_review]
+    promotion:
+      confirmed: [topic_scoring]
+      unconfirmed: [confirmation_queue]
+  wechat_metadata:
+    outputs: [manual_review, confirmation_queue, watch]
+    promotion:
+      confirmed_by_primary_source: [topic_scoring]
+      otherwise: [watch]
+  youtube_signal:
+    outputs: [weak_signal_pool, heat_validation, confirmation_queue]
+    promotion:
+      confirmed_by_primary_source: [topic_scoring]
+      otherwise: [watch]
+  x_signal:
+    outputs: [weak_signal_pool, confirmation_queue, watch]
+    promotion:
+      confirmed_by_primary_source: [topic_scoring]
+      otherwise: [watch]
+  trend_heat_validation:
+    outputs: [weak_signal_pool, heat_validation, watch]
+    promotion:
+      confirmed_by_primary_source: [topic_scoring]
+      otherwise: [watch]
+  ai_infra:
+    outputs: [normalized_upstream_items, evidence_packet, angle_library]
+    promotion:
+      confirmed: [topic_scoring]
+      unconfirmed: [evidence_backfill]
+  industry_deep_research:
+    outputs: [industry_deep_research, manual_review, watch]
+    promotion:
+      confirmed: [topic_scoring]
+      unconfirmed: [watch]
+  manual_url_backfill:
+    outputs: [manual_review, evidence_backfill, confirmation_queue]
+    promotion:
+      confirmed: [topic_scoring]
+      unconfirmed: [manual_review]
+  keyword_discovery:
+    outputs: [confirmation_queue, watch, manual_review]
+    promotion:
+      approved_keyword: [manual_review]
+      otherwise: [watch]
+
+guards:
+  weak_signal_no_hard_evidence: true
+  weak_signal_no_direct_brief: true
+  manual_only_no_direct_topic_scoring: true
+  no_auto_publish_route: true

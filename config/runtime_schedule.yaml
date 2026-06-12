@@ -14,6 +14,7 @@ daily_schedule:
     enabled: true
     time: "07:30"
     jobs:
+      - acquisition_playbook_plan
       - acquisition_phase29
 
   morning_backfill:
@@ -26,12 +27,14 @@ daily_schedule:
     enabled: true
     time: "14:00"
     jobs:
+      - acquisition_playbook_plan
       - acquisition_phase29
 
   evening_acquisition:
     enabled: true
     time: "18:00"
     jobs:
+      - acquisition_playbook_plan
       - acquisition_phase29
       - activation_phase30
 
@@ -58,6 +61,7 @@ daily_schedule:
     enabled: true
     time: "19:00"
     jobs:
+      - acquisition_playbook_regression
       - stable_daily_ops
       - workbench_data
       - workbench_build

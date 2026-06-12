@@ -1,0 +1,262 @@
+schema_version: v1
+
+lanes:
+  official_ai_lab:
+    label: Official AI Lab
+    purpose: Track first-party AI lab announcements, product updates, research notes, and safety releases.
+    evidence_role: hard_evidence
+    default_priority: P0
+    active: true
+    source_tiers:
+      primary: [official_ai_lab, company_official]
+      secondary: [global_ai_media, developer_community]
+    weak_signal: false
+    requires_confirmation: false
+    downstream: [normalized_upstream_items, evidence_packet, hot_material_pool, topic_scoring]
+
+  model_release:
+    label: Model Release
+    purpose: Track frontier model, open model, benchmark, inference, and deployment updates.
+    evidence_role: hard_evidence
+    default_priority: P0
+    active: true
+    source_tiers:
+      primary: [official_ai_lab, huggingface, arxiv, github]
+      secondary: [global_ai_media, builder_research]
+    weak_signal: false
+    requires_confirmation: true
+    downstream: [evidence_packet, evidence_backfill, topic_scoring]
+
+  agent_framework:
+    label: Agent Framework
+    purpose: Track agent framework releases, changelogs, tool-use patterns, MCP, computer-use, and workflow infrastructure.
+    evidence_role: supporting_evidence
+    default_priority: P0
+    active: true
+    source_tiers:
+      primary: [github, official_blog, developer_docs]
+      secondary: [builder_research, developer_community]
+    weak_signal: false
+    requires_confirmation: true
+    downstream: [evidence_packet, angle_library, topic_scoring]
+
+  open_source:
+    label: Open Source
+    purpose: Track public repositories, releases, trending developer projects, and infra libraries.
+    evidence_role: supporting_evidence
+    default_priority: P0
+    active: true
+    source_tiers:
+      primary: [github, huggingface]
+      secondary: [hacker_news, builder_research]
+    weak_signal: false
+    requires_confirmation: true
+    downstream: [normalized_upstream_items, evidence_backfill, topic_scoring]
+
+  paper_research:
+    label: Paper & Research
+    purpose: Track arXiv, research blogs, benchmark papers, and reproducible AI infra research.
+    evidence_role: supporting_evidence
+    default_priority: P0
+    active: true
+    source_tiers:
+      primary: [arxiv, lab_research_blog]
+      secondary: [github, author_page]
+    weak_signal: false
+    requires_confirmation: true
+    downstream: [evidence_packet, evidence_backfill, topic_scoring]
+
+  funding_startup:
+    label: Funding & Startup
+    purpose: Detect AI startups, funding rounds, launches, investor moves, and new product-market narratives.
+    evidence_role: supporting_evidence
+    default_priority: P0
+    active: true
+    source_tiers:
+      primary: [company_official, investor_official]
+      secondary: [yc, techcrunch, finsmes]
+    weak_signal: false
+    requires_confirmation: true
+    downstream: [hot_material_pool, evidence_backfill, topic_scoring]
+
+  product_launch:
+    label: Product Launch
+    purpose: Track product announcements, Product Hunt launches, public beta openings, and agent product workflows.
+    evidence_role: supporting_evidence
+    default_priority: P1
+    active: true
+    source_tiers:
+      primary: [product_official, company_official]
+      secondary: [product_hunt, trend_hunt, tech_media]
+    weak_signal: false
+    requires_confirmation: true
+    downstream: [hot_material_pool, confirmation_queue, topic_scoring]
+
+  builder_research:
+    label: Builder Research
+    purpose: Track builder newsletters, engineering analysis, applied AI essays, and market interpretation.
+    evidence_role: supporting_evidence
+    default_priority: P0
+    active: true
+    source_tiers:
+      primary: [newsletter_archive, builder_blog]
+      secondary: [hacker_news, developer_community]
+    weak_signal: false
+    requires_confirmation: true
+    downstream: [supporting_evidence, angle_library, topic_scoring]
+
+  developer_community:
+    label: Developer Community
+    purpose: Track developer discussions and implementation signals that may reveal adoption shifts.
+    evidence_role: weak_signal
+    default_priority: P1
+    active: true
+    source_tiers:
+      primary: [hacker_news, github_discussions]
+      secondary: [reddit, youtube]
+    weak_signal: true
+    requires_confirmation: true
+    downstream: [weak_signal_pool, confirmation_queue, watch]
+
+  reddit_llm_discussion:
+    label: Reddit LLM Discussion
+    purpose: Track LocalLLaMA, Claude, and ChatGPT discussion spikes as early weak signals.
+    evidence_role: weak_signal
+    default_priority: P1
+    active: true
+    source_tiers:
+      primary: [reddit]
+      secondary: [official_ai_lab, github, product_official]
+    weak_signal: true
+    requires_confirmation: true
+    downstream: [weak_signal_pool, heat_validation, confirmation_queue, watch]
+
+  global_ai_media:
+    label: Global AI Media
+    purpose: Track global AI media metadata for funding, product, policy, and platform moves.
+    evidence_role: supporting_evidence
+    default_priority: P1
+    active: true
+    source_tiers:
+      primary: [techcrunch, infoq, hacker_news]
+      secondary: [company_official, investor_official]
+    weak_signal: false
+    requires_confirmation: true
+    downstream: [hot_material_pool, evidence_backfill, topic_scoring]
+
+  china_ai_media:
+    label: China AI Media
+    purpose: Track Chinese AI media metadata and product-market discussion without full-text scraping.
+    evidence_role: supporting_evidence
+    default_priority: P1
+    active: true
+    source_tiers:
+      primary: [36kr, geekpark, guixingren]
+      secondary: [company_official, primary_source_search]
+    weak_signal: false
+    requires_confirmation: true
+    downstream: [hot_material_pool, evidence_backfill, manual_review]
+
+  wechat_metadata:
+    label: WeChat Metadata
+    purpose: Track WeChat article metadata only; never auto-fetch full text or enter draft box.
+    evidence_role: manual_only
+    default_priority: P1
+    active: true
+    source_tiers:
+      primary: [wechat_metadata]
+      secondary: [primary_source_search]
+    weak_signal: true
+    requires_confirmation: true
+    downstream: [manual_review, confirmation_queue, watch]
+
+  youtube_signal:
+    label: YouTube Signal
+    purpose: Track video metadata from AI channels as weak signal and event discovery.
+    evidence_role: weak_signal
+    default_priority: P1
+    active: true
+    source_tiers:
+      primary: [youtube_metadata]
+      secondary: [official_blog, transcript_manual_review]
+    weak_signal: true
+    requires_confirmation: true
+    downstream: [weak_signal_pool, heat_validation, confirmation_queue]
+
+  x_signal:
+    label: X Signal
+    purpose: Track public X metadata only as weak signal; no login or credentialed fetch.
+    evidence_role: weak_signal
+    default_priority: P2
+    active: true
+    source_tiers:
+      primary: [x_metadata]
+      secondary: [official_blog, company_official]
+    weak_signal: true
+    requires_confirmation: true
+    downstream: [weak_signal_pool, confirmation_queue, watch]
+
+  trend_heat_validation:
+    label: Trend Heat Validation
+    purpose: Track public trend heat metadata to validate whether a topic is breaking out.
+    evidence_role: heat_validation
+    default_priority: P1
+    active: true
+    source_tiers:
+      primary: [public_trend_heat]
+      secondary: [primary_source_search]
+    weak_signal: true
+    requires_confirmation: true
+    downstream: [weak_signal_pool, heat_validation, watch]
+
+  ai_infra:
+    label: AI Infrastructure
+    purpose: Track inference, GPU, data, orchestration, and deployment infrastructure.
+    evidence_role: supporting_evidence
+    default_priority: P0
+    active: true
+    source_tiers:
+      primary: [official_blog, github, technical_blog]
+      secondary: [global_ai_media, builder_research]
+    weak_signal: false
+    requires_confirmation: true
+    downstream: [evidence_packet, topic_scoring, angle_library]
+
+  industry_deep_research:
+    label: Industry Deep Research
+    purpose: Track semiconductor, photonics, quantum, policy, jobs, and vertical trial lanes without polluting daily AI pool.
+    evidence_role: supporting_evidence
+    default_priority: P2
+    active: true
+    source_tiers:
+      primary: [industry_official, public_policy, company_official]
+      secondary: [industry_media, manual_backfill]
+    weak_signal: false
+    requires_confirmation: true
+    downstream: [industry_deep_research, manual_review, watch]
+
+  manual_url_backfill:
+    label: Manual URL Backfill
+    purpose: Process operator-provided URLs and backfill queues.
+    evidence_role: manual_only
+    default_priority: P0
+    active: true
+    source_tiers:
+      primary: [manual_url]
+      secondary: [primary_source_search]
+    weak_signal: false
+    requires_confirmation: true
+    downstream: [manual_review, evidence_backfill, confirmation_queue]
+
+  keyword_discovery:
+    label: Keyword Discovery
+    purpose: Discover candidate keywords and emerging query clusters, then propose changes instead of auto-enabling everything.
+    evidence_role: weak_signal
+    default_priority: P2
+    active: true
+    source_tiers:
+      primary: [search_metadata, trend_metadata]
+      secondary: [operator_review]
+    weak_signal: true
+    requires_confirmation: true
+    downstream: [confirmation_queue, watch, manual_review]

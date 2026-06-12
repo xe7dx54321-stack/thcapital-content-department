@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 31B：Mac mini Autonomous Runtime Go-Live & Observation v1。
+Phase 31C：OpenClaw Acquisition Playbook Migration v1。
 
 ## 最新 checkpoint
 
-P31B-011：Phase 31B Closeout。
+P31C-012：Phase 31C Closeout。
 
 ## 已完成
 
@@ -432,6 +432,21 @@ P31B-011：Phase 31B Closeout。
 - P31B-010 Go-Live Acceptance Gate v1。
 - P31B-011 Phase 31B Closeout。
 
+### Phase 31C
+
+- P31C-001 OpenClaw Cron Acquisition Semantics Audit v1。
+- P31C-002 Acquisition Lane Taxonomy v1。
+- P31C-003 Lane-specific Cadence Migration v1。
+- P31C-004 Source Fetch Method Playbook v1。
+- P31C-005 Query / Keyword / Lookback Strategy v1。
+- P31C-006 Fallback / Backfill / Confirmation Strategy v1。
+- P31C-007 Downstream Routing Playbook v1。
+- P31C-008 Runtime Scheduler Playbook Integration v1。
+- P31C-009 Acquisition Coverage & Duplicate Schedule Regression v1。
+- P31C-010 Workbench Acquisition Playbook Panel v1。
+- P31C-011 Autonomous Acquisition Dry Run v1。
+- P31C-012 Phase 31C Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -776,6 +791,20 @@ P31B-011：Phase 31B Closeout。
 - go-live safety and cost observation。
 - go-live acceptance gate。
 
+### Phase 31C 能力
+
+- OpenClaw acquisition semantics audit。
+- acquisition lane taxonomy。
+- lane-specific cadence migration。
+- source fetch method playbook。
+- query / keyword / lookback strategy。
+- fallback / backfill / confirmation strategy。
+- downstream routing playbook。
+- runtime scheduler playbook integration。
+- acquisition coverage and duplicate schedule regression。
+- workbench acquisition playbook panel。
+- autonomous acquisition dry-run。
+
 ## 当前推荐日常命令
 
 ```bash
@@ -797,6 +826,7 @@ Mac mini launchd 自动拉起 Content Factory Runtime；
 make phase31-daily
 make autonomous-runtime-dry-run
 make phase31b-go-live
+make autonomous-acquisition-dry-run
 ```
 
 ## 当前边界
@@ -905,15 +935,21 @@ make phase31b-go-live
 - Phase 31B 只允许 safe-only conflict resolution，并且必须先备份、可回滚。
 - Phase 31B 不使用 sudo，不安装系统级 LaunchDaemon。
 - Phase 31B 不把 secret 写入 plist 或日志。
+- Phase 31C 不重新迁移 OpenClaw cron，不接 OpenClaw gateway，不修改 OpenClaw jobs.json。
+- Phase 31C 只把旧采集经验抽象成 acquisition playbook，不复制 141 个 jobs。
+- Phase 31C 所有 lane、cadence、source、query、fallback、downstream route 均配置化。
+- Phase 31C 不抓全文、不绕过登录/付费墙、不自动控制 VPN。
+- Phase 31C 不把 Reddit / X / YouTube / 热榜 / 微信作为硬证据或直达 brief。
+- Phase 31C 不自动发布、不调用图片模型、不自动生成图片。
 
 ## 下一阶段
 
-Phase 32：Autonomous Topic-to-Article Production Activation v1。
+Phase 32：Legacy Content Know-how Migration & Autonomous Topic-to-Article Production v1。
 
-- P32-001 Confirmed Topic Scoring。
-- P32-002 Automated Topic Selection。
-- P32-003 Automated Brief Generation。
-- P32-004 Automated Outline / Draft Generation。
+- P32-001 Legacy Agent Skills Inventory。
+- P32-002 Topic Selection Know-how Migration。
+- P32-003 Writing / Opening / Structure Recipe Migration。
+- P32-004 Automated Brief / Outline / Draft Activation。
 - P32-005 Multi-Agent Review and Rewrite。
 - P32-006 Final Candidate Workbench Delivery。
 - P32-007 Autonomous Content Production Regression Gate。

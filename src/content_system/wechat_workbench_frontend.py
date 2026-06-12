@@ -927,6 +927,7 @@ function renderReader() {
         ${renderOpenClawMigrationPanel("review-card wide")}
         ${renderOpenClawActivationPanel("review-card wide")}
         ${renderRuntimeControlCenterPanel("review-card wide")}
+        ${renderAcquisitionPlaybookPanel("review-card wide")}
         ${renderContentOpsPanel("review-card wide")}
         ${renderContentHardeningPanel("review-card wide", "ops")}
       `, true);
@@ -959,6 +960,7 @@ function renderReader() {
         ${renderOpenClawMigrationPanel("review-card wide")}
         ${renderOpenClawActivationPanel("review-card wide")}
         ${renderRuntimeControlCenterPanel("review-card wide")}
+        ${renderAcquisitionPlaybookPanel("review-card wide")}
         ${renderStableTrialPanel("review-card wide")}
         ${renderStableOpsPanel("review-card wide")}
         ${renderPhase22Panel("review-card wide")}
@@ -1094,6 +1096,10 @@ function getOpenClawActivationPanel() {
 
 function getRuntimeControlCenterPanel() {
   return workbenchData.runtime_control_center_panel || {};
+}
+
+function getAcquisitionPlaybookPanel() {
+  return workbenchData.acquisition_playbook_panel || {};
 }
 
 function renderReviewSection(title, note, body, open = true) {
@@ -1967,6 +1973,49 @@ function renderRuntimeControlCenterPanel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function renderAcquisitionPlaybookPanel(cardClass = "review-card wide") {
+  const panel = getAcquisitionPlaybookPanel();
+  const semantics = panel.semantics_summary || {};
+  const lanes = panel.lane_summary || {};
+  const cadence = panel.cadence_summary || {};
+  const sources = panel.source_summary || {};
+  const queries = panel.query_summary || {};
+  const fallback = panel.fallback_summary || {};
+  const runtimePlan = panel.runtime_plan_summary || {};
+  const coverage = panel.regression_coverage || {};
+  const duplicates = panel.regression_duplicates || {};
+  const dryRun = panel.dry_run_summary || {};
+  const policy = panel.policy || {};
+  const laneCards = Array.isArray(panel.lane_cards) ? panel.lane_cards : [];
+  const groupedRuns = Array.isArray(panel.grouped_runs) ? panel.grouped_runs : [];
+  const connectorRuns = Array.isArray(panel.connector_runs) ? panel.connector_runs : [];
+  const checks = Array.isArray(panel.checks) ? panel.checks : [];
+  const hasPanel = Object.keys(cadence).length || Object.keys(runtimePlan).length || Object.keys(semantics).length;
+  if (!hasPanel) {
+    return `<div class="${cardClass} acquisition-playbook-panel">
+      <p class="review-label">Acquisition Playbook</p>
+      <p class="review-value">暂无 Phase31C acquisition playbook 数据。运行 <code>make autonomous-acquisition-dry-run</code> 后会显示 lane、cadence、source playbook、fallback、downstream route 和 runtime plan。</p>
+    </div>`;
+  }
+  const laneRows = laneCards.slice(0, 12).map((item) => `${item.time}: ${item.lane} / ${item.next_action} / sources ${item.source_count ?? 0} / lookback ${item.lookback_hours ?? 0}h / ${item.network_requirement || "mixed"} / ${Array.isArray(item.downstream_outputs) ? item.downstream_outputs.slice(0, 3).join(", ") : ""}`);
+  const groupRows = groupedRuns.slice(0, 8).map((item) => `${item.group_key}: lanes ${(item.lanes || []).join(", ")} / connector runs ${item.connector_run_count ?? 0}`);
+  const connectorRows = connectorRuns.slice(0, 8).map((item) => `${item.group_key}: ${item.fetch_method} / ${item.source_id} / lane ${item.lane}`);
+  const checkRows = checks.slice(0, 8).map((item) => `${item.status}: ${item.check_id} / ${item.message || ""}`);
+  return `<div class="${cardClass} acquisition-playbook-panel">
+    <p class="review-label">Acquisition Playbook</p>
+    <p class="review-value">Audit jobs ${escapeHtml(semantics.acquisition_job_count ?? 0)} · high value ${escapeHtml(semantics.high_value_playbook_jobs ?? 0)} · lanes ${escapeHtml(lanes.lane_count ?? 0)} · weak lanes ${escapeHtml(lanes.weak_signal_lane_count ?? 0)} · schedule slots ${escapeHtml(cadence.schedule_slot_count ?? 0)}</p>
+    <p class="review-value">Sources ${escapeHtml(sources.source_count ?? 0)} · metadata ${escapeHtml(sources.metadata_sources ?? 0)} · manual only ${escapeHtml(sources.manual_only_sources ?? 0)} · query keywords ${escapeHtml(queries.keyword_count ?? 0)} · fallback strategies ${escapeHtml(fallback.strategy_count ?? 0)}</p>
+    <p class="review-value">Runtime lane runs ${escapeHtml(runtimePlan.lane_runs ?? 0)} · grouped ${escapeHtml(runtimePlan.grouped_runs ?? 0)} · connector runs ${escapeHtml(runtimePlan.connector_runs ?? 0)} · dedup ${escapeHtml(runtimePlan.shared_source_dedup_count ?? 0)} · dry-run ${escapeHtml(panel.dry_run_status || "UNKNOWN")}</p>
+    <p class="review-value">Regression ${escapeHtml(panel.regression_status || "UNKNOWN")} · coverage ${escapeHtml(coverage.coverage_ratio ?? 0)} · duplicate source slots ${escapeHtml(duplicates.duplicate_source_slots ?? 0)} · duplicate connector runs ${escapeHtml(duplicates.duplicate_connector_runs ?? 0)} · failures ${escapeHtml(dryRun.failures ?? 0)}</p>
+    <p class="review-label">Today's Lane Runs</p>${renderMiniList(laneRows, "暂无 lane run")}
+    <p class="review-label">Grouped Slots</p>${renderMiniList(groupRows, "暂无 grouped slot")}
+    <p class="review-label">Connector Dedup</p>${renderMiniList(connectorRows, "暂无 connector run")}
+    <p class="review-label">Regression Checks</p>${renderMiniList(checkRows, "暂无 regression check")}
+    <p class="review-label">Boundary</p>
+    <p class="review-value">configured_playbook=${escapeHtml(policy.configured_playbook ?? true)} · no_openclaw_cron_copy=${escapeHtml(policy.no_openclaw_cron_copy ?? true)} · no_openclaw_mutation=${escapeHtml(policy.no_openclaw_mutation ?? true)} · metadata_only=${escapeHtml(policy.metadata_only ?? true)} · weak_signal_not_hard_evidence=${escapeHtml(policy.weak_signal_not_hard_evidence ?? true)} · no_full_text=${escapeHtml(policy.no_full_text ?? true)} · no_auto_publish=${escapeHtml(policy.no_auto_publish ?? true)}</p>
+  </div>`;
+}
+
 function renderStableTrialPanel(cardClass = "review-card wide") {
   const panel = getPhase24Panel();
   const days = Array.isArray(panel.day_summaries) ? panel.day_summaries : [];
@@ -2035,6 +2084,7 @@ function renderInsightPanel() {
   const openclawMigration = getOpenClawMigrationPanel();
   const openclawActivation = getOpenClawActivationPanel();
   const runtimeControl = getRuntimeControlCenterPanel();
+  const acquisitionPlaybook = getAcquisitionPlaybookPanel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
@@ -2096,6 +2146,11 @@ function renderInsightPanel() {
   const runtimeRetry = runtimeControl.retry_summary || {};
   const runtimeMissed = runtimeControl.missed_run_summary || {};
   const runtimeNetwork = runtimeControl.network_readiness || {};
+  const acquisitionCadence = acquisitionPlaybook.cadence_summary || {};
+  const acquisitionRuntime = acquisitionPlaybook.runtime_plan_summary || {};
+  const acquisitionRegression = acquisitionPlaybook.regression_coverage || {};
+  const acquisitionDuplicates = acquisitionPlaybook.regression_duplicates || {};
+  const acquisitionDry = acquisitionPlaybook.dry_run_summary || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -2216,6 +2271,11 @@ function renderInsightPanel() {
     <section class="insight-card runtime-control-panel">
       <p class="insight-label">Autonomous Runtime</p>
       <p class="insight-value">status ${escapeHtml(runtimeControl.runtime_status || "UNKNOWN")} · success ${escapeHtml(runtimeLedger.success ?? 0)} · failed ${escapeHtml(runtimeLedger.failed ?? 0)} · retry ${escapeHtml(runtimeRetry.retry_count ?? 0)} · missed ${escapeHtml(runtimeMissed.missed_count ?? 0)} · network ${escapeHtml(runtimeNetwork.status || "UNKNOWN")}</p>
+    </section>
+    <section class="insight-card acquisition-playbook-panel">
+      <p class="insight-label">Acquisition Playbook</p>
+      <p class="insight-value">slots ${escapeHtml(acquisitionCadence.schedule_slot_count ?? 0)} · lane runs ${escapeHtml(acquisitionRuntime.lane_runs ?? 0)} · connector runs ${escapeHtml(acquisitionRuntime.connector_runs ?? 0)} · dedup ${escapeHtml(acquisitionRuntime.shared_source_dedup_count ?? 0)}</p>
+      <p class="insight-value">coverage ${escapeHtml(acquisitionRegression.coverage_ratio ?? 0)} · duplicate source slots ${escapeHtml(acquisitionDuplicates.duplicate_source_slots ?? 0)} · dry-run ${escapeHtml(acquisitionPlaybook.dry_run_status || "UNKNOWN")} · failures ${escapeHtml(acquisitionDry.failures ?? 0)}</p>
     </section>
     <section class="insight-card trial-panel">
       <p class="insight-label">Phase21 试运行</p>

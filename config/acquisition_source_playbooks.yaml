@@ -1,0 +1,453 @@
+schema_version: v1
+
+defaults:
+  metadata_only: true
+  full_text_allowed: false
+  requires_login: false
+  requires_api_key: false
+  pagination: limited
+
+sources:
+  openai_news:
+    lane: official_ai_lab
+    secondary_lanes: [model_release, agent_framework]
+    source_type: official_ai_lab
+    fetch_method: rss
+    url: https://openai.com/news/rss.xml
+    lookback_hours: 24
+    max_items: 40
+    evidence_role: hard_evidence
+    confirmation_sources: [company_official]
+    fallback: [manual_url_backfill]
+
+  anthropic_news:
+    lane: official_ai_lab
+    secondary_lanes: [model_release]
+    source_type: official_ai_lab
+    fetch_method: rss
+    url: https://www.anthropic.com/news/rss.xml
+    lookback_hours: 24
+    max_items: 40
+    evidence_role: hard_evidence
+    confirmation_sources: [company_official]
+    fallback: [manual_url_backfill]
+
+  google_deepmind_blog:
+    lane: official_ai_lab
+    secondary_lanes: [paper_research, model_release]
+    source_type: official_ai_lab
+    fetch_method: official_blog_index
+    url: https://deepmind.google/discover/blog/
+    lookback_hours: 24
+    max_items: 40
+    evidence_role: hard_evidence
+    confirmation_sources: [company_official, paper]
+    fallback: [manual_url_backfill]
+
+  google_ai_blog:
+    lane: official_ai_lab
+    secondary_lanes: [paper_research, ai_infra]
+    source_type: official_ai_lab
+    fetch_method: atom
+    url: https://research.google/blog/rss/
+    lookback_hours: 24
+    max_items: 40
+    evidence_role: hard_evidence
+    confirmation_sources: [company_official, paper]
+    fallback: [manual_url_backfill]
+
+  meta_ai_blog:
+    lane: official_ai_lab
+    secondary_lanes: [model_release, open_source]
+    source_type: official_ai_lab
+    fetch_method: official_blog_index
+    url: https://ai.meta.com/blog/
+    lookback_hours: 24
+    max_items: 40
+    evidence_role: hard_evidence
+    confirmation_sources: [company_official, github]
+    fallback: [manual_url_backfill]
+
+  microsoft_ai_blog:
+    lane: official_ai_lab
+    secondary_lanes: [ai_infra, agent_framework]
+    source_type: official_ai_lab
+    fetch_method: rss
+    url: https://blogs.microsoft.com/ai/feed/
+    lookback_hours: 24
+    max_items: 40
+    evidence_role: hard_evidence
+    confirmation_sources: [company_official]
+    fallback: [manual_url_backfill]
+
+  nvidia_blog_ai:
+    lane: ai_infra
+    secondary_lanes: [official_ai_lab, model_release]
+    source_type: technical_blog
+    fetch_method: rss
+    url: https://blogs.nvidia.com/feed/
+    lookback_hours: 24
+    max_items: 50
+    evidence_role: hard_evidence
+    confirmation_sources: [company_official, github]
+    fallback: [manual_url_backfill]
+
+  github_releases_selected:
+    lane: open_source
+    secondary_lanes: [agent_framework, ai_infra]
+    source_type: github
+    fetch_method: github_release
+    url: ""
+    lookback_hours: 24
+    max_items: 50
+    evidence_role: supporting_evidence
+    confirmation_sources: [official_blog, documentation]
+    fallback: [github_trending, manual_url_backfill]
+
+  github_trending_ai:
+    lane: open_source
+    secondary_lanes: [developer_community, agent_framework]
+    source_type: github
+    fetch_method: github_trending
+    url: https://github.com/trending
+    lookback_hours: 24
+    max_items: 50
+    evidence_role: supporting_evidence
+    confirmation_sources: [github_repo, project_official]
+    fallback: [manual_url_backfill]
+
+  huggingface_papers:
+    lane: paper_research
+    secondary_lanes: [model_release, open_source]
+    source_type: huggingface
+    fetch_method: huggingface_feed
+    url: https://huggingface.co/papers
+    lookback_hours: 24
+    max_items: 50
+    evidence_role: supporting_evidence
+    confirmation_sources: [arxiv, github]
+    fallback: [arxiv_query, manual_url_backfill]
+
+  huggingface_blog:
+    lane: model_release
+    secondary_lanes: [open_source, paper_research]
+    source_type: huggingface
+    fetch_method: rss
+    url: https://huggingface.co/blog/feed.xml
+    lookback_hours: 24
+    max_items: 40
+    evidence_role: supporting_evidence
+    confirmation_sources: [github, paper]
+    fallback: [manual_url_backfill]
+
+  arxiv_ai_agents:
+    lane: paper_research
+    secondary_lanes: [model_release, agent_framework]
+    source_type: paper
+    fetch_method: arxiv_query
+    url: https://export.arxiv.org/api/query
+    lookback_hours: 48
+    max_items: 80
+    evidence_role: supporting_evidence
+    confirmation_sources: [author_page, github_repo]
+    fallback: [manual_url_backfill]
+
+  yc_launches_ai:
+    lane: funding_startup
+    secondary_lanes: [product_launch]
+    source_type: yc
+    fetch_method: public_html_index
+    url: https://www.ycombinator.com/launches
+    lookback_hours: 12
+    max_items: 30
+    evidence_role: supporting_evidence
+    confirmation_sources: [company_official, founder_profile_manual]
+    fallback: [manual_url_backfill]
+
+  techcrunch_ai:
+    lane: funding_startup
+    secondary_lanes: [global_ai_media, product_launch]
+    source_type: media_metadata
+    fetch_method: rss
+    url: https://techcrunch.com/category/artificial-intelligence/feed/
+    lookback_hours: 12
+    max_items: 30
+    evidence_role: supporting_evidence
+    confirmation_sources: [company_official, investor_official]
+    fallback: [manual_url_backfill]
+
+  finsmes_ai:
+    lane: funding_startup
+    secondary_lanes: [global_ai_media]
+    source_type: media_metadata
+    fetch_method: public_html_index
+    url: https://www.finsmes.com/category/artificial-intelligence
+    lookback_hours: 12
+    max_items: 30
+    evidence_role: supporting_evidence
+    confirmation_sources: [company_official, investor_official]
+    fallback: [manual_url_backfill]
+
+  product_hunt_ai_agents:
+    lane: product_launch
+    secondary_lanes: [trend_heat_validation]
+    source_type: product_launch
+    fetch_method: public_metadata
+    url: https://www.producthunt.com/topics/artificial-intelligence
+    lookback_hours: 12
+    max_items: 30
+    evidence_role: weak_signal
+    hard_evidence_allowed: false
+    confirmation_sources: [product_official, company_official]
+    fallback: [manual_url_backfill]
+
+  trend_hunt_ai_agents:
+    lane: trend_heat_validation
+    secondary_lanes: [product_launch]
+    source_type: trend_heat
+    fetch_method: public_metadata
+    url: https://trend-hunt.com
+    lookback_hours: 8
+    max_items: 30
+    evidence_role: heat_validation
+    hard_evidence_allowed: false
+    confirmation_sources: [product_official, company_official]
+    fallback: [manual_url_backfill]
+
+  reddit_localllama:
+    lane: reddit_llm_discussion
+    source_type: community
+    fetch_method: public_metadata
+    url: https://www.reddit.com/r/LocalLLaMA/
+    lookback_hours: 8
+    max_items: 30
+    rank_by: [recency, engagement]
+    evidence_role: weak_signal
+    hard_evidence_allowed: false
+    confirmation_sources: [official_ai_lab, github, product_official]
+    fallback: [manual_url_backfill]
+
+  reddit_claude:
+    lane: reddit_llm_discussion
+    source_type: community
+    fetch_method: public_metadata
+    url: https://www.reddit.com/r/ClaudeAI/
+    lookback_hours: 8
+    max_items: 30
+    rank_by: [recency, engagement]
+    evidence_role: weak_signal
+    hard_evidence_allowed: false
+    confirmation_sources: [official_ai_lab, product_official]
+    fallback: [manual_url_backfill]
+
+  reddit_chatgpt:
+    lane: reddit_llm_discussion
+    source_type: community
+    fetch_method: public_metadata
+    url: https://www.reddit.com/r/ChatGPT/
+    lookback_hours: 8
+    max_items: 30
+    rank_by: [recency, engagement]
+    evidence_role: weak_signal
+    hard_evidence_allowed: false
+    confirmation_sources: [official_ai_lab, product_official]
+    fallback: [manual_url_backfill]
+
+  hacker_news_ai:
+    lane: developer_community
+    secondary_lanes: [open_source, ai_infra]
+    source_type: community
+    fetch_method: public_metadata
+    url: https://news.ycombinator.com/
+    lookback_hours: 12
+    max_items: 50
+    evidence_role: weak_signal
+    hard_evidence_allowed: false
+    confirmation_sources: [project_official, github, company_official]
+    fallback: [manual_url_backfill]
+
+  deeplearning_ai_batch:
+    lane: builder_research
+    source_type: newsletter
+    fetch_method: newsletter_archive
+    url: https://www.deeplearning.ai/the-batch/
+    lookback_hours: 24
+    max_items: 30
+    evidence_role: supporting_evidence
+    confirmation_sources: [official_ai_lab, paper, company_official]
+    fallback: [manual_url_backfill]
+
+  latent_space:
+    lane: builder_research
+    source_type: newsletter
+    fetch_method: newsletter_archive
+    url: https://www.latent.space/
+    lookback_hours: 24
+    max_items: 30
+    evidence_role: supporting_evidence
+    confirmation_sources: [official_ai_lab, github, company_official]
+    fallback: [manual_url_backfill]
+
+  interconnects:
+    lane: builder_research
+    source_type: newsletter
+    fetch_method: newsletter_archive
+    url: https://www.interconnects.ai/
+    lookback_hours: 24
+    max_items: 30
+    evidence_role: supporting_evidence
+    confirmation_sources: [official_ai_lab, paper, github]
+    fallback: [manual_url_backfill]
+
+  simon_willison:
+    lane: builder_research
+    secondary_lanes: [developer_community, open_source]
+    source_type: builder_blog
+    fetch_method: rss
+    url: https://simonwillison.net/atom/everything/
+    lookback_hours: 24
+    max_items: 30
+    evidence_role: supporting_evidence
+    confirmation_sources: [github, official_docs]
+    fallback: [manual_url_backfill]
+
+  understanding_ai:
+    lane: builder_research
+    source_type: newsletter
+    fetch_method: newsletter_archive
+    url: https://www.understandingai.org/
+    lookback_hours: 24
+    max_items: 30
+    evidence_role: supporting_evidence
+    confirmation_sources: [official_ai_lab, company_official]
+    fallback: [manual_url_backfill]
+
+  infoq_ai_ml:
+    lane: global_ai_media
+    secondary_lanes: [builder_research]
+    source_type: media_metadata
+    fetch_method: rss
+    url: https://www.infoq.com/ai-ml-data-eng/news/
+    lookback_hours: 24
+    max_items: 30
+    evidence_role: supporting_evidence
+    confirmation_sources: [company_official, project_official]
+    fallback: [manual_url_backfill]
+
+  thirtysixkr_ai:
+    lane: china_ai_media
+    secondary_lanes: [wechat_metadata]
+    source_type: chinese_media
+    fetch_method: public_metadata
+    url: https://36kr.com/
+    lookback_hours: 12
+    max_items: 30
+    evidence_role: supporting_evidence
+    confirmation_sources: [company_official, primary_source_search]
+    fallback: [manual_url_backfill]
+
+  geekpark:
+    lane: china_ai_media
+    secondary_lanes: [wechat_metadata]
+    source_type: chinese_media
+    fetch_method: public_metadata
+    url: https://www.geekpark.net/
+    lookback_hours: 12
+    max_items: 30
+    evidence_role: supporting_evidence
+    confirmation_sources: [company_official, primary_source_search]
+    fallback: [manual_url_backfill]
+
+  guixingren:
+    lane: china_ai_media
+    secondary_lanes: [wechat_metadata]
+    source_type: chinese_media
+    fetch_method: public_metadata
+    url: ""
+    lookback_hours: 12
+    max_items: 30
+    evidence_role: supporting_evidence
+    confirmation_sources: [company_official, primary_source_search]
+    fallback: [manual_url_backfill]
+
+  wechat_metadata_queue:
+    lane: wechat_metadata
+    source_type: wechat_metadata
+    fetch_method: manual_only
+    url: ""
+    lookback_hours: 24
+    max_items: 30
+    evidence_role: manual_only
+    hard_evidence_allowed: false
+    confirmation_sources: [primary_source_search]
+    fallback: [manual_review]
+
+  youtube_ai_channels:
+    lane: youtube_signal
+    source_type: youtube
+    fetch_method: public_metadata
+    url: ""
+    lookback_hours: 12
+    max_items: 30
+    evidence_role: weak_signal
+    hard_evidence_allowed: false
+    confirmation_sources: [official_blog, company_official]
+    fallback: [manual_review]
+
+  x_ai_accounts:
+    lane: x_signal
+    source_type: x
+    fetch_method: manual_only
+    url: ""
+    lookback_hours: 12
+    max_items: 30
+    evidence_role: weak_signal
+    hard_evidence_allowed: false
+    confirmation_sources: [official_blog, company_official]
+    fallback: [manual_review]
+
+  heat_lists_ai:
+    lane: trend_heat_validation
+    source_type: trend_heat
+    fetch_method: public_metadata
+    url: ""
+    lookback_hours: 8
+    max_items: 30
+    evidence_role: heat_validation
+    hard_evidence_allowed: false
+    confirmation_sources: [primary_source_search]
+    fallback: [manual_review]
+
+  industry_trial_public_metadata:
+    lane: industry_deep_research
+    source_type: industry_trial
+    fetch_method: public_metadata
+    url: ""
+    lookback_hours: 72
+    max_items: 20
+    evidence_role: supporting_evidence
+    confirmation_sources: [industry_official, public_policy, company_official]
+    fallback: [manual_url_backfill]
+
+  manual_url_queue:
+    lane: manual_url_backfill
+    source_type: manual_url
+    fetch_method: manual_url
+    url: 内容素材库/URL抓取/url_capture_queue.md
+    lookback_hours: 168
+    max_items: 50
+    evidence_role: manual_only
+    confirmation_sources: [operator_review, primary_source_search]
+    fallback: [manual_review]
+
+  keyword_discovery_queue:
+    lane: keyword_discovery
+    source_type: search_metadata
+    fetch_method: manual_only
+    url: ""
+    lookback_hours: 24
+    max_items: 20
+    evidence_role: weak_signal
+    hard_evidence_allowed: false
+    confirmation_sources: [operator_review]
+    fallback: [manual_review]

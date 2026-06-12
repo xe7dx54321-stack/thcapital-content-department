@@ -97,6 +97,22 @@ jobs:
     idempotency_scope: daily_slot
     required: false
 
+  acquisition_playbook_plan:
+    command: ["python3", "scripts/build_runtime_acquisition_plan.py"]
+    category: acquisition
+    timeout_seconds: 600
+    retry_policy: local_job
+    idempotency_scope: daily_slot
+    required: false
+
+  acquisition_playbook_regression:
+    command: ["python3", "scripts/run_acquisition_playbook_regression.py"]
+    category: acquisition
+    timeout_seconds: 600
+    retry_policy: local_job
+    idempotency_scope: daily
+    required: false
+
   weekly_content_retro:
     command: ["python3", "scripts/build_weekly_content_retro.py"]
     category: retrospective

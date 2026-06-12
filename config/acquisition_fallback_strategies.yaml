@@ -1,0 +1,135 @@
+schema_version: v1
+
+statuses:
+  - NO_FALLBACK_REQUIRED
+  - PRIMARY_SOURCE_REQUIRED
+  - SECOND_SOURCE_REQUIRED
+  - MANUAL_REVIEW_REQUIRED
+  - KEYWORD_EXPANSION_REQUIRED
+  - ALTERNATIVE_SOURCE_REQUIRED
+  - WATCH_ONLY
+  - BLOCKED
+
+strategies:
+  official_ai_lab:
+    when: [metadata_found, official_source_present]
+    status: NO_FALLBACK_REQUIRED
+    actions: [dedupe_against_existing_evidence, route_to_evidence_packet]
+    confirmation_required: false
+    hard_evidence_allowed: true
+  model_release:
+    when: [metadata_found, benchmark_or_repo_missing]
+    status: PRIMARY_SOURCE_REQUIRED
+    actions: [find_model_card, find_github_repo, find_eval_reference]
+    confirmation_required: true
+    hard_evidence_allowed: true
+  agent_framework:
+    when: [release_metadata_found]
+    status: PRIMARY_SOURCE_REQUIRED
+    actions: [find_changelog, find_docs, find_github_release]
+    confirmation_required: true
+    hard_evidence_allowed: false
+  open_source:
+    when: [repo_signal_found]
+    status: SECOND_SOURCE_REQUIRED
+    actions: [find_project_docs, find_release_notes, find_independent_adoption_signal]
+    confirmation_required: true
+    hard_evidence_allowed: false
+  paper_research:
+    when: [paper_metadata_found]
+    status: PRIMARY_SOURCE_REQUIRED
+    actions: [arxiv_metadata, author_page, github_repo, benchmark_reference]
+    confirmation_required: true
+    hard_evidence_allowed: false
+    pdf_download: false
+  funding_startup:
+    when: [metadata_found, primary_source_missing]
+    status: PRIMARY_SOURCE_REQUIRED
+    actions: [find_company_official, find_investor_official, find_founder_profile_manual]
+    confirmation_required: true
+    hard_evidence_allowed: false
+  product_launch:
+    when: [product_metadata_found]
+    status: PRIMARY_SOURCE_REQUIRED
+    actions: [find_product_official, find_company_official, find_launch_page]
+    confirmation_required: true
+    hard_evidence_allowed: false
+  builder_research:
+    when: [builder_analysis_found]
+    status: SECOND_SOURCE_REQUIRED
+    actions: [identify_underlying_primary_claim, search_official_release, attach_limitations]
+    confirmation_required: true
+    hard_evidence_allowed: false
+  developer_community:
+    when: [community_signal_found]
+    status: SECOND_SOURCE_REQUIRED
+    actions: [search_official_release, search_github, search_second_independent_source]
+    confirmation_required: true
+    hard_evidence_allowed: false
+  reddit_llm_discussion:
+    when: [high_engagement, repeated_mentions]
+    status: SECOND_SOURCE_REQUIRED
+    actions: [search_official_release, search_github, search_product_page, search_second_independent_source]
+    confirmation_required: true
+    hard_evidence_allowed: false
+  global_ai_media:
+    when: [media_metadata_found]
+    status: PRIMARY_SOURCE_REQUIRED
+    actions: [find_company_official, find_investor_official, find_original_report]
+    confirmation_required: true
+    hard_evidence_allowed: false
+  china_ai_media:
+    when: [chinese_media_metadata_found]
+    status: PRIMARY_SOURCE_REQUIRED
+    actions: [primary_source_search, manual_review, source_context_check]
+    confirmation_required: true
+    hard_evidence_allowed: false
+  wechat_metadata:
+    when: [wechat_metadata_found]
+    status: MANUAL_REVIEW_REQUIRED
+    actions: [manual_review, primary_source_search]
+    confirmation_required: true
+    hard_evidence_allowed: false
+    full_text_fetch: false
+  youtube_signal:
+    when: [video_metadata_found]
+    status: SECOND_SOURCE_REQUIRED
+    actions: [manual_review, search_official_release, search_second_independent_source]
+    confirmation_required: true
+    hard_evidence_allowed: false
+  x_signal:
+    when: [x_metadata_found]
+    status: SECOND_SOURCE_REQUIRED
+    actions: [manual_review, search_official_release, search_company_page]
+    confirmation_required: true
+    hard_evidence_allowed: false
+  trend_heat_validation:
+    when: [heat_signal_found]
+    status: WATCH_ONLY
+    actions: [search_primary_source, require_second_source, watch_heat_decay]
+    confirmation_required: true
+    hard_evidence_allowed: false
+  ai_infra:
+    when: [infra_metadata_found]
+    status: PRIMARY_SOURCE_REQUIRED
+    actions: [find_vendor_official, find_github_release, find_benchmark_reference]
+    confirmation_required: true
+    hard_evidence_allowed: false
+  industry_deep_research:
+    when: [vertical_signal_found]
+    status: MANUAL_REVIEW_REQUIRED
+    actions: [manual_review, primary_source_search, route_to_industry_research]
+    confirmation_required: true
+    hard_evidence_allowed: false
+  manual_url_backfill:
+    when: [operator_url_found]
+    status: MANUAL_REVIEW_REQUIRED
+    actions: [operator_review, metadata_extract, primary_source_search]
+    confirmation_required: true
+    hard_evidence_allowed: false
+  keyword_discovery:
+    when: [candidate_keyword_found]
+    status: KEYWORD_EXPANSION_REQUIRED
+    actions: [propose_keyword_sidecar, operator_review, do_not_auto_enable]
+    confirmation_required: true
+    hard_evidence_allowed: false

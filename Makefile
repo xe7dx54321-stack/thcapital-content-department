@@ -828,5 +828,55 @@ runtime-go-live-acceptance:
 phase31b-go-live:
 	$(PYTHON) scripts/run_phase31b_go_live_pipeline.py
 
+.PHONY: openclaw-acquisition-semantics-audit acquisition-lanes-validate acquisition-cadence-build acquisition-cadence-validate acquisition-source-playbooks-build acquisition-source-playbooks-validate acquisition-query-strategies-build acquisition-query-strategies-validate acquisition-fallback-strategies-build acquisition-fallback-strategies-validate acquisition-downstream-routes-build acquisition-downstream-routes-validate runtime-acquisition-plan acquisition-playbook-regression autonomous-acquisition-dry-run phase31c-daily
+
+openclaw-acquisition-semantics-audit:
+	$(PYTHON) scripts/audit_openclaw_acquisition_semantics.py
+
+acquisition-lanes-validate:
+	$(PYTHON) scripts/validate_acquisition_lanes.py
+
+acquisition-cadence-build:
+	$(PYTHON) scripts/build_acquisition_cadence.py
+
+acquisition-cadence-validate:
+	$(PYTHON) scripts/validate_acquisition_cadence.py
+
+acquisition-source-playbooks-build:
+	$(PYTHON) scripts/build_acquisition_source_playbooks.py
+
+acquisition-source-playbooks-validate:
+	$(PYTHON) scripts/validate_acquisition_source_playbooks.py
+
+acquisition-query-strategies-build:
+	$(PYTHON) scripts/build_acquisition_query_strategies.py
+
+acquisition-query-strategies-validate:
+	$(PYTHON) scripts/validate_acquisition_query_strategies.py
+
+acquisition-fallback-strategies-build:
+	$(PYTHON) scripts/build_acquisition_fallback_strategies.py
+
+acquisition-fallback-strategies-validate:
+	$(PYTHON) scripts/validate_acquisition_fallback_strategies.py
+
+acquisition-downstream-routes-build:
+	$(PYTHON) scripts/build_acquisition_downstream_routes.py
+
+acquisition-downstream-routes-validate:
+	$(PYTHON) scripts/validate_acquisition_downstream_routes.py
+
+runtime-acquisition-plan:
+	$(PYTHON) scripts/build_runtime_acquisition_plan.py
+
+acquisition-playbook-regression:
+	$(PYTHON) scripts/run_acquisition_playbook_regression.py
+
+autonomous-acquisition-dry-run:
+	$(PYTHON) scripts/run_autonomous_acquisition_dry_run.py
+
+phase31c-daily:
+	$(PYTHON) scripts/run_autonomous_acquisition_dry_run.py
+
 status:
 	bash 内容工厂控制台/status.sh
