@@ -830,6 +830,7 @@ phase31b-go-live:
 
 .PHONY: openclaw-acquisition-semantics-audit acquisition-lanes-validate acquisition-cadence-build acquisition-cadence-validate acquisition-source-playbooks-build acquisition-source-playbooks-validate acquisition-query-strategies-build acquisition-query-strategies-validate acquisition-fallback-strategies-build acquisition-fallback-strategies-validate acquisition-downstream-routes-build acquisition-downstream-routes-validate runtime-acquisition-plan acquisition-playbook-regression autonomous-acquisition-dry-run phase31c-daily
 .PHONY: legacy-content-asset-audit legacy-knowhow-methodology-map content-production-playbooks-build content-production-playbooks-validate autonomous-topic-score daily-main-topic-selection autonomous-briefs autonomous-outlines autonomous-drafts autonomous-article-review autonomous-final-candidates legacy-vs-new-quality-regression autonomous-topic-to-article phase32-daily
+.PHONY: historical-data-availability-audit time-sliced-replay-dataset replay-topic-scoring replay-topic-selection replay-content-generation replay-article-review replay-quality-regression replay-human-review-checklists replay-topic-quality-diagnosis content-quality-calibration-proposals real-observation-checklist phase33-daily
 
 openclaw-acquisition-semantics-audit:
 	$(PYTHON) scripts/audit_openclaw_acquisition_semantics.py
@@ -920,6 +921,42 @@ autonomous-topic-to-article:
 
 phase32-daily:
 	$(PYTHON) scripts/run_autonomous_topic_to_article_pipeline.py
+
+historical-data-availability-audit:
+	$(PYTHON) scripts/audit_historical_data_availability.py
+
+time-sliced-replay-dataset:
+	$(PYTHON) scripts/build_time_sliced_replay_dataset.py
+
+replay-topic-scoring:
+	$(PYTHON) scripts/run_replay_topic_scoring.py
+
+replay-topic-selection:
+	$(PYTHON) scripts/run_replay_topic_selection.py
+
+replay-content-generation:
+	$(PYTHON) scripts/run_replay_content_generation.py
+
+replay-article-review:
+	$(PYTHON) scripts/run_replay_article_review.py
+
+replay-quality-regression:
+	$(PYTHON) scripts/run_replay_quality_regression.py
+
+replay-human-review-checklists:
+	$(PYTHON) scripts/build_human_review_checklists.py
+
+replay-topic-quality-diagnosis:
+	$(PYTHON) scripts/diagnose_replay_topic_quality.py
+
+content-quality-calibration-proposals:
+	$(PYTHON) scripts/build_content_quality_calibration_proposals.py
+
+real-observation-checklist:
+	$(PYTHON) scripts/build_real_observation_checklist.py
+
+phase33-daily:
+	$(PYTHON) scripts/run_phase33_historical_replay_pipeline.py
 
 status:
 	bash 内容工厂控制台/status.sh

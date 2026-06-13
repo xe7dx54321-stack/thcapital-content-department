@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 32：Legacy Content Know-how Migration & Autonomous Topic-to-Article Production v1。
+Phase 33：Historical Replay & Production Quality Calibration v1。
 
 ## 最新 checkpoint
 
-P32-012：Phase 32 Closeout。
+P33-012：Phase 33 Closeout。
 
 ## 已完成
 
@@ -462,6 +462,21 @@ P32-012：Phase 32 Closeout。
 - P32-011 Runtime Topic-to-Article Integration v1。
 - P32-012 Phase 32 Closeout。
 
+### Phase 33
+
+- P33-001 Historical Data Availability Audit v1。
+- P33-002 Time-sliced 7-day Replay Dataset Builder v1。
+- P33-003 7-day Topic Scoring Replay v1。
+- P33-004 7-day Topic Selection Replay v1。
+- P33-005 7-day Brief / Outline / Draft Replay v1。
+- P33-006 7-day Multi-Agent Review / Final Candidate Replay v1。
+- P33-007 7-day Quality Regression & Human Review Checklist v1。
+- P33-008 Repeated / Low-quality Topic Diagnosis v1。
+- P33-009 Calibration Proposal Sidecar v1。
+- P33-010 Compressed 7-day Trial Dashboard in Workbench v1。
+- P33-011 Real 1-2 Day Observation Checklist v1。
+- P33-012 Phase 33 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -836,6 +851,21 @@ P32-012：Phase 32 Closeout。
 - runtime topic-to-article pipeline integration。
 - workbench autonomous content production panel。
 
+### Phase 33 能力
+
+- historical data availability audit。
+- time-sliced 7-day replay dataset。
+- 7-day topic scoring replay。
+- 7-day topic selection replay。
+- 7-day brief / outline / draft replay。
+- 7-day review / final candidate replay。
+- 7-day quality regression。
+- human review checklist。
+- repeated / low-quality topic diagnosis。
+- content quality calibration proposal sidecar。
+- workbench 7-day replay trial dashboard。
+- real 1-2 day observation checklist。
+
 ## 当前推荐日常命令
 
 ```bash
@@ -978,13 +1008,17 @@ make autonomous-acquisition-dry-run
 - Phase 32 不自动修改用户已认可的方法论配置，legacy mapping 和 proposal 均为 sidecar。
 - Phase 32 不把 weak signal 当硬证据，不放宽 evidence / topic / content quality gate。
 - Phase 32 自动生成的 draft / rewrite / final candidate 均 `do_not_publish=true`，并且 `manual_review_required=true`。
+- Phase 33 replay 必须使用 `replay_YYYYMMDD` namespace，不污染正式 latest production artifacts。
+- Phase 33 不用未来数据污染过去回放日。
+- Phase 33 calibration proposals 均 `auto_apply=false`，不得自动修改 playbook、prompt、methodology 或 scoring 配置。
+- Phase 33 不自动发布、不接公众号 API、不抓全文、不调用图片模型。
+- Phase 33 不修改 OpenClaw jobs.json / gateway / cron，不关闭当前 Runtime / LaunchAgent。
 
 ## 下一阶段
 
-Phase 33：Autonomous Content Quality Calibration & One-Week Production Trial v1。
+Phase 34：Apply Approved Calibration & Production Readiness Gate v1。
 
-- P33-001 One-week Autonomous Production Trial。
-- P33-002 Daily Human Feedback Capture。
-- P33-003 Topic / Article Quality Calibration。
-- P33-004 Prompt and Playbook Proposal Sidecar。
-- P33-005 Production Readiness Gate。
+- 用户审阅 Phase33 calibration proposal。
+- 只应用用户明确批准的校准项。
+- 建立 production readiness gate。
+- 再进入真实 1-2 天 observation 或一周试运行。

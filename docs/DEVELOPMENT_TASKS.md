@@ -1512,26 +1512,78 @@
 
 状态：Done。
 
-## Phase 33：Autonomous Content Quality Calibration & One-Week Production Trial v1
+## Phase 33：Historical Replay & Production Quality Calibration v1
 
 进入条件：Phase32 topic-to-article pipeline 可运行，最终候选稿进入 Workbench，且仍保持不自动发布和人工审阅边界。
 
-### P33-001：One-week Autonomous Production Trial
+### P33-001：Historical Data Availability Audit
+
+状态：Done。
+
+### P33-002：Time-sliced 7-day Replay Dataset Builder
+
+状态：Done。
+
+### P33-003：7-day Topic Scoring Replay
+
+状态：Done。
+
+### P33-004：7-day Topic Selection Replay
+
+状态：Done。
+
+### P33-005：7-day Brief / Outline / Draft Replay
+
+状态：Done。
+
+### P33-006：7-day Multi-Agent Review / Final Candidate Replay
+
+状态：Done。
+
+### P33-007：7-day Quality Regression & Human Review Checklist
+
+状态：Done。
+
+### P33-008：Repeated / Low-quality Topic Diagnosis
+
+状态：Done。
+
+### P33-009：Calibration Proposal Sidecar
+
+状态：Done。
+
+### P33-010：Compressed 7-day Trial Dashboard in Workbench
+
+状态：Done。
+
+### P33-011：Real 1-2 Day Observation Checklist
+
+状态：Done。
+
+### P33-012：Phase 33 Closeout
+
+状态：Done。
+
+## Phase 34：Apply Approved Calibration & Production Readiness Gate v1
+
+进入条件：用户审阅 Phase33 calibration proposals，并明确批准要应用的校准项。
+
+### P34-001：Approved Calibration Application Plan
 
 状态：Planned。
 
-### P33-002：Daily Human Feedback Capture
+### P34-002：Topic Title Normalization and Metadata Penalty Application
 
 状态：Planned。
 
-### P33-003：Topic / Article Quality Calibration
+### P34-003：Evidence Threshold and Weak Signal Guard Calibration
 
 状态：Planned。
 
-### P33-004：Prompt and Playbook Proposal Sidecar
+### P34-004：Brief / Outline / Judge Gate Calibration
 
 状态：Planned。
 
-### P33-005：Production Readiness Gate
+### P34-005：Production Readiness Gate
 
 状态：Planned。

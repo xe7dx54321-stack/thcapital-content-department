@@ -929,6 +929,7 @@ function renderReader() {
         ${renderRuntimeControlCenterPanel("review-card wide")}
         ${renderAcquisitionPlaybookPanel("review-card wide")}
         ${renderAutonomousContentProductionPanel("review-card wide")}
+        ${renderReplayTrialPanel("review-card wide")}
         ${renderContentOpsPanel("review-card wide")}
         ${renderContentHardeningPanel("review-card wide", "ops")}
       `, true);
@@ -963,6 +964,7 @@ function renderReader() {
         ${renderRuntimeControlCenterPanel("review-card wide")}
         ${renderAcquisitionPlaybookPanel("review-card wide")}
         ${renderAutonomousContentProductionPanel("review-card wide")}
+        ${renderReplayTrialPanel("review-card wide")}
         ${renderStableTrialPanel("review-card wide")}
         ${renderStableOpsPanel("review-card wide")}
         ${renderPhase22Panel("review-card wide")}
@@ -1106,6 +1108,10 @@ function getAcquisitionPlaybookPanel() {
 
 function getAutonomousContentProductionPanel() {
   return workbenchData.autonomous_content_production_panel || {};
+}
+
+function getReplayTrialPanel() {
+  return workbenchData.replay_trial_panel || {};
 }
 
 function renderReviewSection(title, note, body, open = true) {
@@ -2063,6 +2069,44 @@ function renderAutonomousContentProductionPanel(cardClass = "review-card wide") 
   </div>`;
 }
 
+function renderReplayTrialPanel(cardClass = "review-card wide") {
+  const panel = getReplayTrialPanel();
+  const availability = panel.availability_summary || {};
+  const selection = panel.topic_selection_summary || {};
+  const generation = panel.content_generation_summary || {};
+  const review = panel.article_review_summary || {};
+  const quality = panel.quality_summary || {};
+  const checklist = panel.checklist_summary || {};
+  const diagnosis = panel.diagnosis_summary || {};
+  const calibration = panel.calibration_summary || {};
+  const observation = panel.observation_summary || {};
+  const policy = panel.policy || {};
+  const dayCards = Array.isArray(panel.day_cards) ? panel.day_cards : [];
+  const issues = Array.isArray(panel.issues) ? panel.issues : [];
+  const proposals = Array.isArray(panel.proposals) ? panel.proposals : [];
+  const hasPanel = Object.keys(availability).length || Object.keys(selection).length || panel.pipeline_status;
+  if (!hasPanel) {
+    return `<div class="${cardClass} replay-trial-panel">
+      <p class="review-label">7-Day Replay Trial Dashboard</p>
+      <p class="review-value">暂无 Phase33 replay 数据。运行 <code>make phase33-daily</code> 后会显示过去 7 天 time-sliced replay、质量回归、人工 checklist 和校准建议。</p>
+    </div>`;
+  }
+  const dayRows = dayCards.map((item) => `${item.business_date}: ${item.status} / ${item.topic_title} / quality ${item.quality_status} / metadata=${item.source_metadata_title} / duplicate=${item.duplicate_topic} / worth_reading=${item.worth_reading}`);
+  const issueRows = issues.slice(0, 6).map((item) => `${item.severity || "MEDIUM"} ${item.issue_type || item.issue_id}: ${item.recommended_fix || ""}`);
+  const proposalRows = proposals.slice(0, 6).map((item) => `${item.severity || "MEDIUM"} ${item.proposal_type || item.proposal_id} -> ${item.target_config || ""} / auto_apply=${item.auto_apply ?? false}`);
+  return `<div class="${cardClass} replay-trial-panel">
+    <p class="review-label">7-Day Replay Trial Dashboard</p>
+    <p class="review-value">Pipeline ${escapeHtml(panel.pipeline_status || "UNKNOWN")} · replay ready ${escapeHtml(availability.replay_ready_days ?? 0)}/7 · selected days ${escapeHtml(selection.selected_days ?? 0)} · no topic ${escapeHtml(selection.no_qualified_topic_days ?? 0)} · final candidates ${escapeHtml(review.final_candidate_count ?? 0)}</p>
+    <p class="review-value">Briefs ${escapeHtml(generation.brief_count ?? 0)} · drafts ${escapeHtml(generation.draft_count ?? 0)} · quality pass/actionable/fail ${escapeHtml(quality.pass_days ?? 0)}/${escapeHtml(quality.actionable_days ?? 0)}/${escapeHtml(quality.fail_days ?? 0)} · checklists ${escapeHtml(checklist.checklist_count ?? 0)}</p>
+    <p class="review-value">metadata title ratio ${escapeHtml(diagnosis.source_metadata_title_ratio ?? 0)} · duplicate ratio ${escapeHtml(diagnosis.duplicate_topic_ratio ?? 0)} · proposals ${escapeHtml(calibration.proposal_count ?? 0)} · observation checks ${escapeHtml(observation.check_count ?? 0)}</p>
+    <p class="review-label">Replay Days</p>${renderMiniList(dayRows, "暂无 replay day")}
+    <p class="review-label">Quality Diagnosis</p>${renderMiniList(issueRows, "暂无 replay issue")}
+    <p class="review-label">Calibration Proposals</p>${renderMiniList(proposalRows, "暂无 calibration proposal")}
+    <p class="review-label">Boundary</p>
+    <p class="review-value">replay_namespace_only=${escapeHtml(policy.replay_namespace_only ?? true)} · no_production_latest_pollution=${escapeHtml(policy.no_production_latest_pollution ?? true)} · no_auto_publish=${escapeHtml(policy.no_auto_publish ?? true)} · no_wechat_api=${escapeHtml(policy.no_wechat_api ?? true)} · no_full_text=${escapeHtml(policy.no_full_text ?? true)} · no_image_generation=${escapeHtml(policy.no_image_generation ?? true)} · calibration_auto_apply=${escapeHtml(policy.calibration_auto_apply ?? false)}</p>
+  </div>`;
+}
+
 function renderStableTrialPanel(cardClass = "review-card wide") {
   const panel = getPhase24Panel();
   const days = Array.isArray(panel.day_summaries) ? panel.day_summaries : [];
@@ -2133,6 +2177,7 @@ function renderInsightPanel() {
   const runtimeControl = getRuntimeControlCenterPanel();
   const acquisitionPlaybook = getAcquisitionPlaybookPanel();
   const autonomousContent = getAutonomousContentProductionPanel();
+  const replayTrial = getReplayTrialPanel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
@@ -2208,6 +2253,12 @@ function renderInsightPanel() {
   const autoFinal = autonomousContent.final_candidate_summary || {};
   const autoRegression = autonomousContent.quality_regression_summary || {};
   const autoPipeline = autonomousContent.pipeline_summary || {};
+  const replayAvailability = replayTrial.availability_summary || {};
+  const replaySelection = replayTrial.topic_selection_summary || {};
+  const replayReview = replayTrial.article_review_summary || {};
+  const replayQuality = replayTrial.quality_summary || {};
+  const replayDiagnosis = replayTrial.diagnosis_summary || {};
+  const replayCalibration = replayTrial.calibration_summary || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -2338,6 +2389,11 @@ function renderInsightPanel() {
       <p class="insight-label">Phase32 自动内容生产</p>
       <p class="insight-value">Pipeline ${escapeHtml(autonomousContent.pipeline_status || "UNKNOWN")} · topics ${escapeHtml(autoTopicScores.topic_count ?? 0)} · selected ${escapeHtml(autoSelection.selected ?? false)} · briefs ${escapeHtml(autoBrief.brief_count ?? 0)} · outlines ${escapeHtml(autoOutline.outline_count ?? 0)}</p>
       <p class="insight-value">Drafts ${escapeHtml(autoDraft.draft_count ?? 0)} · reviews ${escapeHtml(autoReview.review_count ?? 0)} · final ${escapeHtml(autoFinal.candidate_count ?? 0)} · quality ${escapeHtml(autonomousContent.quality_regression_status || "UNKNOWN")} · blocking ${escapeHtml(autoRegression.blocking_failures ?? 0)} · steps_ok ${escapeHtml(autoPipeline.steps_ok ?? 0)}</p>
+    </section>
+    <section class="insight-card replay-trial-panel">
+      <p class="insight-label">Phase33 7天回放校准</p>
+      <p class="insight-value">Pipeline ${escapeHtml(replayTrial.pipeline_status || "UNKNOWN")} · ready ${escapeHtml(replayAvailability.replay_ready_days ?? 0)}/7 · selected ${escapeHtml(replaySelection.selected_days ?? 0)} · no topic ${escapeHtml(replaySelection.no_qualified_topic_days ?? 0)} · final ${escapeHtml(replayReview.final_candidate_count ?? 0)}</p>
+      <p class="insight-value">quality P/A/F ${escapeHtml(replayQuality.pass_days ?? 0)}/${escapeHtml(replayQuality.actionable_days ?? 0)}/${escapeHtml(replayQuality.fail_days ?? 0)} · metadata ratio ${escapeHtml(replayDiagnosis.source_metadata_title_ratio ?? 0)} · proposals ${escapeHtml(replayCalibration.proposal_count ?? 0)} · auto_apply=0</p>
     </section>
     <section class="insight-card trial-panel">
       <p class="insight-label">Phase21 试运行</p>

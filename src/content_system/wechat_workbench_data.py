@@ -50,6 +50,7 @@ class WechatWorkbenchDataReport:
     runtime_control_center_panel: dict[str, Any]
     acquisition_playbook_panel: dict[str, Any]
     autonomous_content_production_panel: dict[str, Any]
+    replay_trial_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -1298,6 +1299,72 @@ def build_autonomous_content_production_panel(paths: ProjectPaths) -> dict[str, 
     }
 
 
+def build_replay_trial_panel(paths: ProjectPaths) -> dict[str, Any]:
+    availability = read_json(paths.logs_root / "latest_historical_data_availability_audit.json")
+    dataset = read_json(paths.logs_root / "latest_time_sliced_replay_dataset.json")
+    scoring = read_json(paths.logs_root / "latest_7day_topic_scoring_replay.json")
+    selection = read_json(paths.logs_root / "latest_7day_topic_selection_replay.json")
+    generation = read_json(paths.logs_root / "latest_7day_content_generation_replay.json")
+    article_review = read_json(paths.logs_root / "latest_7day_article_review_replay.json")
+    quality = read_json(paths.logs_root / "latest_7day_quality_regression.json")
+    checklists = read_json(paths.logs_root / "latest_7day_human_review_checklists.json")
+    diagnosis = read_json(paths.logs_root / "latest_replay_topic_quality_diagnosis.json")
+    proposals = read_json(paths.logs_root / "latest_content_quality_calibration_proposals.json")
+    observation = read_json(paths.logs_root / "latest_real_observation_checklist.json")
+    pipeline = read_json(paths.logs_root / "latest_phase33_historical_replay.json")
+    selection_days = list_payload(selection, "days")
+    quality_by_day = {str(item.get("business_date")): item for item in list_payload(quality, "days")}
+    checklist_by_day = {str(item.get("business_date")): item for item in list_payload(checklists, "checklists")}
+    day_cards = []
+    for item in selection_days[:7]:
+        business_date = str(item.get("business_date") or "")
+        main = item.get("main_topic") if isinstance(item.get("main_topic"), dict) else {}
+        quality_day = quality_by_day.get(business_date, {})
+        checklist = checklist_by_day.get(business_date, {})
+        day_cards.append(
+            {
+                "business_date": business_date,
+                "status": item.get("status", "UNKNOWN"),
+                "topic_title": main.get("normalized_title") or main.get("title") or "NO_QUALIFIED_TOPIC",
+                "quality_status": quality_day.get("quality_status", "UNKNOWN"),
+                "source_metadata_title": bool(item.get("source_metadata_title")),
+                "duplicate_topic": bool(item.get("duplicate_topic")),
+                "low_evidence_selected": bool(item.get("low_evidence_selected")),
+                "worth_reading": bool(checklist.get("worth_reading")),
+                "needs_major_revision": bool(checklist.get("needs_major_revision")),
+            }
+        )
+    return {
+        "availability_summary": availability.get("summary") if isinstance(availability.get("summary"), dict) else {},
+        "availability_status": availability.get("status", "UNKNOWN"),
+        "dataset_summary": dataset.get("summary") if isinstance(dataset.get("summary"), dict) else {},
+        "topic_scoring_summary": scoring.get("summary") if isinstance(scoring.get("summary"), dict) else {},
+        "topic_selection_summary": selection.get("summary") if isinstance(selection.get("summary"), dict) else {},
+        "content_generation_summary": generation.get("summary") if isinstance(generation.get("summary"), dict) else {},
+        "article_review_summary": article_review.get("summary") if isinstance(article_review.get("summary"), dict) else {},
+        "quality_summary": quality.get("summary") if isinstance(quality.get("summary"), dict) else {},
+        "checklist_summary": checklists.get("summary") if isinstance(checklists.get("summary"), dict) else {},
+        "diagnosis_summary": diagnosis.get("summary") if isinstance(diagnosis.get("summary"), dict) else {},
+        "calibration_summary": proposals.get("summary") if isinstance(proposals.get("summary"), dict) else {},
+        "observation_summary": observation.get("summary") if isinstance(observation.get("summary"), dict) else {},
+        "pipeline_status": pipeline.get("status", "UNKNOWN"),
+        "pipeline_summary": pipeline.get("summary") if isinstance(pipeline.get("summary"), dict) else {},
+        "day_cards": day_cards,
+        "issues": list_payload(diagnosis, "issues")[:8],
+        "proposals": list_payload(proposals, "proposals")[:8],
+        "observation_items": list_payload(observation, "items")[:10],
+        "policy": {
+            "replay_namespace_only": True,
+            "no_production_latest_pollution": True,
+            "no_auto_publish": True,
+            "no_wechat_api": True,
+            "no_full_text": True,
+            "no_image_generation": True,
+            "calibration_auto_apply": False,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -1443,6 +1510,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     runtime_control_center_panel = build_runtime_control_center_panel(paths)
     acquisition_playbook_panel = build_acquisition_playbook_panel(paths)
     autonomous_content_production_panel = build_autonomous_content_production_panel(paths)
+    replay_trial_panel = build_replay_trial_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -1534,6 +1602,12 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["phase32_final_candidate_count"] = safe_int((autonomous_content_production_panel.get("final_candidate_summary") or {}).get("candidate_count"))
     summary["phase32_quality_regression_status"] = autonomous_content_production_panel.get("quality_regression_status", "UNKNOWN")
     summary["phase32_pipeline_status"] = autonomous_content_production_panel.get("pipeline_status", "UNKNOWN")
+    summary["phase33_replay_ready_days"] = safe_int((replay_trial_panel.get("availability_summary") or {}).get("replay_ready_days"))
+    summary["phase33_selected_days"] = safe_int((replay_trial_panel.get("topic_selection_summary") or {}).get("selected_days"))
+    summary["phase33_final_candidate_count"] = safe_int((replay_trial_panel.get("article_review_summary") or {}).get("final_candidate_count"))
+    summary["phase33_quality_actionable_days"] = safe_int((replay_trial_panel.get("quality_summary") or {}).get("actionable_days"))
+    summary["phase33_calibration_proposals"] = safe_int((replay_trial_panel.get("calibration_summary") or {}).get("proposal_count"))
+    summary["phase33_pipeline_status"] = replay_trial_panel.get("pipeline_status", "UNKNOWN")
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -1573,6 +1647,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         runtime_control_center_panel,
         acquisition_playbook_panel,
         autonomous_content_production_panel,
+        replay_trial_panel,
         tuple(warnings),
     )
 
@@ -1611,6 +1686,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "runtime_control_center_panel": report.runtime_control_center_panel,
         "acquisition_playbook_panel": report.acquisition_playbook_panel,
         "autonomous_content_production_panel": report.autonomous_content_production_panel,
+        "replay_trial_panel": report.replay_trial_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():
