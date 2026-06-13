@@ -928,6 +928,7 @@ function renderReader() {
         ${renderOpenClawActivationPanel("review-card wide")}
         ${renderRuntimeControlCenterPanel("review-card wide")}
         ${renderAcquisitionPlaybookPanel("review-card wide")}
+        ${renderAutonomousContentProductionPanel("review-card wide")}
         ${renderContentOpsPanel("review-card wide")}
         ${renderContentHardeningPanel("review-card wide", "ops")}
       `, true);
@@ -961,6 +962,7 @@ function renderReader() {
         ${renderOpenClawActivationPanel("review-card wide")}
         ${renderRuntimeControlCenterPanel("review-card wide")}
         ${renderAcquisitionPlaybookPanel("review-card wide")}
+        ${renderAutonomousContentProductionPanel("review-card wide")}
         ${renderStableTrialPanel("review-card wide")}
         ${renderStableOpsPanel("review-card wide")}
         ${renderPhase22Panel("review-card wide")}
@@ -1100,6 +1102,10 @@ function getRuntimeControlCenterPanel() {
 
 function getAcquisitionPlaybookPanel() {
   return workbenchData.acquisition_playbook_panel || {};
+}
+
+function getAutonomousContentProductionPanel() {
+  return workbenchData.autonomous_content_production_panel || {};
 }
 
 function renderReviewSection(title, note, body, open = true) {
@@ -2016,6 +2022,47 @@ function renderAcquisitionPlaybookPanel(cardClass = "review-card wide") {
   </div>`;
 }
 
+function renderAutonomousContentProductionPanel(cardClass = "review-card wide") {
+  const panel = getAutonomousContentProductionPanel();
+  const topicScores = panel.topic_score_summary || {};
+  const selection = panel.selection_summary || {};
+  const brief = panel.brief_summary || {};
+  const outline = panel.outline_summary || {};
+  const draft = panel.draft_summary || {};
+  const review = panel.review_summary || {};
+  const finalCandidate = panel.final_candidate_summary || {};
+  const regression = panel.quality_regression_summary || {};
+  const pipeline = panel.pipeline_summary || {};
+  const policy = panel.policy || {};
+  const topicRows = Array.isArray(panel.top_topics) ? panel.top_topics : [];
+  const finalRows = Array.isArray(panel.final_candidates) ? panel.final_candidates : [];
+  const checkRows = Array.isArray(panel.quality_checks) ? panel.quality_checks : [];
+  const mainTopic = panel.main_topic || {};
+  const hasPanel = Object.keys(topicScores).length || Object.keys(selection).length || Object.keys(pipeline).length;
+  if (!hasPanel) {
+    return `<div class="${cardClass} autonomous-content-production-panel">
+      <p class="review-label">Autonomous Content Production</p>
+      <p class="review-value">暂无 Phase32 自动内容生产数据。运行 <code>make autonomous-topic-to-article</code> 后会显示自动选题、brief、大纲、初稿、Agent review、final candidate 与质量回归。</p>
+    </div>`;
+  }
+  const topicList = topicRows.slice(0, 6).map((item) => `${item.decision || "WATCH"} · ${item.title || item.topic_id || "-"} · score ${item.score_total ?? 0} · ${item.recommended_angle || ""}`);
+  const candidateList = finalRows.slice(0, 4).map((item) => `${item.status || "HOLD"} · ${item.title || item.candidate_id || "-"} · manual_review=${item.manual_review_required ?? true} · do_not_publish=${item.do_not_publish ?? true}`);
+  const qualityRows = checkRows.slice(0, 8).map((item) => `${item.status}: ${item.check_id} / ${item.message || ""}`);
+  return `<div class="${cardClass} autonomous-content-production-panel">
+    <p class="review-label">Autonomous Content Production</p>
+    <p class="review-value">Pipeline ${escapeHtml(panel.pipeline_status || "UNKNOWN")} · topics ${escapeHtml(topicScores.topic_count ?? 0)} · main candidates ${escapeHtml(topicScores.main_candidates ?? 0)} · selected ${escapeHtml(selection.selected ?? false)} · final candidates ${escapeHtml(finalCandidate.candidate_count ?? 0)}</p>
+    <p class="review-value">Briefs ${escapeHtml(brief.brief_count ?? 0)} · ready outline ${escapeHtml(brief.ready_for_outline ?? 0)} · outlines ${escapeHtml(outline.outline_count ?? 0)} · drafts ${escapeHtml(draft.draft_count ?? 0)} · reviews ${escapeHtml(review.review_count ?? 0)}</p>
+    <p class="review-value">Quality ${escapeHtml(panel.quality_regression_status || "UNKNOWN")} · pass ${escapeHtml(regression.pass ?? 0)} · warn ${escapeHtml(regression.warn ?? 0)} · fail ${escapeHtml(regression.fail ?? 0)} · blocking ${escapeHtml(regression.blocking_failures ?? 0)} · steps_ok ${escapeHtml(pipeline.steps_ok ?? 0)}</p>
+    <p class="review-label">Today's Main Topic</p>
+    <p class="review-value">${mainTopic.title ? `${escapeHtml(mainTopic.title)} · ${escapeHtml(mainTopic.recommended_angle || mainTopic.reason || "")}` : escapeHtml(panel.main_topic_status || "NO_QUALIFIED_TOPIC")}</p>
+    <p class="review-label">Top Topic Scores</p>${renderMiniList(topicList, "暂无 topic score")}
+    <p class="review-label">Final Candidates</p>${renderMiniList(candidateList, "暂无 final candidate")}
+    <p class="review-label">Quality Regression</p>${renderMiniList(qualityRows, "暂无 quality check")}
+    <p class="review-label">Boundary</p>
+    <p class="review-value">do_not_publish=${escapeHtml(policy.do_not_publish ?? true)} · manual_review_required=${escapeHtml(policy.manual_review_required ?? true)} · no_wechat_api=${escapeHtml(policy.no_wechat_api ?? true)} · no_full_text=${escapeHtml(policy.no_full_text ?? true)} · no_image_generation=${escapeHtml(policy.no_image_generation ?? true)} · weak_signal_not_hard_evidence=${escapeHtml(policy.weak_signal_not_hard_evidence ?? true)}</p>
+  </div>`;
+}
+
 function renderStableTrialPanel(cardClass = "review-card wide") {
   const panel = getPhase24Panel();
   const days = Array.isArray(panel.day_summaries) ? panel.day_summaries : [];
@@ -2085,6 +2132,7 @@ function renderInsightPanel() {
   const openclawActivation = getOpenClawActivationPanel();
   const runtimeControl = getRuntimeControlCenterPanel();
   const acquisitionPlaybook = getAcquisitionPlaybookPanel();
+  const autonomousContent = getAutonomousContentProductionPanel();
   const visualSummary = generation.visual_plan_summary || {};
   const requestSummary = generation.image_request_summary || {};
   const liveComparisonSummary = livePilot.comparison_summary || {};
@@ -2151,6 +2199,15 @@ function renderInsightPanel() {
   const acquisitionRegression = acquisitionPlaybook.regression_coverage || {};
   const acquisitionDuplicates = acquisitionPlaybook.regression_duplicates || {};
   const acquisitionDry = acquisitionPlaybook.dry_run_summary || {};
+  const autoTopicScores = autonomousContent.topic_score_summary || {};
+  const autoSelection = autonomousContent.selection_summary || {};
+  const autoBrief = autonomousContent.brief_summary || {};
+  const autoOutline = autonomousContent.outline_summary || {};
+  const autoDraft = autonomousContent.draft_summary || {};
+  const autoReview = autonomousContent.review_summary || {};
+  const autoFinal = autonomousContent.final_candidate_summary || {};
+  const autoRegression = autonomousContent.quality_regression_summary || {};
+  const autoPipeline = autonomousContent.pipeline_summary || {};
   const scores = comparison.scores || {};
   const panel = document.getElementById("insight-panel");
   const readyText = article.status === "ready" ? "可进入人工确认" : (article.next_step || "等待主编判断");
@@ -2276,6 +2333,11 @@ function renderInsightPanel() {
       <p class="insight-label">Acquisition Playbook</p>
       <p class="insight-value">slots ${escapeHtml(acquisitionCadence.schedule_slot_count ?? 0)} · lane runs ${escapeHtml(acquisitionRuntime.lane_runs ?? 0)} · connector runs ${escapeHtml(acquisitionRuntime.connector_runs ?? 0)} · dedup ${escapeHtml(acquisitionRuntime.shared_source_dedup_count ?? 0)}</p>
       <p class="insight-value">coverage ${escapeHtml(acquisitionRegression.coverage_ratio ?? 0)} · duplicate source slots ${escapeHtml(acquisitionDuplicates.duplicate_source_slots ?? 0)} · dry-run ${escapeHtml(acquisitionPlaybook.dry_run_status || "UNKNOWN")} · failures ${escapeHtml(acquisitionDry.failures ?? 0)}</p>
+    </section>
+    <section class="insight-card autonomous-content-production-panel">
+      <p class="insight-label">Phase32 自动内容生产</p>
+      <p class="insight-value">Pipeline ${escapeHtml(autonomousContent.pipeline_status || "UNKNOWN")} · topics ${escapeHtml(autoTopicScores.topic_count ?? 0)} · selected ${escapeHtml(autoSelection.selected ?? false)} · briefs ${escapeHtml(autoBrief.brief_count ?? 0)} · outlines ${escapeHtml(autoOutline.outline_count ?? 0)}</p>
+      <p class="insight-value">Drafts ${escapeHtml(autoDraft.draft_count ?? 0)} · reviews ${escapeHtml(autoReview.review_count ?? 0)} · final ${escapeHtml(autoFinal.candidate_count ?? 0)} · quality ${escapeHtml(autonomousContent.quality_regression_status || "UNKNOWN")} · blocking ${escapeHtml(autoRegression.blocking_failures ?? 0)} · steps_ok ${escapeHtml(autoPipeline.steps_ok ?? 0)}</p>
     </section>
     <section class="insight-card trial-panel">
       <p class="insight-label">Phase21 试运行</p>

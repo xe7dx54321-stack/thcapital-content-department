@@ -49,6 +49,7 @@ class WechatWorkbenchDataReport:
     openclaw_activation_panel: dict[str, Any]
     runtime_control_center_panel: dict[str, Any]
     acquisition_playbook_panel: dict[str, Any]
+    autonomous_content_production_panel: dict[str, Any]
     warnings: tuple[str, ...]
 
 
@@ -1231,6 +1232,72 @@ def build_acquisition_playbook_panel(paths: ProjectPaths) -> dict[str, Any]:
     }
 
 
+def build_autonomous_content_production_panel(paths: ProjectPaths) -> dict[str, Any]:
+    topic_root = paths.market_content_root / "03_topic_candidates"
+    brief_root = paths.market_content_root / "05_briefs"
+    outline_root = paths.market_content_root / "06_outlines"
+    draft_root = paths.market_content_root / "07_drafts"
+    final_root = paths.market_content_root / "08_final_candidates"
+    asset_audit = read_json(paths.logs_root / "latest_legacy_content_asset_audit.json")
+    mapping = read_json(paths.logs_root / "latest_legacy_knowhow_methodology_mapping.json")
+    playbooks = read_json(paths.logs_root / "latest_content_production_playbooks.json")
+    validation = read_json(paths.logs_root / "latest_content_production_playbook_validation.json")
+    scores = read_json(topic_root / "latest_autonomous_topic_scores.json")
+    selection = read_json(topic_root / "latest_daily_main_topic_selection.json")
+    briefs = read_json(brief_root / "latest_autonomous_briefs.json")
+    outlines = read_json(outline_root / "latest_autonomous_outlines.json")
+    drafts = read_json(draft_root / "latest_autonomous_drafts.json")
+    reviews = read_json(draft_root / "latest_autonomous_article_reviews.json")
+    rewrites = read_json(draft_root / "latest_autonomous_article_rewrite_versions.json")
+    finals = read_json(final_root / "latest_autonomous_final_candidates.json")
+    regression = read_json(paths.logs_root / "latest_legacy_vs_new_quality_regression.json")
+    pipeline = read_json(paths.logs_root / "latest_autonomous_topic_to_article.json")
+    selected_topic = selection.get("main_topic") if isinstance(selection.get("main_topic"), dict) else {}
+    selected_brief = (list_payload(briefs, "briefs") or [{}])[0]
+    selected_outline = (list_payload(outlines, "outlines") or [{}])[0]
+    selected_draft = (list_payload(drafts, "drafts") or [{}])[0]
+    selected_review = (list_payload(reviews, "reviews") or [{}])[0]
+    selected_rewrite = (list_payload(rewrites, "versions") or [{}])[0]
+    selected_final = (list_payload(finals, "final_candidates") or [{}])[0]
+    return {
+        "asset_audit_summary": asset_audit.get("summary") if isinstance(asset_audit.get("summary"), dict) else {},
+        "knowhow_mapping_summary": mapping.get("summary") if isinstance(mapping.get("summary"), dict) else {},
+        "playbook_summary": playbooks.get("summary") if isinstance(playbooks.get("summary"), dict) else {},
+        "playbook_validation_status": validation.get("validate_status", "UNKNOWN"),
+        "playbook_validation_summary": validation.get("summary") if isinstance(validation.get("summary"), dict) else {},
+        "topic_score_summary": scores.get("summary") if isinstance(scores.get("summary"), dict) else {},
+        "selection_status": selection.get("status", "UNKNOWN"),
+        "selection_summary": selection.get("summary") if isinstance(selection.get("summary"), dict) else {},
+        "brief_summary": briefs.get("summary") if isinstance(briefs.get("summary"), dict) else {},
+        "outline_summary": outlines.get("summary") if isinstance(outlines.get("summary"), dict) else {},
+        "draft_summary": drafts.get("summary") if isinstance(drafts.get("summary"), dict) else {},
+        "review_summary": reviews.get("summary") if isinstance(reviews.get("summary"), dict) else {},
+        "rewrite_summary": rewrites.get("summary") if isinstance(rewrites.get("summary"), dict) else {},
+        "final_candidate_summary": finals.get("summary") if isinstance(finals.get("summary"), dict) else {},
+        "quality_regression_status": regression.get("regression_status", "UNKNOWN"),
+        "quality_regression_summary": regression.get("summary") if isinstance(regression.get("summary"), dict) else {},
+        "pipeline_status": pipeline.get("status", "UNKNOWN"),
+        "pipeline_summary": pipeline.get("summary") if isinstance(pipeline.get("summary"), dict) else {},
+        "selected_topic": selected_topic,
+        "selected_brief": selected_brief,
+        "selected_outline": selected_outline,
+        "selected_draft": selected_draft,
+        "selected_review": selected_review,
+        "selected_rewrite": selected_rewrite,
+        "selected_final_candidate": selected_final,
+        "top_scored_topics": list_payload(scores, "topics")[:8],
+        "quality_checks": list_payload(regression, "checks")[:12],
+        "policy": {
+            "do_not_publish": True,
+            "manual_review_required": True,
+            "no_wechat_api": True,
+            "no_full_text_fetch": True,
+            "no_image_generation": True,
+            "legacy_mapping_auto_apply": False,
+        },
+    }
+
+
 def critic_summary(critic: dict[str, Any]) -> str:
     concerns = critic.get("main_concerns")
     if isinstance(concerns, list) and concerns:
@@ -1375,6 +1442,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     openclaw_activation_panel = build_openclaw_activation_panel(paths)
     runtime_control_center_panel = build_runtime_control_center_panel(paths)
     acquisition_playbook_panel = build_acquisition_playbook_panel(paths)
+    autonomous_content_production_panel = build_autonomous_content_production_panel(paths)
     summary["version_comparison_count"] = version_review.get("comparison_count", 0)
     summary["version_accept_recommended"] = version_review.get("accept_recommended", 0)
     summary["final_candidate_count"] = final_review.get("candidate_count", 0)
@@ -1459,6 +1527,13 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
     summary["phase31c_runtime_connector_runs"] = safe_int((acquisition_playbook_panel.get("runtime_plan_summary") or {}).get("connector_runs"))
     summary["phase31c_regression_status"] = acquisition_playbook_panel.get("regression_status", "UNKNOWN")
     summary["phase31c_dry_run_status"] = acquisition_playbook_panel.get("dry_run_status", "UNKNOWN")
+    summary["phase32_topic_count"] = safe_int((autonomous_content_production_panel.get("topic_score_summary") or {}).get("topic_count"))
+    summary["phase32_main_candidates"] = safe_int((autonomous_content_production_panel.get("topic_score_summary") or {}).get("main_candidates"))
+    summary["phase32_brief_count"] = safe_int((autonomous_content_production_panel.get("brief_summary") or {}).get("brief_count"))
+    summary["phase32_draft_count"] = safe_int((autonomous_content_production_panel.get("draft_summary") or {}).get("draft_count"))
+    summary["phase32_final_candidate_count"] = safe_int((autonomous_content_production_panel.get("final_candidate_summary") or {}).get("candidate_count"))
+    summary["phase32_quality_regression_status"] = autonomous_content_production_panel.get("quality_regression_status", "UNKNOWN")
+    summary["phase32_pipeline_status"] = autonomous_content_production_panel.get("pipeline_status", "UNKNOWN")
     runtime_payload = runtime_summary.get("summary") if isinstance(runtime_summary.get("summary"), dict) else {}
     system_status = {
         "runtime_store": f"pipelines={runtime_payload.get('pipeline_runs', 0)}, artifacts={runtime_payload.get('content_artifacts', 0)}",
@@ -1497,6 +1572,7 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
         openclaw_activation_panel,
         runtime_control_center_panel,
         acquisition_playbook_panel,
+        autonomous_content_production_panel,
         tuple(warnings),
     )
 
@@ -1534,6 +1610,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "openclaw_activation_panel": report.openclaw_activation_panel,
         "runtime_control_center_panel": report.runtime_control_center_panel,
         "acquisition_playbook_panel": report.acquisition_playbook_panel,
+        "autonomous_content_production_panel": report.autonomous_content_production_panel,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():

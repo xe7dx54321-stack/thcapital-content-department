@@ -1,0 +1,30 @@
+schema_version: v1
+
+draft_rules:
+  do_not_publish: true
+  preserve_known_weaknesses: true
+  cite_evidence_ids_not_unverified_quotes: true
+  no_target_price: true
+  no_fake_quotes: true
+  no_pure_news_rewrite: true
+
+style:
+  language: zh-CN
+  tone: internal_research_editorial
+  paragraph_max_chars: 420
+  avoid:
+    - 未来可期
+    - 值得关注
+    - 打开想象空间
+    - 持续赋能
+    - 重塑格局
+
+required_components:
+  - opening_hook
+  - one_sentence_thesis
+  - why_now
+  - evidence_chain
+  - implication
+  - counterargument
+  - closing_framework
+

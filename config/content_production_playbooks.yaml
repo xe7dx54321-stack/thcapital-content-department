@@ -1,0 +1,35 @@
+schema_version: v1
+
+playbooks:
+  topic_scoring:
+    config_file: topic_scoring_playbook.yaml
+    purpose: Score confirmed topics before any writing work starts.
+  main_topic_selection:
+    purpose: Select at most one main topic and a small backup set.
+    allow_empty_success: true
+    min_main_score: 0.68
+    max_backup_topics: 3
+  brief_generation:
+    config_file: brief_generation_playbook.yaml
+    purpose: Convert one qualified topic into a writing brief with evidence and risks.
+  outline_generation:
+    config_file: outline_generation_playbook.yaml
+    purpose: Convert a ready brief into a story-driven article outline.
+  draft_generation:
+    config_file: draft_generation_playbook.yaml
+    purpose: Build a non-publishable draft for human review.
+  review_rewrite:
+    config_file: review_rewrite_playbook.yaml
+    purpose: Run conservative proponent, critic, judge, and rewrite sidecars.
+  final_candidate:
+    purpose: Assemble a human-review candidate without entering any publish channel.
+
+boundaries:
+  do_not_publish: true
+  no_wechat_api: true
+  no_draft_box: true
+  no_full_text_fetch: true
+  no_image_generation: true
+  weak_signal_not_hard_evidence: true
+  final_candidate_requires_human_review: true
+

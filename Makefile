@@ -829,6 +829,7 @@ phase31b-go-live:
 	$(PYTHON) scripts/run_phase31b_go_live_pipeline.py
 
 .PHONY: openclaw-acquisition-semantics-audit acquisition-lanes-validate acquisition-cadence-build acquisition-cadence-validate acquisition-source-playbooks-build acquisition-source-playbooks-validate acquisition-query-strategies-build acquisition-query-strategies-validate acquisition-fallback-strategies-build acquisition-fallback-strategies-validate acquisition-downstream-routes-build acquisition-downstream-routes-validate runtime-acquisition-plan acquisition-playbook-regression autonomous-acquisition-dry-run phase31c-daily
+.PHONY: legacy-content-asset-audit legacy-knowhow-methodology-map content-production-playbooks-build content-production-playbooks-validate autonomous-topic-score daily-main-topic-selection autonomous-briefs autonomous-outlines autonomous-drafts autonomous-article-review autonomous-final-candidates legacy-vs-new-quality-regression autonomous-topic-to-article phase32-daily
 
 openclaw-acquisition-semantics-audit:
 	$(PYTHON) scripts/audit_openclaw_acquisition_semantics.py
@@ -877,6 +878,48 @@ autonomous-acquisition-dry-run:
 
 phase31c-daily:
 	$(PYTHON) scripts/run_autonomous_acquisition_dry_run.py
+
+legacy-content-asset-audit:
+	$(PYTHON) scripts/audit_legacy_content_assets.py
+
+legacy-knowhow-methodology-map:
+	$(PYTHON) scripts/map_legacy_knowhow_to_methodology.py
+
+content-production-playbooks-build:
+	$(PYTHON) scripts/build_content_production_playbooks.py
+
+content-production-playbooks-validate:
+	$(PYTHON) scripts/validate_content_production_playbooks.py
+
+autonomous-topic-score:
+	$(PYTHON) scripts/score_autonomous_topics.py
+
+daily-main-topic-selection:
+	$(PYTHON) scripts/select_daily_main_topics.py
+
+autonomous-briefs:
+	$(PYTHON) scripts/build_autonomous_briefs.py
+
+autonomous-outlines:
+	$(PYTHON) scripts/build_autonomous_outlines.py
+
+autonomous-drafts:
+	$(PYTHON) scripts/write_autonomous_drafts.py
+
+autonomous-article-review:
+	$(PYTHON) scripts/run_autonomous_article_review_pipeline.py
+
+autonomous-final-candidates:
+	$(PYTHON) scripts/build_autonomous_final_candidates.py
+
+legacy-vs-new-quality-regression:
+	$(PYTHON) scripts/run_legacy_vs_new_quality_regression.py
+
+autonomous-topic-to-article:
+	$(PYTHON) scripts/run_autonomous_topic_to_article_pipeline.py
+
+phase32-daily:
+	$(PYTHON) scripts/run_autonomous_topic_to_article_pipeline.py
 
 status:
 	bash 内容工厂控制台/status.sh

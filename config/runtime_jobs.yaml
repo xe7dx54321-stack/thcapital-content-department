@@ -33,6 +33,14 @@ jobs:
     idempotency_scope: daily
     required: true
 
+  autonomous_topic_to_article:
+    command: ["python3", "scripts/run_autonomous_topic_to_article_pipeline.py"]
+    category: content_production
+    timeout_seconds: 3600
+    retry_policy: llm_job
+    idempotency_scope: daily
+    required: true
+
   agent_review_daily:
     command: ["python3", "scripts/run_phase3_daily_pipeline.py"]
     category: review

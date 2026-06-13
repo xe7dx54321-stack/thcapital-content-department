@@ -1,0 +1,32 @@
+schema_version: v1
+
+dimensions:
+  urgency:
+    weight: 0.15
+    description: 是否是近期发生、正在变化、适合今天写。
+  reader_value:
+    weight: 0.20
+    description: 对同行资本读者是否有认知增量。
+  evidence_strength:
+    weight: 0.20
+    description: 是否有足够证据支撑，弱信号是否已确认。
+  narrative_potential:
+    weight: 0.15
+    description: 是否能讲出清晰故事，而不是资料堆叠。
+  investment_relevance:
+    weight: 0.15
+    description: 是否能连接产业趋势、竞争格局和投资判断。
+  differentiation:
+    weight: 0.15
+    description: 是否区别于普通新闻转述。
+
+decision_thresholds:
+  main_candidate: 0.68
+  backup_candidate: 0.56
+  needs_evidence: 0.42
+
+hard_rules:
+  weak_signal_requires_confirmation: true
+  low_evidence_cannot_be_main: true
+  no_qualified_topic_is_success_empty: true
+

@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 31C：OpenClaw Acquisition Playbook Migration v1。
+Phase 32：Legacy Content Know-how Migration & Autonomous Topic-to-Article Production v1。
 
 ## 最新 checkpoint
 
-P31C-012：Phase 31C Closeout。
+P32-012：Phase 32 Closeout。
 
 ## 已完成
 
@@ -447,6 +447,21 @@ P31C-012：Phase 31C Closeout。
 - P31C-011 Autonomous Acquisition Dry Run v1。
 - P31C-012 Phase 31C Closeout。
 
+### Phase 32
+
+- P32-001 Legacy Agent / Skill / Prompt Asset Audit v1。
+- P32-002 Legacy Know-how to Current Methodology Mapping v1。
+- P32-003 Content Production Playbook Registry v1。
+- P32-004 Confirmed Topic Scoring & Main Topic Selection v1。
+- P32-005 Autonomous Brief Generation v1。
+- P32-006 Autonomous Outline Generation v1。
+- P32-007 Autonomous Draft Generation v1。
+- P32-008 Multi-Agent Review / Judge / Rewrite Activation v1。
+- P32-009 Final Candidate Assembly & Workbench Delivery v1。
+- P32-010 Legacy-vs-New Quality Regression v1。
+- P32-011 Runtime Topic-to-Article Integration v1。
+- P32-012 Phase 32 Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -805,6 +820,22 @@ P31C-012：Phase 31C Closeout。
 - workbench acquisition playbook panel。
 - autonomous acquisition dry-run。
 
+### Phase 32 能力
+
+- legacy content asset audit。
+- legacy know-how methodology mapping sidecar。
+- content production playbook registry。
+- autonomous topic scoring。
+- daily main topic selection。
+- autonomous brief generation。
+- autonomous outline generation。
+- autonomous draft generation。
+- multi-agent review / judge / rewrite activation。
+- autonomous final candidate delivery。
+- legacy-vs-new quality regression。
+- runtime topic-to-article pipeline integration。
+- workbench autonomous content production panel。
+
 ## 当前推荐日常命令
 
 ```bash
@@ -941,15 +972,19 @@ make autonomous-acquisition-dry-run
 - Phase 31C 不抓全文、不绕过登录/付费墙、不自动控制 VPN。
 - Phase 31C 不把 Reddit / X / YouTube / 热榜 / 微信作为硬证据或直达 brief。
 - Phase 31C 不自动发布、不调用图片模型、不自动生成图片。
+- Phase 32 不自动发布、不接公众号 API、不进入公众号草稿箱。
+- Phase 32 不抓全文、不绕过登录/付费墙、不调用图片模型。
+- Phase 32 不把旧 prompt 原样塞进生产链路，旧 know-how 只经审计、清洗、映射后进入 playbook。
+- Phase 32 不自动修改用户已认可的方法论配置，legacy mapping 和 proposal 均为 sidecar。
+- Phase 32 不把 weak signal 当硬证据，不放宽 evidence / topic / content quality gate。
+- Phase 32 自动生成的 draft / rewrite / final candidate 均 `do_not_publish=true`，并且 `manual_review_required=true`。
 
 ## 下一阶段
 
-Phase 32：Legacy Content Know-how Migration & Autonomous Topic-to-Article Production v1。
+Phase 33：Autonomous Content Quality Calibration & One-Week Production Trial v1。
 
-- P32-001 Legacy Agent Skills Inventory。
-- P32-002 Topic Selection Know-how Migration。
-- P32-003 Writing / Opening / Structure Recipe Migration。
-- P32-004 Automated Brief / Outline / Draft Activation。
-- P32-005 Multi-Agent Review and Rewrite。
-- P32-006 Final Candidate Workbench Delivery。
-- P32-007 Autonomous Content Production Regression Gate。
+- P33-001 One-week Autonomous Production Trial。
+- P33-002 Daily Human Feedback Capture。
+- P33-003 Topic / Article Quality Calibration。
+- P33-004 Prompt and Playbook Proposal Sidecar。
+- P33-005 Production Readiness Gate。

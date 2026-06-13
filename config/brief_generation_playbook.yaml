@@ -1,0 +1,28 @@
+schema_version: v1
+
+required_sections:
+  - one_sentence_thesis
+  - why_now
+  - core_reader_question
+  - target_reader
+  - evidence_inventory
+  - narrative_angle
+  - key_tension
+  - likely_counterarguments
+  - writing_risks
+  - recommended_structure
+
+readiness_rules:
+  min_evidence_items: 1
+  require_why_now: true
+  require_reader_question: true
+  evidence_gap_status: NEEDS_EVIDENCE
+
+style:
+  language: zh-CN
+  tone: internal_research_editorial
+  avoid:
+    - 空泛宏大叙事
+    - AI味总结
+    - 无证据判断
+

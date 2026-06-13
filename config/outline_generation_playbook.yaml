@@ -1,0 +1,21 @@
+schema_version: v1
+
+required_sections:
+  - hook
+  - core_judgment
+  - evidence_chain
+  - implication
+  - risk_and_counterargument
+  - closing_framework
+
+section_rules:
+  require_purpose: true
+  require_reader_question_answered: true
+  require_risk_when_evidence_thin: true
+  min_sections: 5
+
+title_rules:
+  min_options: 3
+  avoid_clickbait: true
+  concrete_over_grand: true
+

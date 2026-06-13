@@ -48,6 +48,7 @@ daily_schedule:
     enabled: true
     time: "18:25"
     jobs:
+      - autonomous_topic_to_article
       - content_generation_daily
 
   agent_review:

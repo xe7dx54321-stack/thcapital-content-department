@@ -18,7 +18,8 @@ def pipeline_nodes() -> list[dict[str, Any]]:
         {"node_id": "hot_material_refresh", "type": "degradable", "command": python_command("scripts/build_daily_hot_material_pool.py"), "depends_on": ["morning_acquisition"]},
         {"node_id": "evidence_enrichment", "type": "degradable", "command": python_command("scripts/run_phase30_daily_activation_pipeline.py"), "depends_on": ["hot_material_refresh"]},
         {"node_id": "topic_activation", "type": "required", "command": python_command("scripts/activate_openclaw_migrated_topics.py"), "depends_on": ["evidence_enrichment"]},
-        {"node_id": "methodology_topic_score", "type": "required", "command": python_command("scripts/score_topics_with_methodology.py"), "depends_on": ["topic_activation"]},
+        {"node_id": "autonomous_topic_to_article", "type": "required", "command": python_command("scripts/run_autonomous_topic_to_article_pipeline.py"), "depends_on": ["topic_activation"]},
+        {"node_id": "methodology_topic_score", "type": "required", "command": python_command("scripts/score_topics_with_methodology.py"), "depends_on": ["autonomous_topic_to_article"]},
         {"node_id": "topic_selection", "type": "required", "command": python_command("scripts/build_high_value_candidate_pool.py"), "depends_on": ["methodology_topic_score"]},
         {"node_id": "brief_generation", "type": "required", "command": python_command("scripts/build_methodology_briefs.py"), "depends_on": ["topic_selection"]},
         {"node_id": "outline_generation", "type": "required", "command": python_command("scripts/build_methodology_outlines.py"), "depends_on": ["brief_generation"]},
@@ -27,7 +28,7 @@ def pipeline_nodes() -> list[dict[str, Any]]:
         {"node_id": "article_quality_review", "type": "required", "command": python_command("scripts/review_content_quality.py"), "depends_on": ["agent_review"]},
         {"node_id": "visual_plan", "type": "optional", "command": python_command("scripts/build_visual_plans.py"), "depends_on": ["article_quality_review"]},
         {"node_id": "final_candidate", "type": "required", "command": python_command("scripts/build_final_article_candidates.py"), "depends_on": ["article_quality_review"]},
-        {"node_id": "workbench_build", "type": "required", "command": python_command("scripts/build_wechat_workbench_frontend.py"), "depends_on": ["final_candidate"]},
+        {"node_id": "workbench_build", "type": "required", "command": python_command("scripts/build_wechat_workbench_frontend.py"), "depends_on": ["final_candidate", "autonomous_topic_to_article"]},
         {"node_id": "daily_closeout", "type": "required", "command": python_command("scripts/run_stable_daily_ops.py"), "depends_on": ["workbench_build"]},
     ]
 
@@ -68,7 +69,7 @@ def build_daily_pipeline_graph(paths: ProjectPaths, repo_root: Path) -> tuple[di
 def run_daily_end_to_end(paths: ProjectPaths, repo_root: Path, execute: bool = False) -> tuple[dict[str, Any], dict[str, Path]]:
     graph = build_daily_pipeline_graph_payload()
     steps: list[PipelineStep] = []
-    safe_execute_nodes = {"runtime_preflight", "network_readiness", "acquisition_playbook_plan", "workbench_build", "daily_closeout"}
+    safe_execute_nodes = {"runtime_preflight", "network_readiness", "acquisition_playbook_plan", "autonomous_topic_to_article", "workbench_build", "daily_closeout"}
     for node in graph["nodes"]:
         should_execute = execute and node["node_id"] in safe_execute_nodes
         steps.append(run_step(str(node["node_id"]), list(node["command"]), repo_root, dry_run=not should_execute))

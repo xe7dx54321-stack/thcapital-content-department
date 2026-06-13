@@ -1464,30 +1464,74 @@
 
 进入条件：Phase31C acquisition playbook regression blocking_failures=0，且 Runtime go-live gate 至少为 `GO_LIVE_WITH_WARNINGS`。
 
-### P32-001：Legacy Agent Skills Inventory
+### P32-001：Legacy Agent / Skill / Prompt Asset Audit
+
+状态：Done。
+
+### P32-002：Legacy Know-how to Current Methodology Mapping
+
+状态：Done。
+
+### P32-003：Content Production Playbook Registry
+
+状态：Done。
+
+### P32-004：Confirmed Topic Scoring & Main Topic Selection
+
+状态：Done。
+
+### P32-005：Autonomous Brief Generation
+
+状态：Done。
+
+### P32-006：Autonomous Outline Generation
+
+状态：Done。
+
+### P32-007：Autonomous Draft Generation
+
+状态：Done。
+
+### P32-008：Multi-Agent Review / Judge / Rewrite Activation
+
+状态：Done。
+
+### P32-009：Final Candidate Assembly & Workbench Delivery
+
+状态：Done。
+
+### P32-010：Legacy-vs-New Quality Regression
+
+状态：Done。
+
+### P32-011：Runtime Topic-to-Article Integration
+
+状态：Done。
+
+### P32-012：Phase 32 Closeout
+
+状态：Done。
+
+## Phase 33：Autonomous Content Quality Calibration & One-Week Production Trial v1
+
+进入条件：Phase32 topic-to-article pipeline 可运行，最终候选稿进入 Workbench，且仍保持不自动发布和人工审阅边界。
+
+### P33-001：One-week Autonomous Production Trial
 
 状态：Planned。
 
-### P32-002：Topic Selection Know-how Migration
+### P33-002：Daily Human Feedback Capture
 
 状态：Planned。
 
-### P32-003：Writing / Opening / Structure Recipe Migration
+### P33-003：Topic / Article Quality Calibration
 
 状态：Planned。
 
-### P32-004：Automated Brief / Outline / Draft Activation
+### P33-004：Prompt and Playbook Proposal Sidecar
 
 状态：Planned。
 
-### P32-005：Multi-Agent Review and Rewrite
-
-状态：Planned。
-
-### P32-006：Final Candidate Workbench Delivery
-
-状态：Planned。
-
-### P32-007：Autonomous Content Production Regression Gate
+### P33-005：Production Readiness Gate
 
 状态：Planned。
