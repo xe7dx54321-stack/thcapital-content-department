@@ -1586,3 +1586,8 @@ logs/autonomous-runtime/*.validation
 同行资本市场内容系统/11_frontstage/*7day_replay*
 同行资本市场内容系统/11_frontstage/*compressed-trial*
 同行资本市场内容系统/11_frontstage/*compressed_trial*
+
+# Phase 33B workbench IA generated artifacts
+同行资本市场内容系统/11_frontstage/*workbench-view-model*.json
+同行资本市场内容系统/11_frontstage/*workbench_view_model*.json
+同行资本市场内容系统/11_frontstage/latest_workbench_view_model.json

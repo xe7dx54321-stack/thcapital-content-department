@@ -12,6 +12,7 @@ from typing import Any
 
 from content_system.paths import ProjectPaths
 from content_system.phase7_report_utils import list_payload, read_json, repo_relative, safe_float, safe_int, today_token, utc_now, write_json_and_markdown
+from content_system.workbench_view_model import build_workbench_view_model_from_data, write_workbench_view_model
 
 
 SCHEMA_VERSION = "v1"
@@ -1655,6 +1656,9 @@ def build_wechat_workbench_data(paths: ProjectPaths) -> WechatWorkbenchDataRepor
 def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: ProjectPaths, repo_root: Path) -> dict[str, Path]:
     outputs = output_paths(paths, report.run_date)
     payload = asdict(report)
+    acceptance = read_json(paths.logs_root / "latest_runtime_go_live_acceptance_gate.json")
+    workbench_view_model = build_workbench_view_model_from_data(payload, acceptance)
+    payload["workbench_view_model"] = workbench_view_model
     payload["outputs"] = {key: repo_relative(path, repo_root) for key, path in outputs.items()}
     summary_payload = {
         "schema_version": SCHEMA_VERSION,
@@ -1687,6 +1691,7 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
         "acquisition_playbook_panel": report.acquisition_playbook_panel,
         "autonomous_content_production_panel": report.autonomous_content_production_panel,
         "replay_trial_panel": report.replay_trial_panel,
+        "workbench_view_model": workbench_view_model,
         "warnings": report.warnings,
     }
     for key, path in outputs.items():
@@ -1695,6 +1700,8 @@ def write_wechat_workbench_data(report: WechatWorkbenchDataReport, paths: Projec
             path.write_text(json.dumps(summary_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         else:
             path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    view_model_outputs = write_workbench_view_model(workbench_view_model, paths, repo_root)
+    outputs.update({f"view_model_{key}": path for key, path in view_model_outputs.items()})
     return outputs
 
 

@@ -15,6 +15,7 @@ from content_system.manual_publish_session import update_manual_publish_session
 from content_system.paths import ProjectPaths
 from content_system.phase7_report_utils import read_json
 from content_system.post_publish_metrics import record_post_publish_metrics
+from content_system.runtime_control import run_named, runtime_status, set_pause
 from content_system.version_acceptance import update_version_review
 from content_system.workbench_action_approval import update_action_approval
 from content_system.workbench_action_router import route_workbench_actions
@@ -93,6 +94,7 @@ class WorkbenchUIServerHandler(BaseHTTPRequestHandler):
             return
         api_map = {
             "/api/workbench-data": self.paths.frontstage_root / "latest_wechat_workbench_data.json",
+            "/api/workbench-view-model": self.paths.frontstage_root / "latest_workbench_view_model.json",
             "/api/final-candidates": self.paths.market_content_root / "07_publishing" / "latest_final_article_candidates.json",
             "/api/final-checklist": self.paths.market_content_root / "07_publishing" / "latest_final_publish_checklist.json",
             "/api/version-review": self.paths.market_content_root / "09_workbench_actions" / "versions" / "latest_version_review_decisions.json",
@@ -104,6 +106,9 @@ class WorkbenchUIServerHandler(BaseHTTPRequestHandler):
         }
         if parsed.path in api_map:
             self._send_json(read_json(api_map[parsed.path]))
+            return
+        if parsed.path == "/api/runtime/status":
+            self._send_json(runtime_status(self.paths))
             return
         self._send_json({"error": "not_found"}, HTTPStatus.NOT_FOUND)
 
@@ -174,6 +179,15 @@ class WorkbenchUIServerHandler(BaseHTTPRequestHandler):
                     optional_float(body.get("hours_after_publish")),
                 )
                 self._send_json({"status": "OK" if changed else "NOT_CHANGED", "result": result.__dict__, "payload": payload})
+                return
+            runtime_mapping = {
+                "/api/runtime/pause": lambda: set_pause(self.paths, True),
+                "/api/runtime/resume": lambda: set_pause(self.paths, False),
+                "/api/runtime/run-daily": lambda: run_named(self.repo_root, "daily-end-to-end"),
+                "/api/runtime/run-validation": lambda: run_named(self.repo_root, "safe-validation"),
+            }
+            if parsed.path in runtime_mapping:
+                self._send_json({"status": "OK", "runtime": runtime_mapping[parsed.path]()})
                 return
         except Exception as exc:  # noqa: BLE001
             self._send_json({"status": "FAILED", "error": str(exc)}, HTTPStatus.INTERNAL_SERVER_ERROR)

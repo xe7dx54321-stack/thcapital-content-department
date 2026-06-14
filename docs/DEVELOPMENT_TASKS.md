@@ -1564,9 +1564,57 @@
 
 状态：Done。
 
+## Phase 33B：Workbench UX Information Architecture Cleanup v1
+
+进入条件：Phase33 replay / calibration 已进入 Workbench，但用户反馈前台信息架构混乱，系统状态、内容结果、回放分析和调试日志杂糅。
+
+### P33B-001：Workbench Information Architecture Redesign
+
+状态：Done。
+
+### P33B-002：Today Overview / Command Center
+
+状态：Done。
+
+### P33B-003：System Health Area
+
+状态：Done。
+
+### P33B-004：Today Final Result Area
+
+状态：Done。
+
+### P33B-005：Article Review Workspace
+
+状态：Done。
+
+### P33B-006：Evidence & Quality Checklist Area
+
+状态：Done。
+
+### P33B-007：Runtime / Logs / Debug Area Isolation
+
+状态：Done。
+
+### P33B-008：Replay / Calibration Area Isolation
+
+状态：Done。
+
+### P33B-009：Navigation / Layout / Visual Cleanup
+
+状态：Done。
+
+### P33B-010：UX Acceptance Test & Browser Verification
+
+状态：Done。
+
+### P33B-011：Phase 33B Closeout
+
+状态：Done。
+
 ## Phase 34：Apply Approved Calibration & Production Readiness Gate v1
 
-进入条件：用户审阅 Phase33 calibration proposals，并明确批准要应用的校准项。
+进入条件：用户审阅 Phase33 calibration proposals，并明确批准要应用的校准项；Workbench 已完成 Phase33B 信息架构清理。
 
 ### P34-001：Approved Calibration Application Plan
 

@@ -61,6 +61,9 @@ class WorkbenchInteractionHandler(BaseHTTPRequestHandler):
         if parsed.path == "/runtime/status":
             self._send_json(runtime_status(self.paths))
             return
+        if parsed.path == "/workbench-view-model":
+            self._send_json(read_json(self.paths.frontstage_root / "latest_workbench_view_model.json"))
+            return
         self._send_json({"error": "not_found"}, HTTPStatus.NOT_FOUND)
 
     def do_POST(self) -> None:  # noqa: N802

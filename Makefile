@@ -2,6 +2,8 @@
 
 PYTHON ?= python3
 
+.PHONY: workbench-view-model phase33b-workbench
+
 doctor:
 	$(PYTHON) scripts/doctor.py
 
@@ -255,11 +257,18 @@ phase8-daily:
 wechat-workbench-data:
 	$(PYTHON) scripts/build_wechat_workbench_data.py
 
+workbench-view-model:
+	$(PYTHON) scripts/build_workbench_view_model.py
+
 wechat-article-preview:
 	$(PYTHON) scripts/render_wechat_article_preview.py
 
 wechat-workbench:
 	$(PYTHON) scripts/build_wechat_workbench_data.py
+	$(PYTHON) scripts/build_wechat_workbench_frontend.py
+
+phase33b-workbench:
+	$(PYTHON) scripts/build_workbench_view_model.py
 	$(PYTHON) scripts/build_wechat_workbench_frontend.py
 
 serve-wechat-workbench:

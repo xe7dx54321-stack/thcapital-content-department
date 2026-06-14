@@ -6,11 +6,11 @@
 
 ## 当前阶段
 
-Phase 33：Historical Replay & Production Quality Calibration v1。
+Phase 33B：Workbench UX Information Architecture Cleanup v1。
 
 ## 最新 checkpoint
 
-P33-012：Phase 33 Closeout。
+P33B-011：Phase 33B Closeout。
 
 ## 已完成
 
@@ -477,6 +477,20 @@ P33-012：Phase 33 Closeout。
 - P33-011 Real 1-2 Day Observation Checklist v1。
 - P33-012 Phase 33 Closeout。
 
+### Phase 33B
+
+- P33B-001 Workbench Information Architecture Redesign v1。
+- P33B-002 Today Overview / Command Center v1。
+- P33B-003 System Health Area v1。
+- P33B-004 Today Final Result Area v1。
+- P33B-005 Article Review Workspace v1。
+- P33B-006 Evidence & Quality Checklist Area v1。
+- P33B-007 Runtime / Logs / Debug Area Isolation v1。
+- P33B-008 Replay / Calibration Area Isolation v1。
+- P33B-009 Navigation / Layout / Visual Cleanup v1。
+- P33B-010 UX Acceptance Test & Browser Verification v1。
+- P33B-011 Phase 33B Closeout。
+
 ## 当前已具备能力
 
 ### Phase 0 能力
@@ -866,6 +880,16 @@ P33-012：Phase 33 Closeout。
 - workbench 7-day replay trial dashboard。
 - real 1-2 day observation checklist。
 
+### Phase 33B 能力
+
+- workbench operator information architecture。
+- clean workbench view model。
+- today overview command center。
+- today article review workspace。
+- quality and evidence checklist。
+- replay dashboard isolation。
+- system ops and debug isolation。
+
 ## 当前推荐日常命令
 
 ```bash
@@ -1013,6 +1037,9 @@ make autonomous-acquisition-dry-run
 - Phase 33 calibration proposals 均 `auto_apply=false`，不得自动修改 playbook、prompt、methodology 或 scoring 配置。
 - Phase 33 不自动发布、不接公众号 API、不抓全文、不调用图片模型。
 - Phase 33 不修改 OpenClaw jobs.json / gateway / cron，不关闭当前 Runtime / LaunchAgent。
+- Phase 33B 只重构 Workbench 信息架构，不改变 OpenClaw、Runtime 调度或发布边界。
+- Phase 33B 首页只展示运营结论，不展示 raw JSON、path-audit、Runtime PID。
+- Phase 33B 今日稿件页不展示系统运维信息；Replay 与 production 明确分离。
 
 ## 下一阶段
 
