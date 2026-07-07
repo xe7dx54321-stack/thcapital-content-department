@@ -2,7 +2,12 @@
 
 PYTHON ?= python3
 
-.PHONY: workbench-view-model phase33b-workbench
+.PHONY: workbench-view-model phase33b-workbench wechat-workbench
+.PHONY: wechat-rss-sources-validate wechat-rss-ingest wechat-rss-clean
+.PHONY: wechat-article-intelligence competitive-coverage-analysis
+.PHONY: differentiated-angle-recommendations wechat-evidence-support-check
+.PHONY: wechat-style-patterns wechat-intelligence-integration
+.PHONY: wechat-rss-usage-boundary-gate phase34a-daily
 
 doctor:
 	$(PYTHON) scripts/doctor.py
@@ -966,6 +971,42 @@ real-observation-checklist:
 
 phase33-daily:
 	$(PYTHON) scripts/run_phase33_historical_replay_pipeline.py
+
+# Phase 34A: WeChat RSS Full-text Intelligence
+wechat-rss-sources-validate:
+	$(PYTHON) scripts/validate_wechat_rss_sources.py
+
+wechat-rss-ingest:
+	$(PYTHON) scripts/run_wechat_rss_ingestion.py
+
+wechat-rss-clean:
+	$(PYTHON) scripts/clean_wechat_rss_articles.py
+
+wechat-article-intelligence:
+	$(PYTHON) scripts/extract_wechat_article_intelligence.py
+
+competitive-coverage-analysis:
+	$(PYTHON) scripts/run_competitive_coverage_analysis.py
+
+differentiated-angle-recommendations:
+	$(PYTHON) scripts/recommend_differentiated_angles.py
+
+wechat-evidence-support-check:
+	$(PYTHON) scripts/check_wechat_evidence_support.py
+
+wechat-style-patterns:
+	$(PYTHON) scripts/extract_wechat_style_patterns.py
+
+wechat-intelligence-integration:
+	$(PYTHON) scripts/run_wechat_intelligence_integration.py
+
+wechat-rss-usage-boundary-gate:
+	$(PYTHON) scripts/run_wechat_rss_usage_boundary_gate.py
+
+phase34a-daily:
+	$(PYTHON) scripts/run_phase34a_wechat_rss_intelligence_pipeline.py
+
+wechat-workbench: wechat-workbench-data workbench-view-model wechat-workbench-frontend
 
 status:
 	bash 内容工厂控制台/status.sh

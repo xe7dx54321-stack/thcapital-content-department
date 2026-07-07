@@ -1591,3 +1591,15 @@ logs/autonomous-runtime/*.validation
 同行资本市场内容系统/11_frontstage/*workbench-view-model*.json
 同行资本市场内容系统/11_frontstage/*workbench_view_model*.json
 同行资本市场内容系统/11_frontstage/latest_workbench_view_model.json
+
+# Phase 34A WeChat RSS intelligence artifacts
+同行资本市场内容系统/14_wechat_rss/
+同行资本市场内容系统/10_logs/*wechat-rss*
+同行资本市场内容系统/10_logs/*wechat_article*
+同行资本市场内容系统/10_logs/*wechat-article*
+同行资本市场内容系统/10_logs/*competitive-coverage*
+同行资本市场内容系统/10_logs/*differentiated-angle*
+同行资本市场内容系统/10_logs/*wechat-evidence-support*
+同行资本市场内容系统/10_logs/*wechat-style-pattern*
+同行资本市场内容系统/10_logs/*wechat-intelligence*
+同行资本市场内容系统/10_logs/*phase34a*

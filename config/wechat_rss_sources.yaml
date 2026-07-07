@@ -1,0 +1,26 @@
+schema_version: v1
+updated_at: "2026-07-07"
+description: "WeChat RSS source configuration for TH Capital content system."
+
+sources:
+  - source_id: geekpark
+    label: "极客公园"
+    enabled: false
+    rss_url: "https://www.geekpark.net/rss"
+    fallback_url: "https://weixin.sogou.com/weixin?type=1&query=极客公园"
+    language: zh
+    category: tech_media
+    expected_frequency: daily
+    owner: content_system
+    notes: "Tech media WeChat official account RSS feed"
+
+  - source_id: example_official
+    label: "示例公众号"
+    enabled: false
+    rss_url: "https://example.com/wechat/rss"
+    fallback_url: "https://weixin.sogou.com/weixin?type=1&query=示例公众号"
+    language: zh
+    category: finance
+    expected_frequency: weekly
+    owner: content_system
+    notes: "Example WeChat official account for testing"

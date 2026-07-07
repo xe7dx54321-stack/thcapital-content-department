@@ -470,12 +470,115 @@ def build_workbench_view_model_from_data(data: dict[str, Any], acceptance_gate: 
     }
 
 
+def _load_wechat_intelligence(paths: ProjectPaths) -> dict[str, Any]:
+    """Load WeChat RSS intelligence data for the Workbench panel."""
+    intel: dict[str, Any] = {}
+    try:
+        coverage = read_json(paths.logs_root / "latest_competitive_coverage_analysis.json")
+        if coverage:
+            topics = coverage.get("topics", []) if isinstance(coverage.get("topics"), list) else []
+            first_topic = topics[0] if topics else {}
+            intel["competitive_coverage"] = {
+                "coverage_count": first_topic.get("coverage_count", 0),
+                "covered_accounts": first_topic.get("covered_accounts", [])[:5],
+                "covered_angles": first_topic.get("covered_angles", [])[:5],
+                "coverage_density": first_topic.get("coverage_density", "unknown"),
+                "same_angle_risk": first_topic.get("same_angle_risk", "unknown"),
+                "topic_count": coverage.get("topic_count", 0),
+                "high_coverage_topics": coverage.get("high_coverage_topics", 0),
+            }
+    except Exception:
+        pass
+
+    try:
+        angles = read_json(paths.logs_root / "latest_differentiated_angle_recommendations.json")
+        if angles:
+            recs = angles.get("recommendations", []) if isinstance(angles.get("recommendations"), list) else []
+            first_rec = recs[0] if recs else {}
+            intel["differentiated_angle"] = {
+                "recommended_angle": first_rec.get("recommended_angle", ""),
+                "reason": first_rec.get("reason", ""),
+                "angle_confidence": first_rec.get("angle_confidence", 0),
+                "should_penalize_original_angle": bool(first_rec.get("should_penalize_original_angle")),
+                "suggested_title_direction": first_rec.get("suggested_title_direction", ""),
+                "recommendation_count": angles.get("recommendation_count", 0),
+                "high_confidence_count": angles.get("high_confidence", 0),
+            }
+    except Exception:
+        pass
+
+    try:
+        evidence = read_json(paths.logs_root / "latest_wechat_evidence_support_check.json")
+        if evidence:
+            checks = evidence.get("checks", []) if isinstance(evidence.get("checks"), list) else []
+            first_check = checks[0] if checks else {}
+            intel["evidence_support"] = {
+                "support_status": first_check.get("support_status", "UNVERIFIED"),
+                "can_use_as_hard_evidence": bool(first_check.get("can_use_as_hard_evidence")),
+                "recommended_action": first_check.get("recommended_action", ""),
+                "check_count": evidence.get("check_count", 0),
+                "supported_by_media": evidence.get("supported_by_media", 0),
+                "multi_source_support": evidence.get("multi_source_support", 0),
+                "needs_primary_source": evidence.get("needs_primary_source", 0),
+            }
+    except Exception:
+        pass
+
+    try:
+        patterns = read_json(paths.logs_root / "latest_wechat_style_patterns.json")
+        if patterns:
+            all_patterns = patterns.get("patterns", []) if isinstance(patterns.get("patterns"), list) else []
+            title_patterns = [p for p in all_patterns if isinstance(p, dict) and p.get("pattern_type") == "title_pattern"]
+            opening_patterns = [p for p in all_patterns if isinstance(p, dict) and p.get("pattern_type") == "opening_pattern"]
+            intel["style_patterns"] = {
+                "pattern_count": patterns.get("pattern_count", 0),
+                "title_pattern_count": patterns.get("title_patterns", 0),
+                "opening_pattern_count": patterns.get("opening_patterns", 0),
+                "structure_pattern_count": patterns.get("structure_patterns", 0),
+                "do_not_copy_text": bool(patterns.get("do_not_copy_text", True)),
+                "learnable_title_patterns": [
+                    {
+                        "pattern_name": p.get("pattern_name", ""),
+                        "pattern_summary": p.get("pattern_summary", ""),
+                        "example_excerpt": p.get("example_excerpt", "")[:80],
+                    }
+                    for p in title_patterns[:3]
+                ],
+                "learnable_opening_patterns": [
+                    {
+                        "pattern_name": p.get("pattern_name", ""),
+                        "pattern_summary": p.get("pattern_summary", ""),
+                        "example_excerpt": p.get("example_excerpt", "")[:80],
+                    }
+                    for p in opening_patterns[:3]
+                ],
+            }
+    except Exception:
+        pass
+
+    intel["panel_note"] = (
+        "以上数据来自用户自有微信公众号 RSS，仅用于竞品覆盖、角度分析、证据支持和风格参考。"
+        "不显示原文全文，不作为一手硬证据，不用于直接改写或洗稿。"
+    )
+    intel["do_not_show_full_text"] = True
+    return intel
+
+
 def build_workbench_view_model(paths: ProjectPaths, data: dict[str, Any] | None = None) -> dict[str, Any]:
     payload = data if isinstance(data, dict) else read_json(paths.frontstage_root / "latest_wechat_workbench_data.json")
     if not isinstance(payload, dict):
         payload = {}
     acceptance = read_json(paths.logs_root / "latest_runtime_go_live_acceptance_gate.json")
-    return build_workbench_view_model_from_data(payload, acceptance)
+    vm = build_workbench_view_model_from_data(payload, acceptance)
+
+    wechat_intel = _load_wechat_intelligence(paths)
+    if wechat_intel:
+        quality_check = vm.get("quality_check", {})
+        if isinstance(quality_check, dict):
+            quality_check["wechat_intelligence"] = wechat_intel
+            vm["quality_check"] = quality_check
+
+    return vm
 
 
 def write_workbench_view_model(view_model: dict[str, Any], paths: ProjectPaths, repo_root: Path) -> dict[str, Path]:
