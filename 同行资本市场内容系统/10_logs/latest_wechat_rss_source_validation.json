@@ -1,0 +1,15 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-07-07T14:10:16.914052",
+  "status": "PASS",
+  "summary": {
+    "schema_version": "v1",
+    "source_count": 2,
+    "enabled_count": 0,
+    "updated_at": "2026-07-07",
+    "description": "WeChat RSS source configuration for TH Capital content system."
+  },
+  "issues": [],
+  "error_count": 0,
+  "warn_count": 0
+}
