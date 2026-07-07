@@ -1,0 +1,45 @@
+schema_version: v1
+
+angles:
+  - 产品策略
+  - 产业影响
+  - 开发者生态
+  - 商业化压力
+  - 投资判断
+  - 技术路线
+  - 竞争格局
+  - 用户行为
+  - 成本结构
+  - 组织变化
+  - 风险反方
+
+angle_descriptions:
+  产品策略: 分析产品功能、用户体验、产品路线图和产品市场定位
+  产业影响: 评估技术或产品对整个行业生态的影响和变革
+  开发者生态: 关注开发者社区、工具链、SDK和平台生态建设
+  商业化压力: 分析商业模式、收入增长、盈利挑战和财务状况
+  投资判断: 评估投资价值、估值水平、投资机会和风险
+  技术路线: 分析技术架构、技术选型、技术演进和技术壁垒
+  竞争格局: 分析市场份额、竞争对手、竞争策略和市场地位
+  用户行为: 研究用户习惯、用户增长、用户留存和用户需求变化
+  成本结构: 分析成本构成、成本控制、利润率和运营效率
+  组织变化: 关注公司组织架构、管理层变动、企业文化和团队调整
+  风险反方: 从反方角度分析潜在风险、挑战和负面因素
+
+angle_confidence_thresholds:
+  high: 0.75
+  medium: 0.50
+  low: 0.25
+
+boost_rules:
+  strong_differentiated_angle:
+    min_confidence: 0.70
+    boost_score: 0.12
+  fresh_undercovered_angle:
+    min_confidence: 0.50
+    boost_score: 0.10
+
+penalty_rules:
+  weak_differentiation:
+    max_confidence: 0.30
+    penalty_score: 0.12

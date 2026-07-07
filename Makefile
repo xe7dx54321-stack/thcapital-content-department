@@ -8,6 +8,10 @@ PYTHON ?= python3
 .PHONY: differentiated-angle-recommendations wechat-evidence-support-check
 .PHONY: wechat-style-patterns wechat-intelligence-integration
 .PHONY: wechat-rss-usage-boundary-gate phase34a-daily
+.PHONY: topic-history-memory topic-similarity source-lane-diversity
+.PHONY: competitive-coverage-penalty differentiated-angle-boost
+.PHONY: topic-title-normalization-guard main-topic-rerank
+.PHONY: topic-diversity-brief-integration phase34b-daily
 
 doctor:
 	$(PYTHON) scripts/doctor.py
@@ -1007,6 +1011,34 @@ phase34a-daily:
 	$(PYTHON) scripts/run_phase34a_wechat_rss_intelligence_pipeline.py
 
 wechat-workbench: wechat-workbench-data workbench-view-model wechat-workbench-frontend
+
+# Phase 34B: Topic Diversity & Differentiated Angle Calibration
+topic-history-memory:
+	$(PYTHON) scripts/build_topic_history_memory.py
+
+topic-similarity:
+	$(PYTHON) scripts/score_topic_similarity.py
+
+source-lane-diversity:
+	$(PYTHON) scripts/score_source_lane_diversity.py
+
+competitive-coverage-penalty:
+	$(PYTHON) scripts/apply_competitive_coverage_penalty.py
+
+differentiated-angle-boost:
+	$(PYTHON) scripts/apply_differentiated_angle_boost.py
+
+topic-title-normalization-guard:
+	$(PYTHON) scripts/run_topic_title_normalization_guard.py
+
+main-topic-rerank:
+	$(PYTHON) scripts/rerank_main_topic_selection.py
+
+topic-diversity-brief-integration:
+	$(PYTHON) scripts/integrate_topic_diversity_into_brief.py
+
+phase34b-daily:
+	$(PYTHON) scripts/run_phase34b_topic_diversity_pipeline.py
 
 status:
 	bash 内容工厂控制台/status.sh

@@ -1603,3 +1603,14 @@ logs/autonomous-runtime/*.validation
 同行资本市场内容系统/10_logs/*wechat-style-pattern*
 同行资本市场内容系统/10_logs/*wechat-intelligence*
 同行资本市场内容系统/10_logs/*phase34a*
+
+# Phase 34B Topic Diversity artifacts
+同行资本市场内容系统/10_logs/*topic-history-memory*
+同行资本市场内容系统/10_logs/*topic-similarity*
+同行资本市场内容系统/10_logs/*source-lane-diversity*
+同行资本市场内容系统/10_logs/*competitive-coverage-penalty*
+同行资本市场内容系统/10_logs/*differentiated-angle-boost*
+同行资本市场内容系统/10_logs/*topic-title-normalization-guard*
+同行资本市场内容系统/10_logs/*main-topic-selection-rerank*
+同行资本市场内容系统/10_logs/*topic-diversity*
+同行资本市场内容系统/10_logs/*phase34b*

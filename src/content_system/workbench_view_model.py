@@ -564,6 +564,97 @@ def _load_wechat_intelligence(paths: ProjectPaths) -> dict[str, Any]:
     return intel
 
 
+def _load_topic_diversity(paths: ProjectPaths) -> dict[str, Any]:
+    """Load topic diversity data for Workbench display."""
+    diversity: dict[str, Any] = {}
+
+    try:
+        history = read_json(paths.logs_root / "latest_topic_history_memory.json")
+        if history:
+            diversity["topic_history"] = {
+                "history_count": history.get("history_count", 0),
+                "selected_days": history.get("selected_days", 0),
+                "unique_topic_count": history.get("unique_topic_count", 0),
+            }
+    except Exception:
+        pass
+
+    try:
+        similarity = read_json(paths.logs_root / "latest_topic_similarity_report.json")
+        if similarity:
+            diversity["similarity"] = {
+                "candidate_count": similarity.get("candidate_count", 0),
+                "duplicate_high": similarity.get("duplicate_high", 0),
+                "hard_duplicate": similarity.get("hard_duplicate", 0),
+                "requires_new_angle": similarity.get("requires_new_angle", 0),
+            }
+    except Exception:
+        pass
+
+    try:
+        source_lane = read_json(paths.logs_root / "latest_source_lane_diversity.json")
+        if source_lane:
+            diversity["source_lane"] = {
+                "source_penalty_count": source_lane.get("source_penalty_count", 0),
+                "lane_penalty_count": source_lane.get("lane_penalty_count", 0),
+                "max_concentration_score": source_lane.get("max_concentration_score", 0),
+            }
+    except Exception:
+        pass
+
+    try:
+        competitive = read_json(paths.logs_root / "latest_competitive_coverage_penalty.json")
+        if competitive:
+            diversity["competitive"] = {
+                "topic_count": competitive.get("topic_count", 0),
+                "high_same_angle_risk": competitive.get("high_same_angle_risk", 0),
+                "penalty_applied": competitive.get("penalty_applied", 0),
+            }
+    except Exception:
+        pass
+
+    try:
+        angle_boost = read_json(paths.logs_root / "latest_differentiated_angle_boost.json")
+        if angle_boost:
+            diversity["angle_boost"] = {
+                "boosted_count": angle_boost.get("boosted_count", 0),
+                "high_confidence": angle_boost.get("high_confidence", 0),
+                "recommended_angle_count": angle_boost.get("recommended_angle_count", 0),
+            }
+    except Exception:
+        pass
+
+    try:
+        title_guard = read_json(paths.logs_root / "latest_topic_title_normalization_guard.json")
+        if title_guard:
+            diversity["title_guard"] = {
+                "checked_count": title_guard.get("checked_count", 0),
+                "metadata_title_count": title_guard.get("metadata_title_count", 0),
+                "normalization_required": title_guard.get("normalization_required", 0),
+                "blocked_count": title_guard.get("blocked_count", 0),
+            }
+    except Exception:
+        pass
+
+    try:
+        rerank = read_json(paths.logs_root / "latest_main_topic_selection_rerank.json")
+        if rerank:
+            selections = rerank.get("selections", [])
+            diversity["rerank"] = {
+                "reranked_count": rerank.get("reranked_count", 0),
+                "main_candidate_count": len([s for s in selections if s.get("selection_status") == "MAIN_CANDIDATE"]),
+                "backup_count": len([s for s in selections if s.get("selection_status") == "BACKUP_CANDIDATE"]),
+                "rejected_duplicate_count": len([s for s in selections if s.get("selection_status") == "REJECT_DUPLICATE"]),
+                "requires_new_angle_count": len([s for s in selections if s.get("selection_status") == "REQUIRES_NEW_ANGLE"]),
+            }
+    except Exception:
+        pass
+
+    diversity["panel_note"] = "以上数据用于选题多样性控制，防止重复选题、同源过度集中、竞品同角度高覆盖等问题。"
+    diversity["do_not_show_raw_json"] = True
+    return diversity
+
+
 def build_workbench_view_model(paths: ProjectPaths, data: dict[str, Any] | None = None) -> dict[str, Any]:
     payload = data if isinstance(data, dict) else read_json(paths.frontstage_root / "latest_wechat_workbench_data.json")
     if not isinstance(payload, dict):
@@ -576,6 +667,13 @@ def build_workbench_view_model(paths: ProjectPaths, data: dict[str, Any] | None 
         quality_check = vm.get("quality_check", {})
         if isinstance(quality_check, dict):
             quality_check["wechat_intelligence"] = wechat_intel
+            vm["quality_check"] = quality_check
+
+    topic_diversity = _load_topic_diversity(paths)
+    if topic_diversity:
+        quality_check = vm.get("quality_check", {})
+        if isinstance(quality_check, dict):
+            quality_check["topic_diversity"] = topic_diversity
             vm["quality_check"] = quality_check
 
     return vm
