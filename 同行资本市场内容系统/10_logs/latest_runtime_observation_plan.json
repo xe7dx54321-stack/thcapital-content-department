@@ -1,0 +1,90 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-07-08T02:48:13.989235",
+  "requires_mac_runtime": false,
+  "observation_days": 2,
+  "runtime_checks": [
+    {
+      "check_id": "runtime_status",
+      "name": "检查 Runtime status",
+      "command": "python3 scripts/runtime_control.py status",
+      "expected_result": "running_or_idle",
+      "cloud_mode_note": "云端不要求真实 Runtime"
+    },
+    {
+      "check_id": "launchagent_status",
+      "name": "检查 LaunchAgent status",
+      "command": "launchctl list | grep thcapital",
+      "expected_result": "loaded_or_not_required",
+      "cloud_mode_note": "云端不要求 launchd"
+    },
+    {
+      "check_id": "heartbeat_age",
+      "name": "检查 heartbeat age",
+      "command": "检查 heartbeat 文件时间戳",
+      "expected_result": "within_24h",
+      "cloud_mode_note": "云端不要求真实 heartbeat"
+    },
+    {
+      "check_id": "next_scheduled",
+      "name": "检查下次定时运行",
+      "command": "检查 cron 或 launchd 配置",
+      "expected_result": "configured",
+      "cloud_mode_note": "云端不要求定时配置"
+    },
+    {
+      "check_id": "today_capture",
+      "name": "检查今日采集任务",
+      "command": "make phase34a-daily",
+      "expected_result": "success",
+      "cloud_mode_note": "云端可执行"
+    },
+    {
+      "check_id": "today_topic_to_article",
+      "name": "检查今日 topic-to-article",
+      "command": "make phase32-daily",
+      "expected_result": "success_or_empty",
+      "cloud_mode_note": "云端可执行"
+    },
+    {
+      "check_id": "today_workbench",
+      "name": "检查今日 Workbench",
+      "command": "make wechat-workbench",
+      "expected_result": "visible",
+      "cloud_mode_note": "云端可执行"
+    },
+    {
+      "check_id": "retry_queue",
+      "name": "检查 retry queue",
+      "command": "检查 retry 状态",
+      "expected_result": "empty_or_managed",
+      "cloud_mode_note": "云端不要求真实 queue"
+    },
+    {
+      "check_id": "missed_run",
+      "name": "检查 missed-run catch-up",
+      "command": "检查遗漏任务",
+      "expected_result": "none_or_recovered",
+      "cloud_mode_note": "云端不要求真实 catch-up"
+    },
+    {
+      "check_id": "observation_period",
+      "name": "观察 1-2 天",
+      "command": "每日运行 phase36-daily",
+      "expected_result": "stable",
+      "cloud_mode_note": "建议本地执行"
+    }
+  ],
+  "commands_reference": [
+    "make runtime-go-live-validate",
+    "make runtime-go-live-observation",
+    "make runtime-go-live-acceptance",
+    "make phase36-daily",
+    "make wechat-workbench",
+    "python3 scripts/runtime_control.py status",
+    "python3 scripts/runtime_control.py pause",
+    "python3 scripts/runtime_control.py resume"
+  ],
+  "status": "plan_generated",
+  "step_count": 10
+}

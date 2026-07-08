@@ -1,0 +1,127 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-07-08T02:48:14.123297",
+  "gate_checks": [
+    {
+      "check_id": "phase33b_workbench",
+      "name": "Phase33B Workbench",
+      "description": "Workbench 运营控制台可用",
+      "expected": "PASS",
+      "actual": "PASS",
+      "status": "PASS",
+      "is_blocking": true,
+      "cloud_mode_warn_only": false
+    },
+    {
+      "check_id": "phase34a_rss",
+      "name": "Phase34A RSS 情报层",
+      "description": "RSS 情报层工程通过",
+      "expected": "PASS",
+      "actual": "PASS",
+      "status": "PASS",
+      "is_blocking": true,
+      "cloud_mode_warn_only": false
+    },
+    {
+      "check_id": "phase34b_diversity",
+      "name": "Phase34B Topic Diversity",
+      "description": "Topic diversity 工程通过",
+      "expected": "PASS",
+      "actual": "PASS",
+      "status": "PASS",
+      "is_blocking": true,
+      "cloud_mode_warn_only": false
+    },
+    {
+      "check_id": "phase35_editorial",
+      "name": "Phase35 Editorial Quality",
+      "description": "编辑质量 pipeline 工程通过",
+      "expected": "PASS",
+      "actual": "PASS",
+      "status": "PASS",
+      "is_blocking": true,
+      "cloud_mode_warn_only": false
+    },
+    {
+      "check_id": "usage_boundary",
+      "name": "Usage Boundary Gate",
+      "description": "使用边界 gate 通过",
+      "expected": "PASS",
+      "actual": "PASS",
+      "status": "PASS",
+      "is_blocking": true,
+      "cloud_mode_warn_only": false
+    },
+    {
+      "check_id": "no_secret_leak",
+      "name": "No RSS Secret Leak",
+      "description": "RSS secret 未入库",
+      "expected": "no_secret",
+      "actual": "no_secret",
+      "status": "PASS",
+      "is_blocking": true,
+      "cloud_mode_warn_only": false
+    },
+    {
+      "check_id": "no_openclaw_mod",
+      "name": "No OpenClaw Modification",
+      "description": "OpenClaw 未被修改",
+      "expected": "no_modification",
+      "actual": "no_modification",
+      "status": "PASS",
+      "is_blocking": true,
+      "cloud_mode_warn_only": false
+    },
+    {
+      "check_id": "auto_publish",
+      "name": "Auto Publish Disabled",
+      "description": "自动发布已禁用",
+      "expected": "disabled",
+      "actual": "disabled",
+      "status": "PASS",
+      "is_blocking": true,
+      "cloud_mode_warn_only": false
+    },
+    {
+      "check_id": "workbench_status",
+      "name": "Workbench Status",
+      "description": "Workbench 可显示今日稿件/质量/系统状态",
+      "expected": "visible",
+      "actual": "visible",
+      "status": "PASS",
+      "is_blocking": true,
+      "cloud_mode_warn_only": false
+    },
+    {
+      "check_id": "local_rss_smoke",
+      "name": "Local RSS Smoke Test",
+      "description": "本地 RSS smoke test 已执行",
+      "expected": "done",
+      "actual": "pending",
+      "status": "WARN",
+      "is_blocking": false,
+      "cloud_mode_warn_only": true
+    },
+    {
+      "check_id": "runtime_observation",
+      "name": "Runtime Observation",
+      "description": "Mac Runtime 观察已执行",
+      "expected": "done",
+      "actual": "pending",
+      "status": "WARN",
+      "is_blocking": false,
+      "cloud_mode_warn_only": true
+    }
+  ],
+  "pass_count": 9,
+  "warn_count": 2,
+  "fail_count": 0,
+  "blocking_failures": 0,
+  "overall_status": "ACTIONABLE",
+  "ready_for_observation": true,
+  "next_steps": [
+    "云端 pipeline 已通过",
+    "可在本地执行 RSS smoke test 和 Runtime 观察",
+    "建议先阅读 docs/LOCAL_RSS_ENV_SETUP.md"
+  ]
+}

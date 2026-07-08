@@ -1,0 +1,116 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-07-08T02:48:14.189764",
+  "sections": [
+    {
+      "section_id": "pause_runtime",
+      "title": "如何暂停 Runtime",
+      "description": "暂停 Mac mini Runtime 定时任务",
+      "commands": [
+        "python3 scripts/runtime_control.py pause",
+        "# 确认状态",
+        "python3 scripts/runtime_control.py status"
+      ],
+      "notes": "暂停后 Runtime 不执行定时任务，但可手动运行"
+    },
+    {
+      "section_id": "resume_runtime",
+      "title": "如何恢复 Runtime",
+      "description": "恢复 Mac mini Runtime 定时任务",
+      "commands": [
+        "python3 scripts/runtime_control.py resume",
+        "# 确认状态",
+        "python3 scripts/runtime_control.py status"
+      ],
+      "notes": "恢复后 Runtime 恢复定时任务执行"
+    },
+    {
+      "section_id": "disable_rss",
+      "title": "如何停用真实 RSS 源",
+      "description": "停用本地真实 RSS 源配置",
+      "commands": [
+        "# 清空 .env.rss",
+        "echo 'GEEKPARK_RSS_URL=' > .env.rss",
+        "echo 'OFFICIAL_AI_RSS_URL=' >> .env.rss",
+        "# 确认未启用",
+        "cat .env.rss"
+      ],
+      "notes": "停用后 RSS ingest 将使用 mock 数据或 dry-run"
+    },
+    {
+      "section_id": "delete_outputs",
+      "title": "如何删除本地 RSS 运行产物",
+      "description": "删除本地 RSS 运行产生的日志和输出",
+      "commands": [
+        "rm -f 同行资本市场内容系统/10_logs/*rss-ingest*",
+        "rm -f 同行资本市场内容系统/10_logs/*rss-clean*",
+        "rm -f 同行资本市场内容系统/10_logs/*rss-intelligence*",
+        "# 确认删除",
+        "ls 同行资本市场内容系统/10_logs/*rss* 2>/dev/null || echo '已删除'"
+      ],
+      "notes": "不删除源码和配置文件"
+    },
+    {
+      "section_id": "check_secret",
+      "title": "如何确认没有 secret 入库",
+      "description": "检查 Git 中是否包含 RSS secret",
+      "commands": [
+        "git status --short",
+        "# 搜索可能泄漏的 URL",
+        "grep -r 'https://' --include='*.json' --include='*.yaml' --include='*.md' 同行资本市场内容系统/10_logs/",
+        "# 检查 .env.rss 是否被忽略",
+        "cat .gitignore | grep '.env.rss'"
+      ],
+      "notes": "如有泄漏，立即删除并从 Git 历史中移除"
+    },
+    {
+      "section_id": "dry_run",
+      "title": "如何回到 dry-run",
+      "description": "恢复到云端 dry-run 模式",
+      "commands": [
+        "# 确认 .env.rss 已清空",
+        "cat .env.rss",
+        "# 运行 dry-run pipeline",
+        "make phase36-daily",
+        "make phase35-daily",
+        "make phase34a-daily",
+        "make wechat-workbench"
+      ],
+      "notes": "Dry-run 不依赖真实 RSS 和 Runtime"
+    },
+    {
+      "section_id": "rollback_commit",
+      "title": "如何回滚到上一个 commit",
+      "description": "Git 回滚操作",
+      "commands": [
+        "# 查看最近 commit",
+        "git log --oneline -5",
+        "# 回滚到上一个 commit（保留改动）",
+        "git reset --soft HEAD~1",
+        "# 或回滚到指定 commit",
+        "git reset --hard <commit-hash>",
+        "# 强制推送到远程（谨慎）",
+        "git push --force origin main"
+      ],
+      "notes": "谨慎使用 --force，仅在必要时执行"
+    },
+    {
+      "section_id": "stop_observation",
+      "title": "什么情况必须停止观察",
+      "description": "需要立即停止观察的情况",
+      "commands": [
+        "# 立即暂停 Runtime",
+        "python3 scripts/runtime_control.py pause",
+        "# 清空 RSS 配置",
+        "echo '' > .env.rss",
+        "# 检查泄漏",
+        "git status --short"
+      ],
+      "notes": "\n以下情况必须立即停止：\n- RSS secret 泄漏到 Git\n- auto_publish 被意外启用\n- OpenClaw 被意外修改\n- 系统产生大量错误或异常输出\n- 发现安全漏洞或合规问题\n"
+    }
+  ],
+  "contains_pause_resume": true,
+  "contains_disable_rss": true,
+  "status": "runbook_generated",
+  "section_count": 8
+}

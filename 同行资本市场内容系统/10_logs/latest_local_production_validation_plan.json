@@ -1,0 +1,109 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-07-08T02:48:13.849069",
+  "mode": "cloud_development",
+  "cloud_completed_capabilities": [
+    "Phase33B: Workbench 运营控制台",
+    "Phase34A: WeChat RSS 全文情报层工程能力",
+    "Phase34B: 选题去重、差异化角度、主选题 rerank",
+    "Phase35: 编辑风格手册、叙事框架、标题生成、AI 味拦截"
+  ],
+  "local_validation_required": [
+    "RSS ingest 稳定性",
+    "正文清洗效果",
+    "情报抽取准确性",
+    "竞品覆盖价值"
+  ],
+  "runtime_validation_required": [
+    "LaunchAgent 定时运行",
+    "Heartbeat 监控",
+    "Retry queue 处理",
+    "Missed-run catch-up"
+  ],
+  "dry_run_only": [
+    "编辑风格手册验证",
+    "叙事框架选择",
+    "标题生成规则",
+    "AI 味拦截",
+    "Draft style score",
+    "Version comparison gate"
+  ],
+  "validation_sequence": [
+    {
+      "step_id": "cloud_regression",
+      "name": "云端回归验证",
+      "description": "验证所有 Phase35/34B/34A/33B pipeline 在云端通过",
+      "required": true,
+      "local_only": false,
+      "cloud_safe": true,
+      "status": "pending"
+    },
+    {
+      "step_id": "rss_smoke_test",
+      "name": "RSS Smoke Test",
+      "description": "本地启用 1-2 个 RSS 源进行小规模验证",
+      "required": false,
+      "local_only": true,
+      "cloud_safe": false,
+      "status": "pending"
+    },
+    {
+      "step_id": "runtime_observation",
+      "name": "Runtime 观察",
+      "description": "Mac mini Runtime/LaunchAgent 观察 1-2 天",
+      "required": false,
+      "local_only": true,
+      "cloud_safe": false,
+      "status": "pending"
+    },
+    {
+      "step_id": "data_calibration",
+      "name": "真实数据校准",
+      "description": "记录真实数据校准结果",
+      "required": false,
+      "local_only": true,
+      "cloud_safe": false,
+      "status": "pending"
+    },
+    {
+      "step_id": "workbench_panel",
+      "name": "Workbench 生产验证面板",
+      "description": "Workbench 显示生产验证状态",
+      "required": true,
+      "local_only": false,
+      "cloud_safe": true,
+      "status": "pending"
+    },
+    {
+      "step_id": "readiness_gate",
+      "name": "Production Readiness Gate",
+      "description": "评估是否可以进入真实观察",
+      "required": true,
+      "local_only": false,
+      "cloud_safe": true,
+      "status": "pending"
+    }
+  ],
+  "pass_criteria": [
+    "所有云端 pipeline 通过",
+    "Usage boundary gate 通过",
+    "无 secret 入 Git",
+    "无 OpenClaw 修改",
+    "auto_publish 已禁用"
+  ],
+  "warn_criteria": [
+    "RSS smoke test 待本地执行",
+    "Runtime 观察待本地执行",
+    "真实数据校准待执行"
+  ],
+  "block_criteria": [
+    "云端 pipeline 失败",
+    "Secret 泄漏检测",
+    "auto_publish 已启用",
+    "OpenClaw 被修改"
+  ],
+  "status": "generated",
+  "checklist_count": 6,
+  "local_only_items": 3,
+  "cloud_safe_items": 3
+}

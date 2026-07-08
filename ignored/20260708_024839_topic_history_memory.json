@@ -1,0 +1,22 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-07-08T02:48:39.525785",
+  "status": "SUCCESS",
+  "dry_run": false,
+  "policy_config": {
+    "history_window_days": 7,
+    "duplicate_similarity_threshold": 0.72,
+    "hard_duplicate_threshold": 0.88
+  },
+  "data": {
+    "history_window_days": 7,
+    "cutoff_date": "2026-07-01T02:48:39.510328",
+    "total_topics": 0,
+    "unique_sources": 0,
+    "unique_lanes": 0,
+    "source_distribution": {},
+    "lane_distribution": {},
+    "topics_by_date": {},
+    "topics": []
+  }
+}
