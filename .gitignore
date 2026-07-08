@@ -1635,3 +1635,11 @@ logs/autonomous-runtime/*.validation
 同行资本市场内容系统/10_logs/*rollback-safety*
 同行资本市场内容系统/10_logs/*phase36*
 .env.rss
+
+# Phase 37A Production Observation UI artifacts
+同行资本市场内容系统/10_logs/*production-observation*
+同行资本市场内容系统/10_logs/*rss-smoke-result*
+同行资本市场内容系统/10_logs/*runtime-observation-result*
+同行资本市场内容系统/10_logs/*manual-observation*
+同行资本市场内容系统/10_logs/*local-observation-import*
+同行资本市场内容系统/10_logs/*phase37a*

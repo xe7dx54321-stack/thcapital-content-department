@@ -1,0 +1,34 @@
+schema_version: v1
+
+description: 生产观察结果统一结构
+mode_choices:
+  - CLOUD_DEVELOPMENT
+  - LOCAL_PRODUCTION_VALIDATION
+
+top_level_fields:
+  - schema_version
+  - mode
+  - generated_at
+  - rss_smoke
+  - runtime_observation
+  - manual_observation
+  - readiness_gate
+  - workbench_status
+  - safety_boundary
+  - next_action
+
+cloud_mode_defaults:
+  real_rss_status: PENDING_LOCAL
+  mac_runtime_status: PENDING_LOCAL
+  readiness_status: ACTIONABLE
+  auto_publish_enabled: false
+  secret_leak_detected: false
+  openclaw_modified: false
+  fulltext_committed: false
+
+safety_boundary_fields:
+  - auto_publish_allowed
+  - no_secret_in_git
+  - no_fulltext_commit
+  - no_openclaw_mod
+  - no_wechat_api

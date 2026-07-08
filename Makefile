@@ -1093,5 +1093,30 @@ rollback-safety-runbook:
 phase36-daily:
 	$(PYTHON) scripts/run_phase36_validation_pipeline.py
 
+# Phase 37A: Production Observation UI & Result Capture
+.PHONY: production-observation-schema rss-smoke-result-capture runtime-observation-result-capture
+.PHONY: manual-observation-log production-observation-dashboard local-observation-results-import phase37a-daily
+
+production-observation-schema:
+	$(PYTHON) scripts/build_production_observation_schema.py
+
+rss-smoke-result-capture:
+	$(PYTHON) scripts/capture_rss_smoke_result.py
+
+runtime-observation-result-capture:
+	$(PYTHON) scripts/capture_runtime_observation_result.py
+
+manual-observation-log:
+	$(PYTHON) scripts/build_manual_observation_log.py
+
+production-observation-dashboard:
+	$(PYTHON) scripts/build_production_observation_dashboard.py
+
+local-observation-results-import:
+	$(PYTHON) scripts/import_local_observation_results.py
+
+phase37a-daily:
+	$(PYTHON) scripts/run_phase37a_observation_pipeline.py
+
 status:
 	bash 内容工厂控制台/status.sh

@@ -1,0 +1,56 @@
+schema_version: v1
+
+description: 1-2天人工观察记录模板
+
+observation_days:
+  min: 1
+  recommended: 2
+  max: 7
+
+daily_record_fields:
+  date:
+    type: string
+    description: 观察日期
+  workbench_openable:
+    type: bool
+    description: Workbench是否可打开
+  runtime_heartbeat_normal:
+    type: bool
+    description: Runtime heartbeat是否正常
+  today_final_candidate_count:
+    type: int
+    description: 今日final candidate数量
+  main_topic_duplicate_free:
+    type: bool
+    description: 主选题是否无重复
+  has_differentiated_angle:
+    type: bool
+    description: 是否有差异化角度
+  title_like_wechat:
+    type: bool
+    description: 标题是否像公众号标题
+  ai_taste_noticeable:
+    type: bool
+    description: AI味是否明显
+  evidence_needs_confirmation:
+    type: bool
+    description: 证据是否需要人工确认
+  article_worth_editing:
+    type: bool
+    description: 稿件是否值得人工修改
+  recommend_publish:
+    type: bool
+    description: 是否建议发布
+  main_issues:
+    type: string
+    description: 主要问题
+  calibration_items:
+    type: string
+    description: 建议校准项
+
+template_notes:
+  - "每天运行 phase37a-daily 后记录"
+  - "打开 Workbench 查看生产验证面板"
+  - "重点观察 final candidate 质量"
+  - "发现问题及时记录到 calibration_items"
+  - "观察期结束后汇总到 Closeout Report"

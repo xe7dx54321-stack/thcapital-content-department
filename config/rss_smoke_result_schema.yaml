@@ -1,0 +1,72 @@
+schema_version: v1
+
+description: RSS Smoke 结果记录结构
+
+status_choices:
+  - PENDING_LOCAL_EXECUTION
+  - IN_PROGRESS
+  - PASS
+  - ACTIONABLE
+  - FAIL
+
+result_fields:
+  enabled_source_count:
+    type: int
+    description: 启用的RSS源数量
+    cloud_default: 0
+  fetched_source_count:
+    type: int
+    description: 成功抓取的源数
+    cloud_default: 0
+  article_count:
+    type: int
+    description: 抓取文章总数
+    cloud_default: 0
+  cleaned_count:
+    type: int
+    description: 清洗后文章数
+    cloud_default: 0
+  duplicate_count:
+    type: int
+    description: 去重文章数
+    cloud_default: 0
+  intelligence_article_count:
+    type: int
+    description: 提取情报的文章数
+    cloud_default: 0
+  competitive_coverage_count:
+    type: int
+    description: 竞品覆盖分析数
+    cloud_default: 0
+  style_pattern_count:
+    type: int
+    description: 风格pattern数
+    cloud_default: 0
+  boundary_gate_status:
+    type: string
+    description: 使用边界gate状态
+    cloud_default: PASS
+  workbench_panel_visible:
+    type: bool
+    description: Workbench面板是否可见
+    cloud_default: true
+  secret_leak_count:
+    type: int
+    description: secret泄漏数量
+    cloud_default: 0
+  fulltext_committed_count:
+    type: int
+    description: 提交的全文数
+    cloud_default: 0
+
+cloud_defaults:
+  status: PENDING_LOCAL_EXECUTION
+  requires_real_rss: false
+  blocking_failures: 0
+
+safety_checks:
+  - no_secret_in_output
+  - no_fulltext_in_git
+  - no_auto_publish
+  - max_2_sources
+  - max_20_articles_per_source

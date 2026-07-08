@@ -1,0 +1,71 @@
+schema_version: v1
+
+description: Runtime 观察结果记录结构
+
+status_choices:
+  - PENDING_LOCAL_EXECUTION
+  - IN_PROGRESS
+  - PASS
+  - ACTIONABLE
+  - FAIL
+
+result_fields:
+  runtime_status:
+    type: string
+    description: Runtime状态
+    cloud_default: PENDING_LOCAL
+  launchagent_status:
+    type: string
+    description: LaunchAgent状态
+    cloud_default: PENDING_LOCAL
+  heartbeat_age_seconds:
+    type: int
+    description: Heartbeat年龄(秒)
+    cloud_default: 0
+  next_scheduled_run:
+    type: string
+    description: 下次定时运行
+    cloud_default: PENDING_LOCAL
+  today_jobs_success:
+    type: int
+    description: 今日成功任务数
+    cloud_default: 0
+  today_jobs_failed:
+    type: int
+    description: 今日失败任务数
+    cloud_default: 0
+  retry_queue_count:
+    type: int
+    description: Retry queue数量
+    cloud_default: 0
+  missed_run_catchup_count:
+    type: int
+    description: 遗漏任务补跑数
+    cloud_default: 0
+  final_candidate_count:
+    type: int
+    description: Final candidate数量
+    cloud_default: 0
+  workbench_visible:
+    type: bool
+    description: Workbench是否可见
+    cloud_default: true
+  observation_days:
+    type: int
+    description: 已观察天数
+    cloud_default: 0
+
+cloud_defaults:
+  status: PENDING_LOCAL_EXECUTION
+  requires_mac_runtime: false
+  blocking_failures: 0
+
+observation_checks:
+  - runtime_status_check
+  - launchagent_status_check
+  - heartbeat_age_check
+  - next_scheduled_check
+  - today_jobs_check
+  - retry_queue_check
+  - missed_run_check
+  - workbench_check

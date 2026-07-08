@@ -715,6 +715,59 @@ def _load_editorial_quality(paths: ProjectPaths) -> dict[str, Any]:
     return editorial
 
 
+def _load_production_observation(paths: ProjectPaths) -> dict[str, Any]:
+    prod_obs = {}
+    try:
+        dashboard = read_json(paths.logs_root / "latest_production_observation_dashboard.json")
+        if dashboard:
+            prod_obs["mode"] = dashboard.get("mode", "CLOUD_DEVELOPMENT")
+            prod_obs["mode_zh"] = "云端开发模式" if dashboard.get("mode") == "CLOUD_DEVELOPMENT" else "本地生产验证模式"
+            prod_obs["readiness_status"] = dashboard.get("readiness_status", "PENDING")
+            prod_obs["rss_status"] = dashboard.get("rss_status", "PENDING_LOCAL_EXECUTION")
+            prod_obs["runtime_status"] = dashboard.get("runtime_status", "PENDING_LOCAL_EXECUTION")
+            prod_obs["last_observation_date"] = dashboard.get("last_observation_date", "")
+            prod_obs["today_final_candidate_count"] = safe_int(dashboard.get("today_final_candidate_count"))
+            prod_obs["blocking_issue_count"] = len(_list(dashboard.get("blocking_issues")))
+            prod_obs["warning_issue_count"] = len(_list(dashboard.get("warning_issues")))
+            prod_obs["blocking_issues"] = _list(dashboard.get("blocking_issues"))[:3]
+            prod_obs["warning_issues"] = _list(dashboard.get("warning_issues"))[:3]
+            prod_obs["next_action"] = dashboard.get("next_action", "")
+        
+        rss_smoke = read_json(paths.logs_root / "latest_rss_smoke_result_capture.json")
+        if rss_smoke:
+            prod_obs["rss_smoke"] = {
+                "status": rss_smoke.get("status", "PENDING"),
+                "article_count": safe_int(rss_smoke.get("article_count")),
+                "secret_leak_count": safe_int(rss_smoke.get("secret_leak_count")),
+            }
+        
+        runtime_obs = read_json(paths.logs_root / "latest_runtime_observation_result.json")
+        if runtime_obs:
+            prod_obs["runtime_obs"] = {
+                "status": runtime_obs.get("status", "PENDING"),
+                "observation_days": safe_int(runtime_obs.get("observation_days")),
+                "today_jobs_success": safe_int(runtime_obs.get("today_jobs_success")),
+                "today_jobs_failed": safe_int(runtime_obs.get("today_jobs_failed")),
+            }
+        
+        import_summary = read_json(paths.logs_root / "latest_local_observation_import_summary.json")
+        if import_summary:
+            prod_obs["import_summary"] = {
+                "status": import_summary.get("status", "NO_LOCAL_RESULTS_FOUND"),
+                "local_result_count": safe_int(import_summary.get("local_result_count")),
+                "missing_file_count": safe_int(import_summary.get("missing_file_count")),
+            }
+    except Exception:
+        pass
+    
+    if prod_obs:
+        prod_obs["panel_note"] = "生产验证 / 本地观察：查看 Readiness Gate、RSS Smoke、Runtime 观察状态和下一步建议。"
+        prod_obs["no_secret_displayed"] = True
+        prod_obs["no_raw_json"] = True
+        prod_obs["no_fulltext"] = True
+    return prod_obs
+
+
 def build_workbench_view_model(paths: ProjectPaths, data: dict[str, Any] | None = None) -> dict[str, Any]:
     payload = data if isinstance(data, dict) else read_json(paths.frontstage_root / "latest_wechat_workbench_data.json")
     if not isinstance(payload, dict):
@@ -742,7 +795,14 @@ def build_workbench_view_model(paths: ProjectPaths, data: dict[str, Any] | None 
         if isinstance(quality_check, dict):
             quality_check["editorial_quality"] = editorial_quality
             vm["quality_check"] = quality_check
-
+    
+    production_observation = _load_production_observation(paths)
+    if production_observation:
+        system_ops = vm.get("system_ops", {})
+        if isinstance(system_ops, dict):
+            system_ops["production_observation"] = production_observation
+            vm["system_ops"] = system_ops
+    
     return vm
 
 
