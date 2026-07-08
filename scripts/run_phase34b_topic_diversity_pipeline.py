@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import subprocess
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -17,7 +18,7 @@ SCRIPTS_DIR = REPO_ROOT / "scripts"
 
 def run_script(script_name: str, dry_run: bool) -> tuple[int, str]:
     script_path = SCRIPTS_DIR / script_name
-    cmd = ["python", str(script_path)]
+    cmd = [sys.executable, str(script_path)]
     if dry_run:
         cmd.append("--dry-run")
 

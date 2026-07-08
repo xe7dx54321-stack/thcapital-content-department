@@ -1,0 +1,37 @@
+schema_version: v1
+
+competitors:
+  - name: 数字生命卡兹克
+    feed_ids: []
+    aliases:
+      - 数字生命卡兹克
+
+  - name: 赛博禅心
+    feed_ids: []
+    aliases:
+      - 赛博禅心
+
+  - name: 智东西
+    feed_ids: []
+    aliases:
+      - 智东西
+
+  - name: 36氪
+    feed_ids: []
+    aliases:
+      - 36氪
+
+  - name: 袋鼠帝AI客栈
+    feed_ids: []
+    aliases:
+      - 袋鼠帝AI客栈
+
+  - name: 饼干哥哥AGI
+    feed_ids: []
+    aliases:
+      - 饼干哥哥AGI
+
+  - name: 歸藏的AI工具箱
+    feed_ids: []
+    aliases:
+      - 歸藏的AI工具箱

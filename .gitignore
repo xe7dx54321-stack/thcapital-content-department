@@ -1643,3 +1643,11 @@ logs/autonomous-runtime/*.validation
 同行资本市场内容系统/10_logs/*manual-observation*
 同行资本市场内容系统/10_logs/*local-observation-import*
 同行资本市场内容系统/10_logs/*phase37a*
+
+# Phase 37B2 local WeChat RSS feed mapping artifacts
+config/wechat_competitor_feed_map.local.yaml
+同行资本市场内容系统/10_logs/*wechat-feed-id-discovery*
+同行资本市场内容系统/10_logs/*wechat_feed_id_discovery*
+同行资本市场内容系统/10_logs/*wechat-competitor-feed-mapping*
+同行资本市场内容系统/10_logs/*wechat_competitor_feed_mapping*
+同行资本市场内容系统/10_logs/*phase37b2*

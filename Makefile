@@ -1095,6 +1095,7 @@ phase36-daily:
 # Phase 37A: Production Observation UI & Result Capture
 .PHONY: production-observation-schema rss-smoke-result-capture runtime-observation-result-capture
 .PHONY: manual-observation-log production-observation-dashboard local-observation-results-import phase37a-daily
+.PHONY: wechat-feed-id-discovery wechat-competitor-feed-mapping phase37b2-daily
 
 production-observation-schema:
 	$(PYTHON) scripts/build_production_observation_schema.py
@@ -1116,6 +1117,16 @@ local-observation-results-import:
 
 phase37a-daily:
 	$(PYTHON) scripts/run_phase37a_observation_pipeline.py
+
+# Phase 37B2: All-feed RSS validation and competitor feed mapping
+wechat-feed-id-discovery:
+	$(PYTHON) scripts/discover_wechat_feed_ids.py
+
+wechat-competitor-feed-mapping:
+	$(PYTHON) scripts/apply_wechat_competitor_feed_mapping.py
+
+phase37b2-daily:
+	$(PYTHON) scripts/run_phase37b2_feed_mapping_pipeline.py
 
 status:
 	bash 内容工厂控制台/status.sh
