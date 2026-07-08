@@ -2,7 +2,10 @@
 
 import unittest
 import sys
-sys.path.insert(0, '/workspace/src')
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
 
 from content_system.real_data_calibration_checklist import (
     build_real_data_calibration_checklist,

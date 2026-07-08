@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """P37A-001: Build Production Observation Schema"""
 import sys
-sys.path.insert(0, '/workspace/src')
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from content_system.paths import get_project_paths
 from content_system.production_observation_result import (
     build_production_observation_schema,
     save_observation_schema
 )
 
 def main():
-    output_dir = Path("/workspace/同行资本市场内容系统/10_logs")
+    output_dir = get_project_paths(ROOT).logs_root
     result = build_production_observation_schema(mode="CLOUD_DEVELOPMENT")
     outputs = save_observation_schema(result, output_dir)
     

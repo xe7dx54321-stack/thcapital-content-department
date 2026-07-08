@@ -2,7 +2,7 @@
 
 PYTHON ?= python3
 
-.PHONY: workbench-view-model phase33b-workbench wechat-workbench
+.PHONY: workbench-view-model phase33b-workbench wechat-workbench wechat-workbench-frontend
 .PHONY: wechat-rss-sources-validate wechat-rss-ingest wechat-rss-clean
 .PHONY: wechat-article-intelligence competitive-coverage-analysis
 .PHONY: differentiated-angle-recommendations wechat-evidence-support-check
@@ -269,12 +269,13 @@ wechat-workbench-data:
 workbench-view-model:
 	$(PYTHON) scripts/build_workbench_view_model.py
 
+wechat-workbench-frontend:
+	$(PYTHON) scripts/build_wechat_workbench_frontend.py
+
 wechat-article-preview:
 	$(PYTHON) scripts/render_wechat_article_preview.py
 
-wechat-workbench:
-	$(PYTHON) scripts/build_wechat_workbench_data.py
-	$(PYTHON) scripts/build_wechat_workbench_frontend.py
+wechat-workbench: wechat-workbench-data workbench-view-model wechat-workbench-frontend
 
 phase33b-workbench:
 	$(PYTHON) scripts/build_workbench_view_model.py
@@ -1009,8 +1010,6 @@ wechat-rss-usage-boundary-gate:
 
 phase34a-daily:
 	$(PYTHON) scripts/run_phase34a_wechat_rss_intelligence_pipeline.py
-
-wechat-workbench: wechat-workbench-data workbench-view-model wechat-workbench-frontend
 
 # Phase 34B: Topic Diversity & Differentiated Angle Calibration
 topic-history-memory:

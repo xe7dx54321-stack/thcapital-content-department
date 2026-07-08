@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """P37A: Run Phase37A Observation Pipeline"""
 import sys
-sys.path.insert(0, '/workspace/src')
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from content_system.paths import get_project_paths
 from content_system.phase37a_observation_pipeline import (
     run_phase37a_pipeline,
     save_pipeline_result
 )
 
 def main():
-    output_dir = Path("/workspace/同行资本市场内容系统/10_logs")
+    output_dir = get_project_paths(ROOT).logs_root
     result = run_phase37a_pipeline(dry_run=True)
     outputs = save_pipeline_result(result, output_dir)
     

@@ -11,6 +11,10 @@ import json
 import subprocess
 
 
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[2]
+
+
 @dataclass
 class PipelineStepResult:
     step_id: str
@@ -140,7 +144,7 @@ def _run_step(step_id: str, name: str, script: str) -> PipelineStepResult:
             ["python3", script],
             capture_output=True,
             text=True,
-            cwd="/workspace"
+            cwd=_repo_root(),
         )
         
         duration_ms = int((datetime.now() - start_time).total_seconds() * 1000)

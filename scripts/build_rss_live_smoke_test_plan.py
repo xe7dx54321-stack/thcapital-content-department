@@ -4,9 +4,12 @@ P36-002: Build RSS Live Smoke Test Plan
 """
 
 import sys
-sys.path.insert(0, '/workspace/src')
-
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from content_system.paths import get_project_paths
 from content_system.rss_live_smoke_plan import (
     build_rss_live_smoke_plan,
     save_smoke_test_plan
@@ -14,7 +17,7 @@ from content_system.rss_live_smoke_plan import (
 
 
 def main():
-    output_dir = Path("/workspace/同行资本市场内容系统/10_logs")
+    output_dir = get_project_paths(ROOT).logs_root
     
     result = build_rss_live_smoke_plan()
     outputs = save_smoke_test_plan(result, output_dir)

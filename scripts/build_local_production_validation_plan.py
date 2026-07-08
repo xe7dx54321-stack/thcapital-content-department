@@ -4,9 +4,12 @@ P36-001: Build Local Production Validation Plan
 """
 
 import sys
-sys.path.insert(0, '/workspace/src')
-
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from content_system.paths import get_project_paths
 from content_system.local_production_validation import (
     build_local_production_validation_plan,
     save_validation_plan
@@ -14,7 +17,7 @@ from content_system.local_production_validation import (
 
 
 def main():
-    output_dir = Path("/workspace/同行资本市场内容系统/10_logs")
+    output_dir = get_project_paths(ROOT).logs_root
     
     result = build_local_production_validation_plan()
     outputs = save_validation_plan(result, output_dir)

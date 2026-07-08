@@ -1,7 +1,10 @@
 """Phase37A tests: Production Observation Result"""
 import unittest
 import sys
-sys.path.insert(0, '/workspace/src')
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
 from content_system.production_observation_result import build_production_observation_schema
 
 

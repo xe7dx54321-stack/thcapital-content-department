@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """P37A-003: Runtime Observation Result Capture"""
 import sys
-sys.path.insert(0, '/workspace/src')
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from content_system.paths import get_project_paths
 from content_system.runtime_observation_result_capture import (
     build_runtime_observation_result,
     save_runtime_observation_result
 )
 
 def main():
-    output_dir = Path("/workspace/同行资本市场内容系统/10_logs")
+    output_dir = get_project_paths(ROOT).logs_root
     result = build_runtime_observation_result(cloud_mode=True)
     outputs = save_runtime_observation_result(result, output_dir)
     

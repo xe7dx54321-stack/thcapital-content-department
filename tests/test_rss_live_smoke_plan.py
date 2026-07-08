@@ -2,7 +2,10 @@
 
 import unittest
 import sys
-sys.path.insert(0, '/workspace/src')
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
 
 from content_system.rss_live_smoke_plan import (
     build_rss_live_smoke_plan,

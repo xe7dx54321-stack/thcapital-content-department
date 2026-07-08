@@ -4,9 +4,12 @@ P36-006: Build Rollback Safety Runbook
 """
 
 import sys
-sys.path.insert(0, '/workspace/src')
-
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from content_system.paths import get_project_paths
 from content_system.rollback_safety_runbook import (
     build_rollback_safety_runbook,
     save_rollback_runbook
@@ -14,7 +17,7 @@ from content_system.rollback_safety_runbook import (
 
 
 def main():
-    output_dir = Path("/workspace/同行资本市场内容系统/10_logs")
+    output_dir = get_project_paths(ROOT).logs_root
     
     result = build_rollback_safety_runbook()
     outputs = save_rollback_runbook(result, output_dir)

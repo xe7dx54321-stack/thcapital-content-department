@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """P37A-004: Build Manual Observation Log"""
 import sys
-sys.path.insert(0, '/workspace/src')
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from content_system.paths import get_project_paths
 from content_system.manual_observation_log import (
     build_manual_observation_log,
     save_manual_observation_log
 )
 
 def main():
-    output_dir = Path("/workspace/同行资本市场内容系统/10_logs")
+    output_dir = get_project_paths(ROOT).logs_root
     result = build_manual_observation_log(day_slots=2)
     outputs = save_manual_observation_log(result, output_dir)
     

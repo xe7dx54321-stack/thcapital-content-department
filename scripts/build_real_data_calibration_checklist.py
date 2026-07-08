@@ -4,9 +4,12 @@ P36-004: Build Real Data Calibration Checklist
 """
 
 import sys
-sys.path.insert(0, '/workspace/src')
-
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from content_system.paths import get_project_paths
 from content_system.real_data_calibration_checklist import (
     build_real_data_calibration_checklist,
     save_calibration_checklist
@@ -14,7 +17,7 @@ from content_system.real_data_calibration_checklist import (
 
 
 def main():
-    output_dir = Path("/workspace/同行资本市场内容系统/10_logs")
+    output_dir = get_project_paths(ROOT).logs_root
     
     result = build_real_data_calibration_checklist()
     outputs = save_calibration_checklist(result, output_dir)

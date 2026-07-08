@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """P37A-007: Import Local Observation Results"""
 import sys
-sys.path.insert(0, '/workspace/src')
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from content_system.paths import get_project_paths
 from content_system.local_result_importer import (
     import_local_results,
     save_import_summary
 )
 
 def main():
-    output_dir = Path("/workspace/同行资本市场内容系统/10_logs")
+    output_dir = get_project_paths(ROOT).logs_root
     result = import_local_results(output_dir)
     outputs = save_import_summary(result, output_dir)
     

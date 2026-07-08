@@ -4,9 +4,12 @@ P36-007: Run Phase36 Validation Pipeline
 """
 
 import sys
-sys.path.insert(0, '/workspace/src')
-
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from content_system.paths import get_project_paths
 from content_system.phase36_validation_pipeline import (
     run_phase36_validation_pipeline,
     save_pipeline_result
@@ -14,7 +17,7 @@ from content_system.phase36_validation_pipeline import (
 
 
 def main():
-    output_dir = Path("/workspace/同行资本市场内容系统/10_logs")
+    output_dir = get_project_paths(ROOT).logs_root
     
     result = run_phase36_validation_pipeline(dry_run=True)
     outputs = save_pipeline_result(result, output_dir)

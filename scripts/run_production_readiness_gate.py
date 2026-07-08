@@ -4,9 +4,12 @@ P36-005: Run Production Readiness Gate
 """
 
 import sys
-sys.path.insert(0, '/workspace/src')
-
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+
+from content_system.paths import get_project_paths
 from content_system.production_readiness_gate import (
     run_production_readiness_gate,
     save_readiness_gate
@@ -14,7 +17,7 @@ from content_system.production_readiness_gate import (
 
 
 def main():
-    output_dir = Path("/workspace/同行资本市场内容系统/10_logs")
+    output_dir = get_project_paths(ROOT).logs_root
     
     # Run gate with default parameters (cloud mode)
     result = run_production_readiness_gate(
