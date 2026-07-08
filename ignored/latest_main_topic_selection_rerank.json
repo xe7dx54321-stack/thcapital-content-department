@@ -1,0 +1,15 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-07-08T01:55:02.596314",
+  "status": "SUCCESS",
+  "dry_run": false,
+  "summary": {
+    "total_topics": 0,
+    "selected_count": 0,
+    "rejected_count": 0,
+    "top_score": 0,
+    "bottom_score": 0
+  },
+  "reranked_topics": [],
+  "rejected_topics": []
+}

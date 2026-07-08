@@ -1,0 +1,25 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-07-08T01:55:02.392354",
+  "status": "SUCCESS",
+  "dry_run": false,
+  "summary": {
+    "total_topics": 0,
+    "total_boost_applications": 0,
+    "total_penalty_applications": 0,
+    "topics_with_boosts": 0,
+    "topics_with_penalties": 0
+  },
+  "boost_rules": {
+    "strong_differentiated_angle": 0.12,
+    "fresh_undercovered_angle": 0.1,
+    "multi_source_support": 0.08,
+    "weak_differentiation_penalty": 0.12
+  },
+  "confidence_thresholds": {
+    "high": 0.75,
+    "medium": 0.5,
+    "low": 0.25
+  },
+  "boost_results": []
+}

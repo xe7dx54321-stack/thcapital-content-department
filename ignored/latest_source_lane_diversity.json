@@ -1,0 +1,22 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-07-08T01:55:02.191842",
+  "status": "SUCCESS",
+  "dry_run": false,
+  "policy_config": {
+    "same_source_repetition_penalty": 0.1,
+    "same_lane_repetition_penalty": 0.08
+  },
+  "summary": {
+    "total_topics": 0,
+    "unique_sources": 0,
+    "unique_lanes": 0,
+    "source_diversity_score": 0.0,
+    "lane_diversity_score": 0.0,
+    "overall_diversity_score": 0.0
+  },
+  "source_distribution": {},
+  "lane_distribution": {},
+  "source_lane_matrix": {},
+  "topic_diversity_scores": []
+}

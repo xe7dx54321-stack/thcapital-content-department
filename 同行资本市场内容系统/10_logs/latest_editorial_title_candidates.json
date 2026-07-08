@@ -1,0 +1,47 @@
+{
+  "candidates": [
+    {
+      "title": "AI芯片市场格局变化：反常识角度分析",
+      "angle_variant": "反常识",
+      "score": 0.87,
+      "reason": "Generated using '反常识' angle variant",
+      "forbidden_pattern_hit": false,
+      "recommended": true
+    },
+    {
+      "title": "产业影响视角下的AI芯片市场格局变化",
+      "angle_variant": "产业影响",
+      "score": 0.87,
+      "reason": "Generated using '产业影响' angle variant",
+      "forbidden_pattern_hit": false,
+      "recommended": true
+    },
+    {
+      "title": "AI芯片市场格局变化背后的产品策略逻辑",
+      "angle_variant": "产品策略",
+      "score": 0.87,
+      "reason": "Generated using '产品策略' angle variant",
+      "forbidden_pattern_hit": false,
+      "recommended": true
+    },
+    {
+      "title": "投资判断判断：AI芯片市场格局变化",
+      "angle_variant": "投资判断",
+      "score": 0.87,
+      "reason": "Generated using '投资判断' angle variant",
+      "forbidden_pattern_hit": false,
+      "recommended": true
+    },
+    {
+      "title": "AI芯片市场格局变化的方法论影响",
+      "angle_variant": "方法论",
+      "score": 0.87,
+      "reason": "Generated using '方法论' angle variant",
+      "forbidden_pattern_hit": false,
+      "recommended": true
+    }
+  ],
+  "compliant_count": 5,
+  "recommended_count": 5,
+  "forbidden_hit_count": 0
+}

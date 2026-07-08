@@ -1,0 +1,66 @@
+{
+  "overall_style_score": 0.45,
+  "grade": "F",
+  "dimension_scores": [
+    {
+      "dimension": "判断强度",
+      "score": 0.3,
+      "max_score": 1.0,
+      "weight": 0.2
+    },
+    {
+      "dimension": "证据密度",
+      "score": 0.2,
+      "max_score": 1.0,
+      "weight": 0.15
+    },
+    {
+      "dimension": "叙事流畅度",
+      "score": 0.3,
+      "max_score": 1.0,
+      "weight": 0.15
+    },
+    {
+      "dimension": "标题质量",
+      "score": 0.5,
+      "max_score": 1.0,
+      "weight": 0.15
+    },
+    {
+      "dimension": "开头质量",
+      "score": 0.7,
+      "max_score": 1.0,
+      "weight": 0.1
+    },
+    {
+      "dimension": "风险清晰度",
+      "score": 0.2,
+      "max_score": 1.0,
+      "weight": 0.1
+    },
+    {
+      "dimension": "AI味评分",
+      "score": 1.0,
+      "max_score": 1.0,
+      "weight": 0.1
+    },
+    {
+      "dimension": "可读性",
+      "score": 0.9,
+      "max_score": 1.0,
+      "weight": 0.05
+    }
+  ],
+  "blocking_issues": [
+    "判断强度不足（0.3 < 0.6）",
+    "证据密度不足（0.2 < 0.5）",
+    "叙事流畅度不足（0.3 < 0.5）",
+    "风险清晰度不足（0.2 < 0.5）"
+  ],
+  "revision_suggestions": [
+    "增加明确的核心判断，使用'我们认为'等表达",
+    "增加数据来源和证据引用",
+    "增加逻辑连接词，改善段落衔接",
+    "明确表达风险因素和不确定性"
+  ]
+}

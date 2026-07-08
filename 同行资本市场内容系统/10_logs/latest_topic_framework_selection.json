@@ -1,0 +1,29 @@
+{
+  "topic_id": "topic_001",
+  "selected_framework": {
+    "framework_id": "news_explainer",
+    "name": "新闻解读框架",
+    "applicable_topic_types": [
+      "news_event",
+      "product_launch",
+      "policy_change"
+    ],
+    "purpose": "快速解读热点事件，揭示背后逻辑和影响",
+    "section_sequence": [
+      "事件概述",
+      "核心判断",
+      "证据链",
+      "行业影响",
+      "风险提示",
+      "结论框架"
+    ],
+    "opening_strategy": "开门见山，直接给出核心判断",
+    "evidence_strategy": "引用权威数据和多方信源",
+    "counterargument_strategy": "列出不同观点并分析合理性",
+    "closing_strategy": "总结可复述的核心框架",
+    "title_strategy": "包含事件名称+差异化角度"
+  },
+  "reason": "Only one applicable framework: 新闻解读框架",
+  "confidence": 0.9,
+  "fallback_used": false
+}

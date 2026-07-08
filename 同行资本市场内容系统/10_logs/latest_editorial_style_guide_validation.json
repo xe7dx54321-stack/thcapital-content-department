@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [],
+  "style_guide": {
+    "schema_version": "v1",
+    "reader_profile": {
+      "core_readers": [
+        "AI 创业者",
+        "投资人",
+        "技术从业者"
+      ],
+      "reader_needs": [
+        "快速理解事件重要性",
+        "获得可用于决策的判断框架",
+        "区分真趋势与短期噪音"
+      ]
+    },
+    "writing_principles": [
+      "判断先行",
+      "证据驱动",
+      "风险显式",
+      "少形容词，多判断",
+      "避免口号式结论",
+      "结尾形成可复述框架"
+    ],
+    "tone": {
+      "preferred": [
+        "克制",
+        "清晰",
+        "有判断",
+        "像产业分析师，不像营销号"
+      ],
+      "discouraged": [
+        "夸张",
+        "空泛",
+        "情绪化",
+        "玄学化"
+      ]
+    },
+    "must_have_sections": [
+      "core_judgement",
+      "evidence_chain",
+      "implication",
+      "counterargument",
+      "closing_framework"
+    ]
+  }
+}

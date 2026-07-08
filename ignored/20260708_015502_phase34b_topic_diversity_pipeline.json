@@ -1,0 +1,73 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-07-08T01:55:02.700043",
+  "pipeline": "phase34b_topic_diversity",
+  "status": "FAILED",
+  "dry_run": false,
+  "total_steps": 8,
+  "success_steps": 7,
+  "failed_steps": 1,
+  "failed_steps_list": [
+    "构建topic历史记忆"
+  ],
+  "steps": [
+    {
+      "step": "构建topic历史记忆",
+      "script": "build_topic_history_memory.py",
+      "status": "FAILED",
+      "returncode": 1
+    },
+    {
+      "step": "计算topic相似度",
+      "script": "score_topic_similarity.py",
+      "status": "SUCCESS",
+      "returncode": 0
+    },
+    {
+      "step": "计算source/lane多样性",
+      "script": "score_source_lane_diversity.py",
+      "status": "SUCCESS",
+      "returncode": 0
+    },
+    {
+      "step": "应用竞品覆盖惩罚",
+      "script": "apply_competitive_coverage_penalty.py",
+      "status": "SUCCESS",
+      "returncode": 0
+    },
+    {
+      "step": "应用差异化角度增强",
+      "script": "apply_differentiated_angle_boost.py",
+      "status": "SUCCESS",
+      "returncode": 0
+    },
+    {
+      "step": "运行标题规范化guard",
+      "script": "run_topic_title_normalization_guard.py",
+      "status": "SUCCESS",
+      "returncode": 0
+    },
+    {
+      "step": "主选题二次排序",
+      "script": "rerank_main_topic_selection.py",
+      "status": "SUCCESS",
+      "returncode": 0
+    },
+    {
+      "step": "整合到brief",
+      "script": "integrate_topic_diversity_into_brief.py",
+      "status": "SUCCESS",
+      "returncode": 0
+    }
+  ],
+  "output_files": [
+    "latest_topic_history_memory.json",
+    "latest_topic_similarity_report.json",
+    "latest_source_lane_diversity.json",
+    "latest_competitive_coverage_penalty.json",
+    "latest_differentiated_angle_boost.json",
+    "latest_topic_title_normalization_guard.json",
+    "latest_main_topic_selection_rerank.json",
+    "latest_topic_diversity_brief_integration.json"
+  ]
+}

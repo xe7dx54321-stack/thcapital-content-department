@@ -1,0 +1,76 @@
+{
+  "original_score": 0.4,
+  "rewritten_score": 0.54,
+  "improvement_score": 0.11,
+  "regressions": [
+    "可读性"
+  ],
+  "accept_rewrite": true,
+  "reason": "改写有提升且无退化",
+  "metric_comparisons": [
+    {
+      "metric_id": "judgment_strength",
+      "original_score": 0.3,
+      "rewritten_score": 0.6,
+      "delta": 0.3,
+      "regression": false,
+      "weight": 0.2
+    },
+    {
+      "metric_id": "evidence_density",
+      "original_score": 0.2,
+      "rewritten_score": 0.32,
+      "delta": 0.12,
+      "regression": false,
+      "weight": 0.15
+    },
+    {
+      "metric_id": "narrative_flow",
+      "original_score": 0.3,
+      "rewritten_score": 0.3,
+      "delta": 0.0,
+      "regression": false,
+      "weight": 0.15
+    },
+    {
+      "metric_id": "title_quality",
+      "original_score": 0.5,
+      "rewritten_score": 0.5,
+      "delta": 0.0,
+      "regression": false,
+      "weight": 0.15
+    },
+    {
+      "metric_id": "opening_quality",
+      "original_score": 0.7,
+      "rewritten_score": 0.7,
+      "delta": 0.0,
+      "regression": false,
+      "weight": 0.1
+    },
+    {
+      "metric_id": "risk_clarity",
+      "original_score": 0.2,
+      "rewritten_score": 0.5,
+      "delta": 0.3,
+      "regression": false,
+      "weight": 0.1
+    },
+    {
+      "metric_id": "ai_taste_reduction",
+      "original_score": 0.55,
+      "rewritten_score": 1.0,
+      "delta": 0.45,
+      "regression": false,
+      "weight": 0.1
+    },
+    {
+      "metric_id": "readability",
+      "original_score": 0.9,
+      "rewritten_score": 0.7,
+      "delta": -0.2,
+      "regression": true,
+      "weight": 0.15
+    }
+  ]
+}
