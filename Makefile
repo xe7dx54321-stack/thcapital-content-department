@@ -1068,5 +1068,30 @@ version-comparison-gate:
 phase35-daily:
 	$(PYTHON) scripts/run_phase35_editorial_quality_pipeline.py
 
+# Phase 36: Cloud-to-Local Production Validation Runbook
+.PHONY: local-production-validation-plan rss-live-smoke-test-plan runtime-observation-plan
+.PHONY: real-data-calibration-checklist production-readiness-gate rollback-safety-runbook phase36-daily
+
+local-production-validation-plan:
+	$(PYTHON) scripts/build_local_production_validation_plan.py
+
+rss-live-smoke-test-plan:
+	$(PYTHON) scripts/build_rss_live_smoke_test_plan.py
+
+runtime-observation-plan:
+	$(PYTHON) scripts/build_runtime_observation_plan.py
+
+real-data-calibration-checklist:
+	$(PYTHON) scripts/build_real_data_calibration_checklist.py
+
+production-readiness-gate:
+	$(PYTHON) scripts/run_production_readiness_gate.py
+
+rollback-safety-runbook:
+	$(PYTHON) scripts/build_rollback_safety_runbook.py
+
+phase36-daily:
+	$(PYTHON) scripts/run_phase36_validation_pipeline.py
+
 status:
 	bash 内容工厂控制台/status.sh

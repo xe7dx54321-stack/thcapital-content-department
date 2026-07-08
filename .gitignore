@@ -1625,3 +1625,13 @@ logs/autonomous-runtime/*.validation
 同行资本市场内容系统/10_logs/*draft-style*
 同行资本市场内容系统/10_logs/*version-comparison*
 同行资本市场内容系统/10_logs/*phase35*
+
+# Phase 36 Cloud-to-Local Production Validation artifacts
+同行资本市场内容系统/10_logs/*local-production-validation*
+同行资本市场内容系统/10_logs/*rss-live-smoke*
+同行资本市场内容系统/10_logs/*runtime-observation*
+同行资本市场内容系统/10_logs/*real-data-calibration*
+同行资本市场内容系统/10_logs/*production-readiness*
+同行资本市场内容系统/10_logs/*rollback-safety*
+同行资本市场内容系统/10_logs/*phase36*
+.env.rss

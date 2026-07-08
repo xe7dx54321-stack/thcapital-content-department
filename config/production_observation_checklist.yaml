@@ -1,0 +1,56 @@
+schema_version: v1
+
+observation_checklist:
+  description: Mac mini Runtime观察流程
+
+runtime_checks:
+  - id: runtime_status
+    name: 检查Runtime status
+    command: python3 scripts/runtime_control.py status
+    expected: running_or_idle
+  - id: launchagent_status
+    name: 检查LaunchAgent status
+    command: launchctl list | grep thcapital
+    expected: loaded_or_not_required_in_cloud
+  - id: heartbeat_age
+    name: 检查heartbeat age
+    command: 检查heartbeat文件时间戳
+    expected: within_24h_or_not_required
+  - id: next_scheduled_run
+    name: 检查下次定时运行
+    command: 检查cron或launchd配置
+    expected: configured_or_not_required
+  - id: today_capture_tasks
+    name: 检查今日采集任务
+    command: make phase34a-daily
+    expected: success
+  - id: today_topic_to_article
+    name: 检查今日topic-to-article任务
+    command: make phase32-daily
+    expected: success_or_empty
+  - id: today_workbench_articles
+    name: 检查今日Workbench稿件
+    command: make wechat-workbench
+    expected: visible
+  - id: retry_queue
+    name: 检查retry queue
+    command: 检查retry状态
+    expected: empty_or_managed
+  - id: missed_run_catchup
+    name: 检查missed-run catch-up
+    command: 检查是否有遗漏任务
+    expected: none_or_recovered
+
+observation_period:
+  min_days: 1
+  recommended_days: 2
+  max_days: 7
+
+commands_reference:
+  - make runtime-go-live-validate
+  - make runtime-go-live-observation
+  - make runtime-go-live-acceptance
+  - make phase36-daily
+  - make wechat-workbench
+
+cloud_mode_note: 在云端模式下，launchd和Runtime检查仅验证命令可执行，不要求真实launchd存在

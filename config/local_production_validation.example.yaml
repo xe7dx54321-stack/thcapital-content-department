@@ -1,0 +1,60 @@
+schema_version: v1
+
+mode:
+  cloud_development: true
+  local_production_validation: false
+
+rss:
+  enable_real_rss: false
+  rss_url_env_allowlist:
+    - GEEKPARK_RSS_URL
+    - OFFICIAL_AI_RSS_URL
+  max_sources_for_smoke: 2
+  max_articles_per_source: 20
+
+runtime:
+  require_launchagent_check: true
+  require_heartbeat_check: true
+  require_workbench_check: true
+
+safety:
+  auto_publish_allowed: false
+  save_fulltext_to_git: false
+  allow_wechat_api: false
+
+validation_sequence:
+  - step: cloud_mode_regression
+    required: true
+    description: 验证云端模式下所有Phase35/34B/34A/33B pipeline通过
+  - step: local_rss_smoke_test
+    required: false
+    description: 本地启用1-2个RSS源进行smoke test
+    local_only: true
+  - step: runtime_observation
+    required: false
+    description: Mac mini Runtime/LaunchAgent观察
+    local_only: true
+  - step: real_data_calibration
+    required: false
+    description: 真实数据校准记录
+    local_only: true
+  - step: workbench_production_panel
+    required: true
+    description: Workbench显示生产验证状态
+
+pass_criteria:
+  - all_cloud_pipelines_pass
+  - usage_boundary_gate_pass
+  - no_secret_in_git
+  - no_openclaw_modification
+  - auto_publish_disabled
+
+warn_criteria:
+  - local_rss_smoke_pending
+  - runtime_observation_pending
+
+block_criteria:
+  - cloud_pipeline_fail
+  - secret_leak_detected
+  - auto_publish_enabled
+  - openclaw_modified

@@ -1,0 +1,66 @@
+schema_version: v1
+
+smoke_test:
+  enabled: false
+  description: 真实RSS小规模验证流程
+
+sources:
+  max_count: 2
+  articles_per_source: 20
+  env_allowlist:
+    - GEEKPARK_RSS_URL
+    - OFFICIAL_AI_RSS_URL
+
+steps:
+  - id: enable_rss_sources
+    name: 启用1-2个RSS源
+    command: 设置环境变量
+    local_only: true
+  - id: validate_sources
+    name: 验证RSS源配置
+    command: make wechat-rss-sources-validate
+    cloud_safe: true
+  - id: ingest_articles
+    name: 抓取RSS文章
+    command: make wechat-rss-ingest
+    local_only: true
+  - id: clean_articles
+    name: 清洗去重文章
+    command: make wechat-rss-clean
+    cloud_safe: true
+  - id: extract_intelligence
+    name: 提取文章情报
+    command: make wechat-article-intelligence
+    cloud_safe: true
+  - id: analyze_coverage
+    name: 竞品覆盖分析
+    command: make competitive-coverage-analysis
+    cloud_safe: true
+  - id: check_boundary
+    name: 使用边界检查
+    command: make wechat-rss-usage-boundary-gate
+    cloud_safe: true
+  - id: view_workbench
+    name: 查看Workbench公众号情报面板
+    command: make wechat-workbench
+    cloud_safe: true
+  - id: record_results
+    name: 记录验证结果
+    command: 手动记录
+    local_only: true
+
+validation_fields:
+  - fetched_source_count
+  - article_count
+  - cleaned_count
+  - duplicate_count
+  - intelligence_article_count
+  - coverage_count
+  - style_pattern_count
+  - boundary_gate_status
+  - workbench_panel_visible
+
+safety:
+  no_secret_in_output: true
+  no_fulltext_in_git: true
+  no_auto_publish: true
