@@ -1614,3 +1614,14 @@ logs/autonomous-runtime/*.validation
 同行资本市场内容系统/10_logs/*main-topic-selection-rerank*
 同行资本市场内容系统/10_logs/*topic-diversity*
 同行资本市场内容系统/10_logs/*phase34b*
+
+# Phase 35 Editorial Style Guide & Narrative Framework artifacts
+同行资本市场内容系统/10_logs/*editorial-style*
+同行资本市场内容系统/10_logs/*narrative-framework*
+同行资本市场内容系统/10_logs/*topic-framework*
+同行资本市场内容系统/10_logs/*editorial-title*
+同行资本市场内容系统/10_logs/*opening-hook*
+同行资本市场内容系统/10_logs/*ai-taste*
+同行资本市场内容系统/10_logs/*draft-style*
+同行资本市场内容系统/10_logs/*version-comparison*
+同行资本市场内容系统/10_logs/*phase35*

@@ -1,0 +1,142 @@
+schema_version: v1
+
+frameworks:
+  - framework_id: news_explainer
+    name: 新闻解读框架
+    applicable_topic_types:
+      - news_event
+      - product_launch
+      - policy_change
+    purpose: 快速解读热点事件，揭示背后逻辑和影响
+    section_sequence:
+      - 事件概述
+      - 核心判断
+      - 证据链
+      - 行业影响
+      - 风险提示
+      - 结论框架
+    opening_strategy: 开门见山，直接给出核心判断
+    evidence_strategy: 引用权威数据和多方信源
+    counterargument_strategy: 列出不同观点并分析合理性
+    closing_strategy: 总结可复述的核心框架
+    title_strategy: 包含事件名称+差异化角度
+
+  - framework_id: product_strategy_analysis
+    name: 产品策略分析框架
+    applicable_topic_types:
+      - product_launch
+      - feature_update
+      - competitive_move
+    purpose: 分析产品决策背后的战略意图和市场影响
+    section_sequence:
+      - 产品变化概述
+      - 战略意图判断
+      - 竞争格局影响
+      - 用户价值评估
+      - 潜在风险
+      - 未来趋势预测
+    opening_strategy: 从产品变化切入，引出战略问题
+    evidence_strategy: 结合产品特性和市场数据
+    counterargument_strategy: 考虑替代方案和反方观点
+    closing_strategy: 提炼产品策略的核心启示
+    title_strategy: 产品名称+策略角度+价值判断
+
+  - framework_id: industry_trend_analysis
+    name: 行业趋势分析框架
+    applicable_topic_types:
+      - market_trend
+      - technology_shift
+      - regulatory_change
+    purpose: 识别行业趋势，判断趋势真伪和持续性
+    section_sequence:
+      - 趋势现象描述
+      - 趋势驱动力分析
+      - 真伪判断
+      - 持续性评估
+      - 产业链影响
+      - 投资/决策启示
+    opening_strategy: 描述趋势现象，提出核心问题
+    evidence_strategy: 多维度数据交叉验证
+    counterargument_strategy: 分析反趋势因素和短期噪音
+    closing_strategy: 形成趋势判断框架
+    title_strategy: 趋势主题+判断角度+读者价值
+
+  - framework_id: investment_framework
+    name: 投资框架分析
+    applicable_topic_types:
+      - funding_round
+      - investment_trend
+      - market_entry
+    purpose: 提供投资决策所需的判断框架和风险评估
+    section_sequence:
+      - 投资事件概述
+      - 标的价值判断
+      - 估值合理性分析
+      - 风险因素识别
+      - 退出路径评估
+      - 投资建议
+    opening_strategy: 从投资事件引出核心价值问题
+    evidence_strategy: 财务数据、市场数据、可比公司分析
+    counterargument_strategy: 考虑下行风险和反面观点
+    closing_strategy: 总结投资决策框架
+    title_strategy: 投资标的+价值判断+风险提示
+
+  - framework_id: technical_route_analysis
+    name: 技术路线分析框架
+    applicable_topic_types:
+      - technology_breakthrough
+      - architecture_change
+      - standard_decision
+    purpose: 分析技术路线选择的合理性和影响
+    section_sequence:
+      - 技术变化概述
+      - 技术路线选择分析
+      - 性能/成本权衡
+      - 生态影响
+      - 技术风险评估
+      - 产业影响预测
+    opening_strategy: 描述技术变化，提出路线选择问题
+    evidence_strategy: 技术指标、测试数据、专家观点
+    counterargument_strategy: 分析替代技术路线的优势
+    closing_strategy: 提炼技术路线判断框架
+    title_strategy: 技术领域+路线判断+影响分析
+
+  - framework_id: competitive_landscape_analysis
+    name: 竞争格局分析框架
+    applicable_topic_types:
+      - market_share_change
+      - competitive_move
+      - market_entry
+    purpose: 分析竞争格局变化，判断竞争优势和市场地位
+    section_sequence:
+      - 竞争格局现状
+      - 关键竞争变量
+      - 竞争优势分析
+      - 市场地位变化
+      - 竞争策略预判
+      - 竞争态势总结
+    opening_strategy: 描述竞争变化，提出核心竞争问题
+    evidence_strategy: 市场份额数据、产品对比、财务指标
+    counterargument_strategy: 考虑竞争对手的应对策略
+    closing_strategy: 形成竞争格局判断框架
+    title_strategy: 竞争领域+格局变化+判断结论
+
+  - framework_id: business_model_analysis
+    name: 商业模式分析框架
+    applicable_topic_types:
+      - business_model_change
+      - pricing_strategy
+      - monetization_update
+    purpose: 分析商业模式变化的合理性和可持续性
+    section_sequence:
+      - 模式变化概述
+      - 价值创造逻辑
+      - 收入模型分析
+      - 成本结构评估
+      - 可持续性判断
+      - 行业影响
+    opening_strategy: 描述模式变化，提出核心商业问题
+    evidence_strategy: 财务数据、用户数据、行业对标
+    counterargument_strategy: 分析模式风险和挑战
+    closing_strategy: 总结商业模式判断框架
+    title_strategy: 商业模式+变化分析+价值判断

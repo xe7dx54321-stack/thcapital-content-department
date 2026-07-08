@@ -1040,5 +1040,33 @@ topic-diversity-brief-integration:
 phase34b-daily:
 	$(PYTHON) scripts/run_phase34b_topic_diversity_pipeline.py
 
+# Phase 35: Editorial Style Guide & Narrative Framework Upgrade
+editorial-style-guide-validate:
+	$(PYTHON) scripts/validate_editorial_style_guide.py
+
+narrative-frameworks-validate:
+	$(PYTHON) scripts/validate_narrative_frameworks.py
+
+topic-framework-select:
+	$(PYTHON) scripts/select_topic_narrative_framework.py
+
+editorial-title-generate:
+	$(PYTHON) scripts/generate_editorial_titles.py
+
+opening-hook-guidance:
+	$(PYTHON) scripts/generate_opening_hook_guidance.py
+
+ai-taste-guard:
+	$(PYTHON) scripts/run_ai_taste_guard.py
+
+draft-style-quality-score:
+	$(PYTHON) scripts/score_draft_style_quality.py
+
+version-comparison-gate:
+	$(PYTHON) scripts/run_version_comparison_gate.py
+
+phase35-daily:
+	$(PYTHON) scripts/run_phase35_editorial_quality_pipeline.py
+
 status:
 	bash 内容工厂控制台/status.sh

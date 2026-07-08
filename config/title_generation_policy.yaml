@@ -1,0 +1,74 @@
+schema_version: v1
+
+title_length_min: 16
+title_length_max: 32
+candidate_count: 5
+
+required_elements:
+  - core_event_or_entity
+  - differentiated_angle
+  - clear_reader_value
+
+forbidden_patterns:
+  - 震惊
+  - 一文看懂
+  - 彻底改变
+  - 颠覆一切
+  - 炸裂
+  - 爆了
+  - 狂跌
+  - 暴涨
+  - 神级
+  - 逆天
+  - 最强
+  - 无敌
+  - 秒杀
+  - 吊打
+  - 碾压
+  - 神操作
+  - 神预言
+  - 黑科技
+  - 杀手锏
+  - 终极
+  - 史诗级
+  - 王者
+  - 霸主
+  - 巨头
+  - 独角兽
+  - 风口
+
+angle_variants:
+  - 反常识
+  - 产业影响
+  - 产品策略
+  - 投资判断
+  - 方法论
+  - 风险提示
+  - 数据验证
+
+scoring_factors:
+  - factor: clarity
+    weight: 0.25
+    description: 标题是否清晰表达核心内容
+
+  - factor: angle_differentiation
+    weight: 0.20
+    description: 是否有差异化角度
+
+  - factor: reader_value
+    weight: 0.20
+    description: 是否明确读者价值
+
+  - factor: length_compliance
+    weight: 0.15
+    description: 是否符合长度要求
+
+  - factor: tone_appropriateness
+    weight: 0.15
+    description: 是否符合编辑风格
+
+  - factor: forbidden_pattern_check
+    weight: 0.05
+    description: 是否包含禁用模式
+
+min_acceptable_score: 0.6

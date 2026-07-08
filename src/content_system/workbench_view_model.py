@@ -655,6 +655,66 @@ def _load_topic_diversity(paths: ProjectPaths) -> dict[str, Any]:
     return diversity
 
 
+def _load_editorial_quality(paths: ProjectPaths) -> dict[str, Any]:
+    editorial = {}
+    try:
+        title_candidates = read_json(paths.logs_root / "latest_editorial_title_candidates.json")
+        if title_candidates:
+            candidates = _list(title_candidates.get("candidates"))
+            editorial["title_candidates"] = [
+                {
+                    "title": c.get("title", ""),
+                    "angle": c.get("angle_variant", ""),
+                    "score": c.get("score", 0),
+                    "recommended": c.get("recommended", False),
+                }
+                for c in candidates if isinstance(c, dict)
+            ]
+            editorial["recommended_title_count"] = len([c for c in editorial["title_candidates"] if c["recommended"]])
+
+        ai_taste = read_json(paths.logs_root / "latest_ai_taste_guard.json")
+        if ai_taste:
+            detection = _dict(ai_taste.get("detection"))
+            editorial["ai_taste"] = {
+                "hit_count": detection.get("hit_count", 0),
+                "high_severity_count": detection.get("high_severity_count", 0),
+                "score": detection.get("ai_taste_score", 1.0),
+            }
+
+        draft_score = read_json(paths.logs_root / "latest_draft_style_quality_score.json")
+        if draft_score:
+            editorial["draft_style"] = {
+                "overall_score": draft_score.get("overall_style_score", 0),
+                "grade": draft_score.get("grade", "F"),
+                "blocking_issues": _list(draft_score.get("blocking_issues")),
+                "suggestions": _list(draft_score.get("revision_suggestions")),
+            }
+
+        framework_selection = read_json(paths.logs_root / "latest_topic_framework_selection.json")
+        if framework_selection:
+            fw = _dict(framework_selection.get("selected_framework"))
+            editorial["narrative_framework"] = {
+                "name": fw.get("name", ""),
+                "framework_id": fw.get("framework_id", ""),
+                "confidence": framework_selection.get("confidence", 0),
+            }
+
+        version_compare = read_json(paths.logs_root / "latest_version_comparison_gate.json")
+        if version_compare:
+            editorial["version_comparison"] = {
+                "improvement_score": version_compare.get("improvement_score", 0),
+                "accept_rewrite": version_compare.get("accept_rewrite", False),
+                "reason": version_compare.get("reason", ""),
+            }
+    except Exception:
+        pass
+
+    if editorial:
+        editorial["panel_note"] = "编辑质量诊断：包含标题候选、AI味检测、稿件风格评分和版本对比结果。"
+        editorial["do_not_show_raw_json"] = True
+    return editorial
+
+
 def build_workbench_view_model(paths: ProjectPaths, data: dict[str, Any] | None = None) -> dict[str, Any]:
     payload = data if isinstance(data, dict) else read_json(paths.frontstage_root / "latest_wechat_workbench_data.json")
     if not isinstance(payload, dict):
@@ -674,6 +734,13 @@ def build_workbench_view_model(paths: ProjectPaths, data: dict[str, Any] | None 
         quality_check = vm.get("quality_check", {})
         if isinstance(quality_check, dict):
             quality_check["topic_diversity"] = topic_diversity
+            vm["quality_check"] = quality_check
+
+    editorial_quality = _load_editorial_quality(paths)
+    if editorial_quality:
+        quality_check = vm.get("quality_check", {})
+        if isinstance(quality_check, dict):
+            quality_check["editorial_quality"] = editorial_quality
             vm["quality_check"] = quality_check
 
     return vm

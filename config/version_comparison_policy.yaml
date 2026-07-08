@@ -1,0 +1,74 @@
+schema_version: v1
+
+min_improvement_score: 0.05
+
+required_non_regression_checks:
+  - evidence_density
+  - judgment_strength
+  - title_quality
+  - risk_clarity
+  - ai_taste_reduction
+
+metrics:
+  - metric_id: judgment_strength
+    name: 判断强度
+    description: 核心判断是否明确、有依据
+    weight: 0.20
+    min_acceptable: 0.6
+
+  - metric_id: evidence_density
+    name: 证据密度
+    description: 每1000字的证据引用数量
+    weight: 0.15
+    min_acceptable: 0.5
+
+  - metric_id: narrative_flow
+    name: 叙事流畅度
+    description: 段落衔接和逻辑递进的流畅程度
+    weight: 0.15
+    min_acceptable: 0.5
+
+  - metric_id: title_quality
+    name: 标题质量
+    description: 标题的清晰度、角度和读者价值
+    weight: 0.15
+    min_acceptable: 0.5
+
+  - metric_id: ai_taste_reduction
+    name: AI味减少程度
+    description: 相比原版减少的AI味表达数量
+    weight: 0.10
+    min_acceptable: 0.3
+
+  - metric_id: risk_clarity
+    name: 风险清晰度
+    description: 风险因素是否明确表达
+    weight: 0.10
+    min_acceptable: 0.5
+
+  - metric_id: readability
+    name: 可读性
+    description: 文章的易读性和理解难度
+    weight: 0.15
+    min_acceptable: 0.5
+
+decision_rules:
+  - rule_id: accept_improvement
+    condition: improvement_score >= min_improvement_score AND no_regressions
+    action: accept
+    description: 改写有提升且无退化
+
+  - rule_id: reject_no_improvement
+    condition: improvement_score < min_improvement_score
+    action: reject
+    description: 改写无明显提升
+
+  - rule_id: reject_regression
+    condition: any_regression_in_required_checks
+    action: reject
+    description: 存在必要维度退化
+
+  - rule_id: partial_accept
+    condition: improvement_score >= min_improvement_score AND minor_regressions
+    action: partial_accept
+    description: 改写有提升但存在次要维度退化，需标注
