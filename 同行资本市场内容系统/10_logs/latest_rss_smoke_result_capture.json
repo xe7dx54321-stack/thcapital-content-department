@@ -1,0 +1,27 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-07-08T03:14:42.474530",
+  "status": "PENDING_LOCAL_EXECUTION",
+  "requires_real_rss": false,
+  "blocking_failures": 0,
+  "enabled_source_count": 0,
+  "fetched_source_count": 0,
+  "article_count": 0,
+  "cleaned_count": 0,
+  "duplicate_count": 0,
+  "intelligence_article_count": 0,
+  "competitive_coverage_count": 0,
+  "style_pattern_count": 0,
+  "boundary_gate_status": "PASS",
+  "workbench_panel_visible": true,
+  "secret_leak_count": 0,
+  "fulltext_committed_count": 0,
+  "safety_checks": [
+    "no_secret_in_output",
+    "no_fulltext_in_git",
+    "no_auto_publish",
+    "max_2_sources",
+    "max_20_articles_per_source"
+  ],
+  "notes": ""
+}

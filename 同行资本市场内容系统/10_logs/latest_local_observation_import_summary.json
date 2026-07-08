@@ -1,0 +1,21 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-07-08T03:14:42.722953",
+  "status": "PARTIAL_RESULTS_IMPORTED",
+  "local_result_count": 3,
+  "missing_file_count": 1,
+  "rss_smoke_status": "NOT_FOUND",
+  "runtime_observation_status": "PENDING_LOCAL_EXECUTION",
+  "manual_observation_days": 2,
+  "readiness_status": "ACTIONABLE",
+  "blocking_failures": 0,
+  "imported_files": [
+    "latest_runtime_observation_result.json",
+    "latest_manual_observation_log.json",
+    "latest_production_readiness_gate.json"
+  ],
+  "missing_files": [
+    "latest_rss_live_smoke_result.json"
+  ],
+  "recommended_next_action": "补齐缺失的结果文件后重新导入"
+}

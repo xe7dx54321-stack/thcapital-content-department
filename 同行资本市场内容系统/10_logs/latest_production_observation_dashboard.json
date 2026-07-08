@@ -1,0 +1,16 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-07-08T03:14:42.662502",
+  "mode": "CLOUD_DEVELOPMENT",
+  "readiness_status": "ACTIONABLE",
+  "rss_status": "PENDING_LOCAL_EXECUTION",
+  "runtime_status": "PENDING_LOCAL_EXECUTION",
+  "last_observation_date": "",
+  "today_final_candidate_count": 0,
+  "blocking_issues": [],
+  "warning_issues": [
+    "RSS smoke test 待本地执行",
+    "Runtime 观察待本地执行"
+  ],
+  "next_action": "在本地 Mac mini 执行 Phase37B 生产验证"
+}

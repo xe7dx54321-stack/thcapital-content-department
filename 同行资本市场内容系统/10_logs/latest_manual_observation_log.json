@@ -1,0 +1,39 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-07-08T03:14:42.601131",
+  "day_slots": 2,
+  "day_records": [
+    {
+      "date": "2026-07-08",
+      "workbench_openable": true,
+      "runtime_heartbeat_normal": true,
+      "today_final_candidate_count": 0,
+      "main_topic_duplicate_free": true,
+      "has_differentiated_angle": true,
+      "title_like_wechat": true,
+      "ai_taste_noticeable": false,
+      "evidence_needs_confirmation": false,
+      "article_worth_editing": true,
+      "recommend_publish": false,
+      "main_issues": "",
+      "calibration_items": ""
+    },
+    {
+      "date": "2026-07-09",
+      "workbench_openable": true,
+      "runtime_heartbeat_normal": true,
+      "today_final_candidate_count": 0,
+      "main_topic_duplicate_free": true,
+      "has_differentiated_angle": true,
+      "title_like_wechat": true,
+      "ai_taste_noticeable": false,
+      "evidence_needs_confirmation": false,
+      "article_worth_editing": true,
+      "recommend_publish": false,
+      "main_issues": "",
+      "calibration_items": ""
+    }
+  ],
+  "checklist_count": 22,
+  "status": "template_generated"
+}

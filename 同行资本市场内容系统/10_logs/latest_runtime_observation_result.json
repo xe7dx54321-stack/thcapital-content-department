@@ -1,0 +1,29 @@
+{
+  "schema_version": "v1",
+  "generated_at": "2026-07-08T03:14:42.535106",
+  "status": "PENDING_LOCAL_EXECUTION",
+  "requires_mac_runtime": false,
+  "blocking_failures": 0,
+  "runtime_status": "PENDING_LOCAL",
+  "launchagent_status": "PENDING_LOCAL",
+  "heartbeat_age_seconds": 0,
+  "next_scheduled_run": "PENDING_LOCAL",
+  "today_jobs_success": 0,
+  "today_jobs_failed": 0,
+  "retry_queue_count": 0,
+  "missed_run_catchup_count": 0,
+  "final_candidate_count": 0,
+  "workbench_visible": true,
+  "observation_days": 0,
+  "observation_checks": [
+    "runtime_status_check",
+    "launchagent_status_check",
+    "heartbeat_age_check",
+    "next_scheduled_check",
+    "today_jobs_check",
+    "retry_queue_check",
+    "missed_run_check",
+    "workbench_check"
+  ],
+  "notes": ""
+}

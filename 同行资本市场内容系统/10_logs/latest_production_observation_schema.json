@@ -1,0 +1,42 @@
+{
+  "schema_version": "v1",
+  "mode": "CLOUD_DEVELOPMENT",
+  "generated_at": "2026-07-08T03:14:42.411199",
+  "rss_smoke": {
+    "status": "PENDING_LOCAL_EXECUTION",
+    "requires_real_rss": false,
+    "blocking_failures": 0
+  },
+  "runtime_observation": {
+    "status": "PENDING_LOCAL_EXECUTION",
+    "requires_mac_runtime": false,
+    "blocking_failures": 0
+  },
+  "manual_observation": {
+    "observation_days": 0,
+    "day_records": []
+  },
+  "readiness_gate": {
+    "overall_status": "ACTIONABLE",
+    "pass_count": 9,
+    "warn_count": 2,
+    "fail_count": 0,
+    "blocking_failures": 0
+  },
+  "workbench_status": {
+    "panel_visible": true,
+    "production_observation_tab": true,
+    "no_secret_displayed": true,
+    "no_raw_json": true
+  },
+  "safety_boundary": {
+    "auto_publish_allowed": false,
+    "no_secret_in_git": true,
+    "no_fulltext_commit": true,
+    "no_openclaw_mod": true,
+    "no_wechat_api": true
+  },
+  "next_action": "在本地 Mac mini 执行 Phase37B 生产验证",
+  "status": "generated",
+  "section_count": 6
+}
